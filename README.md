@@ -35,7 +35,7 @@ Visual Studio Code
 
 - Clone Project ini ( Direkomendasikan menggunakan SSH )
 
-> `git clone git@github.com:maulanasdqn/nextjs-tailwindcss-boilerplate`
+> `git clone git@github.com:ary-bod/frontend-boiler`
 
 ## Install NodeJS dan Yarn
 
