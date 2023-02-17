@@ -1,28 +1,8 @@
-version: "3.8"
+version: "3"
 services:
-  db:
-    container_name: votsu-db
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: votsu-db
+  next-boilerplate:
+    build: ./
+  server-nginx:
+    build: ./.nginx
     ports:
-      - "5432:5432"
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    depends_on:
-      - db
-    ports:
-      - "5555:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-      PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
-    restart: unless-stopped
-volumes:
-  pgadmin-data:
+      - 80:80
