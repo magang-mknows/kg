@@ -6,6 +6,7 @@ import { Menu } from "@headlessui/react";
 import { FiActivity } from "react-icons/fi";
 import { AiFillSetting } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
+import ThemeToggle from "../ThemeToggle";
 import Link from "next/link";
 
 const DROPDOWN_NAVBAR_MENU = [
@@ -37,7 +38,7 @@ const NAVBAR_MENU = [
 
 const Navbar: FC = (): ReactElement => {
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <nav className="bg-white w-screen border-gray-200 sm:px-4 py-2.5 dark:bg-gray-900">
       <div className="fixed container flex flex-wrap items-center justify-between mx-auto">
         <a href="https://flowbite.com/" className="flex items-center">
           <Image
@@ -52,7 +53,7 @@ const Navbar: FC = (): ReactElement => {
           </span>
         </a>
 
-        <div className="flex items-center md:order-2">
+        <div className="flex items-center md:order-2 gap-2">
           <DropdownMenu list={DROPDOWN_NAVBAR_MENU}>
             <Menu.Button className="flex m-4 text-sm bg-gray-600 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:p-2">
               <span className="sr-only">Open user menu</span>
@@ -61,6 +62,7 @@ const Navbar: FC = (): ReactElement => {
               </div>
             </Menu.Button>
           </DropdownMenu>
+          <ThemeToggle />
         </div>
 
         <div
