@@ -11,10 +11,18 @@ export interface TextFieldProps {
 export interface SelectFieldProps {
   className: string;
   children: ReactNode;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  value: string;
+  name: string;
+  label: string;
+  defaultValue: string;
+  // options: [];
+  options: OptionFieldProps[];
 }
 
 export interface OptionFieldProps {
   value: string;
   title: string;
   className: string;
+  
 }
