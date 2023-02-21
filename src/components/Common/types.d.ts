@@ -4,6 +4,13 @@ export interface TextFieldProps {
   type: HTMLInputTypeAttribute;
   label: string;
   name: string;
-  placeholder: string
-  required: boolean
+  placeholder: string;
+  required: boolean;
+}
+
+export interface MobileMenuProps {
+  list: {
+    name: string;
+    link: string;
+  }[];
 }

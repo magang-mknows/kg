@@ -1,17 +1,10 @@
-import { Transition } from "@headlessui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
+import { MobileMenuProps } from "./types";
 const genericHamburgerLine = `h-[2.5px] w-6 my-[2.5px] rounded-full bg-[#24292D] dark:bg-[#a1a1a8] transition ease transform duration-300`;
 
-const MobileMenu = ({
-  list,
-}: {
-  list: Array<{
-    name: string;
-    link: string;
-  }>;
-}) => {
+const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
   const [isShow, setShow] = useState(false);
   const router = useRouter();
 
@@ -36,7 +29,7 @@ const MobileMenu = ({
 
       <div
         className={`absolute left-0 top-16 lg:top-24 ${
-          isShow ? "left-[100%]" : "right0"
+          isShow ? " w-0 overflow-hidden" : ""
         } transition-all ease-in-out duration-500 w-full  bg-[#ffffff] dark:bg-[#0f0f10] origin-top`}
       >
         {list.map((list, index) => {
