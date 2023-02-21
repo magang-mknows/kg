@@ -10,10 +10,14 @@ const SelectField: FC<SelectFieldProps> = ({
   name,
   label,
   defaultValue,
+  options,
+  labelClassName,
 }): ReactElement => {
   return (
     <Fragment>
-      <label>{label}</label>
+      <label htmlFor={name} className={labelClassName}>
+        {label}
+      </label>
       <select
         className={className}
         onChange={onChange}
@@ -22,7 +26,14 @@ const SelectField: FC<SelectFieldProps> = ({
         defaultValue={defaultValue}
       >
         {children}
-        <OptionField value="" title="" className="" />
+        {options.map((option, index) => (
+          <OptionField
+            key={index}
+            value={option.value}
+            label={option.label}
+            className={option.className}
+          />
+        ))}
       </select>
     </Fragment>
   );
