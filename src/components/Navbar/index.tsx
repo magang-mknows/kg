@@ -20,6 +20,7 @@ import MobileMenu from "../Common/MobileMenu";
 // toogle
 import ThemeToggle from "../ThemeToggle";
 import { useRouter } from "next/router";
+import Button from "../Common/Button";
 
 // nav menu list
 const navbarMenu = [
@@ -46,11 +47,9 @@ const Navbar: FC = (): ReactElement => {
   const [isDark, setDark] = useState(false);
   const router = useRouter();
 
-  console.log(router.pathname);
-
   return (
     <nav
-      className={`lg:px-32 md:px-10 px-5 m-auto h-16 lg:h-24 bg-[#f5f7f9] dark:bg-[#222529]  flex justify-between items-center ${roboto.className} overflow-hidden`}
+      className={`lg:px-32 md:px-10  px-5 m-auto h-16 lg:h-24 bg-[#f5f7f9] dark:bg-[#222529]  flex justify-between items-center ${roboto.className} overflow-hidden`}
     >
       {/* kg logo */}
       <div className="cursor-pointer">
@@ -93,10 +92,14 @@ const Navbar: FC = (): ReactElement => {
         >
           <ThemeToggle />
         </div>
-        <button className="flex gap-x-2 rounded-sm shadow-md items-center  bg-[#24292D] text-white pl-3 pr-3.5 py-2 hover:bg-[#6c757d] dark:bg-[#0f0f10] dark:hover:bg-[#24292D] transition-colors duration-300 ease-in-out">
-          <FiPower className="w-3 stroke-[0.15em]" />
-          <p className="text-sm tracking-wider font-medium">Masuk</p>
-        </button>
+
+        <Button
+          text={"Masuk"}
+          page="/auth/login"
+          type="button"
+          className="flex gap-x-2 rounded-sm shadow-md items-center  bg-[#24292D] text-white pl-3 pr-3.5 py-1.5 hover:bg-[#6c757d] dark:bg-[#0f0f10] dark:hover:bg-[#24292D] transition-colors duration-300 ease-in-out"
+          icon={<FiPower className="w-3 stroke-[0.15em]" />}
+        />
       </div>
     </nav>
   );
