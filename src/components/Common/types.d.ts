@@ -7,3 +7,14 @@ export interface TextFieldProps {
   placeholder: string
   required: boolean
 }
+
+export interface SelectFieldProps {
+  className: string;
+  children: ReactNode;
+}
+
+export interface OptionFieldProps {
+  value: string;
+  title: string;
+  className: string;
+}
