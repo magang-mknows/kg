@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 
 export interface FormProps {
   className?: string;
   children: ReactNode;
-  onSubmit(): void;
+  onSubmit: FormEvent<HTMLFormElement>;
 }
