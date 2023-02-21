@@ -35,19 +35,23 @@ const MobileMenu = ({
       </button>
 
       <div
-        className={`absolute  left-0 md:px-14 px-5 ${
-          isShow ? "top-24 w-0 h-0 overflow-hidden" : " w-full h-64 top-24"
-        } transition-all ease-in-out duration-500  bg-[#ffffff] dark:bg-[#0f0f10] origin-top`}
+        className={`absolute left-0 top-16 lg:top-24 ${
+          isShow ? "left-[100%]" : "right0"
+        } transition-all ease-in-out duration-500 w-full  bg-[#ffffff] dark:bg-[#0f0f10] origin-top`}
       >
         {list.map((list, index) => {
           return (
             <div
               key={index}
-              className={`border-b-2 border-b-gray-50 dark:border-b-gray-50/20 p-4 hover:text-[#0d6efd]  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-500 dark:text-gray-400 dark:hover:text-[#0d6efd] text-base ${
-                router.pathname == list.link ? "text-[#0d6efd] dark:text-[#0d6efd] " : ""
-              }`}
+              className="border-b-2 border-b-gray-50 dark:border-b-gray-50/10 pt-3 pb-4"
             >
-              <Link href={list.link} passHref>
+              <Link
+                href={list.link}
+                passHref
+                className={` hover:text-[#0d6efd]  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-500 dark:text-gray-400 dark:hover:text-[#0d6efd] text-base ${
+                  router.pathname == list.link ? "text-[#0d6efd] dark:text-[#0d6efd] " : ""
+                } md:px-14 px-10 `}
+              >
                 {list.name}
               </Link>
             </div>

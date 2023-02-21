@@ -46,9 +46,11 @@ const Navbar: FC = (): ReactElement => {
   const [isDark, setDark] = useState(false);
   const router = useRouter();
 
+  console.log(router.pathname);
+
   return (
     <nav
-      className={`lg:px-32 md:px-14 px-5 m-auto h-24 bg-[#f5f7f9] dark:bg-[#222529]  flex justify-between items-center ${roboto.className} overflow-hidden`}
+      className={`lg:px-32 md:px-10 px-5 m-auto h-16 lg:h-24 bg-[#f5f7f9] dark:bg-[#222529]  flex justify-between items-center ${roboto.className} overflow-hidden`}
     >
       {/* kg logo */}
       <div className="cursor-pointer">
@@ -69,7 +71,7 @@ const Navbar: FC = (): ReactElement => {
               <Link href={menu.link} passHref key={index}>
                 <li
                   className={`px-4  hover:text-[#0d6efd]  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide  text-gray-500 dark:text-gray-400 dark:hover:text-[#0d6efd]  text-base ${
-                    router.pathname == menu.link ? "text-[#0d6efd] dark:text-[#0d6efd] " : ""
+                    router.pathname == menu.link && "text-[#0d6efd] dark:text-[#0d6efd] "
                   }`}
                 >
                   {menu.name}
