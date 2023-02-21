@@ -55,7 +55,7 @@ const Navbar: FC = (): ReactElement => {
       <div className="cursor-pointer">
         <Link href={"/"} passHref>
           <Image
-            src={!isDark ? logoKG : logoKGDark}
+            src={isDark ? logoKG : logoKGDark}
             alt="Kampus Gratis Logo's"
             className="w-[5em] md:w-[7em] lg:w-[8em]"
           />
