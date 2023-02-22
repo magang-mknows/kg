@@ -16,7 +16,8 @@ export interface MobileMenuProps {
 }
 
 export interface SelectFieldProps {
-  className: string;
+  className?: string;
+  labelClassName?: string;
   children: ReactNode;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string;
@@ -29,7 +30,14 @@ export interface SelectFieldProps {
 
 export interface OptionFieldProps {
   value: string;
-  title: string;
-  className: string;
-  
+  label: string;
+  className?: string;
 }
+
+export type DropdownProps = {
+  children: ReactNode;
+  list: Array<{
+    icon: ReactNode;
+    text: string;
+  }>;
+};
