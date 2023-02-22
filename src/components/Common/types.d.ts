@@ -51,4 +51,16 @@ export interface RadioButtonsProps {
   classNameLabel?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
+  
+export interface CheckBoxFieldProps {
+  checkboxClassName?: string;
+  labelClassName?: string;
+  name: string;
+  value: string;
+  placeholder: string;
+  required: boolean;
+  label: string;
+  checked: boolean;
+  onChange: (event: React.ChangeEvent) => void;
+
 }
