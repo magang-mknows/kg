@@ -41,3 +41,15 @@ export type DropdownProps = {
     text: string;
   }>;
 };
+
+export interface CheckBoxFieldProps {
+  checkboxClassName?: string;
+  labelClassName?: string;
+  name: string;
+  value: string;
+  placeholder: string;
+  required: boolean;
+  label: string;
+  checked: boolean;
+  onChange: (event: React.ChangeEvent) => void;
+}
