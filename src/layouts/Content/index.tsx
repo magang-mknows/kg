@@ -1,17 +1,13 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactElement } from "react";
+import { ContentLayoutTypes } from "./types";
 
-type ContentLayoutType = {
-  children: ReactNode;
-  className: string;
-};
-
-const ContentLayouts: FC<ContentLayoutType> = ({ children, className }) => {
+const ContentLayouts: FC<ContentLayoutTypes> = ({ children, className }): ReactElement => {
   return (
-    <div
+    <section
       className={`flex flex-col md:flex-row gap-4 flex-wrap justify-center items-center ${className}`}
     >
       {children}
-    </div>
+    </section>
   );
 };
 
