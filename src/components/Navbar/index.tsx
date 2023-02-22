@@ -47,7 +47,7 @@ const navbarMenu = [
 const Navbar: FC = (): ReactElement => {
   const router = useRouter();
 
-  const { handleChange, theme } = useDarkSide();
+  const { handleThemeChange, theme } = useDarkSide();
 
   return (
     <nav
@@ -88,7 +88,7 @@ const Navbar: FC = (): ReactElement => {
         <MobileMenu list={navbarMenu} />
         {/* toogle by Fenni */}
 
-        <div onClick={handleChange}>
+        <div onClick={handleThemeChange}>
           <ThemeToggle />
         </div>
 

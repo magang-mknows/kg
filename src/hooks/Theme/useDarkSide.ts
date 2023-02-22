@@ -5,7 +5,7 @@ export default function useDarkSide() {
   const colorTheme = theme === "light" ? "dark" : "light";
 
   // const [isDark, setDark] = useState(false);
-  const handleChange = () => {
+  const handleThemeChange = () => {
     const fetchedTheme = localStorage.getItem("theme") || "light";
     setTheme(fetchedTheme);
     // setDark(fetchedTheme === "dark" ? true : false);
@@ -19,12 +19,8 @@ export default function useDarkSide() {
   }, [theme, colorTheme]);
 
   useEffect(() => {
-    handleChange();
+    handleThemeChange();
   }, [setTheme]);
 
-  useEffect(() => {
-    handleChange();
-  }, []);
-
-  return { setTheme, colorTheme, theme, handleChange };
+  return { setTheme, colorTheme, theme, handleThemeChange };
 }
