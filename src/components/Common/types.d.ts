@@ -41,3 +41,14 @@ export type DropdownProps = {
     text: string;
   }>;
 };
+
+export interface RadioButtonsProps {
+    id?: string;
+    value: string;
+    name?: string;
+    classNameInput?: string;
+    htmlFor: string
+    classNameLabel?: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    label: string;
+}
