@@ -42,6 +42,17 @@ export type DropdownProps = {
   }>;
 };
 
+export interface RadioButtonsProps {
+  id?: string;
+  value: string;
+  name?: string;
+  classNameInput?: string;
+  htmlFor: string
+  classNameLabel?: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
+}
+  
 export interface CheckBoxFieldProps {
   checkboxClassName?: string;
   labelClassName?: string;
@@ -52,4 +63,5 @@ export interface CheckBoxFieldProps {
   label: string;
   checked: boolean;
   onChange: (event: React.ChangeEvent) => void;
+
 }
