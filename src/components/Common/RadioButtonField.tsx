@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactElement } from "react";
 import { RadioButtonsProps } from "./types";
 
-const CheckBoxField: FC<RadioButtonsProps> = ({
+const RadioButtonsProps: FC<RadioButtonsProps> = ({
   id,
   value,
   name,
@@ -28,4 +28,4 @@ const CheckBoxField: FC<RadioButtonsProps> = ({
   );
 };
 
-export default CheckBoxField;
+export default RadioButtonsProps;
