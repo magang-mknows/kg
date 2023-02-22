@@ -28,8 +28,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
       </button>
 
       <div
-        className={`absolute left-0 top-16 lg:top-24 ${
-          isShow ? " w-0 overflow-hidden" : ""
+        className={`absolute  top-16 lg:top-24 ${
+          isShow ? "right-[100%]" : "right-0"
         } transition-all ease-in-out duration-500 w-full  bg-[#ffffff] dark:bg-[#0f0f10] origin-top`}
       >
         {list.map((list, index) => {

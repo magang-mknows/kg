@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 
 // icons
 import { FiPower } from "react-icons/fi";
@@ -21,6 +21,7 @@ import MobileMenu from "../Common/MobileMenu";
 import ThemeToggle from "../ThemeToggle";
 import { useRouter } from "next/router";
 import Button from "../Common/Button";
+import useDarkSide from "@/hooks/Theme/useDarkSide";
 
 // nav menu list
 const navbarMenu = [
@@ -44,8 +45,9 @@ const navbarMenu = [
 ];
 
 const Navbar: FC = (): ReactElement => {
-  const [isDark, setDark] = useState(false);
   const router = useRouter();
+
+  const { handleChange, theme } = useDarkSide();
 
   return (
     <nav
@@ -55,7 +57,7 @@ const Navbar: FC = (): ReactElement => {
       <div className="cursor-pointer">
         <Link href={"/"} passHref>
           <Image
-            src={isDark ? logoKG : logoKGDark}
+            src={theme === "dark" ? logoKGDark : logoKG}
             alt="Kampus Gratis Logo's"
             className="w-[5em] md:w-[7em] lg:w-[8em]"
           />
@@ -82,14 +84,11 @@ const Navbar: FC = (): ReactElement => {
       </div>
 
       {/* toggle and button  */}
-      <div className="flex gap-6 items-center">
+      <div className="flex gap-7 items-center">
         <MobileMenu list={navbarMenu} />
         {/* toogle by Fenni */}
-        <div
-          onClick={() => {
-            setDark(!isDark);
-          }}
-        >
+
+        <div onClick={handleChange}>
           <ThemeToggle />
         </div>
 
@@ -97,7 +96,7 @@ const Navbar: FC = (): ReactElement => {
           text={"Masuk"}
           page="/auth/login"
           type="button"
-          className="flex gap-x-2 rounded-sm shadow-md items-center  bg-[#24292D] text-white pl-3 pr-3.5 py-1.5 hover:bg-[#6c757d] dark:bg-[#0f0f10] dark:hover:bg-[#24292D] transition-colors duration-300 ease-in-out"
+          className="flex gap-x-2 rounded-md shadow-md items-center  bg-[#24292D] text-white pl-3 pr-3.5 py-1.5 hover:bg-[#6c757d] dark:bg-[#0f0f10] dark:hover:bg-[#24292D] transition-colors duration-300 ease-in-out"
           icon={<FiPower className="w-3 stroke-[0.15em]" />}
         />
       </div>
