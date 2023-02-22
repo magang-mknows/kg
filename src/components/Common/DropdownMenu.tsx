@@ -1,16 +1,8 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, ReactNode } from "react";
+import { FC, Fragment, ReactElement } from "react";
+import { DropdownProps } from "./types";
 
-export default function DropdownMenu({
-  children,
-  list,
-}: {
-  children: ReactNode;
-  list: Array<{
-    icon: ReactNode;
-    text: string;
-  }>;
-}) {
+const DropdownMenu: FC<DropdownProps> = ({ children, list }): ReactElement => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       {children}
@@ -44,4 +36,6 @@ export default function DropdownMenu({
       </Transition>
     </Menu>
   );
-}
+};
+
+export default DropdownMenu;

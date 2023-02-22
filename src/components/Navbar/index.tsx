@@ -1,86 +1,104 @@
-/* eslint-disable jsx-a11y/alt-text */
-import { FC, ReactElement } from "react";
 import Image from "next/image";
-import DropdownMenu from "../Common/DropdownMenu";
-import { Menu } from "@headlessui/react";
-import { FiActivity } from "react-icons/fi";
-import { AiFillSetting } from "react-icons/ai";
-import { BiUserCircle } from "react-icons/bi";
 import Link from "next/link";
+import { FC, ReactElement, useEffect, useState } from "react";
 
-const DROPDOWN_NAVBAR_MENU = [
-  {
-    text: "Anjay Mabar",
-    icon: <FiActivity />,
-  },
-  {
-    text: "Setting",
-    icon: <AiFillSetting />,
-  },
-];
+// icons
+import { FiPower } from "react-icons/fi";
 
-const NAVBAR_MENU = [
+// font
+import { Roboto } from "@next/font/google";
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: "500",
+});
+
+// image
+import logoKG from "@/assets/logokg.png";
+import logoKGDark from "@/assets/logokg-dark.png";
+import MobileMenu from "../Common/MobileMenu";
+
+// toogle
+import ThemeToggle from "../ThemeToggle";
+import { useRouter } from "next/router";
+import Button from "../Common/Button";
+import useDarkSide from "@/hooks/Theme/useDarkSide";
+
+// nav menu list
+const navbarMenu = [
   {
-    text: "Home",
+    name: "Beranda",
     link: "/",
   },
 
   {
-    text: "Course",
-    link: "/course",
+    name: "Fitur",
+    link: "/kategori",
   },
   {
-    text: "Price",
-    link: "/price",
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Team",
+    link: "/team",
   },
 ];
 
 const Navbar: FC = (): ReactElement => {
+  const router = useRouter();
+
+  const { handleThemeChange, theme } = useDarkSide();
+
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-      <div className="fixed container flex flex-wrap items-center justify-between mx-auto">
-        <a href="https://flowbite.com/" className="flex items-center">
+    <nav
+      className={`lg:px-32 md:px-10  px-5 m-auto h-16 lg:h-24 bg-[#f5f7f9] dark:bg-[#222529]  flex justify-between items-center ${roboto.className} overflow-hidden`}
+    >
+      {/* kg logo */}
+      <div className="cursor-pointer">
+        <Link href={"/"} passHref>
           <Image
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-6 mr-3 sm:h-9"
-            alt="Flowbite Logo"
-            width={40}
-            height={40}
+            src={theme === "dark" ? logoKGDark : logoKG}
+            alt="Kampus Gratis Logo's"
+            className="w-[5em] md:w-[7em] lg:w-[8em]"
           />
-          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            Course
-          </span>
-        </a>
+        </Link>
+      </div>
 
-        <div className="flex items-center md:order-2">
-          <DropdownMenu list={DROPDOWN_NAVBAR_MENU}>
-            <Menu.Button className="flex m-4 text-sm bg-gray-600 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:p-2">
-              <span className="sr-only">Open user menu</span>
-              <div className="text-3xl">
-                <BiUserCircle />
-              </div>
-            </Menu.Button>
-          </DropdownMenu>
-        </div>
-
-        <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-          id="mobile-menu-2"
-        >
-          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            {NAVBAR_MENU.map((menu, index) => (
-              <li key={index}>
-                <Link
-                  href={menu.link}
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                  aria-current="page"
+      {/* menu link */}
+      <div>
+        <ul className=" lg:flex hidden">
+          {navbarMenu.map((menu, index) => {
+            return (
+              <Link href={menu.link} passHref key={index}>
+                <li
+                  className={`px-4  hover:text-[#0d6efd]  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide  text-gray-500 dark:text-gray-400 dark:hover:text-[#0d6efd]  text-base ${
+                    router.pathname == menu.link && "text-[#0d6efd] dark:text-[#0d6efd] "
+                  }`}
                 >
-                  {menu.text}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  {menu.name}
+                </li>
+              </Link>
+            );
+          })}
+        </ul>
+      </div>
+
+      {/* toggle and button  */}
+      <div className="flex gap-7 items-center">
+        <MobileMenu list={navbarMenu} />
+        {/* toogle by Fenni */}
+
+        <div onClick={handleThemeChange}>
+          <ThemeToggle />
         </div>
+
+        <Button
+          text={"Masuk"}
+          page="/auth/login"
+          type="button"
+          className="flex gap-x-2 rounded-md shadow-md items-center  bg-[#24292D] text-white pl-3 pr-3.5 py-1.5 hover:bg-[#6c757d] dark:bg-[#0f0f10] dark:hover:bg-[#24292D] transition-colors duration-300 ease-in-out"
+          icon={<FiPower className="w-3 stroke-[0.15em]" />}
+        />
       </div>
     </nav>
   );
