@@ -16,17 +16,17 @@ const ThemeToggle: FC = (): ReactElement => {
     const fetchedTheme = localStorage.getItem("theme") || "light";
     setTheme(fetchedTheme);
     setDarkSide(fetchedTheme === "dark" ? true : false);
-  }, [setTheme]);
+  }, [setTheme, colorTheme]);
 
   return (
     <div
-      className={` w-12 h-4 rounded-full bg-gray-400 flex  items-center shadow "
+      className={`cursor-pointer w-12 h-4 rounded-full bg-gray-400 flex  items-center shadow "
     } `}
       onClick={toggleDarkMode}
     >
       <div
         id="switch-toggle"
-        className="transform translate-x-0 dark:translate-x-7 rotate-180 dark:rotate-0 transition-all duration-300 ease-linear rounded-full bg-yellow-500 dark:bg-gray-300 p-1 text-white focus:rotate-180 justify-center"
+        className="cursor-pointer transform translate-x-0 dark:translate-x-7 rotate-180 dark:rotate-0 transition-all duration-300 ease-linear rounded-full bg-yellow-500 dark:bg-[#0f0f10] border-2 border-gray-50/60 p-1 text-white focus:rotate-180 justify-center"
       >
         {colorTheme === "light" ? <BsMoon size={20} /> : <BsSun size={18} />}
       </div>
