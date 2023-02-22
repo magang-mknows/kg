@@ -21,7 +21,7 @@ import MobileMenu from "../Common/MobileMenu";
 import ThemeToggle from "../ThemeToggle";
 import { useRouter } from "next/router";
 import Button from "../Common/Button";
-import useDarkSide from "@/hooks/Theme/useDarkSide";
+import useDarkMode from "@/hooks/Theme/useDarkMode";
 
 // nav menu list
 const navbarMenu = [
@@ -47,7 +47,7 @@ const navbarMenu = [
 const Navbar: FC = (): ReactElement => {
   const router = useRouter();
 
-  const { handleThemeChange, theme } = useDarkSide();
+  const { handleThemeChange, theme } = useDarkMode();
 
   return (
     <nav

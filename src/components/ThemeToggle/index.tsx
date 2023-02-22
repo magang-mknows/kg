@@ -1,5 +1,5 @@
 import { FC, ReactElement, useState, useEffect } from "react";
-import useDarkSide from "@/hooks/Theme/useDarkSide";
+import useDarkSide from "@/hooks/Theme/useDarkMode";
 import { BsSun, BsMoon } from "react-icons/bs";
 
 const ThemeToggle: FC = (): ReactElement => {
