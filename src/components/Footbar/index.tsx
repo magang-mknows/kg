@@ -17,15 +17,16 @@ const Footbar: FC = (): ReactElement => {
         bg-slate-100
         text-center 
         text-neutral-600 
+        pt-8
         lg:text-left">
 
       <div className="
-        mx-20 
+        mx-5 
         py-10 
         text-justify
-        lg:mx-10
+        lg:mx-20
         md:text-justify 
-        md:mx-10 
+        md:mx-10
         md:py-5
         sm:mx-10
         xs:mx-10">
@@ -33,9 +34,10 @@ const Footbar: FC = (): ReactElement => {
         <div className="
           grid-1 
           grid 
-          gap-10
+          gap-4
           md:grid-cols-2 
           lg:grid-cols-4">
+
             {/* kampus gratis */}
           <div className="text-sm">
             <Image
@@ -268,8 +270,7 @@ const Footbar: FC = (): ReactElement => {
         mx-10 
         pt-8 
         pb-8 
-        justify-between
-        ">
+        justify-between">
 
           <div>
             2022 - www.kampusgratis.id - Hak Cipta Dilindungi.
@@ -278,8 +279,7 @@ const Footbar: FC = (): ReactElement => {
             flex 
             justify-center 
             sm:space-x-2
-            sm:mt-4
-            xs:mt-4">
+            xs:text-xs">
 
             <div className="mr-4 hover:text-blue-400">
               <a href="">
@@ -292,19 +292,6 @@ const Footbar: FC = (): ReactElement => {
               </a>
             </div>
           </div>
-          {/* <hr className="mt-4" /> */}
-          {/* <div className="flex flex-row grid-1 
-          grid 
-          gap-10
-          md:grid-cols-2 
-          lg:grid-cols-4">
-            <div>
-              test
-            </div>
-            <div>
-              tes
-            </div>
-          </div> */}
       </div>
     </footer>
   );
