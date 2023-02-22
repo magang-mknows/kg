@@ -50,4 +50,6 @@ export interface CheckBoxFieldProps {
   placeholder: string;
   required: boolean;
   label: string;
+  checked: boolean;
+  onChange: (event: React.ChangeEvent) => void;
 }

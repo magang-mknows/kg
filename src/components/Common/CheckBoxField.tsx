@@ -9,6 +9,8 @@ const CheckBoxField: FC<CheckBoxFieldProps> = ({
   placeholder,
   required,
   label,
+  checked,
+  onChange,
 }): ReactElement => {
   return (
     <Fragment>
@@ -22,6 +24,8 @@ const CheckBoxField: FC<CheckBoxFieldProps> = ({
         className={checkboxClassName}
         placeholder={placeholder}
         required={required}
+        checked={checked}
+        onChange={onChange}
       />
     </Fragment>
   );
