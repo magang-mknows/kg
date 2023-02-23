@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 export type AuthLayoutTypes = {
@@ -6,4 +7,5 @@ export type AuthLayoutTypes = {
   description?: string;
   linkText?: string;
   to?: string;
+  img?: string | StaticImageData;
 };
