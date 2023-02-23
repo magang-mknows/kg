@@ -1,50 +1,62 @@
+import type { ButtonHTMLAttributes, FC, ReactElement, ReactNode } from "react";
+import Link from "next/link";
 import clsx from "clsx";
-import { forwardRef } from "react";
 
-type ButtonVariant = "outline" | "solid" | "ghost";
-
-interface ButtonOptions {
-  /**
-   * Button display variants
-   * @default "solid"
-   * @type ButtonVariant
-   */
-  variant?: ButtonVariant;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  type?: "button" | "submit";
+  text?: string | number;
+  className?: string;
+  size?: "small" | "regular" | "large";
+  color?: "blue" | "lightBlue" | "green" | "black";
+  to?: string;
+  page?: string;
+  icon?: ReactNode;
+  target?: string;
 }
 
-type Ref = HTMLButtonElement;
+const GlobalButton: FC<ButtonProps> = ({
+  type = "button",
+  text,
+  className,
+  page,
+  size = "regular",
+  color = "black",
+  icon,
+  ...props
+}): ReactElement => {
+  const typeClass = {
+    button: {},
+    submit: {},
+  };
+  const sizesClass = {
+    large: "px-12 py-24 text-base",
+    regular: "px-8 py-16 text-base",
+    small: "py-2 px-4 text-sm",
+  };
 
-export type ButtonProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> &
-  ButtonOptions;
-
-const getVariant = (variant: ButtonVariant) => {
-  switch (variant) {
-    case "outline":
-      return "btn-outline";
-    case "ghost":
-      return "btn-ghost";
-    default:
-      return undefined;
-  }
-};
-
-const GlobalButton = forwardRef<Ref, ButtonProps>((props, ref) => {
-  const { type = "button", variant = "solid", className, children, ...rest } = props;
-
+  const colorClass = {
+    blue: "bg-[#066ac9] text-white hover:opacity-75 ",
+    lightBlue: "bg-[#066ac91a] text-blue-600 hover:opacity-75 ",
+    green: "bg-[#c1f931] text-black hover:opacity-75 ",
+    black: "bg-[#24292D] text-white hover:opacity-75 ",
+  };
   const merged = clsx(
-    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",
-    getVariant(variant),
+    "flex gap-x-2 rounded-md shadow-md items-center",
+    colorClass[color],
+    sizesClass[size],
+    typeClass[type],
     className,
   );
+
   return (
-    <button ref={ref} className={merged} {...rest}>
-      {children}
-    </button>
+    <Link href={`${page}`}>
+      <button type={type} className={merged} {...props}>
+        {icon}
+        <p>{text}</p>
+      </button>
+    </Link>
   );
-});
+};
 
 GlobalButton.displayName = "Button";
 export default GlobalButton;
