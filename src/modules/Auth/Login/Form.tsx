@@ -32,7 +32,7 @@ const LoginForm: FC = (): ReactElement => {
     },
   });
 
-  const { mutate } = useLogin();
+  const { mutate, isLoading } = useLogin();
 
   const onSubmit = handleSubmit((data) => {
     try {
@@ -87,7 +87,7 @@ const LoginForm: FC = (): ReactElement => {
         <Button
           disabled={!isValid}
           className="my-4 w-full disabled:bg-slate-400 disabled:text-gray-300 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
-          text="Login"
+          text={isLoading ? "Sedang Masuk..." : "Masuk"}
           type={"submit"}
         />
 
