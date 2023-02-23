@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FC, ReactElement, useEffect, useState } from "react";
+import { FC, ReactElement, useCallback, useEffect, useState } from "react";
 
 // icons
 import { FiPower } from "react-icons/fi";
@@ -22,6 +22,7 @@ import ThemeToggle from "../ThemeToggle";
 import { useRouter } from "next/router";
 import Button from "../Common/Button";
 import useDarkMode from "@/hooks/Theme/useDarkMode";
+import useWindowScroll from "@/hooks/Common/useWindowScroll";
 
 // nav menu list
 const navbarMenu = [
@@ -49,9 +50,17 @@ const Navbar: FC = (): ReactElement => {
 
   const { handleThemeChange, theme } = useDarkMode();
 
+  const { isScrollY } = useWindowScroll();
+
   return (
     <nav
-      className={`lg:px-32 md:px-10  px-5 m-auto h-16 lg:h-24 bg-[#f5f7f9] dark:bg-[#222529]  flex justify-between items-center ${roboto.className} overflow-hidden`}
+      className={`${
+        isScrollY
+          ? " top-0 h-14 lg:h-[4.6rem] shadow-md shadow-gray-400/10 dark:shadow-gray-900"
+          : ""
+      } ${
+        roboto.className
+      } lg:px-20 md:px-10 sticky px-5 m-auto h-16 lg:h-24 bg-[#f5f7f9] dark:bg-[#222529]  flex justify-between items-center  transition-all ease-in-out duration-300`}
     >
       {/* kg logo */}
       <div className="cursor-pointer">
@@ -59,7 +68,9 @@ const Navbar: FC = (): ReactElement => {
           <Image
             src={theme === "dark" ? logoKGDark : logoKG}
             alt="Kampus Gratis Logo's"
-            className="w-[5em] md:w-[7em] lg:w-[8em]"
+            className={` ${
+              isScrollY ? " w-[5em] md:w-[7em] lg:w-[8em]" : "w-[6.2em] md:w-[7.2em] lg:w-[8.2em]"
+            } transition-all opacity-100 ease-in-out duration-200`}
           />
         </Link>
       </div>
@@ -69,14 +80,17 @@ const Navbar: FC = (): ReactElement => {
         <ul className=" lg:flex hidden">
           {navbarMenu.map((menu, index) => {
             return (
-              <Link href={menu.link} passHref key={index}>
-                <li
-                  className={`px-4  hover:text-[#0d6efd]  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide  text-gray-500 dark:text-gray-400 dark:hover:text-[#0d6efd]  text-base ${
-                    router.pathname == menu.link && "text-[#0d6efd] dark:text-[#0d6efd] "
-                  }`}
-                >
-                  {menu.name}
-                </li>
+              <Link
+                href={menu.link}
+                passHref
+                key={index}
+                className={`${
+                  router.pathname.includes(menu.link)
+                    ? "text-[#1d71ef] dark:text-[#2a7af2]"
+                    : "  hover:text-[#1d71ef]  text-gray-500 dark:text-gray-400 dark:hover:text-[#2a7af2]  "
+                } px-4 tracking-wide text-base cursor-pointer transition-colors duration-300 ease-in-out font-normal`}
+              >
+                <li>{menu.name}</li>
               </Link>
             );
           })}
@@ -84,7 +98,7 @@ const Navbar: FC = (): ReactElement => {
       </div>
 
       {/* toggle and button  */}
-      <div className="flex gap-7 items-center">
+      <div className="flex gap-6 items-center">
         <MobileMenu list={navbarMenu} />
         {/* toogle by Fenni */}
 

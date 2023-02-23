@@ -4,11 +4,9 @@ export default function useDarkMode() {
   const [theme, setTheme] = useState("light");
   const colorTheme = theme === "light" ? "dark" : "light";
 
-  // const [isDark, setDark] = useState(false);
   const handleThemeChange = () => {
     const fetchedTheme = localStorage.getItem("theme") || "light";
     setTheme(fetchedTheme);
-    // setDark(fetchedTheme === "dark" ? true : false);
   };
 
   useEffect(() => {
