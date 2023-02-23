@@ -112,5 +112,4 @@ Untuk bisa menggunakan husky agar berjalan baik dan benar maka perlu di inisiali
 
 ## Demo App
 
-- [Development Build](https://nextjs-tailwindcss-boilerplate-teal.vercel.app/)
-- [Production Build](https://nextjs-tailwindcss-boilerplate.netlify.app//)
+- [Development Build](https://frontend-boiler-three.vercel.app/)
