@@ -1,28 +1,9 @@
+import { navbarMenu } from "@/utilities/constant";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 
 const BottomSection: FC = () => {
-  const navbarMenu = [
-    {
-      name: "Beranda",
-      link: "/",
-    },
-
-    {
-      name: "Fitur",
-      link: "/kategori",
-    },
-    {
-      name: "Panduan",
-      link: "/panduan",
-    },
-    {
-      name: "Team",
-      link: "/team",
-    },
-  ];
-
   const router = useRouter();
 
   return (

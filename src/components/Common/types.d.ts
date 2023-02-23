@@ -1,11 +1,24 @@
-import { HTMLInputTypeAttribute, ReactNode } from "react";
+import {
+  ChangeEventHandler,
+  ForwardedRef,
+  HTMLInputTypeAttribute,
+  ReactNode,
+  RefObject,
+} from "react";
 
 export interface TextFieldProps {
   type: HTMLInputTypeAttribute;
   label: string;
   name: string;
   placeholder: string;
-  required: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  error?: string;
+  value?: string;
+  className?: string;
+  labelClassName?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  ref?: RefObject;
 }
 
 export interface MobileMenuProps {
@@ -18,13 +31,14 @@ export interface MobileMenuProps {
 export interface SelectFieldProps {
   className?: string;
   labelClassName?: string;
-  children: ReactNode;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  error?: string;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
   value: string;
   name: string;
-  label: string;
+  label: string | ReactNode;
   defaultValue: string;
-  // options: [];
+  required?: boolean;
+  disabled?: boolean;
   options: OptionFieldProps[];
 }
 
@@ -57,18 +71,34 @@ export interface RadioButtonsProps {
   classNameInput?: string;
   htmlFor: string;
   classNameLabel?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   label: string;
 }
 
-export interface CheckBoxFieldProps {
-  checkboxClassName?: string;
+export interface CheckboxFieldProps {
+  className?: string;
   labelClassName?: string;
   name: string;
-  value: string;
-  placeholder: string;
+  value?: string;
+  placeholder?: string;
   required: boolean;
-  label: string;
-  checked: boolean;
-  onChange: (event: React.ChangeEvent) => void;
+
+  label?: string;
+  checked?: boolean;
+  error?: string;
+  disabled?: boolean;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+}
+
+export interface CardProps {
+  className?: string;
+  title?: string;
+  icon?: ReactNode;
+  children?: ReactNode;
+  titleStyle?: string;
+  imgwidth?: number;
+  imgheight?: number;
+  src?: StaticImport;
+  topText?: string;
+  hasImage: boolean;
 }
