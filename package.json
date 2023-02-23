@@ -53,6 +53,7 @@
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
+      "next build",
       "jest --bail --detectOpenHandles --passWithNoTests",
       "prettier --write --ignore-unknown"
     ]
