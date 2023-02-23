@@ -1,6 +1,9 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
 export type AuthLayoutTypes = {
-  title: string
-  children: ReactNode
-}
+  title: string;
+  children: ReactNode;
+  description?: string;
+  linkText?: string;
+  to?: string;
+};

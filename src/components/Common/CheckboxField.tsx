@@ -18,23 +18,25 @@ const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
     ref: Ref<HTMLInputElement>,
   ): ReactElement => {
     return (
-      <Fragment>
-        <label htmlFor={name} className={labelClassName}>
-          {label}
-        </label>
-        <input
-          type="checkbox"
-          name={name}
-          value={value}
-          className={className}
-          required={required}
-          checked={checked}
-          onChange={onChange}
-          disabled={disabled}
-          ref={ref}
-        />
+      <section className="flex flex-col">
+        <div className="flex justify-center gap-x-4">
+          <input
+            type="checkbox"
+            name={name}
+            value={value}
+            className={className}
+            required={required}
+            checked={checked}
+            onChange={onChange}
+            disabled={disabled}
+            ref={ref}
+          />
+          <label htmlFor={name} className={labelClassName}>
+            {label}
+          </label>
+        </div>
         <span className="text-red-400">{error}</span>
-      </Fragment>
+      </section>
     );
   },
 );

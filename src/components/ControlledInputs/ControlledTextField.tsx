@@ -20,8 +20,7 @@ const ControlledTextField = <T,>({
   placeholder,
   name,
   disabled,
-  hasButton,
-  labelButton,
+  required,
   value,
   ...rest
 }: ControlledTextInputProps<T>) => {
@@ -29,10 +28,12 @@ const ControlledTextField = <T,>({
     <Controller
       control={control}
       name={name}
+      rules={{ required }}
       render={({ field, fieldState: { error } }) => (
         <TextField
           {...field}
           {...rest}
+          ref={field.ref}
           label={label}
           type={type}
           placeholder={placeholder}

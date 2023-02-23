@@ -7,14 +7,12 @@ const TextField: FC<TextFieldProps> = forwardRef(
       type,
       placeholder,
       error,
-      required,
       label,
       name,
       value,
       onChange,
       disabled = false,
       labelClassName,
-      className,
     }: TextFieldProps,
     ref: Ref<HTMLInputElement>,
   ): ReactElement => {
@@ -28,9 +26,10 @@ const TextField: FC<TextFieldProps> = forwardRef(
           type={type}
           name={name}
           disabled={disabled}
-          className={className}
+          className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 ${
+            error !== undefined && "ring-2 ring-red-600"
+          }`}
           placeholder={placeholder}
-          required={required}
           onChange={onChange}
           ref={ref}
         />
