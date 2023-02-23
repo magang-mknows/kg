@@ -11,7 +11,7 @@ export interface TextFieldProps {
   label: string;
   name: string;
   placeholder: string;
-  required: boolean;
+  required?: boolean;
   disabled?: boolean;
   error?: string;
   value?: string;
@@ -71,12 +71,12 @@ export interface CheckboxFieldProps {
   className?: string;
   labelClassName?: string;
   name: string;
-  value: string;
-  placeholder: string;
+  value?: string;
+  placeholder?: string;
   required: boolean;
-  label: string;
-  checked: boolean;
+  label?: string;
+  checked?: boolean;
   error?: string;
   disabled?: boolean;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }

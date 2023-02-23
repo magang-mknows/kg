@@ -5,7 +5,12 @@ import RegisterForm from "@/modules/Auth/Register/Form";
 
 const Register: NextPage = (): ReactElement => {
   return (
-    <AuthLayouts title="Create your Account">
+    <AuthLayouts
+      title="Buat akun baru"
+      description="Sudah punya akun?"
+      linkText="Login Disini"
+      to="/auth/login"
+    >
       <RegisterForm />
     </AuthLayouts>
   );

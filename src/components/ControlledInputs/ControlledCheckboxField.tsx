@@ -3,11 +3,9 @@ import CheckboxField from "../Common/CheckboxField";
 import { CheckboxFieldProps } from "../Common/types";
 
 type ControlledCheckboxFieldProps<T> = CheckboxFieldProps & {
-  label: string;
   control: Control<any, T>;
   options?: { label: string; value: string | number | boolean }[];
   name: string;
-  mode?: "multiple" | "tags";
   required?: boolean;
   hasDelete?: boolean;
   onDelete?(): void;
@@ -18,8 +16,6 @@ const ControlledCheckboxField = <T,>({
   control,
   name,
   options,
-  hasDelete,
-  onDelete,
   ...rest
 }: ControlledCheckboxFieldProps<T>) => {
   return (

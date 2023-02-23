@@ -5,7 +5,12 @@ import LoginForm from "@/modules/Auth/Login/Form";
 
 const Login: NextPage = (): ReactElement => {
   return (
-    <AuthLayouts title="Sign to your Account">
+    <AuthLayouts
+      to="/auth/register"
+      linkText="Daftar disini"
+      title="Selamat Datang"
+      description="Belum punya akun?"
+    >
       <LoginForm />
     </AuthLayouts>
   );
