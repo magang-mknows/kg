@@ -1,5 +1,6 @@
 import ApiService from "@/services/Api";
 import TokenService from "@/services/Token";
+import { handleError } from "@/utilities/helper";
 import { AuthPayloadTypes } from "@/utilities/types/Auth";
 
 const AuthService = {
@@ -23,7 +24,7 @@ const AuthService = {
       ApiService.setHeader();
       return res.data;
     } catch (error) {
-      throw error;
+      throw handleError(error);
     }
   },
 
@@ -46,7 +47,7 @@ const AuthService = {
     try {
       await ApiService.customRequest(requestData);
     } catch (error) {
-      throw error;
+      throw handleError(error);
     }
   },
 
@@ -66,7 +67,7 @@ const AuthService = {
       ApiService.setHeader();
       return response.data;
     } catch (error) {
-      throw error;
+      throw handleError(error);
     }
   },
 };
