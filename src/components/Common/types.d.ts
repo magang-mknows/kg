@@ -80,3 +80,16 @@ export interface CheckboxFieldProps {
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }
+
+export interface CardProps {
+  className?: string;
+  title?: string;
+  icon?: ReactNode;
+  children?: ReactNode;
+  titleStyle?: string;
+  imgwidth?: number;
+  imgheight?: number;
+  src?: StaticImport;
+  topText?: string;
+  hasImage: boolean;
+}

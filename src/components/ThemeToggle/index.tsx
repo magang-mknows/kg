@@ -1,9 +1,12 @@
 import { FC, ReactElement, useState, useEffect } from "react";
-import useDarkSide from "@/hooks/Theme/useDarkMode";
+import useDarkMode from "@/hooks/Theme/useDarkMode";
+import DropdownMenu from "../Common/DropdownMenu";
+import { Menu } from "@headlessui/react";
 import { BsSun, BsMoon } from "react-icons/bs";
+import { BiAdjust } from "react-icons/bi";
 
 const ThemeToggle: FC = (): ReactElement => {
-  const { setTheme, colorTheme } = useDarkSide();
+  const { setTheme, colorTheme } = useDarkMode();
   const [darkSide, setDarkSide] = useState<boolean>(false);
 
   const toggleDarkMode = () => {
@@ -12,6 +15,21 @@ const ThemeToggle: FC = (): ReactElement => {
     localStorage.setItem("theme", colorTheme);
   };
 
+  const option = [
+    {
+      text: "Dark",
+      icon: <BsMoon />,
+    },
+    {
+      text: "Light",
+      icon: <BsSun />,
+    },
+    {
+      text: "Auto",
+      icon: <BiAdjust />,
+    },
+  ];
+
   useEffect(() => {
     const fetchedTheme = localStorage.getItem("theme") || "light";
     setTheme(fetchedTheme);
@@ -19,18 +37,14 @@ const ThemeToggle: FC = (): ReactElement => {
   }, [setTheme, colorTheme]);
 
   return (
-    <div
-      className={`cursor-pointer w-12 h-4 rounded-full bg-gray-400 flex  items-center shadow "
-    } `}
-      onClick={toggleDarkMode}
-    >
-      <div
-        id="switch-toggle"
-        className="cursor-pointer transform translate-x-0 dark:translate-x-7 rotate-180 dark:rotate-0 transition-all duration-300 ease-linear rounded-full bg-yellow-500 dark:bg-[#0f0f10] border-2 border-gray-50/60 p-1 text-white focus:rotate-180 justify-center"
-      >
-        {colorTheme === "light" ? <BsMoon size={20} /> : <BsSun size={18} />}
-      </div>
-    </div>
+    <DropdownMenu list={option}>
+      <Menu.Button className="flex p-4 text-sm bg-gray-600 z-20 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:p-2">
+        <span className="sr-only">Open user menu</span>
+        <div className="text-3xl">
+          <BiAdjust />
+        </div>
+      </Menu.Button>
+    </DropdownMenu>
   );
 };
 
