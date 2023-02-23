@@ -1,4 +1,10 @@
-import { HTMLInputTypeAttribute, ReactNode } from "react";
+import {
+  ChangeEventHandler,
+  ForwardedRef,
+  HTMLInputTypeAttribute,
+  ReactNode,
+  RefObject,
+} from "react";
 
 export interface TextFieldProps {
   type: HTMLInputTypeAttribute;
@@ -11,6 +17,8 @@ export interface TextFieldProps {
   value?: string;
   className?: string;
   labelClassName?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  ref?: RefObject;
 }
 
 export interface MobileMenuProps {
@@ -23,14 +31,14 @@ export interface MobileMenuProps {
 export interface SelectFieldProps {
   className?: string;
   labelClassName?: string;
-  children: ReactNode;
   error?: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange: ChangeEventHandler<HTMLSelectElement>;
   value: string;
   name: string;
   label: string;
   defaultValue: string;
-  // options: [];
+  required?: boolean;
+  disabled?: boolean;
   options: OptionFieldProps[];
 }
 
@@ -55,12 +63,12 @@ export interface RadioButtonsProps {
   classNameInput?: string;
   htmlFor: string;
   classNameLabel?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   label: string;
 }
 
 export interface CheckboxFieldProps {
-  checkboxClassName?: string;
+  className?: string;
   labelClassName?: string;
   name: string;
   value: string;
@@ -69,5 +77,6 @@ export interface CheckboxFieldProps {
   label: string;
   checked: boolean;
   error?: string;
-  onChange: (event: React.ChangeEvent) => void;
+  disabled?: boolean;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }
