@@ -9,7 +9,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
   const [isShow, setShow] = useState(false);
   const router = useRouter();
 
-  const { scrollY } = useWindowScroll();
+  const { isScrollY } = useWindowScroll();
 
   return (
     <div className="lg:hidden block">
@@ -31,7 +31,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
       </button>
 
       <div
-        className={`absolute ${scrollY > 600 ? " top-14 lg:top-20 " : ""}  top-16 lg:top-24 ${
+        className={`absolute top-16 lg:top-24 ${
           isShow ? "right-[100%]" : "right-0"
         } transition-all ease-in-out duration-500 w-full  bg-[#ffffff] dark:bg-[#0f0f10] origin-top`}
       >
@@ -46,8 +46,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
                 passHref
                 className={`  ${
                   router.pathname.includes(list.link)
-                    ? "text-[#0d6efd] dark:text-[#0d6efd] "
-                    : " hover:text-[#0d6efd]  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-500 dark:text-gray-400 dark:hover:text-[#0d6efd] text-base"
+                    ? "text-[#1d71ef] dark:text-[#2a7af2]"
+                    : " hover:text-[#1d71ef] dark:hover:text-[#2a7af2]   cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-500 dark:text-gray-400 text-base"
                 }md:px-14 px-10 `}
               >
                 {list.name}
