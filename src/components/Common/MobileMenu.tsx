@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC, useState } from "react";
 import { MobileMenuProps } from "./types";
-const genericHamburgerLine = `h-[2.5px] w-6 my-[2.5px] rounded-full bg-[#24292D] dark:bg-[#a1a1a8] transition ease transform duration-300`;
+const genericHamburgerLine = `h-[2.5px] w-6 my-[2.5px] rounded-full bg-[#968E7E] dark:bg-[#a1a1a8] transition ease transform duration-300`;
 
 const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
   const [isShow, setShow] = useState(false);
@@ -46,7 +46,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
                 passHref
                 className={`  ${
                   router.pathname.includes(list.link)
-                    ? "text-[#1d71ef] dark:text-[#2a7af2]"
+                    ? "text-[#968E7E]"
                     : " hover:text-[#1d71ef] dark:hover:text-[#2a7af2]   cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-500 dark:text-gray-400 text-base"
                 }md:px-14 px-10 `}
               >

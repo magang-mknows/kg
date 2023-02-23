@@ -56,6 +56,14 @@ export type DropdownProps = {
   }>;
 };
 
+export type NavbarDropdownProps = {
+  list: {
+    name?: string;
+    link: string;
+    time?: string;
+  }[];
+};
+
 export interface RadioButtonsProps {
   id?: string;
   value: string;
@@ -74,6 +82,7 @@ export interface CheckboxFieldProps {
   value?: string;
   placeholder?: string;
   required: boolean;
+
   label?: string;
   checked?: boolean;
   error?: string;
