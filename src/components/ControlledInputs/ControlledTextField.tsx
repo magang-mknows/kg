@@ -10,11 +10,10 @@ type ControlledTextInputProps<T> = TextFieldProps & {
   name: string;
   hasButton?: boolean;
   labelButton?: string;
-  onClick?(): void;
   value?: string;
 };
 
-const ControlledTextInput = <T,>({
+const ControlledTextField = <T,>({
   label,
   type = "text",
   control,
@@ -23,7 +22,6 @@ const ControlledTextInput = <T,>({
   disabled,
   hasButton,
   labelButton,
-  onClick,
   value,
   ...rest
 }: ControlledTextInputProps<T>) => {
@@ -47,4 +45,4 @@ const ControlledTextInput = <T,>({
   );
 };
 
-export default ControlledTextInput;
+export default ControlledTextField;
