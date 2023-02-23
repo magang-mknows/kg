@@ -28,7 +28,7 @@ const CheckboxField: FC<CheckboxFieldProps> = ({
         checked={checked}
         onChange={onChange}
       />
-      <span>{error}</span>
+      <span className="text-red-400">{error}</span>
     </Fragment>
   );
 };

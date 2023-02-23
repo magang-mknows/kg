@@ -9,6 +9,8 @@ export interface TextFieldProps {
   disabled?: boolean;
   error?: string;
   value?: string;
+  className?: string;
+  labelClassName?: string;
 }
 
 export interface MobileMenuProps {

@@ -36,7 +36,7 @@ const SelectField: FC<SelectFieldProps> = ({
           />
         ))}
       </select>
-      <span>{error}</span>
+      <span className="text-red-400">{error}</span>
     </Fragment>
   );
 };
