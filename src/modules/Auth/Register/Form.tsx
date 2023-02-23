@@ -47,12 +47,6 @@ const RegisterForm: FC = (): ReactElement => {
         labelClassName="block mb-2 text-sm font-medium text-gray-900 "
       />
       <div className="flex justify-center">
-        {/* <Button
-          page={`/`}
-          className="px-20 py-1 my-4 font-bold text-blue-400 border-2 border-blue-400 rounded-md"
-          text="Login"
-          type={"button"}
-        /> */}
         <GlobalButton
           page={`/`}
           className="px-20 py-1 my-4 font-bold text-blue-400 border-2 border-blue-400 rounded-md"
