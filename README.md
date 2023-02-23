@@ -113,3 +113,35 @@ Untuk bisa menggunakan husky agar berjalan baik dan benar maka perlu di inisiali
 ## Demo App
 
 - [Development Build](https://frontend-boiler-three.vercel.app/)
+
+
+# How to use Layout
+BaseLayout memuat content antara lain, yaitu Navbar dan Footer. Component ini digunakan untuk membungkus component MainLayout atau 'section' element.
+
+MainLayout berfungsi untuk meng-sama-rata-kan jarak antara tepi window dengan main content. Dengan kata lain, horizontal padding-nya sama. Perlu diketahui juga, bahwa secara default, MainLayout hanya memiliki 2 kolom. Jadi anda bisa membuat section element sendiri jika kolom anda 1 atau lebih dari 2.
+
+ContentLayout, fungsinya untuk membungkus items dengan flex-wrap. Otomatis items yang dibungkus akan ke tengah. Optional jika ingin menggunakan Layout ini.
+
+
+## Usage/Examples
+
+```typescript
+
+export default function Examples() {
+  return (
+    <BaseLayout>
+        <MainLayout>
+            <div>
+                Anjay
+            </div>
+            // optional
+            <ContentLayout>
+                /* ---- content ---- */ 
+            </ContentLayout>
+        </MainLayout>
+    </BaseLayout>
+  )
+}
+
+```
+
