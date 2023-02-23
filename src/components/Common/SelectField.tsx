@@ -12,6 +12,7 @@ const SelectField: FC<SelectFieldProps> = ({
   defaultValue,
   options,
   labelClassName,
+  error,
 }): ReactElement => {
   return (
     <Fragment>
@@ -35,6 +36,7 @@ const SelectField: FC<SelectFieldProps> = ({
           />
         ))}
       </select>
+      <span>{error}</span>
     </Fragment>
   );
 };

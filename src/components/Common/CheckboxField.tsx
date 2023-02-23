@@ -1,7 +1,7 @@
-import React, { FC, Fragment, ReactElement } from "react";
-import { CheckBoxFieldProps } from "./types";
+import { FC, Fragment, ReactElement } from "react";
+import { CheckboxFieldProps } from "./types";
 
-const CheckBoxField: FC<CheckBoxFieldProps> = ({
+const CheckboxField: FC<CheckboxFieldProps> = ({
   name,
   labelClassName,
   value,
@@ -10,6 +10,7 @@ const CheckBoxField: FC<CheckBoxFieldProps> = ({
   required,
   label,
   checked,
+  error,
   onChange,
 }): ReactElement => {
   return (
@@ -27,8 +28,9 @@ const CheckBoxField: FC<CheckBoxFieldProps> = ({
         checked={checked}
         onChange={onChange}
       />
+      <span>{error}</span>
     </Fragment>
   );
 };
 
-export default CheckBoxField;
+export default CheckboxField;
