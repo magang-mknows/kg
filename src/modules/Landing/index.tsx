@@ -8,7 +8,7 @@ const Landing: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <Suspense fallback={"Skeleton loading...."}>
-        {/* <HeroSection /> */}
+        <HeroSection />
         <AboutSection />
       </Suspense>
     </BaseLayouts>
