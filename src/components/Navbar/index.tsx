@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 import Button from "../Common/Button";
 import useDarkMode from "@/hooks/Theme/useDarkMode";
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
+import GlobalButton from "../Common/GlobalButton";
 
 // nav menu list
 const navbarMenu = [
@@ -77,7 +78,7 @@ const Navbar: FC = (): ReactElement => {
 
       {/* menu link */}
       <div>
-        <ul className=" lg:flex hidden">
+        <ul className="hidden lg:flex">
           {navbarMenu.map((menu, index) => {
             return (
               <Link
@@ -98,7 +99,7 @@ const Navbar: FC = (): ReactElement => {
       </div>
 
       {/* toggle and button  */}
-      <div className="flex gap-6 items-center">
+      <div className="flex items-center gap-6">
         <MobileMenu list={navbarMenu} />
         {/* toogle by Fenni */}
 
@@ -106,11 +107,19 @@ const Navbar: FC = (): ReactElement => {
           <ThemeToggle />
         </div>
 
-        <Button
+        {/* <Button
           text={"Masuk"}
           page="/auth/login"
           type="button"
           className="flex gap-x-2 rounded-md shadow-md items-center  bg-[#24292D] text-white pl-3 pr-3.5 py-1.5 hover:bg-[#6c757d] dark:bg-[#0f0f10] dark:hover:bg-[#24292D] transition-colors duration-300 ease-in-out"
+          icon={<FiPower className="w-3 stroke-[0.15em]" />}
+        /> */}
+        <GlobalButton
+          type="button"
+          text={"Masuk"}
+          page="/auth/login"
+          size="small"
+          color="black"
           icon={<FiPower className="w-3 stroke-[0.15em]" />}
         />
       </div>
