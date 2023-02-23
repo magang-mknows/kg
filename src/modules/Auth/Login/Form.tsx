@@ -3,6 +3,7 @@ import ControlledCheckboxField from "@/components/ControlledInputs/ControlledChe
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
 import { useLogin } from "@/hooks/Auth/useLogin";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { FC, ReactElement } from "react";
 import { useForm } from "react-hook-form";
@@ -23,6 +24,7 @@ const LoginForm: FC = (): ReactElement => {
     handleSubmit,
     formState: { isValid },
   } = useForm<ValidationSchema>({
+    resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
       email: "",
@@ -56,7 +58,6 @@ const LoginForm: FC = (): ReactElement => {
         name={"email"}
         placeholder={"Masukan Email Anda"}
         required={true}
-        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
         labelClassName="block mb-2 text-sm dark:text-white font-medium text-gray-900 "
       />
       <ControlledTextField
@@ -66,7 +67,6 @@ const LoginForm: FC = (): ReactElement => {
         name={"password"}
         placeholder={"*********"}
         required={true}
-        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
         labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
       />
 
