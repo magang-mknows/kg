@@ -32,10 +32,10 @@ export interface SelectFieldProps {
   className?: string;
   labelClassName?: string;
   error?: string;
-  onChange: ChangeEventHandler<HTMLSelectElement>;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
   value: string;
   name: string;
-  label: string;
+  label: string | ReactNode;
   defaultValue: string;
   required?: boolean;
   disabled?: boolean;

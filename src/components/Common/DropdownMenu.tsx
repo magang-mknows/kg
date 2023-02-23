@@ -4,7 +4,7 @@ import { DropdownProps } from "./types";
 
 const DropdownMenu: FC<DropdownProps> = ({ children, list }): ReactElement => {
   return (
-    <Menu as="div" className=" relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left">
       {children}
       <Transition
         as={Fragment}
@@ -15,18 +15,18 @@ const DropdownMenu: FC<DropdownProps> = ({ children, list }): ReactElement => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-20  mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0  mt-2 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white dark:bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           {list.map((x, i) => (
-            <div key={i} className="px-1 py-1 ">
+            <div key={i} className=" py-1 ">
               <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-auto items-center rounded-md px-2 py-2 text-sm gap-x-4`}
+                      active ? " bg-blue-200 text-white" : "text-gray-900"
+                    } group flex w-full items-center rounded-md text-sm gap-x-2 px-1 text-gray-400 dark:text-white`}
                   >
                     {x.icon}
-                    <span className="text-base">{x.text}</span>
+                    <span className="text-base px-1 text-gray-400 dark:text-white">{x.text}</span>
                   </button>
                 )}
               </Menu.Item>
