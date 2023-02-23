@@ -1,21 +1,14 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, lazy, Suspense } from "react";
 import BaseLayouts from "@/layouts/Base";
-import Image from "next/image";
-import Button from "@/components/Common/Button";
-import MainLayouts from "@/layouts/Main";
-import ContentLayouts from "@/layouts/Content";
+
+const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
 
 const Landing: FC = (): ReactElement => {
   return (
     <BaseLayouts>
-      <MainLayouts>
-        <ContentLayouts>
-          <h1>Test Drive</h1>
-        </ContentLayouts>
-        <ContentLayouts>
-          <h1>Test Drive</h1>
-        </ContentLayouts>
-      </MainLayouts>
+      <Suspense fallback={"Skeleton loading...."}>
+        <HeroSection />
+      </Suspense>
     </BaseLayouts>
   );
 };
