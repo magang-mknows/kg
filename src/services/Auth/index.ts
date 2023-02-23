@@ -36,12 +36,17 @@ const AuthService = {
   },
 
   Register: async (payload: AuthPayloadTypes) => {
+    const { email, password, fullname } = payload;
     const requestData = {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      data: payload,
+      data: {
+        email,
+        password,
+        fullname,
+      },
       url: "/auth/register",
     };
     try {

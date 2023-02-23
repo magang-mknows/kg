@@ -22,11 +22,11 @@ const RegisterForm: FC = (): ReactElement => {
       }),
     })
     .refine((data) => data.password === data.confirm_password, {
-      path: ["confirm_password"],
       message: "Password tidak sesuai",
+      path: ["confirm_password"],
     });
 
-  const { mutate } = useRegister();
+  const { mutate, isLoading } = useRegister();
 
   type ValidationSchema = z.infer<typeof validationSchema>;
 
@@ -40,7 +40,7 @@ const RegisterForm: FC = (): ReactElement => {
     defaultValues: {
       email: "",
       password: "",
-      confirm_password: "",
+      confirm_password: undefined,
       fullname: "",
       terms: undefined,
     },
@@ -108,7 +108,7 @@ const RegisterForm: FC = (): ReactElement => {
       <Button
         disabled={!isValid}
         className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
-        text="Daftar"
+        text={isLoading ? "Sedang Memuat..." : "Daftar"}
         type={"submit"}
       />
     </Form>
