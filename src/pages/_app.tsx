@@ -6,11 +6,11 @@ import ApiService from "@/services/Api";
 import ProtectedRoutes from "@/modules/Auth/ProtectedRoutes";
 import configs from "@/configs";
 import { useRouter } from "next/router";
+import { publicRoutes } from "@/utilities/constant";
 
 const queryClient = new QueryClient();
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 ApiService.init(configs.apiURL);
-const publicRoutes = ["/", "/auth/login", "/auth/register"];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
