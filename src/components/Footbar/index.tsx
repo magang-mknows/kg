@@ -15,9 +15,9 @@ import Image from "next/image";
 import useDarkMode from "@/hooks/Theme/useDarkMode";
 import ThemeToggle from "../ThemeToggle";
 
+import { LoadConditionalLogo } from "@/utilities/helper";
+
 const Footbar: FC = (): ReactElement => {
-  
-  const { handleThemeChange, theme } = useDarkMode();
   
   return (
     <footer
@@ -53,7 +53,7 @@ const Footbar: FC = (): ReactElement => {
           {/* kampus gratis */}
           <div className="text-sm">
             <Image
-              src={theme === "dark" ? logoKGDark : logoKG}
+              src={LoadConditionalLogo()}
               className="
                 h-19 
                 w-100 
