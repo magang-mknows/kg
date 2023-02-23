@@ -1,4 +1,4 @@
-import Button from "@/components/Common/Button";
+import GlobalButton from "@/components/Common/GlobalButton";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
 import Link from "next/link";
@@ -46,9 +46,9 @@ const RegisterForm: FC = (): ReactElement => {
         labelClassName="block mb-2 text-sm font-medium text-gray-900 "
       />
       <div className="flex justify-center">
-        <Button
+        <GlobalButton
           page={`/`}
-          className="my-4 border-2 border-blue-400 text-blue-400 font-bold px-20 py-1 rounded-md"
+          className="px-20 py-1 my-4 font-bold text-blue-400 border-2 border-blue-400 rounded-md"
           text="Login"
           type={"button"}
         />

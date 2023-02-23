@@ -20,7 +20,6 @@ import MobileMenu from "../Common/MobileMenu";
 // toogle
 import ThemeToggle from "../ThemeToggle";
 import { useRouter } from "next/router";
-import Button from "../Common/Button";
 import useDarkMode from "@/hooks/Theme/useDarkMode";
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
 import GlobalButton from "../Common/GlobalButton";
@@ -115,10 +114,10 @@ const Navbar: FC = (): ReactElement => {
           icon={<FiPower className="w-3 stroke-[0.15em]" />}
         /> */}
         <GlobalButton
-          type="button"
+          buttonType="auth"
           text={"Masuk"}
           page="/auth/login"
-          size="small"
+          size="base"
           color="black"
           icon={<FiPower className="w-3 stroke-[0.15em]" />}
         />

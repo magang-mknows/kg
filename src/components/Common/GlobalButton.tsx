@@ -3,11 +3,11 @@ import Link from "next/link";
 import clsx from "clsx";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  type?: "button" | "submit";
+  buttonType?: "cta" | "auth" | "scroll";
   text?: string | number;
   className?: string;
-  size?: "small" | "regular" | "large";
-  color?: "blue" | "lightBlue" | "green" | "black";
+  size?: "small" | "base" | "regular" | "large";
+  color?: "black" | "white" | "lightBlue" | "red" | "blue" | "green" | "purple";
   to?: string;
   page?: string;
   icon?: ReactNode;
@@ -15,7 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const GlobalButton: FC<ButtonProps> = ({
-  type = "button",
+  buttonType = "auth",
   text,
   className,
   page,
@@ -25,32 +25,37 @@ const GlobalButton: FC<ButtonProps> = ({
   ...props
 }): ReactElement => {
   const typeClass = {
-    button: {},
-    submit: {},
+    cta: "",
+    auth: "!px-8",
+    scroll: "",
   };
   const sizesClass = {
-    large: "px-12 py-24 text-base",
-    regular: "px-8 py-16 text-base",
-    small: "py-2 px-4 text-sm",
+    large: "px-24 py-12 text-base",
+    regular: "px-16 py-8 text-base",
+    base: "px-4 py-2 text-sm",
+    small: "px-3 py-1.5 text-sm",
   };
 
   const colorClass = {
-    blue: "bg-[#066ac9] text-white hover:opacity-75 ",
-    lightBlue: "bg-[#066ac91a] text-blue-600 hover:opacity-75 ",
-    green: "bg-[#c1f931] text-black hover:opacity-75 ",
-    black: "bg-[#24292D] text-white hover:opacity-75 ",
+    black: "bg-[#24292D] text-white hover:bg-[#45494d] ",
+    white: "bg-[#ffffff] text-[#24292D] hover:bg-[#eff1f2] ",
+    lightBlue: "bg-[#066ac91a] text-[#066ac9] hover:bg-[#066ac9] hover:text-white",
+    red: "bg-[#d6293e1a] text-[#d6293e] hover:bg-[#d6293e] hover:text-white ",
+    blue: "bg-[#066ac9] text-white",
+    green: "bg-[#c1f931] text-black",
+    purple: "bg-[#5143d9] text-white",
   };
   const merged = clsx(
-    "flex gap-x-2 rounded-md shadow-md items-center",
+    "flex gap-x-2 rounded shadow-md items-center ",
     colorClass[color],
     sizesClass[size],
-    typeClass[type],
+    typeClass[buttonType],
     className,
   );
 
   return (
     <Link href={`${page}`}>
-      <button type={type} className={merged} {...props}>
+      <button className={merged} {...props}>
         {icon}
         <p>{text}</p>
       </button>
