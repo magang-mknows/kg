@@ -6,6 +6,9 @@ export interface TextFieldProps {
   name: string;
   placeholder: string;
   required: boolean;
+  disabled?: boolean;
+  error?: string;
+  value?: string;
 }
 
 export interface MobileMenuProps {
@@ -19,6 +22,7 @@ export interface SelectFieldProps {
   className?: string;
   labelClassName?: string;
   children: ReactNode;
+  error?: string;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string;
   name: string;
@@ -47,13 +51,13 @@ export interface RadioButtonsProps {
   value: string;
   name?: string;
   classNameInput?: string;
-  htmlFor: string
+  htmlFor: string;
   classNameLabel?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
 }
-  
-export interface CheckBoxFieldProps {
+
+export interface CheckboxFieldProps {
   checkboxClassName?: string;
   labelClassName?: string;
   name: string;
@@ -62,6 +66,6 @@ export interface CheckBoxFieldProps {
   required: boolean;
   label: string;
   checked: boolean;
+  error?: string;
   onChange: (event: React.ChangeEvent) => void;
-
 }
