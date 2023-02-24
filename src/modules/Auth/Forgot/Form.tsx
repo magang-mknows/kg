@@ -2,6 +2,7 @@ import Button from "@/components/Common/Button";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
 import { useForgotPassword } from "@/hooks/Auth/useForgotPassword";
+import { AuthPayloadTypes } from "@/utilities/types/Auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, ReactElement } from "react";
 import { useForm } from "react-hook-form";
@@ -30,7 +31,7 @@ const ForgotPasswordForm: FC = (): ReactElement => {
 
   const { mutate, isLoading } = useForgotPassword();
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
     try {
       mutate(data, {
         onSuccess: () => {

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { DarkModeReturnTypes } from "./types";
 
-export default function useDarkMode() {
+export default function useDarkMode(): DarkModeReturnTypes {
   const [theme, setTheme] = useState("light");
   const colorTheme = theme === "light" ? "dark" : "light";
 
-  const handleThemeChange = () => {
+  const handleThemeChange = (): void => {
     const fetchedTheme = localStorage.getItem("theme") || "light";
     setTheme(fetchedTheme);
   };

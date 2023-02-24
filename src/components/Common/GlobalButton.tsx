@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, FC, ReactElement, ReactNode } from "react";
 import Link from "next/link";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: "cta" | "auth" | "scroll";

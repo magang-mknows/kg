@@ -3,6 +3,7 @@ import ControlledCheckboxField from "@/components/ControlledInputs/ControlledChe
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
 import { useLogin } from "@/hooks/Auth/useLogin";
+import { AuthPayloadTypes } from "@/utilities/types/Auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { FC, ReactElement } from "react";
@@ -34,7 +35,7 @@ const LoginForm: FC = (): ReactElement => {
 
   const { mutate, isLoading } = useLogin();
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
     try {
       mutate(data, {
         onSuccess: () => {

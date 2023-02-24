@@ -1,8 +1,6 @@
 import { FC, ReactElement } from "react";
-import { FaUserTie } from "react-icons/fa";
-import { FaBook } from "react-icons/fa";
+import { FaUniversity, FaBook, FaUserTie } from "react-icons/fa";
 import { BsAlarmFill } from "react-icons/bs";
-import { FaUniversity } from "react-icons/fa";
 import AboutLanding from "@/assets/about-landing.jpg";
 import Image from "next/image";
 import MainLayouts from "@/layouts/Main";

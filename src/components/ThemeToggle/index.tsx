@@ -23,7 +23,7 @@ const ThemeToggle: FC = (): ReactElement => {
   const { setTheme, colorTheme } = useDarkMode();
   const [darkSide, setDarkSide] = useState<boolean>(false);
 
-  const toggleDarkMode = () => {
+  const toggleDarkMode = (): void => {
     setDarkSide(!darkSide);
     setTheme(colorTheme);
     localStorage.setItem("theme", colorTheme);

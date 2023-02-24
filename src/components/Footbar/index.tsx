@@ -16,9 +16,8 @@ import useDarkMode from "@/hooks/Theme/useDarkMode";
 import ThemeToggle from "../ThemeToggle";
 
 const Footbar: FC = (): ReactElement => {
-  
   const { handleThemeChange, theme } = useDarkMode();
-  
+
   return (
     <footer
       className="
@@ -197,7 +196,9 @@ const Footbar: FC = (): ReactElement => {
           {/* Kontak */}
 
           <div className="text-start">
-            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">Kontak</h6>
+            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">
+              Kontak
+            </h6>
 
             <p className="mb-2 mt-8">
               <a className="text-gray-400 dark:text-white">Telp : </a>
@@ -212,7 +213,9 @@ const Footbar: FC = (): ReactElement => {
           {/* Alamat */}
 
           <div className="text-start">
-            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">Alamat</h6>
+            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">
+              Alamat
+            </h6>
 
             <p className="mb-2 mt-7">
               <a className="text-gray-400 dark:text-white">Utama : </a>
@@ -236,7 +239,8 @@ const Footbar: FC = (): ReactElement => {
         </div>
       </div>
 
-      <hr className="
+      <hr
+        className="
         mx-10
         mx-5 
         py-5 
@@ -244,7 +248,8 @@ const Footbar: FC = (): ReactElement => {
         md:mx-10
         md:py-2
         sm:mx-10
-        xs:mx-10" />
+        xs:mx-10"
+      />
 
       <div
         className="
@@ -269,10 +274,14 @@ const Footbar: FC = (): ReactElement => {
             xs:text-xs"
         >
           <div className="mr-4 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
-            <a href="" className="hover:text-blue-400">Terms of use</a>
+            <a href="" className="hover:text-blue-400">
+              Terms of use
+            </a>
           </div>
           <div className="mr-4 dark:text-gray-400">
-            <a href="" className="hover:text-blue-400">Privacy Policy</a>
+            <a href="" className="hover:text-blue-400">
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>
