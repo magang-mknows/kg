@@ -10,7 +10,7 @@ const FeatureDropdown: FC<NavbarProps> = ({ list }): ReactElement => {
   return (
     <Menu as="div" className={"relative inline-block text-left"}>
       <div>
-        <Menu.Button className="bg-[#F8F6F2]  group p-3 rounded-md shadow-sm ">
+        <Menu.Button className="bg-[#F8F6F2] dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E]  group p-3 rounded-md shadow-sm ">
           <BsGrid1X2Fill className="h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300" />
         </Menu.Button>
       </div>

@@ -57,7 +57,7 @@ const ThemeToggle: FC = (): ReactElement => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button>
-        <div className="bg-[#F8F6F2] dark:bg-gray-800 mt-2 group p-3 rounded-md shadow-sm ">
+        <div className="bg-[#F8F6F2] dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E] mt-2 group p-3 rounded-md shadow-sm ">
           <ErrorBoundary fallback={<>gaje</>}>
             <Suspense fallback="loading...">
               <Icon />
@@ -75,9 +75,9 @@ const ThemeToggle: FC = (): ReactElement => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E] right-0 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           {option.map((x, i) => (
-            <div key={i} className=" py-1 ">
+            <div key={i} className=" py-1  ">
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -88,11 +88,13 @@ const ThemeToggle: FC = (): ReactElement => {
                       })
                     }
                     className={`${
-                      active ? " bg-blue-200 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md text-sm gap-x-2 px-1 text-gray-400 dark:text-white`}
+                      active ? " bg-[#4FC9DA]  hover:text-white" : "text-[#968E7E] hover:text-white"
+                    } group flex w-full items-center rounded-md text-sm gap-x-2 px-1dark:text-white `}
                   >
                     {x.icon}
-                    <span className="text-base px-1 text-gray-400 dark:text-white">{x.text}</span>
+                    <span className="text-base px-3 text-gray-400 hover:text-white dark:text-[#968E7E]">
+                      {x.text}
+                    </span>
                   </button>
                 )}
               </Menu.Item>
