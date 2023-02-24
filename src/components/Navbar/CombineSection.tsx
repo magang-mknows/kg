@@ -17,7 +17,7 @@ const CombineSection: FC = () => {
   const router = useRouter();
   return (
     <>
-      <section className=" lg:px-20 md:px-10 px-5 py-4 border-b-2 border-gray-100 flex justify-between ">
+      <section className=" lg:px-20 md:px-10 items-center px-5 py-4 border-b-2 border-gray-100 flex justify-between ">
         {/* kg logo */}
         <Link href={"/"} passHref className="cursor-pointer">
           <Image
