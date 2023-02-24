@@ -3,7 +3,9 @@ import Link from "next/link";
 import { FC, Suspense } from "react";
 
 import NavDropdown from "../Common/FeatureDropdown";
-import ToggleDarkMode from "@/components/ThemeToggle";
+const ToggleDarkMode = dynamic(() => import("@/components/ThemeToggle/index"), {
+  ssr: false,
+});
 
 // image
 import logoKG from "@/assets/logokg.png";
@@ -12,6 +14,7 @@ import { BsPersonFill } from "react-icons/bs";
 import NotificationDropdown from "../Common/NotificationDropdown";
 import { featureList, navbarMenu, notifListDummy } from "@/utilities/constant";
 import NavMenu from "../Common/NavMenu";
+import dynamic from "next/dynamic";
 const CombineSection: FC = () => {
   return (
     <>
