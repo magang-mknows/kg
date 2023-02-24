@@ -1,8 +1,4 @@
-import { FC, ReactElement, useEffect, useCallback } from "react";
-import { AiFillHome } from "react-icons/ai";
-import { AiOutlineProfile } from "react-icons/ai";
-import { AiOutlineContacts } from "react-icons/ai";
-import Link from "next/link";
+import { FC, ReactElement } from "react";
 
 // img
 import logoKG from "@/assets/logokg.png";
@@ -12,11 +8,10 @@ import Facebook from "@/assets/facebook.png";
 import Tiktok from "@/assets/tiktok.png";
 import Linkedin from "@/assets/linkedin.png";
 import Image from "next/image";
-import useDarkMode from "@/hooks/Theme/useDarkMode";
-import ThemeToggle from "../ThemeToggle";
+import { useTheme } from "next-themes";
 
 const Footbar: FC = (): ReactElement => {
-  const { handleThemeChange, theme } = useDarkMode();
+  const { theme } = useTheme();
 
   return (
     <footer

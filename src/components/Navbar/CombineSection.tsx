@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import { FC, Suspense } from "react";
+import dynamic from "next/dynamic";
 
 import NavDropdown from "../Common/FeatureDropdown";
-import ToggleDarkMode from "@/components/ThemeToggle";
+const ToggleDarkMode = dynamic(() => import("@/components/ThemeToggle/index"), {
+  ssr: false,
+});
 
 // image
 import logoKG from "@/assets/logokg.png";
@@ -32,7 +35,9 @@ const CombineSection: FC = () => {
         <div className="flex gap-x-2 items-center justify-center">
           <MobileMenu list={navbarMenu} />
           <NavDropdown list={featureList} />
-          <ToggleDarkMode />
+          <Suspense fallback="loading..">
+            <ToggleDarkMode />
+          </Suspense>
           <NotificationDropdown list={notifListDummy} />
 
           <div className="bg-[#F8F6F2]  group p-3 rounded-md shadow-sm ">

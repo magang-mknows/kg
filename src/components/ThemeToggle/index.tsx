@@ -1,47 +1,71 @@
-import { FC, ReactElement, Fragment, useState, useEffect } from "react";
-import useDarkMode from "@/hooks/Theme/useDarkMode";
+import { FC, ReactElement, Fragment, useState, useEffect, Suspense } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { RiComputerLine } from "react-icons/ri";
+import { useTheme } from "next-themes";
+
+import { startTransition } from "react";
+
+import { ErrorBoundary } from "react-error-boundary";
+import dynamic from "next/dynamic";
+
+const Icon = dynamic(() => import("./icon"), {
+  ssr: false,
+});
 
 const ThemeToggle: FC = (): ReactElement => {
   const option = [
     {
       text: "Dark",
+      value: "dark",
       icon: <BsFillMoonStarsFill />,
     },
     {
       text: "Light",
+      value: "light",
       icon: <BsSunFill />,
     },
     {
       text: "Auto",
+      value: "system",
       icon: <RiComputerLine />,
     },
   ];
 
-  const { setTheme, colorTheme } = useDarkMode();
-  const [darkSide, setDarkSide] = useState<boolean>(false);
+  startTransition(() => {
+    // Transition: Show the results
+  });
+  const { setTheme } = useTheme();
 
-  const toggleDarkMode = (): void => {
-    setDarkSide(!darkSide);
-    setTheme(colorTheme);
-    localStorage.setItem("theme", colorTheme);
+  const changeTheme = (val: string): void => {
+    startTransition(() => {
+      // Transition: Show the results
+      setTheme(val);
+    });
   };
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
-    const fetchedTheme = localStorage.getItem("theme") || "light";
-    setTheme(fetchedTheme);
-    setDarkSide(fetchedTheme === "dark" ? true : false);
-  }, [setTheme, colorTheme]);
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <></>;
+  }
 
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button>
         <div className="bg-[#F8F6F2] dark:bg-gray-800 mt-2 group p-3 rounded-md shadow-sm ">
-          <BsFillMoonStarsFill className="h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300" />
+          <ErrorBoundary fallback={<>gaje</>}>
+            <Suspense fallback="loading...">
+              <Icon />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </Menu.Button>
+
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -57,7 +81,12 @@ const ThemeToggle: FC = (): ReactElement => {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={toggleDarkMode}
+                    onClick={() =>
+                      startTransition(() => {
+                        // Transition: Show the results
+                        changeTheme(x.value);
+                      })
+                    }
                     className={`${
                       active ? " bg-blue-200 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md text-sm gap-x-2 px-1 text-gray-400 dark:text-white`}
