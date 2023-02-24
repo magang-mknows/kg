@@ -69,7 +69,7 @@ const Footbar: FC = (): ReactElement => {
               className="
               flex 
               flex-row 
-              mt-4
+              my-4
               space-x-2"
             >
 
@@ -96,28 +96,28 @@ const Footbar: FC = (): ReactElement => {
           >
             <h6 className="mb-4 flex text-black text-2xl font-bold dark:text-white">Fitur</h6>
 
-            <p className="mb-2 mt-8  dark:text-gray-400">
+            <p className="mb-2 mt-8  dark:text-gray-400 xs:text-sm sm:text-md">
               <a href="#!" className="hover:text-blue-400">
                 Administrasi
               </a>
             </p>
-            <p className="mb-2 dark:text-gray-400">
+            <p className="mb-2 dark:text-gray-400 xs:text-sm sm:text-md">
               <a href="#!" className="hover:text-blue-400">
                 Rencana Studi
               </a>
             </p>
-            <p className="mb-2 dark:text-gray-400 ">
+            <p className="mb-2 dark:text-gray-400 xs:text-sm sm:text-md">
               <a href="#!" className="hover:text-blue-400">
                 Studiku
               </a>
             </p>
-            <p className="mb-2 dark:text-gray-400">
+            <p className="mb-2 dark:text-gray-400 xs:text-sm sm:text-md">
               <a href="#!" className="hover:text-blue-400">
                 Panduan
               </a>
             </p>
-            <p className="mb-2 dark:text-gray-400">
-              <a href="#!" className="hover:text-blue-400">
+            <p className="mb-2 dark:text-gray-400 xs:text-sm sm:text-md">
+              <a href="#!" className="hover:text-blue-400 ">
                 Sekilas Ilmu
               </a>
             </p>
@@ -126,17 +126,17 @@ const Footbar: FC = (): ReactElement => {
           {/* Kontak */}
 
           <div className="text-start">
-            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">
+            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white ">
               Kontak
             </h6>
 
             <p className="mb-2 mt-8">
-              <a className="text-gray-400 dark:text-white">Telp : </a>
-              <a className="dark:text-gray-400">0217209729 </a>
+              <a className="text-gray-400 dark:text-white xs:text-sm sm:text-md">Telp : </a>
+              <a className="dark:text-gray-400 xs:text-sm sm:text-md">0217209729 </a>
             </p>
             <p className="mb-2">
-              <a className="text-gray-400 dark:text-white">Email : </a>
-              <a className="dark:text-gray-400">learning@m-knowsconsulting.com </a>
+              <a className="text-gray-400 dark:text-white xs:text-sm sm:text-md">Email : </a>
+              <a className="dark:text-gray-400 xs:text-sm sm:text-md">learning@m-knowsconsulting.com </a>
             </p>
           </div>
 
@@ -148,22 +148,22 @@ const Footbar: FC = (): ReactElement => {
             </h6>
 
             <p className="mb-2 mt-7">
-              <a className="text-gray-400 dark:text-white">Utama : </a>
-              <a className="dark:text-gray-400 sm:text-xs">
+              <a className="text-gray-400 dark:text-white xs:text-sm sm:text-md">Utama : </a>
+              <a className="dark:text-gray-400 xs:text-sm sm:text-md">
                 Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
                 Khusus Ibukota Jakarta 12130{" "}
               </a>
             </p>
             <p className="mb-2">
-              <a className="text-gray-400 dark:text-white">Cabang : </a>
-              <a className="dark:text-gray-400">
+              <a className="text-gray-400 dark:text-white xs:text-sm sm:text-md">Cabang : </a>
+              <a className="dark:text-gray-400 xs:text-sm sm:text-md">
                 Jl. Raya Cirendeu No.59, Cireundeu, Kec. Ciputat Timur., Kota Tangerang Selatan,
                 Banten 15419
               </a>
             </p>
             <p className="mb-2">
-              <a className="text-gray-400 dark:text-white">Cabang : </a>
-              <a className="dark:text-gray-400">Jl. Raya Darmo Permai III Surabaya. 60119</a>
+              <a className="text-gray-400 dark:text-white xs:text-sm sm:text-md">Cabang : </a>
+              <a className="dark:text-gray-400 xs:text-sm sm:text-md">Jl. Raya Darmo Permai III Surabaya. 60119</a>
             </p>
           </div>
         </div>
@@ -195,15 +195,16 @@ const Footbar: FC = (): ReactElement => {
         xs:mx-10
         justify-between"
       >
-        <div className="dark:text-gray-400">2022 - www.kampusgratis.id - Hak Cipta Dilindungi.</div>
+        <div className="dark:text-gray-400 xs:text-sm sm:text-md xs:text-xs sm:my-2 xs:my-2">2022 - www.kampusgratis.id - Hak Cipta Dilindungi.</div>
         <div
           className="
             flex 
             justify-center 
             sm:space-x-2
-            xs:text-xs"
+            xs:text-xs
+            sm:my-2"
         >
-          <div className="px-2 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
+          <div className="px-2 hover:text-blue-400 dark:text-gray-400">
             <a href="" className="hover:text-blue-400">
               Terms of use
             </a>
