@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 
 export type DarkModeReturnTypes = {
-  setTheme: Dispatch<SetStateAction<string>>;
+  setTheme: (theme: string) => void;
   colorTheme: string;
-  theme: string;
+  theme?: string;
   handleThemeChange: VoidFunction;
 };

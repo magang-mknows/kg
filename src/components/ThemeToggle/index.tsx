@@ -1,45 +1,44 @@
 import { FC, ReactElement, Fragment, useState, useEffect } from "react";
-import useDarkMode from "@/hooks/Theme/useDarkMode";
 import { Menu, Transition } from "@headlessui/react";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { RiComputerLine } from "react-icons/ri";
+import { useTheme } from "next-themes";
 
 const ThemeToggle: FC = (): ReactElement => {
   const option = [
     {
       text: "Dark",
+      value: "dark",
       icon: <BsFillMoonStarsFill />,
     },
     {
       text: "Light",
+      value: "light",
       icon: <BsSunFill />,
     },
     {
       text: "Auto",
+      value: "system",
       icon: <RiComputerLine />,
     },
   ];
 
-  const { setTheme, colorTheme } = useDarkMode();
-  const [darkSide, setDarkSide] = useState<boolean>(false);
+  const { theme, setTheme } = useTheme();
 
-  const toggleDarkMode = (): void => {
-    setDarkSide(!darkSide);
-    setTheme(colorTheme);
-    localStorage.setItem("theme", colorTheme);
+  const changeTheme = (val: string): void => {
+    setTheme(val);
   };
 
-  useEffect(() => {
-    const fetchedTheme = localStorage.getItem("theme") || "light";
-    setTheme(fetchedTheme);
-    setDarkSide(fetchedTheme === "dark" ? true : false);
-  }, [setTheme, colorTheme]);
+  const classNameIcon =
+    "h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300";
 
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button>
         <div className="bg-[#F8F6F2] dark:bg-gray-800 mt-2 group p-3 rounded-md shadow-sm ">
-          <BsFillMoonStarsFill className="h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300" />
+          {theme === "dark" && <BsFillMoonStarsFill className={classNameIcon} />}
+          {theme === "light" && <BsSunFill className={classNameIcon} />}
+          {theme === "system" && <RiComputerLine className={classNameIcon} />}
         </div>
       </Menu.Button>
       <Transition
@@ -57,7 +56,7 @@ const ThemeToggle: FC = (): ReactElement => {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={toggleDarkMode}
+                    onClick={() => changeTheme(x.value)}
                     className={`${
                       active ? " bg-blue-200 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md text-sm gap-x-2 px-1 text-gray-400 dark:text-white`}
