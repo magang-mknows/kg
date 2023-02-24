@@ -86,92 +86,7 @@ const Footbar: FC = (): ReactElement => {
               />}
               >
               </GlobalButton>
-
-
-              {/* <button
-                className="
-                  bg-white
-                  hover:bg-red
-                  rounded-md
-                  w-8
-                  h-8
-                  "
-              >
-                <a href="https://instagram.com/kampus.gratis" target="blank">
-                  <Image
-                    className="
-                      w-4
-                      h-4 
-                      ml-2"
-                    src={Instagram}
-                    alt="Instagram"
-                  />
-                </a>
-              </button> */}
-
-              <button
-                className="
-                  bg-white
-                  hover:bg-red
-                  rounded-md
-                  w-8
-                  h-8
-                  "
-              >
-                <a href="https://www.facebook.com/learningkampusgratis/" target="blank">
-                  <Image
-                    className="
-                      w-2
-                      h-4 
-                      ml-3"
-                    src={Facebook}
-                    alt="facebook"
-                  />
-                </a>
-              </button>
-
-              <button
-                className="
-                  bg-white
-                  hover:bg-red
-                  rounded-md
-                  w-8
-                  h-8
-                  "
-              >
-                <a href="https://www.tiktok.com/@kampusgratis_" target="blank">
-                  <Image
-                    className="
-                      w-6
-                      h-4 
-                      ml-1"
-                    src={Tiktok}
-                    alt="titkok"
-                  />
-                </a>
-              </button>
-
-              <button
-                className="
-                  bg-white
-                  hover:bg-red
-                  rounded-md
-                  w-8
-                  h-8
-                  "
-              >
-                <a href="https://www.linkedin.com/in/kampusgratis/" target="blank">
-                  <Image
-                    className="
-                      w-3
-                      h-3 
-                      ml-2.5"
-                    src={Linkedin}
-                    alt="linkedin"
-                  />
-                </a>
-              </button>
-            </div>
+              </div>
           </div>
 
           {/* Fitur */}
@@ -234,7 +149,7 @@ const Footbar: FC = (): ReactElement => {
 
             <p className="mb-2 mt-7">
               <a className="text-gray-400 dark:text-white">Utama : </a>
-              <a className="dark:text-gray-400">
+              <a className="dark:text-gray-400 sm:text-xs">
                 Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
                 Khusus Ibukota Jakarta 12130{" "}
               </a>
@@ -288,12 +203,15 @@ const Footbar: FC = (): ReactElement => {
             sm:space-x-2
             xs:text-xs"
         >
-          <div className="mr-4 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
+          <div className="px-2 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
             <a href="" className="hover:text-blue-400">
               Terms of use
             </a>
           </div>
-          <div className="mr-4 dark:text-gray-400">
+          <div className="px-[-1em]">
+            •
+          </div>
+          <div className="px-2 dark:text-gray-400">
             <a href="" className="hover:text-blue-400">
               Privacy Policy
             </a>
