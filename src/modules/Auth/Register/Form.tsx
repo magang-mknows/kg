@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegister } from "@/hooks/Auth/useRegister";
+import { AuthPayloadTypes } from "@/utilities/types/Auth";
 
 const RegisterForm: FC = (): ReactElement => {
   const validationSchema = z
@@ -46,7 +47,7 @@ const RegisterForm: FC = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
     try {
       mutate(data, {
         onError: (err) => {

@@ -1,11 +1,16 @@
 import AuthService from "@/services/Auth";
 import { AuthPayloadTypes } from "@/utilities/types/Auth";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, UseMutationResult } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-export const useForgotPassword = () => {
+export const useForgotPassword = (): UseMutationResult<
+  unknown,
+  unknown,
+  AuthPayloadTypes,
+  unknown
+> => {
   const router = useRouter();
   return useMutation({
     mutationKey: ["auth-forgot-password"],

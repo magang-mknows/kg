@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { WindowScrollReturnTypes } from "./types";
 
-export default function useWindowScroll() {
+export default function useWindowScroll(): WindowScrollReturnTypes {
   const [isScrollY, setScrollY] = useState<boolean>(false);
-  const handleScroll = () => {
+  const handleScroll = (): void => {
     window.scrollY < 100 ? setScrollY(false) : setScrollY(true);
   };
 

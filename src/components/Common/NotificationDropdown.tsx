@@ -1,6 +1,5 @@
 import { Fragment, FC, ReactElement } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { BsGrid1X2Fill } from "react-icons/bs";
 
 // font
 import { Roboto } from "@next/font/google";
@@ -37,12 +36,14 @@ const NotificationDropdown: FC<NavbarDropdownProps> = ({ list }): ReactElement =
           {list.map((item) => (
             /* Use the `active` state to conditionally style the active item. */
             <Menu.Item as={Fragment} key={item.link}>
-              {({ active }) => (
+              {() => (
                 <div className="flex justify-between py-3 px-6">
                   <Link
                     href={item.link}
                     passHref
-                    className={`flex items-center  hover:text-cyan-600 transition-colors ease-in-out duration-300 text-sm text-slate-800  `}
+                    className={
+                      "flex items-center  hover:text-cyan-600 transition-colors ease-in-out duration-300 text-sm text-slate-800"
+                    }
                   >
                     {item.name}
                   </Link>

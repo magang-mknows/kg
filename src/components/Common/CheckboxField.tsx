@@ -1,4 +1,4 @@
-import { FC, forwardRef, Fragment, ReactElement, Ref } from "react";
+import { FC, forwardRef, ReactElement, Ref } from "react";
 import { CheckboxFieldProps } from "./types";
 
 const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
