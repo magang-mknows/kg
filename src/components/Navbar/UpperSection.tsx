@@ -23,7 +23,7 @@ const UpperSection: FC = () => {
   return (
     <>
       <section className=" lg:px-20 md:px-10 px-5 py-4 border-b-[0.2px] dark:border-[#1B1B29] border-gray-100 flex justify-between items-center dark:bg-[#161514]">
-        {/* kg logo */}
+        {/* kg logo's*/}
         <Link href={"/"} passHref className="cursor-pointer">
           <Image
             src={systemTheme === "light" ? logoKG : theme === "dark" ? logoKGDark : logoKG}
