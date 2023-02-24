@@ -4,13 +4,13 @@ import { Menu, Transition } from "@headlessui/react";
 // font
 import { Roboto } from "@next/font/google";
 import Link from "next/link";
-import { NavbarDropdownProps } from "./types";
+import { NavbarProps } from "./types";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: "500",
 });
 
-const NotificationDropdown: FC<NavbarDropdownProps> = ({ list }): ReactElement => {
+const NotificationDropdown: FC<NavbarProps> = ({ list }): ReactElement => {
   return (
     <Menu as="div" className={`relative inline-block text-left ${roboto.className}`}>
       <div>

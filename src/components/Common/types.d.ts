@@ -50,7 +50,7 @@ export type DropdownProps = {
   }>;
 };
 
-export type NavbarDropdownProps = {
+export type NavbarProps = {
   list: {
     name?: string;
     link: string;
