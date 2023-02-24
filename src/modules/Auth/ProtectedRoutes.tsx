@@ -1,10 +1,10 @@
 import ApiService from "@/services/Api";
 import { AuthenticatedStatus } from "@/stores/Auth";
 import { useRouter } from "next/router";
-import { ReactNode, useEffect } from "react";
+import { ReactElement, ReactNode, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 
-const ProtectedRoutes = ({ children }: { children: ReactNode }) => {
+const ProtectedRoutes = ({ children }: { children: ReactNode }): ReactElement => {
   const router = useRouter();
   const isAuth = useRecoilValue(AuthenticatedStatus);
 

@@ -1,27 +1,21 @@
+import { ReactElement } from "react";
 import { Control, Controller } from "react-hook-form";
 import CheckboxField from "../Common/CheckboxField";
 import { CheckboxFieldProps } from "../Common/types";
 
 type ControlledCheckboxFieldProps<T> = CheckboxFieldProps & {
-  label: string;
   control: Control<any, T>;
   options?: { label: string; value: string | number | boolean }[];
   name: string;
-  mode?: "multiple" | "tags";
   required?: boolean;
-  hasDelete?: boolean;
-  onDelete?(): void;
 };
 
 const ControlledCheckboxField = <T,>({
   label,
   control,
   name,
-  options,
-  hasDelete,
-  onDelete,
   ...rest
-}: ControlledCheckboxFieldProps<T>) => {
+}: ControlledCheckboxFieldProps<T>): ReactElement => {
   return (
     <Controller
       control={control}

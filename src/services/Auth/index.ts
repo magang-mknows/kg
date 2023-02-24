@@ -1,5 +1,6 @@
 import ApiService from "@/services/Api";
 import TokenService from "@/services/Token";
+import { handleError } from "@/utilities/helper";
 import { AuthPayloadTypes } from "@/utilities/types/Auth";
 
 const AuthService = {
@@ -23,7 +24,7 @@ const AuthService = {
       ApiService.setHeader();
       return res.data;
     } catch (error) {
-      throw error;
+      throw handleError(error);
     }
   },
 
@@ -35,18 +36,43 @@ const AuthService = {
   },
 
   Register: async (payload: AuthPayloadTypes) => {
+    const { email, password, fullname } = payload;
     const requestData = {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      data: payload,
+      data: {
+        email,
+        password,
+        fullname,
+      },
       url: "/auth/register",
     };
     try {
       await ApiService.customRequest(requestData);
     } catch (error) {
-      throw error;
+      throw handleError(error);
+    }
+  },
+
+  ForgotPassword: async (payload: AuthPayloadTypes) => {
+    const { email } = payload;
+    const requestData = {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      data: {
+        email,
+      },
+      url: "/auth/forgot-password",
+    };
+    try {
+      const res = await ApiService.customRequest(requestData);
+      return res.data;
+    } catch (error) {
+      throw handleError(error);
     }
   },
 
@@ -66,7 +92,7 @@ const AuthService = {
       ApiService.setHeader();
       return response.data;
     } catch (error) {
-      throw error;
+      throw handleError(error);
     }
   },
 };

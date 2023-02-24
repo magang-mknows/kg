@@ -1,6 +1,7 @@
 import { Control, Controller } from "react-hook-form";
 import TextField from "@/components/Common/TextField";
 import { TextFieldProps } from "../Common/types";
+import { ReactElement } from "react";
 
 type ControlledTextInputProps<T> = TextFieldProps & {
   type?: string;
@@ -20,19 +21,20 @@ const ControlledTextField = <T,>({
   placeholder,
   name,
   disabled,
-  hasButton,
-  labelButton,
+  required,
   value,
   ...rest
-}: ControlledTextInputProps<T>) => {
+}: ControlledTextInputProps<T>): ReactElement => {
   return (
     <Controller
       control={control}
       name={name}
+      rules={{ required }}
       render={({ field, fieldState: { error } }) => (
         <TextField
           {...field}
           {...rest}
+          ref={field.ref}
           label={label}
           type={type}
           placeholder={placeholder}

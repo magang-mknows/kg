@@ -1,3 +1,4 @@
 yarn tsc --noEmit 
 yarn eslint --fix . 
 yarn prettier --write .
+yarn build

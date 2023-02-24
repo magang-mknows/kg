@@ -1,17 +1,11 @@
-import {
-  ChangeEventHandler,
-  ForwardedRef,
-  HTMLInputTypeAttribute,
-  ReactNode,
-  RefObject,
-} from "react";
+import { ChangeEventHandler, HTMLInputTypeAttribute, ReactNode, RefObject } from "react";
 
 export interface TextFieldProps {
   type: HTMLInputTypeAttribute;
   label: string;
   name: string;
   placeholder: string;
-  required: boolean;
+  required?: boolean;
   disabled?: boolean;
   error?: string;
   value?: string;
@@ -32,10 +26,10 @@ export interface SelectFieldProps {
   className?: string;
   labelClassName?: string;
   error?: string;
-  onChange: ChangeEventHandler<HTMLSelectElement>;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
   value: string;
   name: string;
-  label: string;
+  label: string | ReactNode;
   defaultValue: string;
   required?: boolean;
   disabled?: boolean;
@@ -56,6 +50,14 @@ export type DropdownProps = {
   }>;
 };
 
+export type NavbarProps = {
+  list: {
+    name?: string;
+    link: string;
+    time?: string;
+  }[];
+};
+
 export interface RadioButtonsProps {
   id?: string;
   value: string;
@@ -71,14 +73,15 @@ export interface CheckboxFieldProps {
   className?: string;
   labelClassName?: string;
   name: string;
-  value: string;
-  placeholder: string;
+  value?: string;
+  placeholder?: string;
   required: boolean;
-  label: string;
-  checked: boolean;
+
+  label?: string;
+  checked?: boolean;
   error?: string;
   disabled?: boolean;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export interface CardProps {

@@ -5,20 +5,18 @@ import { AiOutlineContacts } from "react-icons/ai";
 import Link from "next/link";
 
 // img
-import logoKG from "@/assets/logokg.png";
-import logoKGDark from "@/assets/logokg-dark.png";
 import Instagram from "@/assets/Instagram.png";
 import Facebook from "@/assets/facebook.png";
 import Tiktok from "@/assets/tiktok.png";
 import Linkedin from "@/assets/linkedin.png";
 import Image from "next/image";
 import useDarkMode from "@/hooks/Theme/useDarkMode";
-import ThemeToggle from "../ThemeToggle";
 
 import { LoadConditionalLogo } from "@/utilities/helper";
+import GlobalButton from "../Common/GlobalButton";
 
 const Footbar: FC = (): ReactElement => {
-  
+
   return (
     <footer
       className="
@@ -74,7 +72,23 @@ const Footbar: FC = (): ReactElement => {
               mt-4
               space-x-2"
             >
-              <button
+
+            <GlobalButton
+              buttonType = "auth"
+              size="small"
+              className = ""
+              page = "/"
+              color = "white"
+              icon={<Image
+              className="w-4 h-4"
+                src={Instagram}
+                alt="Instagram"
+              />}
+              >
+              </GlobalButton>
+
+
+              {/* <button
                 className="
                   bg-white
                   hover:bg-red
@@ -93,7 +107,7 @@ const Footbar: FC = (): ReactElement => {
                     alt="Instagram"
                   />
                 </a>
-              </button>
+              </button> */}
 
               <button
                 className="
@@ -197,7 +211,9 @@ const Footbar: FC = (): ReactElement => {
           {/* Kontak */}
 
           <div className="text-start">
-            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">Kontak</h6>
+            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">
+              Kontak
+            </h6>
 
             <p className="mb-2 mt-8">
               <a className="text-gray-400 dark:text-white">Telp : </a>
@@ -212,7 +228,9 @@ const Footbar: FC = (): ReactElement => {
           {/* Alamat */}
 
           <div className="text-start">
-            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">Alamat</h6>
+            <h6 className="mb-4 flex text-black text-2xl font-bold md:justify-start dark:text-white">
+              Alamat
+            </h6>
 
             <p className="mb-2 mt-7">
               <a className="text-gray-400 dark:text-white">Utama : </a>
@@ -236,7 +254,8 @@ const Footbar: FC = (): ReactElement => {
         </div>
       </div>
 
-      <hr className="
+      <hr
+        className="
         mx-10
         mx-5 
         py-5 
@@ -244,7 +263,8 @@ const Footbar: FC = (): ReactElement => {
         md:mx-10
         md:py-2
         sm:mx-10
-        xs:mx-10" />
+        xs:mx-10"
+      />
 
       <div
         className="
@@ -269,10 +289,14 @@ const Footbar: FC = (): ReactElement => {
             xs:text-xs"
         >
           <div className="mr-4 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
-            <a href="" className="hover:text-blue-400">Terms of use</a>
+            <a href="" className="hover:text-blue-400">
+              Terms of use
+            </a>
           </div>
           <div className="mr-4 dark:text-gray-400">
-            <a href="" className="hover:text-blue-400">Privacy Policy</a>
+            <a href="" className="hover:text-blue-400">
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>
