@@ -1,22 +1,22 @@
 import { FC, ReactElement, Fragment, useState, useEffect } from "react";
 import useDarkMode from "@/hooks/Theme/useDarkMode";
 import { Menu, Transition } from "@headlessui/react";
-import { BsSun, BsMoon } from "react-icons/bs";
-import { BiAdjust } from "react-icons/bi";
+import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
+import { RiComputerLine } from "react-icons/ri";
 
 const ThemeToggle: FC = (): ReactElement => {
   const option = [
     {
       text: "Dark",
-      icon: <BsMoon />,
+      icon: <BsFillMoonStarsFill />,
     },
     {
       text: "Light",
-      icon: <BsSun />,
+      icon: <BsSunFill />,
     },
     {
       text: "Auto",
-      icon: <BiAdjust />,
+      icon: <RiComputerLine />,
     },
   ];
 
@@ -37,9 +37,9 @@ const ThemeToggle: FC = (): ReactElement => {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button className="flex text-sm bg-gray-600 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ">
-        <div className="text-3xl">
-          <BiAdjust size={20} />
+      <Menu.Button>
+        <div className="bg-[#F8F6F2] dark:bg-gray-800 mt-2 group p-3 rounded-md shadow-sm ">
+          <BsFillMoonStarsFill className="h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300" />
         </div>
       </Menu.Button>
       <Transition
@@ -51,7 +51,7 @@ const ThemeToggle: FC = (): ReactElement => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0  mt-2 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white dark:bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           {option.map((x, i) => (
             <div key={i} className=" py-1 ">
               <Menu.Item>
