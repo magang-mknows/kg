@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC, Suspense } from "react";
+import dynamic from "next/dynamic";
 
 import NavDropdown from "../Common/FeatureDropdown";
 const ToggleDarkMode = dynamic(() => import("@/components/ThemeToggle/index"), {
@@ -14,7 +15,6 @@ import { BsPersonFill } from "react-icons/bs";
 import NotificationDropdown from "../Common/NotificationDropdown";
 import { featureList, navbarMenu, notifListDummy } from "@/utilities/constant";
 import NavMenu from "../Common/NavMenu";
-import dynamic from "next/dynamic";
 const CombineSection: FC = () => {
   return (
     <>

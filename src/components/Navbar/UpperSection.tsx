@@ -1,7 +1,8 @@
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC, Suspense } from "react";
+import { FC, Suspense } from "react";
+import dynamic from "next/dynamic";
 
 import NavDropdown from "../Common/FeatureDropdown";
 const ToggleDarkMode = dynamic(() => import("@/components/ThemeToggle/index"), {
@@ -14,7 +15,6 @@ import MobileMenu from "../Common/MobileMenu";
 import { BsPersonFill } from "react-icons/bs";
 import NotificationDropdown from "../Common/NotificationDropdown";
 import { featureList, navbarMenu, notifListDummy } from "@/utilities/constant";
-import dynamic from "next/dynamic";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
