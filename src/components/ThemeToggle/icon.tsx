@@ -24,11 +24,11 @@ const Icon: FC = (): ReactElement => {
     <ErrorBoundary fallback={<>Error</>}>
       <Suspense fallback="loading gays...">
         {theme === "dark" ? (
-          <BsFillMoonStarsFill />
+          <BsFillMoonStarsFill className="dark:text-[#817d73] text-[#968E7E]" />
         ) : theme === "light" ? (
-          <BsSunFill />
+          <BsSunFill className="dark:text-[#817d73] text-[#968E7E]" />
         ) : (
-          <RiComputerLine />
+          <RiComputerLine className="dark:text-[#817d73] text-[#968E7E]" />
         )}
       </Suspense>
     </ErrorBoundary>
