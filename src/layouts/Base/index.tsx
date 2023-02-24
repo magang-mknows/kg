@@ -7,9 +7,9 @@ const BaseLayouts: FC<BaseLayoutTypes> = ({ children }): ReactElement => {
   return (
     <Fragment>
       <Navbar />
-      <section className="flex flex-col h-screen justify-center bg-white dark:bg-gray-900  items-center max-w-screen">
+      <main className="flex flex-col min-h-screen justify-center bg-white dark:bg-gray-900  items-center max-w-screen">
         {children}
-      </section>
+      </main>
       <Footbar />
     </Fragment>
   );
