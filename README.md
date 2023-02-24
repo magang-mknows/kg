@@ -30,6 +30,8 @@ Visual Studio Code
 - Stylelint
 - TailwindCSS Intelesense
 - Prettier
+- Error Lens
+- ESLint
 
 ## Initial Setup
 
