@@ -4,9 +4,9 @@ import { BsGrid1X2Fill } from "react-icons/bs";
 
 // font
 import Link from "next/link";
-import { NavbarDropdownProps } from "./types";
+import { NavbarProps } from "./types";
 
-const FeatureDropdown: FC<NavbarDropdownProps> = ({ list }): ReactElement => {
+const FeatureDropdown: FC<NavbarProps> = ({ list }): ReactElement => {
   return (
     <Menu as="div" className={"relative inline-block text-left"}>
       <div>

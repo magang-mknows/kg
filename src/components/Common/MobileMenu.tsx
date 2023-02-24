@@ -30,7 +30,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
       </button>
 
       <div
-        className={`absolute top-16 lg:top-24 ${isScrollY ? "mt-5" : "mt-8"} ${
+        className={`absolute top-24 lg:top-24 ${isScrollY ? "-mt-2.5" : "mt-1"} ${
           !isShow ? "right-[100%]" : "right-0"
         } transition-all ease-in-out duration-500 w-full  bg-[#ffffff] origin-top`}
       >
@@ -42,9 +42,9 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
                 passHref
                 className={`  ${
                   router.pathname.includes(item.link)
-                    ? "text-[#968E7E]"
-                    : " hover:text-[#1d71ef]   cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-500 text-base"
-                }md:px-14 px-10 `}
+                    ? "text-slate-900 "
+                    : " hover:text-gray-900  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-400 text-base"
+                } md:px-14 px-10 `}
               >
                 {item.name}
               </Link>

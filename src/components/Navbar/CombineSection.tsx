@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
 
-import { useRouter } from "next/router";
-
 import NavDropdown from "../Common/FeatureDropdown";
 import ToggleDarkMode from "@/components/ThemeToggle";
 
@@ -13,8 +11,8 @@ import MobileMenu from "../Common/MobileMenu";
 import { BsPersonFill } from "react-icons/bs";
 import NotificationDropdown from "../Common/NotificationDropdown";
 import { featureList, navbarMenu, notifListDummy } from "@/utilities/constant";
+import NavMenu from "../Common/NavMenu";
 const CombineSection: FC = () => {
-  const router = useRouter();
   return (
     <>
       <section className=" lg:px-20 md:px-10 items-center px-5 py-4 border-b-2 border-gray-100 flex justify-between ">
@@ -28,22 +26,7 @@ const CombineSection: FC = () => {
         </Link>
         <div className="hidden lg:block">
           <ul className=" flex gap-x-4">
-            {navbarMenu.map((menu, index) => {
-              return (
-                <Link
-                  href={menu.link}
-                  passHref
-                  key={index}
-                  className={`${
-                    router.pathname.includes(menu.link)
-                      ? "bg-[#F8F6F2] text-gray-800 rounded-lg shadow-sm"
-                      : "  hover:text-gray-800  text-[#968E7E] "
-                  } px-5 py-2.5  text-base cursor-pointer transition-colors duration-300 ease-in-out font-medium`}
-                >
-                  <li>{menu.name}</li>
-                </Link>
-              );
-            })}
+            <NavMenu list={navbarMenu} />
           </ul>
         </div>
         <div className="flex gap-x-2 items-center justify-center">
