@@ -1,4 +1,4 @@
-import { Control, Controller } from "react-hook-form";
+import { Control, Controller, FieldValues } from "react-hook-form";
 import TextField from "@/components/Common/TextField";
 import { TextFieldProps } from "../Common/types";
 import { ReactElement } from "react";
@@ -7,7 +7,7 @@ type ControlledTextInputProps<T> = TextFieldProps & {
   type?: string;
   placeholder?: string;
   label: string;
-  control: Control<any, T>;
+  control: Control<FieldValues, T>;
   name: string;
   hasButton?: boolean;
   labelButton?: string;

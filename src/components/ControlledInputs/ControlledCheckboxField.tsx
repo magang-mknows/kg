@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
-import { Control, Controller } from "react-hook-form";
+import { Control, Controller, FieldValues } from "react-hook-form";
 import CheckboxField from "../Common/CheckboxField";
 import { CheckboxFieldProps } from "../Common/types";
 
 type ControlledCheckboxFieldProps<T> = CheckboxFieldProps & {
-  control: Control<any, T>;
+  control: Control<FieldValues, T>;
   options?: { label: string; value: string | number | boolean }[];
   name: string;
   required?: boolean;

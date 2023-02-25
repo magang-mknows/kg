@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { publicRoutes } from "@/utilities/constant";
 import { ReactElement, Suspense } from "react";
 import { ThemeProvider } from "next-themes";
+import { ErrorBoundary } from "react-error-boundary";
 
 const queryClient = new QueryClient();
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
@@ -20,19 +21,23 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         {publicRoutes.includes(router.pathname) ? (
-          <Suspense fallback="loading...">
-            <ThemeProvider attribute="class" enableSystem={true}>
-              <Component {...pageProps} />
-            </ThemeProvider>
-          </Suspense>
-        ) : (
-          <Suspense fallback="loading...">
-            <ThemeProvider attribute="class" enableSystem={true}>
-              <ProtectedRoutes>
+          <ErrorBoundary fallback={<>Error was happen</>}>
+            <Suspense fallback="loading...">
+              <ThemeProvider attribute="class" enableSystem={true}>
                 <Component {...pageProps} />
-              </ProtectedRoutes>
-            </ThemeProvider>
-          </Suspense>
+              </ThemeProvider>
+            </Suspense>
+          </ErrorBoundary>
+        ) : (
+          <ErrorBoundary fallback={<>Error was happen</>}>
+            <Suspense fallback="loading...">
+              <ThemeProvider attribute="class" enableSystem={true}>
+                <ProtectedRoutes>
+                  <Component {...pageProps} />
+                </ProtectedRoutes>
+              </ThemeProvider>
+            </Suspense>
+          </ErrorBoundary>
         )}
       </RecoilRoot>
     </QueryClientProvider>
