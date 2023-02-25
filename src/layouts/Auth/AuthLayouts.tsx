@@ -15,7 +15,7 @@ const AuthLayouts: FC<AuthLayoutTypes> = ({
   return (
     <section className="bg-gray-50 w-full flex items-center h-screen dark:bg-gray-900">
       <div className="flex w-full flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="w-full gap-x-8 justify-between md:max-w-[70%] flex bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full md:w-2/3 gap-x-8 justify-between flex bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 hidden lg:block w-full">
             <Image src={`${img}`} width={600} height={600} quality="100" alt="auth-image" />
           </div>

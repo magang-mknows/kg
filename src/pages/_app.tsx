@@ -10,6 +10,9 @@ import { publicRoutes } from "@/utilities/constant";
 import { ReactElement, Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 import { ErrorBoundary } from "react-error-boundary";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const queryClient = new QueryClient();
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
@@ -19,6 +22,11 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
   const router = useRouter();
   return (
     <QueryClientProvider client={queryClient}>
+      <style jsx global>{`
+        html {
+          font-family: ${inter.style.fontFamily};
+        }
+      `}</style>
       <RecoilRoot>
         {publicRoutes.includes(router.pathname) ? (
           <ErrorBoundary fallback={<>Error was happen</>}>
