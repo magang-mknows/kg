@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement } from "react";
-import { Control, Controller, FieldValues } from "react-hook-form";
+import { Control, Controller } from "react-hook-form";
 import CheckboxField from "../Common/CheckboxField";
 import { CheckboxFieldProps } from "../Common/types";
 
 type ControlledCheckboxFieldProps<T> = CheckboxFieldProps & {
-  control: Control<FieldValues, T>;
+  control: Control<any, T>;
   options?: { label: string; value: string | number | boolean }[];
   name: string;
   required?: boolean;

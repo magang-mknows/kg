@@ -1,4 +1,5 @@
-import { Control, Controller, FieldValues } from "react-hook-form";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Control, Controller } from "react-hook-form";
 import TextField from "@/components/Common/TextField";
 import { TextFieldProps } from "../Common/types";
 import { ReactElement } from "react";
@@ -7,7 +8,7 @@ type ControlledTextInputProps<T> = TextFieldProps & {
   type?: string;
   placeholder?: string;
   label: string;
-  control: Control<FieldValues, T>;
+  control: Control<any, T>;
   name: string;
   hasButton?: boolean;
   labelButton?: string;
