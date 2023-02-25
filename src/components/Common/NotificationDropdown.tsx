@@ -2,7 +2,7 @@ import { Fragment, FC, ReactElement } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 // font
-import { Roboto } from "@next/font/google";
+import { Roboto } from "next/font/google";
 import Link from "next/link";
 import { NavbarProps } from "./types";
 const roboto = Roboto({
