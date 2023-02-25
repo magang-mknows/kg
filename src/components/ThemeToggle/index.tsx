@@ -1,10 +1,8 @@
-import { FC, ReactElement, Fragment, useState, useEffect, Suspense } from "react";
+import { FC, ReactElement, Fragment, useState, useEffect, Suspense, startTransition } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { RiComputerLine } from "react-icons/ri";
 import { useTheme } from "next-themes";
-
-import { startTransition } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 import dynamic from "next/dynamic";
@@ -32,9 +30,6 @@ const ThemeToggle: FC = (): ReactElement => {
     },
   ];
 
-  startTransition(() => {
-    // Transition: Show the results
-  });
   const { setTheme } = useTheme();
 
   const changeTheme = (val: string): void => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement } from "react";
 import { Control, Controller } from "react-hook-form";
 import SelectField from "../Common/SelectField";

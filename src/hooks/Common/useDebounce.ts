@@ -17,7 +17,7 @@ import { useEffect, useCallback, DependencyList } from "react";
  */
 
 export default function useDebounce(
-  effect: any,
+  effect: VoidFunction,
   dependencies: DependencyList,
   delay: number,
 ): void {

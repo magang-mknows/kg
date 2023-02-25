@@ -9,6 +9,7 @@ export const LoadConditionalLogo = (): StaticImageData => {
   return theme?.toLocaleLowerCase() === "dark" ? LogoDark : LogoNormal;
 };
 
-export const handleError = (error: any): ErrorComplete => {
-  return error.response.data.message;
+export const handleError = (error: unknown): string | string[] => {
+  const err = error as ErrorComplete;
+  return err.response.data.message;
 };

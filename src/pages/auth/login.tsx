@@ -1,7 +1,9 @@
 import AuthLayouts from "@/layouts/Auth/AuthLayouts";
 import { NextPage } from "next";
-import { ReactElement } from "react";
-import LoginForm from "@/modules/Auth/Login/Form";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+const LoginForm = lazy(() => import("@/modules/Auth/Login/Form"));
 
 const Login: NextPage = (): ReactElement => {
   return (
@@ -11,7 +13,11 @@ const Login: NextPage = (): ReactElement => {
       title="Selamat Datang"
       description="Belum punya akun?"
     >
-      <LoginForm />
+      <ErrorBoundary fallback={<>Error was Happen</>}>
+        <Suspense fallback={<>Loading...</>}>
+          <LoginForm />
+        </Suspense>
+      </ErrorBoundary>
     </AuthLayouts>
   );
 };
