@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Hydrate, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RecoilEnv, RecoilRoot } from "recoil";
 import ApiService from "@/services/Api";
 import ProtectedRoutes from "@/modules/Auth/ProtectedRoutes";
@@ -28,25 +28,27 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
         }
       `}</style>
       <RecoilRoot>
-        {publicRoutes.includes(router.pathname) ? (
-          <ErrorBoundary fallback={<>Error was happen</>}>
-            <Suspense fallback="loading...">
-              <ThemeProvider attribute="class" enableSystem={true}>
-                <Component {...pageProps} />
-              </ThemeProvider>
-            </Suspense>
-          </ErrorBoundary>
-        ) : (
-          <ErrorBoundary fallback={<>Error was happen</>}>
-            <Suspense fallback="loading...">
-              <ThemeProvider attribute="class" enableSystem={true}>
-                <ProtectedRoutes>
+        <Hydrate state={pageProps.dehydratedState}>
+          {publicRoutes.includes(router.pathname) ? (
+            <ErrorBoundary fallback={<>Error was happen</>}>
+              <Suspense fallback="loading...">
+                <ThemeProvider attribute="class" enableSystem={true}>
                   <Component {...pageProps} />
-                </ProtectedRoutes>
-              </ThemeProvider>
-            </Suspense>
-          </ErrorBoundary>
-        )}
+                </ThemeProvider>
+              </Suspense>
+            </ErrorBoundary>
+          ) : (
+            <ErrorBoundary fallback={<>Error was happen</>}>
+              <Suspense fallback="loading...">
+                <ThemeProvider attribute="class" enableSystem={true}>
+                  <ProtectedRoutes>
+                    <Component {...pageProps} />
+                  </ProtectedRoutes>
+                </ThemeProvider>
+              </Suspense>
+            </ErrorBoundary>
+          )}
+        </Hydrate>
       </RecoilRoot>
     </QueryClientProvider>
   );
