@@ -26,7 +26,7 @@ const UpperSection: FC = () => {
         {/* kg logo's*/}
         <Link href={"/"} passHref className="cursor-pointer">
           <Image
-            src={theme === "light" ? logoKG : systemTheme === "light" ? logoKG : logoKGDark}
+            src={theme === "light" ? logoKG : systemTheme === "dark" ? logoKGDark : logoKG}
             alt="Kampus Gratis Logo's"
             className="transition-all opacity-100 ease-in-out duration-200 w-[5em] md:w-[7em] lg:w-[8em] "
           />
