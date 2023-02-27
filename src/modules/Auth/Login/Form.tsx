@@ -15,7 +15,7 @@ const LoginForm: FC = (): ReactElement => {
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
     }),
-    password: z.string().min(6, { message: "Password setidaknya harus 6 karakter" }),
+    password: z.string().min(1, { message: "Password harus diisi" }),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;

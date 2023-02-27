@@ -7,9 +7,8 @@ import ProtectedRoutes from "@/modules/Auth/ProtectedRoutes";
 import configs from "@/configs";
 import { useRouter } from "next/router";
 import { publicRoutes } from "@/utilities/constant";
-import { ReactElement, Suspense } from "react";
+import { ReactElement } from "react";
 import { ThemeProvider } from "next-themes";
-import { ErrorBoundary } from "react-error-boundary";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,23 +29,15 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       <RecoilRoot>
         <Hydrate state={pageProps.dehydratedState}>
           {publicRoutes.includes(router.pathname) ? (
-            <ErrorBoundary fallback={<>Error was happen</>}>
-              <Suspense fallback="loading...">
-                <ThemeProvider attribute="class" enableSystem={true}>
-                  <Component {...pageProps} />
-                </ThemeProvider>
-              </Suspense>
-            </ErrorBoundary>
+            <ThemeProvider attribute="class" enableSystem={true}>
+              <Component {...pageProps} />
+            </ThemeProvider>
           ) : (
-            <ErrorBoundary fallback={<>Error was happen</>}>
-              <Suspense fallback="loading...">
-                <ThemeProvider attribute="class" enableSystem={true}>
-                  <ProtectedRoutes>
-                    <Component {...pageProps} />
-                  </ProtectedRoutes>
-                </ThemeProvider>
-              </Suspense>
-            </ErrorBoundary>
+            <ThemeProvider attribute="class" enableSystem={true}>
+              <ProtectedRoutes>
+                <Component {...pageProps} />
+              </ProtectedRoutes>
+            </ThemeProvider>
           )}
         </Hydrate>
       </RecoilRoot>
