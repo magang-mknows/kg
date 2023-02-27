@@ -1,4 +1,5 @@
 import { FC, forwardRef, ReactElement, Ref } from "react";
+import { RiErrorWarningFill } from "react-icons/ri";
 import { CheckboxFieldProps } from "./types";
 
 const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
@@ -35,7 +36,12 @@ const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
             {label}
           </label>
         </div>
-        <span className="text-red-400">{error}</span>
+        {error && (
+          <div className="flex items-center w-full gap-x-1">
+            <RiErrorWarningFill className="text-red-600" />
+            <span className="text-red-600">{error}</span>
+          </div>
+        )}
       </section>
     );
   },
