@@ -2,20 +2,20 @@ export const NAVBAR_MENU = [];
 
 export const navbarMenu = [
   {
-    name: "Beranda",
+    name: "Dashboard",
     link: "/",
   },
   {
-    name: "Fitur",
-    link: "/kategori",
+    name: "Penugasan",
+    link: "/penugasan",
   },
   {
-    name: "Panduan",
-    link: "/panduan",
+    name: "Rencana Studi",
+    link: "/rencana",
   },
   {
-    name: "Team",
-    link: "/team",
+    name: "Nilai & Sertifikat",
+    link: "/nilai",
   },
 ];
 

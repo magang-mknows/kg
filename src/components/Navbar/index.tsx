@@ -1,39 +1,28 @@
-import { FC, ReactElement } from "react";
+import { FC, lazy, ReactElement, Suspense } from "react";
 
 // font
-import { Roboto } from "next/font/google";
-const roboto = Roboto({
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
 });
 
-// toogle
+const UpperSection = lazy(() => import("@/components/Navbar/UpperSection"));
+const BottomSection = lazy(() => import("@/components/Navbar/BottomSection"));
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
-import UpperSection from "./UpperSection";
-import BottomSection from "./BottomSection";
-import CombineSection from "./CombineSection";
-
-// nav menu list
 
 const Navbar: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
 
   return (
-    <nav
-      className={`${roboto.className} ${
-        isScrollY ? "fixed w-full top-0" : "-top-20"
-      } bg-white transition-all ease-in-out duration-300 `}
-    >
-      {/* upper */}
-      {!isScrollY ? (
-        <>
-          <UpperSection />
-          <BottomSection />
-        </>
-      ) : (
-        <CombineSection />
-      )}
+    <nav className={`${montserrat.className}  bg-white w-full z-50 `}>
+      <Suspense fallback={"Skeleton loading...."}>
+        <UpperSection />
+        {!isScrollY && (
+          <BottomSection className="h-[84px] border-b-2 border-neutral-50 items-center" />
+        )}
+      </Suspense>
     </nav>
   );
 };

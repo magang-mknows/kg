@@ -17,10 +17,10 @@ const NavMenu: FC<NavbarProps> = ({ list }): ReactElement => {
             passHref
             key={index}
             className={`${
-              router.pathname.includes(menu.link)
-                ? "bg-[#F8F6F2] dark:bg-[#1B1B29] dark:text-slate-50 text-gray-900 rounded-lg shadow-sm "
-                : "  hover:text-gray-900  text-[#a9a7a1] dark:hover:text-slate-50 "
-            } px-6 py-3  text-base cursor-pointer transition-colors duration-300 ease-in-out font-medium`}
+              router.pathname === menu.link
+                ? "bg-[#106FA4] hover:bg-[#0B568D]"
+                : "text-neutral-500 hover:text-[#106FA4]"
+            } px-4 py-3 rounded-lg text-sm transition-colors ease-in-out duration-300`}
           >
             <li>{menu.name}</li>
           </Link>
