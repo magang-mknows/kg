@@ -1,8 +1,9 @@
 import { FC, ReactElement, Suspense, useEffect, useState } from "react";
-import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
+import { BsFillMoonStarsFill } from "react-icons/bs";
 import { RiComputerLine } from "react-icons/ri";
 import { ErrorBoundary } from "react-error-boundary";
 import { useTheme } from "next-themes";
+import { BiSun } from "react-icons/bi";
 
 const Icon: FC = (): ReactElement => {
   const { theme } = useTheme();
@@ -20,11 +21,20 @@ const Icon: FC = (): ReactElement => {
     <ErrorBoundary fallback={<>Error</>}>
       <Suspense fallback="loading gays...">
         {theme === "dark" ? (
-          <BsFillMoonStarsFill className="dark:text-[#817d73] text-[#968E7E]" />
+          <BsFillMoonStarsFill
+            size={20}
+            className="text-neutral-800 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
+          />
         ) : theme === "light" ? (
-          <BsSunFill className="dark:text-[#817d73] text-[#968E7E]" />
+          <BiSun
+            size={20}
+            className="text-neutral-800 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
+          />
         ) : (
-          <RiComputerLine className="dark:text-[#817d73] text-[#968E7E]" />
+          <RiComputerLine
+            size={20}
+            className="text-neutral-800 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
+          />
         )}
       </Suspense>
     </ErrorBoundary>

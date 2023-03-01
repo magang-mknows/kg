@@ -1,4 +1,4 @@
-import { FC, lazy, ReactElement, Suspense } from "react";
+import { FC, ReactElement, Suspense } from "react";
 
 import { Montserrat } from "next/font/google";
 const montserrat = Montserrat({
@@ -6,23 +6,29 @@ const montserrat = Montserrat({
   weight: "500",
 });
 
-const UpperSection = lazy(() => import("@/components/Navbar/UpperSection"));
-const BottomSection = lazy(() => import("@/components/Navbar/BottomSection"));
-
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
+import dynamic from "next/dynamic";
+
+const UpperSection = dynamic(() => import("@/components/Navbar/UpperSection"), {
+  ssr: false,
+});
+const BottomSection = dynamic(() => import("@/components/Navbar/BottomSection"), {
+  ssr: false,
+});
 
 const Navbar: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
 
   return (
-    <nav className={`${montserrat.className}  bg-white w-full z-50 `}>
+    <nav
+      className={`${montserrat.className} ${
+        isScrollY ? "fixed w-full top-0" : "-top-20 z-[9999]"
+      } bg-white transition-all ease-in-out duration-300 z-[9999]`}
+    >
       <Suspense fallback={"Skeleton loading...."}>
         <UpperSection />
-        {!isScrollY && (
-          <BottomSection className="h-[84px] border-b-2 border-neutral-50 items-center" />
-        )}
+        {!isScrollY && <BottomSection className="h-[84px] border-b-2 border-neutral-100 " />}
       </Suspense>
-
     </nav>
   );
 };
