@@ -1,18 +1,15 @@
 import { FC, ReactElement } from "react";
 
 // img
-import logoKG from "@/assets/logokg.png";
-import logoKGDark from "@/assets/logokg-dark.png";
 import Instagram from "@/assets/Instagram.png";
 import Facebook from "@/assets/facebook.png";
 import Tiktok from "@/assets/tiktok.png";
 import Linkedin from "@/assets/linkedin.png";
 import Image from "next/image";
-import { useTheme } from "next-themes";
+
+import { LoadConditionalLogo } from "@/utilities/helper/index";
 
 const Footbar: FC = (): ReactElement => {
-  const { theme } = useTheme();
-
   return (
     <footer
       className="
@@ -40,14 +37,14 @@ const Footbar: FC = (): ReactElement => {
           className="
           grid-1 
           grid 
-          gap-4
+          gap-2
           md:grid-cols-2 
           lg:grid-cols-4"
         >
           {/* kampus gratis */}
           <div className="text-sm">
             <Image
-              src={theme === "dark" ? logoKGDark : logoKG}
+              src={LoadConditionalLogo()}
               className="
                 h-19 
                 w-100 
@@ -65,9 +62,23 @@ const Footbar: FC = (): ReactElement => {
               className="
               flex 
               flex-row 
-              mt-4
+              my-4
               space-x-2"
             >
+              {/* <GlobalButton
+              buttonType = "auth"
+              size="small"
+              className = ""
+              page = "/"
+              color = "white"
+              icon={<Image
+              className="w-4 h-4"
+                src={Instagram}
+                alt="Instagram"
+              />}
+              >
+              </GlobalButton> */}
+
               <button
                 className="
                   bg-white
@@ -159,7 +170,7 @@ const Footbar: FC = (): ReactElement => {
             className="
             lg:ml-16"
           >
-            <h6 className="mb-4 flex text-black text-2xl font-bold dark:text-white">Fitur</h6>
+            <h6 className="flex text-black text-2xl font-bold dark:text-white">Fitur</h6>
 
             <p className="mb-2 mt-8  dark:text-gray-400">
               <a href="#!" className="hover:text-blue-400">
@@ -236,8 +247,6 @@ const Footbar: FC = (): ReactElement => {
 
       <hr
         className="
-        mx-10
-        mx-5 
         py-5 
         lg:mx-20 
         md:mx-10

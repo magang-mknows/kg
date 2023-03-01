@@ -8,7 +8,6 @@ import RectangleDown from "@/assets/rectangleDown.svg";
 import Checklist from "@/assets/checklist.svg";
 import Card from "@/components/Common/Card";
 import { TbAward } from "react-icons/tb";
-import { BsPlayFill } from "react-icons/bs";
 
 const AboutSection: FC = (): ReactElement => {
   return (
