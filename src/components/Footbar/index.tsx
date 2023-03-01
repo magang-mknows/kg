@@ -7,7 +7,7 @@ import Tiktok from "@/assets/tiktok.png";
 import Linkedin from "@/assets/linkedin.png";
 import Image from "next/image";
 
-import { LoadConditionalLogo } from "@/utilities/helper";
+import { LoadConditionalLogo } from "@/utilities/helper/index";
 
 const Footbar: FC = (): ReactElement => {
   return (
