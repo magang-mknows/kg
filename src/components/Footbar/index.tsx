@@ -8,7 +8,6 @@ import Linkedin from "@/assets/linkedin.png";
 import Image from "next/image";
 
 import { LoadConditionalLogo } from "@/utilities/helper";
-import GlobalButton from "../Common/GlobalButton";
 
 const Footbar: FC = (): ReactElement => {
   return (
