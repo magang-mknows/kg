@@ -1,7 +1,9 @@
 import AuthLayouts from "@/layouts/Auth/AuthLayouts";
 import { NextPage } from "next";
-import { ReactElement } from "react";
-import ForgotPasswordForm from "@/modules/Auth/Forgot/Form";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+const ForgotPasswordForm = lazy(() => import("@/modules/Auth/Forgot/Form"));
 
 const ForgotPassword: NextPage = (): ReactElement => {
   return (
@@ -12,7 +14,11 @@ const ForgotPassword: NextPage = (): ReactElement => {
       description="Sudah ingat akun mu?"
       img="/forgot-pass.svg"
     >
-      <ForgotPasswordForm />
+      <ErrorBoundary fallback={<>Error Was Happen</>}>
+        <Suspense fallback={<>Loading...</>}>
+          <ForgotPasswordForm />
+        </Suspense>
+      </ErrorBoundary>
     </AuthLayouts>
   );
 };

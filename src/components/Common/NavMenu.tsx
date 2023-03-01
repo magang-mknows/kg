@@ -1,6 +1,4 @@
 import { Fragment, FC, ReactElement } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { BsGrid1X2Fill } from "react-icons/bs";
 
 // font
 import Link from "next/link";
@@ -20,9 +18,9 @@ const NavMenu: FC<NavbarProps> = ({ list }): ReactElement => {
             key={index}
             className={`${
               router.pathname.includes(menu.link)
-                ? "bg-[#F8F6F2] text-gray-900 rounded-lg shadow-sm "
-                : "  hover:text-gray-900  text-[#968E7E] "
-            } px-6 py-2.5  text-base cursor-pointer transition-colors duration-300 ease-in-out font-medium`}
+                ? "bg-[#F8F6F2] dark:bg-[#1B1B29] dark:text-slate-50 text-gray-900 rounded-lg shadow-sm "
+                : "  hover:text-gray-900  text-[#a9a7a1] dark:hover:text-slate-50 "
+            } px-6 py-3  text-base cursor-pointer transition-colors duration-300 ease-in-out font-medium`}
           >
             <li>{menu.name}</li>
           </Link>

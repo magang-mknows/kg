@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { FC, useState } from "react";
 import { MobileMenuProps } from "./types";
 const genericHamburgerLine =
-  "h-[2.5px] w-6 my-[2.5px] rounded-full bg-[#968E7E] bg-[#a1a1a8] transition ease transform duration-300";
+  "h-[2.5px] w-6 my-[2.5px] rounded-full bg-[#968E7E] dark:bg-[#968E7E] transition ease transform duration-300";
 
 const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
   const [isShow, setShow] = useState(false);
@@ -15,7 +15,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
   return (
     <div className="lg:hidden block">
       <button
-        className="flex flex-col bg-[#F8F6F2]  p-2 rounded-md justify-center items-center group"
+        className="flex flex-col bg-[#F8F6F2] dark:bg-[#161514] dark:border-[0.2px] dark:border-[#41403E]  p-2 rounded-md justify-center items-center group"
         onClick={() => setShow(!isShow)}
       >
         <div
@@ -30,21 +30,21 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
       </button>
 
       <div
-        className={`absolute top-24 lg:top-24 ${isScrollY ? "-mt-2.5" : "mt-1"} ${
+        className={`absolute top-20 lg:top-24 ${isScrollY ? null : "mt-2"} ${
           !isShow ? "right-[100%]" : "right-0"
         } transition-all ease-in-out duration-500 w-full  bg-[#ffffff] origin-top`}
       >
         {list.map((item, index) => {
           return (
-            <div key={index} className="border-b-2 border-b-gray-50 border-b-gray-50/10 pt-3 pb-4">
+            <div key={index} className=" dark:bg-[#161514] p-3">
               <Link
                 href={item.link}
                 passHref
                 className={`  ${
                   router.pathname.includes(item.link)
-                    ? "text-slate-900 "
-                    : " hover:text-gray-900  cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-gray-400 text-base"
-                } md:px-14 px-10 `}
+                    ? "text-[#4FC9DA]  "
+                    : " hover:text-[#4FC9DA] cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-[#968E7E] text-sm mf:text-base"
+                } md:px-14 px-10`}
               >
                 {item.name}
               </Link>

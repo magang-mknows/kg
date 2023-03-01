@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Control, Controller } from "react-hook-form";
 import TextField from "@/components/Common/TextField";
 import { TextFieldProps } from "../Common/types";
