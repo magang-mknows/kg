@@ -43,7 +43,7 @@ const AboutSection: FC = (): ReactElement => {
                 />
               </button>
             </Card>
-            {/* card bottom */}
+
             <Card
               hasImage={false}
               className={
