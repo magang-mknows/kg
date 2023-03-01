@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
-import Landing from "@/modules/Landing";
-
+import Penugasan from "@/modules/Penugasan";
 
 const Index: NextPage = (): ReactElement => {
   return (
     <>
-      <Landing />
+      <Penugasan />
     </>
   );
 };
