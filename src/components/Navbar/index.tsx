@@ -1,6 +1,5 @@
 import { FC, lazy, ReactElement, Suspense } from "react";
 
-// font
 import { Montserrat } from "next/font/google";
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -23,6 +22,7 @@ const Navbar: FC = (): ReactElement => {
           <BottomSection className="h-[84px] border-b-2 border-neutral-50 items-center" />
         )}
       </Suspense>
+
     </nav>
   );
 };
