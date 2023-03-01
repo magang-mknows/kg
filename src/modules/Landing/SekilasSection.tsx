@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import Image from "next/image";
 import pictureSekilasInfo from "@/assets/picture-landing-sekilas info.svg";
 import yellowSekilasInfo from "@/assets/yellowInfo.svg";
@@ -6,9 +6,7 @@ import RedSekilasInfo from "@/assets/redInfo.svg";
 
 const SekilasSection = (): ReactElement => {
   return (
-    <section
-      className={`grid lg:grid-cols-2 bg-green-landing-hero mb-[100px] container lg:px-20 md:px-10 px-5`}
-    >
+    <section className="grid lg:grid-cols-2 bg-green-landing-hero mb-[100px] container lg:px-20 md:px-10 px-5">
       <div className="col-span-1 my-auto relative ">
         <div className="banner grid place-content-center">
           <h1 className="title text-[44px] font-bold text-center lg:text-left text-[#262626]">
