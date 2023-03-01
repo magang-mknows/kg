@@ -1,101 +1,95 @@
 import { FC, ReactElement } from "react";
-import { FaUserTie } from "react-icons/fa";
-import { FaBook } from "react-icons/fa";
-import { BsAlarmFill } from "react-icons/bs";
-import { FaUniversity } from "react-icons/fa";
-import AboutLanding from "@/assets/about-landing.jpg";
 import Image from "next/image";
-import MainLayouts from "@/layouts/Main";
-import ContentLayouts from "@/layouts/Content";
+import AboutVideo from "@/assets/aboutVideo.svg";
+import PlayButton from "@/assets/playButton.svg";
+import AboutCard2 from "@/assets/aboutCard.svg";
+import RectangleUp from "@/assets/rectangleUp.svg";
+import RectangleDown from "@/assets/rectangleDown.svg";
+import Checklist from "@/assets/checklist.svg";
 import Card from "@/components/Common/Card";
+import { TbAward } from "react-icons/tb";
+import { BsPlayFill } from "react-icons/bs";
 
 const AboutSection: FC = (): ReactElement => {
   return (
-    <MainLayouts className="grid grid-col-1 lg:grid-cols-1 md:grid-cols-1 gap-y-5 gap-x-10 py-5 px-[10%] h-screen">
-      <ContentLayouts className="grid grid-cols-1 text-[#f9feff] md:grid-cols-1 lg:grid-cols-5 dark:text-[#f9feff] gap-6">
-        {/* image */}
-        <div className="lg:col-span-2 ">
-          <h1 className="text-2xl lg:text-3xl md:text-3xl font-bold mb-4 mt-4  text-[#000000] dark:text-[#f9feff] ">
-            Satu Aplikasi Untuk <span className="text-[#066ac9]">Beragam Kebutuhan</span>
+    <section className="container mx-auto mt-[100px] mb-[250px]">
+      <div className="grid lg:grid-cols-2 gap-40">
+        <div className="grid place-content-center ">
+          <div className="w-[500px] h-[382px] relative col-span-1">
+            <Image src={RectangleUp} alt={"rectangle-up"} className="relative " />
+            <Image
+              src={RectangleDown}
+              alt={"rectangle-down"}
+              className="relative lg:left-96 md:left-72 left-40 "
+            />
+            <Image
+              src={AboutCard2}
+              alt={"About-Landing"}
+              className={"lg:w-[500px] object-cover rounded-xl absolute top-5 left-5"}
+            />
+            <Card
+              hasImage={true}
+              className={
+                "grid items-center rounded-2xl w-max absolute lg:-right-36 -top-24 md:-right-7 -right-1"
+              }
+              src={AboutVideo}
+              imgwidth={261}
+              imgheight={173}
+            >
+              <button>
+                {/* <BsPlayFill className="text-[#CDF5FA] hover:text-[#fff] hover:bg-[#0cbc87] bg-[#ffffff] rounded-full p-3 w-12 h-12 absolute top-20 left-32" /> */}
+                <Image
+                  src={PlayButton}
+                  alt={"Play-video"}
+                  className="text-[#CDF5FA] hover:text-[#fff] hover:bg-[#0cbc87] bg-[#ffffff] rounded-full p-3 w-12 h-12 absolute top-20 left-32"
+                />
+              </button>
+            </Card>
+            {/* card bottom */}
+            <Card
+              hasImage={false}
+              className={
+                "grid items-center bg-[rgb(255,255,255)] rounded-2xl w-max px-6 py-4 drop-shadow-xl shadow-lg absolute lg:-right-24 top-96 md:-right-10 right-20"
+              }
+            >
+              <TbAward className="text-[#000000] inline-block bg-[#CDF5FA] rounded-full p-3 w-14 h-14 " />
+              <div className="px-2">
+                <h6 className="text-[#0B568D] font-medium text-2xl">75+</h6>
+                <p className="text-[#808080] font-medium tracking-tight text-md">Pelatihan Aktif</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+        <div className="col-span-1 w-full">
+          <h1 className="dark:text-[#ffff] text-[#000000] text-[44px] font-bold tracking-wide leading-tight">
+            Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
           </h1>
-          <Image
-            src={AboutLanding}
-            alt="about-landing"
-            className="object-cover h-auto w-full rounded-md "
-          />
-        </div>
-
-        {/* card about */}
-        <div className="lg:col-span-3 md:w-auto">
-          <div className="grid grid-col-1 grid-flow-row md:grid-flow-col md:grid-cols-2 ">
-            <Card
-              className={"w-full h-full p-4"}
-              hasImage={false}
-              icon={
-                <FaUserTie className="text-2xl text-[#fd7e14] inline-block bg-[#fff2e7] dark:bg-[#392e27] rounded-md p-4 w-14 h-14" />
-              }
-              titleStyle={"text-xl font-bold mt-1"}
-              title={"Online Learning"}
-            >
-              <p className="text-gray-500 mt-2">
-                Mulailah meningkatkan pengetahuan dan kemampuan Anda melalui fitur online learning
-                kami yang menawarkan pengalaman belajar yang interaktif dan menyenangkan.
-              </p>
-            </Card>
-
-            <Card
-              className={"w-full h-full p-4"}
-              hasImage={false}
-              icon={
-                <FaBook className="text-2xl text-[#17a2b8]  inline-block bg-[#e7f6f8] dark:bg-[#213238] rounded-md p-4 w-14 h-14" />
-              }
-              titleStyle={"text-xl font-bold mt-1"}
-              title={"Gamifikasi"}
-            >
-              <p className="text-gray-500 mt-2">
-                Fitur gamifikasi adalah sebuah strategi yang mengadaptasi elemen permainan ke dalam
-                konteks non-permainan untuk meningkatkan motivasi, keterlibatan, dan kesenangan
-                pengguna.
-              </p>
-            </Card>
-          </div>
-
-          <div className="grid grid-col-1 grid-flow-row md:grid-flow-col lg:grid-cols-2 md:grid-cols-2">
-            <Card
-              className={"w-full h-full p-4"}
-              hasImage={false}
-              icon={
-                <BsAlarmFill className="text-2xl text-[#0cbc87] inline-block bg-[#e6f8f3] dark:bg-[#203433] rounded-md p-4 w-14 h-14" />
-              }
-              titleStyle={"text-xl font-bold mt-1"}
-              title={"E-Serifikat"}
-            >
-              <p className="text-gray-500 mt-2">
-                Dapatkan pengakuan resmi atas kemampuan dan pengetahuan Anda melalui fitur
-                E-sertifikat kami yang memberikan sertifikat berkualitas tinggi dan dapat diakses
-                kapan saja, di mana saja.
-              </p>
-            </Card>
-            <Card
-              className={"w-full h-full p-4"}
-              hasImage={false}
-              icon={
-                <FaUniversity className="text-2xl text-[#d6293e] inline-block bg-[#fbe9eb] dark:bg-[#35252b] rounded-md p-4 w-14 h-14" />
-              }
-              titleStyle={"text-xl font-bold mt-1"}
-              title={"Konten Relevan"}
-            >
-              <p className="text-gray-500 mt-2">
-                Pelajari topik yang Anda butuhkan dengan fitur konten yang relevan kami, yang
-                menyediakan materi terkini dan terverifikasi untuk membantu Anda mencapai tujuan
-                belajar Anda.
-              </p>
-            </Card>
+          <h6 className="text-[#8e8e8e] text-[24px] leading-normal mt-[46px]">
+            Ada banyak kategori pelatihan terlaris yang ada <br /> di Kampus Gratis
+          </h6>
+          <div>
+            <ul className="mt-[46px]">
+              <div className="checklist flex gap-2 mb-3">
+                <Image src={Checklist} alt={"checklist"} />
+                <li className="-mt-1 text-[24px]">Belajar semua materi GRATIS</li>
+              </div>
+              <div className="checklist flex gap-2 mb-3">
+                <Image src={Checklist} alt={"checklist"} />
+                <li className="-mt-1 text-[24px]">Dibimbing oleh mentor yang profesional</li>
+              </div>
+              <div className="checklist flex gap-2 mb-3">
+                <Image src={Checklist} alt={"checklist"} />
+                <li className="-mt-1 text-[24px]">Dukungan untuk karir masa depan</li>
+              </div>
+              <div className="checklist flex gap-2 mb-3">
+                <Image src={Checklist} alt={"checklist"} />
+                <li className="-mt-1 text-[24px]">Pembelajaran yang fleksibel</li>
+              </div>
+            </ul>
           </div>
         </div>
-      </ContentLayouts>
-    </MainLayouts>
+      </div>
+    </section>
   );
 };
-
 export default AboutSection;
