@@ -1,6 +1,7 @@
 import { FC, forwardRef, Fragment, ReactElement, Ref } from "react";
 import { SelectFieldProps } from "./types";
 import OptionField from "./OptionField";
+import { RiErrorWarningFill } from "react-icons/ri";
 
 const SelectField: FC<SelectFieldProps> = forwardRef(
   (
@@ -43,7 +44,12 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
             />
           ))}
         </select>
-        <span className="text-red-400">{error}</span>
+        {error && (
+          <div className="flex items-center w-full gap-x-1">
+            <RiErrorWarningFill className="text-red-600" />
+            <span className="text-red-600">{error}</span>
+          </div>
+        )}
       </Fragment>
     );
   },

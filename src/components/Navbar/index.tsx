@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 
 // font
-import { Roboto } from "@next/font/google";
+import { Roboto } from "next/font/google";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: "500",
@@ -23,7 +23,7 @@ const Navbar: FC = (): ReactElement => {
     <nav
       className={`${roboto.className} ${
         isScrollY ? "fixed w-full top-0" : "-top-20"
-      } bg-white transition-all `}
+      } bg-white transition-all ease-in-out duration-300 `}
     >
       {/* upper */}
       {!isScrollY ? (

@@ -4,13 +4,13 @@ import { BsGrid1X2Fill } from "react-icons/bs";
 
 // font
 import Link from "next/link";
-import { NavbarDropdownProps } from "./types";
+import { NavbarProps } from "./types";
 
-const FeatureDropdown: FC<NavbarDropdownProps> = ({ list }): ReactElement => {
+const FeatureDropdown: FC<NavbarProps> = ({ list }): ReactElement => {
   return (
-    <Menu as="div" className={`relative inline-block text-left`}>
+    <Menu as="div" className={"relative inline-block text-left"}>
       <div>
-        <Menu.Button className="bg-[#F8F6F2]  group p-3 rounded-md shadow-sm ">
+        <Menu.Button className="bg-[#F8F6F2] dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E]  group p-3 rounded-md shadow-sm ">
           <BsGrid1X2Fill className="h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300" />
         </Menu.Button>
       </div>
@@ -37,11 +37,13 @@ const FeatureDropdown: FC<NavbarDropdownProps> = ({ list }): ReactElement => {
           {list.map((item) => (
             /* Use the `active` state to conditionally style the active item. */
             <Menu.Item as={Fragment} key={item.link}>
-              {({ active }) => (
+              {() => (
                 <Link
                   href={item.link}
                   passHref
-                  className={`flex items-center py-4 px-6 hover:bg-slate-200 transition-colors ease-in-out duration-300 text-sm text-slate-800 rounded-sm hover:shadow-sm border-b-2 border-gray-50/80`}
+                  className={
+                    "flex items-center py-4 px-6 hover:bg-slate-200 transition-colors ease-in-out duration-300 text-sm text-slate-800 rounded-sm hover:shadow-sm border-b-2 border-gray-50/80"
+                  }
                 >
                   {item.name}
                 </Link>

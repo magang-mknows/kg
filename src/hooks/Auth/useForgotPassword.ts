@@ -5,11 +5,16 @@ import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-export const useRegister = (): UseMutationResult<unknown, unknown, AuthPayloadTypes, unknown> => {
+export const useForgotPassword = (): UseMutationResult<
+  unknown,
+  unknown,
+  AuthPayloadTypes,
+  unknown
+> => {
   const router = useRouter();
   return useMutation({
-    mutationKey: ["auth-register"],
-    mutationFn: async (data: AuthPayloadTypes) => await AuthService.Register(data),
+    mutationKey: ["auth-forgot-password"],
+    mutationFn: async (data: AuthPayloadTypes) => await AuthService.ForgotPassword(data),
     onSuccess: () => {
       router.push("/auth/login");
     },

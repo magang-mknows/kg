@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactElement } from "react";
 import { Control, Controller } from "react-hook-form";
 import SelectField from "../Common/SelectField";
 import { SelectFieldProps } from "../Common/types";
@@ -9,8 +11,6 @@ type ControlledSelectFieldProps<T> = SelectFieldProps & {
   name: string;
   mode?: "multiple" | "tags";
   required?: boolean;
-  hasDelete?: boolean;
-  onDelete?(): void;
 };
 
 const ControlledSelectField = <T,>({
@@ -18,10 +18,8 @@ const ControlledSelectField = <T,>({
   control,
   name,
   options,
-  hasDelete,
-  onDelete,
   ...rest
-}: ControlledSelectFieldProps<T>) => {
+}: ControlledSelectFieldProps<T>): ReactElement => {
   return (
     <Controller
       control={control}

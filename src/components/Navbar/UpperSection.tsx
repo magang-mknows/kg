@@ -1,42 +1,45 @@
-import useWindowScroll from "@/hooks/Common/useWindowScroll";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import { FC, Suspense } from "react";
+import dynamic from "next/dynamic";
 
-import NavDropdown from "../Common/FeatureDropdown";
+import FeatureDropdown from "../Common/FeatureDropdown";
+const ToggleDarkMode = dynamic(() => import("@/components/ThemeToggle/index"), {
+  ssr: false,
+});
 
 // image
 import logoKG from "@/assets/logokg.png";
+import logoKGDark from "@/assets/logokg-dark.png";
 import MobileMenu from "../Common/MobileMenu";
-import { BsFillMoonFill, BsPersonFill } from "react-icons/bs";
+import { BsPersonFill } from "react-icons/bs";
 import NotificationDropdown from "../Common/NotificationDropdown";
 import { featureList, navbarMenu, notifListDummy } from "@/utilities/constant";
+import { useTheme } from "next-themes";
 
 const UpperSection: FC = () => {
-  const { isScrollY } = useWindowScroll();
+  const { theme, systemTheme } = useTheme();
 
   return (
     <>
-      <section className=" lg:px-20 md:px-10 px-5 py-6 border-b-2 border-gray-100 flex justify-between">
-        {/* kg logo */}
+      <section className=" lg:px-20 md:px-10 px-5 py-4 border-b-[0.2px] dark:border-[#1B1B29] border-gray-100 flex justify-between items-center dark:bg-[#161514]">
+        {/* kg logo's*/}
         <Link href={"/"} passHref className="cursor-pointer">
           <Image
-            src={logoKG}
+            src={theme === "light" ? logoKG : systemTheme === "dark" ? logoKGDark : logoKG}
             alt="Kampus Gratis Logo's"
-            className={` ${
-              isScrollY ? " w-[5em] md:w-[7em] lg:w-[8em]" : "w-[6.2em] md:w-[7.2em] lg:w-[8.2em]"
-            } transition-all opacity-100 ease-in-out duration-200`}
+            className="transition-all opacity-100 ease-in-out duration-200 w-[5em] md:w-[7em] lg:w-[8em] "
           />
         </Link>
         <div className="flex gap-x-2 items-center justify-center">
           <MobileMenu list={navbarMenu} />
-          <NavDropdown list={featureList} />
-          <div className="bg-[#F8F6F2]  group p-3 rounded-md shadow-sm ">
-            <BsFillMoonFill className="h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300" />
-          </div>
+          <FeatureDropdown list={featureList} />
+          <Suspense fallback="loading..">
+            <ToggleDarkMode />
+          </Suspense>
           <NotificationDropdown list={notifListDummy} />
 
-          <div className="bg-[#F8F6F2]  group p-3 rounded-md shadow-sm ">
+          <div className="bg-[#F8F6F2] dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E]   group p-3 rounded-md shadow-sm ">
             <BsPersonFill className="h-4 w-4 text-[#968E7E] group-hover:text-[#5dc6d4] transition-colors ease-in-out duration-300" />
           </div>
         </div>

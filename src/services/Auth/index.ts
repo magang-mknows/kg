@@ -56,6 +56,26 @@ const AuthService = {
     }
   },
 
+  ForgotPassword: async (payload: AuthPayloadTypes) => {
+    const { email } = payload;
+    const requestData = {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      data: {
+        email,
+      },
+      url: "/auth/forgot-password",
+    };
+    try {
+      const res = await ApiService.customRequest(requestData);
+      return res.data;
+    } catch (error) {
+      throw handleError(error);
+    }
+  },
+
   RefreshToken: async () => {
     const requestData = {
       method: "post",

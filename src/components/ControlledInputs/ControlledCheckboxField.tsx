@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactElement } from "react";
 import { Control, Controller } from "react-hook-form";
 import CheckboxField from "../Common/CheckboxField";
 import { CheckboxFieldProps } from "../Common/types";
@@ -7,17 +9,14 @@ type ControlledCheckboxFieldProps<T> = CheckboxFieldProps & {
   options?: { label: string; value: string | number | boolean }[];
   name: string;
   required?: boolean;
-  hasDelete?: boolean;
-  onDelete?(): void;
 };
 
 const ControlledCheckboxField = <T,>({
   label,
   control,
   name,
-  options,
   ...rest
-}: ControlledCheckboxFieldProps<T>) => {
+}: ControlledCheckboxFieldProps<T>): ReactElement => {
   return (
     <Controller
       control={control}

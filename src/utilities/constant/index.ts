@@ -5,7 +5,6 @@ export const navbarMenu = [
     name: "Beranda",
     link: "/",
   },
-
   {
     name: "Fitur",
     link: "/kategori",
@@ -34,3 +33,5 @@ export const notifListDummy = [
   { link: "/", name: "Lorem ipsum 1 ", time: "now" },
   { link: "/", name: "Lorem ipsum 2", time: "now" },
 ];
+
+export const publicRoutes = ["/", "/auth/login", "/auth/register", "/auth/forgot"];

@@ -1,10 +1,4 @@
-import {
-  ChangeEventHandler,
-  ForwardedRef,
-  HTMLInputTypeAttribute,
-  ReactNode,
-  RefObject,
-} from "react";
+import { ChangeEventHandler, HTMLInputTypeAttribute, ReactNode, RefObject } from "react";
 
 export interface TextFieldProps {
   type: HTMLInputTypeAttribute;
@@ -56,7 +50,7 @@ export type DropdownProps = {
   }>;
 };
 
-export type NavbarDropdownProps = {
+export type NavbarProps = {
   list: {
     name?: string;
     link: string;

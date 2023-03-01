@@ -1,47 +1,66 @@
-import { FC, ReactElement, Fragment, useState, useEffect } from "react";
-import useDarkMode from "@/hooks/Theme/useDarkMode";
+import { FC, ReactElement, Fragment, useState, useEffect, Suspense, startTransition } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { BsSun, BsMoon } from "react-icons/bs";
-import { BiAdjust } from "react-icons/bi";
+import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
+import { RiComputerLine } from "react-icons/ri";
+import { useTheme } from "next-themes";
+
+import { ErrorBoundary } from "react-error-boundary";
+import dynamic from "next/dynamic";
+
+const Icon = dynamic(() => import("./icon"), {
+  ssr: false,
+});
 
 const ThemeToggle: FC = (): ReactElement => {
   const option = [
     {
       text: "Dark",
-      icon: <BsMoon />,
+      value: "dark",
+      icon: <BsFillMoonStarsFill />,
     },
     {
       text: "Light",
-      icon: <BsSun />,
+      value: "light",
+      icon: <BsSunFill />,
     },
     {
       text: "Auto",
-      icon: <BiAdjust />,
+      value: "system",
+      icon: <RiComputerLine />,
     },
   ];
 
-  const { setTheme, colorTheme } = useDarkMode();
-  const [darkSide, setDarkSide] = useState<boolean>(false);
+  const { setTheme } = useTheme();
 
-  const toggleDarkMode = () => {
-    setDarkSide(!darkSide);
-    setTheme(colorTheme);
-    localStorage.setItem("theme", colorTheme);
+  const changeTheme = (val: string): void => {
+    startTransition(() => {
+      // Transition: Show the results
+      setTheme(val);
+    });
   };
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
-    const fetchedTheme = localStorage.getItem("theme") || "light";
-    setTheme(fetchedTheme);
-    setDarkSide(fetchedTheme === "dark" ? true : false);
-  }, [setTheme, colorTheme]);
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <></>;
+  }
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button className="flex text-sm bg-gray-600 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ">
-        <div className="text-3xl">
-          <BiAdjust size={20} />
+      <Menu.Button>
+        <div className="bg-[#F8F6F2] dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E] mt-2 group p-3 rounded-md shadow-sm ">
+          <ErrorBoundary fallback={<>gaje</>}>
+            <Suspense fallback="loading...">
+              <Icon />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </Menu.Button>
+
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -51,19 +70,26 @@ const ThemeToggle: FC = (): ReactElement => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0  mt-2 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white dark:bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E] right-0 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           {option.map((x, i) => (
-            <div key={i} className=" py-1 ">
+            <div key={i} className=" py-1  ">
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={toggleDarkMode}
+                    onClick={() =>
+                      startTransition(() => {
+                        // Transition: Show the results
+                        changeTheme(x.value);
+                      })
+                    }
                     className={`${
-                      active ? " bg-blue-200 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md text-sm gap-x-2 px-1 text-gray-400 dark:text-white`}
+                      active ? " bg-[#4FC9DA]  hover:text-white" : "text-[#968E7E] hover:text-white"
+                    } group flex w-full items-center rounded-md text-sm gap-x-2 px-1dark:text-white `}
                   >
                     {x.icon}
-                    <span className="text-base px-1 text-gray-400 dark:text-white">{x.text}</span>
+                    <span className="text-base px-3 text-gray-400 hover:text-white dark:text-[#968E7E]">
+                      {x.text}
+                    </span>
                   </button>
                 )}
               </Menu.Item>
