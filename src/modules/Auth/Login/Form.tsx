@@ -3,6 +3,7 @@ import ControlledCheckboxField from "@/components/ControlledInputs/ControlledChe
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
 import { useLogin } from "@/hooks/Auth/useLogin";
+import { handleError } from "@/utilities/helper";
 import { AuthPayloadTypes } from "@/utilities/types/Auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -37,21 +38,14 @@ const LoginForm: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
     try {
-      mutate(data, {
-        onSuccess: () => {
-          console.log("What happen when success");
-        },
-        onError: (err) => {
-          console.log(err);
-        },
-      });
+      mutate(data);
     } catch (err) {
-      console.log(err);
+      throw handleError(err);
     }
   });
 
   return (
-    <Form onSubmit={onSubmit} className="space-y-4 md:space-y-6">
+    <Form onSubmit={onSubmit} className="w-full">
       <ControlledTextField
         control={control}
         type={"email"}
