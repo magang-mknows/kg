@@ -62,8 +62,11 @@ module.exports = {
       800: "#262626",
       900: "#171717",
     },
-
-    extend: {},
+    extend: {
+      backgroundImage: {
+        landing: "url('/bg-landing.png')",
+      },
+    },
   },
 
   plugins: [],

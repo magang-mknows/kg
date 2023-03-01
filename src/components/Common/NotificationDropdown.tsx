@@ -2,17 +2,17 @@ import { Fragment, FC, ReactElement } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 // font
-import { Roboto } from "next/font/google";
+//import { Roboto } from "next/font/google";
 import Link from "next/link";
 import { NavbarProps } from "./types";
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: "500",
-});
+// const roboto = Roboto({
+//   subsets: ["latin"],
+//   weight: "500",
+// });
 
 const NotificationDropdown: FC<NavbarProps> = ({ list }): ReactElement => {
   return (
-    <Menu as="div" className={`relative inline-block text-left ${roboto.className}`}>
+    <Menu as="div" className={`relative inline-block text-left ${""}`}>
       <div>
         <Menu.Button className="bg-[#4FC9DA]  p-3 rounded-md shadow-sm ">
           <div className="h-4 w-4 flex items-center justify-center text-slate-100">

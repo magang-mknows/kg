@@ -9,9 +9,9 @@ import { useRouter } from "next/router";
 import { publicRoutes } from "@/utilities/constant";
 import { ReactElement } from "react";
 import { ThemeProvider } from "next-themes";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 const queryClient = new QueryClient();
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
     <QueryClientProvider client={queryClient}>
       <style jsx global>{`
         html {
-          font-family: ${inter.style.fontFamily};
+          font-family: ${""};
         }
       `}</style>
       <RecoilRoot>

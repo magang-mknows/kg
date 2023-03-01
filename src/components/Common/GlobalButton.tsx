@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, ReactElement, useMemo } from "react";
+import { ButtonHTMLAttributes, FC, ReactElement, ReactNode, useMemo } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import Image, { StaticImageData } from "next/image";
@@ -11,8 +11,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "black" | "white" | "lightBlue" | "red" | "blue" | "green" | "purple";
   to?: string;
   page?: string;
-  icon?: StaticImageData;
+  icon?: ReactNode | StaticImageData;
   target?: string;
+  hasImg?: boolean;
 }
 
 const GlobalButton: FC<ButtonProps> = ({
@@ -24,6 +25,7 @@ const GlobalButton: FC<ButtonProps> = ({
   size = "small", // regular
   color = "black",
   icon,
+  hasImg,
   ...props
 }): ReactElement => {
   const typeClass = {
@@ -62,13 +64,17 @@ const GlobalButton: FC<ButtonProps> = ({
     else return to || "/";
   }, [to, page]);
 
+  console.log(typeof icon);
+
   return (
-    <Link href={href} passHref={Boolean(to && page)}>
+    <Link href={href} passHref={Boolean(to?.includes("https://") ? page : "https://" + page)}>
       <button className={merged} {...props}>
-        {icon && (
+        {hasImg ? (
           <div className="btn-icon">
-            <Image src={icon} className="text-black" alt="Icon" />
+            <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
           </div>
+        ) : (
+          <div className="btn-icon">{icon as ReactNode}</div>
         )}
         <p>{text}</p>
       </button>
