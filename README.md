@@ -1,5 +1,5 @@
 # NextJS TailwindCSS BOILERPLATE
-
+ 
 Boilerplate NextJS dengan TailwindCSS sebagai Styling Unit
 
 Requirements :
