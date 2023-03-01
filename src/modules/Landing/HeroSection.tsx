@@ -1,5 +1,4 @@
 import { FC, ReactElement } from "react";
-import MainLayouts from "@/layouts/Main";
 import ContentLayouts from "@/layouts/Content";
 
 // asset

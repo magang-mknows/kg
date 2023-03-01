@@ -1,8 +1,4 @@
-import { FC, ReactElement, useEffect, useCallback } from "react";
-import { AiFillHome } from "react-icons/ai";
-import { AiOutlineProfile } from "react-icons/ai";
-import { AiOutlineContacts } from "react-icons/ai";
-import Link from "next/link";
+import { FC, ReactElement } from "react";
 
 // img
 import Instagram from "@/assets/Instagram.png";
@@ -10,10 +6,8 @@ import Facebook from "@/assets/facebook.png";
 import Tiktok from "@/assets/tiktok.png";
 import Linkedin from "@/assets/linkedin.png";
 import Image from "next/image";
-import useDarkMode from "@/hooks/Theme/useDarkMode";
 
 import { LoadConditionalLogo } from "@/utilities/helper";
-import GlobalButton from "../Common/GlobalButton";
 
 const Footbar: FC = (): ReactElement => {
   return (
