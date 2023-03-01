@@ -76,7 +76,11 @@ module.exports = {
         900: "#6B100C",
       },
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        landing: "url('/bg-landing.png')",
+      },
+    },
   },
 
   plugins: [],

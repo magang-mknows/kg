@@ -1,11 +1,11 @@
 import { FC, ReactElement } from "react";
 
 // font
-import { Roboto } from "next/font/google";
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: "500",
-});
+// import { Roboto } from "next/font/google";
+// const roboto = Roboto({
+//   subsets: ["latin"],
+//   weight: "500",
+// });
 
 // toogle
 
@@ -21,7 +21,7 @@ const Navbar: FC = (): ReactElement => {
 
   return (
     <nav
-      className={`${roboto.className} ${
+      className={`${""} ${
         isScrollY ? "fixed w-full top-0" : "-top-20"
       } bg-white transition-all ease-in-out duration-300 `}
     >
