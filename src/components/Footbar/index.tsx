@@ -247,8 +247,6 @@ const Footbar: FC = (): ReactElement => {
 
       <hr
         className="
-        mx-10
-        mx-5 
         py-5 
         lg:mx-20 
         md:mx-10
