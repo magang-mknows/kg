@@ -23,7 +23,7 @@ const alumniDatas = [
 
 const TestimonySection: FC = (): ReactElement => {
   return (
-    <section className="h-screen w-full px-8 md:px-[135px] flex place-items-center bg-[#f5f5f5] dark:bg-gray-900 my-12 md:mt-0">
+    <section className="h-screen w-full px-8 md:px-[135px] flex place-items-center bg-[#f5f5f5] dark:bg-gray-900 mt-12 mb-28 md:my-0">
       <div className="w-fit grid grid-cols-1 md:grid-cols-[438px_670px] gap-x-[60px] gap-y-12 h-fit">
         <div className="flex flex-col gap-y-9 items-center md:items-start text-center md:text-start">
           <p className="text-base text-[#808080]">TESTIMONI</p>
@@ -43,7 +43,7 @@ const TestimonySection: FC = (): ReactElement => {
             className="w-[328px] h-[56px] bg-[#3EB449] text-[#FFF] text-base leading-6 font-semibold flex place-content-center"
           />
         </div>
-        <div className="grid grid-cols-[320px_320px] gap-x-[30px] overflow-x-scroll md:overflow-auto snap-mandatory">
+        <div className="grid grid-cols-[320px_320px] gap-x-[30px] overflow-x-scroll md:overflow-visible snap-mandatory p-6">
           {alumniDatas.map((alumni, i) => (
             <div
               key={i}
