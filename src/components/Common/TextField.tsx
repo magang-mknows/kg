@@ -9,7 +9,7 @@ const TextField: FC<TextFieldProps> = forwardRef(
   ): ReactElement => {
     return (
       <section className="flex flex-col gap-y-2">
-        <label htmlFor={name} className={"font-[500] text-neutral-900 text-1xl"}>
+        <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl"}>
           {label}
         </label>
         <input
@@ -17,7 +17,11 @@ const TextField: FC<TextFieldProps> = forwardRef(
           type={type}
           name={name}
           disabled={disabled}
-          className={""}
+          className={`${
+            error
+              ? "focus:outline-1 focus:ring-red-600 focus:border-1 bg-red-50 border-2 border-red-600"
+              : "focus:outline-1 focus:outline-primary-600 border-2 border-primary-300"
+          } rounded-lg p-4 outline-none focus:outline-none`}
           placeholder={placeholder}
           onChange={onChange}
           ref={ref}
