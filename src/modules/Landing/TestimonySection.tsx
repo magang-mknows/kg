@@ -4,8 +4,6 @@ import Image from "next/image";
 import testimoniImg1 from "../../assets/testimonial-01.svg";
 import testimoniImg4 from "../../assets/testimonial-04.svg";
 
-// test
-
 const alumniDatas = [
   {
     name: "Robert Tapp",
@@ -23,7 +21,7 @@ const alumniDatas = [
 
 const TestimonySection: FC = (): ReactElement => {
   return (
-    <section className="h-screen w-full px-8 md:px-[135px] flex place-items-center bg-[#f5f5f5] dark:bg-gray-900 mt-12 mb-28 md:my-0">
+    <section className="min-h-screen w-full px-8 md:px-[135px] flex place-items-center bg-[#f5f5f5] dark:bg-gray-900 mt-12 mb-28 md:my-0">
       <div className="w-fit grid grid-cols-1 md:grid-cols-[438px_670px] gap-x-[60px] gap-y-12 h-fit">
         <div className="flex flex-col gap-y-9 items-center md:items-start text-center md:text-start">
           <p className="text-base text-[#808080]">TESTIMONI</p>
@@ -39,10 +37,11 @@ const TestimonySection: FC = (): ReactElement => {
           <GlobalButton
             text="Lihat Semua"
             hasImg={false}
-            size="small"
-            className="w-[328px] h-[56px] bg-[#3EB449] text-[#FFF] text-base leading-6 font-semibold flex place-content-center"
+            size="regular"
+            className="bg-[#3EB449] leading-6 font-semibold px-28 py-4"
           />
         </div>
+
         <div className="grid grid-cols-[320px_320px] gap-x-[30px] overflow-x-scroll md:overflow-visible snap-mandatory p-6">
           {alumniDatas.map((alumni, i) => (
             <div
