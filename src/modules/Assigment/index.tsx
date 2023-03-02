@@ -1,8 +1,7 @@
 import { FC, ReactElement, lazy, Suspense } from "react";
 import BaseLayouts from "@/layouts/Base";
 
-// const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
-// const AboutSection = lazy(() => import("@/modules/Landing/AboutSection"));
+const CardAssignment = lazy(() => import("@/modules/Assigment/CardAssignment"));
 
 const Penugasan: FC = (): ReactElement => {
   return (
@@ -17,7 +16,7 @@ const Penugasan: FC = (): ReactElement => {
           </div>
         </section>
         <section className="lg:px-20 md:px-10 px-5 py-3 w-screen mt-[36px] drop-shadow-md">
-          <div className="   bg-white  h-[212px] rounded-[8px]">
+          <div className="   bg-white h-full  rounded-[8px]">
             <div className="text-[20px] font-semibold text-center text-[#262626] border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 px-[50px]">
               <ul className="flex flex-wrap ">
                 <li className="mr-2">
@@ -52,6 +51,8 @@ const Penugasan: FC = (): ReactElement => {
                 </li>
               </ul>
             </div>
+
+            <CardAssignment />
           </div>
         </section>
       </Suspense>
