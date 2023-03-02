@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { FC, ReactElement, useState } from "react";
 import CardAssignment from "./CardAssignment";
 
-const ContentSection = () => {
+const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");
   return (
     <section className="lg:px-20 md:px-10 px-5 py-3 w-full mt-[36px] drop-shadow-md">
