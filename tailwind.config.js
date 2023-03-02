@@ -64,7 +64,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        landing: "url('/bg-landing.png')",
+        landing: "url('/bg-landing.svg')",
       },
     },
   },
