@@ -1,3 +1,49 @@
+# How To Use Git Properly
+
+## New please read this shit
+
+## If you new in this project Read the Initial Setup Section
+
+## Contribution Guide
+
+### If your local change not commited
+
+### 1.Stash dulu kerjaan kamu supaya gak ilang
+
+` git stash`
+
+### 2.1 Setelah itu kamu perlu pull perubahan dari branch main
+
+`git pull origin main`
+
+#### 2.2 Setelah kamu berhasil melakukan pembaruan dari branch main selanjutnya kamu perlu mengembalikan pekerjaan mu sebelum nya yang ter stash
+
+`git stash pop`
+
+### 3.Tapi jika ketika melakukan step kedua terjadi error maka ikuti langkah yang bawah
+
+## If Your Local Change is Commited
+
+### 1. Pindah dulu ke Branch main
+
+`git checkout main`
+
+### 2.Kemudian pull perubahan terbaru dari branch main
+
+`git pull`
+
+### 3.Kemudian Pindah lagi ke branch dirimu
+
+`git checkout <branch mu>`
+
+### 4.Selanjutnya kita perlu merge perubahan terbaru dari main
+
+`git merge main`
+
+### 5.Kita perlu mengembalikan pekerjaan nya jika sebelumnya udah ke stash
+
+`git stash pop`
+
 # NextJS TailwindCSS BOILERPLATE
 
 Boilerplate NextJS dengan TailwindCSS sebagai Styling Unit
@@ -141,7 +187,9 @@ export default function Examples() {
 ```
 
 # How to use Button
-Button memiliki sembilan parameter 
+
+Button memiliki sembilan parameter
+
 - buttonType = merupakan tipe button yang akan digunakan, ada tiga tipe yaitu "call to action" atau cta, "auth button", dan "scroll to top button". Yang membedakan ketiganya hanya ukuran buttonnya.
 - text
 - link = terdapat dua tipe yaitu "link internal" atau page, dan "link external" atau to, namun untuk menggunakan link external harus menambahkan https:// didepan linknya.
