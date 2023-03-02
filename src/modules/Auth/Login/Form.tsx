@@ -45,7 +45,7 @@ const LoginForm: FC = (): ReactElement => {
   });
 
   return (
-    <Form onSubmit={onSubmit} className="w-full">
+    <Form onSubmit={onSubmit}>
       <ControlledTextField
         control={control}
         type={"email"}
