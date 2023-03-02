@@ -8,25 +8,22 @@ const SekilasSection = (): ReactElement => {
   return (
     <section className="grid lg:grid-cols-2 bg-green-landing-hero mb-[100px] container lg:px-20 md:px-10 px-5">
       <div className="col-span-1 my-auto relative ">
-        <div className="banner grid place-content-center">
-          <h1 className="title text-[44px] font-bold text-center lg:text-left text-[#262626]">
+        <div className="banner grid place-content-center ">
+          <h1 className="title text-[35px] md:text-[40px] lg:text-[44px] font-bold text-center lg:text-left text-[#262626] dark:text-white">
             Sekilas <span className=" text-[#FAB317]">Info</span> Kampus Gratis
           </h1>
           <div className="absoulte z-20 mt-[100px]">
-            <p className="align-center text-center lg:text-left text-[#262626] text-[18px]">
-              <span className="text-[#171717] text-[24px]">Kampus Gratis</span> merupakan sistem
-              manajemen E-learning yang <br />
+            <p className="align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
+              <span className="text-[#171717] text-[24px] dark:text-white">Kampus Gratis</span>{" "}
+              merupakan sistem manajemen E-learning yang <br />
               mencantumkan laporan peningkatan atau progres pembelajaran <br />
               mahasiswa layaknya seperti perguruan tinggi.{" "}
             </p>
-            <p className="align-center text-center lg:text-left text-[#262626] text-[18px] mt-10">
-              Pengembangan platform pembelajaran ini merupakan salah satu inisiasi dari pendiri PT{" "}
-              <br />
-              Menara Indonesia atau M-Knows Consulting, yang ingin memberikan solusi pendidikan
-              tinggi <br />
-              yang gratis, berkualitas, bisa diakses siapapun khususnya kaum marginal, dan selalu{" "}
-              <br />
-              update layaknya platform Wikipedia.
+            <p className="align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] mt-10 dark:text-white ">
+              Pengembangan platform pembelajaran ini merupakan salah satu inisiasi <br /> dari
+              pendiri PT Menara Indonesia atau M-Knows Consulting, yang ingin <br /> memberikan
+              solusi pendidikan tinggi yang gratis, berkualitas, bisa <br /> diakses siapapun
+              khususnya kaum marginal, dan selalu update layaknya <br /> platform Wikipedia.
             </p>
           </div>
           <Image
