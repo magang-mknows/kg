@@ -60,46 +60,56 @@ const Footbar: FC = (): ReactElement => {
               peningkatan atau progres pembelajaran mahasiswa layaknya seperti perguruan tinggi.
             </p>
 
-            <div
-              className="
-              flex 
-              flex-row 
-              my-4
-              space-x-[2px]"
-            >
-              <GlobalButton
-                size="small"
-                className="bg-transparent hover:bg-transparent"
-                to="/"
-                icon={<Image className="w-4 h-4" src={Facebook} alt="Facebook" />}
-              />
-              <GlobalButton
-                size="small"
-                className="bg-transparent hover:bg-transparent"
-                page="/"
-                icon={<Image className="w-4 h-4" src={Twitter} alt="Twitter" />}
-              />
-              <GlobalButton
-                size="small"
-                className="bg-transparent hover:bg-transparent"
-                page="/"
-                icon={<Image className="w-4 h-4" src={Linkedin} alt="Linkedin" />}
-              />
-              <GlobalButton
-                size="small"
-                className="bg-transparent hover:bg-transparent"
-                page="/"
-                icon={<Image className="w-4 h-4" src={Instagram} alt="Instagram" />}
-              />
-              <a href="" className="mt-[-16px] w-full pl-[80px] ml-2">
-                <Image
-                  className="lg:w-[162px] lg:h-[62px]"
-                  src={GooglePlayStore}
-                  alt="Google Play Store"
+            <div className="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col justify-between lg:mt-0 sm:mt-4">
+              <div className="flex flex-row my-4 space-x-4">
+                <GlobalButton
+                  size="small"
+                  className="bg-transparent hover:bg-transparent"
+                  to="/"
+                  icon={<Image className="w-4 h-4" src={Facebook} alt="Facebook" />}
                 />
-              </a>
+                <GlobalButton
+                  size="small"
+                  className="bg-transparent hover:bg-transparent"
+                  page="/"
+                  icon={<Image className="w-4 h-4" src={Twitter} alt="Twitter" />}
+                />
+                <GlobalButton
+                  size="small"
+                  className="bg-transparent hover:bg-transparent"
+                  page="/"
+                  icon={<Image className="w-4 h-4" src={Linkedin} alt="Linkedin" />}
+                />
+                <GlobalButton
+                  size="small"
+                  className="bg-transparent hover:bg-transparent"
+                  page="/"
+                  icon={<Image className="w-4 h-4" src={Instagram} alt="Instagram" />}
+                />
+              </div>
+              <div className="mt-[-10px] lg:ml-0 sm:ml-[-10px]">
+                <a href="" className="">
+                  <Image
+                    className="lg:w-[162px] lg:h-[62px]"
+                    src={GooglePlayStore}
+                    alt="Google Play Store"
+                  />
+                </a>
+              </div>
             </div>
           </div>
+          {/* <GlobalButton
+                size="small"
+                className="mt-[-16px] !w-full pl-[80px] ml-2 !bg-transparent"
+                page="/"
+                icon={
+                  <Image
+                    className="!lg:w-[162px] !lg:h-[62px]"
+                    src={GooglePlayStore}
+                    alt="Instagram"
+                  />
+                }
+              /> */}
 
           {/* Halaman */}
           <div
@@ -202,15 +212,16 @@ const Footbar: FC = (): ReactElement => {
         md:py-2
         sm:mx-10
         xs:mx-10
-        justify-between"
+        justify-between
+        text-[12px]
+        text-[#737373]"
       >
         <div className="dark:text-gray-400">2022 - www.kampusgratis.id - Hak Cipta Dilindungi.</div>
         <div
           className="
             flex 
             justify-center 
-            sm:space-x-2
-            xs:text-xs"
+            sm:space-x-2"
         >
           <div className="mr-4 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
             <a href="" className="hover:text-blue-400">
