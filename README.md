@@ -139,3 +139,29 @@ export default function Examples() {
   );
 }
 ```
+
+# How to use Button
+Button memiliki sembilan parameter 
+- buttonType = merupakan tipe button yang akan digunakan, ada tiga tipe yaitu "call to action" atau cta, "auth button", dan "scroll to top button". Yang membedakan ketiganya hanya ukuran buttonnya.
+- text
+- link = terdapat dua tipe yaitu "link internal" atau page, dan "link external" atau to, namun untuk menggunakan link external harus menambahkan https:// didepan linknya.
+- size = ukuran dari button, terdapat empat ukuran yang sudah disesuaikan dengan tipe button di figma.
+- color = dengan menambahkan parameter color, kita dapat menyesuaikan warna button serta warna teks dari button tersebut.
+- icon = untuk menambahkan icon dapat menggunakan icon dari react-icon yang akan di-render sebagai ReactNode dan icon external dengan format file jpg, jpeg, png, dan svg yang akan di-render sebagai StaticImageData
+
+## Button/Examples
+
+```typescript
+export default function Examples() {
+  return (
+    <GlobalButton
+    buttonType = "auth", // "cta" | "auth" | "scroll"
+    text = "Login"
+    page = "/internal-page" // to = "https://external-page",
+    size = "small", // "small" | "base" | "regular" | "large"
+    color = "black", // "black" | "white" | "lightBlue" | "red" | "blue" | "green" | "purple"
+    icon = {iconImg} // hasImg
+    />
+  );
+}
+```

@@ -1,39 +1,34 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, Suspense } from "react";
 
-// font
-// import { Roboto } from "next/font/google";
-// const roboto = Roboto({
-//   subsets: ["latin"],
-//   weight: "500",
-// });
-
-// toogle
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: "500",
+});
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
-import UpperSection from "./UpperSection";
-import BottomSection from "./BottomSection";
-import CombineSection from "./CombineSection";
+import dynamic from "next/dynamic";
 
-// nav menu list
+const UpperSection = dynamic(() => import("@/components/Navbar/UpperSection"), {
+  ssr: false,
+});
+const BottomSection = dynamic(() => import("@/components/Navbar/BottomSection"), {
+  ssr: false,
+});
 
 const Navbar: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
 
   return (
     <nav
-      className={`${""} ${
-        isScrollY ? "fixed w-full top-0" : "-top-20"
-      } bg-white transition-all ease-in-out duration-300 `}
+      className={`${montserrat.className} ${
+        isScrollY ? "fixed w-full top-0" : "-top-20 z-[9999]"
+      } bg-white transition-all ease-in-out duration-300 z-[9999]`}
     >
-      {/* upper */}
-      {!isScrollY ? (
-        <>
-          <UpperSection />
-          <BottomSection />
-        </>
-      ) : (
-        <CombineSection />
-      )}
+      <Suspense fallback={"Skeleton loading...."}>
+        <UpperSection />
+        {!isScrollY && <BottomSection className="h-[84px] border-b-2 border-neutral-100 " />}
+      </Suspense>
     </nav>
   );
 };
