@@ -36,9 +36,9 @@ const GlobalButton: FC<ButtonProps> = ({
 
   const sizesClass = {
     large: "w-full h-[56px] lg:w-[786px] lg:h-[75px] text-lg font-semibold", // px-24 py-12
-    regular: "w-full h-[56px] lg:w-[328px] lg:h-[56px] text-base font-medium", // px-16 py-8
-    base: "w-full h-[36px] lg:w-[174px] lg:h-[36px] text-base font-medium", // px-4 py-2
-    small: "w-full h-[16px] lg:w-[16px] lg:h-[16px] text-sm font-normal", //px-2 py-2
+    regular: "w-full h-[42px] lg:w-[328px] lg:h-[56px] text-base font-medium", // px-16 py-8
+    base: "w-full h-[27px] lg:w-[174px] lg:h-[36px] text-base font-medium", // px-4 py-2
+    small: "w-full h-[12px] lg:w-[16px] lg:h-[16px] text-sm font-normal", //px-2 py-2
   };
 
   const colorClass = {
