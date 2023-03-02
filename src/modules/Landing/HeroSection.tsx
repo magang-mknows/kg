@@ -7,7 +7,6 @@ import UserKampusGratis from "@/assets/mahasiswa_kampus-gratis.svg";
 import IconHero1 from "@/assets/icon-hero1.svg";
 import IconHero2 from "@/assets/icon-hero2.svg";
 import IconHero3 from "@/assets/icon-hero3.svg";
-import BG from "public/bg-landing.svg";
 
 // import BgLanding from "bg-landing.png";
 import Image from "next/image";
