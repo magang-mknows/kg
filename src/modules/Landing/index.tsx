@@ -16,9 +16,9 @@ const Landing: FC = (): ReactElement => {
         <HeroSection />
         <MitraSection />
         <SekilasSection />
-        <TestimonySection />
         <AboutSection />
         <InformationBanner />
+        <TestimonySection />
         <PromotionBanner />
       </Suspense>
     </BaseLayouts>
