@@ -1,13 +1,15 @@
 import { navbarMenu } from "@/utilities/constant";
-import React, { FC } from "react";
-import NavMenu from "../Common/NavMenu";
+import React, { FC, ReactElement } from "react";
+import NavMenu from "./NavMenu";
 
-const BottomSection: FC = () => {
+import { NavbarItemProps } from "./types";
+
+const BottomSection: FC<NavbarItemProps> = ({ className }): ReactElement => {
   return (
     <>
-      <section className="bg-white dark:bg-[#161514] border-b-[0.2px] dark:border-[#1B1B29]  lg:px-20 md:px-10 px-5 py-3  border-gray-100 hidden lg:block ">
+      <section className={`hidden bg-white lg:flex items-center px-20  ${className}`}>
         <div>
-          <ul className=" flex gap-x-4">
+          <ul className=" flex gap-x-4 items-center">
             <NavMenu list={navbarMenu} />
           </ul>
         </div>
