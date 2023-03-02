@@ -1,5 +1,6 @@
 import React, { FC, ReactElement, useState } from "react";
-import CardAssignment from "./CardAssignment";
+import Assigment from "@/components/Assigment/AssigmentCard";
+import AssigmentAssigned from "@/assets/assigned-assigment.svg";
 
 const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");
@@ -81,7 +82,16 @@ const ContentSection: FC = (): ReactElement => {
           </ul>
         </div>
 
-        <CardAssignment />
+        <Assigment
+          titleAssigment={"Tugas Pertemuan 1"}
+          category={"DITUGASKAN"}
+          titleCourse={"Pekenalan Budaya Jepang"}
+          date={"20-09-2021"}
+          time={"20:00:00"}
+          bgLine={"bg-[#0B568D]"}
+          classNameCategory={"text-[#0B568D]"}
+          imgAssigment={AssigmentAssigned}
+        />
       </div>
     </section>
   );
