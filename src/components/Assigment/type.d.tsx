@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image";
 export interface AssigmentProps {
   titleAssigment: string;
   category: string;
-  date?: String;
+  date?: string;
   time?: string;
   titleCourse: string;
   bgLine?: string;
@@ -11,5 +11,3 @@ export interface AssigmentProps {
   imgAssigment?: StaticImageData;
   alt?: string;
 }
-
-export interface BreadCrumbProps {}

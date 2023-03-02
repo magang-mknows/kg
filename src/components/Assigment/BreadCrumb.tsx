@@ -1,9 +1,9 @@
 import { FC, ReactElement } from "react";
 import NextIcon from "@/assets/next-icon.svg";
 import Image from "next/image";
-import { BreadCrumbProps } from "./type.d";
+// import { BreadCrumbProps } from "./type.d";
 
-const BreadCrumb: FC<BreadCrumbProps> = (): ReactElement => {
+const BreadCrumb: FC = (): ReactElement => {
   return (
     <nav className="flex justify-start w-full px-20 mb-4" aria-label="Breadcrumb">
       <ol className="inline-flex space-x-1 md:space-x-3">
