@@ -13,6 +13,9 @@ export interface TextFieldProps {
   labelClassName?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   ref?: RefObject;
+  success?: string;
+  warning?: string;
+  hasLabel?: boolean;
 }
 
 export interface MobileMenuProps {
