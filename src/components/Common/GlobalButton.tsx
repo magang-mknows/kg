@@ -22,7 +22,7 @@ const GlobalButton: FC<ButtonProps> = ({
   className,
   to,
   page,
-  size = "small", // regular
+  size = "small",
   color = "black",
   icon,
   hasImg,
@@ -30,15 +30,15 @@ const GlobalButton: FC<ButtonProps> = ({
 }): ReactElement => {
   const typeClass = {
     cta: "",
-    auth: "", // !px-8
+    auth: "",
     scroll: "",
   };
 
   const sizesClass = {
-    large: "px-24 py-12 text-base",
-    regular: "px-16 py-8 text-base",
-    base: "px-4 py-2 text-sm",
-    small: "w-8 h-8 px-2 text-sm",
+    large: "w-full h-[56px] lg:w-[786px] lg:h-[75px] text-lg font-semibold", // px-24 py-12
+    regular: "w-full h-[56px] lg:w-[328px] lg:h-[56px] text-base font-medium", // px-16 py-8
+    base: "w-full h-[36px] lg:w-[174px] lg:h-[36px] text-base font-medium", // px-4 py-2
+    small: "w-full h-[16px] lg:w-[16px] lg:h-[16px] text-sm font-normal", //px-2 py-2
   };
 
   const colorClass = {
@@ -47,12 +47,12 @@ const GlobalButton: FC<ButtonProps> = ({
     lightBlue: "bg-[#066ac91a] text-[#066ac9] hover:bg-[#066ac9] hover:text-white",
     red: "bg-[#d6293e1a] text-[#d6293e] hover:bg-[#d6293e] hover:text-white ",
     blue: "bg-[#066ac9] text-white",
-    green: "bg-[#c1f931] text-black",
+    green: "bg-[#2D9A41] text-white",
     purple: "bg-[#5143d9] text-white",
   };
 
   const merged = clsx(
-    "flex rounded items-center ",
+    "rounded-[8px] grid place-content-center",
     colorClass[color],
     sizesClass[size],
     typeClass[buttonType],
@@ -70,11 +70,9 @@ const GlobalButton: FC<ButtonProps> = ({
     <Link href={href} passHref={Boolean(to?.includes("https://") ? page : "https://" + page)}>
       <button className={merged} {...props}>
         {hasImg ? (
-          <div className="btn-icon">
-            <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
-          </div>
+          <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
         ) : (
-          <div className="btn-icon">{icon as ReactNode}</div>
+          <>{icon as ReactNode}</>
         )}
         <p>{text}</p>
       </button>

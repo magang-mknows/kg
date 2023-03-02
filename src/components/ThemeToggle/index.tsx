@@ -1,4 +1,4 @@
-import { FC, ReactElement, Fragment, useState, useEffect, Suspense, startTransition } from "react";
+import { FC, ReactElement, useState, useEffect, Suspense, startTransition } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { RiComputerLine } from "react-icons/ri";
@@ -50,9 +50,9 @@ const ThemeToggle: FC = (): ReactElement => {
   }
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left z-50">
       <Menu.Button>
-        <div className="bg-[#F8F6F2] dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E] mt-2 group p-3 rounded-md shadow-sm ">
+        <div className="bg-neutral-200 h-9 w-9 flex items-center justify-center  overflow-hidden rounded-md cursor-pointer group">
           <ErrorBoundary fallback={<>gaje</>}>
             <Suspense fallback="loading...">
               <Icon />
@@ -62,17 +62,16 @@ const ThemeToggle: FC = (): ReactElement => {
       </Menu.Button>
 
       <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
+        enter="transition ease duration-500 transform"
+        enterFrom="opacity-0 -translate-y-12"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition ease duration-300 transform"
+        leaveFrom="opacity-100 translate-y-0"
+        leaveTo="opacity-0 -translate-y-12"
       >
-        <Menu.Items className="absolute dark:bg-[#161514]  dark:border-[0.2px] dark:border-[#41403E] right-0 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute top-2 right-0 w-30 origin-top-right  overflow-hidden rounded-md bg-white  shadow-lg">
           {option.map((x, i) => (
-            <div key={i} className=" py-1  ">
+            <div key={i} className="">
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -83,13 +82,11 @@ const ThemeToggle: FC = (): ReactElement => {
                       })
                     }
                     className={`${
-                      active ? " bg-[#4FC9DA]  hover:text-white" : "text-[#968E7E] hover:text-white"
-                    } group flex w-full items-center rounded-md text-sm gap-x-2 px-1dark:text-white `}
+                      active ? " bg-[#106FA4] hover:text-white " : ""
+                    } flex justify-between gap-2 w-full px-6 py-2 text-neutral-800 transition-all duration-300 ease-in-out`}
                   >
                     {x.icon}
-                    <span className="text-base px-3 text-gray-400 hover:text-white dark:text-[#968E7E]">
-                      {x.text}
-                    </span>
+                    <span className="text-xs">{x.text}</span>
                   </button>
                 )}
               </Menu.Item>
