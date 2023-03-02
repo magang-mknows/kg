@@ -3,11 +3,7 @@ import { ReactElement } from "react";
 import Landing from "@/modules/Landing";
 
 const Index: NextPage = (): ReactElement => {
-  return (
-    <>
-      <Landing />
-    </>
-  );
+  return <Landing />;
 };
 
 export default Index;

@@ -78,7 +78,7 @@ const LoginForm: FC = (): ReactElement => {
           Lupa Password akun-mu?
         </Link>
       </div>
-      <div className="flex flex-col gap-y-1">
+      <div className="flex flex-col gap-y-1 my-4">
         <Button
           disabled={!isValid}
           className="my-4 w-full disabled:bg-slate-400 disabled:text-gray-300 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"

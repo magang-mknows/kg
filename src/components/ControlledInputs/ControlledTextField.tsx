@@ -41,7 +41,6 @@ const ControlledTextField = <T,>({
           hasLabel={hasLabel}
           success={success}
           warning={warning}
-          ref={field.ref}
           label={label}
           type={type}
           placeholder={placeholder}
