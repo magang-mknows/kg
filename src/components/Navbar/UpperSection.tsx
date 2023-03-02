@@ -118,9 +118,8 @@ const UpperSection: FC = () => {
               />
             }
           ></MenuIcon>
-          */}
-
           <UserIcon />
+          */}
         </section>
       </section>
     </>
