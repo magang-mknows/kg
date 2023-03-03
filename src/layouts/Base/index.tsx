@@ -3,13 +3,17 @@ import Navbar from "@/components/Navbar";
 import Footbar from "@/components/Footbar";
 import { BaseLayoutTypes } from "./types";
 
-const BaseLayouts: FC<BaseLayoutTypes> = ({ children }): ReactElement => {
+const BaseLayouts: FC<BaseLayoutTypes> = ({ children, widthHScreen }): ReactElement => {
   return (
     <Fragment>
       <Suspense fallback="loading...">
         <Navbar />
       </Suspense>
-      <main className="flex flex-col min-h-screen justify-center bg-white dark:bg-gray-900  items-center max-w-screen">
+      <main
+        className={`flex flex-col ${
+          widthHScreen && "min-h-screen"
+        }  justify-center bg-white dark:bg-gray-900  items-center max-w-screen`}
+      >
         {children}
       </main>
       <Footbar />

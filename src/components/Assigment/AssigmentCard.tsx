@@ -13,7 +13,7 @@ const Assigment: FC<AssigmentProps> = ({
   imgAssigment,
 }): ReactElement => {
   return (
-    <div className="px-12 py-10">
+    <div className="px-12 py-4">
       <div className="flex flex-col md:flex-row bg-[#ffffff] rounded-lg drop-shadow-lg relative p-0 justify-between  ">
         <div className={`flex absolute -left-0 rounded-tl-lg rounded-bl-lg h-full w-3 ${bgLine}`} />
         <div className="banner px-8 py-9">
