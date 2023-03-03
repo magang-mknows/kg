@@ -24,6 +24,9 @@ const ControlledTextField = <T,>({
   disabled,
   required,
   value,
+  success,
+  warning,
+  hasLabel,
   ...rest
 }: ControlledTextInputProps<T>): ReactElement => {
   return (
@@ -35,7 +38,9 @@ const ControlledTextField = <T,>({
         <TextField
           {...field}
           {...rest}
-          ref={field.ref}
+          hasLabel={hasLabel}
+          success={success}
+          warning={warning}
           label={label}
           type={type}
           placeholder={placeholder}

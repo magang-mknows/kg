@@ -3,6 +3,7 @@ import ControlledCheckboxField from "@/components/ControlledInputs/ControlledChe
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
 import { useLogin } from "@/hooks/Auth/useLogin";
+import { handleError } from "@/utilities/helper";
 import { AuthPayloadTypes } from "@/utilities/types/Auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -16,6 +17,7 @@ const LoginForm: FC = (): ReactElement => {
       message: "Email harus valid",
     }),
     password: z.string().min(1, { message: "Password harus diisi" }),
+    remember: z.boolean(),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -30,6 +32,7 @@ const LoginForm: FC = (): ReactElement => {
     defaultValues: {
       email: "",
       password: "",
+      remember: false,
     },
   });
 
@@ -37,21 +40,14 @@ const LoginForm: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
     try {
-      mutate(data, {
-        onSuccess: () => {
-          console.log("What happen when success");
-        },
-        onError: (err) => {
-          console.log(err);
-        },
-      });
+      mutate(data);
     } catch (err) {
-      console.log(err);
+      throw handleError(err);
     }
   });
 
   return (
-    <Form onSubmit={onSubmit} className="space-y-4 md:space-y-6">
+    <Form onSubmit={onSubmit}>
       <ControlledTextField
         control={control}
         type={"email"}
@@ -74,17 +70,15 @@ const LoginForm: FC = (): ReactElement => {
       <div className="flex justify-between w-full">
         <ControlledCheckboxField
           control={control}
-          name={"rememberme"}
+          name={"remember"}
           required={false}
-          checked={false}
-          labelClassName="dark:text-white text-black-900"
           label={"Remember Me"}
         />
         <Link className="text-blue-600" href={"/auth/forgot"}>
           Lupa Password akun-mu?
         </Link>
       </div>
-      <div className="flex flex-col gap-y-1">
+      <div className="flex flex-col gap-y-1 my-4">
         <Button
           disabled={!isValid}
           className="my-4 w-full disabled:bg-slate-400 disabled:text-gray-300 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
@@ -94,7 +88,7 @@ const LoginForm: FC = (): ReactElement => {
 
         <div className="inline-flex items-center justify-center w-full">
           <hr className="w-full h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-          <span className="absolute px-3 font-bold text-gray-400 bg-white dark:text-white dark:bg-gray-800">
+          <span className="absolute px-3 font-medium text-gray-400 bg-white dark:text-white dark:bg-gray-800">
             Atau
           </span>
         </div>

@@ -13,7 +13,17 @@ export interface TextFieldProps {
   labelClassName?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   ref?: RefObject;
+  success?: string;
+  warning?: string;
+  hasLabel?: boolean;
 }
+
+export type ModalProps = {
+  title: string;
+  children: ReactNode;
+  button: ReactNode;
+  lookup: boolean;
+};
 
 export interface MobileMenuProps {
   list: {
