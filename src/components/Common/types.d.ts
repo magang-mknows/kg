@@ -21,7 +21,8 @@ export interface TextFieldProps {
 export type ModalProps = {
   title: string;
   children: ReactNode;
-  button: ReactNode;
+  button?: ReactNode;
+  hasButton?: boolean;
   lookup: boolean;
 };
 
