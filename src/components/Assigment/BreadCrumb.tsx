@@ -1,32 +1,37 @@
 import { FC, ReactElement } from "react";
-import NextIcon from "@/assets/next-icon.svg";
-import Image from "next/image";
+import Link from "next/link";
+import { BreadCrumbProps } from "./type.d";
 
-const BreadCrumb: FC = (): ReactElement => {
+const BreadCrumb: FC<BreadCrumbProps> = ({ items }): ReactElement => {
   return (
-    <nav className="flex justify-start w-full px-20 mb-4" aria-label="Breadcrumb">
+    <div
+      className="grid place-content-start w-full px-10 md:px-14 lg:px-20 my-4 mt-5 text-[#737373] font-[600] text-[14px]"
+      aria-label="Breadcrumb"
+    >
       <ol className="inline-flex space-x-1 md:space-x-3">
-        <li className="inline-flex ">
-          <a
-            href="#"
-            className="inline-flex items-center text-sm font-medium text-[#106FA4] dark:text-gray-400 dark:hover:text-white"
-          >
-            Home
-          </a>
-        </li>
         <li>
-          <div className="flex gap-2">
-            <Image src={NextIcon} alt={"next-icon"} width={8} />
-            <a
-              href="#"
-              className="ml-1 text-sm font-medium text-[#737373] dark:text-gray-400 dark:hover:text-white text-[14px] text-[600]"
-            >
-              Penugasan
-            </a>
-          </div>
+          {items.map((crumb, index) => {
+            const isLastItem = index === items.length - 1;
+            if (!isLastItem) {
+              return (
+                <>
+                  <Link
+                    href={crumb.link}
+                    key={index}
+                    className="inline-flex items-center text-[#106FA4] font-[600] text-[14px] dark:hover:text-white"
+                  >
+                    {crumb.name}
+                  </Link>
+                  <span className="px-3 text-[#A3A3A3] font-[600]">{">"}</span>
+                </>
+              );
+            } else {
+              return crumb.name;
+            }
+          })}
         </li>
       </ol>
-    </nav>
+    </div>
   );
 };
 
