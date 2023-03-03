@@ -24,35 +24,16 @@ const Footbar: FC = (): ReactElement => {
         transition-all ease-in-out duration-300"
     >
       <div
-        className="
-        text-justify
-        md:text-justify
-        mx-5 
-        py-10 
-        lg:mx-20 
-        md:mx-10
-        md:py-5
-        sm:mx-10
-        xs:mx-10"
+        className="py-10 mx-5 text-justify  md:text-justify lg:mx-20 md:mx-10 md:py-5 sm:mx-10 xs:mx-10"
       >
         <div
-          className="
-          grid-1 
-          grid 
-          gap-2
-          md:grid-cols-2 
-          lg:grid-cols-4"
+          className="grid gap-2  grid-1 md:grid-cols-2 lg:grid-cols-4"
         >
           {/* kampus gratis */}
           <div className="text-sm w-full lg:w-[360px]">
             <Image
               src={LoadConditionalLogo()}
-              className="
-                h-19 
-                w-100 
-                mb-4 
-                sm:h-15
-                "
+              className="mb-4  h-19 w-100 sm:h-15"
               alt="logo"
             />
             <p className="lg:text-[14px] dark:text-gray-400">
@@ -60,7 +41,7 @@ const Footbar: FC = (): ReactElement => {
               peningkatan atau progres pembelajaran mahasiswa layaknya seperti perguruan tinggi.
             </p>
 
-            <div className="flex lg:flex-row md:flex-row sm:flex-col xs:flex-col justify-between lg:mt-0 sm:mt-4">
+            <div className="flex justify-between lg:flex-row md:flex-row sm:flex-col xs:flex-col lg:mt-0 sm:mt-4">
               <div className="flex flex-row my-4 space-x-4">
                 <GlobalButton
                   size="small"
@@ -71,19 +52,19 @@ const Footbar: FC = (): ReactElement => {
                 <GlobalButton
                   size="small"
                   className="bg-transparent hover:bg-transparent"
-                  page="/"
+                  to="/"
                   icon={<Image className="w-4 h-4" src={Twitter} alt="Twitter" />}
                 />
                 <GlobalButton
                   size="small"
                   className="bg-transparent hover:bg-transparent"
-                  page="/"
+                  to="/"
                   icon={<Image className="w-4 h-4" src={Linkedin} alt="Linkedin" />}
                 />
                 <GlobalButton
                   size="small"
                   className="bg-transparent hover:bg-transparent"
-                  page="/"
+                  to="/"
                   icon={<Image className="w-4 h-4" src={Instagram} alt="Instagram" />}
                 />
               </div>
@@ -152,24 +133,24 @@ const Footbar: FC = (): ReactElement => {
 
             <div className="flex flex-row mb-2 mt-7 lg:text-[14px]">
               <div className=" dark:text-white">Utama </div>
-              <div className=" dark:text-white ml-2">: </div>
-              <div className="dark:text-gray-400 ml-2">
+              <div className="ml-2  dark:text-white">: </div>
+              <div className="ml-2 dark:text-gray-400">
                 Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
                 Khusus Ibukota Jakarta 12130
               </div>
             </div>
             <div className="flex flex-row mb-2 mt-2 lg:text-[14px]">
               <div className=" dark:text-white">Cabang </div>
-              <div className=" dark:text-white ml-2">: </div>
-              <div className="dark:text-gray-400 ml-2">
+              <div className="ml-2  dark:text-white">: </div>
+              <div className="ml-2 dark:text-gray-400">
                 Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
                 Khusus Ibukota Jakarta 12130
               </div>
             </div>
             <div className="flex flex-row mb-2 mt-2 lg:text-[14px]">
               <div className=" dark:text-white">Cabang </div>
-              <div className=" dark:text-white ml-2">: </div>
-              <div className="dark:text-gray-400 ml-2">
+              <div className="ml-2  dark:text-white">: </div>
+              <div className="ml-2 dark:text-gray-400">
                 Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
                 Khusus Ibukota Jakarta 12130
               </div>
@@ -179,13 +160,7 @@ const Footbar: FC = (): ReactElement => {
       </div>
 
       <hr
-        className="
-        py-5 
-        lg:mx-20 
-        md:mx-10
-        md:py-2
-        sm:mx-10
-        xs:mx-10"
+        className="py-5  lg:mx-20 md:mx-10 md:py-2 sm:mx-10 xs:mx-10"
       />
 
       <div
@@ -206,10 +181,7 @@ const Footbar: FC = (): ReactElement => {
       >
         <div className="dark:text-gray-400">2022 - www.kampusgratis.id - Hak Cipta Dilindungi.</div>
         <div
-          className="
-            flex 
-            justify-center 
-            sm:space-x-2"
+          className="flex justify-center  sm:space-x-2"
         >
           <div className="mr-4 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
             <a href="" className="hover:text-blue-400">
