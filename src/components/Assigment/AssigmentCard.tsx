@@ -11,7 +11,6 @@ const Assigment: FC<AssigmentProps> = ({
   bgLine,
   classNameCategory,
   imgAssigment,
-  alt,
 }): ReactElement => {
   return (
     <div className="px-12 py-10">

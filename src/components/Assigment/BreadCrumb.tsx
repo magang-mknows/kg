@@ -1,7 +1,6 @@
 import { FC, ReactElement } from "react";
 import NextIcon from "@/assets/next-icon.svg";
 import Image from "next/image";
-// import { BreadCrumbProps } from "./type.d";
 
 const BreadCrumb: FC = (): ReactElement => {
   return (
