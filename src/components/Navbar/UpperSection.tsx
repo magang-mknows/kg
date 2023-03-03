@@ -1,11 +1,7 @@
 import Image from "next/image";
 import { FC, Fragment } from "react";
 
-// icon
-import { BiBell, BiCategoryAlt } from "react-icons/bi";
-
 import logoBiru from "@/assets/logoBiru.png";
-import userIcon from "@/assets/userIcon.png";
 import MenuIcon from "./MenuIcon";
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
@@ -17,14 +13,17 @@ import { HiChatAlt2 } from "react-icons/hi";
 import { MdEmojiPeople } from "react-icons/md";
 import { IoAnalyticsOutline, IoBag } from "react-icons/io5";
 import Link from "next/link";
-import MobileMenu from "../Common/MobileMenu";
-import { navbarMenu } from "@/utilities/constant";
+import { BiCategoryAlt } from "react-icons/bi";
+
+import { useSetRecoilState } from "recoil";
+import { AuthModalOpen } from "@/stores/Common";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
+  const setModalAUth = useSetRecoilState(AuthModalOpen);
 
   return (
-    <>
+    <Fragment>
       <section className="flex items-center h-[72px] justify-between border-b-2 px-10 md:px-14 lg:px-20  border-neutral-100">
         <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} />
         {isScrollY && <BottomSection />}
@@ -96,15 +95,15 @@ const UpperSection: FC = () => {
 
           {/* before login */}
           <Button
+            onClick={() => setModalAUth(true)}
             type="button"
             text={"Masuk"}
-            page={"/auth/login"}
             className="text-[#106FA4] border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
           />
           <Button
             type="button"
             text={"Daftar"}
-            page={"/auth/login"}
+            page={"/auth/register"}
             className="bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
           />
 
@@ -123,7 +122,7 @@ const UpperSection: FC = () => {
           </div> */}
         </section>
       </section>
-    </>
+    </Fragment>
   );
 };
 

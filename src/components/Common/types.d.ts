@@ -18,6 +18,13 @@ export interface TextFieldProps {
   hasLabel?: boolean;
 }
 
+export type ModalProps = {
+  title: string;
+  children: ReactNode;
+  button: ReactNode;
+  lookup: boolean;
+};
+
 export interface MobileMenuProps {
   list: {
     name: string;

@@ -17,6 +17,7 @@ const LoginForm: FC = (): ReactElement => {
       message: "Email harus valid",
     }),
     password: z.string().min(1, { message: "Password harus diisi" }),
+    remember: z.boolean(),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -31,6 +32,7 @@ const LoginForm: FC = (): ReactElement => {
     defaultValues: {
       email: "",
       password: "",
+      remember: false,
     },
   });
 
@@ -68,10 +70,8 @@ const LoginForm: FC = (): ReactElement => {
       <div className="flex justify-between w-full">
         <ControlledCheckboxField
           control={control}
-          name={"rememberme"}
+          name={"remember"}
           required={false}
-          checked={false}
-          labelClassName="dark:text-white text-black-900"
           label={"Remember Me"}
         />
         <Link className="text-blue-600" href={"/auth/forgot"}>
@@ -88,7 +88,7 @@ const LoginForm: FC = (): ReactElement => {
 
         <div className="inline-flex items-center justify-center w-full">
           <hr className="w-full h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-          <span className="absolute px-3 font-bold text-gray-400 bg-white dark:text-white dark:bg-gray-800">
+          <span className="absolute px-3 font-medium text-gray-400 bg-white dark:text-white dark:bg-gray-800">
             Atau
           </span>
         </div>
