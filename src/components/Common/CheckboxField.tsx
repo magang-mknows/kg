@@ -12,7 +12,6 @@ const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
       value,
       onChange,
       disabled = false,
-      labelClassName,
       className,
       checked,
     }: CheckboxFieldProps,
@@ -20,7 +19,7 @@ const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
   ): ReactElement => {
     return (
       <section className="flex flex-col">
-        <div className="flex justify-center gap-x-4">
+        <div className="flex justify-start gap-x-4">
           <input
             type="checkbox"
             name={name}
@@ -32,7 +31,7 @@ const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
             disabled={disabled}
             ref={ref}
           />
-          <label htmlFor={name} className={labelClassName}>
+          <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl"}>
             {label}
           </label>
         </div>

@@ -8,8 +8,8 @@ const RegisterForm = lazy(() => import("@/modules/Auth/Register/Form"));
 const Register: NextPage = (): ReactElement => {
   return (
     <AuthLayouts
-      title="Buat akun baru"
-      description="Sudah punya akun?"
+      title="Daftar Akun"
+      description="Silahkan isi data berikut untuk melakukan pendaftaran"
       linkText="Login Disini"
       to="/auth/login"
     >
