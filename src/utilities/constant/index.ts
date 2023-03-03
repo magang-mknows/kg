@@ -35,3 +35,14 @@ export const notifListDummy = [
 ];
 
 export const publicRoutes = ["/", "/auth/login", "/auth/register", "/auth/forgot", "/assigment"];
+
+export const assigmentBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Penugasan",
+    link: "/assigment",
+  },
+];

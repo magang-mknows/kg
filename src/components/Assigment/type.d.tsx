@@ -11,3 +11,12 @@ export interface AssigmentProps {
   imgAssigment?: StaticImageData;
   alt?: string;
 }
+
+export type CrumbItem = {
+  link: string;
+  name: string;
+};
+
+export type BreadCrumbProps = {
+  items: CrumbItem[];
+};

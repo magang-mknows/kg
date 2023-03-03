@@ -17,7 +17,7 @@ const Assigment: FC<AssigmentProps> = ({
       <div className="flex flex-col md:flex-row bg-[#ffffff] rounded-lg drop-shadow-lg relative p-0 justify-between  ">
         <div className={`flex absolute -left-0 rounded-tl-lg rounded-bl-lg h-full w-3 ${bgLine}`} />
         <div className="banner px-8 py-9">
-          <h1 className="text-[20px] font-[700]">{titleAssigment}</h1>
+          <h1 className="text-[20px] font-[700] text-[#262626]">{titleAssigment}</h1>
           <p className="text-[#A3A3A3] font-[400] text-[16px] mt-3">{titleCourse}</p>
         </div>
         <div className="flex flex-col md:items-center mr-6 md:mr-0 px-8 mb-7 md:py-7">
