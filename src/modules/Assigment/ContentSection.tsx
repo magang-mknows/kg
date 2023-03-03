@@ -9,10 +9,10 @@ const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");
 
   const dummy = [
-    { titleAssigment: "test 1", category: "ditugaskan" },
-    { titleAssigment: "Lalala", category: "terlambat" },
-    { titleAssigment: "Lilaaa", category: "sedang-dinilai" },
-    { titleAssigment: "Test", category: "selesai" },
+    { id: 1, titleAssigment: "test 1", category: "ditugaskan" },
+    { id: 2, titleAssigment: "Lalala", category: "terlambat" },
+    { id: 3, titleAssigment: "Lilaaa", category: "sedang-dinilai" },
+    { id: 4, titleAssigment: "Test", category: "selesai" },
   ];
 
   return (
@@ -102,6 +102,7 @@ const ContentSection: FC = (): ReactElement => {
           if (active == "ditugaskan" && item.category == "ditugaskan") {
             return (
               <Assigment
+                key={item.id}
                 titleAssigment={item.titleAssigment}
                 category={item.category}
                 titleCourse={"Pekenalan Budaya Jepang"}
@@ -115,6 +116,7 @@ const ContentSection: FC = (): ReactElement => {
           } else if (active == "terlambat" && item.category == "terlambat") {
             return (
               <Assigment
+                key={item.id}
                 titleAssigment={item.titleAssigment}
                 category={item.category}
                 titleCourse={"Pekenalan Budaya Jepang"}
@@ -128,6 +130,7 @@ const ContentSection: FC = (): ReactElement => {
           } else if (active == "sedang-dinilai" && item.category == "sedang-dinilai") {
             return (
               <Assigment
+                key={item.id}
                 titleAssigment={item.titleAssigment}
                 category={item.category}
                 titleCourse={"Pekenalan Budaya Jepang"}
@@ -141,6 +144,7 @@ const ContentSection: FC = (): ReactElement => {
           } else if (active == "selesai" && item.category == "selesai") {
             return (
               <Assigment
+                key={item.id}
                 titleAssigment={item.titleAssigment}
                 category={item.category}
                 titleCourse={"Pekenalan Budaya Jepang"}
@@ -156,6 +160,7 @@ const ContentSection: FC = (): ReactElement => {
             if (item.category == "ditugaskan") {
               return (
                 <Assigment
+                  key={item.id}
                   titleAssigment={item.titleAssigment}
                   category={item.category}
                   titleCourse={"Pekenalan Budaya Jepang"}
@@ -169,6 +174,7 @@ const ContentSection: FC = (): ReactElement => {
             } else if (item.category == "terlambat") {
               return (
                 <Assigment
+                  key={item.id}
                   titleAssigment={item.titleAssigment}
                   category={item.category}
                   titleCourse={"Pekenalan Budaya Jepang"}
@@ -182,6 +188,7 @@ const ContentSection: FC = (): ReactElement => {
             } else if (item.category == "sedang-dinilai") {
               return (
                 <Assigment
+                  key={item.id}
                   titleAssigment={item.titleAssigment}
                   category={item.category}
                   titleCourse={"Pekenalan Budaya Jepang"}
@@ -195,6 +202,7 @@ const ContentSection: FC = (): ReactElement => {
             } else if (item.category == "selesai") {
               return (
                 <Assigment
+                  key={item.id}
                   titleAssigment={item.titleAssigment}
                   category={item.category}
                   titleCourse={"Pekenalan Budaya Jepang"}
