@@ -1,82 +1,82 @@
-import { ButtonHTMLAttributes, FC, ReactElement, ReactNode, useMemo } from "react";
+import { FC, Fragment, ReactElement, ReactNode } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import Image, { StaticImageData } from "next/image";
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonType?: "cta" | "auth" | "scroll";
-  text?: string | number;
-  className?: string;
-  size?: "small" | "base" | "regular" | "large";
-  color?: "black" | "white" | "lightBlue" | "red" | "blue" | "green" | "purple";
-  to?: string;
-  page?: string;
-  icon?: ReactNode | StaticImageData;
-  target?: string;
-  hasImg?: boolean;
-}
+import { ButtonProps } from "./types";
 
 const GlobalButton: FC<ButtonProps> = ({
-  buttonType = "auth",
-  text,
   className,
+  onClick,
+  loading,
+  text,
   to,
-  page,
   size = "small",
-  color = "black",
+  color = "blue",
   icon,
   hasImg,
+  hasExternal,
   ...props
 }): ReactElement => {
-  const typeClass = {
-    cta: "",
-    auth: "",
-    scroll: "",
-  };
-
   const sizesClass = {
     large: "w-full h-[56px] lg:w-[786px] lg:h-[75px] text-lg font-semibold", // px-24 py-12
-    regular: "w-full h-[42px] lg:w-[328px] lg:h-[56px] text-base font-medium", // px-16 py-8
-    base: "w-full h-[27px] lg:w-[174px] lg:h-[36px] text-base font-medium", // px-4 py-2
-    small: "w-full h-[12px] lg:w-[16px] lg:h-[16px] text-sm font-normal", //px-2 py-2
+    regular: "w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium", // px-16 py-8
+    base: "w-full h-[27px] lg:w-[160px] lg:h-[48px] text-[16px] font-medium", // px-4 py-2
+    small: "w-full h-[12px] lg:w-[98px] lg:h-[36px] text-[14px] font-normal", //px-2 py-2
+    modal: "w-full h-[12px] lg:w-[98px] lg:h-[36px] text-[14px] font-normal", //px-2 py-2
+    icon: "w-full h-[12px] lg:w-[16px] lg:h-[16px] text-[14px] font-normal", //px-2 py-2
   };
 
   const colorClass = {
-    black: "bg-[#24292D] text-white hover:bg-[#45494d] ",
-    white: "bg-[#ffffff] text-[#24292D] hover:bg-[#eff1f2] ",
-    lightBlue: "bg-[#066ac91a] text-[#066ac9] hover:bg-[#066ac9] hover:text-white",
-    red: "bg-[#d6293e1a] text-[#d6293e] hover:bg-[#d6293e] hover:text-white ",
-    blue: "bg-[#066ac9] text-white",
-    green: "bg-[#2D9A41] text-white",
-    purple: "bg-[#5143d9] text-white",
+    noBorder: `bg-transparent text-[#106FA4] disabled:text-[#A3A3A3] ${
+      loading && "!text-[#67A5C8]"
+    } `,
+    green: `bg-[#3EB449] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
+      loading && "!bg-[#6AD26A]"
+    }`,
+    blue: `bg-[#106FA4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
+      loading && "!bg-[#67A5C8]"
+    }`,
+    yellow: `bg-[#FAB317] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3]${
+      loading && "!bg-[#FBCB50]"
+    }`,
+    greenBorder: `bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3] ${
+      loading && "!text-[#6AD26A] !border-[#6AD26A]"
+    }`,
+    blueBorder: `bg-transparent text-[#106FA4] border-[#106FA4] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3] ${
+      loading && "!text-[#67A5C8] !border-[#67A5C8]"
+    }`,
   };
-
   const merged = clsx(
-    "rounded-[8px] grid place-content-center",
+    "flex gap-x-2 rounded shadow-md items-center ",
     colorClass[color],
     sizesClass[size],
-    typeClass[buttonType],
     className,
   );
 
-  const href = useMemo(() => {
-    if (page) return { pathname: page };
-    else return to || "/";
-  }, [to, page]);
-
-  console.log(typeof icon);
-
   return (
-    <Link href={href} passHref={Boolean(to?.includes("https://") ? page : "https://" + page)}>
-      <button className={merged} {...props}>
-        {hasImg ? (
-          <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
-        ) : (
-          <>{icon as ReactNode}</>
-        )}
-        <p>{text}</p>
-      </button>
-    </Link>
+    <Fragment>
+      {to !== undefined ? (
+        <Link href={hasExternal ? `${"https://" + to}` : `${to}`}>
+          <button className={merged} {...props} onClick={onClick}>
+            {hasImg ? (
+              <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
+            ) : (
+              <>{icon as ReactNode}</>
+            )}
+            <p>{text}</p>
+          </button>
+        </Link>
+      ) : (
+        <button className={merged} {...props} onClick={onClick}>
+          {hasImg ? (
+            <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
+          ) : (
+            <>{icon as ReactNode}</>
+          )}
+          <p>{text}</p>
+        </button>
+      )}
+    </Fragment>
   );
 };
 
