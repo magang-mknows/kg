@@ -16,7 +16,13 @@ const Card: FC<CardProps> = ({
   return (
     <div className={`${className} flex auto p-4 flex-col`}>
       {hasImage && (
-        <Image className="w-full object-cover" src={src} alt="Picture of the author" width={imgwidth} height={imgheight} />
+        <Image
+          className="w-full object-cover"
+          src={src}
+          alt="Picture of the author"
+          width={imgwidth}
+          height={imgheight}
+        />
       )}
       {icon}
       <h1 className={titleStyle}>{title}</h1>
