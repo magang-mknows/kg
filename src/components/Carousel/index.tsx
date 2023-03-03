@@ -18,11 +18,12 @@ const CarouselMenu: FC = (): ReactElement => {
   ];
 
   return (
-    <div className="carousel-wrapper w-full items-center flex justify-between gap-20">
+    <div className="carousel-wrapper w-full items-center flex justify-between">
       <svg
         width="13"
         height="21"
         viewBox="0 0 13 21"
+        className="relative z-10 left-28 cursor-pointer"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -33,27 +34,30 @@ const CarouselMenu: FC = (): ReactElement => {
       </svg>
       <Carousel
         className="flex items-center justify-center"
-        width={450}
-        thumbWidth={450}
+        width={"85%"}
+        thumbWidth={300}
         centerMode={true}
-        centerSlidePercentage={35}
+        stopOnHover={true}
+        centerSlidePercentage={20}
         infiniteLoop={true}
-        selectedItem={4}
+        selectedItem={20}
         autoPlay={true}
         showThumbs={false}
-        showArrows={false}
+        showArrows={true}
         showIndicators={false}
         showStatus={false}
+        emulateTouch={true}
       >
         {Mitra.map((x, i) => (
-          <div key={i} className={"mx-4"}>
-            <Image draggable={false} width={140} key={i} src={x.icon} alt={"Mitra Section"} />
+          <div key={i} className={"mx-8"}>
+            <Image draggable={false} width={500} key={i} src={x.icon} alt={"Mitra Section"} />
           </div>
         ))}
       </Carousel>
       <svg
         width="13"
         height="21"
+        className="relative right-28 zz-18 cursor-pointer"
         viewBox="0 0 13 21"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
