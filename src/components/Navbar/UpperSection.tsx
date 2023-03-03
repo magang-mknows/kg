@@ -17,6 +17,9 @@ import { BiCategoryAlt } from "react-icons/bi";
 
 import { useSetRecoilState } from "recoil";
 import { AuthModalOpen } from "@/stores/Common";
+import MobileMenu from "../Common/MobileMenu";
+import { navbarMenu } from "@/utilities/constant";
+import UserIcon from "./UserIcon";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
@@ -27,7 +30,8 @@ const UpperSection: FC = () => {
       <section className="flex items-center h-[72px] justify-between border-b-2 px-10 md:px-14 lg:px-20  border-neutral-100">
         <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} />
         {isScrollY && <BottomSection />}
-        <section className="flex items-center gap-4">
+        <section className="flex items-center gap-2 md:gap-3 ">
+          <MobileMenu list={navbarMenu} />
           <MenuIcon
             icon={
               <BiCategoryAlt
@@ -37,8 +41,8 @@ const UpperSection: FC = () => {
             }
           >
             <Menu.Items className="absolute right-0 top-2 origin-top-right   bg-white  shadow-md   rounded-md overflow-hidden">
-              <div className="bg-yellow-200 h-[92px] w-[274px] flex gap-1 flex-col items-center justify-center text-xl">
-                <h1>Fitur</h1>
+              <div className="bg-yellow-200 h-[92px] w-[220px] md:w-[270px] flex gap-1 flex-col items-center justify-center text-xl">
+                <h1 className="text-neutral-800">Fitur</h1>
                 <p className="text-white bg-yellow-500 text-sm px-2 py-1 rounded-md shadow-sm">
                   Total 16 Fitur
                 </p>
@@ -99,6 +103,7 @@ const UpperSection: FC = () => {
             type="button"
             text={"Masuk"}
             className="text-[#106FA4] border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+
           />
           <Button
             type="button"
@@ -116,10 +121,8 @@ const UpperSection: FC = () => {
               />
             }
           ></MenuIcon>
-
-          <div className="bg-neutral-200 h-9 w-9 flex items-center justify-center  overflow-hidden rounded-md cursor-pointer group">
-            <Image src={userIcon} alt="User" />
-          </div> */}
+          <UserIcon />
+          */}
         </section>
       </section>
     </Fragment>
