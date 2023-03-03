@@ -19,7 +19,6 @@ import { useSetRecoilState } from "recoil";
 import { AuthModalOpen } from "@/stores/Common";
 import MobileMenu from "../Common/MobileMenu";
 import { navbarMenu } from "@/utilities/constant";
-import UserIcon from "./UserIcon";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
@@ -103,7 +102,6 @@ const UpperSection: FC = () => {
             type="button"
             text={"Masuk"}
             className="text-[#106FA4] border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
-
           />
           <Button
             type="button"
