@@ -7,7 +7,7 @@ export const navbarMenu = [
   },
   {
     name: "Penugasan",
-    link: "/penugasan",
+    link: "/assigment",
   },
   {
     name: "Rencana Studi",
@@ -34,4 +34,4 @@ export const notifListDummy = [
   { link: "/", name: "Lorem ipsum 2", time: "now" },
 ];
 
-export const publicRoutes = ["/", "/auth/login", "/auth/register", "/auth/forgot"];
+export const publicRoutes = ["/", "/auth/login", "/auth/register", "/auth/forgot", "/assigment"];
