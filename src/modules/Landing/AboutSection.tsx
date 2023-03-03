@@ -12,24 +12,26 @@ import Card from "@/components/Common/Card";
 const AboutSection: FC = (): ReactElement => {
   return (
     <section className="container mx-auto mt-[100px] mb-[250px]">
-      <div className="grid lg:grid-cols-2 gap-40">
+      <div className="grid lg:grid-cols-2 lg:gap-40 md:gap-14 gap-0 ">
         <div className="grid place-content-center ">
           <div className="w-[500px] h-[382px] relative col-span-1">
-            <Image src={RectangleUp} alt={"rectangle-up"} className="relative " />
+            <Image src={RectangleUp} alt={"rectangle-up"} className="relative md:w-5/12 w-3/12" />
             <Image
               src={RectangleDown}
               alt={"rectangle-down"}
-              className="relative lg:left-96 md:left-72 left-40 "
+              className="relative lg:left-96 md:left-72 left-52 md:-top-14 top-6 md:w-5/12 w-3/12  "
             />
             <Image
               src={AboutCard2}
               alt={"About-Landing"}
-              className={"lg:w-[500px] object-cover rounded-xl absolute top-5 left-5"}
+              className={
+                "lg:w-[500px] md:w-11/12 w-7/12 object-cover rounded-xl absolute top-5 left-5"
+              }
             />
             <Card
               hasImage={true}
               className={
-                "grid items-center rounded-2xl w-max absolute lg:-right-36 -top-24 md:-right-7 -right-1"
+                "grid items-center rounded-2xl md:w-max absolute lg:-right-36 md:-top-24 md:-right-7 right-24 w-5/12 -top-10 "
               }
               src={AboutVideo}
               imgwidth={261}
@@ -39,7 +41,7 @@ const AboutSection: FC = (): ReactElement => {
                 <Image
                   src={PlayButton}
                   alt={"Play-video"}
-                  className="text-[#CDF5FA] hover:text-[#fff] hover:bg-[#0cbc87] bg-[#ffffff] rounded-full p-3 w-12 h-12 absolute top-20 left-32"
+                  className="text-[#CDF5FA] hover:text-[#fff] hover:bg-[#0cbc87] bg-[#ffffff] rounded-full md:p-3 md:w-12 md:h-12 w-10 p-2 absolute md:top-20 md:left-32 top-14 left-20"
                 />
               </button>
             </Card>
@@ -47,45 +49,47 @@ const AboutSection: FC = (): ReactElement => {
             <Card
               hasImage={false}
               className={
-                "grid items-center bg-[rgb(255,255,255)] rounded-2xl w-max px-6 py-4 drop-shadow-xl shadow-lg absolute lg:-right-24 top-96 md:-right-10 right-20"
+                "grid items-center bg-[rgb(255,255,255)] rounded-2xl md:w-max w-4/12 md:px-6 md:py-4  py-3 drop-shadow-xl shadow-lg absolute lg:-right-24 lg:top-96 md:-right-5 right-32 md:top-80 top-48"
               }
             >
               <Image
                 src={PhoneLaptopAbout}
                 alt={"phone-laptop-about"}
-                className="text-[#000000] inline-block bg-[#CDF5FA] rounded-full p-3 w-14 h-14 "
+                className="text-[#000000] inline-block bg-[#CDF5FA] rounded-full md:p-3 md:w-14 md:h-14 w-10 p-2 h-10 "
               />
               <div className="px-2">
-                <h6 className="text-[#0B568D] font-medium text-2xl">75+</h6>
-                <p className="text-[#808080] font-medium tracking-tight text-md">Pelatihan Aktif</p>
+                <h6 className="text-[#0B568D] font-medium md:text-2xl text-base">75+</h6>
+                <p className="text-[#808080] font-medium tracking-tight text-md text-sm">
+                  Pelatihan Aktif
+                </p>
               </div>
             </Card>
           </div>
         </div>
-        <div className="col-span-1 w-full">
-          <h1 className="dark:text-[#ffff] text-[#000000] text-[44px] font-bold tracking-wide leading-tight">
+        <div className="col-span-1  md:">
+          <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[30px] font-bold tracking-wide leading-tight">
             Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
           </h1>
-          <h6 className="text-[#8e8e8e] text-[24px] leading-normal mt-[46px]">
+          <p className="text-[#8e8e8e] md:text-[24px] text-[18px] leading-normal md:mt-[46px] mt-[20px]">
             Ada banyak kategori pelatihan terlaris yang ada <br /> di Kampus Gratis
-          </h6>
-          <div>
-            <ul className="mt-[46px]">
+          </p>
+          <div className="">
+            <ul className="md:mt-[46px] mt-[30px] md:text-[24px] text-[18px] ">
               <div className="checklist flex gap-2 mb-3">
                 <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 text-[24px]">Belajar semua materi GRATIS</li>
+                <li className="-mt-1 ">Belajar semua materi GRATIS</li>
               </div>
               <div className="checklist flex gap-2 mb-3">
                 <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 text-[24px]">Dibimbing oleh mentor yang profesional</li>
+                <li className="-mt-1 ">Dibimbing oleh mentor yang profesional</li>
               </div>
               <div className="checklist flex gap-2 mb-3">
                 <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 text-[24px]">Dukungan untuk karir masa depan</li>
+                <li className="-mt-1 ">Dukungan untuk karir masa depan</li>
               </div>
               <div className="checklist flex gap-2 mb-3">
                 <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 text-[24px]">Pembelajaran yang fleksibel</li>
+                <li className="-mt-1 ">Pembelajaran yang fleksibel</li>
               </div>
             </ul>
           </div>
