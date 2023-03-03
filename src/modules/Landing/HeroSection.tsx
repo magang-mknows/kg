@@ -13,10 +13,8 @@ import Image from "next/image";
 
 const HeroSection: FC = (): ReactElement => {
   return (
-    // <MainLayouts className="w-full my-11 ">
     <>
       <div className="z-0">
-        {/* <Image src={BG} alt="" className="" /> */}
         <div className="flex flex-col justify-between items-center xl:items-start lg:items-start w-full px-20 py-20 lg:flex-row md:items-center">
           <ContentLayouts className="w-full dark:text-white">
             <div className="flex flex-col gap-y-4 ">
