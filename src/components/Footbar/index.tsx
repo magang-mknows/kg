@@ -98,18 +98,6 @@ const Footbar: FC = (): ReactElement => {
               </div>
             </div>
           </div>
-          {/* <GlobalButton
-                size="small"
-                className="mt-[-16px] !w-full pl-[80px] ml-2 !bg-transparent"
-                page="/"
-                icon={
-                  <Image
-                    className="!lg:w-[162px] !lg:h-[62px]"
-                    src={GooglePlayStore}
-                    alt="Instagram"
-                  />
-                }
-              /> */}
 
           {/* Halaman */}
           <div
