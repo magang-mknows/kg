@@ -57,7 +57,7 @@ const InformationSection: FC = (): ReactElement => {
       <h1 className="text-center text-5xl lg:text-5xl md:text-3xl font-bold mb-24 text-[#000000] dark:text-[#f9feff]">
         Informasi Untuk Membantu Karirmu
       </h1>
-      <div className="flex justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 sm:gap-y-5">
+      <div className="flex justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
         {dataDummy.slice(0, 3).map((dummy) => {
           const color = handleColor(dummy.tag);
           return (
