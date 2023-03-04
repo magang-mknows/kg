@@ -32,7 +32,7 @@ const Resume: FC = (): ReactElement => {
   ];
 
   return (
-    <div className="bg-white shadow-md shadow-neutral-100 w-auto md:max-w-[370px] rounded-md min-h-[500px] mb-9">
+    <div className="bg-white shadow-lg shadow-neutral-100 w-screen md:w-[370px] rounded-md min-h-[500px] mb-9">
       <section className="text-white bg-[#106FA4] relative  px-8 pt-12 pb-28">
         <h1 className="font-bold text-2xl mb-2">Hello, Bandi</h1>
         <p className="text-base mb-2">

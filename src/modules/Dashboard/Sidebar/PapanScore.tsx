@@ -39,7 +39,7 @@ const PapanScore: FC = (): ReactElement => {
 
   return (
     <div
-      className={`w-auto md:max-w-[370px] px-8 py-7 bg-white shadow-md shadow-neutral-100 ${montserrat.className}`}
+      className={`w-auto bg-white md:max-w-[370px] px-8 py-7 rounded-md  shadow-md shadow-neutral-100 ${montserrat.className}`}
     >
       <section className="flex justify-between items-start mb-4">
         <div>

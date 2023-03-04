@@ -3,7 +3,7 @@ import React, { FC, ReactElement } from "react";
 
 const Dashboard: FC = (): ReactElement => {
   return (
-    <div>
+    <div className="flex gap-9 bg-neutral-100 min-h-[1200px]">
       <Sidebar />
     </div>
   );
