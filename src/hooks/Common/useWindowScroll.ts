@@ -4,7 +4,7 @@ import { WindowScrollReturnTypes } from "./types";
 export default function useWindowScroll(): WindowScrollReturnTypes {
   const [isScrollY, setScrollY] = useState<boolean>(false);
   const handleScroll = (): void => {
-    window.scrollY < 450 ? setScrollY(false) : setScrollY(true);
+    window.scrollY < 500 ? setScrollY(false) : setScrollY(true);
   };
 
   useEffect(() => {
