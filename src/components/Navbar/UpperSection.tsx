@@ -101,13 +101,13 @@ const UpperSection: FC = () => {
             onClick={() => setModalAUth(true)}
             type="button"
             text={"Masuk"}
-            className="text-[#106FA4] border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+            className="hidden lg:block text-[#106FA4] border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
           />
           <Button
             type="button"
             text={"Daftar"}
             page={"/auth/register"}
-            className="bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+            className="hidden lg:block bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
           />
 
           {/* after login */}

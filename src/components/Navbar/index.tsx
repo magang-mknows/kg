@@ -22,8 +22,10 @@ const Navbar: FC = (): ReactElement => {
   return (
     <nav
       className={`${montserrat.className} ${
-        isScrollY ? "fixed w-full top-0" : "-top-20 z-[9999]"
-      } bg-white transition-all ease-in-out duration-300 z-[9999]`}
+        isScrollY
+          ? "fixed w-full top-0  transition-all ease-in-out duration-300 mb-[720px]"
+          : "z-[9999] "
+      } bg-white  z-[9999]`}
     >
       <Suspense fallback={"Skeleton loading...."}>
         <UpperSection />
