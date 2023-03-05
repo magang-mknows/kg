@@ -1,9 +1,9 @@
 import React, { FC, ReactElement } from "react";
 
-import bigTrophyIcon from "@/assets/dashboard/bigTrophyIcon.png";
-import medal1Icon from "@/assets/dashboard/medal1Icon.png";
-import medal2Icon from "@/assets/dashboard/medal2Icon.png";
-import medal3Icon from "@/assets/dashboard/medal3Icon.png";
+import bigTrophyIcon from "@/assets/dashboard/bigTrophyIcon.svg";
+import medal1Icon from "@/assets/dashboard/medal1Icon.svg";
+import medal2Icon from "@/assets/dashboard/medal2Icon.svg";
+import medal3Icon from "@/assets/dashboard/medal3Icon.svg";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import Button from "@/components/Common/Button";
@@ -52,7 +52,10 @@ const PapanScore: FC = (): ReactElement => {
       <section className="mb-6 ">
         {dummyRankList.map(({ name, score }, index) => {
           return (
-            <div key={index} className="flex gap-2 items-center border-t-2 border-dashed pt-4 mb-3">
+            <div
+              key={index}
+              className="flex bg-white hover:bg-neutral-100 transition-colors ease-in-out duration-300 cursor-pointer gap-2 items-center border-t-2 border-dashed pt-4 pb-3"
+            >
               {index === 0 ? (
                 <Image className="w-9 " src={medal1Icon} alt="firstplace" />
               ) : index === 1 ? (
@@ -73,7 +76,7 @@ const PapanScore: FC = (): ReactElement => {
       <Button
         text={"Lihat Semua"}
         type="button"
-        className="border-2 border-yellow-500 w-full flex items-center justify-center text-sm text-yellow-500 py-2 rounded-md shadow-sm cursor-pointer bg-white hover:bg-neutral-100 hover:text-yellow-400 transition-colors ease-in-out duration-300"
+        className="border-2 border-yellow-500 w-full flex items-center justify-center text-sm text-yellow-500 py-2 rounded-md shadow-sm cursor-pointer bg-white hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-500 transition-all ease-in-out duration-300 hover:shadow-md"
       />
     </div>
   );
