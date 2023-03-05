@@ -1,5 +1,5 @@
 export type WindowScrollReturnTypes = {
-  isScrollY: boolean;
+  isScrollY: string;
 };
 
 export interface Size {

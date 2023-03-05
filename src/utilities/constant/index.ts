@@ -3,7 +3,7 @@ export const NAVBAR_MENU = [];
 export const navbarMenu = [
   {
     name: "Dashboard",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Penugasan",

@@ -27,7 +27,9 @@ const UpperSection: FC = () => {
   return (
     <Fragment>
       <section className="flex items-center h-[72px] justify-between border-b-2 px-10 md:px-14 lg:px-20  border-neutral-100">
-        <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} />
+        <Link passHref href={"/"}>
+          <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} />
+        </Link>
         {isScrollY && <BottomSection />}
         <section className="flex items-center gap-2 md:gap-3 ">
           <MobileMenu list={navbarMenu} />
