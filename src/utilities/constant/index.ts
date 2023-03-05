@@ -34,4 +34,22 @@ export const notifListDummy = [
   { link: "/", name: "Lorem ipsum 2", time: "now" },
 ];
 
-export const publicRoutes = ["/", "/auth/login", "/auth/register", "/auth/forgot", "/assigment"];
+export const publicRoutes = [
+  "/",
+  "/auth/login",
+  "/auth/register",
+  "/auth/forgot",
+  "/assigment",
+  "/dashboard",
+];
+
+export const assigmentBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Penugasan",
+    link: "/assigment",
+  },
+];
