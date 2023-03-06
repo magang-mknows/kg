@@ -10,9 +10,7 @@ const MainLayouts: FC<MainLayoutTypes> = ({
 }): ReactElement => {
   return (
     <section
-      className={`${withHScreen && "min-h-screen"} ${className} ${
-        withPadding && "px-[70px]"
-      } w-full`}
+      className={`${withHScreen && "min-h-auto"} ${className} ${withPadding && "px-[70px]"} w-full`}
       data-type={dataType}
     >
       {children}
