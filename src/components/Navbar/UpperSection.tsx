@@ -111,18 +111,6 @@ const UpperSection: FC = () => {
             page={"/auth/register"}
             className="hidden lg:block bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
           />
-
-          {/* after login */}
-          {/* <MenuIcon
-            icon={
-              <BiBell
-                size={20}
-                className="text-neutral-900 stroke-neutral-900 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
-              />
-            }
-          ></MenuIcon>
-          <UserIcon />
-          */}
         </section>
       </section>
     </Fragment>
