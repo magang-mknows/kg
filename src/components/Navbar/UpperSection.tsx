@@ -30,7 +30,7 @@ const UpperSection: FC = () => {
         <Link passHref href={"/"}>
           <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} />
         </Link>
-        {isScrollY && <BottomSection />}
+        {isScrollY === "onSticky" && <BottomSection />}
         <section className="flex items-center gap-2 md:gap-3 ">
           <MobileMenu list={navbarMenu} />
           <MenuIcon

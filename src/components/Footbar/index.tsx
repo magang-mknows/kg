@@ -36,25 +36,25 @@ const Footbar: FC = (): ReactElement => {
             <div className="flex justify-between lg:flex-row md:flex-row sm:flex-col xs:flex-col lg:mt-0 sm:mt-4">
               <div className="flex flex-row my-4 space-x-4">
                 <GlobalButton
-                  size="small"
+                  size="icon"
                   className="bg-transparent hover:bg-transparent"
                   to="/"
                   icon={<Image className="w-4 h-4" src={Facebook} alt="Facebook" />}
                 />
                 <GlobalButton
-                  size="small"
+                  size="icon"
                   className="bg-transparent hover:bg-transparent"
                   to="/"
                   icon={<Image className="w-4 h-4" src={Twitter} alt="Twitter" />}
                 />
                 <GlobalButton
-                  size="small"
+                  size="icon"
                   className="bg-transparent hover:bg-transparent"
                   to="/"
                   icon={<Image className="w-4 h-4" src={Linkedin} alt="Linkedin" />}
                 />
                 <GlobalButton
-                  size="small"
+                  size="icon"
                   className="bg-transparent hover:bg-transparent"
                   to="/"
                   icon={<Image className="w-4 h-4" src={Instagram} alt="Instagram" />}

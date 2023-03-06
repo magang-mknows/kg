@@ -34,7 +34,9 @@ const Navbar: FC = (): ReactElement => {
       >
         <Suspense fallback={"Skeleton loading...."}>
           <UpperSection />
-          {!isScrollY && <BottomSection className="h-[84px] border-b-2 border-neutral-100 " />}
+          {isScrollY === "onRender" && (
+            <BottomSection className="h-[84px] border-b-2 border-neutral-100 " />
+          )}
         </Suspense>
       </nav>
       <section className="lg:mb-[156px] mb-[72px]"></section>

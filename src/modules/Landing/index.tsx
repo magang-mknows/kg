@@ -14,6 +14,7 @@ const TestimonySection = lazy(() => import("./TestimonySection"));
 const InformationBanner = lazy(() => import("@/modules/Landing/InformationBanner"));
 const PromotionBanner = lazy(() => import("@/modules/Landing/PromotionBanner"));
 const InformationSection = lazy(() => import("@/modules/Landing/InformationSection"));
+const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgram"));
 
 const Landing: FC = (): ReactElement => {
   const getModal = useRecoilValue(AuthModalOpen);
@@ -28,6 +29,7 @@ const Landing: FC = (): ReactElement => {
           <InformationBanner />
           <TestimonySection />
           <InformationSection />
+          <ChooseStudyProgram />
           <PromotionBanner />
           <Suspense fallback={"Loading..."}>
             <Modal title={"Test Modal"} lookup={getModal}>
