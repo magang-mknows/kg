@@ -12,6 +12,7 @@ const TestimonySection = lazy(() => import("./TestimonySection"));
 const InformationBanner = lazy(() => import("@/modules/Landing/InformationBanner"));
 const PromotionBanner = lazy(() => import("@/modules/Landing/PromotionBanner"));
 const InformationSection = lazy(() => import("@/modules/Landing/InformationSection"));
+const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgram"));
 
 const Landing: FC = (): ReactElement => {
   const AuthModalLookup = useRecoilValue(AuthModalOpen);
@@ -23,6 +24,7 @@ const Landing: FC = (): ReactElement => {
         <SekilasSection />
         <AboutSection />
         <InformationBanner />
+        <ChooseStudyProgram />
         <TestimonySection />
         <InformationSection />
         <PromotionBanner />
