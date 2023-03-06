@@ -14,7 +14,7 @@ const AboutSection: FC = (): ReactElement => {
     <section className="container mx-auto mt-[100px] mb-[250px]">
       <div className="grid lg:grid-cols-2 lg:gap-40 md:gap-14 gap-0 ">
         <div className="grid place-content-center ">
-          <div className="w-[500px] h-[382px] relative col-span-1">
+          <div className="w-[500px] h-[382px] relative col-span-1 md:px-0 px-5">
             <Image src={RectangleUp} alt={"rectangle-up"} className="relative md:w-5/12 w-3/12" />
             <Image
               src={RectangleDown}
@@ -49,7 +49,7 @@ const AboutSection: FC = (): ReactElement => {
             <Card
               hasImage={false}
               className={
-                "grid items-center bg-[rgb(255,255,255)] rounded-2xl md:w-max w-4/12 md:px-6 md:py-4  py-3 drop-shadow-xl shadow-lg absolute lg:-right-24 lg:top-96 md:-right-5 right-32 md:top-80 top-48"
+                "grid items-center bg-[rgb(255,255,255)] rounded-2xl md:w-max w-4/12 md:px-6 md:py-4 py-3 drop-shadow-xl shadow-lg absolute lg:-right-24 lg:top-96 md:-right-5 right-32 md:top-80 top-48"
               }
             >
               <Image
@@ -59,14 +59,14 @@ const AboutSection: FC = (): ReactElement => {
               />
               <div className="px-2">
                 <h6 className="text-[#0B568D] font-medium md:text-2xl text-base">75+</h6>
-                <p className="text-[#808080] font-medium tracking-tight text-md text-sm">
+                <p className="text-[#808080] font-medium tracking-tight md:text-md text-[12px]">
                   Pelatihan Aktif
                 </p>
               </div>
             </Card>
           </div>
         </div>
-        <div className="col-span-1  md:">
+        <div className="col-span-1 px-4 md:px-10">
           <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[30px] font-bold tracking-wide leading-tight">
             Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
           </h1>
