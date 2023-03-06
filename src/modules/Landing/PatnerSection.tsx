@@ -4,7 +4,7 @@ import CarouselMenu from "@/components/Carousel";
 
 const MitraSection: FC = (): ReactElement => {
   return (
-    <MainLayout>
+    <MainLayout withHScreen={false}>
       <div className="flex flex-col p-10 py-20 mb-10">
         <div className="flex gap-2 p-4 lg:p-8 justify-center items-center ">
           <h1 className="text-3xl font-bold">
