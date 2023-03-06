@@ -11,10 +11,10 @@ import Card from "@/components/Common/Card";
 
 const AboutSection: FC = (): ReactElement => {
   return (
-    <section className="container mx-auto mt-[100px] mb-[250px]">
+    <section className="mt-[100px] mb-[250px]">
       <div className="grid lg:grid-cols-2 lg:gap-40 md:gap-14 gap-0 ">
-        <div className="grid place-content-center ">
-          <div className="w-[500px] h-[382px] relative col-span-1 md:px-0 px-5">
+        <div className="mx-auto ">
+          <div className="w-[500px] h-[382px] relative col-span-1 md:px-0 px-5 md:ml-0 ml-24">
             <Image src={RectangleUp} alt={"rectangle-up"} className="relative md:w-5/12 w-3/12" />
             <Image
               src={RectangleDown}
@@ -59,14 +59,15 @@ const AboutSection: FC = (): ReactElement => {
               />
               <div className="px-2">
                 <h6 className="text-[#0B568D] font-medium md:text-2xl text-base">75+</h6>
-                <p className="text-[#808080] font-medium tracking-tight md:text-md text-[12px]">
+                <p className="text-[#808080] font-medium tracking-tight md:text-md lg:text-[18px] text-[12px]">
                   Pelatihan Aktif
                 </p>
               </div>
             </Card>
           </div>
         </div>
-        <div className="col-span-1 md:grid md:place-content-center md:px-0 px-5">
+
+        <div className="col-span-1 px-4 md:px-10 lg:grid lg:place-content-start grid place-content-center">
           <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[30px] font-bold tracking-wide leading-tight">
             Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
           </h1>
