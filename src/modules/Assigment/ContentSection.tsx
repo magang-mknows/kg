@@ -4,6 +4,7 @@ import AssigmentAssigned from "@/assets/assigned-assigment.svg";
 import AssigmentDone from "@/assets/assigned-done.svg";
 import AssignedAssesment from "@/assets/assigned-assesment.svg";
 import AssignedLate from "@/assets/assigned-late.svg";
+import { MdOutlineNotificationsActive } from "react-icons/md";
 
 const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");
@@ -98,9 +99,8 @@ const ContentSection: FC = (): ReactElement => {
           </ul>
         </div>
 
-        {dummy.map((item) => {
-          if (active == "ditugaskan" && item.category == "ditugaskan") {
-            return (
+        {active === "semua-tugas"
+          ? dummy.map((item) => (
               <Assigment
                 key={item.id}
                 titleAssigment={item.titleAssigment}
@@ -108,57 +108,44 @@ const ContentSection: FC = (): ReactElement => {
                 titleCourse={"Pekenalan Budaya Jepang"}
                 date={"20-09-2021"}
                 time={"20:00:00"}
-                bgLine={"bg-[#0B568D]"}
-                classNameCategory={"text-[#0B568D]"}
-                imgAssigment={AssigmentAssigned}
+                bgLine={
+                  item.category === "ditugaskan"
+                    ? "bg-primary-600"
+                    : item.category === "terlambat"
+                    ? "bg-secondary-yellow-600"
+                    : item.category === "selesai"
+                    ? "bg-secondary-green-500"
+                    : item.category === "sedang-dinilai"
+                    ? "bg-neautral-500"
+                    : ""
+                }
+                classNameCategory={
+                  item.category === "ditugaskan"
+                    ? "text-primary-600"
+                    : item.category === "terlambat"
+                    ? "text-secondary-yellow-600"
+                    : item.category === "selesai"
+                    ? "text-secondary-green-500"
+                    : item.category === "sedang-dinilai"
+                    ? "text-neautral-500"
+                    : ""
+                }
+                imgAssigment={
+                  item.category === "ditugaskan"
+                    ? AssigmentAssigned
+                    : item.category === "terlambat"
+                    ? AssignedLate
+                    : item.category === "selesai"
+                    ? AssigmentDone
+                    : item.category === "sedang-dinilai"
+                    ? AssignedAssesment
+                    : ""
+                }
               />
-            );
-          } else if (active == "terlambat" && item.category == "terlambat") {
-            return (
-              <Assigment
-                key={item.id}
-                titleAssigment={item.titleAssigment}
-                category={item.category}
-                titleCourse={"Pekenalan Budaya Jepang"}
-                date={"20-09-2021"}
-                time={"20:00:00"}
-                bgLine={"bg-[#D79210]"}
-                classNameCategory={"text-[#D79210]"}
-                imgAssigment={AssignedLate}
-              />
-            );
-          } else if (active == "sedang-dinilai" && item.category == "sedang-dinilai") {
-            return (
-              <Assigment
-                key={item.id}
-                titleAssigment={item.titleAssigment}
-                category={item.category}
-                titleCourse={"Pekenalan Budaya Jepang"}
-                date={"20-09-2021"}
-                time={"20:00:00"}
-                bgLine={"bg-[#737373]"}
-                classNameCategory={"text-[#737373]"}
-                imgAssigment={AssignedAssesment}
-              />
-            );
-          } else if (active == "selesai" && item.category == "selesai") {
-            return (
-              <Assigment
-                key={item.id}
-                titleAssigment={item.titleAssigment}
-                category={item.category}
-                titleCourse={"Pekenalan Budaya Jepang"}
-                date={"20-09-2021"}
-                time={"20:00:00"}
-                bgLine={"bg-[#2D9A41]"}
-                classNameCategory={"text-[#2D9A41]"}
-                imgAssigment={AssigmentDone}
-              />
-            );
-          }
-          if (active == "semua-tugas") {
-            if (item.category == "ditugaskan") {
-              return (
+            ))
+          : dummy
+              .filter((item) => item.category.includes(active))
+              .map((item) => (
                 <Assigment
                   key={item.id}
                   titleAssigment={item.titleAssigment}
@@ -166,56 +153,41 @@ const ContentSection: FC = (): ReactElement => {
                   titleCourse={"Pekenalan Budaya Jepang"}
                   date={"20-09-2021"}
                   time={"20:00:00"}
-                  bgLine={"bg-[#0B568D]"}
-                  classNameCategory={"text-[#0B568D]"}
-                  imgAssigment={AssigmentAssigned}
+                  bgLine={
+                    item.category === "ditugaskan"
+                      ? "bg-primary-600"
+                      : item.category === "terlambat"
+                      ? "bg-secondary-yellow-600"
+                      : item.category === "selesai"
+                      ? "bg-secondary-green-500"
+                      : item.category === "sedang-dinilai"
+                      ? "bg-neautral-500"
+                      : ""
+                  }
+                  classNameCategory={
+                    item.category === "ditugaskan"
+                      ? "text-primary-600"
+                      : item.category === "terlambat"
+                      ? "text-secondary-yellow-600"
+                      : item.category === "selesai"
+                      ? "text-secondary-green-500"
+                      : item.category === "sedang-dinilai"
+                      ? "text-neautral-500"
+                      : ""
+                  }
+                  imgAssigment={
+                    item.category === "ditugaskan"
+                      ? AssigmentAssigned
+                      : item.category === "terlambat"
+                      ? AssignedLate
+                      : item.category === "selesai"
+                      ? AssigmentDone
+                      : item.category === "sedang-dinilai"
+                      ? AssignedAssesment
+                      : ""
+                  }
                 />
-              );
-            } else if (item.category == "terlambat") {
-              return (
-                <Assigment
-                  key={item.id}
-                  titleAssigment={item.titleAssigment}
-                  category={item.category}
-                  titleCourse={"Pekenalan Budaya Jepang"}
-                  date={"20-09-2021"}
-                  time={"20:00:00"}
-                  bgLine={"bg-[#D79210]"}
-                  classNameCategory={"text-[#D79210]"}
-                  imgAssigment={AssignedLate}
-                />
-              );
-            } else if (item.category == "sedang-dinilai") {
-              return (
-                <Assigment
-                  key={item.id}
-                  titleAssigment={item.titleAssigment}
-                  category={item.category}
-                  titleCourse={"Pekenalan Budaya Jepang"}
-                  date={"20-09-2021"}
-                  time={"20:00:00"}
-                  bgLine={"bg-[#737373]"}
-                  classNameCategory={"text-[#737373]"}
-                  imgAssigment={AssignedAssesment}
-                />
-              );
-            } else if (item.category == "selesai") {
-              return (
-                <Assigment
-                  key={item.id}
-                  titleAssigment={item.titleAssigment}
-                  category={item.category}
-                  titleCourse={"Pekenalan Budaya Jepang"}
-                  date={"20-09-2021"}
-                  time={"20:00:00"}
-                  bgLine={"bg-[#2D9A41]"}
-                  classNameCategory={"text-[#2D9A41]"}
-                  imgAssigment={AssigmentDone}
-                />
-              );
-            }
-          }
-        })}
+              ))}
       </div>
     </section>
   );
