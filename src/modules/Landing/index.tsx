@@ -5,7 +5,7 @@ import { useRecoilValue } from "recoil";
 import { AuthModalOpen } from "@/stores/Common";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
-const MitraSection = lazy(() => import("@/modules/Landing/MitraSection"));
+const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
 const AboutSection = lazy(() => import("@/modules/Landing/AboutSection"));
 const SekilasSection = lazy(() => import("@/modules/Landing/SekilasSection"));
 const TestimonySection = lazy(() => import("./TestimonySection"));
@@ -19,7 +19,7 @@ const Landing: FC = (): ReactElement => {
     <BaseLayouts>
       <Suspense fallback={"Skeleton loading...."}>
         <HeroSection />
-        <MitraSection />
+        <PatnerSection />
         <SekilasSection />
         <AboutSection />
         <InformationBanner />
