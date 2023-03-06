@@ -11,7 +11,7 @@ const SekilasSection = (): ReactElement => {
       <section className=" bg-green-landing-hero mb-[10px] flex flex-col-reverse lg:flex-row justify-center  ">
         <div className=" my-auto relative w-full">
           <div className="banner grid place-content-center">
-            <h1 className="title text-[35px] md:text-[40px] lg:text-[44px] font-bold text-center lg:text-left text-[#262626] dark:text-white">
+            <h1 className="title text-[35px] md:text-[40px] lg:text-[44px] font-bold text-left text-[#262626] dark:text-white">
               Sekilas <span className=" text-[#FAB317]">Info</span> Kampus Gratis
             </h1>
             <div className="absoulte z-20 lg:mt-[100px] mt-[20px]">
