@@ -23,19 +23,11 @@ const Footbar: FC = (): ReactElement => {
         dark:bg-[#222529]
         transition-all ease-in-out duration-300"
     >
-      <div
-        className="py-10 mx-5 text-justify  md:text-justify lg:mx-20 md:mx-10 md:py-5 sm:mx-10 xs:mx-10"
-      >
-        <div
-          className="grid gap-2  grid-1 md:grid-cols-2 lg:grid-cols-4"
-        >
+      <div className="py-10 mx-5 text-justify  md:text-justify lg:mx-20 md:mx-10 md:py-5 sm:mx-10 xs:mx-10">
+        <div className="grid gap-2  grid-1 md:grid-cols-2 lg:grid-cols-4">
           {/* kampus gratis */}
           <div className="text-sm w-full lg:w-[360px]">
-            <Image
-              src={LoadConditionalLogo()}
-              className="mb-4  h-19 w-100 sm:h-15"
-              alt="logo"
-            />
+            <Image src={LoadConditionalLogo()} className="mb-4  h-19 w-100 sm:h-15" alt="logo" />
             <p className="lg:text-[14px] dark:text-gray-400">
               Kampus Gratis merupakan sistem manajemen E-learning yang mencantumkan laporan
               peningkatan atau progres pembelajaran mahasiswa layaknya seperti perguruan tinggi.
@@ -159,9 +151,7 @@ const Footbar: FC = (): ReactElement => {
         </div>
       </div>
 
-      <hr
-        className="py-5  lg:mx-20 md:mx-10 md:py-2 sm:mx-10 xs:mx-10"
-      />
+      <hr className="py-5  lg:mx-20 md:mx-10 md:py-2 sm:mx-10 xs:mx-10" />
 
       <div
         className="
@@ -180,9 +170,7 @@ const Footbar: FC = (): ReactElement => {
         text-[#737373]"
       >
         <div className="dark:text-gray-400">2022 - www.kampusgratis.id - Hak Cipta Dilindungi.</div>
-        <div
-          className="flex justify-center  sm:space-x-2"
-        >
+        <div className="flex justify-center  sm:space-x-2">
           <div className="mr-4 hover:text-blue-400 dark:text-gray-400 xs:pb-2">
             <a href="" className="hover:text-blue-400">
               Terms of use
