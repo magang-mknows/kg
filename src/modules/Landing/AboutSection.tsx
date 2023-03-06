@@ -66,7 +66,7 @@ const AboutSection: FC = (): ReactElement => {
             </Card>
           </div>
         </div>
-        <div className="col-span-1 px-4 md:px-10">
+        <div className="col-span-1 md:grid md:place-content-center md:px-0 px-5">
           <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[30px] font-bold tracking-wide leading-tight">
             Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
           </h1>
