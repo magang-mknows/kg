@@ -6,9 +6,9 @@ import RedSekilasInfo from "@/assets/redInfo.svg";
 
 const SekilasSection = (): ReactElement => {
   return (
-    <section className="grid lg:grid-cols-2 bg-green-landing-hero mb-[100px] container lg:px-20 md:px-10 px-5">
-      <div className="col-span-1 my-auto relative ">
-        <div className="banner grid place-content-center ">
+    <section className=" bg-green-landing-hero mb-[100px] container lg:px-20 md:px-10 px-5 flex flex-col-reverse lg:flex-row ">
+      <div className=" my-auto relative w-full">
+        <div className="banner grid place-content-center">
           <h1 className="title text-[35px] md:text-[40px] lg:text-[44px] font-bold text-center lg:text-left text-[#262626] dark:text-white">
             Sekilas <span className=" text-[#FAB317]">Info</span> Kampus Gratis
           </h1>
@@ -39,8 +39,8 @@ const SekilasSection = (): ReactElement => {
           className="absolute -bottom-14 -right-32 lg:opacity-100 opacity-0 "
         />
       </div>
-      <div className="container mx-auto col-span-1 w-full grid place-content-center ">
-        <div className="image">
+      <div className="container mx-auto flex justify-center">
+        <div className="image flex justify-center items-center">
           <Image src={pictureSekilasInfo} alt={"picture-sekilas-landing"} />
         </div>
       </div>
