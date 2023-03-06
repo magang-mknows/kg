@@ -1,13 +1,13 @@
 import { FC, ReactElement, lazy, Suspense } from "react";
 import BaseLayouts from "@/layouts/Base";
 import Modal from "@/components/Common/Modal";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { AuthModalOpen } from "@/stores/Common";
 import LoginForm from "../Auth/Login/Form";
 import { ErrorBoundary } from "react-error-boundary";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
-const MitraSection = lazy(() => import("@/modules/Landing/MitraSection"));
+const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
 const AboutSection = lazy(() => import("@/modules/Landing/AboutSection"));
 const SekilasSection = lazy(() => import("@/modules/Landing/SekilasSection"));
 const TestimonySection = lazy(() => import("./TestimonySection"));
@@ -22,7 +22,7 @@ const Landing: FC = (): ReactElement => {
       <ErrorBoundary fallback={<>Error was happen</>}>
         <Suspense fallback={"Skeleton loading...."}>
           <HeroSection />
-          <MitraSection />
+          <PatnerSection />
           <SekilasSection />
           <AboutSection />
           <InformationBanner />

@@ -3,7 +3,7 @@ export const NAVBAR_MENU = [];
 export const navbarMenu = [
   {
     name: "Dashboard",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Penugasan",
@@ -34,7 +34,14 @@ export const notifListDummy = [
   { link: "/", name: "Lorem ipsum 2", time: "now" },
 ];
 
-export const publicRoutes = ["/", "/auth/login", "/auth/register", "/auth/forgot", "/assigment"];
+export const publicRoutes = [
+  "/",
+  "/auth/login",
+  "/auth/register",
+  "/auth/forgot",
+  "/assigment",
+  "/dashboard",
+];
 
 export const assigmentBreadCumbs = [
   {
