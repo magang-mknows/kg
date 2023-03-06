@@ -20,16 +20,25 @@ const Navbar: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
 
   return (
-    <nav
-      className={`${montserrat.className} ${
-        isScrollY ? "fixed w-full top-0" : "-top-20 z-[9999]"
-      } bg-white transition-all ease-in-out duration-300 z-[9999]`}
-    >
-      <Suspense fallback={"Skeleton loading...."}>
-        <UpperSection />
-        {!isScrollY && <BottomSection className="h-[84px] border-b-2 border-neutral-100 " />}
-      </Suspense>
-    </nav>
+    <>
+      <nav
+        className={`${montserrat.className} ${
+          isScrollY === "onSticky"
+            ? "fixed top-0"
+            : isScrollY === "onScroll"
+            ? "absolute -top-20"
+            : isScrollY === "onRender"
+            ? "absolute top-0 "
+            : ""
+        } bg-white  z-[9999] left-0 w-full transition-all ease-in-out duration-300`}
+      >
+        <Suspense fallback={"Skeleton loading...."}>
+          <UpperSection />
+          {!isScrollY && <BottomSection className="h-[84px] border-b-2 border-neutral-100 " />}
+        </Suspense>
+      </nav>
+      <section className="lg:mb-[156px] mb-[72px]"></section>
+    </>
   );
 };
 

@@ -21,7 +21,10 @@ const alumniDatas = [
 
 const TestimonySection: FC = (): ReactElement => {
   return (
-    <section className="min-h-screen w-full px-8 md:px-[135px] flex place-items-center bg-[#f5f5f5] dark:bg-gray-900 mt-12 mb-28 md:my-0">
+    <section
+      data-test="testimony"
+      className="min-h-screen w-full px-8 md:px-[135px] flex place-items-center bg-[#f5f5f5] dark:bg-gray-900 mt-12 mb-28 md:my-0"
+    >
       <div className="w-fit grid grid-cols-1 md:grid-cols-[438px_670px] gap-x-[60px] gap-y-12 h-fit">
         <div className="flex flex-col gap-y-9 items-center md:items-start text-center md:text-start">
           <p className="text-base text-[#808080]">TESTIMONI</p>

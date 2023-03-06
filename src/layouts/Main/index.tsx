@@ -1,11 +1,19 @@
 import { FC, ReactElement } from "react";
 import { MainLayoutTypes } from "./types";
 
-const MainLayouts: FC<MainLayoutTypes> = ({ children, className, id }): ReactElement => {
+const MainLayouts: FC<MainLayoutTypes> = ({
+  children,
+  className,
+  dataType,
+  withHScreen = true,
+  withPadding = true,
+}): ReactElement => {
   return (
     <section
-      className={`grid grid-col-1 md:grid-cols-2 gap-y-5 gap-x-10 py-5 min-h-screen ${className}`}
-      id={id}
+      className={`${withHScreen && "min-h-screen"} ${className} ${
+        withPadding && "px-[70px]"
+      } w-full`}
+      data-type={dataType}
     >
       {children}
     </section>

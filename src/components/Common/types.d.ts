@@ -1,4 +1,11 @@
-import { ChangeEventHandler, HTMLInputTypeAttribute, ReactNode, RefObject } from "react";
+import {
+  ChangeEventHandler,
+  HTMLInputTypeAttribute,
+  ReactNode,
+  RefObject,
+  ButtonHTMLAttributes,
+  MouseEventHandler,
+} from "react";
 
 export interface TextFieldProps {
   type: HTMLInputTypeAttribute;
@@ -21,7 +28,8 @@ export interface TextFieldProps {
 export type ModalProps = {
   title: string;
   children: ReactNode;
-  button: ReactNode;
+  button?: ReactNode;
+  hasButton?: boolean;
   lookup: boolean;
 };
 
@@ -105,4 +113,18 @@ export interface CardProps {
   src?: StaticImport;
   topText?: string;
   hasImage: boolean;
+}
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  text?: string | number;
+  size?: "icon" | "modal" | "small" | "base" | "regular" | "large";
+  color?: "noBorder" | "green" | "blue" | "yellow" | "blueBorder" | "greenBorder";
+  to?: string;
+  icon?: ReactNode | StaticImageData;
+  target?: string;
+  hasImg?: boolean;
+  hasExternal?: boolean;
+  loading?: boolean;
 }
