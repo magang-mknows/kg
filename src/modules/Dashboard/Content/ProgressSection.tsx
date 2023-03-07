@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 });
 
 const ProgressSection: FC = (): ReactElement => {
-  var percent = Math.floor(14/14*100);
+  let percent = Math.floor(14/14*100);
   return (
     <section
       className={`${montserrat.className} mx-4 my-4 bg-[#ffffff] w-full pt-[28px] px-[24px]`}
