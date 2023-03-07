@@ -16,8 +16,8 @@ const Sidebar: FC = (): ReactElement => {
         <Resume />
         <PapanScore />
         <ArticleSection />
-        <ProgressSection/>
       </div>
+      <ProgressSection />
     </>
   );
 };
