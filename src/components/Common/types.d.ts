@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import {
   ChangeEventHandler,
   HTMLInputTypeAttribute,
@@ -130,3 +131,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   hasExternal?: boolean;
   loading?: boolean;
 }
+
+export type PopupModalProps = {
+  popupTitle: string;
+  description: string;
+  icon?: StaticImageData;
+  image?: StaticImageData;
+  lookup?: boolean;
+};
