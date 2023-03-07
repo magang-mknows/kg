@@ -26,11 +26,12 @@ export interface TextFieldProps {
 }
 
 export type ModalProps = {
-  title: string;
+  title?: string;
   children: ReactNode;
   button?: ReactNode;
   hasButton?: boolean;
   lookup: boolean;
+  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
 };
 
 export interface MobileMenuProps {
@@ -128,3 +129,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   hasExternal?: boolean;
   loading?: boolean;
 }
+
+export type DashedTextProps = {
+  text?: string;
+};
