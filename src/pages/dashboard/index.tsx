@@ -1,15 +1,8 @@
-import MyCalendar from "@/modules/Dashboard/Content/MyCalendar";
-import Sidebar from "@/modules/Dashboard/Sidebar/Index";
+import Dashboard from "@/modules/Dashboard";
 import React, { FC, ReactElement } from "react";
 
-const Dashboard: FC = (): ReactElement => {
-  return (
-    <div className="flex gap-9 bg-neutral-100 min-h-[1200px]">
-      {/* style nya ganti aja bang maul, komponen sidebarnya dah ready  */}
-      <Sidebar />
-      <MyCalendar />
-    </div>
-  );
+const Index: FC = (): ReactElement => {
+  return <Dashboard />;
 };
 
-export default Dashboard;
+export default Index;

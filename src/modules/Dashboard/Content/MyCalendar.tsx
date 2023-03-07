@@ -3,8 +3,8 @@ import { FC, ReactElement } from "react";
 
 import { useRecoilState } from "recoil";
 
-import { Montserrat } from "next/font/google";
 import { selectedDate } from "@/stores/Dashboard/Calendar";
+import { Montserrat } from "next/font/google";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
@@ -50,7 +50,7 @@ const MyCalendar: FC = (): ReactElement => {
 
   return (
     <div
-      className={`${montserrat.className} w-[1000px] text-neutral-900 bg-white h-fit px-7 py-12 rounded-md`}
+      className={`${montserrat.className} w-full text-neutral-900 bg-white h-fit px-7 py-12 rounded-md`}
     >
       <header className="flex justify-between  items-center">
         <h1 className="text-lg font-bold">Kalender Saya</h1>
@@ -63,7 +63,7 @@ const MyCalendar: FC = (): ReactElement => {
         </Link>
       </header>
       <p className="mb-4 font-bold text-base text-yellow-600">{months[month - 1]}</p>
-      <section className="mb-4 gap-2 flex w-[100%]  overflow-hidden overflow-x-scroll scrollbar-hide md:scrollbar-default">
+      <div className="mb-4 gap-2  w-[100%]  overflow-hidden overflow-x-scroll scrollbar-hide md:scrollbar-default  flex flex-wrap">
         {dates.map(({ date }, index) => {
           return (
             <section
@@ -71,7 +71,7 @@ const MyCalendar: FC = (): ReactElement => {
               key={index}
               className={`${
                 date.getDate() == selectDate.getDate() ? "bg-primary-500 text-white" : ""
-              } text-sm text-center cursor-pointer border-2 border-yellow-50/0  hover:border-yellow-500 group px-3 py-3 transition-colors ease-in-out duration-300 rounded-md`}
+              } text-sm text-center cursor-pointer border-2 border-yellow-50/0  hover:border-yellow-500 group px-3 py-3 transition-colors ease-in-out duration-300 rounded-md w-fit`}
             >
               <p
                 className={`${
@@ -90,7 +90,7 @@ const MyCalendar: FC = (): ReactElement => {
             </section>
           );
         })}
-      </section>
+      </div>
       <section className="text-sm">
         <div className="border-l-4  cursor-pointer hover:border-primary-700 transition-all ease-in-out duration-500 group py-3 hover:shadow-lg border-primary-500 px-3 rounded-md mb-4">
           <p className="mb-1 text-neutral-800 ">14:30 - 15:30 pm</p>

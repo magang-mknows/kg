@@ -29,11 +29,6 @@ export const featureList = [
   { link: "/", name: "Lainnya" },
 ];
 
-export const notifListDummy = [
-  { link: "/", name: "Lorem ipsum 1 ", time: "now" },
-  { link: "/", name: "Lorem ipsum 2", time: "now" },
-];
-
 export const publicRoutes = [
   "/",
   "/auth/login",
@@ -63,5 +58,15 @@ export const administrationBreadCumbs = [
   {
     name: "Administrasi",
     link: "/administration",
+  },
+];
+export const dashboardBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
   },
 ];
