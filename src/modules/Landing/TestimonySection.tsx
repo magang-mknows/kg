@@ -26,7 +26,7 @@ const TestimonySection: FC = (): ReactElement => {
       className="min-h-screen w-full px-8 md:px-[135px] flex place-items-center bg-[#f5f5f5] dark:bg-gray-900 mt-12 mb-28 md:my-0"
     >
       <div className="w-fit grid grid-cols-1 md:grid-cols-[438px_670px] gap-x-[60px] gap-y-12 h-fit">
-        <div className="flex flex-col gap-y-9 items-center md:items-start text-center md:text-start">
+        <div className="flex flex-col items-center text-center gap-y-9 md:items-start md:text-start">
           <p className="text-base text-[#808080]">TESTIMONI</p>
           <div className="flex flex-col items-center md:items-start gap-y-5">
             <h2 className="text-4xl text-[#181818] dark:text-white font-medium">
@@ -41,7 +41,7 @@ const TestimonySection: FC = (): ReactElement => {
             text="Lihat Semua"
             hasImg={false}
             size="regular"
-            className="bg-[#3EB449] leading-6 font-semibold px-28 py-4"
+            className="bg-[#3EB449] leading-6 font-semibold px-0 lg:px-28 py-4"
           />
         </div>
 

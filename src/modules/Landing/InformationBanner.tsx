@@ -18,7 +18,7 @@ const InformationBanner: FC = (): ReactElement => {
           text="Daftar Sekarang!"
           hasImg={false}
           size="regular"
-          className="bg-[#3EB449] leading-6 font-semibold px-20 py-4"
+          className="bg-[#3EB449] leading-6 font-semibold px-0 lg:px-20 py-4"
         />
 
         <Image className="absolute bottom-0 right-0 hidden lg:block" src={CardDot} alt="card-dot" />

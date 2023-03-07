@@ -17,17 +17,17 @@ const HeroSection: FC = (): ReactElement => {
         <div className="flex flex-col justify-between lg:items-center xl:items-start lg:items-start w-full lg:px-20 px-10 py-20 lg:flex-row md:items-center">
           <ContentLayouts className="w-full dark:text-white">
             <div className="flex flex-col gap-y-4 ">
-              <h1 className="lg:flex-col font-semibold text-3xl xl:text-5xl lg:text-5xl md:text-4xl">
-                <span>Solusi Pendidikan</span>
-                <br />
-                <span>Gratis & Berkualitas</span>
-              </h1>
-              <p className="text-sm my-4">
+              <div className="lg:flex-col font-bold space-y-2 text-3xl xl:text-5xl lg:text-5xl md:text-4xl w-full">
+                <div>Solusi Pendidikan</div>
+
+                <div>Gratis & Berkualitas</div>
+              </div>
+              <p className="text-sm my-4 text-[#525252]">
                 Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
                 bagi siapa saja, tanpa terkecuali.
               </p>
 
-              <button className="bg-[#3EB449] w-[160px] h-[40px] lg:w-[250px] lg:h-[56px] sm:w-[200px] sm:h-[40px] text-white rounded-[8px] justify-items-end text-sm">
+              <button className="font-semibold bg-[#3EB449] w-[160px] h-[40px] lg:w-[250px] lg:h-[56px] sm:w-[200px] sm:h-[40px] text-white rounded-[8px] justify-items-end text-sm">
                 Coba Sekarang - Gratis
               </button>
             </div>
@@ -49,7 +49,7 @@ const HeroSection: FC = (): ReactElement => {
                     className="w-[60%] lg:w-[80%] md:w-[60%]"
                   ></Image>
                   <div className="flex flex-col">
-                    <span className="text-pink-400 font-semibold">2185+</span>
+                    <span className="text-pink-400 font-bold">2185+</span>
                     <span className="text-black font-semibold">Mahasiswa</span>
                   </div>
                 </div>

@@ -6,6 +6,7 @@ import { ButtonProps } from "./types";
 
 const GlobalButton: FC<ButtonProps> = ({
   className,
+  type,
   onClick,
   loading,
   text,
@@ -13,23 +14,36 @@ const GlobalButton: FC<ButtonProps> = ({
   size = "small",
   color = "blue",
   icon,
+  WFull,
   hasImg,
   hasExternal,
   ...props
 }): ReactElement => {
   const sizesClass = {
-    large: "w-full h-[56px] lg:w-[786px] lg:h-[75px] text-lg font-semibold", // px-24 py-12
-    regular: "w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium", // px-16 py-8
-    base: "w-full h-[27px] lg:w-[160px] lg:h-[48px] text-[16px] font-medium", // px-4 py-2
-    small: "w-full h-[12px] lg:w-[98px] lg:h-[36px] text-[14px] font-normal", //px-2 py-2
-    modal: "w-full h-[12px] lg:w-[98px] lg:h-[36px] text-[14px] font-normal", //px-2 py-2
-    icon: "w-full h-[12px] lg:w-[16px] lg:h-[16px] text-[14px] font-normal", //px-2 py-2
+    large: `w-full h-[56px] lg:w-[786px] lg:h-[75px] text-lg font-semibold ${
+      WFull && "!lg:w-full"
+    }`,
+    regular: `w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium ${
+      WFull && "!lg:w-full"
+    }`,
+    base: `w-full h-[27px] lg:w-[160px] lg:h-[48px] text-[16px] font-medium ${
+      WFull && "!lg:w-full"
+    }`,
+    small: `w-full h-[12px] lg:w-[98px] lg:h-[36px] text-[14px] font-normal ${
+      WFull && "!lg:w-full"
+    }`,
+    modal: `w-full h-[12px] lg:w-[98px] lg:h-[36px] text-[14px] font-normal ${
+      WFull && "!lg:w-full"
+    }`,
+    icon: `w-full h-[12px] lg:w-[16px] lg:h-[16px] text-[14px] font-normal ${
+      WFull && "!lg:w-full"
+    }`,
   };
 
   const colorClass = {
     noBorder: `bg-transparent text-[#106FA4] disabled:text-[#A3A3A3] ${
       loading && "!text-[#67A5C8]"
-    } `,
+    }`,
     green: `bg-[#3EB449] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
       loading && "!bg-[#6AD26A]"
     }`,
@@ -57,7 +71,7 @@ const GlobalButton: FC<ButtonProps> = ({
     <Fragment>
       {to !== undefined ? (
         <Link href={hasExternal ? `${"https://" + to}` : `${to}`}>
-          <button className={merged} {...props} onClick={onClick}>
+          <button type={type} className={merged} {...props} onClick={onClick}>
             {hasImg ? (
               <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
             ) : (
