@@ -16,7 +16,12 @@ const PromotionBanner: FC = (): ReactElement => {
           Belajar 100% gratis tanpa batas waktu bersama para mentor yang ahli dibidangnya, tunggu
           apa lagi?
         </h2>
-        <GlobalButton color="green" size="large" to="/" text={"Daftar Sekarang!"} />
+        <GlobalButton
+          text="Daftar Sekarang!"
+          hasImg={false}
+          size="regular"
+          className="bg-[#3EB449] leading-6 font-semibold px-20 py-4"
+        />
       </div>
     </Card>
   );

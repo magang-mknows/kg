@@ -14,7 +14,13 @@ const InformationBanner: FC = (): ReactElement => {
         <h1 className="text-[22px] lg:text-[44px] text-white font-semibold text-center lg:text-start">
           Temukan Kemudahan Belajar dengan Model Pembelajaran Fleksibel yang Inovatif
         </h1>
-        <GlobalButton color="green" size="regular" to="/" text={"Lihat Semua"} />
+        <GlobalButton
+          text="Daftar Sekarang!"
+          hasImg={false}
+          size="regular"
+          className="bg-[#3EB449] leading-6 font-semibold px-20 py-4"
+        />
+
         <Image className="absolute bottom-0 right-0 hidden lg:block" src={CardDot} alt="card-dot" />
       </div>
     </Card>
