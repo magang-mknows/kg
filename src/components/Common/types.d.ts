@@ -131,6 +131,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   hasImg?: boolean;
   hasExternal?: boolean;
   loading?: boolean;
+  textStyle?: string;
 }
 
 export type DashedTextProps = {

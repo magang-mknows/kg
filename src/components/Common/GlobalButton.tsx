@@ -6,6 +6,7 @@ import { ButtonProps } from "./types";
 
 const GlobalButton: FC<ButtonProps> = ({
   className,
+  textStyle,
   type,
   onClick,
   loading,
@@ -77,7 +78,7 @@ const GlobalButton: FC<ButtonProps> = ({
             ) : (
               <>{icon as ReactNode}</>
             )}
-            <p>{text}</p>
+            <p className={textStyle}>{text}</p>
           </button>
         </Link>
       ) : (
@@ -87,7 +88,7 @@ const GlobalButton: FC<ButtonProps> = ({
           ) : (
             <>{icon as ReactNode}</>
           )}
-          <p>{text}</p>
+          <p className={textStyle}>{text}</p>
         </button>
       )}
     </Fragment>
