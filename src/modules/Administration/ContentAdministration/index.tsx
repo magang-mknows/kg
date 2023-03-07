@@ -12,8 +12,8 @@ const index = (): ReactElement => {
         <Card hasImage={false} className={"bg-white rounded-[8px] w-[95%]"}>
           <div className="w-full">
             <Stepper />
-            <JobsInformation />
             <PrivateInformationAccordion />
+            <JobsInformation />
           </div>
         </Card>
       </div>
