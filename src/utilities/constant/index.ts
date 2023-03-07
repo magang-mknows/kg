@@ -15,7 +15,7 @@ export const navbarMenu = [
   },
   {
     name: "Nilai & Sertifikat",
-    link: "/nilai",
+    link: "/score",
   },
 ];
 
@@ -37,6 +37,7 @@ export const publicRoutes = [
   "/assigment",
   "/dashboard",
   "/administration",
+  "/score",
 ];
 
 export const assigmentBreadCumbs = [
