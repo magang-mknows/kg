@@ -19,7 +19,6 @@ const CarouselMenu: FC = (): ReactElement => {
     { icon: Mitra4 },
     { icon: Mitra5 },
   ];
-  console.log(size);
 
   return (
     <div className="carousel-wrapper md:w-full w-screen items-center flex justify-between">
@@ -27,7 +26,7 @@ const CarouselMenu: FC = (): ReactElement => {
         width="13"
         height="21"
         viewBox="0 0 13 21"
-        className="md:relative md:flex hidden md:z-8 mr-4 md:left-28  cursor-pointer"
+        className="md:relative md:flex hidden md:z-8 md:left-28 ml-16 cursor-pointer"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -39,13 +38,13 @@ const CarouselMenu: FC = (): ReactElement => {
       {(size.width as number) < 768 ? (
         <Carousel
           className="flex items-center justify-center"
-          width={500}
-          thumbWidth={300}
+          width={800}
+          thumbWidth={100}
           centerMode={true}
           stopOnHover={true}
-          centerSlidePercentage={28}
+          centerSlidePercentage={25}
           infiniteLoop={true}
-          selectedItem={10}
+          selectedItem={20}
           autoPlay={true}
           showThumbs={false}
           showArrows={true}
@@ -87,7 +86,7 @@ const CarouselMenu: FC = (): ReactElement => {
       <svg
         width="13"
         height="21"
-        className="md:relative md:flex hidden md:right-28 ml-3  md:z-18 cursor-pointer"
+        className="md:relative md:flex hidden md:right-28 mr-3 md:z-18 cursor-pointer"
         viewBox="0 0 13 21"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
