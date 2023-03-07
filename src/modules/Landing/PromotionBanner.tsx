@@ -8,7 +8,7 @@ import GlobalButton from "@/components/Common/GlobalButton";
 const PromotionBanner: FC = (): ReactElement => {
   return (
     <Card className="" img={InfoLanding} imgWidth={""} imgHeight={""}>
-      <div className="grid gap-[14px]  lg:gap-[28px] p-[32px] lg:px-[64px] place-content-center">
+      <div className="flex flex-col gap-[14px] lg:gap-[28px] p-[32px] lg:px-[64px] place-content-center">
         <h1 className="text-[33px] lg:text-[44px] text-white font-semibold">
           Yuk, Mulai Bangun Karirmu Disini!
         </h1>
@@ -16,7 +16,12 @@ const PromotionBanner: FC = (): ReactElement => {
           Belajar 100% gratis tanpa batas waktu bersama para mentor yang ahli dibidangnya, tunggu
           apa lagi?
         </h2>
-        <GlobalButton color="green" size="large" to="/" text={"Daftar Sekarang!"} />
+        <GlobalButton
+          text="Daftar Sekarang!"
+          hasImg={false}
+          size="regular"
+          className="bg-[#3EB449] leading-6 font-semibold px-0 lg:px-20 py-4"
+        />
       </div>
     </Card>
   );

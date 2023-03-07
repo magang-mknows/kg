@@ -3,17 +3,17 @@
 {
 
   packages = with pkgs; [ 
-    nodejs
     nodePackages.yarn
     nodePackages.prettier
     nodePackages.typescript
-    nodePackages.typescript-language-server
   ];
 
   languages.typescript.enable = true;
 
   enterShell = with pkgs; ''
-    echo Welcome To KampusGratis Shell
+     echo Welcome to Kampus Gratis Shell!
+     export PATH=~/.npm-packages/bin:$PATH
+     export NODE_PATH=~/.npm-packages/lib/node_modules
   '';
 
 }

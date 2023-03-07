@@ -16,6 +16,7 @@ const TextField: FC<TextFieldProps> = forwardRef(
       success,
       warning,
       hasLabel,
+      required,
     }: TextFieldProps,
     ref: Ref<HTMLInputElement>,
   ): ReactElement => {
@@ -23,7 +24,7 @@ const TextField: FC<TextFieldProps> = forwardRef(
       <section className="flex flex-col gap-y-1 my-2">
         {hasLabel && (
           <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl"}>
-            {label}
+            {label} {required && <span className="text-red-700 font-bold">*</span>}
           </label>
         )}
         <input

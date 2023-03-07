@@ -7,7 +7,7 @@ import { ReactElement } from "react";
 type ControlledTextInputProps<T> = TextFieldProps & {
   type?: string;
   placeholder?: string;
-  label: string;
+  label?: string;
   control: Control<any, T>;
   name: string;
   hasButton?: boolean;
@@ -38,6 +38,7 @@ const ControlledTextField = <T,>({
         <TextField
           {...field}
           {...rest}
+          required={required}
           hasLabel={hasLabel}
           success={success}
           warning={warning}
