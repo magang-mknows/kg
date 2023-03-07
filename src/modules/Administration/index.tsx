@@ -1,10 +1,10 @@
 import BaseLayouts from "@/layouts/Base";
-import React, { lazy, Suspense } from "react";
+import React, { FC, lazy, ReactElement, Suspense } from "react";
 
 const PrivateInformation = lazy(() => import("@/modules/Administration/PrivateInformation"));
 const JobsInformation = lazy(() => import("@/modules/Administration/JobsInformation"));
 
-const index = () => {
+const Administration: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <Suspense fallback={"skeleton loading..."}>
@@ -17,4 +17,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Administration;

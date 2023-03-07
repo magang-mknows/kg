@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { ReactElement } from "react";
 import Penugasan from "@/modules/Assigment";
 
-const Index: NextPage = (): ReactElement => {
+const index: NextPage = (): ReactElement => {
   return (
     <>
       <Penugasan />
@@ -10,4 +10,4 @@ const Index: NextPage = (): ReactElement => {
   );
 };
 
-export default Index;
+export default index;
