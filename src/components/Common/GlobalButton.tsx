@@ -6,6 +6,7 @@ import { ButtonProps } from "./types";
 
 const GlobalButton: FC<ButtonProps> = ({
   className,
+  type,
   onClick,
   loading,
   text,
@@ -47,7 +48,7 @@ const GlobalButton: FC<ButtonProps> = ({
     }`,
   };
   const merged = clsx(
-    "flex gap-x-2 rounded items-center ",
+    "flex gap-x-2 rounded justify-center items-center ",
     colorClass[color],
     sizesClass[size],
     className,
@@ -57,7 +58,7 @@ const GlobalButton: FC<ButtonProps> = ({
     <Fragment>
       {to !== undefined ? (
         <Link href={hasExternal ? `${"https://" + to}` : `${to}`}>
-          <button className={merged} {...props} onClick={onClick}>
+          <button type={type} className={merged} {...props} onClick={onClick}>
             {hasImg ? (
               <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
             ) : (
