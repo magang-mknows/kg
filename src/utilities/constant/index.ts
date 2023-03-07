@@ -11,22 +11,27 @@ export const navbarMenu = [
   },
   {
     name: "Rencana Studi",
-    link: "/rencana",
+    link: "/studyplan",
   },
   {
     name: "Nilai & Sertifikat",
-    link: "/score",
+    link: "/nilai",
   },
 ];
 
 export const featureList = [
   { link: "/", name: "Administrasi" },
-  { link: "/", name: "Rencana Pelatihan" },
+  { link: "/", name: "Rencana Study" },
   { link: "/", name: "Pelatihan-ku" },
   { link: "/", name: "Nilai & Sertifikat" },
   { link: "/", name: "Penugasan" },
   { link: "/", name: "Forum Diskusi" },
   { link: "/", name: "Lainnya" },
+];
+
+export const notifListDummy = [
+  { link: "/", name: "Lorem ipsum 1 ", time: "now" },
+  { link: "/", name: "Lorem ipsum 2", time: "now" },
 ];
 
 export const publicRoutes = [
@@ -37,7 +42,7 @@ export const publicRoutes = [
   "/assigment",
   "/dashboard",
   "/administration",
-  "/score",
+  "/studyplan",
 ];
 
 export const assigmentBreadCumbs = [
@@ -61,13 +66,14 @@ export const administrationBreadCumbs = [
     link: "/administration",
   },
 ];
-export const dashboardBreadCumbs = [
+
+export const studyPlanBreadCumbs = [
   {
     name: "Home",
     link: "/",
   },
   {
-    name: "Dashboard",
-    link: "/dashboard",
+    name: "Fakultas",
+    link: "/studyplan",
   },
 ];
