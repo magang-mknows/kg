@@ -47,7 +47,7 @@ const GlobalButton: FC<ButtonProps> = ({
     }`,
   };
   const merged = clsx(
-    "flex gap-x-2 rounded items-center ",
+    "flex gap-x-2 rounded justify-center items-center ",
     colorClass[color],
     sizesClass[size],
     className,

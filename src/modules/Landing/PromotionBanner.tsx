@@ -8,7 +8,7 @@ import GlobalButton from "@/components/Common/GlobalButton";
 const PromotionBanner: FC = (): ReactElement => {
   return (
     <Card className="" img={InfoLanding} imgWidth={""} imgHeight={""}>
-      <div className="grid gap-[14px]  lg:gap-[28px] p-[32px] lg:px-[64px] place-content-center">
+      <div className="flex flex-col gap-[14px] lg:gap-[28px] p-[32px] lg:px-[64px] place-content-center">
         <h1 className="text-[33px] lg:text-[44px] text-white font-semibold">
           Yuk, Mulai Bangun Karirmu Disini!
         </h1>
