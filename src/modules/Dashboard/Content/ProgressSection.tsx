@@ -68,7 +68,7 @@ const ProgressSection: FC = (): ReactElement => {
     <section
       className={`${montserrat.className} mx-4 my-4 bg-[#ffffff] w-full pt-[28px] px-[24px]`}
     >
-      <p className="font-semibold text-xl text-[#171717]">Lanjutkan Mata Kuliah Kamu</p>
+      <p className="font-semibold text-xl text-[#171717] mb-[8px]">Lanjutkan Mata Kuliah Kamu</p>
       <p className="text-sm font-normal text-[#171717]">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px]">
         {dataDummy.slice(0, lengthData).map((dummy) => {
