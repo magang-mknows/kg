@@ -125,6 +125,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   to?: string;
   icon?: ReactNode | StaticImageData;
   target?: string;
+  WFull?: boolean;
   hasImg?: boolean;
   hasExternal?: boolean;
   loading?: boolean;
