@@ -11,7 +11,7 @@ export const navbarMenu = [
   },
   {
     name: "Rencana Studi",
-    link: "/rencana",
+    link: "/studyplan",
   },
   {
     name: "Nilai & Sertifikat",
@@ -21,7 +21,7 @@ export const navbarMenu = [
 
 export const featureList = [
   { link: "/", name: "Administrasi" },
-  { link: "/", name: "Rencana Pelatihan" },
+  { link: "/", name: "Rencana Study" },
   { link: "/", name: "Pelatihan-ku" },
   { link: "/", name: "Nilai & Sertifikat" },
   { link: "/", name: "Penugasan" },
@@ -42,6 +42,7 @@ export const publicRoutes = [
   "/assigment",
   "/dashboard",
   "/administration",
+  "/studyplan",
 ];
 
 export const assigmentBreadCumbs = [
@@ -63,5 +64,16 @@ export const administrationBreadCumbs = [
   {
     name: "Administrasi",
     link: "/administration",
+  },
+];
+
+export const studyPlanBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Fakultas",
+    link: "/studyplan",
   },
 ];
