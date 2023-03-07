@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import {
   ChangeEventHandler,
   HTMLInputTypeAttribute,
@@ -154,3 +155,11 @@ export interface UploadFieldProps {
   files?: File | FileList;
   value?: string;
 }
+
+export type PopupModalProps = {
+  popupTitle: string;
+  description: string;
+  icon?: StaticImageData;
+  image?: StaticImageData;
+  lookup?: boolean;
+};
