@@ -41,6 +41,7 @@ export const publicRoutes = [
   "/auth/forgot",
   "/assigment",
   "/dashboard",
+  "/administration",
 ];
 
 export const assigmentBreadCumbs = [
