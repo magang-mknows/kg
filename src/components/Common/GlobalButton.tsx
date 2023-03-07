@@ -6,6 +6,7 @@ import { ButtonProps } from "./types";
 
 const GlobalButton: FC<ButtonProps> = ({
   className,
+  type,
   onClick,
   loading,
   text,
@@ -57,7 +58,7 @@ const GlobalButton: FC<ButtonProps> = ({
     <Fragment>
       {to !== undefined ? (
         <Link href={hasExternal ? `${"https://" + to}` : `${to}`}>
-          <button className={merged} {...props} onClick={onClick}>
+          <button type={type} className={merged} {...props} onClick={onClick}>
             {hasImg ? (
               <Image src={icon as StaticImageData} className="text-black" alt="Icon" />
             ) : (
