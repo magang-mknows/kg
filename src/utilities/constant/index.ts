@@ -54,3 +54,14 @@ export const assigmentBreadCumbs = [
     link: "/assigment",
   },
 ];
+
+export const administrationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Administrasi",
+    link: "/administration",
+  },
+];
