@@ -41,6 +41,7 @@ export const publicRoutes = [
   "/auth/forgot",
   "/assigment",
   "/dashboard",
+  "/administration",
 ];
 
 export const assigmentBreadCumbs = [
@@ -51,5 +52,16 @@ export const assigmentBreadCumbs = [
   {
     name: "Penugasan",
     link: "/assigment",
+  },
+];
+
+export const administrationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Administrasi",
+    link: "/administration",
   },
 ];
