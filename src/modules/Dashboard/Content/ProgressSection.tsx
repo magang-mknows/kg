@@ -60,7 +60,7 @@ const ProgressSection: FC = (): ReactElement => {
   } else {
     lengthData = 3;
   }
-  const handleMore = () => {
+  const handleMore = ():void => {
     setMore(!more);
     console.log(more);
   };
