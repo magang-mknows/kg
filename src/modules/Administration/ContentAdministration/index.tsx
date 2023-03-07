@@ -1,5 +1,6 @@
 import MainLayouts from "@/layouts/Main";
 import React, { ReactElement } from "react";
+import FileInformation from "../FileInformation";
 import JobsInformation from "../JobsInformation";
 import PrivateInformationAccordion from "../PrivateInformationAccordion";
 
@@ -8,6 +9,7 @@ const index = (): ReactElement => {
     <MainLayouts>
       <JobsInformation />
       <PrivateInformationAccordion />
+      <FileInformation />
     </MainLayouts>
   );
 };

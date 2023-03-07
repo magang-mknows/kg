@@ -1,7 +1,10 @@
-import { Montserrat } from "next/font/google";
 import Link from "next/link";
 import { FC, ReactElement } from "react";
 
+import { useRecoilState } from "recoil";
+
+import { Montserrat } from "next/font/google";
+import { selectedDate } from "@/stores/Dashboard/Calendar";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
@@ -43,9 +46,11 @@ const MyCalendar: FC = (): ReactElement => {
     return { date };
   });
 
+  const [selectDate, setSelectDate] = useRecoilState(selectedDate);
+
   return (
     <div
-      className={`${montserrat.className} w-[100%] text-neutral-900 bg-white h-fit px-7 py-12 rounded-md`}
+      className={`${montserrat.className} w-[1000px] text-neutral-900 bg-white h-fit px-7 py-12 rounded-md`}
     >
       <header className="flex justify-between  items-center">
         <h1 className="text-lg font-bold">Kalender Saya</h1>
@@ -58,26 +63,27 @@ const MyCalendar: FC = (): ReactElement => {
         </Link>
       </header>
       <p className="mb-4 font-bold text-base text-yellow-600">{months[month - 1]}</p>
-      <section className="mb-4 gap-2 flex w-[100%] overflow-hidden overflow-x-scroll scrollbar-hide md:scrollbar-default">
+      <section className="mb-4 gap-2 flex w-[100%]  overflow-hidden overflow-x-scroll scrollbar-hide md:scrollbar-default">
         {dates.map(({ date }, index) => {
           return (
             <section
+              onClick={() => setSelectDate(date)}
               key={index}
               className={`${
-                date.getDate() == now.getDate() ? "bg-primary-500 text-white" : ""
-              } text-sm text-center cursor-pointer hover:bg-primary-500 group px-3 py-3 transition-colors ease-in-out duration-300 rounded-md`}
+                date.getDate() == selectDate.getDate() ? "bg-primary-500 text-white" : ""
+              } text-sm text-center cursor-pointer border-2 border-yellow-50/0  hover:border-yellow-500 group px-3 py-3 transition-colors ease-in-out duration-300 rounded-md`}
             >
               <p
                 className={`${
-                  date.getDate() === now.getDate() ? "text-white" : "text-neutral-500"
-                } group-hover:text-white  text-xs`}
+                  date.getDate() === selectDate.getDate() ? "text-white" : "text-neutral-500"
+                }   text-xs`}
               >
                 {days[date.getDay()].substring(0, 2)}
               </p>
               <p
                 className={`${
-                  date.getDate() === now.getDate() ? "text-white" : "text-neutral-500"
-                } group-hover:text-white text-neutral-800 font-bold`}
+                  date.getDate() === selectDate.getDate() ? "text-white" : "text-neutral-500"
+                }  text-neutral-800 font-bold`}
               >
                 {index + 1}
               </p>
@@ -86,15 +92,15 @@ const MyCalendar: FC = (): ReactElement => {
         })}
       </section>
       <section className="text-sm">
-        <div className="border-l-4 hover:bg-primary-500 cursor-pointer hover:border-primary-700 transition-colors ease-in-out duration-500 group py-3 hover:shadow-lg border-primary-500 px-3 rounded-md mb-4">
-          <p className="mb-1 text-neutral-800 group-hover:text-white">14:30 - 15:30 pm</p>
-          <p className="font-bold group-hover:text-white">Introduction to Japanese Culture</p>
-          <p className="text-neutral-500 group-hover:text-white">Pertemuan 1</p>
+        <div className="border-l-4  cursor-pointer hover:border-primary-700 transition-all ease-in-out duration-500 group py-3 hover:shadow-lg border-primary-500 px-3 rounded-md mb-4">
+          <p className="mb-1 text-neutral-800 ">14:30 - 15:30 pm</p>
+          <p className="font-bold ">Introduction to Japanese Culture</p>
+          <p className="text-neutral-500 ">Pertemuan 1</p>
         </div>
-        <div className="border-l-4 hover:bg-yellow-500 cursor-pointer hover:border-yellow-700 transition-colors ease-in-out duration-300 group py-3 hover:shadow-lg border-yellow-500 px-3 rounded-md mb-4">
-          <p className="mb-1 text-neutral-800 group-hover:text-white">14:30 - 15:30 pm</p>
-          <p className="font-bold group-hover:text-white">Introduction to Japanese Culture</p>
-          <p className="text-neutral-500 group-hover:text-white">Pertemuan 1</p>
+        <div className="border-l-4  cursor-pointer hover:border-yellow-700 transition-all ease-in-out duration-300 group py-3 hover:shadow-lg border-yellow-500 px-3 rounded-md mb-4">
+          <p className="mb-1 text-neutral-800 ">14:30 - 15:30 pm</p>
+          <p className="font-bold ">Introduction to Japanese Culture</p>
+          <p className="text-neutral-500 ">Pertemuan 1</p>
         </div>
       </section>
     </div>
