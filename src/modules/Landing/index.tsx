@@ -27,9 +27,9 @@ const Landing: FC = (): ReactElement => {
           <SekilasSection />
           <AboutSection />
           <InformationBanner />
+          <ChooseStudyProgram />
           <TestimonySection />
           <InformationSection />
-          <ChooseStudyProgram />
           <PromotionBanner />
           <Suspense fallback={"Loading..."}>
             <Modal title={"Test Modal"} lookup={getModal}>
