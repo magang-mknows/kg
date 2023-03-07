@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 
-const PrivateInformationSection: FC = (): ReactElement => {
+const PrivateInformationAccordion: FC = (): ReactElement => {
   return <></>;
 };
 
-export default PrivateInformationSection;
+export default PrivateInformationAccordion;
