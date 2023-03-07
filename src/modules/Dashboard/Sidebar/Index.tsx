@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Resume from "./Resume";
 import PapanScore from "./PapanScore";
 import ProgressSection from "../Content/ProgressSection";
+import ArticleSection from "./ArticleSection";
 const inter = Inter({
   subsets: ["latin"],
   weight: "500",
@@ -10,11 +11,14 @@ const inter = Inter({
 
 const Sidebar: FC = (): ReactElement => {
   return (
-    <div className={`${inter.className}`}>
-      <Resume />
-      <PapanScore />
-      <ProgressSection/>
-    </div>
+    <>
+      <div className={`${inter.className}`}>
+        <Resume />
+        <PapanScore />
+        <ArticleSection />
+        <ProgressSection/>
+      </div>
+    </>
   );
 };
 
