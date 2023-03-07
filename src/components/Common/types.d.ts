@@ -5,13 +5,14 @@ import {
   RefObject,
   ButtonHTMLAttributes,
   MouseEventHandler,
+  Ref,
 } from "react";
 
 export interface TextFieldProps {
   type: HTMLInputTypeAttribute;
-  label: string;
+  label?: string;
   name: string;
-  placeholder: string;
+  placeholder?: string;
   required?: boolean;
   disabled?: boolean;
   error?: string;
@@ -133,3 +134,20 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export type DashedTextProps = {
   text?: string;
 };
+
+export interface UploadFieldProps {
+  multiple?: boolean;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  name: string;
+  className?: string;
+  error?: string;
+  success?: string;
+  warning?: string;
+  disabled?: boolean;
+  required?: boolean;
+  label?: string;
+  hasLabel?: boolean;
+  ref?: Ref<HTMLInputElement>;
+  files?: File | FileList;
+  value?: string;
+}
