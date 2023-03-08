@@ -7,6 +7,7 @@ import { FC, Fragment, lazy, ReactElement, Suspense } from "react";
 import { useSetRecoilState } from "recoil";
 import ScoreSection from "./ScoreSection";
 import CertificateSection from "./CertificateSection";
+import Loading from "@/components/Loading";
 
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
@@ -17,7 +18,7 @@ const Score: FC = (): ReactElement => {
     <>
       <Navbar />
       <section className="py-1">
-        <Suspense fallback={"Skeleton loading...."}>
+        <Suspense fallback={<Loading />}>
           <BreadCrumbs items={scoreBreadCumbs} />
         </Suspense>
         <main className="lg:px-20 px-10 min-h-[80vh] py-4">
