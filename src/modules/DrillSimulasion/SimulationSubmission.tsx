@@ -9,7 +9,7 @@ const SimulationSubmission: FC = (): ReactElement => {
       src: dummyDrill,
       dosen: "Bambang Sutioso, S.Ak",
       title: " Sales dan Penjualan",
-      jadwal: "3",
+      jadwal: 3,
       category: "Simulasi",
     },
     {
@@ -24,22 +24,24 @@ const SimulationSubmission: FC = (): ReactElement => {
       dosen: "Mujahidin, S.Ak, M.Ak",
       title: "Manajement Keuangan",
       category: "Assessmen",
+      jadwal: 0,
     },
   ];
   return (
-    <div className="flex flex-wrap mb-20 lg:justify-evenly md:justify-around justify-center md:gap-10 lg:gap-20">
+    <div className="flex flex-wrap mb-20 lg:justify-evenly md:justify-around justify-center md:gap-10 lg:gap-10 ">
       {cek.map((items, i) => (
         <Card
           key={i}
           hasImage
           src={items.src}
-          className="px-0 py-0  border-[#E5E5E5] border-2 rounded-lg"
-          imgStyle="rounded-tl-[7px] rounded-tr-[7px] relative"
+          className="px-0 py-0 border-[#E5E5E5] border-2 rounded-lg"
+          imgStyle="rounded-tl-[7px] rounded-tr-[7px] relative z-10"
+          imgwidth={500}
         >
-          <div className="mb-10 px-5">
-            <div className="text-white text-[12px] font-[500] bg-black rounded-[7px] inline-block px-3 absolute ">
+          <div className="mb-10 px-5 w-full ">
+            <div className="text-white text-[12px] font-[500] bg-black rounded-[7px] inline-block px-3 absolute z-20">
               {items.category === "Simulasi"
-                ? "bg-primary-600"
+                ? "text-primary-600"
                 : items.category === "Drill"
                 ? "bg-secondary-yellow-600"
                 : items.category === "Assessmen"
@@ -48,16 +50,21 @@ const SimulationSubmission: FC = (): ReactElement => {
             </div>
             <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4 mt-5 ">
               <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px]">{items.dosen}</div>
-              <div className="bg-[#E3FBDA] px-3 py-1 rounded-[9px]">
-                {items.jadwal} Jadwal Teserdia
-              </div>
+              {items.jadwal === 0 ? (
+                ""
+              ) : (
+                <div className="bg-[#E3FBDA] px-3 py-1 rounded-[9px]">
+                  {items.jadwal} Jadwal Tersedia
+                </div>
+              )}
             </div>
             <div className="text-[16px] font-[600] text-[#262626] mt-3 ml-1">{items.title}</div>
-            <div className="flex  mt-3">
+            <div className="flex mt-3 justify-end">
               <Button
+                disabled={items.jadwal === 0 ? true : false}
                 type="submit"
-                text={"Lihat Jadwal Simulasi"}
-                className="bg-[#3EB449] rounded-[8px] text-white w-[182px] h-[35px]"
+                text={items.jadwal === 0 ? "Tidak Ada Jadwal Tersedia" : "Lihat Jadwal Simulasi"}
+                className="bg-[#3EB449] font-[600] text-[12px] rounded-[8px] text-white w-[182px] h-[35px] disabled:bg-[#D4D4D4] disabled:text-[#A3A3A3]  disabled:cursor-not-allowed"
               />
             </div>
           </div>
