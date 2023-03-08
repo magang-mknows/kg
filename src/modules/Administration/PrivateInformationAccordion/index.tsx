@@ -8,6 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
+import SelectField from "@/components/Common/SelectField";
+import OptionField from "@/components/Common/OptionField";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
@@ -19,6 +21,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
     phoneNumber: z.string().min(1, { message: "nomor handphone harus diisi" }),
     nim: z.string().optional(),
     prodi: z.string().optional(),
+    semester: z.string().optional(),
     university: z.string().optional(),
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
@@ -68,6 +71,19 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
+            {/* <div className="form-label">
+              <label>Jenis Kelamin</label>
+              <SelectField
+                label="gender"
+                name="gender"
+                defaultValue=""
+                required={true}
+                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+              >
+                <OptionField label="laki-laki" value="laki-laki" />
+                <OptionField label="perempuan" value="perempuan" />
+              </SelectField>
+            </div> */}
             <div className="form-label">
               <label>Tempat Lahir</label>
               <ControlledTextField
@@ -155,7 +171,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label>Pendidikan Teakhir</label>
+              <label>Pendidikan Terakhir</label>
               <ControlledTextField
                 control={control}
                 type={"lastEducation"}
@@ -177,14 +193,26 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 required={false}
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
-              <div className="flex w-full my-8 justify-end">
-                <Button
-                  disabled={!isValid}
-                  className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
-                  text={"Simpan Informasi Pribadi"}
-                  type={"submit"}
-                />
-              </div>
+            </div>
+            <div className="form-label">
+              <label>Semester (optional)</label>
+              <ControlledTextField
+                control={control}
+                type={"semester"}
+                label={"semester"}
+                name={"semester"}
+                placeholder={"Masukkan pendidikan terakhir"}
+                required={false}
+                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+              />
+            </div>
+            <div className="flex w-full my-8 justify-end">
+              <Button
+                disabled={!isValid}
+                className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
+                text={"Simpan Informasi Pribadi"}
+                type={"submit"}
+              />
             </div>
           </div>
         </div>
