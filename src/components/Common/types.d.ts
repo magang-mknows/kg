@@ -153,7 +153,8 @@ export interface UploadFieldProps {
   hasLabel?: boolean;
   ref?: Ref<HTMLInputElement>;
   files?: File | FileList;
-  value?: string;
+  fileName?: string;
+  accepted?: string;
 }
 
 export type PopupModalProps = {
