@@ -20,7 +20,7 @@ const PromotionBanner: FC = (): ReactElement => {
           text="Daftar Sekarang!"
           hasImg={false}
           size="regular"
-          className="bg-[#3EB449] leading-6 font-semibold px-20 py-4"
+          className="bg-[#3EB449] leading-6 font-semibold px-0 lg:px-20 py-4"
         />
       </div>
     </Card>

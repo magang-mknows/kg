@@ -3,7 +3,12 @@ import accordionIcon from "@/assets/accordion-icon.svg";
 import Image from "next/image";
 import { AccordionProps } from "./type.d";
 
-const JobsInformation: FC<AccordionProps> = ({ title, idAccordion, children }): ReactElement => {
+const JobsInformation: FC<AccordionProps> = ({
+  title,
+  idAccordion,
+  children,
+  disabled,
+}): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   return (
     <div data-accordion="collapse" className="mb-8">
@@ -12,6 +17,7 @@ const JobsInformation: FC<AccordionProps> = ({ title, idAccordion, children }): 
           onClick={() => (isOpen == "" ? setIsOpen(`${idAccordion}`) : setIsOpen(""))}
           type="button"
           className="flex items-center justify-between w-full p-5 font-medium text-left rounded-xl  bg-[#F5F5F5]"
+          disabled={disabled}
         >
           <div className="text-[16px] font-[500] text-[#262626]">{title}</div>
           <Image src={accordionIcon} alt={"accordion-image"} />

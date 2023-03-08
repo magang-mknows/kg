@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegister } from "@/hooks/Auth/useRegister";
 import { AuthPayloadTypes } from "@/utilities/types/Auth";
 import { handleError } from "@/utilities/helper";
+import DashedText from "@/components/Common/DashedText";
 
 const RegisterForm: FC = (): ReactElement => {
   const validationSchema = z
@@ -84,7 +85,7 @@ const RegisterForm: FC = (): ReactElement => {
         placeholder={"*********"}
         required={true}
         labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-      />{" "}
+      />
       <ControlledTextField
         control={control}
         type={"password"}
@@ -100,12 +101,20 @@ const RegisterForm: FC = (): ReactElement => {
         required={false}
         label={"Saya setuju dengan syarat dan ketentuan."}
       />
-      <div className="flex w-full my-8">
+      <div className="flex flex-col w-full my-8">
         <Button
           disabled={!isValid}
           className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
           text={isLoading ? "Sedang Memuat..." : "Daftar"}
           type={"submit"}
+        />
+
+        <DashedText />
+
+        <Button
+          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
+          text={isLoading ? "Sedang Memuat..." : "Daftar Dengan Google"}
+          type={"button"}
         />
       </div>
     </Form>

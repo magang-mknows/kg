@@ -1,4 +1,5 @@
 import Button from "@/components/Common/Button";
+import DashedText from "@/components/Common/DashedText";
 import ControlledCheckboxField from "@/components/ControlledInputs/ControlledCheckboxField";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
@@ -86,15 +87,10 @@ const LoginForm: FC = (): ReactElement => {
           type={"submit"}
         />
 
-        <div className="inline-flex items-center justify-center w-full">
-          <hr className="w-full h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-          <span className="absolute px-3 font-medium text-gray-400 bg-white dark:text-white dark:bg-gray-800">
-            Atau
-          </span>
-        </div>
+        <DashedText />
 
         <Button
-          className="my-4 w-full bg-gray-200 text-gray-400 font-bold p-3 text-1xl rounded-md"
+          className="my-4 w-full bg-gray-50 border-2 border-black-900 text-gray-600 font-bold p-3 text-1xl rounded-md"
           text="Masuk Dengan Google"
           type={"button"}
         />
