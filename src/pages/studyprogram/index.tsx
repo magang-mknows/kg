@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
-import StudyPlan from "@/modules/StudyPlan/choicefaculty";
+import StudyProgram from "@/modules/StudyPlan/studyProgram";
 
 const index: NextPage = (): ReactElement => {
-  return <StudyPlan />;
+  return <StudyProgram />;
 };
 
 export default index;

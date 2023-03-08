@@ -7,6 +7,7 @@ const montserrat = Montserrat({
 });
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
+import Loading from "../Loading";
 
 const UpperSection = lazy(() => import("@/components/Navbar/UpperSection"));
 const BottomSection = lazy(() => import("@/components/Navbar/BottomSection"));
@@ -27,7 +28,7 @@ const Navbar: FC = (): ReactElement => {
             : ""
         } bg-white  z-[9999] left-0 w-full transition-all ease-in-out duration-300`}
       >
-        <Suspense fallback={"Skeleton loading...."}>
+        <Suspense fallback={<Loading />}>
           <UpperSection />
           {isScrollY === "onRender" && (
             <BottomSection className="h-[84px] border-b-2 border-neutral-100 " />

@@ -50,8 +50,6 @@ const InformationSection: FC = (): ReactElement => {
     return color;
   };
 
-  console.log(handleColor("Pertanian"));
-
   return (
     <section className="w-full px-16 pb-32 pt-24">
       <h1 className="text-center text-5xl lg:text-5xl md:text-3xl font-bold mb-24 text-[#000000] dark:text-[#f9feff]">

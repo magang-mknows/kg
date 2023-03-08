@@ -6,6 +6,8 @@ import { Tab } from "@headlessui/react";
 import { FC, Fragment, lazy, ReactElement, Suspense } from "react";
 import { useSetRecoilState } from "recoil";
 import ScoreSection from "./ScoreSection";
+import CertificateSection from "./CertificateSection";
+import Loading from "@/components/Loading";
 
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
@@ -16,7 +18,7 @@ const Score: FC = (): ReactElement => {
     <>
       <Navbar />
       <section className="py-1">
-        <Suspense fallback={"Skeleton loading...."}>
+        <Suspense fallback={<Loading />}>
           <BreadCrumbs items={scoreBreadCumbs} />
         </Suspense>
         <main className="lg:px-20 px-10 min-h-[80vh] py-4">
@@ -59,8 +61,9 @@ const Score: FC = (): ReactElement => {
               <Tab.Panel>
                 <ScoreSection />
               </Tab.Panel>
-              {/* put sertifikat inside content 2 */}
-              <Tab.Panel>Content 2</Tab.Panel>
+              <Tab.Panel>
+                <CertificateSection />
+              </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
         </main>

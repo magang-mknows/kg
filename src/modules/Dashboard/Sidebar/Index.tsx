@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from "react";
 import { Inter } from "next/font/google";
 import Resume from "./Resume";
 import PapanScore from "./PapanScore";
-import ProgressSection from "../Content/ProgressSection";
 import ArticleSection from "./ArticleSection";
 const inter = Inter({
   subsets: ["latin"],
@@ -17,7 +16,6 @@ const Sidebar: FC = (): ReactElement => {
         <PapanScore />
         <ArticleSection />
       </div>
-      <ProgressSection />
     </>
   );
 };
