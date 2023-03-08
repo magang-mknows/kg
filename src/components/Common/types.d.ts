@@ -116,6 +116,7 @@ export interface CardProps {
   src?: StaticImport;
   topText?: string;
   hasImage: boolean;
+  imgStyle?: string;
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
