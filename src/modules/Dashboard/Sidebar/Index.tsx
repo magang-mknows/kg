@@ -17,7 +17,6 @@ const Sidebar: FC = (): ReactElement => {
         <PapanScore />
         <ArticleSection />
       </div>
-      <ProgressSection />
     </>
   );
 };
