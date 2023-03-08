@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import MainLayouts from "@/layouts/Main";
 import ContentLayouts from "@/layouts/Content";
 import Card from "../Common/Card";
@@ -40,6 +40,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
       deskripsi: "Artificial Intellegence",
     },
   ];
+  const [isClose, setClose] = useState(false);
   return (
     <MainLayouts>
       <div className="flex p-8 justify-center items-center flex-col">
@@ -83,7 +84,9 @@ const ContentStudyProgram: FC = (): ReactElement => {
       </div>
       <ContentLayouts>
         <div
-          className="flex bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative"
+          className={`${
+            isClose && "hidden"
+          } flex bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative`}
           role="alert"
         >
           <svg
@@ -106,6 +109,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
           </span>
           <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
             <svg
+              onClick={() => setClose(true)}
               className="fill-current h-6 w-6 text-gray-500"
               role="button"
               xmlns="http://www.w3.org/2000/svg"
