@@ -72,8 +72,8 @@ const ProgressSection: FC = (): ReactElement => {
       <p className="text-sm font-normal text-[#171717]">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px]">
         {dataDummy.slice(0, lengthData).map((dummy) => {
-          var percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100).toString();
-          var classDiv = `${percent}%`;
+          const percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100).toString();
+          const classDiv = `${percent}%`;
           return (
             <div
               key={dummy.id}
