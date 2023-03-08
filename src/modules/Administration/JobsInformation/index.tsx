@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import Accordion from "@/components/Administration/Accordion";
 
 const JobsInformation: FC = (): ReactElement => {

@@ -69,7 +69,7 @@ const optionsLine = {
       ticks: {
         stepSize: 1,
         max: 4,
-        callback: function (value: any, index: any, values: any) {
+        callback: function (value: any) {
           if (value === 4.5) {
             return "";
           } else {

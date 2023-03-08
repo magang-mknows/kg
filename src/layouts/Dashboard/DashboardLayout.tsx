@@ -1,6 +1,6 @@
 import Footbar from "@/components/Footbar";
 import Navbar from "@/components/Navbar";
-import React, { FC, lazy, ReactElement, Suspense } from "react";
+import { FC, lazy, ReactElement, Suspense } from "react";
 import { BaseLayoutTypes } from "../Base/types";
 
 import { dashboardBreadCumbs } from "@/utilities/constant";

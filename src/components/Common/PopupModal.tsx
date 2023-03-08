@@ -1,9 +1,8 @@
 import { FC, ReactElement } from "react";
-import PopupBerhasil from "@/assets/popup-modal-berhasil.svg";
-import VectorBerhasil from "@/assets/vector-popup-modal-berhasil.svg";
+
 import Image, { StaticImageData } from "next/image";
 import Modal from "./Modal";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { PopupModalOpen } from "@/stores/Common";
 import { PopupModalProps } from "./types";
 
@@ -12,12 +11,11 @@ const PopupModal: FC<PopupModalProps> = ({
   description,
   icon,
   image,
-  lookup,
 }): ReactElement => {
-  const getModal = useRecoilValue(PopupModalOpen);
+  const [getModal, setModal] = useRecoilState(PopupModalOpen);
 
   return (
-    <Modal title={""} lookup={getModal}>
+    <Modal onClose={() => setModal(!getModal)} title={""} lookup={getModal}>
       <div className="flex flex-col items-center justify-center w-full py-10 text-center">
         <Image src={icon as StaticImageData} height={55.7} width={55.7} alt="Popup-Image" />
         <Image src={image as StaticImageData} height={280.75} width={280.75} alt="Popup-Image" />

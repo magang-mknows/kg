@@ -89,3 +89,13 @@ export const scoreBreadCumbs = [
     link: "/score",
   },
 ];
+export const dashboardBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
+  },
+];
