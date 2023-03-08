@@ -33,8 +33,8 @@ const ContentFaculty: FC = (): ReactElement => {
 
   return (
     <MainLayouts>
-      <h5 className="text-2xl font-semibold p-2">Pilihan Fakultas</h5>
-      <div className="grid grid-cols-3 gap-4 pb-40">
+      <h5 className="text-2xl font-semibold lg:p-2 p-0">Pilihan Fakultas</h5>
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 pb-40">
         {data.map((x, i) => (
           <Card
             key={i}
