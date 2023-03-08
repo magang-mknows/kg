@@ -6,9 +6,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Form from "@/components/Form";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Button from "@/components/Common/Button";
+import { handleError } from "@/utilities/helper";
+import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
 
 const JobsInformation: FC = (): ReactElement => {
-  const validationSchema = z.object({
+  const schema = z.object({
     fathername: z.string().min(1, { message: "Nama ayah harus diisi" }),
     mothername: z.string().min(1, { message: "Nama ibu harus diisi" }),
     live: z.string().min(1, { message: "Tinggal dengan harus diisi" }),
@@ -16,21 +18,38 @@ const JobsInformation: FC = (): ReactElement => {
     motherjob: z.string().min(1, { message: "Pekerjaan ibu harus diisi" }),
     fatherincome: z.string().min(1, { message: "Penghasilan ayah harus diisi" }),
     motherincome: z.string().min(1, { message: "Penghasilan ibu harus diisi" }),
+    ownjob: z.string().min(1, { message: "Pekerjaan sendiri harus diisi" }),
     ownincome: z.string().min(1, { message: "Penghasilan sendiri harus diisi" }),
     collegefeespaidby: z.string().min(1, { message: "Biaya kuliah harus diisi" }),
   });
-  type ValidationSchema = z.infer<typeof validationSchema>;
+
+  const { setJobStatus, getJobStatus } = useJobInformationStatus();
 
   const {
     control,
+    handleSubmit,
     formState: { isValid },
-  } = useForm<ValidationSchema>({
-    resolver: zodResolver(validationSchema),
+  } = useForm({
+    resolver: zodResolver(schema),
     mode: "all",
   });
+
+  const onSubmit = handleSubmit(() => {
+    try {
+      setJobStatus(true);
+    } catch (err) {
+      setJobStatus(false);
+      throw handleError(err);
+    }
+  });
+
   return (
-    <Accordion title="Informasi Pekerjaan" idAccordion="job-information">
-      <Form>
+    <Accordion
+      title="Informasi Pekerjaan"
+      idAccordion={getJobStatus ? "" : "job-information"}
+      disabled={getJobStatus ? true : false}
+    >
+      <Form onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px] ">
           <div className="w-full">
             <div className="">
