@@ -125,7 +125,7 @@ const FileInformation: FC = (): ReactElement => {
 
   return (
     <>
-      <Accordion title="Iniformasi Berkas" idAccordion="fileInformation">
+      <Accordion title="Informasi Berkas" idAccordion="fileInformation">
         <Form onSubmit={onSubmit}>
           <ControlledUploadField
             hasLabel
