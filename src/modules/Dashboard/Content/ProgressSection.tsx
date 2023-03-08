@@ -70,7 +70,7 @@ const ProgressSection: FC = (): ReactElement => {
     >
       <p className="font-semibold text-xl text-[#171717] mb-[8px]">Lanjutkan Mata Kuliah Kamu</p>
       <p className="text-sm font-normal text-[#171717]">Semester 1</p>
-      <div className="wrapper mt-5 grid gap-y-[20px]">
+      <div className="wrapper mt-5 grid gap-y-[20px] mb-[20px]">
         {dataDummy.slice(0, lengthData).map((dummy) => {
           const percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100).toString();
           const classDiv = `${percent}%`;
@@ -91,7 +91,10 @@ const ProgressSection: FC = (): ReactElement => {
                     Semester {dummy.semester} | {dummy.subjudul}
                   </p>
                   <div className="bg-[#D9D9D9] w-[200px] rounded-lg h-[10px] inline-block relative bottom-2 mt-0 mr-[12px]">
-                    <div style={{width: classDiv}} className="bg-[#106FA4]  rounded-lg h-[10px] text-[0px]">
+                    <div
+                      style={{ width: classDiv }}
+                      className="bg-[#106FA4]  rounded-lg h-[10px] text-[0px]"
+                    >
                       .
                     </div>
                   </div>{" "}
@@ -121,10 +124,10 @@ const ProgressSection: FC = (): ReactElement => {
             </div>
           );
         })}
-        <p className="text-center text-[12px] text-[#737373] font-normal">
-          {more ? "Lihat Lebih Sedikit" : "Lihat Semua"}
-        </p>
         <button onClick={handleMore}>
+          <p className="text-center text-[12px] text-[#737373] font-normal mb-[16px]">
+            {more ? "Lihat Lebih Sedikit" : "Lihat Semua"}
+          </p>
           <Image className={`mx-auto ${more && "rotate-180"}`} src={moreIcon} alt="Lihat Semua" />
         </button>
       </div>
