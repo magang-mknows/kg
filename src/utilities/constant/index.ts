@@ -22,6 +22,7 @@ export const navbarMenu = [
 export const featureList = [
   { link: "/", name: "Administrasi" },
   { link: "/", name: "Rencana Study" },
+  { link: "/", name: "Program Study" },
   { link: "/", name: "Pelatihan-ku" },
   { link: "/", name: "Nilai & Sertifikat" },
   { link: "/", name: "Penugasan" },
@@ -43,6 +44,7 @@ export const publicRoutes = [
   "/dashboard",
   "/administration",
   "/studyplan",
+  "/studyprogram",
   "/score",
 ];
 
@@ -76,6 +78,21 @@ export const studyPlanBreadCumbs = [
   {
     name: "Fakultas",
     link: "/studyplan",
+  },
+];
+
+export const studyProgramBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Fakultas",
+    link: "/studyplan",
+  },
+  {
+    name: "Program Studi",
+    link: "/studyprogram",
   },
 ];
 
