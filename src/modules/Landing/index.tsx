@@ -15,6 +15,7 @@ const InformationBanner = lazy(() => import("@/modules/Landing/InformationBanner
 const PromotionBanner = lazy(() => import("@/modules/Landing/PromotionBanner"));
 const InformationSection = lazy(() => import("@/modules/Landing/InformationSection"));
 const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgram"));
+const EditProfileSection = lazy(() => import("@/modules/Profile/EditProfileSection"));
 
 const Landing: FC = (): ReactElement => {
   const getModal = useRecoilValue(AuthModalOpen);
@@ -22,7 +23,8 @@ const Landing: FC = (): ReactElement => {
     <BaseLayouts>
       <ErrorBoundary fallback={<>Error was happen</>}>
         <Suspense fallback={"Skeleton loading...."}>
-          <HeroSection />
+          <EditProfileSection />
+          {/* <HeroSection />
           <PatnerSection />
           <SekilasSection />
           <AboutSection />
@@ -30,7 +32,7 @@ const Landing: FC = (): ReactElement => {
           <ChooseStudyProgram />
           <TestimonySection />
           <InformationSection />
-          <PromotionBanner />
+          <PromotionBanner /> */}
           <Suspense fallback={"Loading..."}>
             <Modal title={"Test Modal"} lookup={getModal}>
               <LoginForm />

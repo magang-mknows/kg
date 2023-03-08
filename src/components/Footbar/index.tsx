@@ -16,7 +16,7 @@ const Footbar: FC = (): ReactElement => {
   return (
     <footer
       className="
-        bg-[#F5F5F5]
+        bg-neutral-200
         text-center 
         text-[#262626]
         pt-8
