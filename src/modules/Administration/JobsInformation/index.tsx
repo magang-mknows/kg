@@ -1,10 +1,11 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import Accordion from "@/components/Administration/Accordion";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Form from "@/components/Form";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
+import Button from "@/components/Common/Button";
 
 const JobsInformation: FC = (): ReactElement => {
   const validationSchema = z.object({
@@ -22,7 +23,6 @@ const JobsInformation: FC = (): ReactElement => {
 
   const {
     control,
-    handleSubmit,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -105,7 +105,7 @@ const JobsInformation: FC = (): ReactElement => {
             </div>
           </div>
         </div>
-        <hr className="my-5" />
+        <hr className="my-5 text-[#D9D9D9]" />
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
             <div className="">
@@ -152,6 +152,14 @@ const JobsInformation: FC = (): ReactElement => {
                 type={"text"}
                 required={true}
                 placeholder={"Masukan biaya kuliah ditanggung oleh"}
+              />
+            </div>
+            <div className="flex w-full my-8 justify-end">
+              <Button
+                disabled={!isValid}
+                className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
+                text={"Simpan Informasi Pekerjaan"}
+                type={"submit"}
               />
             </div>
           </div>
