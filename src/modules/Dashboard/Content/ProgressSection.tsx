@@ -23,8 +23,8 @@ const dataDummy: {
     judul: "Introduction to Japanese Culture",
     subjudul: "Japanese Culture",
     semester: 1,
-    totalPertemuan: 14,
-    pertemuanDone: 5,
+    totalPertemuan: 10,
+    pertemuanDone: 8,
   },
   {
     id: 2,
@@ -66,31 +66,32 @@ const ProgressSection: FC = (): ReactElement => {
   };
   return (
     <section
-      className={`${montserrat.className} mx-4 my-4 bg-[#ffffff] w-full pt-[28px] px-[24px]`}
+      className={`${montserrat.className} bg-[#ffffff] w-full pt-[28px] px-[24px] pb-[44px] mb-[48px]`}
     >
       <p className="font-semibold text-xl text-[#171717] mb-[8px]">Lanjutkan Mata Kuliah Kamu</p>
       <p className="text-sm font-normal text-[#171717]">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px]">
         {dataDummy.slice(0, lengthData).map((dummy) => {
-          const percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100);
+          var percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100).toString();
+          var classDiv = `${percent}%`;
           return (
             <div
               key={dummy.id}
-              className="progressBox w-full relative grid grid-flow-col gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] border-[1px] border-solid"
+              className="progressBox w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] border-[1px] border-solid"
             >
               <Image
-                className="rounded-lg w-[100px] h-[100px] object-cover"
+                className=" col-span-2 rounded-lg w-[100px] h-[100px] object-cover "
                 src={dummyImg}
                 alt="tes"
               />
-              <div className="flex justify-between w-full">
+              <div className=" col-span-10 flex justify-between w-full">
                 <div>
                   <p className="mb-[12px]">{dummy.judul}</p>
                   <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">
                     Semester {dummy.semester} | {dummy.subjudul}
                   </p>
                   <div className="bg-[#D9D9D9] w-[200px] rounded-lg h-[10px] inline-block relative bottom-2 mt-0 mr-[12px]">
-                    <div className={`bg-[#106FA4] w-[${percent}%] rounded-lg h-[10px] text-[0px]`}>
+                    <div style={{width: classDiv}} className="bg-[#106FA4]  rounded-lg h-[10px] text-[0px]">
                       .
                     </div>
                   </div>{" "}
@@ -99,7 +100,7 @@ const ProgressSection: FC = (): ReactElement => {
                     <span className="text-[12px]">Pertemuan</span>
                   </p>
                 </div>
-                {percent != 100 ? (
+                {percent != "100" ? (
                   <GlobalButton
                     className="my-auto text-center"
                     text="Lanjut Belajar"
