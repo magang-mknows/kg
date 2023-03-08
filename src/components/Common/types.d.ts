@@ -159,6 +159,7 @@ export interface UploadFieldProps {
 export type PopupModalProps = {
   popupTitle: string;
   description: string;
+  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
   icon?: StaticImageData;
   image?: StaticImageData;
   lookup?: boolean;

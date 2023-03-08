@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { AuthModalOpen } from "@/stores/Common";
 import LoginForm from "../Auth/Login/Form";
 import { ErrorBoundary } from "react-error-boundary";
+import Test from "@/pages/component";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
 const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
@@ -31,6 +32,7 @@ const Landing: FC = (): ReactElement => {
           <TestimonySection />
           <InformationSection />
           <PromotionBanner />
+          <Test />
         </Suspense>
       </ErrorBoundary>
 

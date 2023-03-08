@@ -5,7 +5,15 @@ export const AuthModalOpen = atom({
   default: false,
 });
 
-export const PopupModalOpen = atom({
-  key: "modal-popup-open",
+export const PopupModalSuccessOpen = atom({
+  key: "modal-popup-success",
+  default: false,
+});
+export const PopupModalScheduleOpen = atom({
+  key: "modal-popup-schedule",
+  default: false,
+});
+export const PopupModalSubmissionOpen = atom({
+  key: "modal-popup-submission",
   default: false,
 });
