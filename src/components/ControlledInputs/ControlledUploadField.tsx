@@ -9,6 +9,7 @@ type ControlledUploadInputProps<T> = UploadFieldProps & {
 };
 
 const ControlledUploadField = <T,>({ ...rest }: ControlledUploadInputProps<T>): ReactElement => {
+  console.log(rest);
   return (
     <Controller
       control={rest.control}
@@ -17,7 +18,9 @@ const ControlledUploadField = <T,>({ ...rest }: ControlledUploadInputProps<T>): 
       render={({ field, fieldState: { error } }) => (
         <UploadField
           {...rest}
-          onChange={(event) => field.onChange(event.target.files)}
+          onChange={(event) => {
+            field.onChange(event.target.files);
+          }}
           error={error?.message}
         />
       )}
