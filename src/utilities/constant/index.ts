@@ -15,7 +15,7 @@ export const navbarMenu = [
   },
   {
     name: "Nilai & Sertifikat",
-    link: "/nilai",
+    link: "/score",
   },
 ];
 
@@ -43,6 +43,7 @@ export const publicRoutes = [
   "/dashboard",
   "/administration",
   "/studyplan",
+  "/score",
 ];
 
 export const assigmentBreadCumbs = [
@@ -75,5 +76,26 @@ export const studyPlanBreadCumbs = [
   {
     name: "Fakultas",
     link: "/studyplan",
+  },
+];
+
+export const scoreBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Nilai & Sertfikat",
+    link: "/score",
+  },
+];
+export const dashboardBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
   },
 ];

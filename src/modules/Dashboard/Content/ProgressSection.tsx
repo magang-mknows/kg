@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState } from "react";
+import { FC, ReactElement, useState } from "react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import dummyImg from "@/assets/dashboard/dummyCourse.png";
@@ -60,7 +60,7 @@ const ProgressSection: FC = (): ReactElement => {
   } else {
     lengthData = 3;
   }
-  const handleMore = ():void => {
+  const handleMore = (): void => {
     setMore(!more);
     console.log(more);
   };
