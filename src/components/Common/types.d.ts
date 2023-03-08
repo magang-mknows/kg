@@ -116,6 +116,7 @@ export interface CardProps {
   src?: StaticImport;
   topText?: string;
   hasImage: boolean;
+  imgStyle?: string;
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -160,6 +161,7 @@ export interface UploadFieldProps {
 export type PopupModalProps = {
   popupTitle: string;
   description: string;
+  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
   icon?: StaticImageData;
   image?: StaticImageData;
   lookup?: boolean;

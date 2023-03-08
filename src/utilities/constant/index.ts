@@ -46,6 +46,7 @@ export const publicRoutes = [
   "/studyplan",
   "/studyprogram",
   "/score",
+  "/drill-simulation"
 ];
 
 export const assigmentBreadCumbs = [
@@ -114,5 +115,15 @@ export const dashboardBreadCumbs = [
   {
     name: "Dashboard",
     link: "/dashboard",
+  },
+];
+export const drillSimulation = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Simulasi, Drill & Assessment",
+    link: "/drill-simulation",
   },
 ];

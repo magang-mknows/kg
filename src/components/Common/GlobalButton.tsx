@@ -36,7 +36,7 @@ const GlobalButton: FC<ButtonProps> = ({
     modal: `w-full h-[12px] lg:w-[98px] lg:h-[36px] text-[14px] font-normal ${
       WFull && "!lg:w-full"
     }`,
-    icon: `w-full h-[12px] lg:w-[16px] lg:h-[16px] text-[14px] font-normal ${
+    icon: `!w-[182px]w-full h-[12px] lg:w-[16px] lg:h-[16px] text-[14px] font-normal ${
       WFull && "!lg:w-full"
     }`,
   };
