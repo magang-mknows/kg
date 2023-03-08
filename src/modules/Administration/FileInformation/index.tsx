@@ -8,12 +8,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Montserrat } from "next/font/google";
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: "500",
-});
-
 const FileInformation: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 3000000;
   const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
@@ -130,7 +124,7 @@ const FileInformation: FC = (): ReactElement => {
   });
 
   return (
-    <div className={`${montserrat.className}`}>
+    <>
       <Accordion title="Iniformasi Berkas" idAccordion="fileInformation">
         <Form onSubmit={onSubmit}>
           <ControlledUploadField
@@ -193,7 +187,7 @@ const FileInformation: FC = (): ReactElement => {
           </div>
         </Form>
       </Accordion>
-    </div>
+    </>
   );
 };
 

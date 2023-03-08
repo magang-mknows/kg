@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Control, Controller } from "react-hook-form";
 import { UploadFieldProps } from "../Common/types";
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import UploadField from "../Common/UploadField";
 
 type ControlledUploadInputProps<T> = UploadFieldProps & {
@@ -9,7 +9,7 @@ type ControlledUploadInputProps<T> = UploadFieldProps & {
 };
 
 const ControlledUploadField = <T,>({ ...rest }: ControlledUploadInputProps<T>): ReactElement => {
-  console.log(rest);
+  const [get, set] = useState("");
   return (
     <Controller
       control={rest.control}
@@ -18,8 +18,11 @@ const ControlledUploadField = <T,>({ ...rest }: ControlledUploadInputProps<T>): 
       render={({ field, fieldState: { error } }) => (
         <UploadField
           {...rest}
+          fileName={get}
           onChange={(event) => {
             field.onChange(event.target.files);
+            // set(event.target.value.replace('"\\"'));
+            set(event.target?.files?.[0].name as string);
           }}
           error={error?.message}
         />

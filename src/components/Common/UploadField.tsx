@@ -22,7 +22,9 @@ const UploadField: FC<UploadFieldProps> = forwardRef(
               <h1 className="bg-primary-500 w-fit text-white py-2 cursor-pointer hover:bg-primary-600 transition-colors ease-in-out duration-300 px-4 rounded-l-lg">
                 Pilih File
               </h1>
-              <p className="px-4">{}</p>
+              <p className="px-4">
+                {props.fileName ? props.fileName : "Tidak Ada File yang dipilih"}
+              </p>
             </div>
             <div className="min-w-[120px] lg:min-w-[150px]">
               <p className="px-4 py-3 lg:py-2 bg-[#E9F6FD] text-neutral-600 text-xs lg:text-sm">
