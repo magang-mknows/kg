@@ -35,20 +35,29 @@ const SimulationSubmission: FC = (): ReactElement => {
           hasImage
           src={items.src}
           className="px-0 py-0 border-[#E5E5E5] border-2 rounded-lg"
-          imgStyle="rounded-tl-[7px] rounded-tr-[7px] relative z-10"
-          imgwidth={500}
+          imgStyle="rounded-tl-[7px] rounded-tr-[7px] relative z-10 "
         >
           <div className="mb-10 px-5 w-full ">
-            <div className="text-white text-[12px] font-[500] bg-black rounded-[7px] inline-block px-3 absolute z-20">
+            <div
+              className={`text-black text-[12px] font-[500] rounded-[7px] inline-block px-3 relative z-20 -top-48 justify-end  ${
+                items.category === "Simulasi"
+                  ? "bg-primary-500 text-white -right-64 ml-5"
+                  : items.category === "Drill"
+                  ? "bg-secondary-yellow-600 text-white -right-72 ml-3"
+                  : items.category === "Assessmen"
+                  ? "bg-white  -right-64 ml-1"
+                  : ""
+              }`}
+            >
               {items.category === "Simulasi"
-                ? "text-primary-600"
+                ? "Simulasi"
                 : items.category === "Drill"
-                ? "bg-secondary-yellow-600"
+                ? "Drill"
                 : items.category === "Assessmen"
-                ? "bg-white"
+                ? "Assessmen"
                 : ""}
             </div>
-            <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4 mt-5 ">
+            <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4">
               <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px]">{items.dosen}</div>
               {items.jadwal === 0 ? (
                 ""
@@ -59,7 +68,7 @@ const SimulationSubmission: FC = (): ReactElement => {
               )}
             </div>
             <div className="text-[16px] font-[600] text-[#262626] mt-3 ml-1">{items.title}</div>
-            <div className="flex mt-3 justify-end">
+            <div className="flex mt-4 justify-end">
               <Button
                 disabled={items.jadwal === 0 ? true : false}
                 type="submit"
