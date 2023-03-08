@@ -1,4 +1,3 @@
-import MainLayouts from "@/layouts/Main";
 import React, { FC, ReactElement } from "react";
 
 const TitleAdministration: FC = (): ReactElement => {
