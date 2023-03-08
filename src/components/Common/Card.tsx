@@ -12,12 +12,13 @@ const Card: FC<CardProps> = ({
   imgheight,
   titleStyle,
   hasImage,
+  imgStyle,
 }): ReactElement => {
   return (
     <div className={`${className} flex auto p-4 flex-col`}>
       {hasImage && (
         <Image
-          className="w-full object-cover"
+          className={`w-full object-cover ${imgStyle}`}
           src={src}
           alt="Picture of the author"
           width={imgwidth}
