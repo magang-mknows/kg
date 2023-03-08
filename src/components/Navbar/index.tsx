@@ -1,4 +1,4 @@
-import { FC, ReactElement, Suspense } from "react";
+import { FC, lazy, ReactElement, Suspense } from "react";
 
 import { Montserrat } from "next/font/google";
 const montserrat = Montserrat({
@@ -7,14 +7,9 @@ const montserrat = Montserrat({
 });
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
-import dynamic from "next/dynamic";
 
-const UpperSection = dynamic(() => import("@/components/Navbar/UpperSection"), {
-  ssr: false,
-});
-const BottomSection = dynamic(() => import("@/components/Navbar/BottomSection"), {
-  ssr: false,
-});
+const UpperSection = lazy(() => import("@/components/Navbar/UpperSection"));
+const BottomSection = lazy(() => import("@/components/Navbar/BottomSection"));
 
 const Navbar: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
