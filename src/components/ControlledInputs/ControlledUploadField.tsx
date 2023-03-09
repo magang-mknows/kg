@@ -10,6 +10,7 @@ type ControlledUploadInputProps<T> = UploadFieldProps & {
 
 const ControlledUploadField = <T,>({ ...rest }: ControlledUploadInputProps<T>): ReactElement => {
   const [get, set] = useState("");
+
   return (
     <Controller
       control={rest.control}
@@ -21,9 +22,9 @@ const ControlledUploadField = <T,>({ ...rest }: ControlledUploadInputProps<T>): 
           fileName={get}
           onChange={(event) => {
             field.onChange(event.target.files);
-            // set(event.target.value.replace('"\\"'));
-            set(event.target?.files?.[0].name as string);
+            set(event.target?.files?.[0]?.name as string);
           }}
+          files={rest.files || field.value}
           error={error?.message}
         />
       )}

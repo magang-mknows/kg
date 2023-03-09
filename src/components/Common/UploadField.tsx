@@ -7,7 +7,7 @@ const UploadField: FC<UploadFieldProps> = forwardRef(
     return (
       <section className="flex flex-col mb-6">
         {props.hasLabel && (
-          <label htmlFor={props.name} className={"font-medium text-neutral-800 text-1xl"}>
+          <label htmlFor={props.name} className={"font-medium text-neutral-800 text-sm"}>
             {props.label} {props.required && <span className="text-red-700 font-bold">*</span>}
           </label>
         )}
@@ -22,8 +22,15 @@ const UploadField: FC<UploadFieldProps> = forwardRef(
               <h1 className="bg-primary-500 w-fit text-white py-2 cursor-pointer hover:bg-primary-600 transition-colors ease-in-out duration-300 px-4 rounded-l-lg">
                 Pilih File
               </h1>
-              <p className="px-4">
-                {props.fileName ? props.fileName : "Tidak Ada File yang dipilih"}
+              <p className={`${props.error ? "text-red-500 italic" : ""} px-4 text-xs`}>
+                {props.fileName ? (
+                  <span>
+                    {props.fileName}
+                    {props.error && " (erorr uploading file)"}
+                  </span>
+                ) : (
+                  "Tidak ada file yang dipilih"
+                )}
               </p>
             </div>
             <div className="min-w-[120px] lg:min-w-[150px]">

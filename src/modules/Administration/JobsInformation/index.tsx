@@ -46,7 +46,7 @@ const JobsInformation: FC = (): ReactElement => {
   return (
     <Accordion
       title="Informasi Pekerjaan"
-      idAccordion={getJobStatus ? "" : "job-information"}
+      idAccordion={"job-information"}
       disabled={getJobStatus ? true : false}
     >
       <Form onSubmit={onSubmit}>
@@ -160,7 +160,7 @@ const JobsInformation: FC = (): ReactElement => {
             <div className="flex w-full my-8 justify-end">
               <Button
                 disabled={!isValid}
-                className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
+                className="my-4 w-[252px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
                 text={"Simpan Informasi Pekerjaan"}
                 type={"submit"}
               />
