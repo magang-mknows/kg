@@ -4,7 +4,6 @@ import AssigmentAssigned from "@/assets/assigned-assigment.svg";
 import AssigmentDone from "@/assets/assigned-done.svg";
 import AssignedAssesment from "@/assets/assigned-assesment.svg";
 import AssignedLate from "@/assets/assigned-late.svg";
-import { MdOutlineNotificationsActive } from "react-icons/md";
 
 const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");
