@@ -16,8 +16,8 @@ export const useLogin = (): UseMutationResult<unknown, unknown, AuthPayloadTypes
     onError: (err) => {
       const MySwal = withReactContent(Swal);
       MySwal.fire({
-        title: "Telah terjadi error",
-        text: err as string,
+        title: "Telah terjadi error euy",
+        text: ("error nya adalah " + err) as string,
         icon: "error",
       });
     },
