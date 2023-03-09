@@ -52,73 +52,65 @@ const JobsInformation: FC = (): ReactElement => {
       <Form onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px] ">
           <div className="w-full">
-            <div className="">
-              Nama Ayah
-              <ControlledTextField
-                name={"fathername"}
-                control={control}
-                label={"fathername"}
-                type={"name"}
-                required={true}
-                placeholder={"Masukan nama ayah"}
-              />
-            </div>
-            <div className="">
-              Nama Ibu
-              <ControlledTextField
-                name={"mothername"}
-                control={control}
-                label={"mothername"}
-                type={"name"}
-                required={true}
-                placeholder={"Masukan nama ibu"}
-              />
-            </div>
+            <ControlledTextField
+              name={"fathername"}
+              hasLabel
+              control={control}
+              label={"Nama Ayah"}
+              type={"name"}
+              required
+              placeholder={"Masukan nama ayah"}
+            />
+
+            <ControlledTextField
+              name={"mothername"}
+              control={control}
+              hasLabel
+              label={"Nama Ibu"}
+              type={"name"}
+              required
+              placeholder={"Masukan nama ibu"}
+            />
           </div>
           <div className="w-full">
-            <div className="">
-              Pekerjaan Ayah
-              <ControlledTextField
-                name={"fatherjob"}
-                control={control}
-                label={"fatherjob"}
-                type={"text"}
-                required={true}
-                placeholder={"Pilih pekerjaan ayah"}
-              />
-            </div>
-            <div className="">
-              Pekerjaan Ibu
-              <ControlledTextField
-                name={"motherjob"}
-                control={control}
-                label={"motherjob"}
-                type={"text"}
-                required={true}
-                placeholder={"Pilih pekerjaan ibu"}
-              />
-            </div>
+            <ControlledTextField
+              name={"fatherjob"}
+              control={control}
+              label={"Pekerjaan Ayah"}
+              hasLabel
+              type={"text"}
+              required
+              placeholder={"Pilih pekerjaan ayah"}
+            />
+
+            <ControlledTextField
+              name={"motherjob"}
+              control={control}
+              hasLabel
+              label={"Pekerjaan Ibu"}
+              type={"text"}
+              required
+              placeholder={"Pilih pekerjaan ibu"}
+            />
           </div>
           <div className="w-full">
+            <ControlledTextField
+              name={"fatherincome"}
+              control={control}
+              label={"Penghasilan Ayah"}
+              hasLabel
+              type={"number"}
+              required
+              placeholder={"Masukan penghasilan ayah"}
+            />
             <div className="">
-              Penghasilan Ayah
-              <ControlledTextField
-                name={"fatherincome"}
-                control={control}
-                label={"fatherincome"}
-                type={"number"}
-                required={true}
-                placeholder={"Masukan penghasilan ayah"}
-              />
-            </div>
-            <div className="">
-              Penghasilan Ibu
               <ControlledTextField
                 name={"motherincome"}
                 control={control}
-                label={"motherincome"}
+                hasLabel
+                label={"Penghasilan Ibu"}
                 type={"number"}
-                required={true}
+                required
                 placeholder={"Masukan penghailan ibu"}
               />
             </div>
@@ -127,52 +119,44 @@ const JobsInformation: FC = (): ReactElement => {
         <hr className="my-5 text-[#D9D9D9]" />
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
-            <div className="">
-              Pekerjaan Sendiri
-              <ControlledTextField
-                name={"ownjob"}
-                control={control}
-                label={"ownjob"}
-                type={"text"}
-                required={true}
-                placeholder={"Masukan pekerjaan sendiri"}
-              />
-            </div>
-            <div className="">
-              Tinggal Dengan
-              <ControlledTextField
-                name={"live"}
-                control={control}
-                label={"live"}
-                type={"text"}
-                required={true}
-                placeholder={"Masukan tinggal dengan"}
-              />
-            </div>
+            <ControlledTextField
+              name={"ownjob"}
+              control={control}
+              hasLabel
+              label={"Pekerjaan Sendiri"}
+              type={"text"}
+              required
+              placeholder={"Masukan pekerjaan sendiri"}
+            />
+            <ControlledTextField
+              name={"live"}
+              hasLabel
+              control={control}
+              label={"Tinggal Dengan"}
+              type={"text"}
+              required
+              placeholder={"Masukan tinggal dengan"}
+            />
           </div>
           <div className="w-full">
-            <div className="">
-              Penghasilan Sendiri
-              <ControlledTextField
-                name={"ownincome"}
-                control={control}
-                label={"ownincome"}
-                type={"number"}
-                required={true}
-                placeholder={"Masukan penghasilan sendiri"}
-              />
-            </div>
-            <div className="">
-              Biaya Kuliah Ditanggung Oleh
-              <ControlledTextField
-                name={"collegefeespaidby"}
-                control={control}
-                label={"collegefeespaidby"}
-                type={"text"}
-                required={true}
-                placeholder={"Masukan biaya kuliah ditanggung oleh"}
-              />
-            </div>
+            <ControlledTextField
+              name={"ownincome"}
+              control={control}
+              hasLabel
+              label={"Penghasilan Sendiri"}
+              type={"number"}
+              required
+              placeholder={"Masukan penghasilan sendiri"}
+            />
+            <ControlledTextField
+              name={"collegefeespaidby"}
+              control={control}
+              hasLabel
+              label={"Biaya Kuliah Ditanggung Oleh"}
+              type={"text"}
+              required
+              placeholder={"Masukan biaya kuliah ditanggung oleh"}
+            />
             <div className="flex w-full my-8 justify-end">
               <Button
                 disabled={!isValid}
