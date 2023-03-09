@@ -25,7 +25,7 @@ const Score: FC = (): ReactElement => {
           <Tab.Group>
             <Tab.List
               as={"div"}
-              className=" mb-10 border-b-2 flex gap-6 px-2 text-lg text-neutral-400 font-medium"
+              className="flex gap-6 px-2 mb-10 text-lg font-medium border-b-2 text-neutral-400"
             >
               <Tab
                 as={"div"}
