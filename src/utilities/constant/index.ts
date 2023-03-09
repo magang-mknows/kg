@@ -44,6 +44,8 @@ export const publicRoutes = [
   "/administration",
   "/studyplan",
   "/score",
+  "/edit-profile",
+  "/reset-password",
 ];
 
 export const assigmentBreadCumbs = [

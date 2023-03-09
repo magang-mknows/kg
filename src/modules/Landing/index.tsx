@@ -1,9 +1,5 @@
 import { FC, ReactElement, lazy, Suspense } from "react";
 import BaseLayouts from "@/layouts/Base";
-import Modal from "@/components/Common/Modal";
-import { useRecoilState } from "recoil";
-import { AuthModalOpen } from "@/stores/Common";
-import LoginForm from "../Auth/Login/Form";
 import { ErrorBoundary } from "react-error-boundary";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
@@ -15,16 +11,13 @@ const InformationBanner = lazy(() => import("@/modules/Landing/InformationBanner
 const PromotionBanner = lazy(() => import("@/modules/Landing/PromotionBanner"));
 const InformationSection = lazy(() => import("@/modules/Landing/InformationSection"));
 const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgram"));
-const EditProfileSection = lazy(() => import("@/modules/Profile/EditProfileSection"));
 
 const Landing: FC = (): ReactElement => {
-  const [getModal, setModal] = useRecoilState(AuthModalOpen);
   return (
     <BaseLayouts>
       <ErrorBoundary fallback={<>Error was happen</>}>
         <Suspense fallback={"Skeleton loading...."}>
-          <EditProfileSection />
-          {/* <HeroSection />
+          <HeroSection />
           <PatnerSection />
           <SekilasSection />
           <AboutSection />
@@ -33,11 +26,6 @@ const Landing: FC = (): ReactElement => {
           <TestimonySection />
           <InformationSection />
           <PromotionBanner />
-          <Suspense fallback={"Loading..."}>
-            <Modal title={"Test Modal"} lookup={getModal}>
-              <LoginForm />
-            </Modal>
-          </Suspense>
         </Suspense>
       </ErrorBoundary>
     </BaseLayouts>
