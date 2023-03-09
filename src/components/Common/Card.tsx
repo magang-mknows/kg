@@ -17,22 +17,41 @@ const Card: FC<CardProps> = ({
   imgStyle,
 }): ReactElement => {
   return (
-    <Link href={`${href}`}>
-      <div className={`${className} flex auto p-4 flex-col`}>
-        {hasImage && (
-          <Image
-            className={`w-full object-cover ${imgStyle}`}
-            src={src}
-            alt="Picture of the author"
-            width={imgwidth}
-            height={imgheight}
-          />
-        )}
-        {icon}
-        <h1 className={titleStyle}>{title}</h1>
-        <section className="flex">{children}</section>
-      </div>
-    </Link>
+    <>
+      {href ? (
+        <Link href={`${href}`}>
+          <div className={`${className} flex auto p-4 flex-col`}>
+            {hasImage && (
+              <Image
+                className={`w-full object-cover ${imgStyle}`}
+                src={src}
+                alt="Picture of the author"
+                width={imgwidth}
+                height={imgheight}
+              />
+            )}
+            {icon}
+            <h1 className={titleStyle}>{title}</h1>
+            <section className="flex">{children}</section>
+          </div>
+        </Link>
+      ) : (
+        <div className={`${className} flex auto p-4 flex-col`}>
+          {hasImage && (
+            <Image
+              className={`w-full object-cover ${imgStyle}`}
+              src={src}
+              alt="Picture of the author"
+              width={imgwidth}
+              height={imgheight}
+            />
+          )}
+          {icon}
+          <h1 className={titleStyle}>{title}</h1>
+          <section className="flex">{children}</section>
+        </div>
+      )}
+    </>
   );
 };
 

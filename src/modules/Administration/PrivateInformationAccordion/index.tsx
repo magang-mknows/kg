@@ -58,11 +58,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
             <div className="form-label">
-              <label>Nama Lengkap</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"fullname"}
-                label={"fullname"}
+                label={"Nama Lengkap"}
                 name={"fullname"}
                 placeholder={"Masukkan nama lengkap"}
                 required={true}
@@ -83,23 +83,23 @@ const PrivateInformationSection: FC = (): ReactElement => {
               </SelectField>
             </div> */}
             <div className="form-label">
-              <label>Tempat Lahir</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"placeOfBirth"}
-                label={"placeOfBirth"}
+                label={"Tempat Lahir"}
                 name={"placeOfBirth"}
                 placeholder={"Masukkan tempat lahir"}
-                required={true}
+                required
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
             <div className="form-label">
-              <label>Alamat Lengkap</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"address"}
-                label={"address"}
+                label={"Alamat Lengkap"}
                 name={"address"}
                 placeholder={"Masukkan alamat lengkap"}
                 required={true}
@@ -107,11 +107,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label>NIM atau NPM (optional)</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"nim"}
-                label={"nim"}
+                label={"NIM atau NPM (optional)"}
                 name={"nim"}
                 placeholder={"masukkan NIM atau NPM (optional)"}
                 required={false}
@@ -119,11 +119,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label> Program Studi (optional)</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"prodi"}
-                label={"prodi"}
+                label={"Program Studi (optional)"}
                 name={"prodi"}
                 placeholder={"Masukkan Program Studi (optional)"}
                 required={false}
@@ -133,11 +133,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
           </div>
           <div className="w-full">
             <div className="form-label">
-              <label>Alamat Email</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"email"}
-                label={"email"}
+                label={"Alamat Email"}
                 name={"email"}
                 placeholder={"Masukkan alamat email"}
                 required={true}
@@ -145,11 +145,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label>Nomor Handphone</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"number"}
-                label={"phoneNumber"}
+                label={"Nomor Handphone"}
                 name={"phoneNumber"}
                 placeholder={"Masukkan nomor handphone"}
                 required={true}
@@ -157,11 +157,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label>Tanggal Lahir</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"date"}
-                label={"dateOfBirth"}
+                label={"Tanggal Lahir"}
                 name={"dateOfBirth"}
                 placeholder={"Masukkan tanggal lahir"}
                 required={true}
@@ -169,11 +169,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label>Pendidikan Terakhir</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"lastEducation"}
-                label={"lastEducation"}
+                label={"Pendidikan Terakhir"}
                 name={"lastEducation"}
                 placeholder={"Masukkan pendidikan terakhir"}
                 required={true}
@@ -181,11 +181,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label>Universitas Asal (optional)</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"name"}
-                label={"university"}
+                label={"Universitas Asal (optional)"}
                 name={"university"}
                 placeholder={"Masukkan universitas asal"}
                 required={false}
@@ -193,11 +193,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <label>Semester (optional)</label>
               <ControlledTextField
+                hasLabel
                 control={control}
                 type={"semester"}
-                label={"semester"}
+                label={"Semester (optional)"}
                 name={"semester"}
                 placeholder={"Masukkan pendidikan terakhir"}
                 required={false}
