@@ -17,11 +17,11 @@ const Score: FC = (): ReactElement => {
   return (
     <>
       <Navbar />
-      <section className="py-1">
+      <section className="py-1 bg-[#FAFAFA]">
         <Suspense fallback={<Loading />}>
           <BreadCrumbs items={scoreBreadCumbs} />
         </Suspense>
-        <main className="lg:px-20 px-10 min-h-[80vh] py-4">
+        <main className="lg:px-20 px-10 min-h-[80vh] py-4 ">
           <Tab.Group>
             <Tab.List
               as={"div"}
