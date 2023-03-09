@@ -155,12 +155,14 @@ export interface UploadFieldProps {
   hasLabel?: boolean;
   ref?: Ref<HTMLInputElement>;
   files?: File | FileList;
-  value?: string;
+  fileName?: string;
+  accepted?: string;
 }
 
 export type PopupModalProps = {
   popupTitle: string;
   description: string;
+  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
   icon?: StaticImageData;
   image?: StaticImageData;
   lookup?: boolean;

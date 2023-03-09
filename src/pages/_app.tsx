@@ -11,12 +11,18 @@ const queryClient = new QueryClient();
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 ApiService.init(configs.apiURL);
 
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: "500",
+});
+
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   return (
     <QueryClientProvider client={queryClient}>
       <style jsx global>{`
         html {
-          font-family: ${""};
+          font-family: ${montserrat.style.fontFamily};
         }
       `}</style>
       <RecoilRoot>
