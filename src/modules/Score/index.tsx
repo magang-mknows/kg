@@ -1,4 +1,3 @@
-import Footbar from "@/components/Footbar";
 import Navbar from "@/components/Navbar";
 import { ShowDetailStatus } from "@/stores/Score";
 import { scoreBreadCumbs } from "@/utilities/constant";
@@ -8,6 +7,7 @@ import { useSetRecoilState } from "recoil";
 import ScoreSection from "./ScoreSection";
 import CertificateSection from "./CertificateSection";
 import Loading from "@/components/Loading";
+import Footer from "@/components/Common/Footer";
 
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
@@ -68,7 +68,7 @@ const Score: FC = (): ReactElement => {
           </Tab.Group>
         </main>
       </section>
-      <Footbar />
+      <Footer />
     </>
   );
 };

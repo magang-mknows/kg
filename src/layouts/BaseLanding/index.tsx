@@ -1,9 +1,13 @@
 import { FC, Fragment, ReactElement, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import { BaseLayoutTypes } from "./types";
-import Footer from "@/components/Common/Footer";
+import Footbar from "@/components/Footbar";
 
-const BaseLayouts: FC<BaseLayoutTypes> = ({ children, widthHScreen, className }): ReactElement => {
+const BaseLayoutsLanding: FC<BaseLayoutTypes> = ({
+  children,
+  widthHScreen,
+  className,
+}): ReactElement => {
   return (
     <Fragment>
       <Suspense fallback="loading...">
@@ -16,9 +20,9 @@ const BaseLayouts: FC<BaseLayoutTypes> = ({ children, widthHScreen, className })
       >
         {children}
       </main>
-      <Footer />
+      <Footbar />
     </Fragment>
   );
 };
 
-export default BaseLayouts;
+export default BaseLayoutsLanding;
