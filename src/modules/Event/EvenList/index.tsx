@@ -81,9 +81,15 @@ const SideBar: FC = (): ReactElement => {
 const EventList: FC = (): ReactElement => {
   return (
     <Fragment>
-      <SideBar />
-      <SearchBar />
-      <CardList />
+      <div className="flex flex-row">
+        <div>
+          <SideBar />
+        </div>
+        <div>
+          <SearchBar />
+          <CardList />
+        </div>
+      </div>
     </Fragment>
   );
 };

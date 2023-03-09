@@ -48,7 +48,6 @@ export const publicRoutes = [
   "/studyprogram",
   "/score",
   "/drill-simulation",
-  "/event",
 ];
 
 export const assigmentBreadCumbs = [
