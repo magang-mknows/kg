@@ -47,7 +47,7 @@ export const publicRoutes = [
   "/studyplan/*",
   "/studyprogram",
   "/score",
-  "/drill-simulation"
+  "/drill-simulation",
 ];
 
 export const assigmentBreadCumbs = [

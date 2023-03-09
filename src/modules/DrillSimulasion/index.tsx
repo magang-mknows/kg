@@ -4,6 +4,7 @@ import { drillSimulation } from "@/utilities/constant";
 import MainLayouts from "@/layouts/Main";
 import { Tab } from "@headlessui/react";
 import SimulationSubmission from "./SimulationSubmission";
+import SimulationHistory from "./SimulationHistory";
 
 const Title = lazy(() => import("@/modules/DrillSimulasion/Title"));
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
@@ -13,7 +14,7 @@ const DrillSimulasion: FC = (): ReactElement => {
     <BaseLayouts>
       <Suspense fallback={"Skeleton loading...."}>
         <BreadCrumbs items={drillSimulation} />
-        <MainLayouts>
+        <MainLayouts className="bg-[#FAFAFA]">
           <Title />
           <Tab.Group>
             <Tab.List
@@ -50,7 +51,9 @@ const DrillSimulasion: FC = (): ReactElement => {
                 <SimulationSubmission />
               </Tab.Panel>
               {/* riwayat simulasi */}
-              <Tab.Panel>Riwayat Simulasi</Tab.Panel>
+              <Tab.Panel>
+                <SimulationHistory />
+              </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
         </MainLayouts>

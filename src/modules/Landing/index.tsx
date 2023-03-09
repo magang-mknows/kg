@@ -6,6 +6,7 @@ import { AuthModalOpen } from "@/stores/Common";
 import LoginForm from "../Auth/Login/Form";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
+import EventList from "../Event/EvenList";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
 const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
@@ -32,6 +33,7 @@ const Landing: FC = (): ReactElement => {
           <TestimonySection />
           <InformationSection />
           <PromotionBanner />
+          <EventList />
         </Suspense>
       </ErrorBoundary>
 
