@@ -8,8 +8,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
-import SelectField from "@/components/Common/SelectField";
-import OptionField from "@/components/Common/OptionField";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
