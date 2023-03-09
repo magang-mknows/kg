@@ -5,7 +5,7 @@ import { FC, Fragment, ReactElement } from "react";
 const CardList: FC = (): ReactElement => {
   return (
     <Card
-      className=""
+      className="bg-white rounded-lg w-[445px] h-[382px] "
       title="Webinar Cyber Security"
       titleStyle="text-[16px]"
       src={ImageEventList}
@@ -13,7 +13,7 @@ const CardList: FC = (): ReactElement => {
       imgwidth={10}
       imgheight={10}
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <h1 className="text-[18px] text-[#ED3768]">GRATIS</h1>
         <p className="text-[14px] text-[#A3A3A3]">Tuesday, 28 February 2023 19:00 WIB</p>
       </div>
@@ -23,7 +23,7 @@ const CardList: FC = (): ReactElement => {
 
 const SearchBar: FC = (): ReactElement => {
   return (
-    <div className=" flex justify-center w-full rounded-[8px] mb-4 text-[#A3A3A3] bg-gray-100">
+    <div className=" flex justify-center w-full rounded-[8px] mb-4 text-[#A3A3A3] bg-[#F5F5F5] ">
       <button
         className="flex items-center rounded-l px-6 py-2.5 leading-tight"
         type="button"
@@ -81,13 +81,19 @@ const SideBar: FC = (): ReactElement => {
 const EventList: FC = (): ReactElement => {
   return (
     <Fragment>
-      <div className="flex flex-row">
-        <div>
+      <div className="flex flex-row p-10 bg-[#FAFAFA] ">
+        <div className="basis-1/3">
           <SideBar />
         </div>
-        <div>
+        <div className="w-full basis-2/3">
           <SearchBar />
-          <CardList />
+          {/* <div className="flex flex-wrap justify-between w-full grid-flow-row grid-cols-2 gap-16"> */}
+          <div className="grid w-full grid-flow-row gap-16 lg:grid-cols-2">
+            <CardList />
+            <CardList />
+            <CardList />
+            <CardList />
+          </div>
         </div>
       </div>
     </Fragment>
