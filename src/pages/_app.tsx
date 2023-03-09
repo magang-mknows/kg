@@ -19,6 +19,7 @@ const queryClient = new QueryClient({
     },
   },
 });
+
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 ApiService.init(configs.apiURL);
 
@@ -58,5 +59,6 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
         </QueryClientProvider>
       </ErrorBoundary>
     </Suspense>
+
   );
 }
