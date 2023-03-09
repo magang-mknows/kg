@@ -15,12 +15,13 @@ const Card: FC<CardProps> = ({
   titleStyle,
   hasImage,
   imgStyle,
+  onClick,
 }): ReactElement => {
   return (
     <>
       {href ? (
         <Link href={`${href}`}>
-          <div className={`${className} flex auto p-4 flex-col`}>
+          <div className={`${className} flex auto p-4 flex-col`} onClick={() => onClick}>
             {hasImage && (
               <Image
                 className={`w-full object-cover ${imgStyle}`}
@@ -36,7 +37,7 @@ const Card: FC<CardProps> = ({
           </div>
         </Link>
       ) : (
-        <div className={`${className} flex auto p-4 flex-col`}>
+        <div className={`${className} flex auto p-4 flex-col cursor-pointer`} onClick={onClick}>
           {hasImage && (
             <Image
               className={`w-full object-cover ${imgStyle}`}

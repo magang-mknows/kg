@@ -118,6 +118,7 @@ export interface CardProps {
   hasImage: boolean;
   href?: string;
   imgStyle?: string;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -160,10 +161,12 @@ export interface UploadFieldProps {
 }
 
 export type PopupModalProps = {
-  popupTitle: string;
-  description: string;
+  popupTitle?: string;
+  description?: string;
   onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
   icon?: StaticImageData;
   image?: StaticImageData;
   lookup?: boolean;
+  children?: ReactNode;
+  className?: string;
 };
