@@ -80,17 +80,17 @@ const ProgressSection: FC = (): ReactElement => {
               className="progressBox w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] border-[1px] border-solid"
             >
               <Image
-                className=" col-span-2 rounded-lg w-[100px] h-[100px] object-cover "
+                className=" lg:col-span-2 rounded-lg w-[100px] h-[100px] object-cover md:col-span-12 sm:col-span-12"
                 src={dummyImg}
                 alt="tes"
               />
-              <div className=" col-span-10 flex justify-between w-full">
+              <div className=" lg:col-span-10 lg:flex justify-between w-full md:col-span-12 sm:col-span-12">
                 <div>
                   <p className="mb-[12px]">{dummy.judul}</p>
                   <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">
                     Semester {dummy.semester} | {dummy.subjudul}
                   </p>
-                  <div className="bg-[#D9D9D9] w-[200px] rounded-lg h-[10px] inline-block relative bottom-2 mt-0 mr-[12px]">
+                  <div className="bg-[#D9D9D9] w-[200px] rounded-lg h-[10px] lg:inline-block lg:relative lg:bottom-2 mt-0 mr-[12px] mb-0">
                     <div
                       style={{ width: classDiv }}
                       className="bg-[#106FA4]  rounded-lg h-[10px] text-[0px]"
@@ -105,7 +105,7 @@ const ProgressSection: FC = (): ReactElement => {
                 </div>
                 {percent != "100" ? (
                   <GlobalButton
-                    className="my-auto text-center"
+                    className="lg:my-auto text-center md:mt-4"
                     text="Lanjut Belajar"
                     size="base"
                     hasImg={false}
