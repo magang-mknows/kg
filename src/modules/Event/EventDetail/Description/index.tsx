@@ -4,7 +4,7 @@ import RelatedEvent from "../Common/ReletedEvent";
 const Description: FC = (): ReactElement => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
-      <section className="col-span-2 ">
+      <section className="col-span-3 xl:col-span-2">
         <h1 className="text-neutral-900 text-lg mb-5">Deskripsi Acara</h1>
         <div className="text-sm text-neutral-600 ">
           <p className="mb-2">

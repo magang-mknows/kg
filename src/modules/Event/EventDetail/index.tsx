@@ -28,7 +28,10 @@ const EventDetail: FC = (): ReactElement => {
             <h1 className="text-lg text-neutral-600 mb-2">Benefit</h1>
             {dummyBenefits.map((item, index) => {
               return (
-                <div key={index} className="flex gap-x-1.5 items-center mb-1 text-sm">
+                <div
+                  key={index}
+                  className="flex gap-x-1.5 items-center mb-1 text-sm text-neutral-800"
+                >
                   <BsCheckCircleFill className="text-green-500" />
                   <p>{item}</p>
                 </div>

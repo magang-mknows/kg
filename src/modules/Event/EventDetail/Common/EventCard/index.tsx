@@ -6,13 +6,13 @@ import { EventCardProps } from "./types";
 const EventCard: FC<EventCardProps> = ({ isOrder }): ReactElement => {
   return (
     <div className="bg-white shadow-sm rounded-md w-full px-7 py-10 mb-6">
-      <header className="flex items-center gap-3 mb-10">
+      <header className="flex items-center gap-3 mb-10 text-neutral-800">
         {isOrder ? (
           <HiOutlineTicket className="text-[30px]" />
         ) : (
           <TbCalendarStats className="text-[30px]" />
         )}
-        <p className="text-lg font-thin">{isOrder ? "Pemesanan Tiket" : "Acara"}</p>
+        <p className="text-lg font-thin ">{isOrder ? "Pemesanan Tiket" : "Acara"}</p>
       </header>
       <main className="text-neutral-500 text-sm">
         {isOrder ? (

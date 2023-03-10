@@ -50,6 +50,7 @@ export const publicRoutes = [
   "/drill-simulation",
   "/edit-profile",
   "/reset-password",
+  "/event",
 ];
 
 export const assigmentBreadCumbs = [

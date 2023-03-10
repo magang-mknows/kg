@@ -7,7 +7,7 @@ const ContactCard: FC = (): ReactElement => {
       <header className="flex items-center gap-3 mb-10">
         <HiBuildingOffice2 className="text-[30px] text-yellow-500" />
 
-        <p className="text-lg font-thin">Abdul - Ketua Panitia</p>
+        <p className="text-lg font-thin text-neutral-800">Abdul - Ketua Panitia</p>
       </header>
       <main className="text-neutral-500 text-sm">
         <section className="mb-4">
