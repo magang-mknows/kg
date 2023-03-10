@@ -1,15 +1,10 @@
-import { FC, ReactElement, useState, useEffect, Suspense, startTransition } from "react";
+import { FC, ReactElement, useState, useEffect, startTransition } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { RiComputerLine } from "react-icons/ri";
 import { useTheme } from "next-themes";
 
-import { ErrorBoundary } from "react-error-boundary";
-import dynamic from "next/dynamic";
-
-const Icon = dynamic(() => import("./icon"), {
-  ssr: false,
-});
+import Icon from "./icon";
 
 const ThemeToggle: FC = (): ReactElement => {
   const option = [
@@ -53,11 +48,7 @@ const ThemeToggle: FC = (): ReactElement => {
     <Menu as="div" className="relative inline-block text z-50 ">
       <Menu.Button>
         <div className="bg-neutral-200 h-9 w-9 flex items-center justify-center  overflow-hidden rounded-md cursor-pointer group">
-          <ErrorBoundary fallback={<>gaje</>}>
-            <Suspense fallback="loading...">
-              <Icon />
-            </Suspense>
-          </ErrorBoundary>
+          <Icon />
         </div>
       </Menu.Button>
 

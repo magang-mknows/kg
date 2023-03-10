@@ -43,7 +43,7 @@ const RegisterForm: FC = (): ReactElement => {
     defaultValues: {
       email: "",
       password: "",
-      confirm_password: undefined,
+      confirm_password: "",
       fullname: "",
       terms: undefined,
     },

@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
+import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
@@ -29,6 +30,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
   type ValidationSchema = z.infer<typeof validationSchema>;
 
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
+  const { setAdministrationStatus } = useAdministrationStatus();
 
   const {
     control,
@@ -42,6 +44,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
   const onSubmit = handleSubmit(() => {
     try {
       setPrivateStatus(true);
+      setAdministrationStatus("onProgress");
     } catch (err) {
       setPrivateStatus(false);
       throw handleError(err);

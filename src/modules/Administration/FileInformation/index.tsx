@@ -7,8 +7,19 @@ import Form from "@/components/Form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useFileInformationStatus } from "@/hooks/Administration/useFileInformationStatus";
+import { handleError } from "@/utilities/helper";
+import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
+import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
+import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 
 const FileInformation: FC = (): ReactElement => {
+  const { setAdministrationStatus } = useAdministrationStatus();
+  const { setFileStatus, getFileStatus } = useFileInformationStatus();
+
+  const { getJobStatus } = useJobInformationStatus();
+  const { getPrivateStatus } = usePrivateInformationStatus();
+
   const MAX_FILE_SIZE = 3000000;
   const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
   const ACCEPTED_PDF_TYPES = ["application/pdf"];
@@ -119,13 +130,23 @@ const FileInformation: FC = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const onSubmit = handleSubmit(() => {
+    try {
+      setAdministrationStatus("finished");
+      setFileStatus(true);
+    } catch (err) {
+      setFileStatus(false);
+      throw handleError(err);
+    }
   });
 
   return (
     <>
-      <Accordion title="Informasi Berkas" idAccordion="fileInformation">
+      <Accordion
+        title="Informasi Berkas"
+        idAccordion={getFileStatus ? "" : "file-information"}
+        disabled={getPrivateStatus ? (getJobStatus ? (getFileStatus ? true : false) : true) : true}
+      >
         <Form onSubmit={onSubmit}>
           <ControlledUploadField
             hasLabel
@@ -177,12 +198,13 @@ const FileInformation: FC = (): ReactElement => {
             accepted=".pdf"
             label={"Surat Rekomendasi"}
           />
-          <div className="w-full pt-8 flex justify-end">
+
+          <div className="flex w-full my-8 justify-end">
             <Button
               disabled={!isValid}
+              className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
               text={"Simpan Informasi Berkas"}
-              type="submit"
-              className="h-auto w-fit px-4 py-3  bg-primary-500 text-white disabled:text-neutral-500 disabled:bg-neutral-300 rounded-md shadow-md"
+              type={"submit"}
             />
           </div>
         </Form>
