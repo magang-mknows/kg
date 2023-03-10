@@ -9,9 +9,16 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useFileInformationStatus } from "@/hooks/Administration/useFileInformationStatus";
 import { handleError } from "@/utilities/helper";
+import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
+import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
+import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 
 const FileInformation: FC = (): ReactElement => {
+  const { setAdministrationStatus } = useAdministrationStatus();
   const { setFileStatus, getFileStatus } = useFileInformationStatus();
+
+  const { getJobStatus } = useJobInformationStatus();
+  const { getPrivateStatus } = usePrivateInformationStatus();
 
   const MAX_FILE_SIZE = 3000000;
   const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
@@ -125,6 +132,7 @@ const FileInformation: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit(() => {
     try {
+      setAdministrationStatus("finished");
       setFileStatus(true);
     } catch (err) {
       setFileStatus(false);
@@ -137,7 +145,7 @@ const FileInformation: FC = (): ReactElement => {
       <Accordion
         title="Informasi Berkas"
         idAccordion={getFileStatus ? "" : "file-information"}
-        disabled={getFileStatus ? true : false}
+        disabled={getPrivateStatus ? (getJobStatus ? (getFileStatus ? true : false) : true) : true}
       >
         <Form onSubmit={onSubmit}>
           <ControlledUploadField

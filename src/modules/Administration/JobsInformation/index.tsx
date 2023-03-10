@@ -8,6 +8,7 @@ import ControlledTextField from "@/components/ControlledInputs/ControlledTextFie
 import Button from "@/components/Common/Button";
 import { handleError } from "@/utilities/helper";
 import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
+import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 
 const JobsInformation: FC = (): ReactElement => {
   const schema = z.object({
@@ -24,6 +25,7 @@ const JobsInformation: FC = (): ReactElement => {
   });
 
   const { setJobStatus, getJobStatus } = useJobInformationStatus();
+  const { getPrivateStatus } = usePrivateInformationStatus();
 
   const {
     control,
@@ -46,8 +48,8 @@ const JobsInformation: FC = (): ReactElement => {
   return (
     <Accordion
       title="Informasi Pekerjaan"
-      idAccordion={"job-information"}
-      disabled={getJobStatus ? true : false}
+      idAccordion={getJobStatus ? "" : "privat-information"}
+      disabled={getPrivateStatus ? (getJobStatus ? true : false) : true}
     >
       <Form onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px] ">

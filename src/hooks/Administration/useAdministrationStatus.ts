@@ -1,12 +1,12 @@
 import { useRecoilState } from "recoil";
 import { AdministrationStatusState } from "@/stores/Administration";
 
-type ReturnTypes = {
+type StatusReturnTypes = {
   setAdministrationStatus: (val: string) => void;
   getAdministrationStatus: string;
 };
 
-export const useAdministrationStatus = (): ReturnTypes => {
+export const useAdministrationStatus = (): StatusReturnTypes => {
   const [getStatus, setStatus] = useRecoilState(AdministrationStatusState);
   return {
     setAdministrationStatus: (val: string) => setStatus(val),
