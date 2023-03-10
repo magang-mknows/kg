@@ -3,7 +3,7 @@ import accordionIcon from "@/assets/accordion-icon.svg";
 import Image from "next/image";
 import { AccordionProps } from "./type.d";
 
-const JobsInformation: FC<AccordionProps> = ({
+const Accordion: FC<AccordionProps> = ({
   title,
   idAccordion,
   children,
@@ -36,4 +36,4 @@ const JobsInformation: FC<AccordionProps> = ({
   );
 };
 
-export default JobsInformation;
+export default Accordion;

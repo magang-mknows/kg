@@ -7,7 +7,6 @@ import MenuIcon from "./MenuIcon";
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
 import BottomSection from "./BottomSection";
 import Button from "../Common/Button";
-import ThemeToggle from "../ThemeToggle";
 import { Menu } from "@headlessui/react";
 import { HiChatAlt2 } from "react-icons/hi";
 import { MdEmojiPeople } from "react-icons/md";
@@ -17,18 +16,19 @@ import { BiCategoryAlt } from "react-icons/bi";
 
 import { useSetRecoilState } from "recoil";
 import { AuthModalOpen } from "@/stores/Common";
-import MobileMenu from "../Common/MobileMenu";
 import { navbarMenu } from "@/utilities/constant";
+
+import ThemeToggle from "@/components/ThemeToggle/index";
+import MobileMenu from "@/components/Common/MobileMenu";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
   const setModalAUth = useSetRecoilState(AuthModalOpen);
-
   return (
     <Fragment>
       <section className="flex items-center h-[72px] justify-between border-b-2 px-10 md:px-14 lg:px-20  border-neutral-100">
         <Link passHref href={"/"}>
-          <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} />
+          <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} className="w-auto" />
         </Link>
         {isScrollY === "onSticky" && <BottomSection />}
         <section className="flex items-center gap-2 md:gap-3 ">

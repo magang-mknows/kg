@@ -1,14 +1,12 @@
-import { FC, Fragment, ReactElement, Suspense } from "react";
+import { FC, Fragment, ReactElement } from "react";
 import Navbar from "@/components/Navbar";
-import Footbar from "@/components/Footbar";
 import { BaseLayoutTypes } from "./types";
+import Footer from "@/components/Common/Footer";
 
 const BaseLayouts: FC<BaseLayoutTypes> = ({ children, widthHScreen, className }): ReactElement => {
   return (
     <Fragment>
-      <Suspense fallback="loading...">
-        <Navbar />
-      </Suspense>
+      <Navbar />
       <main
         className={`flex flex-col ${className} ${
           widthHScreen && "min-h-screen"
@@ -16,7 +14,7 @@ const BaseLayouts: FC<BaseLayoutTypes> = ({ children, widthHScreen, className })
       >
         {children}
       </main>
-      <Footbar />
+      <Footer />
     </Fragment>
   );
 };

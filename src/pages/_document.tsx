@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 
 export default function Document(): ReactElement {
   return (
-    <Html lang="en">
+    <Html lang="en" className="">
       <Head />
       <body>
         <Main />

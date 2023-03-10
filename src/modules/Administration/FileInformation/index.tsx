@@ -1,63 +1,214 @@
 import React, { FC, ReactElement } from "react";
+import Accordion from "@/components/Administration/Accordion";
 
-import { Disclosure, Transition } from "@headlessui/react";
-
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-
-import { Montserrat } from "next/font/google";
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: "500",
-});
+import Button from "@/components/Common/Button";
+import ControlledUploadField from "@/components/ControlledInputs/ControlledUploadField";
+import Form from "@/components/Form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useFileInformationStatus } from "@/hooks/Administration/useFileInformationStatus";
+import { handleError } from "@/utilities/helper";
+import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
+import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
+import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 
 const FileInformation: FC = (): ReactElement => {
+  const { setAdministrationStatus } = useAdministrationStatus();
+  const { setFileStatus, getFileStatus } = useFileInformationStatus();
+
+  const { getJobStatus } = useJobInformationStatus();
+  const { getPrivateStatus } = usePrivateInformationStatus();
+
+  const MAX_FILE_SIZE = 3000000;
+  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
+  const ACCEPTED_PDF_TYPES = ["application/pdf"];
+
+  const validationSchema = z.object({
+    upload_ktp: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        "Harus ada file yang di upload.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
+        "hanya menerima .jpg, .jpeg, dan .webp.",
+      ),
+    upload_certificate: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        "Harus ada file yang di upload.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_PDF_TYPES.includes(files?.[0].type),
+        "hanya menerima .pdf",
+      ),
+    upload_famillyCard: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        "Harus ada file yang di upload.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
+        "hanya menerima .jpg, .jpeg, dan .webp.",
+      ),
+    upload_photo: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        "Harus ada file yang di upload.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
+        "hanya menerima .jpg, .jpeg, dan .webp.",
+      ),
+    upload_transcript: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        "Harus ada file yang di upload.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_PDF_TYPES.includes(files?.[0].type),
+        "hanya menerima .pdf",
+      ),
+    upload_recommendationLetter: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        "Harus ada file yang di upload.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_PDF_TYPES.includes(files?.[0].type),
+        "hanya menerima .pdf",
+      ),
+  });
+
+  type ValidationSchema = z.infer<typeof validationSchema>;
+
+  const {
+    control,
+    handleSubmit,
+    formState: { isValid },
+  } = useForm<ValidationSchema>({
+    mode: "all",
+    resolver: zodResolver(validationSchema),
+    defaultValues: {
+      upload_ktp: undefined,
+      upload_certificate: undefined,
+      upload_famillyCard: undefined,
+      upload_photo: undefined,
+      upload_transcript: undefined,
+      upload_recommendationLetter: undefined,
+    },
+  });
+
+  const onSubmit = handleSubmit(() => {
+    try {
+      setAdministrationStatus("finished");
+      setFileStatus(true);
+    } catch (err) {
+      setFileStatus(false);
+      throw handleError(err);
+    }
+  });
+
   return (
     <>
-      <Disclosure as={"div"} className={`${montserrat.className} w-full  text-neutral-900`}>
-        {({ open }) => (
-          <>
-            <Disclosure.Button className="py-3 px-4 text-base mb-4 bg-neutral-200 flex justify-between w-full items-center">
-              <p>Informasi Berkas</p>
-              <MdOutlineKeyboardArrowDown
-                className={`${open ? "rotate-180 transform" : ""} h-5 w-5 text-neutral-500`}
-              />
-            </Disclosure.Button>
-            <Transition
-              enter="transition ease duration-500 transform"
-              enterFrom="opacity-0 -translate-y-12"
-              enterTo="opacity-100 translate-y-0"
-              leave="transition ease duration-300 transform"
-              leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 -translate-y-12"
-            >
-              <Disclosure.Panel className="text-neutral-900 text-sm px-4">
-                <section>
-                  <h1 className="mb-4">
-                    Kartu Tanda Penduduk (KTP) <span>*</span>
-                  </h1>
-                  <div>
-                    <label
-                      htmlFor="input-ktp"
-                      className="flex  items-center rounded-md overflow-hidden"
-                    >
-                      <h1 className="bg-primary-500 border-2 border-primary-500 text-white w-fit  px-4 py-2 rounded-l-md">
-                        Pilih File
-                      </h1>
-                      <p className="px-8 border-2   w-auto border-neutral-200 text-neutral-400 py-2">
-                        Tidak ada file yang dipilih
-                      </p>
-                      <p className="px-4 bg-primary-100 text-neutral-600 py-3  text-xs">
-                        .jpg,.jpeg,.pdf
-                      </p>
-                      <input type="file" name="input-ktp" id="input-ktp" className="hidden" />
-                    </label>
-                  </div>
-                </section>
-              </Disclosure.Panel>
-            </Transition>
-          </>
-        )}
-      </Disclosure>
+      <Accordion
+        title="Informasi Berkas"
+        idAccordion={getFileStatus ? "" : "file-information"}
+        disabled={getPrivateStatus ? (getJobStatus ? (getFileStatus ? true : false) : true) : true}
+      >
+        <Form onSubmit={onSubmit}>
+          <ControlledUploadField
+            hasLabel
+            control={control}
+            required
+            name={"upload_ktp"}
+            accepted=".jpg, .jpeg, .pdf"
+            label={"Kartu Tanda Penduduk (KTP)"}
+          />
+
+          <ControlledUploadField
+            hasLabel
+            control={control}
+            required
+            name={"upload_certificate"}
+            accepted=".pdf"
+            label={"Ijazah terakhir"}
+          />
+          <ControlledUploadField
+            hasLabel
+            control={control}
+            required
+            name={"upload_famillyCard"}
+            accepted=".jpg, .jpeg, .pdf"
+            label={"Kartu Keluarga (KK)"}
+          />
+
+          <ControlledUploadField
+            hasLabel
+            control={control}
+            required
+            name={"upload_photo"}
+            accepted=".jpg, .jpeg, .pdf"
+            label={"Pas Foto"}
+          />
+          <ControlledUploadField
+            hasLabel
+            control={control}
+            required
+            name={"upload_transcript"}
+            accepted=".pdf"
+            label={"Transkrip Nilai Terbaru"}
+          />
+          <ControlledUploadField
+            hasLabel
+            control={control}
+            required
+            name={"upload_recommendationLetter"}
+            accepted=".pdf"
+            label={"Surat Rekomendasi"}
+          />
+
+          <div className="flex w-full my-8 justify-end">
+            <Button
+              disabled={!isValid}
+              className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
+              text={"Simpan Informasi Berkas"}
+              type={"submit"}
+            />
+          </div>
+        </Form>
+      </Accordion>
     </>
   );
 };

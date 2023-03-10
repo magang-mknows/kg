@@ -22,6 +22,7 @@ export const navbarMenu = [
 export const featureList = [
   { link: "/", name: "Administrasi" },
   { link: "/", name: "Rencana Study" },
+  { link: "/", name: "Program Study" },
   { link: "/", name: "Pelatihan-ku" },
   { link: "/", name: "Nilai & Sertifikat" },
   { link: "/", name: "Penugasan" },
@@ -43,7 +44,10 @@ export const publicRoutes = [
   "/dashboard",
   "/administration",
   "/studyplan",
+  "/contract",
+  "/studyprogram",
   "/score",
+  "/drill-simulation",
   "/edit-profile",
   "/reset-password",
 ];
@@ -81,6 +85,40 @@ export const studyPlanBreadCumbs = [
   },
 ];
 
+export const studyProgramBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Fakultas",
+    link: "/studyplan",
+  },
+  {
+    name: "Program Studi",
+    link: "/studyprogram",
+  },
+];
+
+export const contractStudyBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Fakultas",
+    link: "/studyplan",
+  },
+  {
+    name: "Program Studi",
+    link: "/studyprogram",
+  },
+  {
+    name: "Kontrak KRS",
+    link: "/contract",
+  },
+];
+
 export const scoreBreadCumbs = [
   {
     name: "Home",
@@ -99,5 +137,15 @@ export const dashboardBreadCumbs = [
   {
     name: "Dashboard",
     link: "/dashboard",
+  },
+];
+export const drillSimulation = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Simulasi, Drill & Assessment",
+    link: "/drill-simulation",
   },
 ];

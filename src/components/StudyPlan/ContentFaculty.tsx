@@ -10,24 +10,28 @@ import ImgChoiceFaculty4 from "@/assets/choicefaculty4.svg";
 const ContentFaculty: FC = (): ReactElement => {
   const data = [
     {
-      id: 1,
       src: ImgChoiceFaculty,
       deskripsi: "Teknologi Informasi",
+      jumlahstudi: 4,
+      slug: "/teknologi-infromasi",
     },
     {
-      id: 2,
       src: ImgChoiceFaculty2,
       deskripsi: "Pembiayaan dan Optimalisasi Bisnis",
+      jumlahstudi: 6,
+      slug: "/pembiayaan-optimasi-bisnis",
     },
     {
-      id: 3,
       src: ImgChoiceFaculty3,
       deskripsi: "Japanese Culture",
+      jumlahstudi: 4,
+      slug: "/japanese-culture",
     },
     {
-      id: 4,
       src: ImgChoiceFaculty4,
       deskripsi: "Design Digitals",
+      jumlahstudi: 4,
+      slug: "/design-digital",
     },
   ];
 
@@ -38,6 +42,7 @@ const ContentFaculty: FC = (): ReactElement => {
         {data.map((x, i) => (
           <Card
             key={i}
+            href={"/studyprogram/" + x.slug}
             className="rounded-lg px-3 "
             hasImage={true}
             src={x.src}
@@ -45,7 +50,7 @@ const ContentFaculty: FC = (): ReactElement => {
             icon={
               <div className="flex flex-row space-x-1 px-2">
                 <div className="lg:h-[22px] text-[#3EB449] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E3FBDA]">
-                  + Program Study
+                  {x.jumlahstudi} Program Study
                 </div>
               </div>
             }

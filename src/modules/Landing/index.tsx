@@ -1,6 +1,8 @@
 import { FC, ReactElement, lazy, Suspense } from "react";
 import BaseLayouts from "@/layouts/Base";
 import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
+import EventList from "../Event/EvenList";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
 const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
@@ -16,7 +18,7 @@ const Landing: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <ErrorBoundary fallback={<>Error was happen</>}>
-        <Suspense fallback={"Skeleton loading...."}>
+        <Suspense fallback={<Loading />}>
           <HeroSection />
           <PatnerSection />
           <SekilasSection />
@@ -26,6 +28,7 @@ const Landing: FC = (): ReactElement => {
           <TestimonySection />
           <InformationSection />
           <PromotionBanner />
+          <EventList />
         </Suspense>
       </ErrorBoundary>
     </BaseLayouts>
