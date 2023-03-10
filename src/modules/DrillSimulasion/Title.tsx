@@ -20,7 +20,7 @@ const Title: FC = (): ReactElement => {
           <input
             type={"text"}
             value={query}
-            className="bg-transparent w-full hover:ring-transparent"
+            className="bg-transparent w-full focus:outline-none"
             onChange={(event) => setQuery(event.target.value)}
           />
         </div>

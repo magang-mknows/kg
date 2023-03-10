@@ -18,7 +18,7 @@ const SimulationSubmission: FC = (): ReactElement => {
           <h1 className="text-black">Belum ada simulasi yang tersedia.</h1>
         </div>
       ) : (
-        <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-10">
+        <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-20">
           {getScheduleSimulation.map((items, i) => (
             <Card
               key={i}
