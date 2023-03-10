@@ -44,10 +44,12 @@ export const publicRoutes = [
   "/dashboard",
   "/administration",
   "/studyplan",
-  "/studyplan/*",
+  "/contract",
   "/studyprogram",
   "/score",
   "/drill-simulation",
+  "/edit-profile",
+  "/reset-password",
 ];
 
 export const assigmentBreadCumbs = [
@@ -95,6 +97,25 @@ export const studyProgramBreadCumbs = [
   {
     name: "Program Studi",
     link: "/studyprogram",
+  },
+];
+
+export const contractStudyBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Fakultas",
+    link: "/studyplan",
+  },
+  {
+    name: "Program Studi",
+    link: "/studyprogram",
+  },
+  {
+    name: "Kontrak KRS",
+    link: "/contract",
   },
 ];
 

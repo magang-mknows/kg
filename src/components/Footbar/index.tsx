@@ -16,7 +16,7 @@ const Footbar: FC = (): ReactElement => {
   return (
     <footer
       className="
-        bg-[#F5F5F5]
+        bg-neutral-200
         text-center 
         text-[#262626]
         pt-8
@@ -30,8 +30,9 @@ const Footbar: FC = (): ReactElement => {
           <div className="text-sm w-full lg:w-[360px]">
             <Image src={LoadConditionalLogo()} className="mb-4  h-19 w-100 sm:h-15" alt="logo" />
             <p className="lg:text-[14px] dark:text-gray-400">
-              Kampus Gratis merupakan sistem manajemen E-learning yang mencantumkan laporan
-              peningkatan atau progres pembelajaran mahasiswa layaknya seperti perguruan tinggi.
+              Kampus Gratis merupakan Kampus Gratis disingkat KG, merupakan sistem manajemen
+              e-learning, yang mencantumkan laporan peningkatan atau kemajuan pembelajaran
+              mahasiswa, layaknya perguruan tinggi.
             </p>
 
             <div className="flex justify-between lg:flex-row md:flex-row sm:flex-col xs:flex-col lg:mt-0 sm:mt-4">
@@ -124,7 +125,11 @@ const Footbar: FC = (): ReactElement => {
               Alamat
             </h6>
 
-            <div className="flex flex-row mb-2 mt-7 lg:text-[14px]">
+            <h6 className="text-black text-[14px] font-semibold md:justify-start dark:text-white">
+              PT MENARA PENGETAHUAN INDONESIA
+            </h6>
+
+            <div className="flex flex-row mb-2 mt-2 lg:text-[14px]">
               <div className=" dark:text-white">Utama </div>
               <div className="ml-2  dark:text-white">: </div>
               <div className="ml-2 dark:text-gray-400">
