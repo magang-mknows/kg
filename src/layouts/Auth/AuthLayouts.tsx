@@ -10,7 +10,7 @@ const AuthLayouts: FC<AuthLayoutTypes> = ({
 }): ReactElement => {
   return (
     <section className="w-full flex items-center h-screen dark:bg-gray-900">
-      <div className="hidden md:flex justify-center items-center w-full h-screen bg-primary-500 p-6">
+      <div className="hidden md:flex justify-center items-center w-full h-screen bg-neutral-200 p-6">
         <Image src={img} width={600} height={600} alt={"Auth"} />
       </div>
       <div className="bg-white flex-col gap-y-[57px] items-center justify-center flex h-screen w-full md:px-[110px] px-[64px]">
