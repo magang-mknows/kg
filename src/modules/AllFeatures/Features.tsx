@@ -41,7 +41,7 @@ const Features: FC = (): ReactElement => {
         <div className="grid grid-cols-12 gap-x-[40px] gap-y-[34px]">
           {DataFitur.map((fitur) => {
             return (
-              <div className={`lg:col-span-3 md:col-span-4 col-span-6 bg-[${fitur.warna}] py-[25px] rounded-lg`}>
+              <div key={fitur.id} className={`lg:col-span-3 md:col-span-4 col-span-6 bg-[${fitur.warna}] py-[25px] rounded-lg`}>
                 <Image className="mx-auto" src={icon1} alt="icon"/>
                 <p className="font-bold text-center">{fitur.namaFitur}</p>
               </div>
