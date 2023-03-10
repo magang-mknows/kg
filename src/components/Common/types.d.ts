@@ -49,13 +49,14 @@ export interface SelectFieldProps {
   labelClassName?: string;
   error?: string;
   onChange?: ChangeEventHandler<HTMLSelectElement>;
-  value: string;
+  value?: string;
   name: string;
   label: string | ReactNode;
   defaultValue: string;
   required?: boolean;
   disabled?: boolean;
   options: OptionFieldProps[];
+  hasLabel?: boolean;
 }
 
 export interface OptionFieldProps {

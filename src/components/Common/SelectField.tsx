@@ -13,18 +13,21 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
       value,
       onChange,
       disabled = false,
-      labelClassName,
       defaultValue,
       options,
       className,
+      hasLabel,
     }: SelectFieldProps,
     ref: Ref<HTMLSelectElement>,
   ): ReactElement => {
+    console.log();
     return (
       <Fragment>
-        <label htmlFor={name} className={labelClassName}>
-          {label}
-        </label>
+        {hasLabel && (
+          <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl"}>
+            {label} {required && <span className="text-red-700 font-bold">*</span>}
+          </label>
+        )}
         <select
           required={required}
           className={className}
@@ -50,7 +53,8 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
             <span className="text-red-600">{error}</span>
           </div>
         )}
-      </Fragment>
+     </Fragment>
+      
     );
   },
 );

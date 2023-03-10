@@ -49,6 +49,8 @@ export const publicRoutes = [
   "/score",
   "/preset",
   "/drill-simulation",
+  "/edit-profile",
+  "/reset-password",
 ];
 
 export const assigmentBreadCumbs = [
