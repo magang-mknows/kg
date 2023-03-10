@@ -5,13 +5,14 @@ import SelectField from "../Common/SelectField";
 import { SelectFieldProps } from "../Common/types";
 
 type ControlledSelectFieldProps<T> = SelectFieldProps & {
-  label: string;
   control: Control<any, T>;
+
   options?: { label: string; value: string | number | boolean }[];
   name: string;
   mode?: "multiple" | "tags";
   value?: string;
   required?: boolean;
+
 };
 
 const ControlledSelectField = <T,>({
