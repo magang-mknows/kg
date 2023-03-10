@@ -33,7 +33,8 @@ export type ModalProps = {
   button?: ReactNode;
   hasButton?: boolean;
   lookup: boolean;
-  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  withClose?: boolean;
+  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
 };
 
 export interface MobileMenuProps {
@@ -163,7 +164,7 @@ export interface UploadFieldProps {
 export type PopupModalProps = {
   popupTitle?: string;
   description?: string;
-  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
   icon?: StaticImageData;
   image?: StaticImageData;
   lookup?: boolean;
