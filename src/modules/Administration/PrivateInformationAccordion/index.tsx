@@ -9,7 +9,7 @@ import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
-import SelectField from "@/components/Common/SelectField";
+import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
@@ -23,7 +23,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
     prodi: z.string().optional(),
     semester: z.string().optional(),
     university: z.string().optional(),
-    gender: z.string().optional(),
+    gender: z.string().min(1, { message: "Jenis kelamin harus diisi" }),
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
     }),
@@ -42,7 +42,18 @@ const PrivateInformationSection: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      gender: "",
+      gender: "P",
+      email: "",
+      address: "",
+      nim: "",
+      fullname: "",
+      semester: "",
+      placeOfBirth: "",
+      phoneNumber: "",
+      lastEducation: "",
+      dateOfBirth: "",
+      university: "",
+      prodi: "",
     },
   });
 
@@ -58,11 +69,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
 
   const options = [
     {
-      value: "Perempuan",
+      value: "P",
       label: "Perempuan",
     },
     {
-      value: "Laki",
+      value: "L",
       label: "Laki - Laki",
     },
   ];
@@ -89,14 +100,14 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <SelectField
+              <ControlledSelectField
+                control={control}
                 hasLabel
                 label="Jenis Kelamin"
                 name="gender"
                 defaultValue="Laki"
                 required={true}
                 options={options}
-                value={options as unknown as string}
                 className=" rounded-lg p-4 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
                 labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               />
