@@ -9,6 +9,7 @@ import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
+import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
@@ -22,6 +23,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
     prodi: z.string().optional(),
     semester: z.string().optional(),
     university: z.string().optional(),
+    gender: z.string().min(1, { message: "Jenis kelamin harus diisi" }),
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
     }),
@@ -39,6 +41,20 @@ const PrivateInformationSection: FC = (): ReactElement => {
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: "all",
+    defaultValues: {
+      gender: "P",
+      email: "",
+      address: "",
+      nim: "",
+      fullname: "",
+      semester: "",
+      placeOfBirth: "",
+      phoneNumber: "",
+      lastEducation: "",
+      dateOfBirth: "",
+      university: "",
+      prodi: "",
+    },
   });
 
   const onSubmit = handleSubmit(() => {
@@ -50,6 +66,17 @@ const PrivateInformationSection: FC = (): ReactElement => {
       throw handleError(err);
     }
   });
+
+  const options = [
+    {
+      value: "P",
+      label: "Perempuan",
+    },
+    {
+      value: "L",
+      label: "Laki - Laki",
+    },
+  ];
 
   return (
     <Accordion
@@ -72,19 +99,19 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
-            {/* <div className="form-label">
-              <label>Jenis Kelamin</label>
-              <SelectField
-                label="gender"
+            <div className="form-label">
+              <ControlledSelectField
+                control={control}
+                hasLabel
+                label="Jenis Kelamin"
                 name="gender"
-                defaultValue=""
+                defaultValue="Laki"
                 required={true}
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-              >
-                <OptionField label="laki-laki" value="laki-laki" />
-                <OptionField label="perempuan" value="perempuan" />
-              </SelectField>
-            </div> */}
+                options={options}
+                className=" rounded-lg p-4 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+                labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
+              />
+            </div>
             <div className="form-label">
               <ControlledTextField
                 hasLabel
