@@ -5,28 +5,14 @@ import { TextFieldProps } from "../Common/types";
 import { ReactElement } from "react";
 
 type ControlledTextInputProps<T> = TextFieldProps & {
-  type?: string;
-  placeholder?: string;
-  label?: string;
   control: Control<any, T>;
-  name: string;
-  hasButton?: boolean;
-  labelButton?: string;
-  value?: string;
 };
 
 const ControlledTextField = <T,>({
-  label,
-  type = "text",
   control,
-  placeholder,
   name,
-  disabled,
   required,
   value,
-  success,
-  warning,
-  hasLabel,
   ...rest
 }: ControlledTextInputProps<T>): ReactElement => {
   return (
@@ -38,16 +24,8 @@ const ControlledTextField = <T,>({
         <TextField
           {...field}
           {...rest}
-          required={required}
-          hasLabel={hasLabel}
-          success={success}
-          warning={warning}
-          label={label}
-          type={type}
-          placeholder={placeholder}
           error={error?.message}
           value={value || (field.value as unknown as never)}
-          disabled={disabled}
         />
       )}
     />
