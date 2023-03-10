@@ -1,5 +1,4 @@
 import { FC, ReactElement } from "react";
-import Link from "next/link";
 import MainLayouts from "@/layouts/Main";
 import Card from "@/components/Common/Card";
 
