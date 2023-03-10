@@ -15,29 +15,34 @@ const ContentStudyProgram: FC = (): ReactElement => {
       deskripsi: "Software Engineering",
       jumlahmatkul: 14,
       sks: 131,
+      slug: "/software-engineering",
     },
     {
       src: ImgChoiceFaculty2,
       deskripsi: "Broadcasting & DKV",
       jumlahmatkul: 16,
       sks: 112,
+      slug: "/broadcasting-dkv",
     },
     {
       src: ImgChoiceFaculty3,
       deskripsi: "Business Inteligence",
       jumlahmatkul: 10,
       sks: 144,
+      slug: "/business-inteligence",
     },
     {
       src: ImgChoiceFaculty4,
       deskripsi: "Data Instructure",
       jumlahmatkul: 12,
       sks: 120,
+      slug: "/data-instucture",
     },
     {
       id: 5,
       src: ImgChoiceFaculty,
       deskripsi: "Artificial Intellegence",
+      slug: "/artificial-intellegence",
     },
   ];
   const [isClose, setClose] = useState(false);
@@ -123,6 +128,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 pb-40">
           {data.map((x, i) => (
             <Card
+              href={"/contract" + x.slug}
               key={i}
               className="rounded-lg px-3 "
               hasImage={true}

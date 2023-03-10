@@ -14,7 +14,7 @@ const HeroSection: FC = (): ReactElement => {
   return (
     <>
       <div className="z-0">
-        <div className="flex flex-col justify-between lg:items-center xl:items-start lg:items-start w-full lg:px-20 px-10 py-20 lg:flex-row md:items-center">
+        <div className="flex flex-col justify-between xl:items-start lg:items-start w-full lg:px-20 px-10 py-20 lg:flex-row md:items-center">
           <ContentLayouts className="w-full dark:text-white">
             <div className="flex flex-col gap-y-4 ">
               <div className="lg:flex-col font-bold space-y-2 text-3xl xl:text-5xl lg:text-5xl md:text-4xl w-full">
