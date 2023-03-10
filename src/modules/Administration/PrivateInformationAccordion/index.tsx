@@ -9,6 +9,7 @@ import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
+import SelectField from "@/components/Common/SelectField";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
@@ -22,6 +23,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
     prodi: z.string().optional(),
     semester: z.string().optional(),
     university: z.string().optional(),
+    gender: z.string().optional(),
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
     }),
@@ -39,6 +41,9 @@ const PrivateInformationSection: FC = (): ReactElement => {
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: "all",
+    defaultValues: {
+      gender: "",
+    },
   });
 
   const onSubmit = handleSubmit(() => {
@@ -50,6 +55,17 @@ const PrivateInformationSection: FC = (): ReactElement => {
       throw handleError(err);
     }
   });
+
+  const options = [
+    {
+      value: "Perempuan",
+      label: "Perempuan",
+    },
+    {
+      value: "Laki",
+      label: "Laki - Laki",
+    },
+  ];
 
   return (
     <Accordion
@@ -72,19 +88,19 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
-            {/* <div className="form-label">
-              <label>Jenis Kelamin</label>
+            <div className="form-label">
               <SelectField
-                label="gender"
+                hasLabel
+                label="Jenis Kelamin"
                 name="gender"
-                defaultValue=""
+                defaultValue="Laki"
                 required={true}
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-              >
-                <OptionField label="laki-laki" value="laki-laki" />
-                <OptionField label="perempuan" value="perempuan" />
-              </SelectField>
-            </div> */}
+                options={options}
+                value={options as unknown as string}
+                className=" rounded-lg p-4 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+                labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
+              />
+            </div>
             <div className="form-label">
               <ControlledTextField
                 hasLabel
