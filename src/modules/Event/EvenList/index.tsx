@@ -2,7 +2,7 @@ import Card from "@/components/Common/Card";
 import ImageEventList from "@/assets/event-list.svg";
 import { FC, Fragment, ReactElement } from "react";
 import Link from "next/link";
-import { CardListProps } from "@/pages/event/types";
+import { CardListProps } from "./types";
 
 const CardList: FC<CardListProps> = ({ title, slug, image, price, day, date }): ReactElement => {
   return (
