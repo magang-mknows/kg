@@ -1,5 +1,5 @@
 import GlobalButton from "@/components/Common/GlobalButton";
-import { FC, ReactElement, Suspense, Fragment, useEffect, useRef, useState } from "react";
+import { FC, ReactElement, Suspense, Fragment } from "react";
 import Image from "next/image";
 import SelectField from "@/components/Common/SelectField";
 import { Menu, Transition } from "@headlessui/react";
