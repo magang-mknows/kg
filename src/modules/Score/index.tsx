@@ -15,7 +15,7 @@ const Score: FC = (): ReactElement => {
   const setDetailStatus = useSetRecoilState(ShowDetailStatus);
 
   return (
-    <>
+    <Fragment>
       <Navbar />
       <section className="py-1 bg-[#FAFAFA]">
         <Suspense fallback={<Loading />}>
@@ -69,7 +69,7 @@ const Score: FC = (): ReactElement => {
         </main>
       </section>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 
