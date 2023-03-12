@@ -1,13 +1,15 @@
 import type { NextPage } from "next";
-import { ReactElement } from "react";
-import Penugasan from "@/modules/Assigment";
+import { lazy, ReactElement, Suspense } from "react";
+import Loading from "@/components/Loading";
 
-const index: NextPage = (): ReactElement => {
+const AssigmentModules = lazy(() => import("@/modules/Assigment"));
+
+const AssigmentPages: NextPage = (): ReactElement => {
   return (
-    <>
-      <Penugasan />
-    </>
+    <Suspense fallback={<Loading />}>
+      <AssigmentModules />
+    </Suspense>
   );
 };
 
-export default index;
+export default AssigmentPages;

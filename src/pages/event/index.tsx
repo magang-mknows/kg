@@ -1,4 +1,4 @@
-import EventList from "@/modules/Event/EvenList";
+import EventList from "@/modules/Event/EventList";
 import { FC, Fragment, ReactElement } from "react";
 
 const Index: FC = (): ReactElement => {

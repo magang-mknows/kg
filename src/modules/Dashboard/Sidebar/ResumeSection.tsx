@@ -7,7 +7,7 @@ import clockIcon from "@/assets/dashboard/clockIcon.svg";
 import thropyIcon from "@/assets/dashboard/trophyIcon.svg";
 import Image from "next/image";
 
-const Resume: FC = (): ReactElement => {
+const ResumeSection: FC = (): ReactElement => {
   const dummySidebarItems = [
     {
       src: labIcon,
@@ -64,4 +64,4 @@ const Resume: FC = (): ReactElement => {
   );
 };
 
-export default Resume;
+export default ResumeSection;

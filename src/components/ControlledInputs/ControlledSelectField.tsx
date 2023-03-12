@@ -12,16 +12,11 @@ type ControlledSelectFieldProps<T> = SelectFieldProps & {
   mode?: "multiple" | "tags";
   value?: string;
   required?: boolean;
-
 };
 
 const ControlledSelectField = <T,>({
-  label,
   control,
   name,
-  hasLabel,
-  options,
-  value,
   ...rest
 }: ControlledSelectFieldProps<T>): ReactElement => {
   return (
@@ -32,14 +27,8 @@ const ControlledSelectField = <T,>({
         <SelectField
           {...field}
           {...rest}
-          onChange={(event) => {
-            field.onChange(event.target.value);
-          }}
-          label={label}
-          hasLabel={hasLabel}
           error={error?.message}
-          value={value || (field.value as unknown as never)}
-          options={options}
+          value={(field.value as unknown as never) || undefined}
         />
       )}
     />
