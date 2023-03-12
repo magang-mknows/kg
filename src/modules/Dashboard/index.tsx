@@ -1,22 +1,21 @@
-import React, { FC, ReactElement } from "react";
-import MyCalendar from "./Content/MyCalendar";
-import ProgressSection from "./Content/ProgressSection";
-import Sidebar from "./Sidebar/Index";
+import React, { FC, Fragment, lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
-import DashboardLayout from "@/layouts/Dashboard/DashboardLayout";
+const DashboardLayout = lazy(() => import("@/layouts/Dashboard/DashboardLayout"));
+const SidebarSection = lazy(() => import("./Sidebar"));
+const ContentSection = lazy(() => import("./Content"));
 
-const Dashboard: FC = (): ReactElement => {
+const DashboardModules: FC = (): ReactElement => {
   return (
-    <>
-      <DashboardLayout>
-        <Sidebar />
-        <div>
-          <ProgressSection />
-          <MyCalendar />
-        </div>
-      </DashboardLayout>
-    </>
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback="Loading...">
+        <DashboardLayout>
+          <SidebarSection />
+          <ContentSection />
+        </DashboardLayout>
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 
-export default Dashboard;
+export default DashboardModules;

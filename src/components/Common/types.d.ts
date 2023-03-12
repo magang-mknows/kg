@@ -33,7 +33,8 @@ export type ModalProps = {
   button?: ReactNode;
   hasButton?: boolean;
   lookup: boolean;
-  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  withClose?: boolean;
+  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
 };
 
 export interface MobileMenuProps {
@@ -48,13 +49,14 @@ export interface SelectFieldProps {
   labelClassName?: string;
   error?: string;
   onChange?: ChangeEventHandler<HTMLSelectElement>;
-  value: string;
+  value?: string;
   name: string;
   label: string | ReactNode;
   defaultValue: string;
   required?: boolean;
   disabled?: boolean;
   options: OptionFieldProps[];
+  hasLabel?: boolean;
 }
 
 export interface OptionFieldProps {
@@ -164,7 +166,7 @@ export interface UploadFieldProps {
 export type PopupModalProps = {
   popupTitle?: string;
   description?: string;
-  onClose: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
   icon?: StaticImageData;
   image?: StaticImageData;
   lookup?: boolean;

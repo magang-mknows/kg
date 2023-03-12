@@ -6,7 +6,8 @@ import Loading from "@/components/Loading";
 const BannerAssignment = lazy(() => import("@/modules/Assigment/BannerSection"));
 const ContentAssignment = lazy(() => import("@/modules/Assigment/ContentSection"));
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
-const Penugasan: FC = (): ReactElement => {
+
+const AssigmentModules: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <Suspense fallback={<Loading />}>
@@ -18,4 +19,4 @@ const Penugasan: FC = (): ReactElement => {
   );
 };
 
-export default Penugasan;
+export default AssigmentModules;

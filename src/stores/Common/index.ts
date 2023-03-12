@@ -1,10 +1,5 @@
 import { atom } from "recoil";
 
-export const AuthModalOpen = atom({
-  key: "modal-auth-open",
-  default: false,
-});
-
 export const PopupModalSuccessOpen = atom({
   key: "modal-popup-success",
   default: false,

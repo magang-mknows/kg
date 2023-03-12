@@ -5,7 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useQueryErrorResetBoundary } from "@tanstack/react-query";
 import Loading from "@/components/Loading";
 
-const Index: NextPage = (): ReactElement => {
+const AdministrationPages: NextPage = (): ReactElement => {
   const { reset } = useQueryErrorResetBoundary();
   return (
     <ErrorBoundary
@@ -24,4 +24,4 @@ const Index: NextPage = (): ReactElement => {
   );
 };
 
-export default Index;
+export default AdministrationPages;

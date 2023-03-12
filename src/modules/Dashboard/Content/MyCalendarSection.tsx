@@ -10,7 +10,7 @@ const montserrat = Montserrat({
   weight: "500",
 });
 
-const MyCalendar: FC = (): ReactElement => {
+const MyCalendarSection: FC = (): ReactElement => {
   const days: string[] = [
     "Sunday",
     "Monday",
@@ -49,7 +49,7 @@ const MyCalendar: FC = (): ReactElement => {
   const [selectDate, setSelectDate] = useRecoilState(selectedDate);
 
   return (
-    <div
+    <section
       className={`${montserrat.className} w-full text-neutral-900 bg-white h-fit px-7 py-12 rounded-md`}
     >
       <header className="flex justify-between  items-center">
@@ -103,8 +103,8 @@ const MyCalendar: FC = (): ReactElement => {
           <p className="text-neutral-500 ">Pertemuan 1</p>
         </div>
       </section>
-    </div>
+    </section>
   );
 };
 
-export default MyCalendar;
+export default MyCalendarSection;

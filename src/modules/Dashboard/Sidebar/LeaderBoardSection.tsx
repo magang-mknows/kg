@@ -1,19 +1,12 @@
-import React, { FC, ReactElement } from "react";
-
+import { FC, ReactElement } from "react";
 import bigTrophyIcon from "@/assets/dashboard/bigTrophyIcon.svg";
 import medal1Icon from "@/assets/dashboard/medal1Icon.svg";
 import medal2Icon from "@/assets/dashboard/medal2Icon.svg";
 import medal3Icon from "@/assets/dashboard/medal3Icon.svg";
 import Image from "next/image";
-import { Montserrat } from "next/font/google";
 import Button from "@/components/Common/Button";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: "500",
-});
-
-const PapanScore: FC = (): ReactElement => {
+const LeaderBoardSection: FC = (): ReactElement => {
   const dummyRankList = [
     {
       name: "Ahmad Baharudin",
@@ -38,9 +31,7 @@ const PapanScore: FC = (): ReactElement => {
   ];
 
   return (
-    <div
-      className={`w-auto bg-white md:max-w-[370px] mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100 ${montserrat.className}`}
-    >
+    <section className="w-auto bg-white md:max-w-[370px] mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100">
       <section className="flex justify-between items-start mb-4">
         <div>
           <h1 className="text-xl text-neutral-900 font-bold mb-2">Papan Skor</h1>
@@ -78,8 +69,8 @@ const PapanScore: FC = (): ReactElement => {
         type="button"
         className="border-2 border-yellow-500 w-full flex items-center justify-center text-sm text-yellow-500 py-2 rounded-md shadow-sm cursor-pointer bg-white hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-500 transition-all ease-in-out duration-300 hover:shadow-md"
       />
-    </div>
+    </section>
   );
 };
 
-export default PapanScore;
+export default LeaderBoardSection;

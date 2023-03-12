@@ -6,13 +6,17 @@ import { SelectFieldProps } from "../Common/types";
 
 type ControlledSelectFieldProps<T> = SelectFieldProps & {
   control: Control<any, T>;
+
+  options?: { label: string; value: string | number | boolean }[];
+  name: string;
+  mode?: "multiple" | "tags";
+  value?: string;
+  required?: boolean;
 };
 
 const ControlledSelectField = <T,>({
-  label,
   control,
   name,
-  options,
   ...rest
 }: ControlledSelectFieldProps<T>): ReactElement => {
   return (
@@ -23,10 +27,8 @@ const ControlledSelectField = <T,>({
         <SelectField
           {...field}
           {...rest}
-          label={label}
           error={error?.message}
           value={(field.value as unknown as never) || undefined}
-          options={options}
         />
       )}
     />

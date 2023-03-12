@@ -1,12 +1,10 @@
-import EventList from "@/modules/Event/EvenList";
-import EventDetail from "@/modules/Event/EventDetail";
+import EventList from "@/modules/Event/EventList";
 import { FC, Fragment, ReactElement } from "react";
 
 const Index: FC = (): ReactElement => {
   return (
     <Fragment>
       <EventList />
-      <EventDetail />
     </Fragment>
   );
 };

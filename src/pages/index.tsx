@@ -1,17 +1,18 @@
+import Loading from "@/components/Loading";
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 const Landing = lazy(() => import("@/modules/Landing"));
 
-const Index: NextPage = (): ReactElement => {
+const LandingPages: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={"Loadiing ges.."}>
+      <Suspense fallback={<Loading />}>
         <Landing />
       </Suspense>
     </ErrorBoundary>
   );
 };
 
-export default Index;
+export default LandingPages;
