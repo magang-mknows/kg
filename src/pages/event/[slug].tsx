@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
 import { useRouter } from "next/router";
-import EventList from "@/modules/Event/EvenList";
+import EventList from "@/modules/Event/EventList";
 
 const Detail: NextPage = (): ReactElement => {
   const { query } = useRouter();
