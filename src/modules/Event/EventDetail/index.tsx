@@ -1,9 +1,11 @@
 import ImageEventList from "@/assets/event-list.svg";
 import Button from "@/components/Common/Button";
+import PopupModal from "@/components/Common/PopupModal";
+import { usePopupEvent } from "@/hooks/Common/usePopupEvent";
 import { Tab } from "@headlessui/react";
 
 import Image from "next/image";
-import { FC, Fragment, ReactElement } from "react";
+import { FC, Fragment, MouseEvent, ReactElement } from "react";
 
 import { BsCheckCircleFill } from "react-icons/bs";
 import Contact from "./Contact";
@@ -17,6 +19,8 @@ const dummyBenefits = [
 ];
 
 const EventDetail: FC = (): ReactElement => {
+  const { getPopupStatus, setPopupStatus } = usePopupEvent();
+
   return (
     <div className="px-10 lg:px-20 py-10 bg-neutral-50">
       {/* card */}
@@ -41,6 +45,7 @@ const EventDetail: FC = (): ReactElement => {
           <h1 className="text-red-500 font-bold text-lg mb-7">GRATIS</h1>
           <p className="text-sm text-neutral-600 mb-7">Tuesday, 28 February 2023 19:00 WIB</p>
           <Button
+            onClick={() => setPopupStatus(true)}
             text={"Daftar Sekarang"}
             type="submit"
             className="bg-primary-500 px-28 py-3 hover:bg-primary-600 text-white text-lg rounded-lg shadow-md transition-colors ease-out duration-300"
@@ -105,6 +110,11 @@ const EventDetail: FC = (): ReactElement => {
           </Tab.Panels>
         </Tab.Group>
       </main>
+      <PopupModal
+        lookup={getPopupStatus}
+        onClose={() => setPopupStatus(false)}
+        className={"!py-2"}
+      />
     </div>
   );
 };
