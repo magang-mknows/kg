@@ -1,51 +1,58 @@
 import { FC, ReactElement } from "react";
 import MainLayouts from "@/layouts/Main";
+import Confirm from "@/assets/Confirm.svg";
+import Button from "../Common/Button";
+import PopupModal from "@/components/Common/PopupModal";
 import Image from "next/image";
 import GlobalButton from "../Common/GlobalButton";
 import Example1 from "@/assets/example1.svg";
 import Example2 from "@/assets/example2.svg";
-import Download from "@/assets/download.svg";
+import Download from "@/assets/download1.svg";
+import Warning from "@/assets/warning.svg";
+import { usePopupConfirmCardStudy } from "@/hooks/Common/usePopupConfirmCardStudy";
+
+const data = [
+  {
+    label: "Jurusan",
+    desc: "Teknik Informatika",
+  },
+  {
+    label: "Semester",
+    desc: 1,
+  },
+  {
+    label: "Total SKS",
+    desc: 144,
+  },
+  {
+    label: "Kepala Prodi",
+    desc: "Rama S.Kom M.Kom",
+  },
+];
+
+const tabel = [
+  {
+    no: 1,
+    matkul: "Bahasa Inggris",
+    img: Example1,
+    jmlh_mahasiswa: 15,
+    kode_matkul: 12,
+    jmlh_sks: 144,
+    jmlh_pertemuan: 12,
+  },
+  {
+    no: 2,
+    matkul: "Kalkulus",
+    img: Example2,
+    jmlh_mahasiswa: 21,
+    kode_matkul: 18,
+    jmlh_sks: 123,
+    jmlh_pertemuan: 16,
+  },
+];
 
 const CardContractStudy: FC = (): ReactElement => {
-  const data = [
-    {
-      label: "Jurusan",
-      desc: "Teknik Informatika",
-    },
-    {
-      label: "Semester",
-      desc: 1,
-    },
-    {
-      label: "Total SKS",
-      desc: 144,
-    },
-    {
-      label: "Kepala Prodi",
-      desc: "Rama S.Kom M.Kom",
-    },
-  ];
-
-  const tabel = [
-    {
-      no: 1,
-      matkul: "Bahasa Inggris",
-      img: Example1,
-      jmlh_mahasiswa: 15,
-      kode_matkul: 12,
-      jmlh_sks: 144,
-      jmlh_pertemuan: 12,
-    },
-    {
-      no: 2,
-      matkul: "Kalkulus",
-      img: Example2,
-      jmlh_mahasiswa: 21,
-      kode_matkul: 18,
-      jmlh_sks: 123,
-      jmlh_pertemuan: 16,
-    },
-  ];
+  const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
 
   return (
     <MainLayouts>
@@ -76,6 +83,7 @@ const CardContractStudy: FC = (): ReactElement => {
           <GlobalButton
             className="text-center !w-44 !h-14 text-lg py-4 bg-[#3EB449]"
             text="+ Mengajukan"
+            onClick={() => setPopupStatus(true)}
             hasImg={false}
           />
         </div>
@@ -114,6 +122,44 @@ const CardContractStudy: FC = (): ReactElement => {
             </tbody>
           ))}
         </table>
+      </div>
+      <div>
+        <PopupModal
+          icon={Confirm}
+          popupTitle="Konfirmasi"
+          lookup={getPopupStatus}
+          className="!h-80 !w-[100%] text-md py-10"
+        >
+          <h1 className="py-2">
+            Kamu akan mengajukan program study{" "}
+            <span className="font-bold">Software Engineering</span>
+          </h1>
+          <div
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <div className="flex gap-2">
+              <Image src={Warning} alt="warning" />
+              <span className="block sm:inline">
+                Kamu tidak dapat mengganti Program Studi yang telah dipilih
+              </span>
+            </div>
+          </div>
+          <div className="flex gap-3 my-2 py-4">
+            <Button
+              text="Batal"
+              className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+              onClick={() => setPopupStatus(false)}
+              type={"button"}
+            />
+            <Button
+              className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+              type={"button"}
+              text="Konfirmasi"
+              page="/preset"
+            />
+          </div>
+        </PopupModal>
       </div>
     </MainLayouts>
   );

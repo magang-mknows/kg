@@ -1,4 +1,4 @@
-import { FC, forwardRef, ReactElement, Ref } from "react";
+import { FC, forwardRef, Fragment, ReactElement, Ref } from "react";
 import { SelectFieldProps } from "./types";
 import OptionField from "./OptionField";
 import { RiErrorWarningFill } from "react-icons/ri";
@@ -16,14 +16,18 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
       defaultValue,
       options,
       className,
+      hasLabel,
     }: SelectFieldProps,
     ref: Ref<HTMLSelectElement>,
   ): ReactElement => {
+    console.log();
     return (
-      <section className="flex flex-col">
-        <label htmlFor={name} className={"block text-sm font-medium text-slate-700"}>
-          {label}
-        </label>
+      <Fragment>
+        {hasLabel && (
+          <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl"}>
+            {label} {required && <span className="text-red-700 font-bold">*</span>}
+          </label>
+        )}
         <select
           required={required}
           className={className}
@@ -49,7 +53,8 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
             <span className="text-red-600">{error}</span>
           </div>
         )}
-      </section>
+     </Fragment>
+      
     );
   },
 );

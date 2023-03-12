@@ -37,18 +37,18 @@ const ContentFaculty: FC = (): ReactElement => {
 
   return (
     <MainLayouts>
-      <h5 className="text-2xl font-semibold lg:p-2 p-0">Pilihan Fakultas</h5>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 pb-40">
+      <h5 className="p-0 text-2xl font-semibold lg:p-2">Pilihan Fakultas</h5>
+      <div className="grid grid-cols-1 gap-4 pb-40 lg:grid-cols-3">
         {data.map((x, i) => (
           <Card
             key={i}
             href={"/studyprogram/" + x.slug}
-            className="rounded-lg px-3 "
+            className="px-3 rounded-lg "
             hasImage={true}
             src={x.src}
             titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
             icon={
-              <div className="flex flex-row space-x-1 px-2">
+              <div className="flex flex-row px-2 space-x-1">
                 <div className="lg:h-[22px] text-[#3EB449] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E3FBDA]">
                   {x.jumlahstudi} Program Study
                 </div>
