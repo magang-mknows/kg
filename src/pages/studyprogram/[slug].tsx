@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
-import StudyProgram from "@/modules/StudyPlan/studyProgram";
 import { useRouter } from "next/router";
+import StudyProgram from "@/modules/StudyPlan/StudyProgram";
 
 const Detail: NextPage = (): ReactElement => {
   const { query } = useRouter();
