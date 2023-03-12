@@ -9,10 +9,8 @@ type ControlledSelectFieldProps<T> = SelectFieldProps & {
 };
 
 const ControlledSelectField = <T,>({
-  label,
   control,
   name,
-  options,
   ...rest
 }: ControlledSelectFieldProps<T>): ReactElement => {
   return (
@@ -23,10 +21,8 @@ const ControlledSelectField = <T,>({
         <SelectField
           {...field}
           {...rest}
-          label={label}
           error={error?.message}
           value={(field.value as unknown as never) || undefined}
-          options={options}
         />
       )}
     />
