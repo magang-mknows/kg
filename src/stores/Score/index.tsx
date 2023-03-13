@@ -4,3 +4,5 @@ export const ShowDetailStatus = atom({
   key: "ShowDetailStatus",
   default: false,
 });
+
+
