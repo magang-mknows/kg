@@ -21,7 +21,7 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
   ): ReactElement => {
     return (
       <section className="flex flex-col">
-        <label htmlFor={name} className={"block text-sm font-medium text-slate-700"}>
+        <label htmlFor={name} className={"block text-md font-medium text-[#10002E]"}>
           {label}
         </label>
         <select
