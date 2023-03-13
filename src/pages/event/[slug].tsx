@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
 import { useRouter } from "next/router";
-import EventList from "@/modules/Event/EventList";
+import EventDetail from "@/modules/Event/EventDetail";
 
 const Detail: NextPage = (): ReactElement => {
   const { query } = useRouter();
   console.log(query.slug);
-  return <EventList />;
+  return <EventDetail />;
 };
 
 export default Detail;

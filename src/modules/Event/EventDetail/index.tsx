@@ -4,13 +4,18 @@ import PopupModal from "@/components/Common/PopupModal";
 import { usePopupEvent } from "@/hooks/Common/usePopupEvent";
 import { Tab } from "@headlessui/react";
 
+import eventSuccess from "@/assets/eventSuccess.svg";
+import checklist from "@/assets/checklist.svg";
+
 import Image from "next/image";
-import { FC, Fragment, MouseEvent, ReactElement } from "react";
+import { FC, Fragment, ReactElement } from "react";
 
 import { BsCheckCircleFill } from "react-icons/bs";
+import { AiFillInfoCircle } from "react-icons/ai";
 import Contact from "./Contact";
 import Description from "./Description";
 import Information from "./Information";
+import Link from "next/link";
 
 const dummyBenefits = [
   "Sertifikat",
@@ -111,10 +116,51 @@ const EventDetail: FC = (): ReactElement => {
         </Tab.Group>
       </main>
       <PopupModal
+        icon={checklist}
         lookup={getPopupStatus}
-        onClose={() => setPopupStatus(false)}
-        className={"!py-2"}
-      />
+        image={eventSuccess}
+        popupTitle={"Kamu Berhasil Mendaftar"}
+        description={
+          "Kamu telah mendaftar webinar di hari Selasa, 28 Februari 2023 Pukul 19:00 WIB"
+        }
+        className={""}
+      >
+        <div className="flex gap-2 mt-4 text-base mb-5 bg-primary-100 px-7 py-2 rounded-md shadow-sm items-center">
+          <AiFillInfoCircle className="text-primary-500" />
+          <p className="text-primary-500/60">
+            Untuk informasi lebih lanjut silakan pergi ke page{" "}
+            <span className="font-bold text-primary-500">
+              <Link passHref href={"/event"}>
+                Event Terdaftar
+              </Link>
+            </span>
+          </p>
+        </div>
+        <div className="w-full flex items-center gap-10 justify-center">
+          <Button
+            onClick={() => {
+              setPopupStatus(false);
+            }}
+            type="button"
+            text={"Tutup"}
+            className={
+              "bg-white hover:bg-neutral-100 transition-colors ease-in-out duration-300 py-3 w-72 text-primary-500 font-bold border-2 border-primary-500 rounded-md"
+            }
+          />
+          <Link href={"/event"}>
+            <Button
+              type="button"
+              text={"Event Terdaftar"}
+              className={
+                "text-white hover:bg-primary-600 transition-colors ease-in-out duration-300 py-3 w-72 bg-primary-500 font-bold border-2 border-primary-500 rounded-md"
+              }
+              onClick={() => {
+                setPopupStatus(false);
+              }}
+            />
+          </Link>
+        </div>
+      </PopupModal>
     </div>
   );
 };

@@ -8,8 +8,10 @@ const ContentSection: FC = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<>Loading...</>}>
-        <MyCalendarSection />
-        <ProgressSection />
+        <div className="flex flex-col">
+          <ProgressSection />
+          <MyCalendarSection />
+        </div>
       </Suspense>
     </ErrorBoundary>
   );

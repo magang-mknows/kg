@@ -8,7 +8,7 @@ const ContentSection = lazy(() => import("./Content"));
 const DashboardModules: FC = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback="Loading...">
+      <Suspense fallback="Loading...guy">
         <DashboardLayout>
           <SidebarSection />
           <ContentSection />
