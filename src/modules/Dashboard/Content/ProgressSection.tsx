@@ -83,11 +83,11 @@ const ProgressSection: FC = (): ReactElement => {
               className="progressBox w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] border-[1px] border-solid"
             >
               <Image
-                className=" lg:col-span-2 rounded-lg w-[100px] h-[100px] object-cover md:col-span-12 sm:col-span-12"
+                className=" lg:col-span-2 rounded-lg w-[100px] h-[100px] object-cover md:col-span-12 col-span-12"
                 src={dummyImg}
                 alt="tes"
               />
-              <div className=" lg:col-span-10 lg:flex justify-between w-full md:col-span-12 sm:col-span-12">
+              <div className=" lg:col-span-10 lg:flex justify-between w-full md:col-span-12 col-span-12">
                 <div>
                   <p className="mb-[12px]">{dummy.judul}</p>
                   <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">
