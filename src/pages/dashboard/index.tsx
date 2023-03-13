@@ -1,8 +1,16 @@
-import Dashboard from "@/modules/Dashboard";
-import React, { FC, ReactElement } from "react";
+import React, { FC, lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
-const Index: FC = (): ReactElement => {
-  return <Dashboard />;
+const DashboardModules = lazy(() => import("@/modules/Dashboard"));
+
+const DashboardPages: FC = (): ReactElement => {
+  return (
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<>Laoding...</>}>
+        <DashboardModules />;
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
 
-export default Index;
+export default DashboardPages;

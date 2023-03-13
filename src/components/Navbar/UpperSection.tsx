@@ -14,16 +14,15 @@ import { IoAnalyticsOutline, IoBag } from "react-icons/io5";
 import Link from "next/link";
 import { BiCategoryAlt } from "react-icons/bi";
 
-import { useSetRecoilState } from "recoil";
-import { AuthModalOpen } from "@/stores/Common";
 import { navbarMenu } from "@/utilities/constant";
 
 import ThemeToggle from "@/components/ThemeToggle/index";
 import MobileMenu from "@/components/Common/MobileMenu";
+import { useLoginModal } from "@/hooks/Auth/useLoginModal";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
-  const setModalAUth = useSetRecoilState(AuthModalOpen);
+  const { setLoginModal } = useLoginModal();
   return (
     <Fragment>
       <section className="flex items-center h-[72px] justify-between border-b-2 px-10 md:px-14 lg:px-20  border-neutral-100">
@@ -100,7 +99,7 @@ const UpperSection: FC = () => {
 
           {/* before login */}
           <Button
-            onClick={() => setModalAUth(true)}
+            onClick={() => setLoginModal(true)}
             type="button"
             text={"Masuk"}
             className="hidden lg:block text-[#106FA4] border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"

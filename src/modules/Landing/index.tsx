@@ -2,7 +2,6 @@ import { FC, ReactElement, lazy, Suspense } from "react";
 import BaseLayouts from "@/layouts/Base";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
-import EventList from "../Event/EvenList";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
 const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
@@ -13,6 +12,7 @@ const InformationBanner = lazy(() => import("@/modules/Landing/InformationBanner
 const PromotionBanner = lazy(() => import("@/modules/Landing/PromotionBanner"));
 const InformationSection = lazy(() => import("@/modules/Landing/InformationSection"));
 const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgram"));
+const Event = lazy(() => import("@/modules/Event"));
 
 const Landing: FC = (): ReactElement => {
   return (
@@ -28,7 +28,7 @@ const Landing: FC = (): ReactElement => {
           <TestimonySection />
           <InformationSection />
           <PromotionBanner />
-          <EventList />
+          <Event />
         </Suspense>
       </ErrorBoundary>
     </BaseLayouts>
