@@ -14,7 +14,7 @@ const PopupModal: FC<PopupModalProps> = ({
   className,
 }): ReactElement => {
   return (
-    <Modal lookup={lookup as boolean} onClose={onClose}>
+    <Modal lookup={lookup as boolean} onClose={onClose} hasButton={true} withClose={true}>
       <div
         className={`flex flex-col items-center justify-center w-full py-10 text-center ${className}`}
       >

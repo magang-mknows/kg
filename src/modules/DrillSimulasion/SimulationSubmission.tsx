@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useScheduleSimulation } from "@/hooks/Simulation/useScheduleSimulation";
 import { useRecoilValue } from "recoil";
 import { filterScheduleSimulation } from "@/stores/Simulation";
+import Link from "next/link";
 
 const SimulationSubmission: FC = (): ReactElement => {
   const getScheduleSimulation = useRecoilValue(filterScheduleSimulation);
@@ -21,7 +22,7 @@ const SimulationSubmission: FC = (): ReactElement => {
         <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-20">
           {getScheduleSimulation.map((items, i) => (
             <Card
-              href={"/drill-simulation + items.slug"}
+              // href={"/drill-simulation" + items.slug}
               key={i}
               hasImage
               src={items.src}
@@ -60,14 +61,16 @@ const SimulationSubmission: FC = (): ReactElement => {
                 </div>
                 <div className="text-[16px] font-[600] text-[#262626] mt-3 ml-1">{items.title}</div>
                 <div className="flex mt-4 justify-end">
-                  <Button
-                    disabled={items.schedule === 0 ? true : false}
-                    type="submit"
-                    text={
-                      items.schedule === 0 ? "Tidak Ada Jadwal Tersedia" : "Lihat Jadwal Simulasi"
-                    }
-                    className="bg-[#3EB449] font-[600] text-[12px] rounded-[8px] text-white w-[182px] h-[35px] disabled:bg-[#D4D4D4] disabled:text-[#A3A3A3]  disabled:cursor-not-allowed"
-                  />
+                  <Link href={"/drill-simulation/" + items.slug}>
+                    <Button
+                      disabled={items.schedule === 0 ? true : false}
+                      type="submit"
+                      text={
+                        items.schedule === 0 ? "Tidak Ada Jadwal Tersedia" : "Lihat Jadwal Simulasi"
+                      }
+                      className="bg-[#3EB449] font-[600] text-[12px] rounded-[8px] text-white w-[182px] h-[35px] disabled:bg-[#D4D4D4] disabled:text-[#A3A3A3]  disabled:cursor-not-allowed"
+                    />
+                  </Link>
                 </div>
               </div>
             </Card>

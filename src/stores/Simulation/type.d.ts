@@ -14,6 +14,7 @@ export type HistorySimulation ={
   title: string,
   dosen: string,
   date: string,
-  time: string,
+  time: string
   status: string,
+  slug: string
 }
