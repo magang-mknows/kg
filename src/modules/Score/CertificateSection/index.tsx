@@ -6,38 +6,15 @@ import Image from "next/image";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupCertificate } from "@/hooks/Common/usePopupCertificate";
 import download from "@/assets/download.svg";
-
-const data = [
-  {
-    id: 1,
-    name: "Inflasi Ekonomi",
-    role: "webinar",
-    type: "Webinar",
-  },
-  {
-    id: 2,
-    name: "Introfuction Japanese Culture",
-    role: "webinar",
-    type: "Webinar",
-  },
-  {
-    id: 3,
-    name: "Introfuction Japanese Culture",
-    role: "mata-kuliah",
-    type: "Mata Kuliah",
-  },
-  {
-    id: 4,
-    name: "Introfuction Japanese Culture",
-    role: "webinar",
-    type: "Webinar",
-  },
-];
+import { useCertficate } from "@/hooks/Score";
+import { certificateTypes } from "@/stores/Score/type";
+import Link from "next/link";
 
 const CertificateSection = (): ReactElement => {
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState("semua");
   const { setPopupStatus, getPopupStatus } = usePopupCertificate();
+  const { getCertificate } = useCertficate();
   return (
     <div className="w-full">
       <div className="flex justify-end container">
@@ -94,7 +71,7 @@ const CertificateSection = (): ReactElement => {
 
       <div className=" lg:grid grid-cols-12 gap-[36px] relative mt-4 ">
         {filter == "semua"
-          ? data.map((item) => {
+          ? getCertificate.map((item: certificateTypes) => {
               return (
                 <div className="lg:col-span-4 w-full h-full " key={item.id}>
                   <Card
@@ -114,12 +91,41 @@ const CertificateSection = (): ReactElement => {
                       </p>
                     </div>
                   </Card>
+                  <div className="w-[1000px]">
+                    <PopupModal
+                      lookup={getPopupStatus}
+                      image={dummyCertificate}
+                      onClose={() => setPopupStatus(false)}
+                      className={"!py-2"}
+                    >
+                      <div className="flex gap-3">
+                        <Link href={item.urlDownload}>
+                          <button className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white">
+                            <div className=" flex justify-center gap-3">
+                              <div>
+                                <Image src={download} alt={"download-icon"} />
+                              </div>
+
+                              <div>Unduh</div>
+                            </div>
+                          </button>
+                        </Link>
+
+                        <button
+                          className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+                          onClick={() => setPopupStatus(false)}
+                        >
+                          Kembali
+                        </button>
+                      </div>
+                    </PopupModal>
+                  </div>
                 </div>
               );
             })
-          : data
-              .filter((item) => item.role.includes(filter))
-              .map((item) => {
+          : getCertificate
+              .filter((item: certificateTypes) => item.role.includes(filter))
+              .map((item: certificateTypes) => {
                 return (
                   <div className="lg:col-span-4 w-full h-full mb-10 lg:mb-0 " key={item.id}>
                     <Card
@@ -139,35 +145,38 @@ const CertificateSection = (): ReactElement => {
                         </p>
                       </div>
                     </Card>
+                    <div className="w-[1000px]">
+                      <PopupModal
+                        lookup={getPopupStatus}
+                        image={dummyCertificate}
+                        onClose={() => setPopupStatus(false)}
+                        className={"!py-2"}
+                      >
+                        <div className="flex gap-3">
+                          <Link href={item.urlDownload}>
+                            <button className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white">
+                              <div className=" flex justify-center gap-3">
+                                <div>
+                                  <Image src={download} alt={"download-icon"} />
+                                </div>
+
+                                <div>Unduh</div>
+                              </div>
+                            </button>
+                          </Link>
+
+                          <button
+                            className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+                            onClick={() => setPopupStatus(false)}
+                          >
+                            Kembali
+                          </button>
+                        </div>
+                      </PopupModal>
+                    </div>
                   </div>
                 );
               })}
-      </div>
-      <div className="w-[1000px]">
-        <PopupModal
-          lookup={getPopupStatus}
-          image={dummyCertificate}
-          onClose={() => setPopupStatus(false)}
-          className={"!py-2"}
-        >
-          <div className="flex gap-3">
-            <button className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white">
-              <div className=" flex justify-center gap-3">
-                <div>
-                  <Image src={download} alt={"download-icon"} />
-                </div>
-
-                <div>Unduh</div>
-              </div>
-            </button>
-            <button
-              className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
-              onClick={() => setPopupStatus(false)}
-            >
-              Kembali
-            </button>
-          </div>
-        </PopupModal>
       </div>
     </div>
   );
