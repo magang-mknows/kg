@@ -32,7 +32,7 @@ const ResumeSection: FC = (): ReactElement => {
   ];
 
   return (
-    <div className="bg-white shadow-lg shadow-neutral-100 w-screen md:w-[370px] rounded-md min-h-[500px] mb-9 overflow-hidden">
+    <div className="bg-white shadow-lg shadow-neutral-100 w-full md:w-[370px] rounded-md min-h-[500px] mb-9 overflow-hidden">
       <section className="text-white bg-[#106FA4] relative  px-8 pt-12 pb-28">
         <h1 className="font-bold text-2xl mb-2">Hello, Bandi</h1>
         <p className="text-base mb-2">
@@ -40,13 +40,13 @@ const ResumeSection: FC = (): ReactElement => {
           <span className="underline underline-offset-4 decoration-white/70">4 Mata Kuliah </span>
           <span className="text-white/75">Pada semester ini</span>
         </p>
-        <section className="absolute -bottom-52  grid grid-cols-2 gap-4">
+        <section className="absolute -bottom-52  grid grid-cols-2 gap-2 lg:gap-4">
           {dummySidebarItems.map(({ src, number, title }, index) => {
             return (
               <Card
                 key={index}
                 hasImage={false}
-                className="max-h-36  bg-neutral-100 hover:bg-neutral-200 cursor-pointer transition-colors ease-in-out duration-300 rounded-lg shadow-sm w-36"
+                className="max-h-30  bg-neutral-100 hover:bg-neutral-200 cursor-pointer transition-colors ease-in-out duration-300 rounded-lg shadow-sm w-32 lg:w-36"
               >
                 <div className="flex flex-col justify-between gap-y-4 text-neutral-500 hover:text-neutral-600 ">
                   <Image className="w-8 " src={src} alt="kelas" />
