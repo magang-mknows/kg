@@ -21,6 +21,7 @@ const Title: FC = (): ReactElement => {
             type={"text"}
             value={query}
             className="bg-transparent w-full focus:outline-none"
+            placeholder="Search"
             onChange={(event) => setQuery(event.target.value)}
           />
         </div>
