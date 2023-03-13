@@ -1,6 +1,6 @@
 import GlobalButton from "@/components/Common/GlobalButton";
 import BaseLayouts from "@/layouts/Base";
-import { FC, ReactElement, Suspense, Fragment } from "react";
+import { FC, ReactElement, Suspense } from "react";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
