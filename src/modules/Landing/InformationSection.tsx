@@ -4,37 +4,6 @@ import Dummy from "@/assets/dummy.png";
 import { useRecoilValue } from "recoil";
 import {InformationState} from "@/stores/Landing";
 
-const dataDummy: { id: number; deskripsi: string; judul: string; tag: string }[] = [
-  {
-    id: 1,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Programmer",
-  },
-  {
-    id: 2,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Pertanian",
-  },
-  {
-    id: 3,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Ekonomi",
-  },
-  {
-    id: 4,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Programmer",
-  },
-];
-
 const tagColor: { id: number; tag: string; color: string }[] = [
   { id: 1, tag: "Programmer", color: "#FEDBD7" },
   { id: 2, tag: "Pertanian", color: "#E3FBDA" },
