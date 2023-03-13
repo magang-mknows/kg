@@ -1,5 +1,4 @@
 import GlobalButton from "@/components/Common/GlobalButton";
-import Button from "@/components/Common/Button";
 import { FC, ReactElement, Suspense, Fragment } from "react";
 import Image from "next/image";
 import SelectField from "@/components/Common/SelectField";
@@ -8,6 +7,7 @@ import ControlledTextField from "@/components/ControlledInputs/ControlledTextFie
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import Form from "@/components/Form";
 
 // asset
 import userProfileImg from "@/assets/profile-user-img.svg";
@@ -20,24 +20,24 @@ const EditProfile: FC = (): ReactElement => {
     { id: 2, value: "P", label: "Perempuan" },
   ];
 
-  const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
+  // const MAX_FILE_SIZE = 3000000;
+  // const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
 
   const validationSchema = z.object({
-    upload_photo: z
-      .any()
-      .refine(
-        (files: File[]) => files !== undefined && files?.length >= 1,
-        "Harus ada file yang di upload.",
-      )
-      .refine(
-        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
-        "Ukuran maksimun adalah 3mb.",
-      )
-      .refine(
-        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
-        "hanya menerima .jpg, .jpeg, dan .webp.",
-      ),
+    // upload_photo: z
+    //   .any()
+    //   .refine(
+    //     (files: File[]) => files !== undefined && files?.length >= 1,
+    //     "Harus ada file yang di upload.",
+    //   )
+    //   .refine(
+    //     (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+    //     "Ukuran maksimun adalah 3mb.",
+    //   )
+    //   .refine(
+    //     (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
+    //     "hanya menerima .jpg, .jpeg, dan .webp.",
+    //   ),
 
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
@@ -110,7 +110,7 @@ const EditProfile: FC = (): ReactElement => {
                         >
                           <Menu.Items className="absolute left-20 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="px-1 py-1 ">
-                              <Menu.Item>
+                              {/* <Menu.Item>
                                 {({ active }) => (
                                   <button
                                     className={`${
@@ -131,7 +131,19 @@ const EditProfile: FC = (): ReactElement => {
                                     Upload Foto
                                   </button>
                                 )}
-                              </Menu.Item>
+                              </Menu.Item> */}
+                              <label className="hover:bg-neutral-100 flex w-full items-center rounded-md px-2 py-2 text-sm group cursor-pointer">
+                                <span className="text-sm text-gray-900 ">
+                                  Ambil Foto
+                                  <input type="file" className="hidden" />
+                                </span>
+                              </label>
+                              <label className="hover:bg-neutral-100 flex w-full items-center rounded-md px-2 py-2 text-sm group cursor-pointer">
+                                <span className="text-sm text-gray-900 ">
+                                  Unggah Foto
+                                  <input type="file" className="hidden" />
+                                </span>
+                              </label>
                             </div>
                           </Menu.Items>
                         </Transition>
@@ -145,12 +157,12 @@ const EditProfile: FC = (): ReactElement => {
                   </div>
                 </div>
 
-                <form>
+                <Form>
                   <div className="flex flex-col gap-x-4 lg:flex-row my-4">
                     <div className="flex flex-col gap-y-2 mr-0 lg:mr-2 w-full mt-0 lg:mt-3">
                       <ControlledTextField
                         control={control}
-                        placeholder=""
+                        placeholder="Masukkan Email"
                         label="Email"
                         type={"email"}
                         hasLabel
@@ -159,6 +171,7 @@ const EditProfile: FC = (): ReactElement => {
                       />
                       <ControlledTextField
                         control={control}
+                        placeholder="Masukkan Nama Lengkap"
                         label="Nama Lengkap"
                         type={"text"}
                         hasLabel
@@ -179,6 +192,7 @@ const EditProfile: FC = (): ReactElement => {
 
                       <ControlledTextField
                         control={control}
+                        placeholder="Masukkan Nomor Handphone"
                         label="Nomor Handphone"
                         type={"number"}
                         hasLabel
@@ -186,16 +200,16 @@ const EditProfile: FC = (): ReactElement => {
                         className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                       />
                       <div className="w-full flex justify-center lg:justify-end">
-                        <Button
-                          className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
-                          text={"Submit"}
+                        <GlobalButton
+                          text={"Simpan"}
                           type={"submit"}
                           disabled={!isValid}
+                          className="rounded-[8px] !w-[95px] !h-[36px]  disabled:bg-gray-400 disabled:text-gray-200"
                         />
                       </div>
                     </div>
                   </div>
-                </form>
+                </Form>
               </div>
             </div>
           </div>

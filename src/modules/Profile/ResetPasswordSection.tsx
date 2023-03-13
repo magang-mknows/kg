@@ -1,8 +1,28 @@
 import GlobalButton from "@/components/Common/GlobalButton";
 import BaseLayouts from "@/layouts/Base";
-import { FC, ReactElement, Suspense } from "react";
+import { FC, ReactElement, Suspense, Fragment } from "react";
+import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import Form from "@/components/Form";
 
 const ResetPassword: FC = (): ReactElement => {
+  const validationSchema = z.object({
+    oldPassword: z.string().min(1, { message: "Password Lama harus diisi" }),
+    newPassword: z.string().min(1, { message: "Password baru harus diisi" }),
+    confirmPassword: z.string().min(1, { message: "Konfirmasi password baru harus diisi" }),
+  });
+
+  type ValidationSchema = z.infer<typeof validationSchema>;
+
+  const {
+    control,
+    formState: { isValid },
+  } = useForm<ValidationSchema>({
+    resolver: zodResolver(validationSchema),
+    mode: "all",
+  });
   return (
     <BaseLayouts>
       <div className="w-full justify-center lg:justify-start px-20 bg-neutral-100">
@@ -27,61 +47,48 @@ const ResetPassword: FC = (): ReactElement => {
             <div className="w-full flex flex-col bg-white rounded-lg mx-0 lg:mx-9">
               <div className="flex flex-col mx-9">
                 <div className="font-semibold text-[20px] mt-9">Reset Password</div>
-                <form>
-                  <div className="relative w-full my-[16px] border-y">
-                    <label className="block py-4">
-                      <span
-                        className="block text-sm font-medium text-[
-#10002E]"
-                      >
-                        Password Lama
-                      </span>
-                      <input
-                        type="password"
-                        name="oldPassword"
-                        className="w-full mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
-                        placeholder="Masukkan Password Lama"
-                      />
-                    </label>
+                <Form>
+                  <div className="relative w-full my-[16px] border-y px-3 py-6">
+                    <ControlledTextField
+                      control={control}
+                      placeholder="Masukkan Password lama"
+                      label="Password Lama"
+                      type={"password"}
+                      hasLabel
+                      name="oldPassword"
+                      className="mt-1  bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
+                    />
                   </div>
 
-                  <div className="flex flex-col gap-y-6 w-full rounded-md sm:text-sm focus:ring-1">
-                    <label className="block">
-                      <span
-                        className="block text-sm font-medium text-[
-#10002E]"
-                      >
-                        Password Baru
-                      </span>
-                      <input
-                        type="password"
-                        name="newPassword"
-                        className="w-full mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
-                        placeholder="Masukkan Password Baru"
-                      />
-                    </label>
-                    <label className="block">
-                      <span
-                        className="block text-sm font-medium text-[
-#10002E]"
-                      >
-                        Konfirmasi Password
-                      </span>
-                      <input
-                        type="password"
-                        name="confirmPassword"
-                        className="w-full mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
-                        placeholder="Masukkan Password Baru"
-                      />
-                    </label>
+                  <div className="flex flex-col gap-y-4 w-full rounded-md focus:ring-1 px-3">
+                    <ControlledTextField
+                      control={control}
+                      placeholder="Masukkan Password lama"
+                      label="Password Baru"
+                      type={"password"}
+                      hasLabel
+                      name="newPassword"
+                      className="mt-1  bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
+                    />
+                    <ControlledTextField
+                      control={control}
+                      placeholder="Konfirmasi Password Baru"
+                      label="Konfirmasi Password"
+                      type={"password"}
+                      hasLabel
+                      name="confirmPassword"
+                      className="mt-1  bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
+                    />
+
                     <div className="w-full flex justify-center lg:justify-end my-8">
                       <GlobalButton
                         text={"Reset Password"}
-                        className="text-semibold !w-[153px] !h-[36px] !rounded-lg"
+                        className="text-semibold !w-[153px] !h-[36px] !rounded-lg disabled:bg-gray-400 disabled:text-gray-200"
+                        disabled={!isValid}
                       />
                     </div>
                   </div>
-                </form>
+                </Form>
               </div>
             </div>
           </div>
