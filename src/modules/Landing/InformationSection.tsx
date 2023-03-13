@@ -59,11 +59,11 @@ const InformationSection: FC = (): ReactElement => {
         Informasi Untuk Membantu Karirmu
       </h1>
       <div className="flex justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
-        {getInformation.slice(0, 3).map((dummy) => {
+        {getInformation.slice(0, 3).map((dummy,i) => {
           const color = handleColor(dummy.tag);
           return (
             <Card
-              key={dummy.id}
+              key={i}
               className="border rounded-lg px-3 shadow-md"
               src={Dummy}
               icon={
