@@ -1,10 +1,11 @@
 import { FC, ReactElement } from "react";
+import QuizHome from "./components/QuizHome";
 
 const index: FC = (): ReactElement => {
   return (
-    <div>
-      <h1>index</h1>
-    </div>
+    <>
+      <QuizHome />
+    </>
   );
 };
 
