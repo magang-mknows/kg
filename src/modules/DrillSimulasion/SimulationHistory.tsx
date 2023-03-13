@@ -2,7 +2,7 @@ import { FC, ReactElement } from "react";
 import Image from "next/image";
 import Done from "@/assets/assigned-done.svg";
 import { useRecoilValue } from "recoil";
-import { useHistorySimulation } from "@/hooks/Simulation/useHistorySimulation";
+// import { useHistorySimulation } from "@/hooks/Simulation/useHistorySimulation";
 import { filterHistorySimulation } from "@/stores/Simulation";
 import simulasiNull from "@/assets/simualasi-null.svg";
 import { usePopupSubmissionStatus } from "@/hooks/Common/usePopupSubmissionStatus";
