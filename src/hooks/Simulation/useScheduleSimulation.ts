@@ -2,6 +2,7 @@ import { sceduleSimulationState } from "@/stores/Simulation";
 import { useRecoilState } from "recoil";
 import { StaticImageData } from "next/image";
 
+
 type ScheduleReturnTypes = {
     setScheduleSimulation: (val: Array<T>) => void;
     getScheduleSimulation: Array<T>;
@@ -13,6 +14,7 @@ type T = {
   dosen: string;
   category: string;
   title: string;
+  slug: string
 }
 
 export const useScheduleSimulation = (): ScheduleReturnTypes => {
