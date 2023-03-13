@@ -6,7 +6,7 @@ const DashboardModules = lazy(() => import("@/modules/Dashboard"));
 const DashboardPages: FC = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<>Laoding...</>}>
+      <Suspense fallback={<>Laoding dashboad</>}>
         <DashboardModules />;
       </Suspense>
     </ErrorBoundary>
