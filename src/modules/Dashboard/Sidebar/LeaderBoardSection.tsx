@@ -31,7 +31,7 @@ const LeaderBoardSection: FC = (): ReactElement => {
   ];
 
   return (
-    <section className="w-full bg-white md:max-w-[370px] mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100">
+    <section className="w-full bg-white lg:max-w-[370px] mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100">
       <section className="flex justify-between items-start mb-4">
         <div>
           <h1 className="text-xl text-neutral-900 font-bold mb-2">Papan Skor</h1>

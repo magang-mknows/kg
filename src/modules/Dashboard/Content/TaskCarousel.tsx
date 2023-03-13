@@ -68,7 +68,7 @@ const TaskCarousel: FC = (): ReactElement => {
               <h1 className="text-lg font-bold">Penugasan</h1>
               <p className="text-sm text-neutral-500 ">{item.topic}</p>
             </section>
-            <section className="flex gap-4 mb-4">
+            <section className="flex gap-4 mb-4 h-40 xl:h-auto">
               <Image src={item.image} alt="test" className="h-[100px]" />
               <div>
                 <h1 className="mb-2">{item.title}</h1>
@@ -86,11 +86,11 @@ const TaskCarousel: FC = (): ReactElement => {
                 </section>
               </div>
             </section>
-            <section className="flex justify-between flex-wrap items-center">
+            <section className="grid grid-cols-1 gap-4 xl:grid-cols-2 items-center">
               <Button
                 type="button"
                 text={"Kerjakan Sekarang"}
-                className="text-white w-full lg:w-auto mb-2 lg:mb-0 bg-primary-500 text-sm py-2 px-4 rounded-md hover:bg-primary-600 transition-colors ease-in-out duration-300"
+                className="text-white w-full  mb-2 xl:mb-0 bg-primary-500 text-xs lg:text-sm py-2 px-4 rounded-md hover:bg-primary-600 transition-colors ease-in-out duration-300"
               />
               <div className="text-red-500 flex items-center gap-2 text-xs lg:text-sm">
                 <AiFillWarning />

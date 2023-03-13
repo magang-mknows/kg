@@ -67,14 +67,14 @@ const EventCarousel: FC = (): ReactElement => {
         return (
           <div key={index} className={`${item.id === getSelectedEvent ? "block" : "hidden"}`}>
             <section className="text-neutral-900 mb-4">
-              <h1 className="text-lg font-bold">Penugasan</h1>
+              <h1 className="text-lg font-bold">Acara Kampus</h1>
               <p className="text-sm text-neutral-500 ">{dummyEvent.length} Acara kampus tersedia</p>
             </section>
-            <section className="flex gap-4 mb-4">
+            <section className="flex gap-4 mb-4 h-40 xl:h-auto">
               <Image src={item.image} alt="test" className="h-[100px]" />
               <div>
                 <h1 className="mb-2">{item.topic}</h1>
-                <section className="flex gap-2 lg:gap-4  flex-wrap">
+                <section className="flex gap-2 xl:gap-4  flex-wrap xl:flex-nowrap">
                   <div className="flex flex-col ">
                     <section className="flex gap-2 items-center mb-2">
                       <div className="w-5 h-5 rounded-full bg-yellow-100 flex items-center justify-center">
@@ -96,7 +96,7 @@ const EventCarousel: FC = (): ReactElement => {
                       <div className="w-5 h-5 rounded-full bg-yellow-100 flex items-center justify-center">
                         <MdNavigateNext className="text-yellow-500" />
                       </div>
-                      <p className="text-xs lg:text-sm text-neutral-400">{item.time}</p>
+                      <p className="text-xs lg:text-xs  text-neutral-400">{item.time}</p>
                     </section>
                     <section className="flex gap-2 items-center">
                       <div className="w-5 h-5 rounded-full bg-yellow-100 flex items-center justify-center">
@@ -114,7 +114,7 @@ const EventCarousel: FC = (): ReactElement => {
               <Button
                 type="button"
                 text={"Daftar Sekarang"}
-                className="text-white w-full lg:w-auto bg-yellow-500 text-sm py-2 px-4 rounded-md hover:bg-yellow-600 transition-colors ease-in-out duration-300"
+                className="text-white w-full xl:w-auto bg-yellow-500 text-sm py-2 px-4 rounded-md hover:bg-yellow-600 transition-colors ease-in-out duration-300"
               />
             </section>
           </div>
