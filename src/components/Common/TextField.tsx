@@ -60,7 +60,7 @@ const TextField: FC<TextFieldProps> = forwardRef(
             "focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300"
           }
 
-             rounded-lg p-4 outline-none focus:outline-none
+            rounded-lg py-1 px-2 outline-none focus:outline-none
           `}
           placeholder={placeholder}
           onChange={onChange}
