@@ -171,4 +171,5 @@ export type PopupModalProps = {
   lookup?: boolean;
   children?: ReactNode;
   className?: string;
+  stylePopup?: string;
 };

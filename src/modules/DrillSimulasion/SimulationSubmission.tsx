@@ -22,7 +22,6 @@ const SimulationSubmission: FC = (): ReactElement => {
         <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-20">
           {getScheduleSimulation.map((items, i) => (
             <Card
-              // href={"/drill-simulation" + items.slug}
               key={i}
               hasImage
               src={items.src}
