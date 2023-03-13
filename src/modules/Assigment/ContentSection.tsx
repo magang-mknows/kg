@@ -4,16 +4,12 @@ import AssigmentAssigned from "@/assets/assigned-assigment.svg";
 import AssigmentDone from "@/assets/assigned-done.svg";
 import AssignedAssesment from "@/assets/assigned-assesment.svg";
 import AssignedLate from "@/assets/assigned-late.svg";
+import { T } from "@/stores/Assigment/type";
+import { useAssigment } from "@/hooks/Assigment/useAssigment";
 
 const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");
-
-  const dummy = [
-    { id: 1, titleAssigment: "test 1", category: "ditugaskan" },
-    { id: 2, titleAssigment: "Lalala", category: "terlambat" },
-    { id: 3, titleAssigment: "Lilaaa", category: "sedang-dinilai" },
-    { id: 4, titleAssigment: "Test", category: "selesai" },
-  ];
+  const { getAssigment } = useAssigment();
 
   return (
     <section className="lg:px-20 md:px-10 px-5 py-3 w-full mt-[36px] drop-shadow-md mb-3">
@@ -99,14 +95,14 @@ const ContentSection: FC = (): ReactElement => {
         </div>
 
         {active === "semua-tugas"
-          ? dummy.map((item) => (
+          ? getAssigment.map((item: T) => (
               <Assigment
                 key={item.id}
-                titleAssigment={item.titleAssigment}
+                titleAssigment={item.title}
                 category={item.category}
-                titleCourse={"Pekenalan Budaya Jepang"}
-                date={"20-09-2021"}
-                time={"20:00:00"}
+                titleCourse={item.course}
+                date={item.date}
+                time={item.time}
                 bgLine={
                   item.category === "ditugaskan"
                     ? "bg-primary-600"
@@ -142,15 +138,15 @@ const ContentSection: FC = (): ReactElement => {
                 }
               />
             ))
-          : dummy
-              .filter((item) => item.category.includes(active))
-              .map((item) => (
+          : getAssigment
+              .filter((item: T) => item.category.includes(active))
+              .map((item: T) => (
                 <Assigment
                   key={item.id}
-                  titleAssigment={item.titleAssigment}
+                  titleAssigment={item.title}
                   category={item.category}
-                  titleCourse={"Pekenalan Budaya Jepang"}
-                  date={"20-09-2021"}
+                  titleCourse={item.course}
+                  date={item.date}
                   time={"20:00:00"}
                   bgLine={
                     item.category === "ditugaskan"
