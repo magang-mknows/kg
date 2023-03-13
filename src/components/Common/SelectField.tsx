@@ -16,7 +16,6 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
       defaultValue,
       options,
       className,
-      hasLabel,
     }: SelectFieldProps,
     ref: Ref<HTMLSelectElement>,
   ): ReactElement => {
