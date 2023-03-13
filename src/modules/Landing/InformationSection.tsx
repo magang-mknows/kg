@@ -1,37 +1,7 @@
 import { FC, ReactElement } from "react";
 import Card from "@/components/Common/Card";
 import Dummy from "@/assets/dummy.png";
-
-const dataDummy: { id: number; deskripsi: string; judul: string; tag: string }[] = [
-  {
-    id: 1,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Programmer",
-  },
-  {
-    id: 2,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Pertanian",
-  },
-  {
-    id: 3,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Ekonomi",
-  },
-  {
-    id: 4,
-    deskripsi:
-      "Hi guys! Kali ini kita akan membahas 15 ekstensi pada VS Code yang sangat berguna untuk para Frontend Developer. Oke, langsung saja kita bahas. Seperti yang kita ketahui bahwa VS Code memiliki marketplacenya sendiri dan berisi",
-    judul: "5 Extension VSCode yang bakal ngebantu kamu pas ngoding. Nomer 2 sering dipake!",
-    tag: "Programmer",
-  },
-];
+import {useInformation} from "@/hooks/Landing/useInformation";
 
 const tagColor: { id: number; tag: string; color: string }[] = [
   { id: 1, tag: "Programmer", color: "#FEDBD7" },
@@ -40,6 +10,8 @@ const tagColor: { id: number; tag: string; color: string }[] = [
 ];
 
 const InformationSection: FC = (): ReactElement => {
+  const {getInformation} = useInformation();
+  
   const handleColor = (tag: string): string => {
     let color = "";
     tagColor.map((tagText) => {
@@ -55,12 +27,13 @@ const InformationSection: FC = (): ReactElement => {
       <h1 className="text-center text-5xl lg:text-5xl md:text-3xl font-bold mb-24 text-[#000000] dark:text-[#f9feff]">
         Informasi Untuk Membantu Karirmu
       </h1>
-      <div className="flex justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
-        {dataDummy.slice(0, 3).map((dummy) => {
+      <div className="justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
+        {getInformation.slice(0, 3).map((dummy,i) => {
           const color = handleColor(dummy.tag);
           return (
             <Card
-              key={dummy.id}
+              key={i}
+              href="/informasi/detail"
               className="border rounded-lg px-3 shadow-md"
               src={Dummy}
               icon={

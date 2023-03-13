@@ -4,6 +4,8 @@ import Image from "next/image";
 import dummyImg from "@/assets/dashboard/dummyCourse.png";
 import moreIcon from "@/assets/dashboard/LihatSemua.svg";
 import GlobalButton from "@/components/Common/GlobalButton";
+import { useRecoilValue } from "recoil";
+import {ProgressState} from "@/stores/Dashboard";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -53,6 +55,7 @@ const dataDummy: {
 ];
 
 const ProgressSection: FC = (): ReactElement => {
+  const getProgress = useRecoilValue(ProgressState);
   const [more, setMore] = useState(false);
   let lengthData = 0;
   if (more) {
@@ -71,20 +74,20 @@ const ProgressSection: FC = (): ReactElement => {
       <p className="font-semibold text-xl text-[#171717] mb-[8px]">Lanjutkan Mata Kuliah Kamu</p>
       <p className="text-sm font-normal text-[#171717]">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px] mb-[20px]">
-        {dataDummy.slice(0, lengthData).map((dummy) => {
+        {getProgress.slice(0, lengthData).map((dummy,i) => {
           const percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100).toString();
           const classDiv = `${percent}%`;
           return (
             <div
-              key={dummy.id}
+              key={i}
               className="progressBox w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] border-[1px] border-solid"
             >
               <Image
-                className=" lg:col-span-2 rounded-lg w-[100px] h-[100px] object-cover md:col-span-12 sm:col-span-12"
+                className=" lg:col-span-2 rounded-lg w-[100px] h-[100px] object-cover md:col-span-12 col-span-12"
                 src={dummyImg}
                 alt="tes"
               />
-              <div className=" lg:col-span-10 lg:flex justify-between w-full md:col-span-12 sm:col-span-12">
+              <div className=" lg:col-span-10 lg:flex justify-between w-full md:col-span-12 col-span-12">
                 <div>
                   <p className="mb-[12px]">{dummy.judul}</p>
                   <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">

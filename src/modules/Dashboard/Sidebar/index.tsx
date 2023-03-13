@@ -1,4 +1,4 @@
-import { FC, ReactElement, Suspense, lazy } from "react";
+import { FC, ReactElement, Suspense, lazy, Fragment } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 const LeaderBoardSection = lazy(() => import("./LeaderBoardSection"));
