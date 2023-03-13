@@ -22,7 +22,10 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
     console.log();
     return (
       <section className="flex flex-col">
-        <label htmlFor={name} className={"block text-md font-medium text-[#10002E]"}>
+        <label
+          htmlFor={name}
+          className={"block text-md font-medium text-[#10002E] dark:text-white"}
+        >
           {label}
         </label>
         <Fragment>

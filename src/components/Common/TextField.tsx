@@ -23,7 +23,7 @@ const TextField: FC<TextFieldProps> = forwardRef(
     return (
       <section className="flex flex-col gap-y-1 my-2">
         {hasLabel && (
-          <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl"}>
+          <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl dark:text-white"}>
             {label} {required && <span className="text-red-700 font-bold">*</span>}
           </label>
         )}
