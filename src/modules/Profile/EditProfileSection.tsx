@@ -1,20 +1,61 @@
 import GlobalButton from "@/components/Common/GlobalButton";
 import { FC, ReactElement, Suspense, Fragment } from "react";
 import Image from "next/image";
-import SelectField from "@/components/Common/SelectField";
+import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
 import { Menu, Transition } from "@headlessui/react";
+import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import Form from "@/components/Form";
 
 // asset
 import userProfileImg from "@/assets/profile-user-img.svg";
 import camera from "@/assets/camera-1.svg";
 import BaseLayouts from "@/layouts/Base";
 
-const options = [
-  { id: 1, value: "L", label: "Laki-Laki" },
-  { id: 2, value: "P", label: "Perempuan" },
-];
-
 const EditProfile: FC = (): ReactElement => {
+  const options = [
+    { id: 1, value: "L", label: "Laki-Laki" },
+    { id: 2, value: "P", label: "Perempuan" },
+  ];
+
+  // const MAX_FILE_SIZE = 3000000;
+  // const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
+
+  const validationSchema = z.object({
+    // upload_photo: z
+    //   .any()
+    //   .refine(
+    //     (files: File[]) => files !== undefined && files?.length >= 1,
+    //     "Harus ada file yang di upload.",
+    //   )
+    //   .refine(
+    //     (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+    //     "Ukuran maksimun adalah 3mb.",
+    //   )
+    //   .refine(
+    //     (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
+    //     "hanya menerima .jpg, .jpeg, dan .webp.",
+    //   ),
+
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
+    }),
+    phoneNumber: z.string().min(1, { message: "nomor handphone harus diisi" }),
+    fullname: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+  });
+
+  type ValidationSchema = z.infer<typeof validationSchema>;
+
+  const {
+    control,
+    formState: { isValid },
+  } = useForm<ValidationSchema>({
+    resolver: zodResolver(validationSchema),
+    mode: "all",
+  });
+
   return (
     <BaseLayouts>
       <div className="w-full h-full justify-start px-20 bg-neutral-100">
@@ -69,28 +110,18 @@ const EditProfile: FC = (): ReactElement => {
                         >
                           <Menu.Items className="absolute left-20 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="px-1 py-1 ">
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    className={`${
-                                      active ? "bg-neutral-100 text-gray-900" : "text-gray-900"
-                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                  >
-                                    Ambil Foto
-                                  </button>
-                                )}
-                              </Menu.Item>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    className={`${
-                                      active ? "bg-neutral-100 text-gray-900 " : "text-gray-900"
-                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                  >
-                                    Unggah Foto
-                                  </button>
-                                )}
-                              </Menu.Item>
+                              <label className="hover:bg-neutral-100 flex w-full items-center rounded-md px-2 py-2 text-sm group cursor-pointer">
+                                <span className="text-sm text-gray-900 ">
+                                  Ambil Foto
+                                  <input type="file" className="hidden" />
+                                </span>
+                              </label>
+                              <label className="hover:bg-neutral-100 flex w-full items-center rounded-md px-2 py-2 text-sm group cursor-pointer">
+                                <span className="text-sm text-gray-900 ">
+                                  Unggah Foto
+                                  <input type="file" className="hidden" />
+                                </span>
+                              </label>
                             </div>
                           </Menu.Items>
                         </Transition>
@@ -104,61 +135,60 @@ const EditProfile: FC = (): ReactElement => {
                   </div>
                 </div>
 
-                <form>
+                <Form>
                   <div className="flex flex-col gap-x-4 lg:flex-row my-4">
-                    <div className="flex flex-col gap-y-6 w-full">
-                      <label className="block">
-                        <span className="block text-sm font-medium text-slate-700">Email</span>
-                        <input
-                          type="email"
-                          name="email"
-                          className="w-full mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
-                          placeholder="bandi4lj4b4r@gmail.com"
-                        />
-                      </label>
-                      <label className="block">
-                        <span className="block text-sm font-medium text-slate-700">
-                          Nama Lengkap
-                        </span>
-                        <input
-                          type="text"
-                          name="namaLengkap"
-                          className="w-full mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
-                          placeholder="Bandi Aljabar"
-                        />
-                      </label>
+                    <div className="flex flex-col gap-y-2 mr-0 lg:mr-2 w-full mt-0 lg:mt-3">
+                      <ControlledTextField
+                        control={control}
+                        placeholder="Masukkan Email"
+                        label="Email"
+                        type={"email"}
+                        hasLabel
+                        name="email"
+                        className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
+                      />
+                      <ControlledTextField
+                        control={control}
+                        placeholder="Masukkan Nama Lengkap"
+                        label="Nama Lengkap"
+                        type={"text"}
+                        hasLabel
+                        name="fullname"
+                        className=""
+                      />
                     </div>
 
-                    <div className="flex flex-col gap-y-6 w-full rounded-md sm:text-sm focus:ring-1">
-                      <SelectField
+                    <div className="flex flex-col gap-y-2 mr-0 lg:mr-2 w-full mt-0 lg:mt-[26px]">
+                      <ControlledSelectField
+                        control={control}
                         label="Jenis Kelamin"
-                        className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                        className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white border shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm"
                         defaultValue="Laki-Laki"
                         options={options}
                         value={""}
                         name={""}
                       />
 
-                      <label className="block">
-                        <span className="block text-sm font-medium text-slate-700">
-                          Nomor Handphone
-                        </span>
-                        <input
-                          type="number"
-                          name="namaLengkap"
-                          className="w-full mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
-                          placeholder="08963728194"
-                        />
-                      </label>
+                      <ControlledTextField
+                        control={control}
+                        placeholder="Masukkan Nomor Handphone"
+                        label="Nomor Handphone"
+                        type={"number"}
+                        hasLabel
+                        name="phoneNumber"
+                        className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
+                      />
                       <div className="w-full flex justify-center lg:justify-end">
                         <GlobalButton
                           text={"Simpan"}
-                          className="text-bold !w-[153px] !h-[36px] !rounded-lg"
+                          type={"submit"}
+                          disabled={!isValid}
+                          className="rounded-[8px] !w-[95px] !h-[36px]  disabled:bg-gray-400 disabled:text-gray-200"
                         />
                       </div>
                     </div>
                   </div>
-                </form>
+                </Form>
               </div>
             </div>
           </div>
