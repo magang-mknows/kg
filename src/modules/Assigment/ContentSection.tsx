@@ -93,61 +93,16 @@ const ContentSection: FC = (): ReactElement => {
             </li>
           </ul>
         </div>
-
-        {active === "semua-tugas"
-          ? getAssigment.map((item: T) => (
-              <Assigment
-                key={item.id}
-                titleAssigment={item.title}
-                category={item.category}
-                titleCourse={item.course}
-                date={item.date}
-                time={item.time}
-                bgLine={
-                  item.category === "ditugaskan"
-                    ? "bg-primary-600"
-                    : item.category === "terlambat"
-                    ? "bg-secondary-yellow-600"
-                    : item.category === "selesai"
-                    ? "bg-secondary-green-500"
-                    : item.category === "sedang-dinilai"
-                    ? "bg-neautral-500"
-                    : ""
-                }
-                classNameCategory={
-                  item.category === "ditugaskan"
-                    ? "text-primary-600"
-                    : item.category === "terlambat"
-                    ? "text-secondary-yellow-600"
-                    : item.category === "selesai"
-                    ? "text-secondary-green-500"
-                    : item.category === "sedang-dinilai"
-                    ? "text-neautral-500"
-                    : ""
-                }
-                imgAssigment={
-                  item.category === "ditugaskan"
-                    ? AssigmentAssigned
-                    : item.category === "terlambat"
-                    ? AssignedLate
-                    : item.category === "selesai"
-                    ? AssigmentDone
-                    : item.category === "sedang-dinilai"
-                    ? AssignedAssesment
-                    : ""
-                }
-              />
-            ))
-          : getAssigment
-              .filter((item: T) => item.category.includes(active))
-              .map((item: T) => (
+        <div className=" pb-8">
+          {active === "semua-tugas"
+            ? getAssigment.map((item: T) => (
                 <Assigment
                   key={item.id}
                   titleAssigment={item.title}
                   category={item.category}
                   titleCourse={item.course}
                   date={item.date}
-                  time={"20:00:00"}
+                  time={item.time}
                   bgLine={
                     item.category === "ditugaskan"
                       ? "bg-primary-600"
@@ -182,7 +137,53 @@ const ContentSection: FC = (): ReactElement => {
                       : ""
                   }
                 />
-              ))}
+              ))
+            : getAssigment
+                .filter((item: T) => item.category.includes(active))
+                .map((item: T) => (
+                  <Assigment
+                    key={item.id}
+                    titleAssigment={item.title}
+                    category={item.category}
+                    titleCourse={item.course}
+                    date={item.date}
+                    time={"20:00:00"}
+                    bgLine={
+                      item.category === "ditugaskan"
+                        ? "bg-primary-600"
+                        : item.category === "terlambat"
+                        ? "bg-secondary-yellow-600"
+                        : item.category === "selesai"
+                        ? "bg-secondary-green-500"
+                        : item.category === "sedang-dinilai"
+                        ? "bg-neautral-500"
+                        : ""
+                    }
+                    classNameCategory={
+                      item.category === "ditugaskan"
+                        ? "text-primary-600"
+                        : item.category === "terlambat"
+                        ? "text-secondary-yellow-600"
+                        : item.category === "selesai"
+                        ? "text-secondary-green-500"
+                        : item.category === "sedang-dinilai"
+                        ? "text-neautral-500"
+                        : ""
+                    }
+                    imgAssigment={
+                      item.category === "ditugaskan"
+                        ? AssigmentAssigned
+                        : item.category === "terlambat"
+                        ? AssignedLate
+                        : item.category === "selesai"
+                        ? AssigmentDone
+                        : item.category === "sedang-dinilai"
+                        ? AssignedAssesment
+                        : ""
+                    }
+                  />
+                ))}
+        </div>
       </div>
     </section>
   );
