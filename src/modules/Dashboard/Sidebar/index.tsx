@@ -9,9 +9,11 @@ const SidebarSection: FC = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<>Loading...</>}>
-        <LeaderBoardSection />
-        <ResumeSection />
-        <ArticleSection />
+        <div>
+          <LeaderBoardSection />
+          <ResumeSection />
+          <ArticleSection />
+        </div>
       </Suspense>
     </ErrorBoundary>
   );
