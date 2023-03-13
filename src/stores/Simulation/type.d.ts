@@ -6,9 +6,6 @@ export type T = {
     dosen: string;
     category: string;
     title: string;
-<<<<<<< HEAD
-  }
-=======
     slug: string
   }
 
@@ -20,4 +17,3 @@ export type HistorySimulation ={
   time: string,
   status: string,
 }
->>>>>>> 34fe19f784d415270102a221bb0bfca50fb7295e
