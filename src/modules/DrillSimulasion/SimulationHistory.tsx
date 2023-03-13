@@ -2,29 +2,15 @@ import { FC, ReactElement } from "react";
 import Image from "next/image";
 import DummyHistory from "@/assets/dummy-drillHistory.svg";
 import Done from "@/assets/assigned-done.svg";
+import { useRecoilValue } from "recoil";
+import { useHistorySimulation } from "@/hooks/Simulation/useHistorySimulation";
 
 const SimulationHistory: FC = (): ReactElement => {
-  const tes = [
-    {
-      src: DummyHistory,
-      title: "Sales dan Penjualan",
-      dosen: "Bambang Sutiyoso, S.Ak, M.Ak",
-      date: "17 Desember 2021",
-      time: "16:30",
-      status: "belum-selesai",
-    },
-    {
-      src: DummyHistory,
-      title: "Sales dan Penjualan",
-      dosen: "Bambang Sutiyoso, S.Ak, M.Ak",
-      date: "17 Desember 2021",
-      time: "16:30",
-      status: "selesai",
-    },
-  ];
+  const { getHistorySimulation } = useHistorySimulation();
+
   return (
     <div className="md:px-8 px-4 py-0 ">
-      {tes.map((items, i) => (
+      {getHistorySimulation.map((items, i) => (
         <div
           key={i}
           className="flex flex-col md:flex-row bg-[#ffffff] rounded-lg drop-shadow-lg relative justify-between  mb-5 md:items-center ${
