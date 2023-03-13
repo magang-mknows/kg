@@ -1,7 +1,7 @@
 import GlobalButton from "@/components/Common/GlobalButton";
 import { FC, ReactElement, Suspense, Fragment } from "react";
 import Image from "next/image";
-import SelectField from "@/components/Common/SelectField";
+import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
 import { Menu, Transition } from "@headlessui/react";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import { z } from "zod";
@@ -110,28 +110,6 @@ const EditProfile: FC = (): ReactElement => {
                         >
                           <Menu.Items className="absolute left-20 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="px-1 py-1 ">
-                              {/* <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    className={`${
-                                      active ? "bg-neutral-100 text-gray-900" : "text-gray-900"
-                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                  >
-                                    Ambil Foto
-                                  </button>
-                                )}
-                              </Menu.Item>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    className={`${
-                                      active ? "bg-neutral-100 text-gray-900" : "text-gray-900"
-                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                  >
-                                    Upload Foto
-                                  </button>
-                                )}
-                              </Menu.Item> */}
                               <label className="hover:bg-neutral-100 flex w-full items-center rounded-md px-2 py-2 text-sm group cursor-pointer">
                                 <span className="text-sm text-gray-900 ">
                                   Ambil Foto
@@ -176,14 +154,15 @@ const EditProfile: FC = (): ReactElement => {
                         type={"text"}
                         hasLabel
                         name="fullname"
-                        className="w-[10%]"
+                        className=""
                       />
                     </div>
 
                     <div className="flex flex-col gap-y-2 mr-0 lg:mr-2 w-full mt-0 lg:mt-[26px]">
-                      <SelectField
+                      <ControlledSelectField
+                        control={control}
                         label="Jenis Kelamin"
-                        className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                        className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white border shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm"
                         defaultValue="Laki-Laki"
                         options={options}
                         value={""}
