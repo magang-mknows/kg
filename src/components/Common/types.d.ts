@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { StaticImageData } from "next/image";
+import { Control } from "react-hook-form";
 import {
   ChangeEventHandler,
   HTMLInputTypeAttribute,
@@ -25,6 +27,7 @@ export interface TextFieldProps {
   success?: string;
   warning?: string;
   hasLabel?: boolean;
+  control: Control<any, T>;
 }
 
 export type ModalProps = {
@@ -57,6 +60,7 @@ export interface SelectFieldProps {
   disabled?: boolean;
   options: OptionFieldProps[];
   hasLabel?: boolean;
+  control?: Control<any, T>;
 }
 
 export interface OptionFieldProps {
@@ -99,12 +103,12 @@ export interface CheckboxFieldProps {
   value?: string;
   placeholder?: string;
   required: boolean;
-
   label?: string;
   checked?: boolean;
   error?: string;
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  control: Control<any, T>;
 }
 
 export interface CardProps {
@@ -161,6 +165,7 @@ export interface UploadFieldProps {
   fileName?: string;
   value?: string;
   accepted?: string;
+  control?: Control<any, T>;
 }
 
 export type PopupModalProps = {

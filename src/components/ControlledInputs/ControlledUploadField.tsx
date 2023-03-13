@@ -1,33 +1,24 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Control, Controller } from "react-hook-form";
+import { useController } from "react-hook-form";
 import { UploadFieldProps } from "../Common/types";
-import { ReactElement, useState } from "react";
+import { FC, ReactElement, useState } from "react";
 import UploadField from "../Common/UploadField";
 
-type ControlledUploadInputProps<T> = UploadFieldProps & {
-  control: Control<any, T>;
-};
-
-const ControlledUploadField = <T,>({ ...rest }: ControlledUploadInputProps<T>): ReactElement => {
+const ControlledUploadField: FC<UploadFieldProps> = (props): ReactElement => {
   const [get, set] = useState("");
-
+  const {
+    field,
+    fieldState: { error },
+  } = useController(props);
   return (
-    <Controller
-      control={rest.control}
-      name={rest.name}
-      rules={{ required: rest.required }}
-      render={({ field, fieldState: { error } }) => (
-        <UploadField
-          {...rest}
-          fileName={get}
-          onChange={(event) => {
-            field.onChange(event.target.files);
-            set(event.target?.files?.[0]?.name as string);
-          }}
-          files={rest.files || field.value}
-          error={error?.message}
-        />
-      )}
+    <UploadField
+      {...props}
+      fileName={get}
+      onChange={(event) => {
+        field.onChange(event.target.files);
+        set(event.target?.files?.[0]?.name as string);
+      }}
+      files={props.files || field.value}
+      error={error?.message}
     />
   );
 };
