@@ -12,9 +12,10 @@ const PopupModal: FC<PopupModalProps> = ({
   onClose,
   children,
   className,
+  stylePopup,
 }): ReactElement => {
   return (
-    <Modal lookup={lookup as boolean} onClose={onClose}>
+    <Modal lookup={lookup as boolean} onClose={onClose} hasButton={true} withClose={true}>
       <div
         className={`flex flex-col items-center justify-center w-full py-10 text-center ${className}`}
       >
@@ -37,7 +38,7 @@ const PopupModal: FC<PopupModalProps> = ({
             alt="Popup-Image"
           />
         )}
-        <h1 className="my-2 font-bold text-[23.4px]">{popupTitle}</h1>
+        <h1 className={`my-4 font-bold text-[23.4px] ${stylePopup}`}>{popupTitle}</h1>
         <h5 className="font-medium text-[16px] text-[#A3A3A3] px-10">{description}</h5>
         {children}
       </div>
