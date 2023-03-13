@@ -20,3 +20,8 @@ export type CrumbItem = {
 export type BreadCrumbProps = {
   items: CrumbItem[];
 };
+
+export type AlertProps = {
+  detail?: string;
+  color?: string;
+};

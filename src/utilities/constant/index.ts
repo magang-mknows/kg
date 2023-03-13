@@ -47,7 +47,7 @@ export const publicRoutes = [
   "/contract",
   "/studyprogram",
   "/score",
-  "/preset",
+  "/detail",
   "/drill-simulation",
   "/edit-profile",
   "/reset-password",
