@@ -6,12 +6,6 @@ import ArticleSlide from "@/assets/article-slide.svg";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Montserrat } from "next/font/google";
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: "500",
-});
-
 const ArticleSection: FC = (): ReactElement => {
   const Mitra = [
     { image: ArticleSlide, text: "Apa itu Cyber Attack?" },
@@ -19,7 +13,7 @@ const ArticleSection: FC = (): ReactElement => {
   ];
   return (
     <Fragment>
-      <div className={`${montserrat.className} md:max-w-[370px]w`}>
+      <div className="md:max-w-[370px]w">
         <div className="flex flex-row items-center justify-between py-2">
           <h1 className="text-[20px]">Artikel</h1>
           <Link className="text-[14px] text-[#106FA4]" href={"/"}>

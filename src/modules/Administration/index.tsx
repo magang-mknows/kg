@@ -11,11 +11,11 @@ const Administration: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <div className=" bg-[#F5F5F5] w-full">
-        <Suspense fallback={<Loading />}>
-          <BreadCrumb items={administrationBreadCumbs} />
-          <TitleAdministration />
-          <ContentAdministration />
-        </Suspense>
+        {/* <Suspense fallback={<Loading />}> */}
+        <BreadCrumb items={administrationBreadCumbs} />
+        <TitleAdministration />
+        <ContentAdministration />
+        {/* </Suspense> */}
       </div>
     </BaseLayouts>
   );

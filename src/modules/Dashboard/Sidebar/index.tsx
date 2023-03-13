@@ -1,4 +1,4 @@
-import { FC, ReactElement, Suspense, lazy } from "react";
+import { FC, ReactElement, Suspense, lazy, Fragment } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 const LeaderBoardSection = lazy(() => import("./LeaderBoardSection"));
@@ -9,9 +9,9 @@ const SidebarSection: FC = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<>Loading...</>}>
-        <div>
-          <LeaderBoardSection />
+        <div className="flex flex-col">
           <ResumeSection />
+          <LeaderBoardSection />
           <ArticleSection />
         </div>
       </Suspense>

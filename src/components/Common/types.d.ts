@@ -159,6 +159,7 @@ export interface UploadFieldProps {
   ref?: Ref<HTMLInputElement>;
   files?: File | FileList;
   fileName?: string;
+  value?: string;
   accepted?: string;
 }
 
