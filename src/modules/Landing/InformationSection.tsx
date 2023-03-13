@@ -1,8 +1,7 @@
 import { FC, ReactElement } from "react";
 import Card from "@/components/Common/Card";
 import Dummy from "@/assets/dummy.png";
-import { useRecoilValue } from "recoil";
-import {InformationState} from "@/stores/Landing";
+import {useInformation} from "@/hooks/Landing/useInformation";
 
 const tagColor: { id: number; tag: string; color: string }[] = [
   { id: 1, tag: "Programmer", color: "#FEDBD7" },
@@ -11,7 +10,8 @@ const tagColor: { id: number; tag: string; color: string }[] = [
 ];
 
 const InformationSection: FC = (): ReactElement => {
-  const getInformation = useRecoilValue(InformationState);
+  const {getInformation} = useInformation();
+  
   const handleColor = (tag: string): string => {
     let color = "";
     tagColor.map((tagText) => {
@@ -27,7 +27,7 @@ const InformationSection: FC = (): ReactElement => {
       <h1 className="text-center text-5xl lg:text-5xl md:text-3xl font-bold mb-24 text-[#000000] dark:text-[#f9feff]">
         Informasi Untuk Membantu Karirmu
       </h1>
-      <div className="flex justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
+      <div className="justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
         {getInformation.slice(0, 3).map((dummy,i) => {
           const color = handleColor(dummy.tag);
           return (
