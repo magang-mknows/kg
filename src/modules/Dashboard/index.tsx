@@ -4,6 +4,7 @@ import ProgressSection from "./Content/ProgressSection";
 import Sidebar from "./Sidebar/Index";
 
 import DashboardLayout from "@/layouts/Dashboard/DashboardLayout";
+import TopInformationSection from "./Content/Top-Info/TopInformationSection";
 
 const Dashboard: FC = (): ReactElement => {
   return (
@@ -11,6 +12,7 @@ const Dashboard: FC = (): ReactElement => {
       <DashboardLayout>
         <Sidebar />
         <div>
+          <TopInformationSection />
           <ProgressSection />
           <MyCalendar />
         </div>

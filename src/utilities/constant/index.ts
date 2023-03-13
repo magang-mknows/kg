@@ -6,6 +6,10 @@ export const navbarMenu = [
     link: "/dashboard",
   },
   {
+    name: "Studi-ku",
+    link: "/quiz",
+  },
+  {
     name: "Penugasan",
     link: "/assigment",
   },
@@ -48,6 +52,7 @@ export const publicRoutes = [
   "/studyprogram",
   "/score",
   "/drill-simulation",
+  "/quiz",
 ];
 
 export const assigmentBreadCumbs = [
