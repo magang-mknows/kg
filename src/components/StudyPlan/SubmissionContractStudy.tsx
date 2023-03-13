@@ -51,7 +51,7 @@ const tabel = [
   },
 ];
 
-const CardContractStudy: FC = (): ReactElement => {
+const SubmissionContractStudy: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
 
   return (
@@ -156,7 +156,7 @@ const CardContractStudy: FC = (): ReactElement => {
               className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
               type={"button"}
               text="Konfirmasi"
-              page="/preset"
+              page="/detail"
             />
           </div>
         </PopupModal>
@@ -165,4 +165,4 @@ const CardContractStudy: FC = (): ReactElement => {
   );
 };
 
-export default CardContractStudy;
+export default SubmissionContractStudy;

@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
-import PresetContract from "@/modules/StudyPlan/presetContract";
+import DetailContractStudy from "@/modules/StudyPlan/DetailKontrak";
 
 const index: NextPage = (): ReactElement => {
-  return <PresetContract />;
+  return <DetailContractStudy />;
 };
 
 export default index;
