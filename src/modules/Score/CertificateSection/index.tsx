@@ -1,7 +1,6 @@
 import Card from "@/components/Common/Card";
 import { ReactElement, useState } from "react";
 import dummyCertificate from "@/assets/dummy-certificate.svg";
-import Filter from "@/assets/filter-icon.svg";
 import Image from "next/image";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupCertificate } from "@/hooks/Common/usePopupCertificate";

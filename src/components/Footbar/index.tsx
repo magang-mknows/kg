@@ -1,15 +1,14 @@
 import { FC, ReactElement } from "react";
 
 // img
-import Instagram from "@/assets/instagram.svg";
-import Facebook from "@/assets/facebook.svg";
-import Twitter from "@/assets/twitter.svg";
-import Linkedin from "@/assets/linkedin.svg";
 import GooglePlayStore from "@/assets/google-play-store.svg";
 import Image from "next/image";
 
 import { LoadConditionalLogo } from "@/utilities/helper/index";
-import GlobalButton from "../Common/GlobalButton";
+import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
+import Link from "next/link";
+import { FaLinkedinIn } from "react-icons/fa";
+import { RiFacebookFill } from "react-icons/ri";
 
 const Footbar: FC = (): ReactElement => {
   return (
@@ -23,8 +22,8 @@ const Footbar: FC = (): ReactElement => {
         dark:bg-[#222529]
         transition-all ease-in-out duration-300"
     >
-      <div className="py-10 mx-5 text-justify  md:text-justify lg:mx-20 md:mx-10 md:py-5 sm:mx-10 xs:mx-10">
-        <div className="grid gap-2  grid-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="py-10 mx-10 text-justify  md:text-justify lg:mx-20 md:mx-14 md:py-5 ">
+        <div className="grid gap-10  grid-1 md:grid-cols-2 lg:grid-cols-4">
           {/* kampus gratis */}
           <div className="text-sm w-full lg:w-[360px]">
             <Image src={LoadConditionalLogo()} className="mb-4  h-19 w-100 sm:h-15" alt="logo" />
@@ -34,37 +33,33 @@ const Footbar: FC = (): ReactElement => {
               mahasiswa, layaknya perguruan tinggi.
             </p>
 
-            <div className="flex justify-between lg:flex-row md:flex-row sm:flex-col xs:flex-col lg:mt-0 sm:mt-4">
+            <div className="flex justify-between lg:flex-row md:flex-row sm:flex-col xs:flex-col lg:mt-2 sm:mt-4">
               <div className="flex flex-row my-4 space-x-4">
-                <GlobalButton
-                  size="icon"
-                  className="bg-transparent hover:bg-transparent"
-                  to="/"
-                  icon={<Image className="w-4 h-4" src={Facebook} alt="Facebook" />}
-                />
-                <GlobalButton
-                  size="icon"
-                  className="bg-transparent hover:bg-transparent"
-                  to="/"
-                  icon={<Image className="w-4 h-4" src={Twitter} alt="Twitter" />}
-                />
-                <GlobalButton
-                  size="icon"
-                  className="bg-transparent hover:bg-transparent"
-                  to="/"
-                  icon={<Image className="w-4 h-4" src={Linkedin} alt="Linkedin" />}
-                />
-                <GlobalButton
-                  size="icon"
-                  className="bg-transparent hover:bg-transparent"
-                  to="/"
-                  icon={<Image className="w-4 h-4" src={Instagram} alt="Instagram" />}
-                />
+                <div className="w-4 h-4 bg-neutral ">
+                  <Link href={"https://instagram.com"} target="_blank">
+                    <RiFacebookFill className="text-xl dark:text-white" />
+                  </Link>
+                </div>
+                <div className="w-4 h-4 bg-neutral ">
+                  <Link href={"https://instagram.com"} target="_blank">
+                    <AiOutlineTwitter className="text-xl dark:text-white" />
+                  </Link>
+                </div>
+                <div className="w-4 h-4 bg-neutral ">
+                  <Link href={"https://instagram.com"} target="_blank">
+                    <FaLinkedinIn className="text-xl dark:text-white" />
+                  </Link>
+                </div>
+                <div className="w-4 h-4 bg-neutral ">
+                  <Link href={"https://instagram.com/kampus.gratis"} target="_blank">
+                    <AiOutlineInstagram className="text-xl dark:text-white" />
+                  </Link>
+                </div>
               </div>
-              <div className="mt-[-10px] lg:ml-0 sm:ml-[-10px]">
+              <div className="mt-[-10px] flex justify-end">
                 <a href="" className="">
                   <Image
-                    className="lg:w-[162px] lg:h-[62px]"
+                    className="lg:w-full lg:h-[62px]"
                     src={GooglePlayStore}
                     alt="Google Play Store"
                   />

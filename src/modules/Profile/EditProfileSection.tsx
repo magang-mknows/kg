@@ -58,28 +58,28 @@ const EditProfile: FC = (): ReactElement => {
 
   return (
     <BaseLayouts>
-      <div className="w-full h-full justify-start px-20 bg-neutral-100">
+      <div className="w-full h-full justify-start px-20 bg-neutral-100 dark:bg-black ">
         <Suspense fallback={"Skeleton loading...."}>
           <div className="font-semibold text-[20px] w-full justify-start mb-[12px] lg:mb-[48px] mt-[30px]">
             Profile
           </div>
           <div className="flex flex-col lg:flex-row w-full mb-[30px]">
-            <div className="w-ful lg:w-[600px] lg:h-[50%] space-y-2 justify-center bg-white rounded-lg my-2 lg:my-0">
+            <div className="w-full lg:w-[600px] lg:h-[50%] space-y-2 justify-center dark:bg-gray-900 bg-white rounded-lg my-2 lg:my-0">
               <div className="my-4 mx-4 ">
                 <GlobalButton
                   text={"Edit Profile"}
-                  className="bg-primary-100 !text-[#106FA4] font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+                  className="bg-primary-100 dark:bg-[#222529] !text-[#106FA4] font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
                 />
                 <GlobalButton
                   text={"Reset Password"}
-                  className="!text-[#737373] bg-white font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+                  className="!text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
                   to="reset-password"
                 />
               </div>
             </div>
-            <div className="w-full flex flex-col bg-white rounded-lg mx-0 lg:mx-9">
+            <div className="w-full flex flex-col bg-white dark:bg-gray-900 rounded-lg mx-0 lg:mx-9">
               <div className="flex flex-col mx-9">
-                <div className="font-semibold text-[20px] mt-9">Edit Profile</div>
+                <div className="font-semibold text-[20px] mt-9 ">Edit Profile</div>
                 <div className="relative w-full my-[16px] border-y">
                   <div className=" flex justify-center py-5 ">
                     <div>
@@ -162,7 +162,7 @@ const EditProfile: FC = (): ReactElement => {
                       <ControlledSelectField
                         control={control}
                         label="Jenis Kelamin"
-                        className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white border shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm"
+                        className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white dark:bg-[#222529] dark:border-2 shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm"
                         defaultValue="Laki-Laki"
                         options={options}
                         value={""}
