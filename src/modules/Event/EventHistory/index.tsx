@@ -1,13 +1,13 @@
 import { FC, Fragment, ReactElement } from "react";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 import ImageEventList from "@/assets/event-list.svg";
 
-import Pagination from "./Pagination";
-import SearchBar from "./SearchBar";
-import SideBar from "./SideBar";
-import { CardListProps } from "./types";
-import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Pagination from "@/modules/Event/Common/Pagination";
+import SearchBar from "@/modules/Event/Common/SearchBar";
+import SideBar from "@/modules/Event/Common/SideBar";
+import { CardListProps } from "@/modules/Event/types";
 
 const CardList: FC<CardListProps> = ({ title, slug, image, price, status }): ReactElement => {
   return (
@@ -19,7 +19,7 @@ const CardList: FC<CardListProps> = ({ title, slug, image, price, status }): Rea
       />
       <div className="flex flex-row w-full">
         <div className="flex-col w-1/2 gap-4">
-          <h1 className="text-[16px]">{title}</h1>
+          <h1 className="text-[16px] dark:text-black">{title}</h1>
           {price && (
             <h1 className="text-[18px] text-[#ED3768]">
               {price && price} {status && status}
@@ -84,9 +84,9 @@ const EventHistory: FC = (): ReactElement => {
   ];
   return (
     <Fragment>
-      <div className="flex flex-row p-10 ">
+      <div className="flex flex-row">
         <div className="basis-1/3">
-          <SideBar />
+          <SideBar active="EventHistory" />
         </div>
         <div className="w-full basis-2/3">
           <SearchBar />
