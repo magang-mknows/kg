@@ -6,6 +6,10 @@ export const navbarMenu = [
     link: "/dashboard",
   },
   {
+    name: "Studi-ku",
+    link: "/mystudy",
+  },
+  {
     name: "Penugasan",
     link: "/assigment",
   },
@@ -42,6 +46,7 @@ export const publicRoutes = [
   "/auth/forgot",
   "/assigment",
   "/dashboard",
+  "/mystudy",
   "/administration",
   "/studyplan",
   "/contract",

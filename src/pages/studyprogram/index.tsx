@@ -1,9 +1,18 @@
-import StudyProgram from "@/modules/StudyPlan/StudyProgram";
 import type { NextPage } from "next";
-import { ReactElement } from "react";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
-const index: NextPage = (): ReactElement => {
-  return <StudyProgram />;
+const StudyProgram = lazy(() => import("@/modules/StudyPlan/StudyProgram"));
+
+const StudyProgramPage: NextPage = (): ReactElement => {
+  return (
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <StudyProgram />
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
 
-export default index;
+export default StudyProgramPage;

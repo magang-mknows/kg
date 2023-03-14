@@ -1,14 +1,17 @@
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
-import Loading from "@/components/Loading";
+import { ErrorBoundary } from "react-error-boundary";
 
 const AssigmentModules = lazy(() => import("@/modules/Assigment"));
+const Loading = lazy(() => import("@/components/Loading"));
 
 const AssigmentPages: NextPage = (): ReactElement => {
   return (
-    <Suspense fallback={<Loading />}>
-      <AssigmentModules />
-    </Suspense>
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <AssigmentModules />
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 

@@ -1,8 +1,18 @@
-import ResetPassword from "@/modules/Profile/ResetPasswordSection";
-import React, { FC, ReactElement } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
-const Index: FC = (): ReactElement => {
-  return <ResetPassword />;
+const ResetPassword = lazy(() => import("@/modules/Profile/ResetPasswordSection"));
+
+const ResetPasswordPage: NextPage = (): ReactElement => {
+  return (
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <ResetPassword />
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
 
-export default Index;
+export default ResetPasswordPage;

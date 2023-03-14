@@ -1,12 +1,14 @@
-import React, { FC, lazy, ReactElement, Suspense } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
 const DashboardModules = lazy(() => import("@/modules/Dashboard"));
 
-const DashboardPages: FC = (): ReactElement => {
+const DashboardPages: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<>Laoding dashboad</>}>
+      <Suspense fallback={<Loading />}>
         <DashboardModules />;
       </Suspense>
     </ErrorBoundary>
