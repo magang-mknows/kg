@@ -43,14 +43,14 @@ export const breadCrumbDummyData = [
   },
   {
     name: "Studi-ku",
-    link: "/mystudy",
+    link: "/studiku",
   },
   {
     name: "Menejemen Keuangan",
-    link: "/mystudy/financial-menejemen",
+    link: "/studiku/quiz",
   },
   {
     name: "Quiz",
-    link: "/mystudy/financial-management/quiz",
+    link: "/studiku/quiz",
   },
 ];

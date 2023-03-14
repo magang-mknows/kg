@@ -2,7 +2,7 @@ import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import Loading from "@/components/Loading";
 import BaseLayouts from "@/layouts/Base";
 import { FC, ReactElement, Suspense } from "react";
-import QuizHome from "./components/QuizHome";
+import QuizHome from "./QuizHome";
 import { breadCrumbDummyData } from "./store/dummy-data";
 
 const index: FC = (): ReactElement => {

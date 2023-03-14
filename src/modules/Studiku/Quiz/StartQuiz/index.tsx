@@ -3,7 +3,7 @@ import Loading from "@/components/Loading";
 import BaseLayouts from "@/layouts/Base";
 import { FC, ReactElement, Suspense } from "react";
 import { breadCrumbDummyData } from "../store/dummy-data";
-import QuizMain from "./components/QuizMain";
+import QuizMain from "./QuizStart";
 
 const index: FC = (): ReactElement => {
   const newBreadCrumbData = [

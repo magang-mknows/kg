@@ -2,12 +2,15 @@ import GlobalButton from "@/components/Common/GlobalButton";
 import ContentLayouts from "@/layouts/Content";
 import MainLayouts from "@/layouts/Main";
 import { FC, ReactElement, useState } from "react";
-import { quizQuestions } from "../../store/dummy-data";
+import { quizQuestions } from "../store/dummy-data";
 
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-const QuizMain: FC = (): ReactElement => {
+import { useRouter } from "next/router";
+
+const QuizStart: FC = (): ReactElement => {
+  const router = useRouter();
   // onClick toggle
   const tempArray = quizQuestions[0].choices.map(() => false);
   const [selectedChoice, setSelectedChoice] = useState<boolean[]>(tempArray);
@@ -40,8 +43,7 @@ const QuizMain: FC = (): ReactElement => {
                   type="radio"
                   name="choice"
                   value={choice}
-                  onChange={(e) => {
-                    console.log(e.target.value);
+                  onChange={() => {
                     const newArr = selectedChoice.map(() => false);
                     newArr[i] = true;
                     setSelectedChoice(newArr);
@@ -70,11 +72,16 @@ const QuizMain: FC = (): ReactElement => {
               color="blue"
               className="flex flex-row-reverse"
               icon={<IoIosArrowForward />}
-              onClick={() => setCurrentIndexQuestion((prev) => prev + 1)}
+              onClick={() => {
+                setCurrentIndexQuestion((prev) => prev + 1);
+                if (currentIndexQuestion === quizQuestions.length - 1) {
+                  router.push("/studiku/quiz/nilai-quiz");
+                }
+              }}
             />
           </div>
         </ContentLayouts>
-        {/*  */}
+
         <ContentLayouts withGap={false} className="h-[232px] gap-5">
           <div className="px-[22px] py-4 border border-solid border-[#E5E5E5] rounded-lg">
             <p className="text-base text-black font-bold mb-6">Daftar Soal :</p>
@@ -97,4 +104,4 @@ const QuizMain: FC = (): ReactElement => {
   );
 };
 
-export default QuizMain;
+export default QuizStart;
