@@ -22,7 +22,7 @@ const HeroSection: FC = (): ReactElement => {
 
                 <div>Gratis & Berkualitas</div>
               </div>
-              <p className="text-sm my-4 text-[#525252]">
+              <p className="text-sm my-4 text-[#525252] dark:text-white">
                 Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
                 bagi siapa saja, tanpa terkecuali.
               </p>

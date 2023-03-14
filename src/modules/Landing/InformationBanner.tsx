@@ -9,7 +9,7 @@ import CardDot from "@/assets/card-dot.svg";
 
 const InformationBanner: FC = (): ReactElement => {
   return (
-    <Card className="" img={InfoLanding} imgWidth={"w-full"} imgHeight={"h-full"}>
+    <Card className="mt-[-200px]" img={InfoLanding} imgWidth={"w-full"} imgHeight={"h-full"}>
       <div className="flex flex-col lg:leading-[54px] gap-[14px] lg:gap-[28px] p-[32px] lg:px-[64px] place-content-center relative">
         <h1 className="text-[22px] lg:text-[44px] text-white font-semibold text-center lg:text-start">
           Temukan Kemudahan Belajar dengan Model Pembelajaran Fleksibel yang Inovatif
