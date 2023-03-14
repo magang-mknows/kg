@@ -148,6 +148,16 @@ export const dashboardBreadCumbs = [
     link: "/dashboard",
   },
 ];
+export const acaraKampusBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
+  },
+];
 export const drillSimulation = [
   {
     name: "Home",

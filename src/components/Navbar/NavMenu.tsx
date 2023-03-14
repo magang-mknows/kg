@@ -19,7 +19,7 @@ const NavMenu: FC<NavbarProps> = ({ list }): ReactElement => {
             className={`${
               router.pathname === menu.link
                 ? "bg-[#106FA4] hover:bg-[#0B568D] text-white"
-                : "text-neutral-500 hover:text-[#106FA4]"
+                : "text-neutral-500 dark:text-white/60 hover:text-[#106FA4]"
             } px-4 py-3 rounded-lg text-sm transition-colors ease-in-out duration-300`}
           >
             <li>{menu.name}</li>
