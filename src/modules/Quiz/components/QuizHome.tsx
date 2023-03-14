@@ -10,7 +10,7 @@ const QuizHome: FC = (): ReactElement => {
     <MainLayouts
       withHScreen={false}
       withPadding={false}
-      className="flex flex-col items-center gap-y-[56px] min-h-[705px] px-[20px] md:px-[88px]"
+      className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-16 mb-15"
     >
       <div className="flex flex-col items-center gap-y-[18px] text-center">
         <h1 className="text-4xl font-semibold text-[#171717]">Quiz Manajemen Keuangan</h1>
@@ -55,7 +55,12 @@ const QuizHome: FC = (): ReactElement => {
             </p>
             <p className="">Selamat Mengerjakan!</p>
           </div>
-          <GlobalButton text="Mulai Quiz (Sisa 3)" color="blue" size="regular" />
+          <GlobalButton
+            text="Mulai Quiz (Sisa 3)"
+            color="blue"
+            size="regular"
+            to="/mystudy/financial-management/quiz/start"
+          />
         </div>
       </ContentLayouts>
     </MainLayouts>
