@@ -1,97 +1,38 @@
 import { FC, ReactElement, useState } from "react";
+import Image from "next/image";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { queryOptionSubject, filterOptionSubject } from "@/stores/StudyPlan";
 import MainLayouts from "@/layouts/Main";
+import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import ContentLayouts from "@/layouts/Content";
+import Search from "@/assets/search.svg";
 import Card from "../Common/Card";
 
-import ImgChoiceFaculty from "@/assets/choicefaculty.svg";
-import ImgChoiceFaculty2 from "@/assets/choicefaculty2.svg";
-import ImgChoiceFaculty3 from "@/assets/choicefaculty3.svg";
-import ImgChoiceFaculty4 from "@/assets/choicefaculty4.svg";
-
 const ContentStudyProgram: FC = (): ReactElement => {
-  const data = [
-    {
-      src: ImgChoiceFaculty,
-      deskripsi: "Software Engineering",
-      jumlahmatkul: 14,
-      sks: 131,
-      slug: "/software-engineering",
-    },
-    {
-      src: ImgChoiceFaculty2,
-      deskripsi: "Broadcasting & DKV",
-      jumlahmatkul: 16,
-      sks: 112,
-      slug: "/broadcasting-dkv",
-    },
-    {
-      src: ImgChoiceFaculty3,
-      deskripsi: "Business Inteligence",
-      jumlahmatkul: 10,
-      sks: 144,
-      slug: "/business-inteligence",
-    },
-    {
-      src: ImgChoiceFaculty4,
-      deskripsi: "Data Instructure",
-      jumlahmatkul: 12,
-      sks: 120,
-      slug: "/data-instucture",
-    },
-    {
-      id: 5,
-      src: ImgChoiceFaculty,
-      deskripsi: "Artificial Intellegence",
-      slug: "/artificial-intellegence",
-    },
-  ];
+  const getOptionSubject = useRecoilValue(filterOptionSubject);
+  const [query, setQuery] = useRecoilState(queryOptionSubject);
   const [isClose, setClose] = useState(false);
   return (
     <MainLayouts>
-      <div className="flex p-8 justify-center items-center flex-col">
-        <h3 className="text-xl text-[#737373]">Fakultas</h3>
-        <h1 className="text-3xl text-[#106FA4] p-4">Teknologi Informasi</h1>
-
-        <form>
-          <label
-            htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-          >
-            Search
-          </label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg
-                aria-hidden="true"
-                className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                ></path>
-              </svg>
-            </div>
+      <div className="flex p-8 justify-center px-40 items-center flex-col">
+        <div className="bg-gray-200 dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
+          <div className="flex ml-5 py-4">
+            <Image src={Search} alt={"search"} width={28} />
             <input
-              type="search"
-              id="default-search"
-              className="block w-[100%] px-80 p-4 pl-10 text-sm text-gray-900 rounded-lg bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
+              type={"text"}
+              value={query}
+              className="bg-transparent w-full focus:outline-none"
               placeholder="Cari Mata Kuliah"
-              required
+              onChange={(event) => setQuery(event.target.value)}
             />
           </div>
-        </form>
+        </div>
       </div>
       <ContentLayouts>
         <div
           className={`${
             isClose && "hidden"
-          } flex bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative`}
+          } flex bg-yellow-100 dark:bg-yellow-300 border border-yellow-400 dark:border-yellow-100 dark:text-whitetext-yellow-700 px-4 py-3 rounded relative`}
           role="alert"
         >
           <svg
@@ -126,28 +67,41 @@ const ContentStudyProgram: FC = (): ReactElement => {
           </span>
         </div>
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 pb-40">
-          {data.map((x, i) => (
-            <Card
-              href={"/kontrak-krs" + x.slug}
-              key={i}
-              className="rounded-lg px-3 "
-              hasImage={true}
-              src={x.src}
-              titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
-              icon={
-                <div className="flex flex-row space-x-1 px-4 gap-2">
-                  <div className="lg:h-[22px] text-[#3EB449] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E3FBDA]">
-                    {x.jumlahmatkul} Mata Kuliah
-                  </div>
-                  <div className="lg:h-[22px] text-[#ED3768] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#FEDBD7]">
-                    {x.sks} SKS
-                  </div>
+          <>
+            {getOptionSubject.length === 0 ? (
+              <div className="flex flex-col w-screen h-screen gap-8 justify-center lg:items-center ">
+                <div className="lg:flex hidden h-auto w-auto bg-gray-100 dark:bg-gray-600 rounded-full p-1 lg:p-4">
+                  <Image src={DefaultView} alt="simulasi-null" />
                 </div>
-              }
-            >
-              <div className="text-xl mt-0 text-[#106FA4] w-full">{x.deskripsi}</div>
-            </Card>
-          ))}
+                <h1 className="text-xl font-bold">Tidak Ada Data Program Studi</h1>
+              </div>
+            ) : (
+              <>
+                {getOptionSubject.map((x, i) => (
+                  <Card
+                    href={"/kontrak-krs" + x.slug}
+                    key={i}
+                    className="rounded-lg px-3 "
+                    hasImage={true}
+                    src={x.src}
+                    titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
+                    icon={
+                      <div className="flex flex-row space-x-1 px-4 gap-2">
+                        <div className="lg:h-[22px] text-[#3EB449] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E3FBDA]">
+                          {x.jumlahmatkul} Mata Kuliah
+                        </div>
+                        <div className="lg:h-[22px] text-[#ED3768] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#FEDBD7]">
+                          {x.sks} SKS
+                        </div>
+                      </div>
+                    }
+                  >
+                    <div className="text-xl mt-0 text-[#106FA4] w-full">{x.deskripsi}</div>
+                  </Card>
+                ))}
+              </>
+            )}
+          </>
         </div>
       </ContentLayouts>
     </MainLayouts>
