@@ -31,7 +31,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
       <div
         className={`absolute top-[72px] ${
           !isShow ? "right-[100%]" : "right-0"
-        } transition-all ease-in-out duration-500 w-full bg-white dark:bg-[#106FA4] origin-top`}
+        } transition-all ease-in-out duration-500 w-full bg-red-600 dark:bg-[#106FA4] origin-top`}
       >
         {list.map((item, index) => {
           return (
