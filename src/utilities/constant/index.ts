@@ -178,3 +178,17 @@ export const allFeatures = [
     link: "/semmua-fitur",
   },
 ];
+export const rescheduleSimulationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Simulasi, Drill & Assessment",
+    link: "/simulasi-drill",
+  },
+  {
+    name: "Pengajuan Perubahan Jadwal Simulasi",
+    link: "/perubahan-simulasi",
+  },
+];
