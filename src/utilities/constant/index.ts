@@ -58,6 +58,7 @@ export const publicRoutes = [
   "/ubah-profile",
   "/ubah-password",
   "/event",
+  "/semua-fitur",
 ];
 
 export const assigmentBreadCumbs = [
@@ -155,5 +156,15 @@ export const drillSimulation = [
   {
     name: "Simulasi, Drill & Assessment",
     link: "/simulasi-drill",
+  },
+];
+export const allFeatures = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Semua Fitur",
+    link: "/semmua-fitur",
   },
 ];
