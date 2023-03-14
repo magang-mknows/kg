@@ -1,11 +1,12 @@
+import BaseLayouts from "@/layouts/Base";
 import { FC, ReactElement } from "react";
 import AfterQuiz from "./Quiz/AfterQuiz";
 
 const StudikuModule: FC = (): ReactElement => {
   return (
-    <div>
+    <BaseLayouts>
       <AfterQuiz />
-    </div>
+    </BaseLayouts>
   );
 };
 

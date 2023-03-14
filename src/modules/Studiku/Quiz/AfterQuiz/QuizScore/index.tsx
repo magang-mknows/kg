@@ -32,10 +32,10 @@ const QuizScore: FC = (): ReactElement => {
   };
 
   return (
-    <div className="px-20 py-10 bg-neutral-50 min-h-screen">
+    <div className="px-20 py-14  min-h-screen">
       <section className="py-14 flex gap-44 items-center justify-center">
         <div className="w-64 h-64 relative flex items-center justify-center">
-          <div className="absolute   rounded-full border-8 border-neutral-100/80">
+          <div className="absolute   rounded-full border-8 border-neutral-200/70">
             <Doughnut data={data} options={options} className="p-4" />
           </div>
           <div className="flex flex-col items-center">
@@ -50,7 +50,7 @@ const QuizScore: FC = (): ReactElement => {
           <DetailCard type="totalQuestions" value="10" />
         </div>
       </section>
-      <section className=" flex justify-end px-44 gap-x-6">
+      <section className=" flex justify-end gap-x-6">
         <Button
           text={"Riwayat Quiz"}
           page="/"
