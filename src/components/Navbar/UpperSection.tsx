@@ -33,7 +33,7 @@ const UpperSection: FC = () => {
     <Fragment>
       <section className="flex items-center h-[72px] justify-between border-b-2 px-10 md:px-14 lg:px-20  border-neutral-100 dark:border-[#0c59824f]">
         <Link passHref href={"/"}>
-          <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} className="w-auto" />
+          <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} className="w-full" />
         </Link>
         {isScrollY === "onSticky" && <BottomSection className="dark:bg-transparent" />}
         <section className="flex items-center gap-2 md:gap-3 ">

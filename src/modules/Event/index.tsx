@@ -10,11 +10,11 @@ const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
 const Event: FC = (): ReactElement => {
   return (
-    <BaseLayouts className="lg:px-4">
+    <BaseLayouts>
       <ErrorBoundary fallback={<>Error was Happen</>}>
         <Suspense fallback={<>Loading...</>}>
           <BreadCrumbs items={acaraKampusBreadCumbs} />
-          <div className="px-10 md:px-14 lg:px-20">
+          <div className="w-full px-10 lg:px-20">
             <EventList />
             <RegisteredEvent />
             <EventHistory />
