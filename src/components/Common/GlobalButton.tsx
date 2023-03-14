@@ -62,7 +62,7 @@ const GlobalButton: FC<ButtonProps> = ({
     }`,
   };
   const merged = clsx(
-    "flex gap-x-2 rounded justify-center items-center ",
+    "flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000",
     colorClass[color],
     sizesClass[size],
     className,

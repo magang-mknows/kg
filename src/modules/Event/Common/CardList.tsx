@@ -1,6 +1,6 @@
 import Card from "@/components/Common/Card";
 import { FC, ReactElement } from "react";
-import { CardListProps } from "./types";
+import { CardListProps } from "@/modules/Event/types";
 
 const CardList: FC<CardListProps> = ({
   title,

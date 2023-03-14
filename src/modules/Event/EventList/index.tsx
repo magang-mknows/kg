@@ -1,18 +1,17 @@
 import { FC, Fragment, ReactElement } from "react";
+import CardList from "@/modules/Event/Common/CardList";
+import Pagination from "@/modules/Event/Common/Pagination";
+import SearchBar from "@/modules/Event/Common/SearchBar";
+import SideBar from "@/modules/Event/Common/SideBar";
 
 import ImageEventList from "@/assets/event-list.svg";
 
-import CardList from "./CardList";
-import Pagination from "./Pagination";
-import SearchBar from "./SearchBar";
-import SideBar from "./SideBar";
-
-const RegisteredEvent: FC = (): ReactElement => {
+const EventList: FC = (): ReactElement => {
   const data = [
     {
       src: ImageEventList,
       title: "Webinar Cyber Security",
-      status: "Terdaftar",
+      price: "Gratis",
       day: "Monday",
       date: "28 February 2023",
       slug: "/webinar-cyber-security",
@@ -20,7 +19,7 @@ const RegisteredEvent: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Pembiayaan dan Optimalisasi Bisnis",
-      status: "Terdaftar",
+      price: "Gratis",
       day: "Tuesday",
       date: "28 February 2023",
       slug: "/pembiayaan-optimasi-bisnis",
@@ -28,7 +27,7 @@ const RegisteredEvent: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Japanese Culture",
-      status: "Terdaftar",
+      price: "Gratis",
       day: "Wednesday",
       date: "28 February 2023",
       slug: "/japanese-culture",
@@ -36,7 +35,7 @@ const RegisteredEvent: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Design Digitals",
-      status: "Terdaftar",
+      price: "Gratis",
       day: "Thursday",
       date: "28 February 2023",
       slug: "/design-digital",
@@ -44,7 +43,7 @@ const RegisteredEvent: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Design Digitals",
-      status: "Terdaftar",
+      price: "Gratis",
       day: "Thursday",
       date: "28 February 2023",
       slug: "/design-digital",
@@ -52,7 +51,7 @@ const RegisteredEvent: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Design Digitals",
-      status: "Terdaftar",
+      price: "Gratis",
       day: "Thursday",
       date: "28 February 2023",
       slug: "/design-digital",
@@ -62,7 +61,7 @@ const RegisteredEvent: FC = (): ReactElement => {
     <Fragment>
       <div className="flex flex-row">
         <div className="basis-1/3">
-          <SideBar />
+          <SideBar active="EventList" />
         </div>
         <div className="w-full basis-2/3">
           <SearchBar />
@@ -74,7 +73,7 @@ const RegisteredEvent: FC = (): ReactElement => {
                   slug={item.slug}
                   title={item.title}
                   image={item.src}
-                  status={item.status}
+                  price={item.price}
                   day={item.day}
                   date={item.date}
                 />
@@ -88,4 +87,4 @@ const RegisteredEvent: FC = (): ReactElement => {
   );
 };
 
-export default RegisteredEvent;
+export default EventList;
