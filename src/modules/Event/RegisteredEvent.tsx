@@ -1,16 +1,18 @@
-import ImageEventList from "@/assets/event-list.svg";
 import { FC, Fragment, ReactElement } from "react";
-import SideBar from "./SideBar";
-import SearchBar from "./SearchBar";
+
+import ImageEventList from "@/assets/event-list.svg";
+
 import CardList from "./CardList";
 import Pagination from "./Pagination";
+import SearchBar from "./SearchBar";
+import SideBar from "./SideBar";
 
-const EventList: FC = (): ReactElement => {
+const RegisteredEvent: FC = (): ReactElement => {
   const data = [
     {
       src: ImageEventList,
       title: "Webinar Cyber Security",
-      price: "Gratis",
+      status: "Terdaftar",
       day: "Monday",
       date: "28 February 2023",
       slug: "/webinar-cyber-security",
@@ -18,7 +20,7 @@ const EventList: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Pembiayaan dan Optimalisasi Bisnis",
-      price: "Gratis",
+      status: "Terdaftar",
       day: "Tuesday",
       date: "28 February 2023",
       slug: "/pembiayaan-optimasi-bisnis",
@@ -26,7 +28,7 @@ const EventList: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Japanese Culture",
-      price: "Gratis",
+      status: "Terdaftar",
       day: "Wednesday",
       date: "28 February 2023",
       slug: "/japanese-culture",
@@ -34,7 +36,7 @@ const EventList: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Design Digitals",
-      price: "Gratis",
+      status: "Terdaftar",
       day: "Thursday",
       date: "28 February 2023",
       slug: "/design-digital",
@@ -42,7 +44,7 @@ const EventList: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Design Digitals",
-      price: "Gratis",
+      status: "Terdaftar",
       day: "Thursday",
       date: "28 February 2023",
       slug: "/design-digital",
@@ -50,7 +52,7 @@ const EventList: FC = (): ReactElement => {
     {
       src: ImageEventList,
       title: "Design Digitals",
-      price: "Gratis",
+      status: "Terdaftar",
       day: "Thursday",
       date: "28 February 2023",
       slug: "/design-digital",
@@ -72,7 +74,7 @@ const EventList: FC = (): ReactElement => {
                   slug={item.slug}
                   title={item.title}
                   image={item.src}
-                  price={item.price}
+                  status={item.status}
                   day={item.day}
                   date={item.date}
                 />
@@ -86,4 +88,4 @@ const EventList: FC = (): ReactElement => {
   );
 };
 
-export default EventList;
+export default RegisteredEvent;
