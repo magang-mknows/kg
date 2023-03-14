@@ -9,6 +9,7 @@ import Button from "@/components/Common/Button";
 import { handleError } from "@/utilities/helper";
 import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
+import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
 
 const JobsInformation: FC = (): ReactElement => {
   const schema = z.object({
@@ -27,13 +28,26 @@ const JobsInformation: FC = (): ReactElement => {
   const { setJobStatus, getJobStatus } = useJobInformationStatus();
   const { getPrivateStatus } = usePrivateInformationStatus();
 
+  type ValidationSchema = z.infer<typeof schema>;
   const {
     control,
     handleSubmit,
     formState: { isValid },
-  } = useForm({
+  } = useForm<ValidationSchema>({
     resolver: zodResolver(schema),
     mode: "all",
+    defaultValues: {
+      fathername: "",
+      mothername: "",
+      motherjob: "",
+      fatherincome: "",
+      motherincome: "",
+      ownjob: "",
+      live: "",
+      ownincome: "",
+      collegefeespaidby: "",
+      fatherjob: "",
+    },
   });
 
   const onSubmit = handleSubmit(() => {
@@ -44,6 +58,44 @@ const JobsInformation: FC = (): ReactElement => {
       throw handleError(err);
     }
   });
+
+  const optionFatherJob = [
+    {
+      label: "Pilih pekerjaan ayah",
+      value: "pilih",
+    },
+    {
+      value: "karyawan-swasta",
+      label: "Karyawan Swasta",
+    },
+    {
+      value: "dokter",
+      label: "Dokter",
+    },
+    {
+      value: "guru",
+      label: "Guru",
+    },
+  ];
+
+  const optionMotherJob = [
+    {
+      label: "Pilih pekerjaan ibu",
+      value: "pilih",
+    },
+    {
+      value: "karyawan-swasta",
+      label: "Karyawan Swasta",
+    },
+    {
+      value: "dokter",
+      label: "Dokter",
+    },
+    {
+      value: "guru",
+      label: "Guru",
+    },
+  ];
 
   return (
     <Accordion
@@ -62,6 +114,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"name"}
               required
               placeholder={"Masukan nama ayah"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
 
             <ControlledTextField
@@ -72,27 +125,32 @@ const JobsInformation: FC = (): ReactElement => {
               type={"name"}
               required
               placeholder={"Masukan nama ibu"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
           </div>
-          <div className="w-full">
-            <ControlledTextField
-              name={"fatherjob"}
+          <div className="w-full mt-2">
+            <ControlledSelectField
               control={control}
+              options={optionFatherJob}
+              name={"fatherjob"}
               label={"Pekerjaan Ayah"}
               hasLabel
-              type={"text"}
+              labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               required
-              placeholder={"Pilih pekerjaan ayah"}
+              defaultValue="Pilih pekerjaan ayah"
+              className=" rounded-lg md:mb-5 mb-2 py-2 md:py-3 px-2  outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
 
-            <ControlledTextField
-              name={"motherjob"}
+            <ControlledSelectField
               control={control}
-              hasLabel
+              options={optionMotherJob}
+              name={"motherjob"}
               label={"Pekerjaan Ibu"}
-              type={"text"}
+              hasLabel
+              labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
               required
-              placeholder={"Pilih pekerjaan ibu"}
+              defaultValue="Pilih pekerjaan ibu"
+              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
           </div>
           <div className="w-full">
@@ -104,6 +162,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"number"}
               required
               placeholder={"Masukan penghasilan ayah"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <div className="">
               <ControlledTextField
@@ -114,6 +173,7 @@ const JobsInformation: FC = (): ReactElement => {
                 type={"number"}
                 required
                 placeholder={"Masukan penghailan ibu"}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
               />
             </div>
           </div>
@@ -129,6 +189,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"text"}
               required
               placeholder={"Masukan pekerjaan sendiri"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <ControlledTextField
               name={"live"}
@@ -138,6 +199,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"text"}
               required
               placeholder={"Masukan tinggal dengan"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
           </div>
           <div className="w-full">
@@ -149,6 +211,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"number"}
               required
               placeholder={"Masukan penghasilan sendiri"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <ControlledTextField
               name={"collegefeespaidby"}
@@ -158,6 +221,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"text"}
               required
               placeholder={"Masukan biaya kuliah ditanggung oleh"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <div className="flex w-full my-8 justify-end">
               <Button

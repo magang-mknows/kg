@@ -18,7 +18,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
     placeOfBirth: z.string().min(1, { message: "Tempat lahir harus diisi" }),
     lastEducation: z.string().min(1, { message: "Pendidikan terakhir harus diisi" }),
     dateOfBirth: z.string().min(1, { message: "Tanggal lahir harus diisi" }),
-    phoneNumber: z.string().min(1, { message: "nomor handphone harus diisi" }),
+    phoneNumber: z.string().min(1, { message: "Nomor handphone harus diisi" }),
     nim: z.string().optional(),
     prodi: z.string().optional(),
     semester: z.string().optional(),
@@ -96,7 +96,8 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"fullname"}
                 placeholder={"Masukkan nama lengkap"}
                 required={true}
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
+                labelClassName="block  mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
             <div className="form-label">
@@ -108,7 +109,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 defaultValue="Laki"
                 required={true}
                 options={options}
-                className=" rounded-lg p-4 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+                className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
                 labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -121,6 +122,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"placeOfBirth"}
                 placeholder={"Masukkan tempat lahir"}
                 required
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -133,6 +135,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"address"}
                 placeholder={"Masukkan alamat lengkap"}
                 required={true}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -145,6 +148,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"nim"}
                 placeholder={"masukkan NIM atau NPM (optional)"}
                 required={false}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -157,6 +161,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"prodi"}
                 placeholder={"Masukkan Program Studi (optional)"}
                 required={false}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -171,6 +176,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"email"}
                 placeholder={"Masukkan alamat email"}
                 required={true}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -183,6 +189,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"phoneNumber"}
                 placeholder={"Masukkan nomor handphone"}
                 required={true}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -195,6 +202,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"dateOfBirth"}
                 placeholder={"Masukkan tanggal lahir"}
                 required={true}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -207,6 +215,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"lastEducation"}
                 placeholder={"Masukkan pendidikan terakhir"}
                 required={true}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -219,6 +228,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"university"}
                 placeholder={"Masukkan universitas asal"}
                 required={false}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
@@ -231,6 +241,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 name={"semester"}
                 placeholder={"Masukkan pendidikan terakhir"}
                 required={false}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>

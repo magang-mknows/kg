@@ -1,3 +1,4 @@
+import StudikuModule from "@/modules/Studiku";
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -8,7 +9,7 @@ const AssigmentPages: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<Loading />}>
-        <h1>Nanti diisi konten yaaaa :)</h1>
+        <StudikuModule />
       </Suspense>
     </ErrorBoundary>
   );
