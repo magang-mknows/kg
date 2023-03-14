@@ -4,7 +4,8 @@ export interface CardListProps {
   slug?: string;
   title?: string;
   image?: StaticImageData;
-  price?: number;
+  price?: Gratis | number;
+  status?: Terdaftar | Selesai;
   day?: string;
   date?: Date | string;
 }
