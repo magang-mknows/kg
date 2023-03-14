@@ -114,6 +114,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"name"}
               required
               placeholder={"Masukan nama ayah"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
 
             <ControlledTextField
@@ -124,19 +125,20 @@ const JobsInformation: FC = (): ReactElement => {
               type={"name"}
               required
               placeholder={"Masukan nama ibu"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
           </div>
-          <div className="w-full">
+          <div className="w-full mt-2">
             <ControlledSelectField
               control={control}
               options={optionFatherJob}
               name={"fatherjob"}
               label={"Pekerjaan Ayah"}
               hasLabel
-              labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
+              labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               required
               defaultValue="Pilih pekerjaan ayah"
-              className=" rounded-lg p-4 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+              className=" rounded-lg md:mb-5 mb-2 py-2 md:py-3 px-2  outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
 
             <ControlledSelectField
@@ -148,7 +150,7 @@ const JobsInformation: FC = (): ReactElement => {
               labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
               required
               defaultValue="Pilih pekerjaan ibu"
-              className="rounded-lg p-4 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
           </div>
           <div className="w-full">
@@ -160,6 +162,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"number"}
               required
               placeholder={"Masukan penghasilan ayah"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <div className="">
               <ControlledTextField
@@ -170,6 +173,7 @@ const JobsInformation: FC = (): ReactElement => {
                 type={"number"}
                 required
                 placeholder={"Masukan penghailan ibu"}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
               />
             </div>
           </div>
@@ -185,6 +189,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"text"}
               required
               placeholder={"Masukan pekerjaan sendiri"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <ControlledTextField
               name={"live"}
@@ -194,6 +199,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"text"}
               required
               placeholder={"Masukan tinggal dengan"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
           </div>
           <div className="w-full">
@@ -205,6 +211,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"number"}
               required
               placeholder={"Masukan penghasilan sendiri"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <ControlledTextField
               name={"collegefeespaidby"}
@@ -214,6 +221,7 @@ const JobsInformation: FC = (): ReactElement => {
               type={"text"}
               required
               placeholder={"Masukan biaya kuliah ditanggung oleh"}
+              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
             />
             <div className="flex w-full my-8 justify-end">
               <Button
