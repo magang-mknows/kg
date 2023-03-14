@@ -12,7 +12,7 @@ import icon9 from "@/assets/semuaFitur/icon9.svg";
 import icon10 from "@/assets/semuaFitur/icon10.svg";
 import icon11 from "@/assets/semuaFitur/icon11.svg";
 import icon12 from "@/assets/semuaFitur/icon12.svg";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 
 const DataFitur: { id: number; namaFitur: string; icon: StaticImageData; warna: string; slug: string }[] = [
   { id: 1, namaFitur: "Administrasi", icon: icon1, warna: "#E9F6FD", slug:"/administrasi" },
