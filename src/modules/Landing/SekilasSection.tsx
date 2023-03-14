@@ -16,15 +16,14 @@ const SekilasSection = (): ReactElement => {
             <div className="absoulte z-20 lg:mt-[100px] mt-[20px]">
               <p className="align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
                 <span className="text-[#171717] text-[24px] dark:text-white">Kampus Gratis</span>{" "}
-                merupakan sistem manajemen E-learning yang <br />
-                mencantumkan laporan peningkatan atau progres pembelajaran <br />
-                mahasiswa layaknya seperti perguruan tinggi.{" "}
+                merupakan sistem manajemen E-learning yang mencantumkan laporan peningkatan atau
+                progres pembelajaran mahasiswa layaknya seperti perguruan tinggi.{" "}
               </p>
               <p className="align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] mt-10 dark:text-white ">
-                Pengembangan platform pembelajaran ini merupakan salah satu inisiasi <br /> dari
-                pendiri PT Menara Indonesia atau M-Knows Consulting, yang ingin <br /> memberikan
-                solusi pendidikan tinggi yang gratis, berkualitas, bisa <br /> diakses siapapun
-                khususnya kaum marginal, dan selalu update layaknya <br /> platform Wikipedia.
+                Pengembangan platform pembelajaran ini merupakan salah satu inisiasi dari pendiri PT
+                Menara Indonesia atau M-Knows Consulting, yang inginmemberikan solusi pendidikan
+                tinggi yang gratis, berkualitas, berkualitas diakses siapapun khususnya kaum
+                marginal, dan selalu update layaknya platform Wikipedia.
               </p>
             </div>
             <Image

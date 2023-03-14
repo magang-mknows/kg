@@ -22,8 +22,8 @@ const Footbar: FC = (): ReactElement => {
         dark:bg-[#222529]
         transition-all ease-in-out duration-300"
     >
-      <div className="py-10 mx-5 text-justify  md:text-justify lg:mx-20 md:mx-10 md:py-5 sm:mx-10 xs:mx-10">
-        <div className="grid gap-2  grid-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="py-10 mx-10 text-justify  md:text-justify lg:mx-20 md:mx-14 md:py-5 ">
+        <div className="grid gap-10  grid-1 md:grid-cols-2 lg:grid-cols-4">
           {/* kampus gratis */}
           <div className="text-sm w-full lg:w-[360px]">
             <Image src={LoadConditionalLogo()} className="mb-4  h-19 w-100 sm:h-15" alt="logo" />
@@ -56,10 +56,10 @@ const Footbar: FC = (): ReactElement => {
                   </Link>
                 </div>
               </div>
-              <div className="mt-[-10px] lg:ml-0 sm:ml-[-10px]">
+              <div className="mt-[-10px] flex justify-end">
                 <a href="" className="">
                   <Image
-                    className="lg:w-[162px] lg:h-[62px]"
+                    className="lg:w-full lg:h-[62px]"
                     src={GooglePlayStore}
                     alt="Google Play Store"
                   />
