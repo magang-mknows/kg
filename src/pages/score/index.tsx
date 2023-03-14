@@ -1,12 +1,18 @@
-import Score from "@/modules/Score";
-import { FC, ReactElement } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
-const index: FC = (): ReactElement => {
+const Score = lazy(() => import("@/modules/Score"));
+
+const ScorePage: NextPage = (): ReactElement => {
   return (
-    <>
-      <Score />
-    </>
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <Score />
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 
-export default index;
+export default ScorePage;

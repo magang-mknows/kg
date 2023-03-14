@@ -1,12 +1,18 @@
-import EventList from "@/modules/Event/EventList";
-import { FC, Fragment, ReactElement } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
-const Index: FC = (): ReactElement => {
+const EventList = lazy(() => import("@/modules/Event/EventList"));
+
+const EventPage: NextPage = (): ReactElement => {
   return (
-    <Fragment>
-      <EventList />
-    </Fragment>
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <EventList />
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 
-export default Index;
+export default EventPage;

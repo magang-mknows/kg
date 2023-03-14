@@ -1,8 +1,18 @@
-import EditProfile from "@/modules/Profile/EditProfileSection";
-import React, { FC, ReactElement } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
-const Index: FC = (): ReactElement => {
-  return <EditProfile />;
+const EditProfile = lazy(() => import("@/modules/Profile/EditProfileSection"));
+
+const EditProfilPage: NextPage = (): ReactElement => {
+  return (
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <EditProfile />
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
 
-export default Index;
+export default EditProfilPage;

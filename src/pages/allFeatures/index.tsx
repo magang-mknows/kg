@@ -1,8 +1,18 @@
-import AllFeatures from "@/modules/AllFeatures";
-import React, { FC, ReactElement } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
-const Index: FC = (): ReactElement => {
-  return <AllFeatures />;
+const AllFeatures = lazy(() => import("@/modules/AllFeatures"));
+
+const AllFeaturesPage: NextPage = (): ReactElement => {
+  return (
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <AllFeatures />
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
 
-export default Index;
+export default AllFeaturesPage;
