@@ -1,18 +1,18 @@
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
+import { ErrorBoundary } from "react-error-boundary";
 
-const DetailContractStudy = lazy(() => import("@/modules/StudyPlan/DetailKontrak"));
+const ContractStudy = lazy(() => import("@/modules/StudyPlan/ContractStudy"));
 
-const DetailContract: NextPage = (): ReactElement => {
+const ContractPages: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<Loading />}>
-        <DetailContractStudy />
+        <ContractStudy />
       </Suspense>
     </ErrorBoundary>
   );
 };
 
-export default DetailContract;
+export default ContractPages;

@@ -6,22 +6,27 @@ export const navbarMenu = [
     link: "/dashboard",
   },
   {
+    name: "Studi-ku",
+    link: "/studiku",
+  },
+  {
     name: "Penugasan",
-    link: "/assigment",
+    link: "/penugasan",
   },
   {
     name: "Rencana Studi",
-    link: "/studyplan",
+    link: "/rencana-studi",
   },
   {
     name: "Nilai & Sertifikat",
-    link: "/score",
+    link: "/nilai-sertifikat",
   },
 ];
 
 export const featureList = [
   { link: "/", name: "Administrasi" },
   { link: "/", name: "Rencana Study" },
+  { link: "/", name: "Studi-ku" },
   { link: "/", name: "Program Study" },
   { link: "/", name: "Pelatihan-ku" },
   { link: "/", name: "Nilai & Sertifikat" },
@@ -40,17 +45,18 @@ export const publicRoutes = [
   "/auth/login",
   "/auth/register",
   "/auth/forgot",
-  "/assigment",
+  "/penugasan",
   "/dashboard",
-  "/administration",
-  "/studyplan",
-  "/contract",
-  "/studyprogram",
-  "/score",
+  "/studiku",
+  "/administrasi",
+  "/rencana-studi",
+  "/kontrak-krs",
+  "/program-studi",
+  "/nilai-sertifikat",
   "/detail",
-  "/drill-simulation",
-  "/edit-profile",
-  "/reset-password",
+  "/drill-simulasi",
+  "/ubah-profile",
+  "/ubah-password",
   "/event",
 ];
 
@@ -61,7 +67,7 @@ export const assigmentBreadCumbs = [
   },
   {
     name: "Penugasan",
-    link: "/assigment",
+    link: "/penugasan",
   },
 ];
 
@@ -72,7 +78,7 @@ export const administrationBreadCumbs = [
   },
   {
     name: "Administrasi",
-    link: "/administration",
+    link: "/administrasi",
   },
 ];
 
@@ -83,7 +89,7 @@ export const studyPlanBreadCumbs = [
   },
   {
     name: "Fakultas",
-    link: "/studyplan",
+    link: "/rencana-studi",
   },
 ];
 
@@ -94,11 +100,11 @@ export const studyProgramBreadCumbs = [
   },
   {
     name: "Fakultas",
-    link: "/studyplan",
+    link: "/rencana-studi",
   },
   {
     name: "Program Studi",
-    link: "/studyprogram",
+    link: "/program-studi",
   },
 ];
 
@@ -109,15 +115,15 @@ export const contractStudyBreadCumbs = [
   },
   {
     name: "Fakultas",
-    link: "/studyplan",
+    link: "/rencana-studi",
   },
   {
     name: "Program Studi",
-    link: "/studyprogram",
+    link: "/program-studi",
   },
   {
     name: "Kontrak KRS",
-    link: "/contract",
+    link: "/kontrak-krs",
   },
 ];
 
@@ -128,7 +134,7 @@ export const scoreBreadCumbs = [
   },
   {
     name: "Nilai & Sertfikat",
-    link: "/score",
+    link: "/nilai-sertifikat",
   },
 ];
 export const dashboardBreadCumbs = [
@@ -148,6 +154,6 @@ export const drillSimulation = [
   },
   {
     name: "Simulasi, Drill & Assessment",
-    link: "/drill-simulation",
+    link: "/simulasi-drill",
   },
 ];

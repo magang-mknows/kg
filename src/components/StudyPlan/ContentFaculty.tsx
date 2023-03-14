@@ -42,7 +42,7 @@ const ContentFaculty: FC = (): ReactElement => {
         {data.map((x, i) => (
           <Card
             key={i}
-            href={"/studyprogram/" + x.slug}
+            href={"/program-studi/" + x.slug}
             className="px-3 rounded-lg "
             hasImage={true}
             src={x.src}

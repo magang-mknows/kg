@@ -10,7 +10,6 @@ import Image from "next/image";
 
 import { LoadConditionalLogo } from "@/utilities/helper/index";
 import GlobalButton from "../Common/GlobalButton";
-import Footer from "@/components/Common/Footer";
 
 const Footbar: FC = (): ReactElement => {
   return (
@@ -158,8 +157,6 @@ const Footbar: FC = (): ReactElement => {
       </div>
 
       <hr className="py-5  lg:mx-20 md:mx-10 md:py-2 sm:mx-10 xs:mx-10" />
-
-      <Footer />
     </footer>
   );
 };

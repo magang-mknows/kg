@@ -1,12 +1,18 @@
 import StudikuModule from "@/modules/Studiku";
-import { FC, Fragment, ReactElement } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
-const index: FC = (): ReactElement => {
+const Loading = lazy(() => import("@/components/Loading"));
+
+const AssigmentPages: NextPage = (): ReactElement => {
   return (
-    <Fragment>
-      <StudikuModule />
-    </Fragment>
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <StudikuModule />
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 
-export default index;
+export default AssigmentPages;
