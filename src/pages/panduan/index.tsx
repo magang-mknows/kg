@@ -1,11 +1,17 @@
-import Landing from "@/modules/Panduan";
-import React, { FC, ReactElement } from "react";
+import type { NextPage } from "next";
+import { lazy, ReactElement, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import Loading from "@/components/Loading";
 
-const Panduan: FC = (): ReactElement => {
+const Landing = lazy(() => import("@/modules/Panduan"));
+
+const Panduan: NextPage = (): ReactElement => {
   return (
-    <div>
-      <Landing />
-    </div>
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <Suspense fallback={<Loading />}>
+        <Landing />
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 

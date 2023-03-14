@@ -1,5 +1,5 @@
 import BaseLayouts from "@/layouts/Base";
-import React, { FC, lazy, ReactElement, Suspense } from "react";
+import { FC, lazy, ReactElement, Suspense } from "react";
 import { administrationBreadCumbs } from "@/utilities/constant";
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import TitleAdministration from "./TitleAdministration";

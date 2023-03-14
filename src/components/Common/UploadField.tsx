@@ -4,6 +4,7 @@ import { AiFillWarning } from "react-icons/ai";
 
 const UploadField: FC<UploadFieldProps> = forwardRef(
   (props, ref: Ref<HTMLInputElement>): ReactElement => {
+    console.log(props.files);
     return (
       <section className="flex flex-col mb-6">
         {props.hasLabel && (

@@ -12,7 +12,7 @@ const InformationBanner = lazy(() => import("@/modules/Landing/InformationBanner
 const PromotionBanner = lazy(() => import("@/modules/Landing/PromotionBanner"));
 const InformationSection = lazy(() => import("@/modules/Landing/InformationSection"));
 const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgram"));
-const Event = lazy(() => import("@/modules/Event"));
+const Footbar = lazy(() => import("@/components/Footbar"));
 
 const Landing: FC = (): ReactElement => {
   return (
@@ -28,7 +28,7 @@ const Landing: FC = (): ReactElement => {
           <TestimonySection />
           <InformationSection />
           <PromotionBanner />
-          <Event />
+          <Footbar />
         </Suspense>
       </ErrorBoundary>
     </BaseLayouts>
