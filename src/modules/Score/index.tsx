@@ -17,7 +17,7 @@ const Score: FC = (): ReactElement => {
   return (
     <Fragment>
       <Navbar />
-      <section className="py-1 bg-[#FAFAFA]">
+      <section className="py-1 bg-[#FAFAFA] dark:bg-gray-900">
         <Suspense fallback={<Loading />}>
           <BreadCrumbs items={scoreBreadCumbs} />
         </Suspense>

@@ -47,7 +47,7 @@ const ThemeToggle: FC = (): ReactElement => {
   return (
     <Menu as="div" className="relative inline-block text z-50 ">
       <Menu.Button>
-        <div className="bg-neutral-200 h-9 w-9 flex items-center justify-center  overflow-hidden rounded-md cursor-pointer group">
+        <div className="bg-neutral-200 dark:bg-[#106FA4] h-9 w-9 flex items-center justify-center  overflow-hidden rounded-md cursor-pointer group">
           <Icon />
         </div>
       </Menu.Button>

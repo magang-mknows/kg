@@ -17,6 +17,7 @@ const TextField: FC<TextFieldProps> = forwardRef(
       warning,
       hasLabel,
       required,
+      className,
     }: TextFieldProps,
     ref: Ref<HTMLInputElement>,
   ): ReactElement => {
@@ -59,7 +60,7 @@ const TextField: FC<TextFieldProps> = forwardRef(
             !success &&
             "focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300"
           }
-
+          ${className}
             rounded-lg py-1 px-2 outline-none focus:outline-none
           `}
           placeholder={placeholder}

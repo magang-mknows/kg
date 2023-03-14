@@ -12,8 +12,8 @@ const ContentSection: FC = (): ReactElement => {
   const { getAssigment } = useAssigment();
 
   return (
-    <section className="lg:px-20 md:px-10 px-5 py-3 w-full mt-[36px] drop-shadow-md mb-3">
-      <div className="   bg-white h-full  rounded-[8px] ">
+    <section className="lg:px-20 md:px-10 px-5 py-3 w-full mt-[36px] drop-shadow-md mb-3 min-h-screen">
+      <div className="   bg-white h-full   rounded-[8px] dark:bg-gray-800 ">
         <div className="text-[20px] font-semibold text-center text-[#262626] border-b border-gray-200 hover:text-[#000] px-[50px] mb-10">
           <ul className="flex flex-wrap ">
             <li className="mr-2">
@@ -21,9 +21,9 @@ const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == "semua-tugas"
-                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2"
+                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
                       : ""
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
                   aria-current="page"
                   onClick={() => setactive("semua-tugas")}
                 >
@@ -36,9 +36,9 @@ const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == "ditugaskan"
-                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2"
+                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
                       : ""
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  dark:text-white `}
                   aria-current="page"
                   onClick={() => setactive("ditugaskan")}
                 >
@@ -51,9 +51,9 @@ const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == "terlambat"
-                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2"
+                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
                       : ""
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
                   aria-current="page"
                   onClick={() => setactive("terlambat")}
                 >
@@ -66,9 +66,9 @@ const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == "sedang-dinilai"
-                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2"
+                      ? "text-[#0B568D] border-[#ffff] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
                       : ""
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white `}
                   aria-current="page"
                   onClick={() => setactive("sedang-dinilai")}
                 >
@@ -81,9 +81,9 @@ const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == "selesai"
-                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2"
+                      ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
                       : ""
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300`}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white`}
                   aria-current="page"
                   onClick={() => setactive("selesai")}
                 >
