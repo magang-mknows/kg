@@ -128,7 +128,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 pb-40">
           {data.map((x, i) => (
             <Card
-              href={"/contract" + x.slug}
+              href={"/kontrak-krs" + x.slug}
               key={i}
               className="rounded-lg px-3 "
               hasImage={true}
