@@ -22,18 +22,18 @@ const HeroSection: FC = (): ReactElement => {
 
                 <div>Gratis & Berkualitas</div>
               </div>
-              <p className="text-sm my-4 text-[#525252]">
+              <p className="text-sm my-4 text-[#525252] dark:text-white">
                 Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
                 bagi siapa saja, tanpa terkecuali.
               </p>
 
-              <button className="font-semibold bg-[#3EB449] w-[160px] h-[40px] lg:w-[250px] lg:h-[56px] sm:w-[200px] sm:h-[40px] text-white rounded-[8px] justify-items-end text-sm">
+              <button className="font-semibold bg-[#3EB449] w-full h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] justify-items-end text-sm">
                 Coba Sekarang - Gratis
               </button>
             </div>
           </ContentLayouts>
 
-          <ContentLayouts className="sm:flex-col md:flex-col w-full xl:mt-0 lg:mt-[-80px] md:mt-[-60px] sm:mt-[-80px] xs:mt-[-100px] md:justify-start sm:justify-start xs:justify-start ">
+          <ContentLayouts className="sm:flex-col md:flex-col w-full xl:mt-0 lg:mt-[-80px] md:mt-[20px] sm:mt-[20px] xs:mt-[-100px] md:justify-start sm:justify-start xs:justify-start ">
             <div>
               <Image
                 src={ImageLanding}
