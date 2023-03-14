@@ -1,8 +1,6 @@
-import { atom } from "recoil";
-import { OptionFaculty } from "./type";
+import { atom, selector } from "recoil";
+import { OptionFaculty, OptionSubject } from "./type";
 // import ImgChoiceFaculty2 from "@/assets/choicefaculty2.svg";
-// import ImgChoiceFaculty3 from "@/assets/choicefaculty3.svg";
-// import ImgChoiceFaculty4 from "@/assets/choicefaculty4.svg";
 
 export const optionFacultyState = atom<Array<OptionFaculty>>({
   key: "option-faculty-state",
@@ -14,17 +12,32 @@ export const optionFacultyState = atom<Array<OptionFaculty>>({
     //   jumlahstudi: 6,
     //   slug: "/pembiayaan-optimasi-bisnis",
     // },
-    // {
-    //   src: ImgChoiceFaculty3,
-    //   deskripsi: "Japanese Culture",
-    //   jumlahstudi: 4,
-    //   slug: "/japanese-culture",
-    // },
-    //   {
-    //     src: ImgChoiceFaculty4,
-    //     deskripsi: "Design Digitals",
-    //     jumlahstudi: 4,
-    //     slug: "/design-digital",
-    //   },
   ],
+});
+
+export const optionSubjectState = atom<Array<OptionSubject>>({
+  key: "option-subject-state",
+  default: [
+    // {
+    //   src: ImgChoiceFaculty2,
+    //   deskripsi: "Software Engineering",
+    //   jumlahmatkul: 14,
+    //   sks: 131,
+    //   slug: "/software-engineering",
+    // },
+  ],
+});
+
+//seacrch
+export const queryOptionSubject = atom({
+  key: "query-option-subject",
+  default: "",
+});
+
+export const filterOptionSubject = selector({
+  key: "filter-option-subject",
+  get: ({ get }) =>
+    get(optionSubjectState).filter((item) =>
+      item.deskripsi.toLowerCase().includes(get(queryOptionSubject).toLowerCase()),
+    ),
 });

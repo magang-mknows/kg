@@ -33,7 +33,7 @@ const InformationSection: FC = (): ReactElement => {
           return (
             <Card
               key={i}
-              href="/informasi/detail"
+              href="/sekilas-ilmu"
               className="border rounded-lg px-3 shadow-md"
               src={Dummy}
               icon={

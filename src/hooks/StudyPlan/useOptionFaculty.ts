@@ -8,9 +8,9 @@ type OptionFacultyTypes = {
 };
 
 export const useOptionFaculty = (): OptionFacultyTypes => {
-  const [getHistory, setHistory] = useRecoilState(optionFacultyState);
+  const [getOptionFaculty, setOptionFaculty] = useRecoilState(optionFacultyState);
   return {
-    setOptionFaculty: (val: Array<OptionFaculty>) => setHistory(val),
-    getOptionFaculty: getHistory,
+    setOptionFaculty: (val: Array<OptionFaculty>) => setOptionFaculty(val),
+    getOptionFaculty: getOptionFaculty,
   };
 };

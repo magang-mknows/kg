@@ -23,17 +23,17 @@ const Icon: FC = (): ReactElement => {
         {theme === "dark" ? (
           <BsFillMoonStarsFill
             size={20}
-            className="text-neutral-800 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
+            className="text-neutral-800 dark:text-white dark:group-hover:text-neutral-200 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
           />
         ) : theme === "light" ? (
           <BiSun
             size={20}
-            className="text-neutral-800 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
+            className="text-neutral-800 dark:text-white dark:group-hover:text-neutral-200 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
           />
         ) : (
           <RiComputerLine
             size={20}
-            className="text-neutral-800 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
+            className="text-neutral- dark:text-white dark:group-hover:text-neutral-200 stroke-neutral-800 group-hover:text-[#106FA4] transition-colors ease-in-out duration-300"
           />
         )}
       </Suspense>
