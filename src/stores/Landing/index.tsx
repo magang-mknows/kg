@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 import { Info } from "./type";
 
 export const InformationState = atom<Array<Info>>({
