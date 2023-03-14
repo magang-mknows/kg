@@ -73,7 +73,7 @@ const DataFitur: {
 
 const Features: FC = (): ReactElement => {
   //ini buat di filter tp masi error jd blm dilanjutin
-  const [fitur, setFitur] = useState(DataFitur);
+  const [feature, setFeature] = useState(DataFitur);
   return (
     <>
       <section className="pt-5 px-[72px] bg-white w-full">
@@ -97,7 +97,7 @@ const Features: FC = (): ReactElement => {
         </div>
 
         <div className="grid grid-cols-12 gap-x-[40px] gap-y-[34px]">
-          {fitur.map((fitur) => {
+          {feature.map((fitur) => {
             // fitur.filter("Administrasi")
             return (
               <div
