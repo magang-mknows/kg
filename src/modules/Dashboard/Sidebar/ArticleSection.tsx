@@ -13,26 +13,21 @@ const ArticleSection: FC = (): ReactElement => {
   ];
   return (
     <Fragment>
-      <div className="md:max-w-[370px]w">
-        <div className="flex flex-row items-center justify-between py-2">
-          <h1 className="text-[20px]">Artikel</h1>
-          <Link className="text-[14px] text-[#106FA4]" href={"/"}>
+      <div className=" w-full  ">
+        <div className="flex flex-row items-center justify-between mb-4">
+          <h1 className="text-[20px]">Sekilas Ilmu</h1>
+          <Link className="text-[14px] text-[#106FA4] dark:text-[#17A2B8]" href={"/"}>
             Lihat Detail
           </Link>
         </div>
-        <Carousel
-          className="md:max-w-[370px]"
-          showIndicators={true}
-          showStatus={false}
-          showArrows={false}
-        >
+        <Carousel className="w-full" showIndicators={true} showStatus={false} showArrows={false}>
           {Mitra.map((x, i) => (
-            <div key={i} className="flex flex-col justify-center shadow-md">
-              <div className="block max-w-sm rounded-lg bg-neutral-100 dark:bg-neutral-700">
-                <Image src={x.image} className="w-full rounded-t-lg" alt="Image" />
+            <div key={i} className="flex flex-col justify-center shadow-md dark:shadow-sm">
+              <div className="block w-full rounded-lg bg-neutral-100 dark:bg-neutral-700">
+                <Image src={x.image} className="w-full object-fill rounded-t-lg" alt="Image" />
               </div>
-              <div className="bg-white text-start md:max-w-[370px] p-2 mb-10 rounded-lg">
-                <h1 className="font-[16px] medium  text-black dark:text-neutral-50">{x.text}</h1>
+              <div className="bg-white dark:bg-[#1B1E21]   text-start w-full px-7 py-4 mb-10 rounded-lg">
+                <h1 className="font-[16px] medium  text-black dark:text-yellow-500">{x.text}</h1>
                 <div className="flex flex-row items-center gap-x-2 font-normal text-[12px] text-[#A3A3A3] dark:text-neutral-200">
                   <p className="">Artikel Teknologi</p>
                   <svg

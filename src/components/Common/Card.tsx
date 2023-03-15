@@ -24,7 +24,7 @@ const Card: FC<CardProps> = ({
           <div className={`${className} flex auto p-4 flex-col`} onClick={() => onClick}>
             {hasImage && (
               <Image
-                className={`w-full object-cover ${imgStyle}`}
+                className={`object-cover ${imgStyle}`}
                 src={src}
                 alt="Picture of the author"
                 width={imgwidth}

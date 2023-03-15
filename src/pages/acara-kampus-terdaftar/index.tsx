@@ -15,7 +15,7 @@ const EventPage: NextPage = (): ReactElement => {
       <ErrorBoundary fallback={<>Error was happen</>}>
         <Suspense fallback={<Loading />}>
           <BreadCrumbs items={acaraKampusBreadCumbs} />
-          <div className="w-full lg:px-20">
+          <div className="w-full px-6 md:px-8 lg:px-10">
             <RegisteredEvent />
           </div>
         </Suspense>
