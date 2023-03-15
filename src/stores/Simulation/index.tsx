@@ -49,6 +49,11 @@ export const historySimulationsState = atom<Array<HistorySimulation>>({
   ],
 });
 
+export const rescheduleSimulasiState = atom({
+  key: "reschedule-simulasi-state",
+  default: "",
+});
+
 // seacrh
 export const queryScheduleSimulation = atom({
   key: "query-schedule-simulation",
