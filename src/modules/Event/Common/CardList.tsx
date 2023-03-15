@@ -13,7 +13,7 @@ const CardList: FC<CardListProps> = ({
 }): ReactElement => {
   return (
     <Card
-      className="w-full bg-white rounded-lg h-fit"
+      className="w-full bg-white rounded-lg dark:bg-[#1b1e21] h-fit"
       title={title}
       titleStyle="text-[16px]"
       src={image}
