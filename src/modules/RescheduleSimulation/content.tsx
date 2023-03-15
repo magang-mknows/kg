@@ -12,6 +12,7 @@ const Content: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   const { getRescheduleSimulation, setRescheduleSimulation } = useRescheduleSimulation();
 
+
   const tes = [
     {
       date: "Senin, 12 Juli 2021",
@@ -83,6 +84,7 @@ const Content: FC = (): ReactElement => {
                 >
                   {items.date}
                 </p>
+
               </button>
             ))}
           </div>
