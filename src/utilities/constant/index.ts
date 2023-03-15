@@ -83,6 +83,17 @@ export const administrationBreadCumbs = [
   },
 ];
 
+export const myStudyBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studiku",
+  },
+];
+
 export const studyPlanBreadCumbs = [
   {
     name: "Home",
@@ -91,6 +102,25 @@ export const studyPlanBreadCumbs = [
   {
     name: "Fakultas",
     link: "/rencana-studi",
+  },
+];
+
+export const quizBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studiku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studiku/quiz",
+  },
+  {
+    name: "Quiz",
+    link: "/studiku/quiz",
   },
 ];
 

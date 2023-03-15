@@ -2,7 +2,7 @@ import GlobalButton from "@/components/Common/GlobalButton";
 import ContentLayouts from "@/layouts/Content";
 import MainLayouts from "@/layouts/Main";
 import { FC, ReactElement, useState } from "react";
-import { quizQuestions } from "../store/dummy-data";
+import { useQuizQuestion } from "@/hooks/MyStudy/useQuizQuestion";
 
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
@@ -10,9 +10,10 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
 
 const QuizStart: FC = (): ReactElement => {
+  const { getData } = useQuizQuestion();
   const router = useRouter();
   // onClick toggle
-  const tempArray = quizQuestions[0].choices.map(() => false);
+  const tempArray = getData[0].choices.map(() => false);
   const [selectedChoice, setSelectedChoice] = useState<boolean[]>(tempArray);
   // current index state
   const [currentIndexQuestion, setCurrentIndexQuestion] = useState<number>(0);
@@ -25,10 +26,10 @@ const QuizStart: FC = (): ReactElement => {
           className="justify-between items-center py-[44px] px-[51px] min-w-[780px] min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg"
         >
           <p className="text-black text-xl font-semibold max-w-[680px]">
-            {currentIndexQuestion + 1}. {quizQuestions[currentIndexQuestion].question}
+            {currentIndexQuestion + 1}. {getData[currentIndexQuestion].question}
           </p>
           <div className="flex flex-col justify-between w-[540px] h-[320px]">
-            {quizQuestions[currentIndexQuestion].choices.map((choice, i) => (
+            {getData[currentIndexQuestion].choices.map((choice: any, i: any) => (
               <div
                 key={i}
                 className={`${
@@ -74,7 +75,7 @@ const QuizStart: FC = (): ReactElement => {
               icon={<IoIosArrowForward />}
               onClick={() => {
                 setCurrentIndexQuestion((prev) => prev + 1);
-                if (currentIndexQuestion === quizQuestions.length - 1) {
+                if (currentIndexQuestion === getData.length - 1) {
                   router.push("/studiku/quiz/nilai-quiz");
                 }
               }}

@@ -3,13 +3,13 @@ import Loading from "@/components/Loading";
 import BaseLayouts from "@/layouts/Base";
 import { FC, ReactElement, Suspense } from "react";
 import QuizHome from "./QuizHome";
-import { breadCrumbDummyData } from "./store/dummy-data";
+import { quizBreadCumbs } from "@/utilities/constant";
 
 const index: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
       <Suspense fallback={<Loading />}>
-        <BreadCrumb items={breadCrumbDummyData} />
+        <BreadCrumb items={quizBreadCumbs} />
         <QuizHome />
       </Suspense>
     </BaseLayouts>
