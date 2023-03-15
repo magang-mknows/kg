@@ -12,7 +12,7 @@ const Event: FC = (): ReactElement => {
       <ErrorBoundary fallback={<>Error was Happen</>}>
         <Suspense fallback={<>Loading...</>}>
           <BreadCrumbs items={acaraKampusBreadCumbs} />
-          <div className="w-full px-20">
+          <div className="w-full lg:px-20">
             <EventList />
           </div>
         </Suspense>
