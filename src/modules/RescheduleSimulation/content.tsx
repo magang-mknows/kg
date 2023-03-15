@@ -1,10 +1,14 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import Image from "next/image";
 import rescheduleSimulasi from "@/assets/rescheduleSimulasi/dummyReschedule.svg";
 import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
 import calendar from "@/assets/rescheduleSimulasi/calendar.svg";
+import afternoon from "@/assets/rescheduleSimulasi/afternoon.svg";
+import checklist from "@/assets/rescheduleSimulasi/checklist.svg";
+import Accordion from "@/components/Simulasion/Accordion";
 
 const content: FC = (): ReactElement => {
+  const [isOpen, setIsOpen] = useState("");
   const tes = [
     {
       src: rescheduleSimulasi,
@@ -77,11 +81,14 @@ const content: FC = (): ReactElement => {
                 </button>
               ))}
             </div>
-            {/* <Accordion
-              title="Informasi Pekerjaan"
-              idAccordion={"sore" ? "" : "sore"}
-              disabled={"sore" ? ("sore" ? true : false) : true}
-            /> */}
+
+            <Accordion title="Sore" iconImage={afternoon} idAccordion={isOpen == "" ? "open" : ""}>
+              <button className="flex flex-row text-center  gap-2 outline bg-white p-2 rounded-[8px] outline-slate-400">
+                <Image src={checklist} alt={"icon"} className="mt-0" />
+                <p className="text-[#525252] font-[500] text-[12px]">16.30</p>
+              </button>
+            </Accordion>
+
             <div className="flex justify-end mt-3">
               <button className="bg-[#FAB317] text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4">
                 Ajukan Perubahan Jadwal
