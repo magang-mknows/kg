@@ -3,6 +3,7 @@ import Image from "next/image";
 import rescheduleSimulasi from "@/assets/rescheduleSimulasi/dummyReschedule.svg";
 import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
 import calendar from "@/assets/rescheduleSimulasi/calendar.svg";
+import Accordion from "@/components/Administration/Accordion";
 
 const content: FC = (): ReactElement => {
   const tes = [
@@ -77,6 +78,11 @@ const content: FC = (): ReactElement => {
                 </button>
               ))}
             </div>
+            {/* <Accordion
+              title="Informasi Pekerjaan"
+              idAccordion={"sore" ? "" : "sore"}
+              disabled={"sore" ? ("sore" ? true : false) : true}
+            /> */}
             <div className="flex justify-end mt-3">
               <button className="bg-[#FAB317] text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4">
                 Ajukan Perubahan Jadwal
