@@ -8,7 +8,7 @@ import checklist from "@/assets/rescheduleSimulasi/checklist.svg";
 import Accordion from "@/components/Simulasion/Accordion";
 import { useRescheduleSimulation } from "@/hooks/Simulation/useRescheduleSimulation";
 
-const content: FC = (): ReactElement => {
+const Content: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   const { getRescheduleSimulation, setRescheduleSimulation } = useRescheduleSimulation();
 
@@ -105,4 +105,4 @@ const content: FC = (): ReactElement => {
   );
 };
 
-export default content;
+export default Content;

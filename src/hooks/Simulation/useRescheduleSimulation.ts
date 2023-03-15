@@ -1,5 +1,5 @@
-import { useRecoilState } from "recoil"
-import { rescheduleSimulasiState } from "@/stores/Simulation"
+import { useRecoilState } from "recoil";
+import { rescheduleSimulasiState } from "@/stores/Simulation";
 
 type RescheduleSimulationTypes = {
     setRescheduleSimulation: (val: string) => void;
@@ -11,5 +11,5 @@ export const useRescheduleSimulation = (): RescheduleSimulationTypes => {
     return{
         setRescheduleSimulation: (val: string) => setReschedule(val),
         getRescheduleSimulation: getReschedule,
-    }
-}
+    };
+};
