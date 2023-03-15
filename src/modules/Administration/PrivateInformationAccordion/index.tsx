@@ -42,7 +42,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      gender: "P",
+      gender: "",
       email: "",
       address: "",
       nim: "",
@@ -67,7 +67,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
     }
   });
 
-  const options = [
+  const optionsGender = [
+    {
+      value: "pilih",
+      label: "Pilih jenis kelamin",
+    },
     {
       value: "P",
       label: "Perempuan",
@@ -75,6 +79,45 @@ const PrivateInformationSection: FC = (): ReactElement => {
     {
       value: "L",
       label: "Laki - Laki",
+    },
+  ];
+
+  const optionsLastEducation = [
+    {
+      value: "pilih",
+      label: "Pilih pendidikan terakhir",
+    },
+    {
+      value: "NA",
+      label: "Tidak lulus SD / belum tamat SD",
+    },
+    {
+      value: "ELEMENTARY",
+      label: "Tamat SD / setingkat",
+    },
+    {
+      value: "HIGHSCHOOL",
+      label: "Tamat SMP / setingkat",
+    },
+    {
+      value: "SENIORHS",
+      label: "Tamat SMA / setingkat",
+    },
+    {
+      value: "DIPLOMA",
+      label: "Diploma 1 / 2 / 3",
+    },
+    {
+      value: "BACHELOR",
+      label: "Sarjana (S1)",
+    },
+    {
+      value: "MAGISTRATE",
+      label: "Magister (S2)",
+    },
+    {
+      value: "DOCTORATE",
+      label: "Doktor (S3)",
     },
   ];
 
@@ -106,9 +149,9 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 hasLabel
                 label="Jenis Kelamin"
                 name="gender"
-                defaultValue="Laki"
+                defaultValue="Pilih jenis kelamin"
                 required={true}
-                options={options}
+                options={optionsGender}
                 className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
                 labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               />
@@ -207,16 +250,16 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <ControlledTextField
-                hasLabel
+              <ControlledSelectField
                 control={control}
-                type={"lastEducation"}
-                label={"Pendidikan Terakhir"}
-                name={"lastEducation"}
-                placeholder={"Masukkan pendidikan terakhir"}
+                hasLabel
+                label="Pendidikan Terakhir"
+                name="lastEducation"
+                defaultValue="Pilih pendidikan terakhir"
                 required={true}
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                options={optionsLastEducation}
+                className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+                labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
             <div className="form-label">
