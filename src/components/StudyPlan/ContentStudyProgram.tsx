@@ -5,7 +5,7 @@ import { queryOptionSubject, filterOptionSubject } from "@/stores/StudyPlan";
 import MainLayouts from "@/layouts/Main";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import ContentLayouts from "@/layouts/Content";
-import Search from "@/assets/search.svg";
+import Search from "@/assets/StudyPlan/search.svg";
 import Card from "../Common/Card";
 
 const ContentStudyProgram: FC = (): ReactElement => {

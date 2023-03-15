@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import Search from "@/assets/search.svg";
+import Search from "@/assets/drillSimulation/search.svg";
 import { useRecoilState } from "recoil";
 import { queryScheduleSimulation } from "@/stores/Simulation";
 

@@ -1,5 +1,5 @@
 import { FC, ReactElement, useState } from "react";
-import accordionIcon from "@/assets/accordion-icon.svg";
+import accordionIcon from "@/assets/administration/accordion-icon.svg";
 import Image from "next/image";
 import { AccordionProps } from "./type.d";
 

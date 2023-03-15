@@ -2,7 +2,7 @@ import { FC, Fragment, ReactElement } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-import ImageEventList from "@/assets/event-list.svg";
+import ImageEventList from "@/assets/event/event-list.svg";
 
 import Pagination from "@/modules/Event/Common/Pagination";
 import SearchBar from "@/modules/Event/Common/SearchBar";

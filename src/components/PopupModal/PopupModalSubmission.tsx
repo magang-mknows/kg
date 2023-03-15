@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
-import PopupLoading from "@/assets/popup-modal-jadwal.svg";
-import VectorBerhasil from "@/assets/vector-popup-modal-berhasil.svg";
+import PopupLoading from "@/assets/drillSimulation/popup-modal-jadwal.svg";
+import VectorBerhasil from "@/assets/drillSimulation/simulasi-checked.svg";
 
 import PopupModal from "../Common/PopupModal";
 import { usePopupSubmissionStatus } from "@/hooks/Common/usePopupSubmissionStatus";

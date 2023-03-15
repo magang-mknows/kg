@@ -10,8 +10,8 @@ import { useForm } from "react-hook-form";
 import Form from "@/components/Form";
 
 // asset
-import userProfileImg from "@/assets/profile-user-img.svg";
-import camera from "@/assets/camera-1.svg";
+import userProfileImg from "@/assets/profile/profile-user-img.svg";
+import camera from "@/assets/profile/camera-1.svg";
 import BaseLayouts from "@/layouts/Base";
 
 const EditProfile: FC = (): ReactElement => {

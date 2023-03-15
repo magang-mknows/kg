@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import Card from "@/components/Common/Card";
-import simulasiNull from "@/assets/simualasi-null.svg";
+import simulasiNull from "@/assets/drillSimulation/simualasi-null.svg";
 import Button from "@/components/Common/Button";
 import Image from "next/image";
 // import { useScheduleSimulation } from "@/hooks/Simulation/useScheduleSimulation";

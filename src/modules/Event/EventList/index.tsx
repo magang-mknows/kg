@@ -4,7 +4,7 @@ import Pagination from "@/modules/Event/Common/Pagination";
 import SearchBar from "@/modules/Event/Common/SearchBar";
 import SideBar from "@/modules/Event/Common/SideBar";
 
-import ImageEventList from "@/assets/event-list.svg";
+import ImageEventList from "@/assets/event/event-list.svg";
 
 const EventList: FC = (): ReactElement => {
   const data = [
