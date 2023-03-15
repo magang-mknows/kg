@@ -39,7 +39,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
               <div
                 className={`  ${
                   router.pathname.includes(item.link)
-                    ? "text-[#106FA4] font-medium "
+                    ? "text-[#106FA4] dark:text-[#17A2B8] font-medium "
                     : " hover:text-[#106FA4] cursor-pointer transition-colors duration-300 ease-in-out tracking-wide text-neutral-800 dark:text-white"
                 } md:px-8 px-6 text-sm py-4 border-b-2 dark:border-[#373a3e4a] border-neutral-100 md:text-base dark:hover:text-primary-500`}
               >
@@ -52,7 +52,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ list }) => {
           <Link
             href={"/auth/login"}
             passHref
-            className="md:px-8 px-6 py-4 w-full flex items-center justify-center text-sm bg-[#106FA4]  text-white border-2 border-[#106FA4] hover:bg-[#40A0C8]   hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+            className="md:px-8 px-6 py-4 w-full dark:bg-[#17A2B8] flex items-center justify-center text-sm bg-[#106FA4]  text-white border-2 border-[#106FA4] hover:bg-[#40A0C8]   hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
           >
             <h1>Login</h1>
           </Link>
