@@ -29,12 +29,12 @@ const GuideSection = (): ReactElement => {
           return (
             <div
               key={index}
-              className="col-span-4 bg-white shadow-md w-full h-full rounded-[8px] pr-7"
+              className="col-span-4 bg-white dark:bg-[#111D2D] shadow-md w-full h-full rounded-[8px] pr-7"
             >
               <div className=" p-5">
                 <Image src={item.img} alt={"buku-panduan"} />
-                <h1 className="text-[18px] text-black font-[700]">{item.title}</h1>
-                <p className="text-[14px] text-black font-[400]">{item.desc}</p>
+                <h1 className="text-[18px] text-black dark:text-white font-[700]">{item.title}</h1>
+                <p className="text-[14px] text-black dark:text-white font-[400]">{item.desc}</p>
               </div>
             </div>
           );
