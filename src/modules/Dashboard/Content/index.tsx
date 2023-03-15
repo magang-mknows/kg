@@ -11,8 +11,8 @@ const ContentSection: FC = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<>Loading...</>}>
-        <div className="flex flex-col">
-          <div className="grid grid-cols-1 lg:grid-cols-2 mb-6 gap-4">
+        <div className="flex flex-col w-full col-span-3 lg:col-span-3  xl:col-span-2">
+          <div className="flex gap-6 w-full flex-wrap lg:flex-nowrap   mb-6">
             <TaskCarousel />
             <EventCarousel />
           </div>
