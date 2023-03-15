@@ -1,15 +1,15 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import Done from "@/assets/assigned-done.svg";
+import Done from "@/assets/drillSimulation/assigned-done.svg";
 import { useRecoilValue } from "recoil";
 // import { useHistorySimulation } from "@/hooks/Simulation/useHistorySimulation";
 import { filterHistorySimulation } from "@/stores/Simulation";
-import simulasiNull from "@/assets/simualasi-null.svg";
+import simulasiNull from "@/assets/drillSimulation/simualasi-null.svg";
 import { usePopupSubmissionStatus } from "@/hooks/Common/usePopupSubmissionStatus";
 import Link from "next/link";
 import PopupModal from "@/components/Common/PopupModal";
-import simulasiDone from "@/assets/simulasi-done.svg";
-import simulasiChecked from "@/assets/simulasi-checked.svg";
+import simulasiDone from "@/assets/drillSimulation/simulasi-done.svg";
+import simulasiChecked from "@/assets/drillSimulation/simulasi-checked.svg";
 
 const SimulationHistory: FC = (): ReactElement => {
   // const { getHistorySimulation } = useHistorySimulation();

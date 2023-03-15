@@ -1,6 +1,6 @@
 import Card from "@/components/Common/Card";
 import MainLayouts from "@/layouts/Main";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import Stepper from "../Common";
 import FileInformation from "../FileInformation";
 import JobsInformation from "../JobsInformation";

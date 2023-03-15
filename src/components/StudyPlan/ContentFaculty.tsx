@@ -14,9 +14,11 @@ const ContentFaculty: FC = (): ReactElement => {
       <div className="grid grid-cols-1 gap-4 pb-40 lg:grid-cols-3">
         <>
           {getOptionFaculty.length === 0 ? (
-            <div className="flex flex-col w-screen h-screen justify-center items-center">
-              <Image src={DefaultView} alt="simulasi-null" />
-              <h1 className="text-xl">Tidak Ada Data Fakultas</h1>
+            <div className="flex flex-col w-screen h-screen gap-8 justify-center lg:items-center ">
+              <div className="lg:flex hidden h-auto w-auto bg-gray-100 dark:bg-gray-600 rounded-full p-1 lg:p-4">
+                <Image src={DefaultView} alt="simulasi-null" />
+              </div>
+              <h1 className="text-xl font-bold">Tidak Ada Data Fakultas</h1>
             </div>
           ) : (
             <>

@@ -1,13 +1,13 @@
 import Card from "@/layouts/Card";
 import { FC, ReactElement } from "react";
 
-import InfoLanding from "@/assets/promotion-landing.svg";
+import InfoLanding from "@/assets/landing/promotion-landing.svg";
 
 import GlobalButton from "@/components/Common/GlobalButton";
 
 const PromotionBanner: FC = (): ReactElement => {
   return (
-    <Card className="" img={InfoLanding} imgWidth={""} imgHeight={""}>
+    <Card className="my-8" img={InfoLanding} imgWidth={""} imgHeight={""}>
       <div className="flex flex-col gap-[14px] lg:gap-[28px] p-[32px] lg:px-[64px] place-content-center">
         <h1 className="text-[33px] lg:text-[44px] text-white font-semibold">
           Yuk, Mulai Bangun Karirmu Disini!

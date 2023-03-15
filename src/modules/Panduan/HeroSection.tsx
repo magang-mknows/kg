@@ -1,8 +1,8 @@
 import ContentLayouts from "@/layouts/Content";
 import Image from "next/image";
-import React, { FC, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 
-import helpCenter from "@/assets/help-center.svg";
+import helpCenter from "@/assets/guide/help-center.svg";
 
 const HeroSection: FC = (): ReactElement => {
   const dummyTopik = [

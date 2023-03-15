@@ -1,9 +1,10 @@
-import ImageEventList from "@/assets/event-list.svg";
 import { FC, Fragment, ReactElement } from "react";
-import SideBar from "./SideBar";
-import SearchBar from "./SearchBar";
-import CardList from "./CardList";
-import Pagination from "./Pagination";
+import CardList from "@/modules/Event/Common/CardList";
+import Pagination from "@/modules/Event/Common/Pagination";
+import SearchBar from "@/modules/Event/Common/SearchBar";
+import SideBar from "@/modules/Event/Common/SideBar";
+
+import ImageEventList from "@/assets/event/event-list.svg";
 
 const EventList: FC = (): ReactElement => {
   const data = [
@@ -60,7 +61,7 @@ const EventList: FC = (): ReactElement => {
     <Fragment>
       <div className="flex flex-row">
         <div className="basis-1/3">
-          <SideBar />
+          <SideBar active="EventList" />
         </div>
         <div className="w-full basis-2/3">
           <SearchBar />

@@ -11,22 +11,22 @@ const ResumeSection: FC = (): ReactElement => {
   const dummySidebarItems = [
     {
       src: labIcon,
-      number: 37,
+      number: 0,
       title: "Kelas Terdaftar",
     },
     {
       src: homeIcon,
-      number: 6,
+      number: 0,
       title: "Sertifikat",
     },
     {
       src: clockIcon,
-      number: 3.7,
+      number: 0,
       title: "IPK Rata-rata",
     },
     {
       src: thropyIcon,
-      number: 600,
+      number: 0,
       title: "Total Poin",
     },
   ];
@@ -36,9 +36,18 @@ const ResumeSection: FC = (): ReactElement => {
       <section className="text-white bg-[#106FA4] relative  px-8 pt-12 pb-28">
         <h1 className="font-bold text-2xl mb-2">Hello, Bandi</h1>
         <p className="text-base mb-2">
-          <span className="text-white/75">Kamu mengambil</span>{" "}
-          <span className="underline underline-offset-4 decoration-white/70">4 Mata Kuliah </span>
+          <section>
+            <span className="text-white/75">Kamu </span>
+            <span className="underline underline-offset-4 decoration-white/70">
+              Belum mengambil Mata Kuliah
+            </span>
+            <span className="text-white/75"> Pada semester ini</span>
+          </section>
+          {/* <section >
+            <span className="text-white/75">Kamu mengambil</span>
+            <span className="underline underline-offset-4 decoration-white/70">4 Mata Kuliah </span>
           <span className="text-white/75">Pada semester ini</span>
+          </section> */}
         </p>
         <section className="absolute -bottom-52  grid grid-cols-2 gap-2 lg:gap-4">
           {dummySidebarItems.map(({ src, number, title }, index) => {
