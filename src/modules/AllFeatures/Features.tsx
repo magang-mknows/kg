@@ -110,6 +110,7 @@ const Features: FC = (): ReactElement => {
                   hasImage={true}
                   src={fitur.icon}
                   imgStyle="w-[80px] mx-auto"
+                  imgwidth={80}
                 >
                   <p className="font-bold mx-auto">{fitur.namaFitur}</p>
                 </Card>
