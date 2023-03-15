@@ -59,13 +59,13 @@ const EventList: FC = (): ReactElement => {
   ];
   return (
     <Fragment>
-      <div className="flex flex-row">
-        <div className="basis-1/3">
+      <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row">
+        <div className="flex justify-center lg:justify-start lg:basis-1/3">
           <SideBar active="EventList" />
         </div>
-        <div className="w-full basis-2/3">
+        <div className="w-full lg:basis-2/3">
           <SearchBar />
-          <div className="grid w-full grid-flow-row gap-16 lg:grid-cols-2">
+          <div className="grid w-full grid-flow-row gap-4 lg:gap-16 lg:grid-cols-2">
             {data
               .map((item, index) => (
                 <CardList
