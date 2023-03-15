@@ -58,6 +58,7 @@ export const publicRoutes = [
   "/ubah-profile",
   "/ubah-password",
   "/event",
+  "/semua-fitur",
 ];
 
 export const assigmentBreadCumbs = [
@@ -153,8 +154,8 @@ export const acaraKampusBreadCumbs = [
     link: "/",
   },
   {
-    name: "Dashboard",
-    link: "/dashboard",
+    name: "Acara Kampus",
+    link: "/acara-kampus",
   },
 ];
 export const drillSimulation = [
@@ -165,5 +166,29 @@ export const drillSimulation = [
   {
     name: "Simulasi, Drill & Assessment",
     link: "/simulasi-drill",
+  },
+];
+export const allFeatures = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Semua Fitur",
+    link: "/semmua-fitur",
+  },
+];
+export const rescheduleSimulationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Simulasi, Drill & Assessment",
+    link: "/simulasi-drill",
+  },
+  {
+    name: "Pengajuan Perubahan Jadwal Simulasi",
+    link: "/perubahan-simulasi",
   },
 ];

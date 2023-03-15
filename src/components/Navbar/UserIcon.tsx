@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC, ReactElement } from "react";
-import userIcon from "@/assets/userIcon.png";
+import userIcon from "@/assets/navbar/userIcon.png";
 import { Menu, Transition } from "@headlessui/react";
 import { RiDashboardFill, RiSettings5Fill } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
@@ -28,7 +28,7 @@ const UserIcon: FC = (): ReactElement => {
 
   return (
     <>
-      <Menu as="div" className={"relative inline-block text-left z-50 left-0"}>
+      <Menu as="div" className={"relative inline-block text-left z-50 left-0 mt-1.5"}>
         <Menu.Button>
           <div className="bg-neutral-200 h-9 w-9 flex items-center justify-center  overflow-hidden rounded-md cursor-pointer group">
             <Image src={userIcon} alt="User" />
@@ -45,13 +45,13 @@ const UserIcon: FC = (): ReactElement => {
         >
           <Menu.Items
             as="div"
-            className="absolute top-2 right-0 w-30 origin-top-right  overflow-hidden rounded-md bg-white  shadow-lg"
+            className="absolute top-2 right-0 w-30 origin-top-right  overflow-hidden rounded-md bg-white  shadow-lg dark:bg-[#106FA4]"
           >
             <div className="w-[260px] px-4 py-3 flex items-center gap-3 border-b-2 border-neutral-200">
               <Image src={userIcon} alt="User" />
               <section>
-                <h1 className="text-sm text-neutral-900">Mario Silalahi</h1>
-                <p className="text-xs text-neutral-500">user@jshdj.com</p>
+                <h1 className="text-sm text-neutral-900 dark:text-white">Mario Silalahi</h1>
+                <p className="text-xs text-neutral-500 dark:text-neutral-300">user@jshdj.com</p>
               </section>
             </div>
 
@@ -60,11 +60,11 @@ const UserIcon: FC = (): ReactElement => {
                 key={index}
                 as="div"
                 className={
-                  "flex gap-3 items-center px-4 py-3 cursor-pointer hover:bg-neutral-200 transition-all duration-300 ease-in-out"
+                  "flex gap-3 items-center px-4 py-3 cursor-pointer hover:bg-[#0b5c88] transition-all duration-300 ease-in-out"
                 }
               >
                 {icon}
-                <h1 className="text-[#171717] text-xs text-center">{name}</h1>
+                <h1 className="text-[#171717] dark:text-white text-xs text-center">{name}</h1>
               </Menu.Item>
             ))}
           </Menu.Items>
