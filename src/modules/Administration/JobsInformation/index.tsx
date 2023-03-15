@@ -15,14 +15,14 @@ const JobsInformation: FC = (): ReactElement => {
   const schema = z.object({
     fathername: z.string().min(1, { message: "Nama ayah harus diisi" }),
     mothername: z.string().min(1, { message: "Nama ibu harus diisi" }),
-    live: z.string().min(1, { message: "Tinggal dengan harus diisi" }),
+    livewith: z.string().min(1, { message: "Tinggal dengan harus diisi" }),
     fatherjob: z.string().min(1, { message: "Pekerjaan ayah harus diisi" }),
     motherjob: z.string().min(1, { message: "Pekerjaan ibu harus diisi" }),
     fatherincome: z.string().min(1, { message: "Penghasilan ayah harus diisi" }),
     motherincome: z.string().min(1, { message: "Penghasilan ibu harus diisi" }),
     ownjob: z.string().min(1, { message: "Pekerjaan sendiri harus diisi" }),
     ownincome: z.string().min(1, { message: "Penghasilan sendiri harus diisi" }),
-    collegefeespaidby: z.string().min(1, { message: "Biaya kuliah harus diisi" }),
+    collegefeespaid: z.string().min(1, { message: "Biaya kuliah harus diisi" }),
   });
 
   const { setJobStatus, getJobStatus } = useJobInformationStatus();
@@ -43,9 +43,9 @@ const JobsInformation: FC = (): ReactElement => {
       fatherincome: "",
       motherincome: "",
       ownjob: "",
-      live: "",
+      livewith: "",
       ownincome: "",
-      collegefeespaidby: "",
+      collegefeespaid: "",
       fatherjob: "",
     },
   });
@@ -94,6 +94,120 @@ const JobsInformation: FC = (): ReactElement => {
     {
       value: "guru",
       label: "Guru",
+    },
+  ];
+
+  const optionOwnJob = [
+    {
+      label: "Pilih pekerjaan sendiri",
+      value: "pilih",
+    },
+    {
+      value: "karyawan-swasta",
+      label: "Karyawan Swasta",
+    },
+    {
+      value: "dokter",
+      label: "Dokter",
+    },
+    {
+      value: "guru",
+      label: "Guru",
+    },
+  ];
+
+  const optionFatherIncome = [
+    {
+      label: "Pilih penghasilan ayah",
+      value: "pilih",
+    },
+    {
+      value: "< Rp 1.000.000",
+      label: "< Rp 1.000.000",
+    },
+    {
+      value: "Rp 1.000.000 - Rp 5.000.000",
+      label: "Rp 1.000.000 - Rp 5.000.000",
+    },
+    {
+      value: "> Rp 5.000.000",
+      label: "> Rp 5.000.000",
+    },
+  ];
+
+  const optionMotherIncome = [
+    {
+      label: "Pilih penghasilan ibu",
+      value: "pilih",
+    },
+    {
+      value: "< Rp 1.000.000",
+      label: "< Rp 1.000.000",
+    },
+    {
+      value: "Rp 1.000.000 - Rp 5.000.000",
+      label: "Rp 1.000.000 - Rp 5.000.000",
+    },
+    {
+      value: "> Rp 5.000.000",
+      label: "> Rp 5.000.000",
+    },
+  ];
+
+  const optionOwnIncome = [
+    {
+      label: "Pilih penghasilan sendiri",
+      value: "pilih",
+    },
+    {
+      value: "< Rp 1.000.000",
+      label: "< Rp 1.000.000",
+    },
+    {
+      value: "Rp 1.000.000 - Rp 5.000.000",
+      label: "Rp 1.000.000 - Rp 5.000.000",
+    },
+    {
+      value: "> Rp 5.000.000",
+      label: "> Rp 5.000.000",
+    },
+  ];
+
+  const optionLiveWith = [
+    {
+      label: "Pilih tinggal dengan",
+      value: "pilih",
+    },
+    {
+      value: "orang-tua ",
+      label: "Orang tua",
+    },
+    {
+      value: "saudara",
+      label: "Saudara",
+    },
+    {
+      value: "sendiri",
+      label: "Sendiri",
+    },
+  ];
+
+  const optionCollegeFeesPaid = [
+    {
+      label: "Pilih biaya kuliah ditanggung oleh",
+      value: "pilih",
+    },
+    {
+      value: "orang-tua ",
+      label: "Orang tua",
+    },
+    {
+      value: "saudara",
+      label: "Saudara",
+    },
+    {
+      value: "sendiri",
+      label: "Sendiri",
     },
   ];
 
@@ -153,75 +267,80 @@ const JobsInformation: FC = (): ReactElement => {
               className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
           </div>
-          <div className="w-full">
-            <ControlledTextField
-              name={"fatherincome"}
+          <div className="w-full mt-2">
+            <ControlledSelectField
               control={control}
+              options={optionFatherIncome}
+              name={"fatherincome"}
               label={"Penghasilan Ayah"}
               hasLabel
-              type={"number"}
+              labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
               required
-              placeholder={"Masukan penghasilan ayah"}
-              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
+              defaultValue="Pilih penghasilan ayah"
+              className=" rounded-lg md:mb-5 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
-            <div className="">
-              <ControlledTextField
-                name={"motherincome"}
-                control={control}
-                hasLabel
-                label={"Penghasilan Ibu"}
-                type={"number"}
-                required
-                placeholder={"Masukan penghailan ibu"}
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-              />
-            </div>
+
+            <ControlledSelectField
+              control={control}
+              options={optionMotherIncome}
+              name={"motherincome"}
+              label={"Penghasilan Ibu"}
+              hasLabel
+              labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
+              required
+              defaultValue="Pilih penghasilan ibu"
+              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+            />
           </div>
         </div>
         <hr className="my-5 text-[#D9D9D9]" />
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
-            <ControlledTextField
+            <ControlledSelectField
+              control={control}
+              options={optionOwnJob}
               name={"ownjob"}
-              control={control}
-              hasLabel
               label={"Pekerjaan Sendiri"}
-              type={"text"}
-              required
-              placeholder={"Masukan pekerjaan sendiri"}
-              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-            />
-            <ControlledTextField
-              name={"live"}
               hasLabel
-              control={control}
-              label={"Tinggal Dengan"}
-              type={"text"}
+              labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               required
-              placeholder={"Masukan tinggal dengan"}
-              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
+              defaultValue="Pilih pekerjaan sendiri"
+              className=" rounded-lg md:mb-5 py-2 md:py-3 px-2  outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+            />
+            <ControlledSelectField
+              control={control}
+              options={optionLiveWith}
+              name={"livewith"}
+              label={"Tinggal Dengan"}
+              hasLabel
+              labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
+              required
+              defaultValue="Pilih tinggal dengan"
+              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
           </div>
           <div className="w-full">
-            <ControlledTextField
+            <ControlledSelectField
+              control={control}
+              options={optionOwnIncome}
               name={"ownincome"}
-              control={control}
-              hasLabel
               label={"Penghasilan Sendiri"}
-              type={"number"}
-              required
-              placeholder={"Masukan penghasilan sendiri"}
-              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-            />
-            <ControlledTextField
-              name={"collegefeespaidby"}
-              control={control}
               hasLabel
-              label={"Biaya Kuliah Ditanggung Oleh"}
-              type={"text"}
+              labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
               required
-              placeholder={"Masukan biaya kuliah ditanggung oleh"}
-              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
+              defaultValue="Pilih penghasilan sendiri"
+              className=" rounded-lg md:mb-5 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+            />
+            <ControlledSelectField
+              control={control}
+              options={optionCollegeFeesPaid}
+              name={"collegefeespaid"}
+              label={"Biaya Kuliah Ditanggung Oleh"}
+              hasLabel
+              labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
+              required
+              defaultValue="Masukan biaya kuliah ditanggung oleh"
+              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
             <div className="flex w-full my-8 justify-end">
               <Button
