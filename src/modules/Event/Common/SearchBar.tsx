@@ -25,7 +25,7 @@ const SearchBar: FC = (): ReactElement => {
       </button>
       <input
         type="search"
-        className="flex-auto rounded-r px-3 py-1.5 bg-transparent text-[16px] font-[500]"
+        className="flex-auto rounded-r px-3 py-1.5 bg-transparent text-[16px] font-[500] outline-none"
         placeholder="Cari mata kuliah"
         aria-label="Cari mata kuliah"
       />
