@@ -3,7 +3,6 @@ import Image from "next/image";
 import rescheduleSimulasi from "@/assets/rescheduleSimulasi/dummyReschedule.svg";
 import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
 import calendar from "@/assets/rescheduleSimulasi/calendar.svg";
-import Accordion from "@/components/Administration/Accordion";
 
 const content: FC = (): ReactElement => {
   const tes = [
@@ -68,10 +67,10 @@ const content: FC = (): ReactElement => {
               Pilih tanggal dan waktu Simulasi
             </p>
             <div className="flex md:flex-row flex-col md:gap-4 gap-0">
-              {items.time.map((item, i) => (
+              {items.time.map((item, l) => (
                 <button
                   className="outline outline-[#737373] px-6 py-3 rounded-[1.67px] flex flex-row text-center justify-center mt-5 border"
-                  key={i}
+                  key={l}
                 >
                   <Image src={calendar} alt={"calendar-date"} />
                   <p className="text-[#737373] text-[12px] font-[400] mt-1">{item.date}</p>
