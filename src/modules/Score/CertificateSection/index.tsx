@@ -1,11 +1,10 @@
 import Card from "@/components/Common/Card";
 import { ReactElement, useState } from "react";
-import dummyCertificate from "@/assets/dummy-certificate.svg";
-import Filter from "@/assets/filter-icon.svg";
+import dummyCertificate from "@/assets/scoreSetificate/dummy-certificate.svg";
 import Image from "next/image";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupCertificate } from "@/hooks/Common/usePopupCertificate";
-import download from "@/assets/download.svg";
+import download from "@/assets/scoreSetificate/download.svg";
 import { useCertficate } from "@/hooks/Score";
 import { certificateTypes } from "@/stores/Score/type";
 import Link from "next/link";

@@ -2,7 +2,7 @@ import { FC, Fragment, ReactElement } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import ArticleSlide from "@/assets/article-slide.svg";
+import ArticleSlide from "@/assets/dashboard/article-slide.svg";
 import Image from "next/image";
 import Link from "next/link";
 

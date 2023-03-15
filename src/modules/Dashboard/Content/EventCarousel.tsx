@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 
-import penugasan from "@/assets/penugasan.svg";
-import acara from "@/assets/acara.svg";
+import penugasan from "@/assets/dashboard/penugasan.svg";
+import acara from "@/assets/dashboard/acara.svg";
 import Image from "next/image";
 
 import { useSelectedTask } from "@/hooks/Dashboard/useSelectedEvent";

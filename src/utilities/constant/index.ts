@@ -154,8 +154,8 @@ export const acaraKampusBreadCumbs = [
     link: "/",
   },
   {
-    name: "Dashboard",
-    link: "/dashboard",
+    name: "Acara Kampus",
+    link: "/acara-kampus",
   },
 ];
 export const drillSimulation = [

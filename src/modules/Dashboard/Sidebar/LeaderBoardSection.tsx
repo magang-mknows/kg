@@ -35,12 +35,12 @@ const LeaderBoardSection: FC = (): ReactElement => {
       <section className="flex justify-between items-start mb-4">
         <div>
           <h1 className="text-xl text-neutral-900 font-bold mb-2">Papan Skor</h1>
-          <p className="text-lg text-yellow-500 font-bold ">600</p>
+          <p className="text-lg text-yellow-500 font-bold ">0</p>
           <p className="text-sm text-yellow-500">Poin Kamu</p>
         </div>
         <Image className="w-20 " src={bigTrophyIcon} alt="papan skor" />
       </section>
-      <section className="mb-6 ">
+      {/* <section className="mb-6 ">
         {dummyRankList.map(({ name, score }, index) => {
           return (
             <div
@@ -63,12 +63,12 @@ const LeaderBoardSection: FC = (): ReactElement => {
             </div>
           );
         })}
-      </section>
+      </section> 
       <Button
         text={"Lihat Semua"}
         type="button"
         className="border-2 border-yellow-500 w-full flex items-center justify-center text-sm text-yellow-500 py-2 rounded-md shadow-sm cursor-pointer bg-white hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-500 transition-all ease-in-out duration-300 hover:shadow-md"
-      />
+      />*/}
     </section>
   );
 };

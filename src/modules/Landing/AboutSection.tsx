@@ -1,17 +1,17 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import AboutVideo from "@/assets/aboutVideo.svg";
-import PlayButton from "@/assets/playButton.svg";
-import AboutCard2 from "@/assets/aboutCard.svg";
-import RectangleUp from "@/assets/rectangleUp.svg";
-import RectangleDown from "@/assets/rectangleDown.svg";
-import PhoneLaptopAbout from "@/assets/phoneLaptopAbout.svg";
-import Checklist from "@/assets/checklist.svg";
+import AboutVideo from "@/assets/landing/aboutVideo.svg";
+import PlayButton from "@/assets/landing/playButton.svg";
+import AboutCard2 from "@/assets/landing/aboutCard.svg";
+import RectangleUp from "@/assets/landing/rectangleUp.svg";
+import RectangleDown from "@/assets/landing/rectangleDown.svg";
+import PhoneLaptopAbout from "@/assets/landing/phoneLaptopAbout.svg";
+import Checklist from "@/assets/landing/checklist.svg";
 import Card from "@/components/Common/Card";
 
 const AboutSection: FC = (): ReactElement => {
   return (
-    <section className="mt-[100px] mb-[250px]">
+    <section className="mt-[150px] mb-[250px] mx-8">
       <div className="grid lg:grid-cols-2 lg:gap-40 md:gap-14 gap-0 ">
         <div className="mx-auto ">
           <div className="w-[500px] h-[382px] relative col-span-1 md:px-0 px-5 md:ml-0 ml-24">
@@ -67,8 +67,8 @@ const AboutSection: FC = (): ReactElement => {
           </div>
         </div>
 
-        <div className="col-span-1 px-4 md:px-10 lg:grid lg:place-content-start grid place-content-center">
-          <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[30px] font-bold tracking-wide leading-tight">
+        <div className="w-full col-span-1 px-4 md:px-10 lg:grid lg:place-content-start grid place-content-center">
+          <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[30px] font-bold leading-tight">
             Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
           </h1>
           <p className="text-[#8e8e8e] md:text-[24px] text-[18px] leading-normal md:mt-[46px] mt-[20px]">

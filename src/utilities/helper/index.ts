@@ -1,5 +1,5 @@
-import LogoDark from "@/assets/logokg-dark.png";
-import LogoNormal from "@/assets/logokg.png";
+import LogoDark from "@/assets/navbar/logokg-dark.png";
+import LogoNormal from "@/assets/navbar/logokg.png";
 import { useTheme } from "next-themes";
 import { StaticImageData } from "next/image";
 import { ErrorComplete } from "../types/Error";

@@ -1,14 +1,14 @@
 import { FC, ReactElement } from "react";
 import MainLayouts from "@/layouts/Main";
-import Confirm from "@/assets/Confirm.svg";
+import Confirm from "@/assets/StudyPlan/Confirm.svg";
 import Button from "../Common/Button";
 import PopupModal from "@/components/Common/PopupModal";
 import Image from "next/image";
 import GlobalButton from "../Common/GlobalButton";
-import Example1 from "@/assets/example1.svg";
-import Example2 from "@/assets/example2.svg";
-import Download from "@/assets/download1.svg";
-import Warning from "@/assets/warning.svg";
+import Example1 from "@/assets/StudyPlan/example1.svg";
+import Example2 from "@/assets/StudyPlan/example2.svg";
+import Download from "@/assets/StudyPlan/download1.svg";
+import Warning from "@/assets/StudyPlan/warning.svg";
 import { usePopupConfirmCardStudy } from "@/hooks/Common/usePopupConfirmCardStudy";
 
 const data = [
