@@ -93,7 +93,7 @@ const ProgressSection: FC = (): ReactElement => {
                   <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">
                     Semester {dummy.semester} | {dummy.subjudul}
                   </p>
-                  <div className="bg-[#D9D9D9] w-[200px] rounded-lg h-[10px] lg:inline-block lg:relative lg:bottom-2 mt-0 mr-[12px] mb-0">
+                  <div className="bg-[#D9D9D9] w-[200px] md:w-[300px] rounded-lg h-[10px] lg:inline-block md:inline-block lg:relative lg:bottom-2 md:relative md:bottom-2 mt-0 mr-[12px] mb-0">
                     <div
                       style={{ width: classDiv }}
                       className="bg-[#106FA4]  rounded-lg h-[10px] text-[0px]"
