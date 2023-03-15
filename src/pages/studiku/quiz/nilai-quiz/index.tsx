@@ -1,4 +1,4 @@
-import StudikuModule from "@/modules/Studiku/Quiz";
+import StudikuModule from "@/modules/MyStudy/Quiz";
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
