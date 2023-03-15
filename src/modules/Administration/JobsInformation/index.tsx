@@ -10,6 +10,16 @@ import { handleError } from "@/utilities/helper";
 import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
+import {
+  optionFatherJob,
+  optionMotherJob,
+  optionOwnJob,
+  optionFatherIncome,
+  optionMotherIncome,
+  optionOwnIncome,
+  optionCollegeFeesPaid,
+  optionLiveWith,
+} from "@/utilities/constant";
 
 const JobsInformation: FC = (): ReactElement => {
   const schema = z.object({
@@ -58,190 +68,6 @@ const JobsInformation: FC = (): ReactElement => {
       throw handleError(err);
     }
   });
-
-  const optionFatherJob = [
-    {
-      value: "pilih",
-      label: "Pilih pekerjaan ayah",
-    },
-    {
-      value: "PROFESSIONAL",
-      label: "Professional (Dokter, Pengacara, Insiyur)",
-    },
-    {
-      value: "SERVICE",
-      label: "Pekerja Layanan (Kasir, Pramusaji, Pramugari)",
-    },
-    {
-      value: "MANUAL",
-      label: "Pekerja Manual (Pekerja Konstruksi, Pekerja Pabrik)",
-    },
-    {
-      value: "JOBLESS",
-      label: "Tidak Bekerja atau Ayah Rumah Tangga",
-    },
-  ];
-
-  const optionMotherJob = [
-    {
-      value: "pilih",
-      label: "Pilih pekerjaan ibu",
-    },
-    {
-      value: "PROFESSIONAL",
-      label: "Professional (Dokter, Pengacara, Insiyur)",
-    },
-    {
-      value: "SERVICE",
-      label: "Pekerja Layanan (Kasir, Pramusaji, Pramugari)",
-    },
-    {
-      value: "MANUAL",
-      label: "Pekerja Manual (Pekerja Konstruksi, Pekerja Pabrik)",
-    },
-    {
-      value: "JOBLESS",
-      label: "Tidak Bekerja atau Ibu Rumah Tangga",
-    },
-  ];
-
-  const optionOwnJob = [
-    {
-      value: "pilih",
-      label: "Pilih pekerjaan sendiri",
-    },
-    {
-      value: "PROFESSIONAL",
-      label: "Professional (Dokter, Pengacara, Insiyur)",
-    },
-    {
-      value: "SERVICE",
-      label: "Pekerja Layanan (Kasir, Pramusaji, Pramugari)",
-    },
-    {
-      value: "MANUAL",
-      label: "Pekerja Manual (Pekerja Konstruksi, Pekerja Pabrik)",
-    },
-    {
-      value: "JOBLESS",
-      label: "Tidak Bekerja atau Mengurus Rumah Tangga",
-    },
-  ];
-
-  const optionFatherIncome = [
-    {
-      value: "pilih",
-      label: "Pilih penghasilan ayah",
-    },
-    {
-      value: "RICH",
-      label: "> Rp 9.000.000/bulan",
-    },
-    {
-      value: "UPPERMED",
-      label: "Rp 6.000.000 - Rp 8.999.999/bulan",
-    },
-    {
-      value: "LOWERMED",
-      label: "Rp 3.000.000 - Rp 5.999.999/bulan",
-    },
-    {
-      value: "POOR",
-      label: "Rp 1.000.000 - Rp 2.999.999/bulan",
-    },
-  ];
-
-  const optionMotherIncome = [
-    {
-      value: "pilih",
-      label: "Pilih penghasilan ibu",
-    },
-    {
-      value: "RICH",
-      label: "> Rp 9.000.000/bulan",
-    },
-    {
-      value: "UPPERMED",
-      label: "Rp 6.000.000 - Rp 8.999.999/bulan",
-    },
-    {
-      value: "LOWERMED",
-      label: "Rp 3.000.000 - Rp 5.999.999/bulan",
-    },
-    {
-      value: "POOR",
-      label: "Rp 1.000.000 - Rp 2.999.999/bulan",
-    },
-  ];
-
-  const optionOwnIncome = [
-    {
-      value: "pilih",
-      label: "Pilih penghasilan sendiri",
-    },
-    {
-      value: "RICH",
-      label: "> Rp 9.000.000/bulan",
-    },
-    {
-      value: "UPPERMED",
-      label: "Rp 6.000.000 - Rp 8.999.999/bulan",
-    },
-    {
-      value: "LOWERMED",
-      label: "Rp 3.000.000 - Rp 5.999.999/bulan",
-    },
-    {
-      value: "POOR",
-      label: "Rp 1.000.000 - Rp 2.999.999/bulan",
-    },
-  ];
-
-  const optionLiveWith = [
-    {
-      label: "Pilih tinggal dengan",
-      value: "pilih",
-    },
-    {
-      value: "PARENT",
-      label: "Orang tua",
-    },
-    {
-      value: "RELATIVE",
-      label: "Keluarga dekat (Paman, Bibi, Kakek atau Nenek)",
-    },
-    {
-      value: "SCHOLARSHIP",
-      label: "Beasiswa",
-    },
-    {
-      value: "SELF",
-      label: "Tinggal sendiri",
-    },
-  ];
-
-  const optionCollegeFeesPaid = [
-    {
-      value: "pilih",
-      label: "Pilih biaya kuliah ditanggung oleh",
-    },
-    {
-      value: "PARENT",
-      label: "Orang tua",
-    },
-    {
-      value: "RELATIVE",
-      label: "Keluarga dekat (Paman, Bibi, Kakek atau Nenek)",
-    },
-    {
-      value: "SCHOLARSHIP",
-      label: "Beasiswa",
-    },
-    {
-      value: "SELF",
-      label: "Penghasilan sendiri",
-    },
-  ];
 
   return (
     <Accordion
