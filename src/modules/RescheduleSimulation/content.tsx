@@ -29,7 +29,7 @@ const content: FC = (): ReactElement => {
   ];
   return (
     <>
-      <h1 className="text-[#262626] text-[28px] font-[700] mb-5 dark:text-white">
+      <h1 className="text-[#262626] text-[28px] font-[700] mb-5 dark:text-white mt-5">
         Reschedule Simulasi, Drill & Assessment
       </h1>
 
@@ -73,11 +73,13 @@ const content: FC = (): ReactElement => {
             <div className="flex md:flex-row flex-col md:gap-4 gap-0">
               {items.time.map((item, l) => (
                 <button
-                  className="outline outline-[#737373] px-6 py-3 rounded-[1.67px] flex flex-row text-center justify-center mt-5 border"
+                  className="outline  px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border"
                   key={l}
                 >
                   <Image src={calendar} alt={"calendar-date"} />
-                  <p className="text-[#737373] text-[12px] font-[400] mt-1">{item.date}</p>
+                  <p className="text-[#737373] text-[12px] font-[400] mt-1 dark:text-white">
+                    {item.date}
+                  </p>
                 </button>
               ))}
             </div>
