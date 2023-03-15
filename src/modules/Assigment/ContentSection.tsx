@@ -1,12 +1,12 @@
 import React, { FC, ReactElement, useState } from "react";
 import Assigment from "@/components/Assigment/AssigmentCard";
-import AssigmentAssigned from "@/assets/assigned-assigment.svg";
-import AssigmentDone from "@/assets/assigned-done.svg";
-import AssignedAssesment from "@/assets/assigned-assesment.svg";
-import AssignedLate from "@/assets/assigned-late.svg";
+import AssigmentAssigned from "@/assets/assigment/assigned-assigment.svg";
+import AssigmentDone from "@/assets/assigment/assigned-done.svg";
+import AssignedAssesment from "@/assets/assigment/assigned-assesment.svg";
+import AssignedLate from "@/assets/assigment/assigned-late.svg";
 import { T } from "@/stores/Assigment/type";
 import { useAssigment } from "@/hooks/Assigment/useAssigment";
-import ImageNull from "@/assets/simualasi-null.svg";
+import ImageNull from "@/assets/assigment/data-null.svg";
 import Image from "next/image";
 
 const ContentSection: FC = (): ReactElement => {

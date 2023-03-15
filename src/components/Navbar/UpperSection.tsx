@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FC, Fragment } from "react";
 
-import logoBiru from "@/assets/logoBiru.png";
+import logoBiru from "@/assets/navbar/logoBiru.png";
 import MenuIcon from "./MenuIcon";
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";

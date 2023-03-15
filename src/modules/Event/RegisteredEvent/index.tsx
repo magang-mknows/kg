@@ -1,6 +1,6 @@
 import { FC, Fragment, ReactElement } from "react";
 
-import ImageEventList from "@/assets/event-list.svg";
+import ImageEventList from "@/assets/event/event-list.svg";
 
 import CardList from "@/modules/Event/Common/CardList";
 import Pagination from "@/modules/Event/Common/Pagination";

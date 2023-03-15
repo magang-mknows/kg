@@ -2,11 +2,11 @@ import { FC, ReactElement } from "react";
 import ContentLayouts from "@/layouts/Content";
 
 // asset
-import ImageLanding from "@/assets/landing-img.svg";
-import UserKampusGratis from "@/assets/mahasiswa_kampus-gratis.svg";
-import IconHero1 from "@/assets/icon-hero1.svg";
-import IconHero2 from "@/assets/icon-hero2.svg";
-import IconHero3 from "@/assets/icon-hero3.svg";
+import ImageLanding from "@/assets/landing/landing-img.svg";
+import UserKampusGratis from "@/assets/landing/mahasiswa_kampus-gratis.svg";
+import IconHero1 from "@/assets/landing/icon-hero1.svg";
+import IconHero2 from "@/assets/landing/icon-hero2.svg";
+import IconHero3 from "@/assets/landing/icon-hero3.svg";
 
 import Image from "next/image";
 

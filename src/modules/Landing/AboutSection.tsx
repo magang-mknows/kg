@@ -1,12 +1,12 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import AboutVideo from "@/assets/aboutVideo.svg";
-import PlayButton from "@/assets/playButton.svg";
-import AboutCard2 from "@/assets/aboutCard.svg";
-import RectangleUp from "@/assets/rectangleUp.svg";
-import RectangleDown from "@/assets/rectangleDown.svg";
-import PhoneLaptopAbout from "@/assets/phoneLaptopAbout.svg";
-import Checklist from "@/assets/checklist.svg";
+import AboutVideo from "@/assets/landing/aboutVideo.svg";
+import PlayButton from "@/assets/landing/playButton.svg";
+import AboutCard2 from "@/assets/landing/aboutCard.svg";
+import RectangleUp from "@/assets/landing/rectangleUp.svg";
+import RectangleDown from "@/assets/landing/rectangleDown.svg";
+import PhoneLaptopAbout from "@/assets/landing/phoneLaptopAbout.svg";
+import Checklist from "@/assets/landing/checklist.svg";
 import Card from "@/components/Common/Card";
 
 const AboutSection: FC = (): ReactElement => {

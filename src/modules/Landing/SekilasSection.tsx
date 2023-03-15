@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
-import pictureSekilasInfo from "@/assets/picture-landing-sekilas info.svg";
-import yellowSekilasInfo from "@/assets/yellowInfo.svg";
-import RedSekilasInfo from "@/assets/redInfo.svg";
+import pictureSekilasInfo from "@/assets/landing/picture-landing-sekilas-info.svg";
+import yellowSekilasInfo from "@/assets/landing/yellowInfo.svg";
+import RedSekilasInfo from "@/assets/landing/redInfo.svg";
 
 const SekilasSection = (): ReactElement => {
   return (

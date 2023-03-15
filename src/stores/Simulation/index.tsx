@@ -1,7 +1,7 @@
 import { atom, selector } from "recoil";
 import { T, HistorySimulation } from "./type";
-import drillDummy from "@/assets/dummy-drill.svg";
-import DummyHistory from "@/assets/dummy-drillHistory.svg";
+import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
+import DummyHistory from "@/assets/drillSimulation/dummy-drillHistory.svg";
 
 export const sceduleSimulationState = atom<Array<T>>({
   key: "scedule-simulation-state",

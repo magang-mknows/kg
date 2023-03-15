@@ -4,9 +4,9 @@ import { StaticImageData } from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
 
 // asset
-import ImgStudyProgram from "@/assets/img-study-program.svg";
-import ImgStudyProgram2 from "@/assets/img-study-program2.svg";
-import ImgStudyProgram3 from "@/assets/img-study-program3.svg";
+import ImgStudyProgram from "@/assets/landing/img-study-program.svg";
+import ImgStudyProgram2 from "@/assets/landing/img-study-program2.svg";
+import ImgStudyProgram3 from "@/assets/landing/img-study-program3.svg";
 
 const DataDummy: {
   id: number;

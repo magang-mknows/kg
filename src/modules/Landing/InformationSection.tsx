@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import Card from "@/components/Common/Card";
-import Dummy from "@/assets/dummy.png";
+import Dummy from "@/assets/landing/dummy.png";
 import { useInformation } from "@/hooks/Landing/useInformation";
 
 const tagColor: { id: number; tag: string; color: string }[] = [

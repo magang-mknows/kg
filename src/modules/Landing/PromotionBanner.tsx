@@ -1,7 +1,7 @@
 import Card from "@/layouts/Card";
 import { FC, ReactElement } from "react";
 
-import InfoLanding from "@/assets/promotion-landing.svg";
+import InfoLanding from "@/assets/landing/promotion-landing.svg";
 
 import GlobalButton from "@/components/Common/GlobalButton";
 
