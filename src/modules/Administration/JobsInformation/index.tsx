@@ -61,115 +61,139 @@ const JobsInformation: FC = (): ReactElement => {
 
   const optionFatherJob = [
     {
-      label: "Pilih pekerjaan ayah",
       value: "pilih",
+      label: "Pilih pekerjaan ayah",
     },
     {
-      value: "karyawan-swasta",
-      label: "Karyawan Swasta",
+      value: "PROFESSIONAL",
+      label: "Professional (Dokter, Pengacara, Insiyur)",
     },
     {
-      value: "dokter",
-      label: "Dokter",
+      value: "SERVICE",
+      label: "Pekerja Layanan (Kasir, Pramusaji, Pramugari)",
     },
     {
-      value: "guru",
-      label: "Guru",
+      value: "MANUAL",
+      label: "Pekerja Manual (Pekerja Konstruksi, Pekerja Pabrik)",
+    },
+    {
+      value: "JOBLESS",
+      label: "Tidak Bekerja atau Ayah Rumah Tangga",
     },
   ];
 
   const optionMotherJob = [
     {
-      label: "Pilih pekerjaan ibu",
       value: "pilih",
+      label: "Pilih pekerjaan ibu",
     },
     {
-      value: "karyawan-swasta",
-      label: "Karyawan Swasta",
+      value: "PROFESSIONAL",
+      label: "Professional (Dokter, Pengacara, Insiyur)",
     },
     {
-      value: "dokter",
-      label: "Dokter",
+      value: "SERVICE",
+      label: "Pekerja Layanan (Kasir, Pramusaji, Pramugari)",
     },
     {
-      value: "guru",
-      label: "Guru",
+      value: "MANUAL",
+      label: "Pekerja Manual (Pekerja Konstruksi, Pekerja Pabrik)",
+    },
+    {
+      value: "JOBLESS",
+      label: "Tidak Bekerja atau Ibu Rumah Tangga",
     },
   ];
 
   const optionOwnJob = [
     {
-      label: "Pilih pekerjaan sendiri",
       value: "pilih",
+      label: "Pilih pekerjaan sendiri",
     },
     {
-      value: "karyawan-swasta",
-      label: "Karyawan Swasta",
+      value: "PROFESSIONAL",
+      label: "Professional (Dokter, Pengacara, Insiyur)",
     },
     {
-      value: "dokter",
-      label: "Dokter",
+      value: "SERVICE",
+      label: "Pekerja Layanan (Kasir, Pramusaji, Pramugari)",
     },
     {
-      value: "guru",
-      label: "Guru",
+      value: "MANUAL",
+      label: "Pekerja Manual (Pekerja Konstruksi, Pekerja Pabrik)",
+    },
+    {
+      value: "JOBLESS",
+      label: "Tidak Bekerja atau Mengurus Rumah Tangga",
     },
   ];
 
   const optionFatherIncome = [
     {
-      label: "Pilih penghasilan ayah",
       value: "pilih",
+      label: "Pilih penghasilan ayah",
     },
     {
-      value: "< Rp 1.000.000",
-      label: "< Rp 1.000.000",
+      value: "RICH",
+      label: "> Rp 9.000.000/bulan",
     },
     {
-      value: "Rp 1.000.000 - Rp 5.000.000",
-      label: "Rp 1.000.000 - Rp 5.000.000",
+      value: "UPPERMED",
+      label: "Rp 6.000.000 - Rp 8.999.999/bulan",
     },
     {
-      value: "> Rp 5.000.000",
-      label: "> Rp 5.000.000",
+      value: "LOWERMED",
+      label: "Rp 3.000.000 - Rp 5.999.999/bulan",
+    },
+    {
+      value: "POOR",
+      label: "Rp 1.000.000 - Rp 2.999.999/bulan",
     },
   ];
 
   const optionMotherIncome = [
     {
-      label: "Pilih penghasilan ibu",
       value: "pilih",
+      label: "Pilih penghasilan ibu",
     },
     {
-      value: "< Rp 1.000.000",
-      label: "< Rp 1.000.000",
+      value: "RICH",
+      label: "> Rp 9.000.000/bulan",
     },
     {
-      value: "Rp 1.000.000 - Rp 5.000.000",
-      label: "Rp 1.000.000 - Rp 5.000.000",
+      value: "UPPERMED",
+      label: "Rp 6.000.000 - Rp 8.999.999/bulan",
     },
     {
-      value: "> Rp 5.000.000",
-      label: "> Rp 5.000.000",
+      value: "LOWERMED",
+      label: "Rp 3.000.000 - Rp 5.999.999/bulan",
+    },
+    {
+      value: "POOR",
+      label: "Rp 1.000.000 - Rp 2.999.999/bulan",
     },
   ];
 
   const optionOwnIncome = [
     {
-      label: "Pilih penghasilan sendiri",
       value: "pilih",
+      label: "Pilih penghasilan sendiri",
     },
     {
-      value: "< Rp 1.000.000",
-      label: "< Rp 1.000.000",
+      value: "RICH",
+      label: "> Rp 9.000.000/bulan",
     },
     {
-      value: "Rp 1.000.000 - Rp 5.000.000",
-      label: "Rp 1.000.000 - Rp 5.000.000",
+      value: "UPPERMED",
+      label: "Rp 6.000.000 - Rp 8.999.999/bulan",
     },
     {
-      value: "> Rp 5.000.000",
-      label: "> Rp 5.000.000",
+      value: "LOWERMED",
+      label: "Rp 3.000.000 - Rp 5.999.999/bulan",
+    },
+    {
+      value: "POOR",
+      label: "Rp 1.000.000 - Rp 2.999.999/bulan",
     },
   ];
 
@@ -179,35 +203,43 @@ const JobsInformation: FC = (): ReactElement => {
       value: "pilih",
     },
     {
-      value: "orang-tua ",
+      value: "PARENT",
       label: "Orang tua",
     },
     {
-      value: "saudara",
-      label: "Saudara",
+      value: "RELATIVE",
+      label: "Keluarga dekat (Paman, Bibi, Kakek atau Nenek)",
     },
     {
-      value: "sendiri",
-      label: "Sendiri",
+      value: "SCHOLARSHIP",
+      label: "Beasiswa",
+    },
+    {
+      value: "SELF",
+      label: "Tinggal sendiri",
     },
   ];
 
   const optionCollegeFeesPaid = [
     {
-      label: "Pilih biaya kuliah ditanggung oleh",
       value: "pilih",
+      label: "Pilih biaya kuliah ditanggung oleh",
     },
     {
-      value: "orang-tua ",
+      value: "PARENT",
       label: "Orang tua",
     },
     {
-      value: "saudara",
-      label: "Saudara",
+      value: "RELATIVE",
+      label: "Keluarga dekat (Paman, Bibi, Kakek atau Nenek)",
     },
     {
-      value: "sendiri",
-      label: "Sendiri",
+      value: "SCHOLARSHIP",
+      label: "Beasiswa",
+    },
+    {
+      value: "SELF",
+      label: "Penghasilan sendiri",
     },
   ];
 
