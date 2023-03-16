@@ -7,7 +7,7 @@ export const navbarMenu = [
   },
   {
     name: "Studi-ku",
-    link: "/studiku",
+    link: "/studi-ku",
   },
   {
     name: "Penugasan",
