@@ -2,6 +2,7 @@ import { FC, ReactElement } from "react";
 import folder from "@/assets/status/folder.svg";
 import pdf from "@/assets/status/pdf.svg";
 import Image from "next/image";
+import GlobalButton from "@/components/Common/GlobalButton";
 
 const Status: FC = (): ReactElement => {
   const tabelState: {
@@ -17,12 +18,14 @@ const Status: FC = (): ReactElement => {
   ];
   return (
     <>
-      <section style={{marginLeft:"109px", marginRight:"109px"}} className="bg-white my-[96px] py-[92px] px-[72px] w-full">
+      <section style={{marginLeft:"109px", marginRight:"109px"}} className="scale-[0.8] lg:scale-[1] bg-white my-[96px] py-[92px] px-[72px] w-full">
         <p className="text-[20px] font-semibold mb-[8px]">Accounting 1</p>
         <p className="text-[16px] font-medium mb-[8px]">Tugas [Pertemuan ke-1]</p>
         <p className="text-[16px] font-medium mb-[8px]">Post - Bob S.Kom, M.Kom-Dosen-0001</p>
         <p className="text-[14px] mb-[35px] font-normal">23 Febuari 2023, 9:19 AM</p>
         <p className="text-[16px] font-normal">Silahkan baca dan kerjakan tugas pada modul berikut ini.</p>
+        <Image src={pdf} alt="File tugas" className="inline-block mr-[8px]"/>
+        <p className="inline">Tugas1.pdf</p>
 
         <div className="mt-[36px]">
           <p className="text-[20px] font-semibold mb-[25px]">Status Penugasan</p>
@@ -52,6 +55,10 @@ const Status: FC = (): ReactElement => {
             <div className="col-span-3 py-[16px] px-[16px]">Belum memilih tugas</div>
           </div>
         </div>
+
+        <p className="text-[#A3A3A3] text-[14px] font-medium my-[24px]"><span className="font-semibold">Note</span> : Pastikan berkas sudah sesuai dengan ketentuan</p>
+
+        <GlobalButton text="Unggah Tugas" className="mx-auto" size="base" hasImg={false} hasExternal={false}/>
       </section>
     </>
   );
