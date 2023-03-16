@@ -7,10 +7,13 @@ import afternoon from "@/assets/rescheduleSimulasi/afternoon.svg";
 import checklist from "@/assets/rescheduleSimulasi/checklist.svg";
 import Accordion from "@/components/Simulasion/Accordion";
 import { useRescheduleSimulation } from "@/hooks/Simulation/useRescheduleSimulation";
+import { useTimeRescheduleSimulation } from "@/hooks/Simulation/useTimeRescheduleSimulation";
 
 const Content: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   const { getRescheduleSimulation, setRescheduleSimulation } = useRescheduleSimulation();
+  const { getTimeRescheduleSimulation, setTimeRescheduleSimulation } =
+    useTimeRescheduleSimulation();
 
   const tes = [
     {
@@ -21,6 +24,18 @@ const Content: FC = (): ReactElement => {
     },
     {
       date: "Senin, 27 Juli 2021",
+    },
+  ];
+
+  const time = [
+    {
+      time: "16.30",
+    },
+    {
+      time: "13.30",
+    },
+    {
+      time: "11.30",
     },
   ];
   return (
@@ -66,10 +81,10 @@ const Content: FC = (): ReactElement => {
           <p className="text-[#171717] text-[14px] font-[600] mt-3 mb-1 dark:text-white">
             Pilih tanggal dan waktu Simulasi
           </p>
-          <div className="flex md:flex-row flex-col md:gap-4 gap-0">
+          <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
             {tes.map((items, l) => (
               <button
-                className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border text-[#737373]  ${
+                className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border text-[#737373] w-full ${
                   getRescheduleSimulation === items.date ? "bg-[#3EB449] text-white " : ""
                 }`}
                 key={l}
@@ -88,10 +103,20 @@ const Content: FC = (): ReactElement => {
           </div>
 
           <Accordion title="Sore" iconImage={afternoon} idAccordion={isOpen === "" ? "open" : ""}>
-            <button className="flex flex-row text-center  gap-2 outline bg-white p-2 rounded-[8px] outline-slate-400">
-              <Image src={checklist} alt={"icon"} className="mt-0" />
-              <p className="text-[#525252] font-[500] text-[12px]">16.30</p>
-            </button>
+            <div className="flex gap-5">
+              {time.map((items, i) => (
+                <button
+                  key={i}
+                  className={`flex flex-row text-center  gap-2  py-2 px-3 rounded-[8px] border text-[#525252] ${
+                    getTimeRescheduleSimulation === items.time ? "bg-[#3EB449] text-white" : ""
+                  } `}
+                  onClick={() => setTimeRescheduleSimulation(items.time)}
+                >
+                  <Image src={checklist} alt={"icon"} className="mt-1" height={10} />
+                  <p className="font-[500] text-[12px]">{items.time}</p>
+                </button>
+              ))}
+            </div>
           </Accordion>
 
           <div className="flex justify-end mt-3">

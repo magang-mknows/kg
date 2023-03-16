@@ -54,6 +54,11 @@ export const rescheduleSimulasiState = atom({
   default: "",
 });
 
+export const timereschduleSimulasiState = atom({
+  key: "time-reschedule-simulasi-state",
+  default: "",
+});
+
 // seacrh
 export const queryScheduleSimulation = atom({
   key: "query-schedule-simulation",
