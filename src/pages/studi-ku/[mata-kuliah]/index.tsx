@@ -1,4 +1,4 @@
-import Course from "@/modules/Studiku/Course";
+import Course from "@/modules/MyStudy/Course";
 import { FC, Fragment, ReactElement } from "react";
 
 const CoursePage: FC = (): ReactElement => {

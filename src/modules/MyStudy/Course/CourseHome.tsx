@@ -90,7 +90,7 @@ const CourseHome: FC = (): ReactElement => {
     <MainLayouts
       withHScreen={false}
       withPadding={false}
-      className="mx-auto px-[7%] mt-8 flex flex-col gap-y-10"
+      className="mx-auto px-[7%] my-8 flex flex-col gap-y-10"
     >
       <ContentLayouts withGap={false} className="gap-y-[30px] items-center">
         <h3 className="text-black dark:text-white text-[28px] text-center font-bold">
@@ -138,7 +138,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgModuleIcon} alt="" />
                   <Link
-                    href="/studiku/manajemen-keuangan/modul"
+                    href="/studiku/menejemen-keuangan/modul"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Modul
@@ -152,7 +152,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgQuizIcon} alt="" />
                   <Link
-                    href="/studiku/manajemen-keuangan/quiz"
+                    href="/studiku/menejemen-keuangan/quiz"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Quiz
@@ -166,7 +166,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgAssignmentIcon} alt="" />
                   <Link
-                    href="/studiku/manajemen-keuangan/tugas"
+                    href="/studiku/menejemen-keuangan/tugas"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Tugas
@@ -180,7 +180,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgDiscussionIcon} alt="" />
                   <Link
-                    href="/studiku/manajemen-keuangan/diskusi"
+                    href="/studiku/menejemen-keuangan/diskusi"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Diskusi
