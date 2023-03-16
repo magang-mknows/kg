@@ -25,7 +25,7 @@ Dibuat dengan :
 
 # Contribution Guide
 
-# Please DO NOT Direct PUSH to develop Branch
+# Please DO NOT Direct PUSH to main Branch
 
 ## Braching Guide
 
