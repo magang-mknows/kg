@@ -486,6 +486,21 @@ export const guideBookBreadCumbs = [
     name: "Buku Panduan",
     link: "/buku-panduan",
   },
+];
+
+export const guideRegistrationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Buku Panduan",
+    link: "/buku-panduan",
+  },
   {
     name: "Panduan Pendafataran",
     link: "/panduan-pendaftaran",
