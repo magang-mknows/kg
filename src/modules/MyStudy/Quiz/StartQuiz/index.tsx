@@ -2,12 +2,12 @@ import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import Loading from "@/components/Loading";
 import BaseLayouts from "@/layouts/Base";
 import { FC, ReactElement, Suspense } from "react";
-import { breadCrumbDummyData } from "../store/dummy-data";
+import { quizBreadCumbs } from "@/utilities/constant";
 import QuizMain from "./QuizStart";
 
 const index: FC = (): ReactElement => {
   const newBreadCrumbData = [
-    ...breadCrumbDummyData,
+    ...quizBreadCumbs,
     {
       name: "Mulai Quiz",
       link: "/mystudy/financial-management/quiz/start",

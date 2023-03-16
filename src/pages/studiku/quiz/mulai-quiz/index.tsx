@@ -1,5 +1,5 @@
 import { FC, Fragment, ReactElement } from "react";
-import StartQuiz from "@/modules/Studiku/Quiz/StartQuiz";
+import StartQuiz from "@/modules/MyStudy/Quiz/StartQuiz";
 
 const index: FC = (): ReactElement => {
   return (

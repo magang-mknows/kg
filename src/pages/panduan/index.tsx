@@ -3,7 +3,7 @@ import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
 
-const Landing = lazy(() => import("@/modules/Panduan"));
+const Landing = lazy(() => import("@/modules/Guide"));
 
 const Panduan: NextPage = (): ReactElement => {
   return (
