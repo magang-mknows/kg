@@ -1,12 +1,8 @@
 import Course from "@/modules/MyStudy/Course";
-import { FC, Fragment, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 
 const CoursePage: FC = (): ReactElement => {
-  return (
-    <Fragment>
-      <Course />
-    </Fragment>
-  );
+  return <Course />;
 };
 
 export default CoursePage;
