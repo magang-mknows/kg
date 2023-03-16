@@ -2,23 +2,21 @@ import BaseLayouts from "@/layouts/Base";
 import { acaraKampusBreadCumbs } from "@/utilities/constant";
 import { FC, lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import EventHistory from "./EventHistory";
-import RegisteredEvent from "./RegisteredEvent";
+import CreateDiskusi from "../RuangDiskusi/CreateDiskusi";
 
-const EventList = lazy(() => import("./EventList"));
+const EventList = lazy(() => import("@/modules/Event/EventList"));
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
 const Event: FC = (): ReactElement => {
   return (
-    <BaseLayouts className="lg:px-4">
+    <BaseLayouts className="">
       <ErrorBoundary fallback={<>Error was Happen</>}>
         <Suspense fallback={<>Loading...</>}>
           <BreadCrumbs items={acaraKampusBreadCumbs} />
-          <div className="px-10 md:px-14 lg:px-20">
+          <div className="w-full px-6 md:px-8 lg:px-10">
             <EventList />
-            <RegisteredEvent />
-            <EventHistory />
           </div>
+          <CreateDiskusi />
         </Suspense>
       </ErrorBoundary>
     </BaseLayouts>

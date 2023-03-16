@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
-import Loader from "@/assets/loader.png";
+import Loader from "@/assets/loader/loader.png";
 
 const Loading = (): ReactElement => {
   return (

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FC, Fragment } from "react";
 
-import logoBiru from "@/assets/logoBiru.png";
+import logoBiru from "@/assets/navbar/logoBiru.png";
 import MenuIcon from "./MenuIcon";
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
@@ -19,30 +19,30 @@ import { navbarMenu } from "@/utilities/constant";
 import ThemeToggle from "@/components/ThemeToggle/index";
 import MobileMenu from "@/components/Common/MobileMenu";
 import { useLoginModal } from "@/hooks/Auth/useLoginModal";
-import { useTheme } from "next-themes";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
   const { setLoginModal } = useLoginModal();
 
-  const { theme } = useTheme();
-
-  console.log(theme);
-
   return (
     <Fragment>
-      <section className="flex items-center h-[72px] justify-between border-b-2 px-10 md:px-14 lg:px-20  border-neutral-100 dark:border-[#0c59824f]">
+      <section className="flex items-center z-[9999] h-[72px] justify-between border-b-2 px-6 md:px-8 lg:px-10  border-neutral-100 dark:border-[#373a3e4a]">
         <Link passHref href={"/"}>
-          <Image src={logoBiru} alt="Kampus Gratis's Logo" width={82} className="w-auto" />
+          <Image
+            src={logoBiru}
+            alt="Kampus Gratis's Logo"
+            width={82}
+            className="w-[60px] md:w-[65px] lg:w-[80px]"
+          />
         </Link>
-        {isScrollY === "onSticky" && <BottomSection className="dark:bg-transparent" />}
+        {isScrollY === "onSticky" && <BottomSection className="dark:bg-transparent px-2" />}
         <section className="flex items-center gap-2 md:gap-3 ">
           <MobileMenu list={navbarMenu} />
           <MenuIcon
             icon={
               <BiCategoryAlt
                 size={20}
-                className="text-neutral-900 dark:text-white stroke-neutral-900 group-hover:text-neutral-300 transition-colors ease-in-out duration-300"
+                className="text-neutral-900 dark:text-white dark:hover:text-primary-500 stroke-neutral-900 group-hover:text-neutral-300 transition-colors ease-in-out duration-300"
               />
             }
           >
@@ -108,13 +108,13 @@ const UpperSection: FC = () => {
             onClick={() => setLoginModal(true)}
             type="button"
             text={"Masuk"}
-            className="hidden lg:block text-[#106FA4] dark:text-white dark:border-white/60 dark:hover:bg-neutral-700/40 border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+            className="hidden lg:block text-[#106FA4] dark:text-white dark:border-white/20 dark:hover:bg-neutral-700/40 border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
           />
           <Button
             type="button"
             text={"Daftar"}
             page={"/auth/register"}
-            className="hidden lg:block bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+            className="hidden lg:block bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm dark:bg-[#323335] dark:hover:bg-[#30353b] dark:border-[#30353b] "
           />
         </section>
       </section>

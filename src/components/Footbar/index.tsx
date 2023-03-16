@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 
 // img
-import GooglePlayStore from "@/assets/google-play-store.svg";
+import GooglePlayStore from "@/assets/footbar/google-play-store.svg";
 import Image from "next/image";
 
 import { LoadConditionalLogo } from "@/utilities/helper/index";

@@ -1,11 +1,11 @@
-import ImageEventList from "@/assets/event-list.svg";
+import ImageEventList from "@/assets/event/event-list.svg";
 import Button from "@/components/Common/Button";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupEvent } from "@/hooks/Common/usePopupEvent";
 import { Tab } from "@headlessui/react";
 
-import eventSuccess from "@/assets/eventSuccess.svg";
-import checklist from "@/assets/checklist.svg";
+import eventSuccess from "@/assets/event/eventSuccess.svg";
+import checklist from "@/assets/event/checklist.svg";
 
 import Image from "next/image";
 import { FC, Fragment, ReactElement } from "react";

@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import Card from "@/components/Common/Card";
-import Dummy from "@/assets/dummy.png";
+import Dummy from "@/assets/landing/dummy.png";
 import { useInformation } from "@/hooks/Landing/useInformation";
 
 const tagColor: { id: number; tag: string; color: string }[] = [
@@ -33,9 +33,10 @@ const InformationSection: FC = (): ReactElement => {
           return (
             <Card
               key={i}
-              href="/informasi/detail"
+              href="/sekilas-ilmu"
               className="border rounded-lg px-3 shadow-md"
               src={Dummy}
+              imgStyle="w-full"
               icon={
                 <div
                   className="my-4"

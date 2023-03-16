@@ -9,3 +9,7 @@ export interface CardListProps {
   day?: string;
   date?: Date | string;
 }
+
+export interface SideBarProps {
+  active?: "EventList" | "RegisteredEvent" | "EventHistory";
+}

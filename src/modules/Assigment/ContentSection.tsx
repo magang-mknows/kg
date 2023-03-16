@@ -1,16 +1,18 @@
 import React, { FC, ReactElement, useState } from "react";
 import Assigment from "@/components/Assigment/AssigmentCard";
-import AssigmentAssigned from "@/assets/assigned-assigment.svg";
-import AssigmentDone from "@/assets/assigned-done.svg";
-import AssignedAssesment from "@/assets/assigned-assesment.svg";
-import AssignedLate from "@/assets/assigned-late.svg";
+import AssigmentAssigned from "@/assets/assigment/assigned-assigment.svg";
+import AssigmentDone from "@/assets/assigment/assigned-done.svg";
+import AssignedAssesment from "@/assets/assigment/assigned-assesment.svg";
+import AssignedLate from "@/assets/assigment/assigned-late.svg";
 import { T } from "@/stores/Assigment/type";
 import { useAssigment } from "@/hooks/Assigment/useAssigment";
+import ImageNull from "@/assets/assigment/data-null.svg";
+import Image from "next/image";
 
 const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");
   const { getAssigment } = useAssigment();
-
+  console.log(getAssigment.length);
   return (
     <section className="lg:px-20 md:px-10 px-5 py-3 w-full mt-[36px] drop-shadow-md mb-3 min-h-screen">
       <div className="   bg-white h-full   rounded-[8px] dark:bg-gray-800 ">
@@ -94,15 +96,65 @@ const ContentSection: FC = (): ReactElement => {
           </ul>
         </div>
         <div className=" pb-8">
-          {active === "semua-tugas"
-            ? getAssigment.map((item: T) => (
+          {active === "semua-tugas" ? (
+            getAssigment.map((item: T) => (
+              <Assigment
+                key={item.id}
+                titleAssigment={item.title}
+                category={item.category}
+                titleCourse={item.course}
+                date={item.date}
+                time={item.time}
+                bgLine={
+                  item.category === "ditugaskan"
+                    ? "bg-primary-600"
+                    : item.category === "terlambat"
+                    ? "bg-secondary-yellow-600"
+                    : item.category === "selesai"
+                    ? "bg-secondary-green-500"
+                    : item.category === "sedang-dinilai"
+                    ? "bg-neautral-500"
+                    : ""
+                }
+                classNameCategory={
+                  item.category === "ditugaskan"
+                    ? "text-primary-600"
+                    : item.category === "terlambat"
+                    ? "text-secondary-yellow-600"
+                    : item.category === "selesai"
+                    ? "text-secondary-green-500"
+                    : item.category === "sedang-dinilai"
+                    ? "text-neautral-500"
+                    : ""
+                }
+                imgAssigment={
+                  item.category === "ditugaskan"
+                    ? AssigmentAssigned
+                    : item.category === "terlambat"
+                    ? AssignedLate
+                    : item.category === "selesai"
+                    ? AssigmentDone
+                    : item.category === "sedang-dinilai"
+                    ? AssignedAssesment
+                    : ""
+                }
+              />
+            ))
+          ) : getAssigment.filter((item: T) => item.category.includes(active)).length == 0 ? (
+            <div className="flex justify-center">
+              <Image src={ImageNull} alt={"empty"} />
+            </div>
+          ) : (
+            getAssigment
+              .filter((item: T) => item.category.includes(active))
+              .map((item: T) => (
                 <Assigment
                   key={item.id}
                   titleAssigment={item.title}
                   category={item.category}
                   titleCourse={item.course}
                   date={item.date}
-                  time={item.time}
+                  time={"20:00:00"}
                   bgLine={
                     item.category === "ditugaskan"
                       ? "bg-primary-600"
@@ -138,51 +190,7 @@ const ContentSection: FC = (): ReactElement => {
                   }
                 />
               ))
-            : getAssigment
-                .filter((item: T) => item.category.includes(active))
-                .map((item: T) => (
-                  <Assigment
-                    key={item.id}
-                    titleAssigment={item.title}
-                    category={item.category}
-                    titleCourse={item.course}
-                    date={item.date}
-                    time={"20:00:00"}
-                    bgLine={
-                      item.category === "ditugaskan"
-                        ? "bg-primary-600"
-                        : item.category === "terlambat"
-                        ? "bg-secondary-yellow-600"
-                        : item.category === "selesai"
-                        ? "bg-secondary-green-500"
-                        : item.category === "sedang-dinilai"
-                        ? "bg-neautral-500"
-                        : ""
-                    }
-                    classNameCategory={
-                      item.category === "ditugaskan"
-                        ? "text-primary-600"
-                        : item.category === "terlambat"
-                        ? "text-secondary-yellow-600"
-                        : item.category === "selesai"
-                        ? "text-secondary-green-500"
-                        : item.category === "sedang-dinilai"
-                        ? "text-neautral-500"
-                        : ""
-                    }
-                    imgAssigment={
-                      item.category === "ditugaskan"
-                        ? AssigmentAssigned
-                        : item.category === "terlambat"
-                        ? AssignedLate
-                        : item.category === "selesai"
-                        ? AssigmentDone
-                        : item.category === "sedang-dinilai"
-                        ? AssignedAssesment
-                        : ""
-                    }
-                  />
-                ))}
+          )}
         </div>
       </div>
     </section>

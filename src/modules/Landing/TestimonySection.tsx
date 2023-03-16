@@ -1,8 +1,8 @@
 import { FC, ReactElement } from "react";
-import GlobalButton from "../../components/Common/GlobalButton";
+import GlobalButton from "@/components/Common/GlobalButton";
 import Image from "next/image";
-import testimoniImg1 from "../../assets/testimonial-01.svg";
-import testimoniImg4 from "../../assets/testimonial-04.svg";
+import testimoniImg1 from "@/assets/landing/testimonial-01.svg";
+import testimoniImg4 from "@/assets/landing/testimonial-04.svg";
 
 const alumniDatas = [
   {

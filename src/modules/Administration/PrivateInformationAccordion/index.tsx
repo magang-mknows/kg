@@ -10,6 +10,7 @@ import Button from "@/components/Common/Button";
 import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
 import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
+import { optionsGender, optionsLastEducation } from "@/utilities/constant";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
@@ -42,7 +43,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      gender: "P",
+      gender: "",
       email: "",
       address: "",
       nim: "",
@@ -66,17 +67,6 @@ const PrivateInformationSection: FC = (): ReactElement => {
       throw handleError(err);
     }
   });
-
-  const options = [
-    {
-      value: "P",
-      label: "Perempuan",
-    },
-    {
-      value: "L",
-      label: "Laki - Laki",
-    },
-  ];
 
   return (
     <Accordion
@@ -106,9 +96,9 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 hasLabel
                 label="Jenis Kelamin"
                 name="gender"
-                defaultValue="Laki"
+                defaultValue="Pilih jenis kelamin"
                 required={true}
-                options={options}
+                options={optionsGender}
                 className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
                 labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               />
@@ -207,16 +197,16 @@ const PrivateInformationSection: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label">
-              <ControlledTextField
-                hasLabel
+              <ControlledSelectField
                 control={control}
-                type={"lastEducation"}
-                label={"Pendidikan Terakhir"}
-                name={"lastEducation"}
-                placeholder={"Masukkan pendidikan terakhir"}
+                hasLabel
+                label="Pendidikan Terakhir"
+                name="lastEducation"
+                defaultValue="Pilih pendidikan terakhir"
                 required={true}
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                options={optionsLastEducation}
+                className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
+                labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               />
             </div>
             <div className="form-label">

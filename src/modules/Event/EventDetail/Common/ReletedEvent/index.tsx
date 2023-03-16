@@ -1,5 +1,5 @@
 import Card from "@/components/Common/Card";
-import ImageEventList from "@/assets/event-list.svg";
+import ImageEventList from "@/assets/event/event-list.svg";
 
 import { FC, ReactElement } from "react";
 

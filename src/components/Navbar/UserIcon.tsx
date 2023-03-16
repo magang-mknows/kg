@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC, ReactElement } from "react";
-import userIcon from "@/assets/userIcon.png";
+import userIcon from "@/assets/navbar/userIcon.png";
 import { Menu, Transition } from "@headlessui/react";
 import { RiDashboardFill, RiSettings5Fill } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
