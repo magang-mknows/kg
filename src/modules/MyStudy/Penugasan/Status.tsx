@@ -24,12 +24,12 @@ const Status: FC = (): ReactElement => {
         <p className="text-[16px] font-medium mb-[8px]">Post - Bob S.Kom, M.Kom-Dosen-0001</p>
         <p className="text-[14px] mb-[35px] font-normal">23 Febuari 2023, 9:19 AM</p>
         <p className="text-[16px] font-normal">Silahkan baca dan kerjakan tugas pada modul berikut ini.</p>
-        <Image src={pdf} alt="File tugas" className="inline-block mr-[8px]"/>
+        <Image src={pdf} alt="File tugas" className="inline-block mr-[8px] scale-[0.8] lg:scale-[1]"/>
         <p className="inline">Tugas1.pdf</p>
 
         <div className="mt-[36px]">
           <p className="text-[20px] font-semibold mb-[25px]">Status Penugasan</p>
-          <div className="grid grid-cols-4 text-[12px]">
+          <div className="grid grid-cols-4 lg:text-[12px] text-[10px]">
             {tabelState.map((row) => {
               return (
                 <>
@@ -46,11 +46,11 @@ const Status: FC = (): ReactElement => {
         </div>
 
         <div className="border-dashed border-2 border-[#D4D4D4] mt-[28px] py-[46px]">
-          <Image src={folder} alt="insert folder" className="mx-auto mb-[20px]" />
+          <Image src={folder} alt="insert folder" className="mx-auto mb-[20px] scale-[0.8] lg:scale-[1]" />
           <p className="text-center">
             Seret, taruh dan <span className="text-[#106FA4]">pilih file</span> untuk mengunggah
           </p>
-          <div className="w-[450px] grid grid-cols-4 text-[14px] mx-auto mt-[10px] border-solid border-[1px] rounded-lg ">
+          <div className="scale-[0.8] lg:scale-[1] lg:w-[450px] grid grid-cols-4 text-[14px] mx-auto mt-[10px] border-solid border-[1px] rounded-lg ">
             <button className="col-span-1 bg-[#D4D4D4] py-[16px] text-center">Pilih file</button>
             <div className="col-span-3 py-[16px] px-[16px]">Belum memilih tugas</div>
           </div>
