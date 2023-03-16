@@ -80,7 +80,7 @@ const CourseHome: FC = (): ReactElement => {
         dummyData[i].progress = "In Progress";
       }
     }
-  }, [dummyData]);
+  }, []);
 
   useEffect(() => {
     progressConferenceHandler();
