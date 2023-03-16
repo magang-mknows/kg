@@ -23,7 +23,7 @@ const TestimonySection: FC = (): ReactElement => {
   return (
     <section
       data-test="testimony"
-      className="min-h-screen my-10 w-full mx-8 px-8 lg:mx-0 lg:px-20 flex justify-self-center bg-[#f5f5f5] dark:bg-gray-900"
+      className="mt-20 w-full mx-8 px-6 md:px-8 lg:mx-0 lg:px-10 flex justify-self-center bg-[#f5f5f5] dark:bg-gray-900"
     >
       <div className="flex flex-col xl:flex-row w-full xl:gap-x-20 gap-y-12 h-fit">
         <div className="flex flex-col items-center text-center gap-y-9 md:items-start md:text-start">
@@ -32,7 +32,7 @@ const TestimonySection: FC = (): ReactElement => {
             <h2 className="text-3xl lg:text-4xl sm:text-2xl text-[#181818] dark:text-white font-medium">
               Apa kata mahasiswa Kampus Gratis?
             </h2>
-            <p className="text-base text-[#808080] w-full">
+            <p className="text-base dark:text-white text-[#808080] w-full">
               Kampus Gratis telah mencetak talenta hebat yang berkontribusi untuk negeri. Mari kita
               simak pendapat mereka terhadap kami
             </p>
