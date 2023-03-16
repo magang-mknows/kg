@@ -5,39 +5,23 @@ import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
 import calendar from "@/assets/rescheduleSimulasi/calendar.svg";
 import afternoon from "@/assets/rescheduleSimulasi/afternoon.svg";
 import checklist from "@/assets/rescheduleSimulasi/checklist.svg";
+import warning from "@/assets/rescheduleSimulasi/warning.svg";
+import rescheduleJadwal from "@/assets/rescheduleSimulasi/reschedule-jadwal.svg";
 import Accordion from "@/components/Simulasion/Accordion";
 import { useRescheduleSimulation } from "@/hooks/Simulation/useRescheduleSimulation";
 import { useTimeRescheduleSimulation } from "@/hooks/Simulation/useTimeRescheduleSimulation";
+import { useCheckRescheduleSimulation } from "@/hooks/Simulation/useCheckRescheduleSimulation";
+import PopupModal from "@/components/Common/PopupModal";
+import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
 
 const Content: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   const { getRescheduleSimulation, setRescheduleSimulation } = useRescheduleSimulation();
   const { getTimeRescheduleSimulation, setTimeRescheduleSimulation } =
     useTimeRescheduleSimulation();
+  const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
+  const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
 
-  const tes = [
-    {
-      date: "Senin, 12 Juli 2021",
-    },
-    {
-      date: "Senin, 19 Juli 2021",
-    },
-    {
-      date: "Senin, 27 Juli 2021",
-    },
-  ];
-
-  const time = [
-    {
-      time: "16.30",
-    },
-    {
-      time: "13.30",
-    },
-    {
-      time: "11.30",
-    },
-  ];
   return (
     <>
       <h1 className="text-[#262626] text-[28px] font-[700] mb-5 dark:text-white mt-5">
@@ -67,6 +51,7 @@ const Content: FC = (): ReactElement => {
                 tersebut.
               </li>
             </ol>
+            +
           </p>
         </div>
         <div className="lg:basis-7/12">
@@ -81,49 +66,75 @@ const Content: FC = (): ReactElement => {
           <p className="text-[#171717] text-[14px] font-[600] mt-3 mb-1 dark:text-white">
             Pilih tanggal dan waktu Simulasi
           </p>
-          <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
-            {tes.map((items, l) => (
-              <button
-                className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border text-[#737373] w-full ${
-                  getRescheduleSimulation === items.date ? "bg-[#3EB449] text-white " : ""
-                }`}
-                key={l}
-                onClick={() => setRescheduleSimulation(items.date)}
-              >
-                <Image src={calendar} alt={"calendar-date"} />
-                <p
-                  className={` text-[12px] font-[400] mt-1  ${
-                    getRescheduleSimulation === items.date ? "text-white" : ""
-                  }} `}
-                >
-                  {items.date}
-                </p>
-              </button>
-            ))}
-          </div>
 
-          <Accordion title="Sore" iconImage={afternoon} idAccordion={isOpen === "" ? "open" : ""}>
-            <div className="flex gap-5">
-              {time.map((items, i) => (
+          <>
+            <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
+              {getCheckRescheduleSimulation.map((item, l) => (
                 <button
-                  key={i}
-                  className={`flex flex-row text-center  gap-2  py-2 px-3 rounded-[8px] border text-[#525252] ${
-                    getTimeRescheduleSimulation === items.time ? "bg-[#3EB449] text-white" : ""
-                  } `}
-                  onClick={() => setTimeRescheduleSimulation(items.time)}
+                  className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border text-[#737373] w-full ${
+                    getRescheduleSimulation === item.date ? "bg-[#3EB449] text-white " : ""
+                  }`}
+                  key={l}
+                  onClick={() => setRescheduleSimulation(item.date)}
                 >
-                  <Image src={checklist} alt={"icon"} className="mt-1" height={10} />
-                  <p className="font-[500] text-[12px]">{items.time}</p>
+                  <Image src={calendar} alt={"calendar-date"} />
+                  <p
+                    className={` text-[12px] font-[400] mt-1  ${
+                      getRescheduleSimulation === item.date ? "text-white" : ""
+                    }} `}
+                  >
+                    {item.date}
+                  </p>
                 </button>
               ))}
             </div>
-          </Accordion>
+            <Accordion
+              title="Sore"
+              iconImage={afternoon}
+              idAccordion={isOpen === "" ? "open" : ""}
+              // disabled={isOpen ? true : false}
+            >
+              <div className="flex gap-5">
+                {getCheckRescheduleSimulation.map((item) =>
+                  item.time.map((items, i) => (
+                    <button
+                      key={i}
+                      className={`flex flex-row text-center  gap-2  py-2 px-3 rounded-[8px] border text-[#525252] ${
+                        getTimeRescheduleSimulation === items.time ? "bg-[#3EB449] text-white" : ""
+                      } `}
+                      onClick={() => setTimeRescheduleSimulation(items.time)}
+                    >
+                      <Image src={checklist} alt={"icon"} className="mt-1" height={10} />
+                      <p className="font-[500] text-[12px]">{items.time}</p>
+                    </button>
+                  )),
+                )}
+              </div>
+            </Accordion>
+          </>
 
           <div className="flex justify-end mt-3">
             <button className="bg-[#FAB317] text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4">
               Ajukan Perubahan Jadwal
             </button>
           </div>
+        </div>
+
+        <div>
+          <PopupModal
+            icon={warning}
+            image={rescheduleJadwal}
+            popupTitle="Anda Telah Selesai Melakukan Simulasi!"
+            stylePopup={"font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]"}
+            lookup={getPopupStatus}
+            className="!h-85 w-[100%] text-md py-10"
+            onClose={() => setPopupStatus(false)}
+          >
+            <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
+              Kamu telah mengajukan Reschedule Jadwal pertemuan simulasi, silahkan menunggu jadwal
+              simulasi terbaru.
+            </p>
+          </PopupModal>
         </div>
       </div>
     </>
