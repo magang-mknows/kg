@@ -28,7 +28,7 @@ const dummyData: Dummy[] = [
       module: "Done",
       quiz: "Done",
       assignment: "Done",
-      disscussion: "Done",
+      disscussion: "In Progress",
     },
     progress: "Done",
   },
@@ -147,7 +147,6 @@ const CourseHome: FC = (): ReactElement => {
                   </Link>
                 </div>
                 <div className="">
-                  {/* if complete show the below */}
                   {conference.status.module === "Done" && <Image src={imgDoneIcon} alt="" />}
                 </div>
               </div>
@@ -162,7 +161,6 @@ const CourseHome: FC = (): ReactElement => {
                   </Link>
                 </div>
                 <div className="">
-                  {/* if complete show the below */}
                   {conference.status.quiz === "Done" && <Image src={imgDoneIcon} alt="" />}
                 </div>
               </div>
@@ -177,7 +175,6 @@ const CourseHome: FC = (): ReactElement => {
                   </Link>
                 </div>
                 <div className="">
-                  {/* if complete show the below */}
                   {conference.status.assignment === "Done" && <Image src={imgDoneIcon} alt="" />}
                 </div>
               </div>
@@ -192,7 +189,6 @@ const CourseHome: FC = (): ReactElement => {
                   </Link>
                 </div>
                 <div className="">
-                  {/* if complete show the below */}
                   {conference.status.disscussion === "Done" && <Image src={imgDoneIcon} alt="" />}
                 </div>
               </div>
