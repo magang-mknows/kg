@@ -11,9 +11,9 @@ import Card from "@/components/Common/Card";
 
 const AboutSection: FC = (): ReactElement => {
   return (
-    <section className="mt-[150px] mb-[250px] mx-8">
-      <div className="grid lg:grid-cols-2 lg:gap-40 md:gap-14 gap-0 ">
-        <div className="mx-auto ">
+    <section className="mt-0 lg:mt-[140px] mb-[350px] lg:mx-7  mx-4 lg:w-full">
+      <div className="flex flex-col lg:flex-row lg:gap-20 md:gap-14 gap-0 ">
+        <div className="flex justify-center">
           <div className="w-[500px] h-[382px] relative col-span-1 md:px-0 px-5 md:ml-0 ml-24">
             <Image src={RectangleUp} alt={"rectangle-up"} className="relative md:w-5/12 w-3/12" />
             <Image
@@ -66,33 +66,34 @@ const AboutSection: FC = (): ReactElement => {
             </Card>
           </div>
         </div>
-
-        <div className="w-full col-span-1 px-4 md:px-10 lg:grid lg:place-content-start grid place-content-center">
-          <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[30px] font-bold leading-tight">
-            Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
-          </h1>
-          <p className="text-[#8e8e8e] md:text-[24px] text-[18px] leading-normal md:mt-[46px] mt-[20px]">
-            Ada banyak kategori pelatihan terlaris yang ada <br /> di Kampus Gratis
-          </p>
-          <div className="">
-            <ul className="md:mt-[46px] mt-[30px] md:text-[24px] text-[18px] ">
-              <div className="checklist flex gap-2 mb-3">
-                <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 ">Belajar semua materi GRATIS</li>
-              </div>
-              <div className="checklist flex gap-2 mb-3">
-                <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 ">Dibimbing oleh mentor yang profesional</li>
-              </div>
-              <div className="checklist flex gap-2 mb-3">
-                <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 ">Dukungan untuk karir masa depan</li>
-              </div>
-              <div className="checklist flex gap-2 mb-3">
-                <Image src={Checklist} alt={"checklist"} />
-                <li className="-mt-1 ">Pembelajaran yang fleksibel</li>
-              </div>
-            </ul>
+        <div className="banner">
+          <div className="relative  z-[99]  mt-[30px] lg:pl-20 px-10">
+            <h1 className="dark:text-[#ffff] text-[#262626] md:text-[44px] text-[30px] font-bold leading-tight">
+              Kelebihan <span className="text-[#0B568D]">Kampus Gratis</span>
+            </h1>
+            <p className="pt-[50px] align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
+              Ada banyak kategori pelatihan terlaris yang ada di Kampus Gratis
+            </p>
+            <div className="">
+              <ul className="pt-[20px] space-y-[20px] lg:text-base text-sm ">
+                <div className="checklist flex gap-2 mt-1 justfiy-start items-center ">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li>Kuliah & Belajar semua materi GRATIS</li>
+                </div>
+                <div className="checklist flex gap-2 mt-1 justfiy-start items-center">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li>Dibimbing oleh mentor yang profesional</li>
+                </div>
+                <div className="checklist flex gap-2 mt-1 justfiy-start items-center">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li>Dukungan untuk karir masa depan</li>
+                </div>
+                <div className="checklist flex gap-2 mt-1 justfiy-start items-center">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li>Pembelajaran yang fleksibel</li>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
