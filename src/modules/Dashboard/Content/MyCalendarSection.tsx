@@ -64,7 +64,7 @@ const MyCalendarSection: FC = (): ReactElement => {
       </header>
       <p className="mb-4 font-bold text-base text-yellow-600">{months[month - 1]}</p>
       <section className="flex justify-center items-center">
-        <div className="mb-4 gap-2  w-[95%] overflow-hidden overflow-x-scroll scrollbar-hide md:scrollbar-default  flex ">
+        <div className="mb-4 gap-2  w-full overflow-hidden overflow-x-scroll scrollbar-hide md:scrollbar-default  flex ">
           {dates.map(({ date }, index) => {
             return (
               <section

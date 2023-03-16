@@ -6,9 +6,9 @@ export default function useWindowScroll(): WindowScrollReturnTypes {
 
   useEffect(() => {
     const handleScroll = (): void => {
-      if (window.scrollY <= 100) {
+      if (window.scrollY <= 300) {
         setScrollY("onRender");
-      } else if (window.scrollY > 100 && window.scrollY < 360) {
+      } else if (window.scrollY > 300 && window.scrollY < 340) {
         setScrollY("onScroll");
       } else {
         setScrollY("onSticky");

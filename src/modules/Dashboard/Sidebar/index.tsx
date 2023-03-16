@@ -10,7 +10,7 @@ const SidebarSection: FC = (): ReactElement => {
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<>Loading...</>}>
         <div className="flex flex-col lg:col-span-3 xl:col-span-1 col-span-3">
-          <div className="flex xl:flex-col gap-x-10 md:flex-col lg:flex-row flex-col ">
+          <div className="flex xl:flex-col gap-x-10 md:flex-row lg:flex-row flex-col ">
             <ResumeSection />
             <LeaderBoardSection />
           </div>
