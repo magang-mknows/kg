@@ -76,10 +76,8 @@ const CourseHome: FC = (): ReactElement => {
       const arrayOftemp = temp[i].every((item) => item === "Done");
       if (arrayOftemp) {
         dummyData[i].progress = "Done";
-        console.log("Done");
       } else if (!arrayOftemp) {
         dummyData[i].progress = "In Progress";
-        console.log("In Progress");
       }
     }
   }, [dummyData]);
