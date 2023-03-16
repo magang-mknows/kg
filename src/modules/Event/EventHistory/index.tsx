@@ -11,15 +11,19 @@ import { CardListProps } from "@/modules/Event/types";
 
 const CardList: FC<CardListProps> = ({ title, slug, image, price, status }): ReactElement => {
   return (
-    <div className={"flex auto bg-white rounded-lg w-full h-fit flex-row gap-10 items-center"}>
+    <div
+      className={
+        "flex auto bg-white rounded-lg w-full h-fit py-2 lg:py-0 flex-row gap-2 lg:gap-10 items-center dark:bg-[#1b1e21]"
+      }
+    >
       <Image
         className={"w-5/12 rounded-lg"}
         src={image as StaticImageData}
         alt="Picture of the author"
       />
-      <div className="flex flex-row w-full">
+      <div className="flex flex-row w-full gap-2 lg:gap-4">
         <div className="flex-col w-1/2 gap-4">
-          <h1 className="text-[16px] dark:text-black">{title}</h1>
+          <h1 className="text-[16px] dark:text-white">{title}</h1>
           {price && (
             <h1 className="text-[18px] text-[#ED3768]">
               {price && price} {status && status}
@@ -84,13 +88,13 @@ const EventHistory: FC = (): ReactElement => {
   ];
   return (
     <Fragment>
-      <div className="flex flex-row">
-        <div className="basis-1/3">
+      <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row">
+        <div className="flex justify-center lg:justify-start lg:basis-1/3">
           <SideBar active="EventHistory" />
         </div>
-        <div className="w-full basis-2/3">
+        <div className="w-full lg:basis-2/3">
           <SearchBar />
-          <div className="grid w-full grid-flow-row gap-8 ">
+          <div className="grid w-full grid-flow-row gap-4 lg:gap-8 ">
             {data
               .map((item, index) => (
                 <CardList

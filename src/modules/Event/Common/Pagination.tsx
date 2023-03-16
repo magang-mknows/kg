@@ -3,11 +3,11 @@ import { FC, ReactElement } from "react";
 
 const Pagination: FC = (): ReactElement => {
   return (
-    <div className="flex justify-end p-4">
+    <div className="flex justify-center p-4 lg:justify-end">
       <ul className="flex ">
         <li>
           <Link
-            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent text-[#737373] "
+            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent text-[#737373] dark:text-white"
             href={""}
           >
             <svg
@@ -27,7 +27,7 @@ const Pagination: FC = (): ReactElement => {
         </li>
         <li aria-current="page">
           <Link
-            className="flex justify-center items-center relative rounded-lg w-[36px] h-[36px] bg-[#106FA4] py-1.5 px-3 text-sm font-medium text-white"
+            className="flex justify-center items-center relative rounded-lg w-[36px] h-[36px] bg-[#106FA4] py-1.5 px-3 text-sm font-medium text-white dark:text-white"
             href={""}
           >
             1
@@ -38,7 +38,7 @@ const Pagination: FC = (): ReactElement => {
         </li>
         <li aria-current="page">
           <Link
-            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] "
+            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
             href={""}
           >
             2
@@ -46,7 +46,7 @@ const Pagination: FC = (): ReactElement => {
         </li>
         <li aria-current="page">
           <Link
-            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] "
+            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
             href={""}
           >
             3
@@ -54,7 +54,7 @@ const Pagination: FC = (): ReactElement => {
         </li>
         <li aria-current="page">
           <Link
-            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] "
+            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
             href={""}
           >
             4
@@ -62,7 +62,7 @@ const Pagination: FC = (): ReactElement => {
         </li>
         <li aria-current="page">
           <Link
-            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] "
+            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
             href={""}
           >
             5
@@ -70,7 +70,7 @@ const Pagination: FC = (): ReactElement => {
         </li>
         <li aria-current="page">
           <Link
-            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] "
+            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
             href={""}
           >
             6
@@ -78,7 +78,7 @@ const Pagination: FC = (): ReactElement => {
         </li>
         <li>
           <Link
-            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent text-[#737373] "
+            className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent text-[#737373] dark:text-white"
             href={""}
           >
             <svg

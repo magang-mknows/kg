@@ -3,8 +3,10 @@ import bigTrophyIcon from "@/assets/dashboard/bigTrophyIcon.svg";
 import medal1Icon from "@/assets/dashboard/medal1Icon.svg";
 import medal2Icon from "@/assets/dashboard/medal2Icon.svg";
 import medal3Icon from "@/assets/dashboard/medal3Icon.svg";
-import Image from "next/image";
+import emptyLeaderBoard from "@/assets/dashboard/emptyLeaderBoard.svg";
 import Button from "@/components/Common/Button";
+
+import Image from "next/image";
 
 const LeaderBoardSection: FC = (): ReactElement => {
   const dummyRankList = [
@@ -31,14 +33,20 @@ const LeaderBoardSection: FC = (): ReactElement => {
   ];
 
   return (
-    <section className="w-full bg-white lg:max-w-[370px] mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100">
+    <section className="w-full bg-white dark:bg-[#1B1E21]  mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100 dark:shadow-md dark:shadow-neutral-800">
       <section className="flex justify-between items-start mb-4">
         <div>
-          <h1 className="text-xl text-neutral-900 font-bold mb-2">Papan Skor</h1>
+          <h1 className="text-xl text-neutral-900 dark:text-white font-bold mb-2">Papan Skor</h1>
           <p className="text-lg text-yellow-500 font-bold ">0</p>
           <p className="text-sm text-yellow-500">Poin Kamu</p>
         </div>
         <Image className="w-20 " src={bigTrophyIcon} alt="papan skor" />
+      </section>
+      <section className="mb-8  mt-20">
+        <Image src={emptyLeaderBoard} alt="leaderBoard" className="h-52" />
+        <p className="text-center text-neutral-900 dark:text-yellow-500 text-sm my-3 px-10 lg:px-20">
+          Opps.. Kamu <span className="font-bold underline">belum pernah</span> mengerjakan tugas
+        </p>
       </section>
       {/* <section className="mb-6 ">
         {dummyRankList.map(({ name, score }, index) => {

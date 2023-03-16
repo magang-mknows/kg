@@ -36,6 +36,7 @@ const InformationSection: FC = (): ReactElement => {
               href="/sekilas-ilmu"
               className="border rounded-lg px-3 shadow-md"
               src={Dummy}
+              imgStyle="w-full"
               icon={
                 <div
                   className="my-4"

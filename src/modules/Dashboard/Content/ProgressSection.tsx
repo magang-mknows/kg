@@ -1,16 +1,10 @@
 import { FC, ReactElement, useState } from "react";
-import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import dummyImg from "@/assets/dashboard/dummyCourse.png";
 import moreIcon from "@/assets/dashboard/LihatSemua.svg";
-import GlobalButton from "@/components/Common/GlobalButton";
 import { useRecoilValue } from "recoil";
-import {ProgressState} from "@/stores/Dashboard";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: "500",
-});
+import { ProgressState } from "@/stores/Dashboard";
+import Button from "@/components/Common/Button";
 
 const dataDummy: {
   id: number;
@@ -68,26 +62,26 @@ const ProgressSection: FC = (): ReactElement => {
     console.log(more);
   };
   return (
-    <section
-      className={`${montserrat.className} bg-[#ffffff] w-full pt-[28px] px-[24px] pb-[44px] mb-[48px]`}
-    >
-      <p className="font-semibold text-xl text-[#171717] mb-[8px]">Lanjutkan Mata Kuliah Kamu</p>
-      <p className="text-sm font-normal text-[#171717]">Semester 1</p>
+    <section className="bg-white dark:bg-[#1B1E21] w-full pt-[28px] px-[24px] rounded-md pb-[44px] mb-[48px]">
+      <p className="font-semibold text-xl text-[#171717] dark:text-white mb-[8px] ">
+        Lanjutkan Mata Kuliah Kamu
+      </p>
+      <p className="text-sm font-normal text-[#171717] dark:text-white/80">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px] mb-[20px]">
-        {getProgress.slice(0, lengthData).map((dummy,i) => {
+        {getProgress.slice(0, lengthData).map((dummy, i) => {
           const percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100).toString();
           const classDiv = `${percent}%`;
           return (
             <div
               key={i}
-              className="progressBox w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] border-[1px] border-solid"
+              className="progressBox bg-white dark:bg-[#222529] w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] dark:border-[#222529] border-[1px] border-solid"
             >
               <Image
                 className=" lg:col-span-2 rounded-lg w-[100px] h-[100px] object-cover md:col-span-12 col-span-12"
                 src={dummyImg}
                 alt="tes"
               />
-              <div className=" lg:col-span-10 lg:flex justify-between w-full md:col-span-12 col-span-12">
+              <div className=" lg:col-span-10 lg:flex justify-between items-center w-full md:col-span-12 col-span-12">
                 <div>
                   <p className="mb-[12px]">{dummy.judul}</p>
                   <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">
@@ -96,31 +90,28 @@ const ProgressSection: FC = (): ReactElement => {
                   <div className="bg-[#D9D9D9] w-[200px] rounded-lg h-[10px] lg:inline-block lg:relative lg:bottom-2 mt-0 mr-[12px] mb-0">
                     <div
                       style={{ width: classDiv }}
-                      className="bg-[#106FA4]  rounded-lg h-[10px] text-[0px]"
+                      className="bg-[#106FA4] dark:bg-[#17A2B8]  rounded-lg h-[10px] text-[0px]"
                     >
                       .
                     </div>
                   </div>{" "}
                   <p className="text-[14px] text-[#737373] font-normal inline mt-0 leading-none">
-                    {dummy.pertemuanDone}/{dummy.totalPertemuan}{" "}
+                    {dummy.pertemuanDone}/{dummy.totalPertemuan}
                     <span className="text-[12px]">Pertemuan</span>
                   </p>
                 </div>
                 {percent != "100" ? (
-                  <GlobalButton
-                    className="lg:my-auto text-center md:mt-4"
-                    text="Lanjut Belajar"
-                    size="base"
-                    hasImg={false}
-                    textStyle="mx-auto"
+                  <Button
+                    text={"Lanjut Belajar"}
+                    className="bg-primary-500 dark:bg-[#17A2B8] h-fit  text-neutral-200 text-sm px-6 py-3 hover:bg-primary-600 transition-colors w-[200px] ease-in-out duration-300 rounded-md"
+                    type="button"
                   />
                 ) : (
-                  <GlobalButton
-                    className="my-auto bg-[#D4D4D4]"
-                    text="Complete"
-                    size="base"
-                    hasImg={false}
-                    textStyle="mx-auto"
+                  <Button
+                    disabled
+                    text={"Complete"}
+                    className="bg-neutral-300 dark:text-neutral-200 dark:bg-neutral-700 h-fit w-[200px] text-neutral-200 text-sm px-6 py-3  rounded-md"
+                    type="button"
                   />
                 )}
               </div>

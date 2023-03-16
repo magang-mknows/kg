@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import Card from "@/components/Common/Card";
 import icon1 from "@/assets/semuaFitur/icon1.svg";
 import icon2 from "@/assets/semuaFitur/icon2.svg";
@@ -12,6 +12,8 @@ import icon9 from "@/assets/semuaFitur/icon9.svg";
 import icon10 from "@/assets/semuaFitur/icon10.svg";
 import icon11 from "@/assets/semuaFitur/icon11.svg";
 import icon12 from "@/assets/semuaFitur/icon12.svg";
+import search from "@/assets/semuaFitur/search.svg";
+import Image from "next/image";
 import { StaticImageData } from "next/image";
 
 const DataFitur: {
@@ -70,21 +72,33 @@ const DataFitur: {
 ];
 
 const Features: FC = (): ReactElement => {
+  //ini buat di filter tp masi error jd blm dilanjutin
+  const [feature, setFeature] = useState(DataFitur);
   return (
     <>
-      <section className="pt-5 px-[72px] bg-white ">
+      <section className="pt-5 px-[72px] bg-white w-full">
         <p className="font-bold text-[28px] text-center">Apa yang ingin kamu pelajari?</p>
         <p className="text-[#A3A3A3] font-semibold text-[16px] text-center">
           Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
           Berbagai macam jenis materi tersedia.
         </p>
-        <input
-          type="text"
-          className="bg-[#F5F5F5] my-[36px] rounded-lg py-[16px] px-[26px] w-[1146px]"
-          placeholder="Cari Fitur"
-        />
+        <div className="flex bg-[#F5F5F5] my-[36px] rounded-lg py-[16px] px-[26px] w-[1146px]">
+          <Image src={search} alt={"tes"} />
+          <input
+            type="text"
+            placeholder="Cari Fitur"
+            className="ml-[24px] w-full bg-[#F5F5F5] focus:outline-none"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                console.log("berhasil beb");
+              }
+            }}
+          />
+        </div>
+
         <div className="grid grid-cols-12 gap-x-[40px] gap-y-[34px]">
-          {DataFitur.map((fitur) => {
+          {feature.map((fitur) => {
+            // fitur.filter("Administrasi")
             return (
               <div
                 key={fitur.id}
@@ -96,6 +110,7 @@ const Features: FC = (): ReactElement => {
                   hasImage={true}
                   src={fitur.icon}
                   imgStyle="w-[80px] mx-auto"
+                  imgwidth={80}
                 >
                   <p className="font-bold mx-auto">{fitur.namaFitur}</p>
                 </Card>
