@@ -21,7 +21,7 @@ const ArticleSection: FC = (): ReactElement => {
           </Link>
         </div>
         <Carousel
-          className="w-full h-[800px] overflow-hidden"
+          className="w-full  overflow-hidden"
           showIndicators={true}
           showStatus={false}
           showArrows={false}

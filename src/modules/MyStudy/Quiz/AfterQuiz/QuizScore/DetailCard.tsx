@@ -16,7 +16,7 @@ const DetailCard: FC<DetailCardProps> = ({ type, value }): ReactElement => {
           : type === "timeFinished"
           ? "bg-secondary-yellow-100 dark:bg-secondary-yellow-500 hover:bg-secondary-yellow-200"
           : type === "totalQuestions" && "bg-neutral-200 dark:bg-neutral-500 hover:bg-neutral-300"
-      } flex gap-5 lg:gap-4 min-h-[80px] md:min-h-[100px] lg:min-h-[90px] items-center w-62 lg:w-62 xl:w-full px-4 rounded-md shadow-sm transition-colors ease-in duration-300 cursor-pointer`}
+      } flex gap-5 lg:gap-4 min-h-[80px] md:min-h-[100px] lg:min-h-[80px] items-center w-62 lg:w-62 xl:w-full px-4 rounded-md shadow-sm transition-colors ease-in duration-300 cursor-pointer`}
     >
       {type === "trueAnswer" && (
         <BsCheckCircleFill className="text-green-500 dark:text-green-50 mt-1 text-4xl" />
