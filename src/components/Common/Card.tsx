@@ -1,4 +1,4 @@
-import type { FC, ReactElement } from "react";
+  import type { FC, ReactElement } from "react";
 import { CardProps } from "./types";
 import Link from "next/link";
 import Image from "next/image";
