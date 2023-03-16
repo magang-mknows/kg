@@ -19,8 +19,7 @@ const CardList: FC<CardListProps> = ({
       src={image}
       href={"/acara-kampus/" + slug}
       hasImage={true}
-      imgwidth={10}
-      imgheight={10}
+      imgStyle={"w-full"}
     >
       <div className="flex flex-col ">
         {price && (

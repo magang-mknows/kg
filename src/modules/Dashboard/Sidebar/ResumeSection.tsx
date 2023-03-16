@@ -55,15 +55,15 @@ const ResumeSection: FC = (): ReactElement => {
               <Card
                 key={index}
                 hasImage={false}
-                className="h-40 bg-neutral-100 dark:bg-[#222529] dark:hover:bg-[#16181a]  hover:bg-neutral-200 cursor-pointer transition-colors ease-in-out duration-300 rounded-lg shadow-sm w-40"
+                className="h-40 bg-neutral-100 dark:bg-[#222529] dark:hover:bg-[#16181a]  hover:bg-neutral-200 cursor-pointer transition-colors ease-in-out duration-300 rounded-lg shadow-sm w-[140px] md:w-32 lg:w-40"
               >
                 <div className="flex flex-col justify-between gap-y-4 text-neutral-500 hover:text-neutral-600 ">
                   <Image className="w-8 " src={src} alt="kelas" />
                   <section>
-                    <h1 className=" text-3xl font-black text-neutral-800 dark:text-white">
+                    <h1 className=" text-3xl font-black text-neutral-800 mb-2 dark:text-white">
                       {number}
                     </h1>
-                    <h1 className="text-sm dark:text-white/80">{title}</h1>
+                    <h1 className="text-xs lg:text-sm dark:text-white/80">{title}</h1>
                   </section>
                 </div>
               </Card>

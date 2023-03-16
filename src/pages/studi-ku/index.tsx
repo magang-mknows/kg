@@ -2,21 +2,17 @@ import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
-import Status from "@/modules/MyStudy/Penugasan/Status";
-import BaseLayouts from "@/layouts/Base";
 
-const Score = lazy(() => import("@/modules/Score"));
+const MyStudyDash = lazy(() => import("@/modules/MyStudy/studiku-dash"));
 
-const StatusPenugasan: NextPage = (): ReactElement => {
+const MyStudy: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<Loading />}>
-        <BaseLayouts>
-          <Status />
-        </BaseLayouts>
+        <MyStudyDash />
       </Suspense>
     </ErrorBoundary>
   );
 };
 
-export default StatusPenugasan;
+export default MyStudy;

@@ -1,18 +1,18 @@
+import StudikuModule from "@/modules/MyStudy/Quiz";
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import Loading from "@/components/Loading";
 
-const Landing = lazy(() => import("@/modules/Guide"));
+const Loading = lazy(() => import("@/components/Loading"));
 
-const Panduan: NextPage = (): ReactElement => {
+const AssigmentPages: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<Loading />}>
-        <Landing />
+        <StudikuModule />
       </Suspense>
     </ErrorBoundary>
   );
 };
 
-export default Panduan;
+export default AssigmentPages;

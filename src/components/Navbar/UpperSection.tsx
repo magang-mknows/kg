@@ -26,7 +26,7 @@ const UpperSection: FC = () => {
 
   return (
     <Fragment>
-      <section className="flex items-center h-[72px] justify-between border-b-2 px-6 md:px-8 lg:px-12  border-neutral-100 dark:border-[#373a3e4a]">
+      <section className="flex items-center z-[9999] h-[72px] justify-between border-b-2 px-6 md:px-8 lg:px-10  border-neutral-100 dark:border-[#373a3e4a]">
         <Link passHref href={"/"}>
           <Image
             src={logoBiru}

@@ -20,7 +20,12 @@ const ArticleSection: FC = (): ReactElement => {
             Lihat Detail
           </Link>
         </div>
-        <Carousel className="w-full" showIndicators={true} showStatus={false} showArrows={false}>
+        <Carousel
+          className="w-full  overflow-hidden"
+          showIndicators={true}
+          showStatus={false}
+          showArrows={false}
+        >
           {Mitra.map((x, i) => (
             <div key={i} className="flex flex-col justify-center shadow-md dark:shadow-sm">
               <div className="block w-full rounded-lg bg-neutral-100 dark:bg-neutral-700">
