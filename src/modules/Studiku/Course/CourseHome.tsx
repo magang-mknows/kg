@@ -99,7 +99,7 @@ const CourseHome: FC = (): ReactElement => {
         <div className="w-[95%] h-[253px]">
           <Image src={imgCourseHome} alt="" className="h-full object-cover rounded-lg" />
         </div>
-        <p className="text-sm font-normal text-neutral-800 dark:text-gray-400 text-justify">
+        <p className="text-sm font-normal text-neutral-800 dark:text-neutral-400 text-justify">
           Manajemen Keuangan belajar tentang bagaimana merencanakan, mengelola, serta menggunakan
           sumber daya keuangan perusahaan. Perkuliahan jurusan ini juga tentang lembaga perbankan,
           kinerja perusahaan, perpajakan, akuntansi, perdagangan internasional, perencanaan modal,
@@ -139,7 +139,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgModuleIcon} alt="" />
                   <Link
                     href="/studiku/manajemen-keuangan/modul"
-                    className="text-base text-neutral-800"
+                    className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Modul
                   </Link>
@@ -153,7 +153,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgQuizIcon} alt="" />
                   <Link
                     href="/studiku/manajemen-keuangan/quiz"
-                    className="text-base text-neutral-800"
+                    className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Quiz
                   </Link>
@@ -167,7 +167,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgAssignmentIcon} alt="" />
                   <Link
                     href="/studiku/manajemen-keuangan/tugas"
-                    className="text-base text-neutral-800"
+                    className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Tugas
                   </Link>
@@ -181,7 +181,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgDiscussionIcon} alt="" />
                   <Link
                     href="/studiku/manajemen-keuangan/diskusi"
-                    className="text-base text-neutral-800"
+                    className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Diskusi
                   </Link>
