@@ -11,5 +11,5 @@ export const useTimeRescheduleSimulation = (): TimeRescheduleSimulationTypes =>{
     return{
         setTimeRescheduleSimulation: (val: string) => setTimeReschedule(val),
         getTimeRescheduleSimulation: getTimeReschedule,
-    }
-}
+    };
+};
