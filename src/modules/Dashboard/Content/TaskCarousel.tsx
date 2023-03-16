@@ -2,13 +2,15 @@ import { FC, ReactElement } from "react";
 
 import penugasan from "@/assets/dashboard/penugasan.svg";
 import acara from "@/assets/dashboard/acara.svg";
-import Image from "next/image";
+import emptyTask from "@/assets/dashboard/emptyTask.svg";
 
 import { useSelectedTask } from "@/hooks/Dashboard/useSelectedTask";
 
 import { MdNavigateNext } from "react-icons/md";
 import Button from "@/components/Common/Button";
 import { AiFillWarning } from "react-icons/ai";
+
+import Image from "next/image";
 
 const TaskCarousel: FC = (): ReactElement => {
   const { setSelectedTask, getSelectedTask } = useSelectedTask();
@@ -43,64 +45,74 @@ const TaskCarousel: FC = (): ReactElement => {
     },
   ];
   return (
-    <div className="bg-white p-7 rounded-md shadow-sm">
-      <section className="relative">
-        <section className="flex gap-1 absolute top-3 right-0">
-          {dummyPenugasan.map((item, index) => {
-            return (
-              <span
-                key={index}
-                className={`${
-                  getSelectedTask == item.id ? "w-6 bg-primary-500 " : "w-2 bg-neutral-300"
-                } h-2 cursor-pointer  block rounded-lg transition-all ease-in-out duration-300`}
-                onClick={() => {
-                  setSelectedTask(item.id);
-                }}
-              ></span>
-            );
-          })}
-        </section>
+    <div className="bg-primary-500/10 flex items-center justify-center dark:bg-[#1B1E21] p-7 rounded-md shadow-sm w-full">
+      <section className="flex flex-col items-center">
+        <Image src={emptyTask} alt="emptyTask" />
+        <h1 className="text-sm text-neutral-800 dark:text-white/80 font-medium -mt-5">
+          Belum ada penugasan
+        </h1>
       </section>
-      {dummyPenugasan.map((item, index) => {
-        return (
-          <div key={index} className={`${item.id === getSelectedTask ? "block" : "hidden"}`}>
-            <section className="text-neutral-900 mb-4">
-              <h1 className="text-lg font-bold">Penugasan</h1>
-              <p className="text-sm text-neutral-500 ">{item.topic}</p>
-            </section>
-            <section className="flex gap-4 mb-4 h-40 xl:h-auto">
-              <Image src={item.image} alt="test" className="h-[100px]" />
-              <div>
-                <h1 className="mb-2">{item.title}</h1>
-                <section className="flex gap-2 items-start lg:items-center mb-2">
-                  <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center">
-                    <MdNavigateNext className="text-primary-500" />
-                  </div>
-                  <p className="text-xs lg:text-sm text-neutral-400">{item.milstone}</p>
-                </section>
-                <section className="flex gap-2 items-start lg:items-centers">
-                  <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center">
-                    <MdNavigateNext className="text-primary-500" />
-                  </div>
-                  <p className="text-xs lg:text-sm   text-neutral-400">{item.teacher}</p>
-                </section>
-              </div>
-            </section>
-            <section className="grid grid-cols-1 gap-4 xl:grid-cols-2 items-center">
-              <Button
-                type="button"
-                text={"Kerjakan Sekarang"}
-                className="text-white w-full  mb-2 xl:mb-0 bg-primary-500 text-xs lg:text-sm py-2 px-4 rounded-md hover:bg-primary-600 transition-colors ease-in-out duration-300"
-              />
-              <div className="text-red-500 flex items-center gap-2 text-xs lg:text-sm">
-                <AiFillWarning />
-                <h1>{item.dueDate}</h1>
-              </div>
-            </section>
-          </div>
-        );
-      })}
     </div>
+    // <div className="bg-white dark:bg-[#1B1E21] p-7 rounded-md shadow-sm w-full">
+    //   {/* <section className="relative">
+    //     <section className="flex gap-1 absolute top-3 right-0">
+    //       {dummyPenugasan.map((item, index) => {
+    //         return (
+    //           <span
+    //             key={index}
+    //             className={`${
+    //               getSelectedTask == item.id
+    //                 ? "w-6 bg-primary-500 dark:bg-[#17A2B8] "
+    //                 : "w-2 bg-neutral-300"
+    //             } h-2 cursor-pointer  block rounded-lg transition-all ease-in-out duration-300`}
+    //             onClick={() => {
+    //               setSelectedTask(item.id);
+    //             }}
+    //           ></span>
+    //         );
+    //       })}
+    //     </section>
+    //   </section>
+    //   {dummyPenugasan.map((item, index) => {
+    //     return (
+    //       <div key={index} className={`${item.id === getSelectedTask ? "block" : "hidden"}`}>
+    //         <section className="text-neutral-900 mb-4">
+    //           <h1 className="text-lg font-bold dark:text-white">Penugasan</h1>
+    //           <p className="text-sm text-neutral-500 ">{item.topic}</p>
+    //         </section>
+    //         <section className="flex gap-4 mb-4 h-32 ">
+    //           <Image src={item.image} alt="test" className="h-[110px] w-[80px]" />
+    //           <div>
+    //             <h1 className="mb-2">{item.title}</h1>
+    //             <section className="flex gap-2 items-start lg:items-center mb-2">
+    //               <div className="w-5 h-5 rounded-full bg-primary-100 dark:bg-[#17A2B8] flex items-center justify-center">
+    //                 <MdNavigateNext className="text-primary-500 dark:text-white" />
+    //               </div>
+    //               <p className="text-xs lg:text-sm text-neutral-400">{item.milstone}</p>
+    //             </section>
+    //             <section className="flex gap-2 items-start lg:items-centers">
+    //               <div className="w-5 h-5 rounded-full bg-primary-100 dark:bg-[#17A2B8] flex items-center justify-center">
+    //                 <MdNavigateNext className="text-primary-500 dark:text-white" />
+    //               </div>
+    //               <p className="text-xs lg:text-sm   text-neutral-400">{item.teacher}</p>
+    //             </section>
+    //           </div>
+    //         </section>
+    //         <section className="flex flex-wrap justify-between gap-y-4 items-center">
+    //           <Button
+    //             type="button"
+    //             text={"Kerjakan Sekarang"}
+    //             className="text-white w-full lg:w-44  mb-2  bg-primary-500 dark:bg-[#17A2B8] dark:hover:bg-[#138697] text-xs lg:text-sm py-3 px-4 rounded-md hover:bg-primary-600 transition-colors ease-in-out duration-300"
+    //           />
+    //           <div className="text-red-500 lg:justify-end flex items-center gap-2 text-xs lg:text-sm w-52">
+    //             <AiFillWarning />
+    //             <h1 className="text-sm ">{item.dueDate}</h1>
+    //           </div>
+    //         </section>
+    //       </div>
+    //     );
+    //   })} */}
+    // </div>
   );
 };
 

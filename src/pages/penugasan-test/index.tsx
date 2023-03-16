@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
-import Status from "@/modules/Studiku/Penugasan/Status";
+import Status from "@/modules/MyStudy/Penugasan/Status";
 import BaseLayouts from "@/layouts/Base";
 
 const Score = lazy(() => import("@/modules/Score"));
@@ -12,7 +12,7 @@ const StatusPenugasan: NextPage = (): ReactElement => {
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<Loading />}>
         <BaseLayouts>
-        <Status/>
+          <Status />
         </BaseLayouts>
       </Suspense>
     </ErrorBoundary>
