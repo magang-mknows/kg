@@ -44,7 +44,7 @@ const LeaderBoardSection: FC = (): ReactElement => {
       </section>
       <section className="mb-8  mt-20">
         <Image src={emptyLeaderBoard} alt="leaderBoard" className="h-52" />
-        <p className="text-center text-neutral-900 dark:text-yellow-500 text-sm my-3 px-20">
+        <p className="text-center text-neutral-900 dark:text-yellow-500 text-sm my-3 px-10 lg:px-20">
           Opps.. Kamu <span className="font-bold underline">belum pernah</span> mengerjakan tugas
         </p>
       </section>
