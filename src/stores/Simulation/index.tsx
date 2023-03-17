@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { T, HistorySimulation } from "./type";
+import { T, HistorySimulation, RescheduleSimulation } from "./type";
 import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
 import DummyHistory from "@/assets/drillSimulation/dummy-drillHistory.svg";
 
@@ -49,8 +49,41 @@ export const historySimulationsState = atom<Array<HistorySimulation>>({
   ],
 });
 
+export const checkRescheduleSimulatiionState = atom<Array<RescheduleSimulation>>({
+  key: "check-reschedule-simulatiion-state",
+  default: [
+    {
+      date: "Senin, 27 Juli 2021",
+      time: [
+        {
+          time: "30:00",
+        },
+        {
+          time: "32:00",
+        },
+      ],
+    },
+    {
+      date: "Selasa, 27 Juli 2021",
+      time: [
+        {
+          time: "20:00",
+        },
+        {
+          time: "12:00",
+        },
+      ],
+    },
+  ],
+});
+
 export const rescheduleSimulasiState = atom({
   key: "reschedule-simulasi-state",
+  default: "",
+});
+
+export const timereschduleSimulasiState = atom({
+  key: "time-reschedule-simulasi-state",
   default: "",
 });
 

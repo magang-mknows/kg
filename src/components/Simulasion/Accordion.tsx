@@ -8,6 +8,7 @@ const Accordion: FC<AccordionProps> = ({
   idAccordion,
   children,
   iconImage,
+  disabled,
 }): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   return (
@@ -16,6 +17,7 @@ const Accordion: FC<AccordionProps> = ({
         <button
           onClick={() => (isOpen == "" ? setIsOpen(`${idAccordion}`) : setIsOpen(""))}
           type="button"
+          disabled={disabled}
           className="flex items-center justify-between w-full px-5 py-3 font-medium text-left rounded-tl-[8px] rounded-tr-[8px] shadow-md bg-white dark:bg-[#111D2D]"
         >
           <div className="flex flex-row gap-4">
