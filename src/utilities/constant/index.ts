@@ -105,6 +105,21 @@ export const studyPlanBreadCumbs = [
   },
 ];
 
+export const courseBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studiku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studiku/menejemen-keuangan",
+  },
+];
+
 export const quizBreadCumbs = [
   {
     name: "Home",
@@ -116,11 +131,15 @@ export const quizBreadCumbs = [
   },
   {
     name: "Menejemen Keuangan",
-    link: "/studiku/quiz",
+    link: "/studiku/menejemen-keuangan",
   },
   {
     name: "Quiz",
-    link: "/studiku/quiz",
+    link: "/studiku/studiku/menejemen-keuangan/quiz",
+  },
+  {
+    name: "Penugasan",
+    link: "/studiku/penugasan",
   },
 ];
 
