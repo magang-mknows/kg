@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import Book from "@/assets/guide/book.svg";
 import Image from "next/image";
 
