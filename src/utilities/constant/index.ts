@@ -100,7 +100,7 @@ export const myStudyBreadCumbs = [
   },
   {
     name: "Studi-ku",
-    link: "/studiku",
+    link: "/studi-ku",
   },
 ];
 
@@ -115,7 +115,7 @@ export const studyPlanBreadCumbs = [
   },
 ];
 
-export const quizBreadCumbs = [
+export const courseBreadCumbs = [
   {
     name: "Home",
     link: "/",
@@ -126,11 +126,76 @@ export const quizBreadCumbs = [
   },
   {
     name: "Menejemen Keuangan",
-    link: "/studiku/quiz",
+    link: "/studiku/menejemen-keuangan",
+  },
+];
+
+export const quizBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studiku/menejemen-keuangan",
   },
   {
     name: "Quiz",
-    link: "/studiku/quiz",
+    link: "/studiku/studiku/menejemen-keuangan/quiz",
+  },
+  {
+    name: "Penugasan",
+    link: "/studi-ku/quiz",
+  },
+  {
+    name: "Quiz",
+    link: "/studi-ku/quiz",
+  },
+];
+
+export const modulBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Course",
+    link: "/studi-ku/course",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/modul",
+  },
+];
+
+export const contentModulBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Course",
+    link: "/studi-ku/course",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/modul",
+  },
+  {
+    name: "Modul 1",
+    link: "/studi-ku/modul/modul1",
   },
 ];
 
@@ -225,7 +290,7 @@ export const rescheduleSimulationBreadCumbs = [
   },
   {
     name: "Simulasi, Drill & Assessment",
-    link: "/simulasi-drill",
+    link: "/drill-simulasi",
   },
   {
     name: "Pengajuan Perubahan Jadwal Simulasi",
@@ -481,5 +546,58 @@ export const guideBreadCumbs = [
   {
     name: "Panduan",
     link: "/panduan",
+  },
+];
+
+export const guideBookBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Buku Panduan",
+    link: "/panduan/buku-panduan",
+  },
+];
+
+export const guideRegistrationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Buku Panduan",
+    link: "/panduan/buku-panduan",
+  },
+  {
+    name: "Panduan Pendafataran",
+    link: "/panduan/buku-panduan/panduan-pendaftaran",
+  },
+];
+
+export const guideRegistrationVideo = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Video Panduan",
+    link: "/video-panduan/buku-panduan",
+  },
+  {
+    name: "Panduan Pendafataran",
+    link: "/panduan/video-panduan/video-panduan-pendaftaran",
   },
 ];
