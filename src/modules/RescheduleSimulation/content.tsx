@@ -11,6 +11,7 @@ import checked from "@/assets/rescheduleSimulasi/checked.svg";
 import rescheduleJadwal from "@/assets/rescheduleSimulasi/reschedule-jadwal.svg";
 import Accordion from "@/components/Simulasion/Accordion";
 import { useChooseSimulation } from "@/hooks/Simulation/useChooseSimulation";
+import { useChooseTimeSimulation } from "@/hooks/Simulation/useChooseTimeSimulation";
 import { useCheckRescheduleSimulation } from "@/hooks/Simulation/useCheckRescheduleSimulation";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
@@ -18,6 +19,7 @@ import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
 const Content: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   const { getChooseSimulation, setChooseSimulation } = useChooseSimulation();
+  const { getChooseTimeSimulation, setChooseTimeSimulation } = useChooseTimeSimulation();
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
   const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
   const [active, setactive] = useState("");
@@ -62,11 +64,9 @@ const Content: FC = (): ReactElement => {
             Bambang Sutiyoso, S.Ak, M.Ak
           </p>
           <p className="text-[#737373] text-[16px] font-[400]">Lokasi : Zoom Meeting</p>
-
           <p className="text-[#171717] text-[14px] font-[600] mt-3 mb-1 dark:text-white">
             Pilih tanggal dan waktu Simulasi
           </p>
-
           <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
             {getCheckRescheduleSimulation.map((item, l) => (
               <button
@@ -90,7 +90,6 @@ const Content: FC = (): ReactElement => {
               </button>
             ))}
           </div>
-
           <Accordion title="Sore" iconImage={afternoon} idAccordion={isOpen === "" ? "open" : ""}>
             <div className="flex gap-5">
               {getCheckRescheduleSimulation.map((item) =>
@@ -100,10 +99,10 @@ const Content: FC = (): ReactElement => {
                     <button
                       key={i}
                       className={`flex flex-row text-center  gap-2  py-2 px-3 rounded-[8px] border text-[#525252] ${
-                        getChooseSimulation === items.time ? "bg-[#3EB449] text-white" : ""
+                        getChooseTimeSimulation === items.time ? "bg-[#3EB449] text-white" : ""
                       } `}
                       onClick={() => {
-                        setChooseSimulation(items.time);
+                        setChooseTimeSimulation(items.time);
                       }}
                     >
                       <Image src={checklist} alt={"icon"} className="mt-1" height={10} />
@@ -116,7 +115,11 @@ const Content: FC = (): ReactElement => {
 
           <div className="flex justify-end mt-3">
             <button
-              onClick={() => setPopupStatus(true)}
+              onClick={() => {
+                getChooseSimulation === "" || getChooseTimeSimulation === ""
+                  ? setPopupStatus(false)
+                  : setPopupStatus(true);
+              }}
               className="bg-[#3EB449] text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4"
             >
               Ajukan Jadwal Simulasi
@@ -140,7 +143,7 @@ const Content: FC = (): ReactElement => {
             </p>
           </PopupModal>
         </div>
-        <div>
+        {/* <div>
           <PopupModal
             icon={warning}
             image={rescheduleJadwal}
@@ -155,7 +158,7 @@ const Content: FC = (): ReactElement => {
               simulasi terbaru.
             </p>
           </PopupModal>
-        </div>
+        </div> */}
       </div>
     </>
   );
