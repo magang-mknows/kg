@@ -1,58 +1,10 @@
-# How To Use Git Properly
+# Kampus Gratis WEB
 
-## New please read this shit
-
-## If you new in this project Read the Initial Setup Section
-
-## Contribution Guide
-
-### If your local change not commited
-
-### 1.Stash dulu kerjaan kamu supaya gak ilang
-
-` git stash`
-
-### 2.1 Setelah itu kamu perlu pull perubahan dari branch main
-
-`git pull origin main`
-
-#### 2.2 Setelah kamu berhasil melakukan pembaruan dari branch main selanjutnya kamu perlu mengembalikan pekerjaan mu sebelum nya yang ter stash
-
-`git stash pop`
-
-### 3.Tapi jika ketika melakukan step kedua terjadi error maka ikuti langkah yang bawah
-
-## If Your Local Change is Commited
-
-### 1. Pindah dulu ke Branch main
-
-`git checkout main`
-
-### 2.Kemudian pull perubahan terbaru dari branch main
-
-`git pull`
-
-### 3.Kemudian Pindah lagi ke branch dirimu
-
-`git checkout <branch mu>`
-
-### 4.Selanjutnya kita perlu merge perubahan terbaru dari main
-
-`git merge main`
-
-### 5.Kita perlu mengembalikan pekerjaan nya jika sebelumnya udah ke stash
-
-`git stash pop`
-
-# NextJS TailwindCSS BOILERPLATE
-
-Boilerplate NextJS dengan TailwindCSS sebagai Styling Unit
-
-Requirements :
+Dibuat dengan :
 
 - React
-- Next
-- Racoil
+- Vite
+- Recoil
 - Zod
 - Tanstack Query
 - React Hook Form
@@ -66,6 +18,78 @@ Requirements :
 - Docker
 - Axios
 - Husky
+
+# How To Use Git Properly ( Please Read This SHIT!!!)
+
+### If you new in this project Read the Initial Setup Section
+
+# Contribution Guide
+
+# Please DO NOT Direct PUSH to main Branch
+
+## Braching Guide
+
+- if you do improve
+
+  > `git checkout -b "improvement/apa-yang-di-improve`
+
+- if you do bugfix
+
+  > `git checkout -b "bugfix/apa-yang-di-fix`
+
+- if you do create a new feature
+  > `git checkout -b "feature/fitur-apa-yang-di-buat`
+
+## Commit Message Guide
+
+- if you do improve
+
+  > `git commit -m "improvement: apa yang di improve`
+
+- if you do bugfix
+
+  > `git commit -m "bugfix: apa yang di fix`
+
+- if you do create a new feature
+  > `git commit -m "feature: fitur apa yang di buat`
+
+## Conflict Resolve Guide
+
+- 1.Stash dulu kerjaan kamu supaya gak ilang
+
+` git stash`
+
+- 2.1 Setelah itu kamu perlu pull perubahan dari branch main
+
+`git pull origin main`
+
+- 2.2 Setelah kamu berhasil melakukan pembaruan dari branch main selanjutnya kamu perlu mengembalikan pekerjaan mu sebelum nya yang ter stash
+
+`git stash pop`
+
+- 2.3 Lanjutkan Pekerjaan dengan Semestinya
+
+- 3 Tapi jika ketika melakukan step kedua terjadi error conflitc atau karena ketololan kamu, maka ikuti langkah yang bawah
+
+## Conflict Resolve Guide V2
+
+- 1 Pindah dulu ke Branch main
+
+`git checkout main`
+
+- 2 Kemudian pull perubahan terbaru dari branch main
+
+`git pull`
+
+- 3 Kemudian Pindah lagi ke branch dirimu
+
+`git checkout <branch mu>`
+
+- 4 Selanjutnya kita perlu merge perubahan terbaru dari main
+
+`git merge main`
+
+# Please USE yarn not npm
 
 ## Recomendation Code Editor
 
@@ -83,7 +107,7 @@ Visual Studio Code
 
 - Clone Project ini ( Direkomendasikan menggunakan SSH )
 
-> `git clone git@github.com:ary-bod/frontend-boiler`
+> `git clone git@github.com:himatifuninus/himatif`
 
 ## Install NodeJS dan Yarn
 
@@ -99,9 +123,21 @@ Visual Studio Code
 
 ## Run Development Server
 
-- Project bisa dijalankan dengan beberapa metode berikut
+- Project bisa dijalankan dengan metode berikut
 
 > `yarn dev`
+
+## Build APP
+
+- Project bisa di build dengan command berikut
+
+> `yarn build`
+
+## Run Builded APP
+
+- Project yang sudah di build bisa dijalankan dengan metode berikut
+
+> `yarn preview`
 
 ## Development With Nix
 
@@ -160,80 +196,4 @@ Untuk bisa menggunakan husky agar berjalan baik dan benar maka perlu di inisiali
 
 ## Demo App
 
-- [Development Build](https://frontend-boiler-three.vercel.app/)
-
-# How to use Layouts
-
-- BaseLayout memuat content antara lain, yaitu Navbar dan Footer. Component ini digunakan untuk membungkus component MainLayout atau 'section' element.
-
-- MainLayout berfungsi untuk meng-sama-rata-kan jarak antara tepi window dengan main content. Dengan kata lain, horizontal padding (px) sama.
-
-  MainLayout memiliki props sebagai berikut.
-
-  - withHScreen (default: true),
-    Jika withHScreen bernilai true, maka akan mengembalikan string "min-h-screen"
-  - withPadding (default: true),
-    Jika withPadding bernilai true, maka akan mengembalikan string "px-[70]".
-
-- ContentLayout, fungsinya untuk membungkus content. Misalkan anda ingin membuat text paragraf maka gunakanlah layout ini.
-
-  ContentLayout memiliki props sebagai berikut.
-
-  - withFlex (default: true),
-    Jika withFlex bernilai true, maka akan mengembalikan string "flex flex-col".
-  - withGrid (default: false),
-    Jika withGrid bernilai true, maka akan mengembalikan string "grid".
-  - withGap (default: true),
-    withGap baru bisa digunakan jika withFlex atau withGrid bernilai true. Props ini, jika bernilai true, akan mengembalikan string "gap-y-[50px]" atau "gap-y-10" tergantung pada apakah anda menggunakan grid atau flex.
-
-## Usage/Examples
-
-```typescript
-export default function Examples() {
-  return (
-    <BaseLayout>
-      <MainLayout withHScreen={false}>
-        <ContentLayout>
-          <h1>Title</h1>
-          <div>
-            <h2>Sub Title</h2>
-            <p>Lorem ipsum dolor amet ahmad dah uti color wejou vau ter ushi</p>
-          </div>
-        </ContentLayout>
-        <ContentLayout withGrid={true} withFlex={false} withGap={false}>
-          <img src="assets/hxh.jpg" />
-          <span className="" />
-        </ContentLayout>
-      </MainLayout>
-    </BaseLayout>
-  );
-}
-```
-
-# How to use Button
-
-Button memiliki sembilan parameter
-
-- buttonType = merupakan tipe button yang akan digunakan, ada tiga tipe yaitu "call to action" atau cta, "auth button", dan "scroll to top button". Yang membedakan ketiganya hanya ukuran buttonnya.
-- text
-- link = terdapat dua tipe yaitu "link internal" atau page, dan "link external" atau to, namun untuk menggunakan link external harus menambahkan https:// didepan linknya.
-- size = ukuran dari button, terdapat empat ukuran yang sudah disesuaikan dengan tipe button di figma.
-- color = dengan menambahkan parameter color, kita dapat menyesuaikan warna button serta warna teks dari button tersebut.
-- icon = untuk menambahkan icon dapat menggunakan icon dari react-icon yang akan di-render sebagai ReactNode dan icon external dengan format file jpg, jpeg, png, dan svg yang akan di-render sebagai StaticImageData
-
-## Button/Examples
-
-```typescript
-export default function Examples() {
-  return (
-    <GlobalButton
-    buttonType = "auth", // "cta" | "auth" | "scroll"
-    text = "Login"
-    page = "/internal-page" // to = "https://external-page",
-    size = "small", // "small" | "base" | "regular" | "large"
-    color = "black", // "black" | "white" | "lightBlue" | "red" | "blue" | "green" | "purple"
-    icon = {iconImg} // hasImg
-    />
-  );
-}
-```
+- [Development Build](https://himatif-revamp.netlify.app/)

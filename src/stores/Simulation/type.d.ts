@@ -18,3 +18,12 @@ export type HistorySimulation ={
   status: string,
   slug: string
 }
+
+export type RescheduleSimulation={
+  date: string,
+  time: Array<Time>
+}
+
+export type Time={
+  time: string,
+}
