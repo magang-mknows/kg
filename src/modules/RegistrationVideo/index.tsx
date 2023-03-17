@@ -1,16 +1,15 @@
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
-import Loading from "@/components/Loading";
 import BaseLayoutsLanding from "@/layouts/BaseLanding";
 import { guideRegistrationVideo } from "@/utilities/constant";
-import React, { ReactElement, Suspense } from "react";
+import React, { ReactElement } from "react";
+import YoutubeSection from "./YoutubeSection";
 
 const RegistrationVideoModules = (): ReactElement => {
   return (
-    <Suspense fallback={<Loading />}>
-      <BaseLayoutsLanding>
-        <BreadCrumb items={guideRegistrationVideo} />
-      </BaseLayoutsLanding>
-    </Suspense>
+    <BaseLayoutsLanding>
+      <BreadCrumb items={guideRegistrationVideo} />
+      <YoutubeSection />
+    </BaseLayoutsLanding>
   );
 };
 

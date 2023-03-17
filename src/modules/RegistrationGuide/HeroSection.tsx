@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import Alert from "@/assets/guide/alert.svg";
 import Image from "next/image";
 
