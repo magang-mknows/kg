@@ -13,4 +13,5 @@ export type OptionSubject = {
   jumlahmatkul: number;
   sks: number;
   slug: string;
+  faculty: string;
 };
