@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, forwardRef, Ref, ReactElement } from "react";
 import { UploadFieldProps } from "./types";
 import { useDropzone } from "react-dropzone";
