@@ -3,7 +3,6 @@ import BaseLayouts from "@/layouts/Base";
 
 const Features = lazy(() => import("@/modules/AllFeatures/Features"));
 
-
 const AllFeatures: FC = (): ReactElement => {
   return (
     <div>

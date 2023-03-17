@@ -122,6 +122,10 @@ export const quizBreadCumbs = [
     name: "Quiz",
     link: "/studiku/quiz",
   },
+  {
+    name: "Penugasan",
+    link: "/studiku/penugasan",
+  },
 ];
 
 export const studyProgramBreadCumbs = [
