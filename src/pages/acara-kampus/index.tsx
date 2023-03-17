@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
-import CreateDiscussion from "@/modules/RuangDiskusi/CreateDiscussion";
+import CreateDiscussion from "@/modules/DiscussionRoom/CreateDiscussion";
 
 const Event = lazy(() => import("@/modules/Event"));
 
