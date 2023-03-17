@@ -40,7 +40,7 @@ const ListVideo = (): ReactElement => {
         return (
           <div
             key={index}
-            className="w-full bg-white dark:bg-[#232529] h-[120px] rounded-[8px] shadow-sm mt-[12px]"
+            className="w-full bg-white dark:bg-[#232529] h-fit lg:h-[120px] rounded-[8px] shadow-sm mt-[12px]"
           >
             <div className="flex px-[10px] py-[10px] gap-[16px]">
               <Image src={item.img} alt={""} />

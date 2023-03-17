@@ -6,17 +6,19 @@ const YoutubeSection = (): ReactElement => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
-
   const opts: YouTubeProps["opts"] = {
-    height: "398",
-    width: "728",
     playerVars: {
       autoplay: 0,
     },
   };
   return (
     <div>
-      <YouTube videoId="FPWTP0yF56c" opts={opts} onReady={onPlayerReady} />
+      <YouTube
+        iframeClassName="lg:w-[728px] lg:h-[398px] w-full h-[320px] "
+        videoId="FPWTP0yF56c"
+        opts={opts}
+        onReady={onPlayerReady}
+      />
     </div>
   );
 };
