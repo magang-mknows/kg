@@ -14,7 +14,7 @@ const YoutubeSection = (): ReactElement => {
   return (
     <div>
       <YouTube
-        iframeClassName="lg:w-[728px] lg:h-[398px] w-full h-[320px] "
+        iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-full h-[320px] "
         videoId="FPWTP0yF56c"
         opts={opts}
         onReady={onPlayerReady}
