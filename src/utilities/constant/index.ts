@@ -526,3 +526,22 @@ export const guideRegistrationBreadCumbs = [
     link: "/panduan/buku-panduan/panduan-pendaftaran",
   },
 ];
+
+export const guideRegistrationVideo = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Video Panduan",
+    link: "/video-panduan/buku-panduan",
+  },
+  {
+    name: "Panduan Pendafataran",
+    link: "/panduan/video-panduan/video-panduan-pendaftaran",
+  },
+];
