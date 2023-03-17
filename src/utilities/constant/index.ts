@@ -122,9 +122,24 @@ export const quizBreadCumbs = [
     name: "Quiz",
     link: "/studiku/quiz",
   },
+];
+
+export const tugasBreadCumbs = [
   {
-    name: "Penugasan",
-    link: "/studiku/penugasan",
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/menejemen-keuangan",
+  },
+  {
+    name: "Tugas",
+    link: "/studi-ku/penugasan",
   },
 ];
 
