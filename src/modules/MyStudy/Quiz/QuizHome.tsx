@@ -10,10 +10,12 @@ const QuizHome: FC = (): ReactElement => {
     <MainLayouts
       withHScreen={false}
       withPadding={false}
-      className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-16 mb-15"
+      className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] my-16 mb-15"
     >
       <div className="flex flex-col items-center gap-y-[18px] text-center">
-        <h1 className="text-4xl font-semibold text-[#171717]">Quiz Manajemen Keuangan</h1>
+        <h1 className="text-4xl font-semibold text-[#171717] dark:text-neutral-100">
+          Quiz Manajemen Keuangan
+        </h1>
         <p className="text-2xl font-normal text-[#737373]">Pertemuan 1</p>
       </div>
       <ContentLayouts
@@ -29,7 +31,7 @@ const QuizHome: FC = (): ReactElement => {
           />
         </div>
         <div className="flex flex-col gap-y-[39px] h-[475px]">
-          <div className="flex flex-col justify-between text-sm h-[380px]">
+          <div className="flex flex-col justify-between text-sm h-[380px] dark:text-neutral-100">
             <p className="">
               Quiz ini bertujuan untuk menguji pengetahuan Anda tentang materi yang telah dipelajari
               di pertemuan ini.
@@ -59,7 +61,7 @@ const QuizHome: FC = (): ReactElement => {
             text="Mulai Quiz (Sisa 3)"
             color="blue"
             size="regular"
-            to="/studiku/quiz/mulai-quiz"
+            to="/studi-ku/menejemen-keuangan/quiz/mulai-quiz"
           />
         </div>
       </ContentLayouts>
