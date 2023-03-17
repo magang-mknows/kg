@@ -2,19 +2,16 @@ import type { NextPage } from "next";
 import { ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
-import Status from "@/modules/MyStudy/Penugasan/Status";
-import BaseLayouts from "@/layouts/Base";
+import ContentStudyProgram from "@/components/StudyPlan/ContentStudyProgram";
 
-const StatusPenugasan: NextPage = (): ReactElement => {
+const StudyPlanPage: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<Loading />}>
-        <BaseLayouts>
-          <Status />
-        </BaseLayouts>
+        <ContentStudyProgram />
       </Suspense>
     </ErrorBoundary>
   );
 };
 
-export default StatusPenugasan;
+export default StudyPlanPage;

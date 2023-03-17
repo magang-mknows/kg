@@ -7,9 +7,11 @@ import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import ContentLayouts from "@/layouts/Content";
 import Search from "@/assets/StudyPlan/search.svg";
 import Card from "../Common/Card";
+import { useRouter } from "next/router";
 
 const ContentStudyProgram: FC = (): ReactElement => {
-  const getOptionSubject = useRecoilValue(filterOptionSubject);
+  const { query: q } = useRouter();
+  const getOptionSubject = useRecoilValue(filterOptionSubject(q.slug as unknown as string));
   const [query, setQuery] = useRecoilState(queryOptionSubject);
   const [isClose, setClose] = useState(false);
   return (
@@ -83,6 +85,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
                     key={i}
                     className="rounded-lg px-3 "
                     hasImage={true}
+                    imgStyle="rounded-lg"
                     src={x.src}
                     titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                     icon={

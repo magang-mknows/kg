@@ -25,8 +25,9 @@ const ContentFaculty: FC = (): ReactElement => {
               {getOptionFaculty.map((x, i) => (
                 <Card
                   key={i}
-                  href={"/program-studi/" + x.slug}
+                  href={"/rencana-studi/fakultas" + x.slug}
                   className="px-3 rounded-lg "
+                  imgStyle="rounded-lg"
                   hasImage={true}
                   src={x.src}
                   titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
