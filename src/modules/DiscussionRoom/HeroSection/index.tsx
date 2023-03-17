@@ -2,8 +2,13 @@ import { FC, ReactElement } from "react";
 
 import Image from "next/image";
 import discussionIcon from "@/assets/discussionRoom/discusionIcon.svg";
+import discussionIconDark from "@/assets/discussionRoom/discusionIcon-dark.svg";
+import { useTheme } from "next-themes";
 
 const HeroSection: FC = (): ReactElement => {
+  const { systemTheme, theme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
   return (
     <section className="text-neutral-800 dark:text-neutral-100 flex justify-center  items-center md:gap-20 gap-10">
       <div className=" flex flex-col relative  w-full ">
@@ -16,7 +21,11 @@ const HeroSection: FC = (): ReactElement => {
         </p>
       </div>
       <div className="w-full  flex justify-center ">
-        <Image alt="discussionIcon" src={discussionIcon} />
+        {currentTheme === "dark" ? (
+          <Image alt="discussionIcon" src={discussionIcon} />
+        ) : (
+          <Image alt="discussionIcon" src={discussionIconDark} />
+        )}
       </div>
     </section>
   );

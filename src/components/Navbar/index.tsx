@@ -23,7 +23,7 @@ const Navbar: FC = (): ReactElement => {
       >
         <UpperSection />
         {isScrollY === "onRender" && (
-          <BottomSection className="h-[84px] border-b-2 px-6 md:px-8 lg:px-12  border-neutral-100 dark:border-[#373a3e4a]" />
+          <BottomSection className="h-[84px] border-b-2 px-6 md:px-8 lg:px-10  border-neutral-100 dark:border-[#373a3e4a]" />
         )}
       </nav>
       <section className="lg:mb-[156px] mb-[72px]  h-full block"></section>
