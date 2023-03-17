@@ -12,3 +12,8 @@ export const PopupModalSubmissionOpen = atom({
   key: "modal-popup-submission",
   default: false,
 });
+
+export const GetFile = atom({
+  key: "get-file",
+  default: "",
+});

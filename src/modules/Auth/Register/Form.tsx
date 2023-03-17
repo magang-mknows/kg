@@ -65,8 +65,7 @@ const RegisterForm: FC = (): ReactElement => {
         label={"Email"}
         name={"email"}
         placeholder={"Masukan Email Anda"}
-        required={true}
-        labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+        required
       />
       <ControlledTextField
         control={control}
@@ -74,8 +73,7 @@ const RegisterForm: FC = (): ReactElement => {
         label={"Nama Lengkap"}
         name={"fullname"}
         placeholder={"Masukan Nama Lengkap Anda"}
-        required={true}
-        labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+        required
       />
       <ControlledTextField
         control={control}
@@ -83,8 +81,7 @@ const RegisterForm: FC = (): ReactElement => {
         label={"Password"}
         name={"password"}
         placeholder={"*********"}
-        required={true}
-        labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+        required
       />
       <ControlledTextField
         control={control}
@@ -92,13 +89,11 @@ const RegisterForm: FC = (): ReactElement => {
         label={"Confirm Password"}
         name={"confirm_password"}
         placeholder={"*********"}
-        required={true}
-        labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+        required
       />
       <ControlledCheckboxField
         control={control}
         name={"terms"}
-        required={false}
         label={"Saya setuju dengan syarat dan ketentuan."}
       />
       <div className="flex flex-col w-full my-8">
