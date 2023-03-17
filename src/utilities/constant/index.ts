@@ -105,6 +105,21 @@ export const studyPlanBreadCumbs = [
   },
 ];
 
+export const courseBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studiku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studiku/menejemen-keuangan",
+  },
+];
+
 export const quizBreadCumbs = [
   {
     name: "Home",
@@ -116,11 +131,15 @@ export const quizBreadCumbs = [
   },
   {
     name: "Menejemen Keuangan",
-    link: "/studiku/quiz",
+    link: "/studiku/menejemen-keuangan",
   },
   {
     name: "Quiz",
-    link: "/studiku/quiz",
+    link: "/studiku/studiku/menejemen-keuangan/quiz",
+  },
+  {
+    name: "Penugasan",
+    link: "/studiku/penugasan",
   },
 ];
 
@@ -215,7 +234,7 @@ export const rescheduleSimulationBreadCumbs = [
   },
   {
     name: "Simulasi, Drill & Assessment",
-    link: "/simulasi-drill",
+    link: "/drill-simulasi",
   },
   {
     name: "Pengajuan Perubahan Jadwal Simulasi",
@@ -471,5 +490,39 @@ export const guideBreadCumbs = [
   {
     name: "Panduan",
     link: "/panduan",
+  },
+];
+
+export const guideBookBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Buku Panduan",
+    link: "/panduan/buku-panduan",
+  },
+];
+
+export const guideRegistrationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Buku Panduan",
+    link: "/panduan/buku-panduan",
+  },
+  {
+    name: "Panduan Pendafataran",
+    link: "/panduan/buku-panduan/panduan-pendaftaran",
   },
 ];
