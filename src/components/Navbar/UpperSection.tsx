@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FC, Fragment } from "react";
 
 import logoBiru from "@/assets/navbar/logoBiru.png";
+import logoKgDark from "@/assets/navbar/logokg-dark.png";
 import MenuIcon from "./MenuIcon";
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
@@ -19,17 +20,21 @@ import { navbarMenu } from "@/utilities/constant";
 import ThemeToggle from "@/components/ThemeToggle/index";
 import MobileMenu from "@/components/Common/MobileMenu";
 import { useLoginModal } from "@/hooks/Auth/useLoginModal";
+import { useTheme } from "next-themes";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
   const { setLoginModal } = useLoginModal();
+
+  const { systemTheme, theme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <Fragment>
       <section className="flex items-center z-[9999] h-[72px] justify-between border-b-2 px-6 md:px-8 lg:px-10  border-neutral-100 dark:border-[#373a3e4a]">
         <Link passHref href={"/"}>
           <Image
-            src={logoBiru}
+            src={currentTheme === "dark" ? logoKgDark : logoBiru}
             alt="Kampus Gratis's Logo"
             width={82}
             className="w-[60px] md:w-[65px] lg:w-[80px]"
@@ -95,7 +100,7 @@ const UpperSection: FC = () => {
                 </Menu.Item>
               </div>
               <div className="bg-neutral-200 hover:bg-neutral-300 cursor-pointer transition-colors ease-in-out duration-300 w-full flex items-center justify-center py-4">
-                <Link href={"/"} passHref>
+                <Link href={"/semua-fitur"} passHref>
                   <h1 className="text-xs text-neutral-500 hover:text-neutral-400">Lihat Semua</h1>
                 </Link>
               </div>
