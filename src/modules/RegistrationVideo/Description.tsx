@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 const Description = (): ReactElement => {
   return (
-    <div className="bg-white w-full h-[269px] rounded-[8px] mt-[28px] shadow-md py-[23px] px-[46px]">
+    <div className="bg-white dark:bg-[#232529] w-full h-[269px] rounded-[8px] mt-[28px] shadow-md py-[23px] px-[46px]">
       <h1 className="text-[18px] font-[600] text-[#171717] dark:text-white h-269px ">
         Panduan Pendaftaran
       </h1>

@@ -6,7 +6,7 @@ import ContentSection from "./ContentSection";
 
 const RegistrationVideoModules = (): ReactElement => {
   return (
-    <BaseLayoutsLanding className="!bg-[#FAFAFA]">
+    <BaseLayoutsLanding className="!bg-[#FAFAFA] dark:!bg-gray-900">
       <BreadCrumb items={guideRegistrationVideo} />
       <ContentSection />
     </BaseLayoutsLanding>

@@ -34,11 +34,14 @@ const ListVideo = (): ReactElement => {
   return (
     <div className="w-full">
       <div className="title mb-[2px]">
-        <h1 className="text-black font-[700] text-[20px]">Video panduan lainnya</h1>
+        <h1 className="text-black dark:text-white font-[700] text-[20px]">Video panduan lainnya</h1>
       </div>
       {dummyListVideo.map((item, index) => {
         return (
-          <div key={index} className="w-full bg-white h-[120px] rounded-[8px] shadow-sm mt-[12px]">
+          <div
+            key={index}
+            className="w-full bg-white dark:bg-[#232529] h-[120px] rounded-[8px] shadow-sm mt-[12px]"
+          >
             <div className="flex px-[10px] py-[10px] gap-[16px]">
               <Image src={item.img} alt={""} />
               <div>
