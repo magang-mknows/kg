@@ -112,11 +112,11 @@ export const courseBreadCumbs = [
   },
   {
     name: "Studi-ku",
-    link: "/studiku",
+    link: "/studi-ku",
   },
   {
     name: "Menejemen Keuangan",
-    link: "/studiku/menejemen-keuangan",
+    link: "/studi-ku/menejemen-keuangan",
   },
 ];
 
@@ -127,15 +127,15 @@ export const quizBreadCumbs = [
   },
   {
     name: "Studi-ku",
-    link: "/studiku",
+    link: "/studi-ku",
   },
   {
     name: "Menejemen Keuangan",
-    link: "/studiku/menejemen-keuangan",
+    link: "/studi-ku/menejemen-keuangan",
   },
   {
     name: "Quiz",
-    link: "/studiku/studiku/menejemen-keuangan/quiz",
+    link: "/studi-ku/menejemen-keuangan/quiz",
   },
 ];
 
