@@ -8,8 +8,8 @@ const YoutubeSection = (): ReactElement => {
   };
 
   const opts: YouTubeProps["opts"] = {
-    height: "390",
-    width: "640",
+    height: "398",
+    width: "728",
     playerVars: {
       autoplay: 0,
     },
