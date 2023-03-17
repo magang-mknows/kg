@@ -6,7 +6,7 @@ import React, { ReactElement, Suspense } from "react";
 import ContentSection from "./ContentSection";
 import HeroSection from "./HeroSection";
 
-const GuideBook = (): ReactElement => {
+const GuideBookModule = (): ReactElement => {
   return (
     <div>
       <BaseLayoutsLanding>
@@ -20,4 +20,4 @@ const GuideBook = (): ReactElement => {
   );
 };
 
-export default GuideBook;
+export default GuideBookModule;

@@ -5,7 +5,7 @@ import search from "@/assets/guide/search.svg";
 
 const HeroSection = (): ReactElement => {
   return (
-    <div className="lg:grid lg:grid-cols-2 container lg:mx-auto mt-[30px] px-10 lg:px-0 mb-[50px]">
+    <div className="lg:grid lg:grid-cols-2 px-6 md:px-8 lg:px10 mt-[30px] mb-[50px]">
       <div className="col-span-1 ">
         <div className="title">
           <h1 className=" text-[50px] font-[700]">Buku panduan </h1>

@@ -1,8 +1,13 @@
-import GuideBook from "@/modules/GuideBook";
-import React, { ReactElement } from "react";
+import Loading from "@/components/Loading";
+import GuideBookModule from "@/modules/GuideBook";
+import React, { ReactElement, Suspense } from "react";
 
-const BukuPanduan = (): ReactElement => {
-  return <GuideBook />;
+const GuideBookPages = (): ReactElement => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <GuideBookModule />
+    </Suspense>
+  );
 };
 
-export default BukuPanduan;
+export default GuideBookPages;
