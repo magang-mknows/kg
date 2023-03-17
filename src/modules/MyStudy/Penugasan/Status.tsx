@@ -5,26 +5,26 @@ import Image from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
 
 const Status: FC = (): ReactElement => {
-  const [file, setFile] = useState<FileList | null>(null);
-  const [test, setTest] = useState("Belum Mengumpulkan");
+  // const [file, setFile] = useState<FileList | null>(null);
+  // const [test, setTest] = useState("Belum Mengumpulkan");
 
-  const handleDrag = (e: Event) => {
-    e.preventDefault();
-  };
+  // const handleDrag = (e: Event) => {
+  //   e.preventDefault();
+  // };
 
-  const handleDrop = (e: DragEvent) => {
-    e.preventDefault();
-    const file = e.dataTransfer?.files as FileList
+  // const handleDrop = (e: DragEvent) => {
+  //   e.preventDefault();
+  //   const file = e.dataTransfer?.files as FileList
   
-    setFile(file)
-    console.log(file[0].name);
-  };
+  //   setFile(file)
+  //   console.log(file[0].name);
+  // };
 
   const tabelState: {
     namaTabel: string;
     response: string;
   }[] = [
-    { namaTabel: "Status Penilaian", response: test },
+    { namaTabel: "Status Penilaian", response: "Belum Mengumpulkan" },
     { namaTabel: "Status Penilaian", response: "Belum dinilai" },
     { namaTabel: "Tanggal batas pengumpulan ", response: "25/02/2023 24:59 WIB" },
     { namaTabel: "Waktu tersisa", response: "2 hari 23 jam 12 menit 56 detik" },
