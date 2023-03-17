@@ -9,7 +9,7 @@ const Search: FC = (): ReactElement => {
     <section className="w-full flex-wrap md:flex-nowrap flex items-center justify-between gap-x-2 gap-y-3 mb-6">
       <label
         htmlFor="searchDiscussion"
-        className="flex  px-3 w-full gap-4 items-center rounded-md shadow-sm  bg-neutral-100 dark:bg-[#222529] dark:border-2 dark:border-neutral-500 text-neutral-500 h-[42px] lg:h-[50px]"
+        className="flex  px-3 w-full gap-4 items-center rounded-md shadow-sm  bg-neutral-100 dark:bg-[#222529] dark:border-2 dark:border-neutral-700/80 text-neutral-500 h-[42px] lg:h-[50px]"
       >
         <AiOutlineSearch className=" md:text-2xl text-neutral-500 dark:text-neutral-200 text-xl" />
         <input

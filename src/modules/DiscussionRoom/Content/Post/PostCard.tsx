@@ -21,7 +21,7 @@ const CommentCard: FC<TCommentCardProps> = ({
 }): ReactElement => {
   return (
     <Fragment>
-      <div className="px-5 md:px-8 lg:px-10 py-5 bg-white dark:bg-gray-800 border-2 dark:border-none rounded-md shadow-sm">
+      <div className="px-5 md:px-8 lg:px-10 py-5 bg-white dark:bg-[#222529] border-2 dark:border-none rounded-md shadow-sm">
         <div className="flex justify-between">
           <section className=" border-neutral-100/60 flex gap-4 items-center mb-6">
             <Image src={userIcon} alt="userIcon" />
