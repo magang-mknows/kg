@@ -12,16 +12,9 @@ import imgDiscussionIcon from "@/assets/course/discussion-icon.svg";
 import imgDoneIcon from "@/assets/course/done-icon.svg";
 import imgLockIcon from "@/assets/course/lock-icon.svg";
 import Link from "next/link";
+import { Course } from "@/stores/MyStudy/type";
 
-interface Dummy {
-  conference: number;
-  status: {
-    [key: string]: "Done" | "In Progress";
-  };
-  progress: "Done" | "In Progress";
-}
-
-const dummyData: Dummy[] = [
+const courseDatas: Array<Course> = [
   {
     conference: 1,
     status: {
@@ -55,7 +48,7 @@ const dummyData: Dummy[] = [
 ];
 
 const CourseHome: FC = (): ReactElement => {
-  const tempArray = dummyData.map(() => false);
+  const tempArray = courseDatas?.map(() => false);
   const [isSelected, setIsSelected] = useState<boolean[]>(tempArray);
 
   function clickHandler(index: number): void {
@@ -67,17 +60,17 @@ const CourseHome: FC = (): ReactElement => {
   const progressConferenceHandler = useCallback((): void => {
     const temp: Array<string[]> = [];
 
-    for (let i = 0; i < dummyData.length; i++) {
-      const statusProperty = Object.keys(dummyData[i].status) as Array<keyof Dummy["status"]>;
+    for (let i = 0; i < courseDatas.length; i++) {
+      const statusProperty = Object.keys(courseDatas[i].status) as Array<keyof Course["status"]>;
       temp.push([]);
       for (let j = 0; j < statusProperty.length; j++) {
-        temp[j]?.push(dummyData[i].status[statusProperty[j]]);
+        temp[j]?.push(courseDatas[i].status[statusProperty[j]]);
       }
       const arrayOftemp = temp[i].every((item) => item === "Done");
       if (arrayOftemp) {
-        dummyData[i].progress = "Done";
+        courseDatas[i].progress = "Done";
       } else if (!arrayOftemp) {
-        dummyData[i].progress = "In Progress";
+        courseDatas[i].progress = "In Progress";
       }
     }
   }, []);
@@ -110,17 +103,17 @@ const CourseHome: FC = (): ReactElement => {
       </ContentLayouts>
 
       <ContentLayouts withGap={false} className="gap-[30px] select-none">
-        {dummyData.map((conference, i) => (
+        {courseDatas.map((conference, i) => (
           <div key={i} className="flex flex-col">
             <button
               onClick={() => clickHandler(i)}
-              disabled={dummyData[i].progress === "In Progress"}
+              disabled={courseDatas[i].progress === "In Progress"}
               className={`px-[30px] py-[14px] flex justify-between items-center rounded-lg text-white cursor-pointer ${
-                dummyData[i].progress === "Done" ? "bg-primary-500" : "bg-neutral-500"
+                courseDatas[i].progress === "Done" ? "bg-primary-500" : "bg-neutral-500"
               }`}
             >
               <p className="text-lg font-medium">Pertemuan {i + 1}</p>
-              {dummyData[i].progress === "Done" ? (
+              {courseDatas[i].progress === "Done" ? (
                 <MdArrowDropDown
                   className={`text-3xl relative ${isSelected[i] ? "rotate-180" : ""}`}
                 />
@@ -138,7 +131,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgModuleIcon} alt="" />
                   <Link
-                    href="/studiku/menejemen-keuangan/modul"
+                    href="/studi-ku/menejemen-keuangan/modul"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Modul
@@ -152,7 +145,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgQuizIcon} alt="" />
                   <Link
-                    href="/studiku/menejemen-keuangan/quiz"
+                    href="/studi-ku/menejemen-keuangan/quiz"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Quiz
@@ -166,7 +159,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgAssignmentIcon} alt="" />
                   <Link
-                    href="/studiku/menejemen-keuangan/tugas"
+                    href="/studi-ku/menejemen-keuangan/tugas"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Tugas
@@ -180,7 +173,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgDiscussionIcon} alt="" />
                   <Link
-                    href="/studiku/menejemen-keuangan/diskusi"
+                    href="/studi-ku/menejemen-keuangan/diskusi"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Diskusi
