@@ -9,7 +9,13 @@ const Loading = (): ReactElement => {
       role="status"
     >
       <div className="w-full h-full">
-        <Image src={Loader} alt={"loader"} className={"animate-spin mx-auto mt-[20%]"} />
+        <Image
+          src={Loader}
+          width={40}
+          height={40}
+          alt={"loader"}
+          className={"animate-spin mx-auto mt-[20%]"}
+        />
       </div>
     </div>
   );
