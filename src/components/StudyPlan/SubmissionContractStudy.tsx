@@ -156,7 +156,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
               type={"button"}
               text="Konfirmasi"
-              page={"/kontak-krs/detail"}
+              page={"/kontrak-krs/detail"}
             />
           </div>
         </PopupModal>
