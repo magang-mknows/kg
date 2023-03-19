@@ -47,7 +47,8 @@ const UpperSection: FC = (): ReactElement => {
             src={currentTheme === "dark" ? logoKgDark : logoBiru}
             alt="Kampus Gratis's Logo"
             width={82}
-            className="w-[60px] md:w-[65px] lg:w-[80px]"
+            priority
+            className="w-[60px] md:w-[65px] lg:w-[80px] w-auto h-auto"
           />
         </Link>
         {isScrollY === "onSticky" && <BottomSection className="dark:bg-transparent px-2" />}
