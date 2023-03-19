@@ -26,6 +26,7 @@ ApiService.init(configs.apiURL);
 import { Montserrat } from "next/font/google";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import Loading from "@/components/Loading";
+import { DefaultSeo } from "next-seo";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
@@ -41,6 +42,16 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
   if (!mounted) return <Loading />;
   return (
     <SuspenseError>
+      <DefaultSeo
+        title="Kampus Gratis"
+        description="Kampus Gratis membuat kuliah jadi gratis dan bisa di nikmati olaeh banyak umat"
+        openGraph={{
+          type: "website",
+          locale: "id_ID",
+          url: "https://kampusgratis.id",
+          siteName: "Kampus Gratis",
+        }}
+      />
       <QueryClientProvider client={queryClient}>
         <QueryErrorResetBoundary>
           <style jsx global>{`

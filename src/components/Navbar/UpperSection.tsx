@@ -57,6 +57,7 @@ const UpperSection: FC = (): ReactElement => {
           <MenuIcon
             icon={
               <BiCategoryAlt
+                aria-label="Home Button"
                 size={20}
                 className="text-neutral-900 dark:text-white dark:hover:text-primary-500 stroke-neutral-900 group-hover:text-neutral-300 transition-colors ease-in-out duration-300"
               />
@@ -72,6 +73,7 @@ const UpperSection: FC = (): ReactElement => {
               <div className="grid grid-cols-2 ">
                 <Menu.Item
                   as="div"
+                  aria-label="User"
                   className={
                     "flex flex-col gap-2 items-center p-4 cursor-pointer hover:bg-neutral-200 transition-all duration-300 ease-in-out"
                   }
