@@ -1,7 +1,6 @@
-import { FC, ReactElement, lazy, Suspense } from "react";
+import { FC, ReactElement, lazy } from "react";
 import BaseLayouts from "@/layouts/Base";
-import { ErrorBoundary } from "react-error-boundary";
-import Loading from "@/components/Loading";
+import SuspenseError from "../Common/SuspenseError";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
 const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
@@ -16,22 +15,49 @@ const Footbar = lazy(() => import("@/components/Footbar"));
 
 const Landing: FC = (): ReactElement => {
   return (
-    <BaseLayouts>
-      <ErrorBoundary fallback={<>Error was happen</>}>
-        <Suspense fallback={<Loading />}>
+    <SuspenseError>
+      <BaseLayouts>
+        <SuspenseError>
           <HeroSection />
+        </SuspenseError>
+
+        <SuspenseError>
           <PatnerSection />
+        </SuspenseError>
+
+        <SuspenseError>
           <SekilasSection />
+        </SuspenseError>
+
+        <SuspenseError>
           <AboutSection />
+        </SuspenseError>
+
+        <SuspenseError>
           <InformationBanner />
+        </SuspenseError>
+
+        <SuspenseError>
           <ChooseStudyProgram />
+        </SuspenseError>
+
+        <SuspenseError>
           <TestimonySection />
+        </SuspenseError>
+
+        <SuspenseError>
           <InformationSection />
+        </SuspenseError>
+
+        <SuspenseError>
           <PromotionBanner />
+        </SuspenseError>
+
+        <SuspenseError>
           <Footbar />
-        </Suspense>
-      </ErrorBoundary>
-    </BaseLayouts>
+        </SuspenseError>
+      </BaseLayouts>
+    </SuspenseError>
   );
 };
 

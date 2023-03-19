@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FC, Fragment } from "react";
+import { FC, Fragment, useEffect, useState } from "react";
 
 import logoBiru from "@/assets/navbar/logoBiru.png";
 import logoKgDark from "@/assets/navbar/logokg-dark.png";
@@ -21,16 +21,26 @@ import ThemeToggle from "@/components/ThemeToggle/index";
 import MobileMenu from "@/components/Common/MobileMenu";
 import { useLoginModal } from "@/hooks/Auth/useLoginModal";
 import { useTheme } from "next-themes";
+import SuspenseError from "@/modules/Common/SuspenseError";
 
 const UpperSection: FC = () => {
   const { isScrollY } = useWindowScroll();
   const { setLoginModal } = useLoginModal();
+  const [mounted, setMounted] = useState(false);
 
   const { systemTheme, theme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <></>;
+  }
+
   return (
-    <Fragment>
+    <SuspenseError>
       <section className="flex items-center z-[9999] h-[72px] justify-between border-b-2 px-6 md:px-8 lg:px-10  border-neutral-100 dark:border-[#373a3e4a]">
         <Link passHref href={"/"}>
           <Image
@@ -123,7 +133,7 @@ const UpperSection: FC = () => {
           />
         </section>
       </section>
-    </Fragment>
+    </SuspenseError>
   );
 };
 
