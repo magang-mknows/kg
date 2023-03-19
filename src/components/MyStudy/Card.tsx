@@ -42,7 +42,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
             <>
               {getOptionSubject.map((x, i) => (
                 <Card
-                  href={"/kontrak-krs" + x.slug}
+                  href={"/studi-ku/course"}
                   key={i}
                   className="rounded-lg px-3 "
                   hasImage={true}
