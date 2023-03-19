@@ -4,8 +4,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import { SuspenseErrorProps } from "./types";
 
 const SuspenseError: FC<SuspenseErrorProps> = ({
-  errorFallback = <Loading />,
-  loadingFallback = <span className="text-red-600">Error was happen</span>,
+  loadingFallback = <Loading />,
+  errorFallback = <span className="text-red-600">Error was happen</span>,
   children,
 }): ReactElement => {
   return (

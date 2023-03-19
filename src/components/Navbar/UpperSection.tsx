@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FC, Fragment, useEffect, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 
 import logoBiru from "@/assets/navbar/logoBiru.png";
 import logoKgDark from "@/assets/navbar/logokg-dark.png";
@@ -22,22 +22,22 @@ import MobileMenu from "@/components/Common/MobileMenu";
 import { useLoginModal } from "@/hooks/Auth/useLoginModal";
 import { useTheme } from "next-themes";
 import SuspenseError from "@/modules/Common/SuspenseError";
+import Loading from "../Loading";
 
-const UpperSection: FC = () => {
+const UpperSection: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
   const { setLoginModal } = useLoginModal();
-  const [mounted, setMounted] = useState(false);
 
   const { systemTheme, theme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
+
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <></>;
-  }
+  if (!mounted) return <Loading />;
 
   return (
     <SuspenseError>
