@@ -1,15 +1,9 @@
-import SuspenseError from "@/modules/Common/SuspenseError";
+import Landing from "@/modules/Landing";
 import type { NextPage } from "next";
-import { lazy, ReactElement } from "react";
-
-const Landing = lazy(() => import("@/modules/Landing"));
+import { ReactElement } from "react";
 
 const LandingPages: NextPage = (): ReactElement => {
-  return (
-    <SuspenseError>
-      <Landing />
-    </SuspenseError>
-  );
+  return <Landing />;
 };
 
 export default LandingPages;

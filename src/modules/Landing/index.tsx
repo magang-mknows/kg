@@ -1,6 +1,7 @@
-import { FC, ReactElement, lazy } from "react";
+import { FC, ReactElement, lazy, useEffect, useState } from "react";
 import BaseLayouts from "@/layouts/Base";
 import SuspenseError from "../Common/SuspenseError";
+import Loading from "@/components/Loading";
 
 const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
 const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
@@ -14,50 +15,55 @@ const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgr
 const Footbar = lazy(() => import("@/components/Footbar"));
 
 const Landing: FC = (): ReactElement => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <Loading />;
   return (
-    <SuspenseError>
-      <BaseLayouts>
-        <SuspenseError>
-          <HeroSection />
-        </SuspenseError>
+    <BaseLayouts>
+      <SuspenseError>
+        <HeroSection />
+      </SuspenseError>
 
-        <SuspenseError>
-          <PatnerSection />
-        </SuspenseError>
+      <SuspenseError>
+        <PatnerSection />
+      </SuspenseError>
 
-        <SuspenseError>
-          <SekilasSection />
-        </SuspenseError>
+      <SuspenseError>
+        <SekilasSection />
+      </SuspenseError>
 
-        <SuspenseError>
-          <AboutSection />
-        </SuspenseError>
+      <SuspenseError>
+        <AboutSection />
+      </SuspenseError>
 
-        <SuspenseError>
-          <InformationBanner />
-        </SuspenseError>
+      <SuspenseError>
+        <InformationBanner />
+      </SuspenseError>
 
-        <SuspenseError>
-          <ChooseStudyProgram />
-        </SuspenseError>
+      <SuspenseError>
+        <ChooseStudyProgram />
+      </SuspenseError>
 
-        <SuspenseError>
-          <TestimonySection />
-        </SuspenseError>
+      <SuspenseError>
+        <TestimonySection />
+      </SuspenseError>
 
-        <SuspenseError>
-          <InformationSection />
-        </SuspenseError>
+      <SuspenseError>
+        <InformationSection />
+      </SuspenseError>
 
-        <SuspenseError>
-          <PromotionBanner />
-        </SuspenseError>
+      <SuspenseError>
+        <PromotionBanner />
+      </SuspenseError>
 
-        <SuspenseError>
-          <Footbar />
-        </SuspenseError>
-      </BaseLayouts>
-    </SuspenseError>
+      <SuspenseError>
+        <Footbar />
+      </SuspenseError>
+    </BaseLayouts>
   );
 };
 
