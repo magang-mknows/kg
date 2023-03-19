@@ -10,7 +10,6 @@ const LandingPages: NextPage = (): ReactElement => {
         title="Landing Page Kampus Gratis"
         description="Kampus grais adalah webisite untuk orang orang yang ingin mengenyam bangku kuliah tanpa biaya namun dengan standard nasional"
       />
-
       <Landing />
     </Fragment>
   );
