@@ -24,7 +24,6 @@ RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 ApiService.init(configs.apiURL);
 
 import { Montserrat } from "next/font/google";
-import SuspenseError from "@/modules/Common/SuspenseError";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
@@ -50,9 +49,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
         <ThemeProvider attribute="class" enableSystem={true} disableTransitionOnChange>
           <Hydrate state={pageProps.dehydratedState}>
             <RecoilRoot>
-              <SuspenseError>
-                <Component {...pageProps} />
-              </SuspenseError>
+              <Component {...pageProps} />
             </RecoilRoot>
           </Hydrate>
         </ThemeProvider>
