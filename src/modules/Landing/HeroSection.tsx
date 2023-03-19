@@ -41,7 +41,7 @@ const HeroSection: FC = (): ReactElement => {
                   src={ImageLanding}
                   alt="Image Landing"
                   className="z-0 lg:w-[680px] lg:h-[500px] md:w-[600px] md:h-[450px] w-[340px] h-[400px] sm:w-[400px] sm:h-[400px]"
-                  loading="lazy"
+                  priority
                 />
               </Suspense>
               <div className="flex flex-col items-center bg-white lg:w-[300px] w-[220px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 ">

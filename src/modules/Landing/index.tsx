@@ -1,46 +1,44 @@
-import { FC, ReactElement, useEffect, useState } from "react";
+import { FC, ReactElement, useEffect } from "react";
+
 import BaseLayouts from "@/layouts/Base";
-import Loading from "@/components/Loading";
-import Footbar from "@/components/Footbar";
-import AboutSection from "./AboutSection";
-import ChooseStudyProgram from "./ChooseStudyProgram";
-import HeroSection from "./HeroSection";
-import InformationBanner from "./InformationBanner";
-import InformationSection from "./InformationSection";
-import PatnerSection from "./PatnerSection";
-import PromotionBanner from "./PromotionBanner";
-import SekilasSection from "./SekilasSection";
-import TestimonySection from "./TestimonySection";
+import dynamic from "next/dynamic";
+import SuspenseError from "../Common/SuspenseError";
+import { useInView } from "react-intersection-observer";
+
+const HeroSection = dynamic(() => import("./HeroSection"));
+const PatnerSection = dynamic(() => import("./PatnerSection"));
+const SekilasSection = dynamic(() => import("./SekilasSection"));
+const AboutSection = dynamic(() => import("./AboutSection"));
+const ChooseStudyProgram = dynamic(() => import("./ChooseStudyProgram"));
+const InformationBanner = dynamic(() => import("./InformationBanner"));
+const InformationSection = dynamic(() => import("./InformationSection"));
+const PromotionBanner = dynamic(() => import("./PromotionBanner"));
+const TestimonySection = dynamic(() => import("./TestimonySection"));
+const Footbar = dynamic(() => import("@/components/Footbar"));
 
 const Landing: FC = (): ReactElement => {
-  const [mounted, setMounted] = useState(false);
-
+  const { inView, ref } = useInView({
+    threshold: 0.0,
+  });
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <Loading />;
+    if (inView) {
+      console.log("visible");
+    }
+  });
   return (
     <BaseLayouts>
-      <HeroSection />
-
-      <PatnerSection />
-
-      <SekilasSection />
-
-      <AboutSection />
-
-      <InformationBanner />
-
-      <ChooseStudyProgram />
-
-      <TestimonySection />
-
-      <InformationSection />
-
-      <PromotionBanner />
-
-      <Footbar />
+      <div ref={ref}>
+        <SuspenseError>{inView && <HeroSection />}</SuspenseError>
+        <SuspenseError>{inView && <PatnerSection />}</SuspenseError>
+        <SuspenseError>{inView && <SekilasSection />}</SuspenseError>
+        <SuspenseError>{inView && <AboutSection />}</SuspenseError>
+        <SuspenseError>{inView && <InformationBanner />}</SuspenseError>
+        <SuspenseError>{inView && <ChooseStudyProgram />}</SuspenseError>
+        <SuspenseError>{inView && <TestimonySection />}</SuspenseError>
+        <SuspenseError>{inView && <InformationSection />}</SuspenseError>
+        <SuspenseError>{inView && <PromotionBanner />}</SuspenseError>
+        <SuspenseError>{inView && <Footbar />}</SuspenseError>
+      </div>
     </BaseLayouts>
   );
 };
