@@ -1,18 +1,16 @@
-import { FC, ReactElement, lazy, useEffect, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import BaseLayouts from "@/layouts/Base";
-import SuspenseError from "../Common/SuspenseError";
 import Loading from "@/components/Loading";
-
-const HeroSection = lazy(() => import("@/modules/Landing/HeroSection"));
-const PatnerSection = lazy(() => import("@/modules/Landing/PatnerSection"));
-const AboutSection = lazy(() => import("@/modules/Landing/AboutSection"));
-const SekilasSection = lazy(() => import("@/modules/Landing/SekilasSection"));
-const TestimonySection = lazy(() => import("./TestimonySection"));
-const InformationBanner = lazy(() => import("@/modules/Landing/InformationBanner"));
-const PromotionBanner = lazy(() => import("@/modules/Landing/PromotionBanner"));
-const InformationSection = lazy(() => import("@/modules/Landing/InformationSection"));
-const ChooseStudyProgram = lazy(() => import("@/modules/Landing/ChooseStudyProgram"));
-const Footbar = lazy(() => import("@/components/Footbar"));
+import Footbar from "@/components/Footbar";
+import AboutSection from "./AboutSection";
+import ChooseStudyProgram from "./ChooseStudyProgram";
+import HeroSection from "./HeroSection";
+import InformationBanner from "./InformationBanner";
+import InformationSection from "./InformationSection";
+import PatnerSection from "./PatnerSection";
+import PromotionBanner from "./PromotionBanner";
+import SekilasSection from "./SekilasSection";
+import TestimonySection from "./TestimonySection";
 
 const Landing: FC = (): ReactElement => {
   const [mounted, setMounted] = useState(false);
@@ -24,45 +22,25 @@ const Landing: FC = (): ReactElement => {
   if (!mounted) return <Loading />;
   return (
     <BaseLayouts>
-      <SuspenseError>
-        <HeroSection />
-      </SuspenseError>
+      <HeroSection />
 
-      <SuspenseError>
-        <PatnerSection />
-      </SuspenseError>
+      <PatnerSection />
 
-      <SuspenseError>
-        <SekilasSection />
-      </SuspenseError>
+      <SekilasSection />
 
-      <SuspenseError>
-        <AboutSection />
-      </SuspenseError>
+      <AboutSection />
 
-      <SuspenseError>
-        <InformationBanner />
-      </SuspenseError>
+      <InformationBanner />
 
-      <SuspenseError>
-        <ChooseStudyProgram />
-      </SuspenseError>
+      <ChooseStudyProgram />
 
-      <SuspenseError>
-        <TestimonySection />
-      </SuspenseError>
+      <TestimonySection />
 
-      <SuspenseError>
-        <InformationSection />
-      </SuspenseError>
+      <InformationSection />
 
-      <SuspenseError>
-        <PromotionBanner />
-      </SuspenseError>
+      <PromotionBanner />
 
-      <SuspenseError>
-        <Footbar />
-      </SuspenseError>
+      <Footbar />
     </BaseLayouts>
   );
 };
