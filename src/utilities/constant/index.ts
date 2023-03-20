@@ -173,6 +173,9 @@ export const modulBreadCumbs = [
     name: "Home",
     link: "/",
   },
+];
+
+export const tugasBreadCumbs = [
   {
     name: "Studi-ku",
     link: "/studi-ku",
