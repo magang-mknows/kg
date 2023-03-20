@@ -17,6 +17,6 @@ export type OptionSubject = {
 
 export type Question = {
   question: string;
-  choices: array;
+  choices: array<string>;
   rightAnswer: string;
 };

@@ -85,3 +85,8 @@ export const quizQuestionState = atom<Array<Question>>({
     },
   ],
 });
+
+export const currentQuizNumberState = atom({
+  key: "currentQuizNumberState",
+  default: 1,
+});
