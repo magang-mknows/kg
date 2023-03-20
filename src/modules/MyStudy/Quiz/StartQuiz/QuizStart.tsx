@@ -8,8 +8,10 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 import { useRouter } from "next/router";
+import useWindowSize from "@/hooks/Common/useWindowSize";
 
 const QuizStart: FC = (): ReactElement => {
+  const windowSize = useWindowSize();
   const { getData } = useQuizQuestion();
   const router = useRouter();
   // onClick toggle
@@ -19,16 +21,16 @@ const QuizStart: FC = (): ReactElement => {
   const [currentIndexQuestion, setCurrentIndexQuestion] = useState<number>(0);
 
   return (
-    <MainLayouts withHScreen={false} withPadding={false} className="px-[88px] ">
-      <div className="py-[52px] px-[38px] flex flex-col md:flex-row gap-x-[55px]">
+    <MainLayouts withHScreen={false} withPadding={false} className="px-0 lg:px-[88px]">
+      <div className="py-[52px] px-[38px] flex flex-col-reverse xl:flex-row gap-x-[55px]">
         <ContentLayouts
           withGap={false}
-          className="justify-between items-center py-[44px] px-[51px] min-w-[780px] min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg"
+          className="justify-between items-center py-[44px] mx-auto lg:mx-0 px-0 lg:px-[51px] w-[90%] min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg"
         >
-          <p className="text-black text-xl font-semibold max-w-[680px]">
+          <p className="text-black dark:text-neutral-100 text-xl font-semibold w-3/4 md:w-[85%] lg:w-full max-w-[680px]">
             {currentIndexQuestion + 1}. {getData[currentIndexQuestion].question}
           </p>
-          <div className="flex flex-col justify-between w-[540px] h-[320px]">
+          <div className="flex flex-col justify-between w-[80%] lg:w-[540px] h-[320px]">
             {getData[currentIndexQuestion].choices.map((choice: any, i: any) => (
               <div
                 key={i}
@@ -54,38 +56,46 @@ const QuizStart: FC = (): ReactElement => {
               </div>
             ))}
           </div>
-          <div className="w-full flex justify-around items-center">
-            <button
-              onClick={() => setCurrentIndexQuestion((prev) => prev - 1)}
-              className="py-3 px-7 border-[#106FA4] border-2 text-base rounded-lg text-[#106FA4] flex items-center gap-x-1"
-            >
-              <IoIosArrowBack /> <p>Sebelumnya</p>
-            </button>
+          <div className="w-full flex justify-around items-center gap-x-3 max-w-[710px]">
             <GlobalButton
-              text="Ragu-Ragu"
+              text={(windowSize?.width as number) > 640 ? "Sebelumnya" : undefined}
+              size="base"
+              onClick={() => setCurrentIndexQuestion((prev) => prev - 1)}
+              className="border-[#106FA4] !bg-transparent border-2 !text-[#106FA4] !h-12"
+              icon={<IoIosArrowBack color="#106FA4" />}
+            />
+            <GlobalButton
+              text={(windowSize?.width as number) > 640 ? "Ragu-Ragu" : undefined}
               size="base"
               color="yellow"
+              className="!h-12"
               icon={<AiOutlineQuestionCircle />}
             />
             <GlobalButton
-              text="Selanjutnya"
+              text={(windowSize?.width as number) > 640 ? "Selanjutnya" : undefined}
               size="base"
               color="blue"
-              className="flex flex-row-reverse"
+              className="flex flex-row-reverse !h-12"
               icon={<IoIosArrowForward />}
               onClick={() => {
-                setCurrentIndexQuestion((prev) => prev + 1);
                 if (currentIndexQuestion === getData.length - 1) {
-                  router.push("/studi-ku/course/quiz/nilai-quiz");
+                  router.push("/studi-ku/menejemen-keuangan/quiz/nilai-quiz");
+                  return;
                 }
+                setCurrentIndexQuestion((prev) => prev + 1);
               }}
             />
           </div>
         </ContentLayouts>
 
-        <ContentLayouts withGap={false} className="h-[232px] gap-5">
+        <ContentLayouts
+          withGap={false}
+          className="h-[232px] gap-5 lg:w-[35%] max-w-[270px] mx-auto"
+        >
           <div className="px-[22px] py-4 border border-solid border-[#E5E5E5] rounded-lg">
-            <p className="text-base text-black font-bold mb-6">Daftar Soal :</p>
+            <p className="text-base text-black dark:text-neutral-100 font-bold mb-6">
+              Daftar Soal :
+            </p>
             <div className="grid grid-cols-5 grid-rows-2 gap-x-1">
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((el, i) => (
                 <div key={i} className="w-12 h-12 bg-transparent p-1">

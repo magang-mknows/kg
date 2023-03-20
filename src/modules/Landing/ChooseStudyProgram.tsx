@@ -34,8 +34,10 @@ const DataDummy: {
 
 const ChooseStudyProgram: FC = (): ReactElement => {
   return (
-    <section className="container w-full my-20 px-16">
-      <h1 className="font-bold text-[44px]">3 Pilihan Program Studi</h1>
+    <section className="w-full my-20 lg:px-10 md:px-8 px-6 pt-10">
+      <h1 className="lg:text-[44px] md:text-[44px] text-[30px] font-bold text-[#262626] dark:text-white">
+        3 Pilihan Program Studi
+      </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5 justify-center lg:justify-between py-[20px]">
         {DataDummy.map((dummy, i) => (
           <Card
@@ -63,7 +65,7 @@ const ChooseStudyProgram: FC = (): ReactElement => {
           </Card>
         ))}
       </div>
-      <div className="flex flex-row justify-center w-full">
+      <div className="flex flex-row justify-center w-full mt-[40px]">
         <GlobalButton
           size="regular"
           color="green"

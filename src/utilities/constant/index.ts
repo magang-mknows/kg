@@ -173,6 +173,9 @@ export const modulBreadCumbs = [
     name: "Home",
     link: "/",
   },
+];
+
+export const tugasBreadCumbs = [
   {
     name: "Studi-ku",
     link: "/studi-ku",
@@ -574,6 +577,20 @@ export const guideBookBreadCumbs = [
     link: "/panduan/buku-panduan",
   },
 ];
+export const guideVideoBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Video Panduan",
+    link: "/panduan/video-panduan",
+  },
+];
 
 export const guideRegistrationBreadCumbs = [
   {
@@ -613,11 +630,8 @@ export const guideRegistrationVideo = [
   },
 ];
 
+
 export const diskusiMyStudyBreadCumbs = [
-  {
-    name: "Home",
-    link: "/",
-  },
   {
     name: "Studi-ku",
     link: "/studi-ku",
@@ -631,3 +645,38 @@ export const diskusiMyStudyBreadCumbs = [
     link: "/studi-ku/menejemen-keuangan/diskusi"
   },
 ];
+
+export const guideDictionary = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+];
+
+// export const guideCamusDetail = [
+//   {
+//     name: "Home",
+//     link: "/",
+//   },
+//   {
+//     name: "Panduan",
+//     link: "/panduan",
+//   },
+//   {
+//     name: "Kamus Kampus Gratis",
+//     link: "/kamus-kampus-gratis",
+//   },
+//   {
+//     name: "Kamus Kampus Gratis",
+//     link: "/kamus-kampus-gratis",
+//   },
+// ];
+

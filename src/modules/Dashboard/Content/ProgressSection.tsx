@@ -81,7 +81,7 @@ const ProgressSection: FC = (): ReactElement => {
                 src={dummyImg}
                 alt="tes"
               />
-              <div className=" lg:col-span-10 lg:flex justify-between items-center w-full md:col-span-12 col-span-12">
+              <div className=" lg:col-span-10 lg:flex lg:justify-between items-center w-full col-span-12">
                 <div>
                   <p className="mb-[12px]">{dummy.judul}</p>
                   <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">
@@ -103,14 +103,14 @@ const ProgressSection: FC = (): ReactElement => {
                 {percent != "100" ? (
                   <Button
                     text={"Lanjut Belajar"}
-                    className="bg-primary-500 dark:bg-[#17A2B8] h-fit  text-neutral-200 text-sm px-6 py-3 hover:bg-primary-600 transition-colors w-[200px] ease-in-out duration-300 rounded-md"
+                    className="bg-primary-500 dark:bg-[#17A2B8] h-fit  text-neutral-200 text-sm px-6 py-3 hover:bg-primary-600 transition-colors lg:w-[200px] ease-in-out duration-300 rounded-md w-full"
                     type="button"
                   />
                 ) : (
                   <Button
                     disabled
                     text={"Complete"}
-                    className="bg-neutral-300 dark:text-neutral-200 dark:bg-neutral-700 h-fit w-[200px] text-neutral-200 text-sm px-6 py-3  rounded-md"
+                    className="bg-neutral-300 dark:text-neutral-200 dark:bg-neutral-700 h-fit lg:w-[200px] text-neutral-200 text-sm px-6 py-3 rounded-md w-full"
                     type="button"
                   />
                 )}

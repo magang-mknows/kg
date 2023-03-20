@@ -151,7 +151,7 @@ const Footbar: FC = (): ReactElement => {
         </div>
       </div>
 
-      <hr className="py-5  lg:mx-20 md:mx-10 md:py-2 sm:mx-10 xs:mx-10" />
+      <hr className="py-5  lg:mx-10 md:mx-8 md:py-2 mx-6" />
     </footer>
   );
 };
