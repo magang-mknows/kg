@@ -75,7 +75,7 @@ export const checkRescheduleSimulatiionState = atom<Array<RescheduleSimulation>>
       ],
     },
     {
-      date: "Rabu, 4 April 2021",
+      date: "Rabu, 5 April 2021",
       time: [
         {
           time: "24:00",

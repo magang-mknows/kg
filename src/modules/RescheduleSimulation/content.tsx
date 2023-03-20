@@ -18,7 +18,7 @@ import { BsCalendarDate } from "react-icons/bs";
 import { AiOutlineCheck } from "react-icons/ai";
 
 const Content: FC = (): ReactElement => {
-  const [isOpen, setIsOpen] = useState("");
+  const [isOpen] = useState("");
   const { getChooseSimulation, setChooseSimulation } = useChooseSimulation();
   const { getChooseTimeSimulation, setChooseTimeSimulation } = useChooseTimeSimulation();
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
@@ -31,6 +31,10 @@ const Content: FC = (): ReactElement => {
     setCategorySimulation("Active");
     setPopupStatus(true);
   };
+  // const onReschedule = () => {
+  //   setCategorySimulation("Reschedule");
+  //   setPopupStatus(true);
+  // };
 
   return (
     <div className="px-6 md:px-8 lg:px-10">
@@ -100,7 +104,12 @@ const Content: FC = (): ReactElement => {
               </button>
             ))}
           </div>
-          <Accordion title="Sore" iconImage={afternoon} idAccordion={isOpen === "" ? "open" : ""}>
+          <Accordion
+            title="Sore"
+            iconImage={afternoon}
+            idAccordion={isOpen === "" ? "open" : ""}
+            disabled={getChooseSimulation === "" ? true : false}
+          >
             <div className="flex gap-5">
               {getCheckRescheduleSimulation.map((item) =>
                 item.time
@@ -136,7 +145,7 @@ const Content: FC = (): ReactElement => {
           <div className="flex justify-end mt-3">
             <button
               onClick={() => {
-                getCategorySimulation !== "" || getChooseTimeSimulation !== "" ? onSucces() : "";
+                getChooseSimulation != "" || getChooseTimeSimulation != "" ? onSucces() : "";
               }}
               className={` text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4 ${
                 getCategorySimulation === "Active"
@@ -149,24 +158,35 @@ const Content: FC = (): ReactElement => {
                 : "Ajukan Jadwal Simulasi"}
             </button>
           </div>
+
+          {/* popUp */}
+          <div>
+            <PopupModal
+              icon={getCategorySimulation === "" ? warning : checked}
+              image={getCategorySimulation === "" ? rescheduleJadwal : pengajuan}
+              popupTitle={
+                getCategorySimulation === "Active"
+                  ? "Berhasil Mengajukan Simulasi!"
+                  : getCategorySimulation == "Reschedule"
+                  ? "reschedule"
+                  : ""
+              }
+              stylePopup={"font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]"}
+              lookup={getPopupStatus}
+              className="!h-85 w-[100%] text-md py-10"
+              onClose={() => setPopupStatus(false)}
+            >
+              <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
+                Kamu telah mengajukan
+                {getCategorySimulation === "Active" ? " Reschedule Jadwal pertemuan " : ""}
+                simulasi <br /> di hari {`${getChooseSimulation}`} Pukul{" "}
+                {`${getChooseTimeSimulation}`} WIB, Link Zoom simulasi akan dikirimkan melalui
+                email.
+              </p>
+            </PopupModal>
+          </div>
         </div>
 
-        <div>
-          <PopupModal
-            icon={checked}
-            image={pengajuan}
-            popupTitle="Berhasil Mengajukan Simulasi!"
-            stylePopup={"font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]"}
-            lookup={getPopupStatus}
-            className="!h-85 w-[100%] text-md py-10"
-            onClose={() => setPopupStatus(false)}
-          >
-            <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
-              Kamu telah mengajukan simulasi di hari Senin, 17 Januari 2023 Pukul 16:30 WIB, Link
-              Zoom simulasi akan dikirimkan melalui email.
-            </p>
-          </PopupModal>
-        </div>
         {/* <div>
           <PopupModal
             icon={warning}
