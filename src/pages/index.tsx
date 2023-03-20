@@ -1,17 +1,31 @@
-import Loading from "@/components/Loading";
+import LoginSkeleton from "@/components/Loading/Auth/LoginSkeleton";
+import { useLoginModal } from "@/hooks/Auth/useLoginModal";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import Landing from "@/modules/Landing";
 import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
+import { NextSeo } from "next-seo";
+import { Fragment, lazy, ReactElement } from "react";
 
-const Landing = lazy(() => import("@/modules/Landing"));
+const Modal = lazy(() => import("@/components/Common/Modal"));
+const LoginForm = lazy(() => import("@/modules/Auth/Login/Form"));
 
 const LandingPages: NextPage = (): ReactElement => {
+  const { getLoginModal, setLoginModal } = useLoginModal();
   return (
-    <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<Loading />}>
-        <Landing />
-      </Suspense>
-    </ErrorBoundary>
+    <Fragment>
+      <NextSeo
+        title="Landing Page Kampus Gratis"
+        description="Kampus grais adalah webisite untuk orang orang yang ingin mengenyam bangku kuliah tanpa biaya namun dengan standard nasional"
+      />
+      <SuspenseError>
+        <Modal withClose lookup={getLoginModal} onClose={() => setLoginModal(false)}>
+          <SuspenseError loadingFallback={<LoginSkeleton />}>
+            <LoginForm />
+          </SuspenseError>
+        </Modal>
+      </SuspenseError>
+      <Landing />
+    </Fragment>
   );
 };
 

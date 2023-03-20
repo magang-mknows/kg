@@ -6,7 +6,7 @@ import { modulBreadCumbs } from "@/utilities/constant";
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 const CardModul = lazy(() => import("@/components/MyStudy/ModulCard"));
 
-const index: FC = (): ReactElement => {
+const Modul: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
       <Suspense fallback={<Loading />}>
@@ -17,4 +17,4 @@ const index: FC = (): ReactElement => {
   );
 };
 
-export default index;
+export default Modul;

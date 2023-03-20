@@ -99,4 +99,5 @@ const AboutSection: FC = (): ReactElement => {
     </section>
   );
 };
+
 export default AboutSection;

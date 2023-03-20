@@ -41,22 +41,35 @@ const LoginForm: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
     try {
-      mutate(data);
+      mutate(data, {
+        onError: (err) => {
+          console.log(err as string);
+        },
+      });
     } catch (err) {
       throw handleError(err);
     }
   });
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form
+      onSubmit={onSubmit}
+      className="lg:w-[720px] sm:w-[620px] lg:h-[800px] sm:h-[600px] flex flex-col justify-center p-8"
+    >
+      <section className="flex flex-col w-full gap-y-2 mb-4">
+        <h1 className="md:text-5xl text-2xl text-center font-bold font-black-900">Masuk</h1>
+        <p className="text-center text-sm md:text-base">
+          Silahkan masuk menggunakan email dan kata sandi yang terdaftar{" "}
+        </p>
+      </section>
       <ControlledTextField
         control={control}
         type={"email"}
         label={"Email"}
         name={"email"}
         placeholder={"Masukan Email Anda"}
-        required={true}
-        labelClassName="block mb-2 text-sm dark:text-white font-medium text-gray-900 "
+        required
+        error="Error gays"
       />
       <ControlledTextField
         control={control}
@@ -64,8 +77,7 @@ const LoginForm: FC = (): ReactElement => {
         label={"Password"}
         name={"password"}
         placeholder={"*********"}
-        required={true}
-        labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+        required
       />
 
       <div className="flex justify-between w-full">

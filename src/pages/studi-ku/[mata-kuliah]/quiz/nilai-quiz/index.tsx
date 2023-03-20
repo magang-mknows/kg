@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import QuizScore from "@/modules/MyStudy/Quiz/AfterQuiz/QuizScore";
+=======
+import StudikuModule from "@/modules/MyStudy/Quiz/AfterQuiz";
+>>>>>>> 3d554709dbba589c1465b54b1803f9ff60cb0ff7
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";

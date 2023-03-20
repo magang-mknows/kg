@@ -64,7 +64,7 @@ export const checkRescheduleSimulatiionState = atom<Array<RescheduleSimulation>>
       ],
     },
     {
-      date: "Selasa, 27 Juli 2021",
+      date: "Selasa, 2 Juli 2021",
       time: [
         {
           time: "20:00",
@@ -74,16 +74,32 @@ export const checkRescheduleSimulatiionState = atom<Array<RescheduleSimulation>>
         },
       ],
     },
+    {
+      date: "Rabu, 5 April 2021",
+      time: [
+        {
+          time: "24:00",
+        },
+        {
+          time: "02:00",
+        },
+      ],
+    },
   ],
 });
 
-export const rescheduleSimulasiState = atom({
+export const chooseSimulasiState = atom({
   key: "reschedule-simulasi-state",
   default: "",
 });
 
-export const timereschduleSimulasiState = atom({
-  key: "time-reschedule-simulasi-state",
+export const chooseTimeSimulasiState = atom({
+  key: "reschedule-time-simulasi-state",
+  default: "",
+});
+
+export const categorySimulationState = atom({
+  key: "category-simulation-state",
   default: "",
 });
 
