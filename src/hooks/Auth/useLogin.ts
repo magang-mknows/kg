@@ -2,8 +2,6 @@ import AuthService from "@/services/Auth";
 import { AuthPayloadTypes } from "@/utilities/types/Auth";
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
 import { useRouter } from "next/router";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 
 export const useLogin = (): UseMutationResult<unknown, unknown, AuthPayloadTypes, unknown> => {
   const router = useRouter();
@@ -12,14 +10,6 @@ export const useLogin = (): UseMutationResult<unknown, unknown, AuthPayloadTypes
     mutationFn: async (data: AuthPayloadTypes) => await AuthService.Login(data),
     onSuccess: () => {
       router.push("/");
-    },
-    onError: (err) => {
-      const MySwal = withReactContent(Swal);
-      MySwal.fire({
-        title: "Telah terjadi error euy",
-        text: ("error nya adalah " + err) as string,
-        icon: "error",
-      });
     },
   });
 };

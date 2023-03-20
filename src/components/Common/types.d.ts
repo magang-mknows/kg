@@ -37,7 +37,7 @@ export type ModalProps = {
   hasButton?: boolean;
   lookup: boolean;
   withClose?: boolean;
-  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement | SVGElement>;
 };
 
 export interface MobileMenuProps {
