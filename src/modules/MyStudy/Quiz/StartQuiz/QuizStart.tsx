@@ -79,12 +79,8 @@ const QuizStart: FC = (): ReactElement => {
               icon={<IoIosArrowForward />}
               onClick={() => {
                 if (currentIndexQuestion === getData.length - 1) {
-<<<<<<< HEAD
                   router.push("/studi-ku/menejemen-keuangan/quiz/nilai-quiz");
                   return;
-=======
-                  router.push("/studi-ku/course/quiz/nilai-quiz");
->>>>>>> main
                 }
                 setCurrentIndexQuestion((prev) => prev + 1);
               }}
