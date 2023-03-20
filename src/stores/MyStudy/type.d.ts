@@ -20,3 +20,11 @@ export type Question = {
   choices: array;
   rightAnswer: string;
 };
+
+export type Course = {
+  conference: number;
+  status: {
+    [key: string]: "Done" | "In Progress";
+  };
+  progress: "Done" | "In Progress";
+};
