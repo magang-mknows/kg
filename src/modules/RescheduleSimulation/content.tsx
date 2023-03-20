@@ -27,9 +27,8 @@ const Content: FC = (): ReactElement => {
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
   console.log("data", getCategorySimulation);
 
-  const onSucces = () => {
-    setCategorySimulation("Active");
-    setPopupStatus(true);
+  const onSucces = (): void => {
+    setCategorySimulation("Active"), setPopupStatus(true);
   };
   // const onReschedule = () => {
   //   setCategorySimulation("Reschedule");
