@@ -20,5 +20,4 @@ const Diskusi: NextPage = (): ReactElement => {
     </ErrorBoundary>
   );
 };
-
 export default Diskusi;
