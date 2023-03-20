@@ -1,15 +1,23 @@
-import { FC, lazy, ReactElement } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
-
-const UpperSection = lazy(() => import("@/components/Navbar/UpperSection"));
-const BottomSection = lazy(() => import("@/components/Navbar/BottomSection"));
+import SuspenseError from "@/modules/Common/SuspenseError";
+import UpperSection from "./UpperSection";
+import BottomSection from "./BottomSection";
+import Loading from "../Loading";
 
 const Navbar: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <Loading />;
 
   return (
-    <>
+    <SuspenseError>
       <nav
         className={`${
           isScrollY === "onSticky"
@@ -23,11 +31,11 @@ const Navbar: FC = (): ReactElement => {
       >
         <UpperSection />
         {isScrollY === "onRender" && (
-          <BottomSection className="h-[84px] border-b-2 px-6 md:px-8 lg:px-12  border-neutral-100 dark:border-[#373a3e4a]" />
+          <BottomSection className="h-[84px] border-b-2 px-6 md:px-8 lg:px-10  border-neutral-100 dark:border-[#373a3e4a]" />
         )}
       </nav>
       <section className="lg:mb-[156px] mb-[72px]  h-full block"></section>
-    </>
+    </SuspenseError>
   );
 };
 

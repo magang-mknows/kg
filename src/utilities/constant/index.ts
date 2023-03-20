@@ -82,6 +82,16 @@ export const administrationBreadCumbs = [
     link: "/administrasi",
   },
 ];
+export const discussionRoomBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Ruang Diskusi",
+    link: "/ruang-diskusi",
+  },
+];
 
 export const myStudyBreadCumbs = [
   {
@@ -112,11 +122,30 @@ export const courseBreadCumbs = [
   },
   {
     name: "Studi-ku",
-    link: "/studiku",
+    link: "/studi-ku",
   },
   {
     name: "Menejemen Keuangan",
-    link: "/studiku/menejemen-keuangan",
+    link: "/studi-ku/course",
+  },
+];
+
+export const modulCourseBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/course",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/course",
   },
 ];
 
@@ -130,20 +159,12 @@ export const quizBreadCumbs = [
     link: "/studi-ku",
   },
   {
-    name: "Menejemen Keuangan",
-    link: "/studiku/menejemen-keuangan",
+    name: "Course",
+    link: "/studi-ku/course",
   },
   {
     name: "Quiz",
-    link: "/studiku/studiku/menejemen-keuangan/quiz",
-  },
-  {
-    name: "Penugasan",
-    link: "/studi-ku/quiz",
-  },
-  {
-    name: "Quiz",
-    link: "/studi-ku/quiz",
+    link: "/studi-ku/course/quiz",
   },
 ];
 
@@ -181,7 +202,7 @@ export const contentModulBreadCumbs = [
   },
   {
     name: "Modul",
-    link: "/studi-ku/modul",
+    link: "/studi-ku/couse/modul",
   },
   {
     name: "Modul 1",
@@ -215,7 +236,7 @@ export const contractStudyBreadCumbs = [
   },
   {
     name: "Program Studi",
-    link: "/program-studi",
+    link: "/rencana-studi/fakultas/teknik",
   },
   {
     name: "Kontrak KRS",

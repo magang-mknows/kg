@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, Suspense } from "react";
 import ContentLayouts from "@/layouts/Content";
 
 // asset
@@ -9,10 +9,11 @@ import IconHero2 from "@/assets/landing/icon-hero2.svg";
 import IconHero3 from "@/assets/landing/icon-hero3.svg";
 
 import Image from "next/image";
+import SuspenseError from "../Common/SuspenseError";
 
 const HeroSection: FC = (): ReactElement => {
   return (
-    <>
+    <SuspenseError>
       <div className="z-0">
         <div className="flex flex-col justify-between xl:items-start lg:items-start w-full lg:px-10 md:lg:px-8 px-6 py-20 lg:flex-row md:items-center">
           <ContentLayouts className="w-full dark:text-white">
@@ -34,12 +35,14 @@ const HeroSection: FC = (): ReactElement => {
           </ContentLayouts>
 
           <ContentLayouts className="sm:flex-col md:flex-col w-full xl:mt-0 lg:mt-[-80px] md:mt-[20px] sm:mt-[20px] xs:mt-[-100px] md:justify-start sm:justify-start xs:justify-start ">
-            <div className="">
-              <Image
-                src={ImageLanding}
-                alt="Image Landing"
-                className="select-none z-0 lg:w-[680px] lg:h-[500px] md:w-[600px] md:h-[450px] w-[340px] h-[400px] sm:w-[400px] sm:h-[400px]"
-              />
+            <div>
+              <Suspense fallback={"Load the image...."}>
+                <Image
+                  src={ImageLanding}
+                  alt="Image Landing"
+                  className="select-none z-0 lg:w-[680px] lg:h-[500px] md:w-[600px] md:h-[450px] w-[340px] h-[400px] sm:w-[400px] sm:h-[400px]"
+                />
+              </Suspense>
               <div className="flex flex-col select-none items-center bg-white lg:w-[300px] w-[220px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 ">
                 <div className="font-semibold pt-6 dark:text-black">Mahasiswa Kampus Gratis</div>
                 <div className="flex flex-row py-2 items-start">
@@ -100,7 +103,7 @@ const HeroSection: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-    </>
+    </SuspenseError>
   );
 };
 
