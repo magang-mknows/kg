@@ -23,7 +23,7 @@ const TestimonySection: FC = (): ReactElement => {
   return (
     <section
       data-test="testimony"
-      className="mt-20 w-full mx-8 px-6 md:px-8 lg:mx-0 lg:px-10 flex justify-self-center bg-[#f5f5f5] dark:bg-gray-900"
+      className="mt-20 w-full mx-8 px-6 md:px-8 lg:mx-0 lg:px-10 py-10 lg:py-44 flex justify-self-center bg-[#f5f5f5] dark:bg-gray-900"
     >
       <div className="flex flex-col xl:flex-row w-full xl:gap-x-20 gap-y-12 h-fit">
         <div className="flex flex-col items-center text-center gap-y-9 md:items-start md:text-start">

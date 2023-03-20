@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react";
 import Video from "@/assets/guide/video.svg";
 import Card from "@/components/Common/Card";
+import PlayButton from "@/assets/guide/play-button.svg";
+import Image from "next/image";
 
 const dummyGuide = [
   {
@@ -49,13 +51,18 @@ const ContentSection = (): ReactElement => {
           return (
             <Card
               key={i}
-              href=""
-              className="w-full border rounded-lg px-3 shadow-md"
+              href="/"
+              className="relative w-full min-h-min border rounded-lg px-3 shadow-md"
               src={dummy.video}
               imgStyle="w-full"
               hasImage={true}
               titleStyle={"text-xl font-bold mt-2"}
               title={dummy.title}
+              icon={
+                <div className="absolute bottom-[65%] left-[45%]">
+                  <Image src={PlayButton} alt="play button" />
+                </div>
+              }
             >
               <p className="w-full text-sm font-base mt-3.5" style={{ color: "#000000" }}>
                 {dummy.description.substring(0, 80)}...

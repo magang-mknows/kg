@@ -563,7 +563,7 @@ export const guideVideoBreadCumbs = [
     link: "/panduan",
   },
   {
-    name: "Buku Panduan",
+    name: "Video Panduan",
     link: "/panduan/video-panduan",
   },
 ];
@@ -605,3 +605,37 @@ export const guideRegistrationVideo = [
     link: "/panduan/video-panduan/video-panduan-pendaftaran",
   },
 ];
+
+export const guideDictionary = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+];
+
+// export const guideCamusDetail = [
+//   {
+//     name: "Home",
+//     link: "/",
+//   },
+//   {
+//     name: "Panduan",
+//     link: "/panduan",
+//   },
+//   {
+//     name: "Kamus Kampus Gratis",
+//     link: "/kamus-kampus-gratis",
+//   },
+//   {
+//     name: "Kamus Kampus Gratis",
+//     link: "/kamus-kampus-gratis",
+//   },
+// ];
