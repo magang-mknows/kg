@@ -82,6 +82,16 @@ export const administrationBreadCumbs = [
     link: "/administrasi",
   },
 ];
+export const discussionRoomBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Ruang Diskusi",
+    link: "/ruang-diskusi",
+  },
+];
 
 export const myStudyBreadCumbs = [
   {
@@ -90,7 +100,7 @@ export const myStudyBreadCumbs = [
   },
   {
     name: "Studi-ku",
-    link: "/studiku",
+    link: "/studi-ku",
   },
 ];
 
@@ -116,7 +126,30 @@ export const courseBreadCumbs = [
   },
   {
     name: "Menejemen Keuangan",
+<<<<<<< HEAD
     link: "/studi-ku/menejemen-keuangan",
+=======
+    link: "/studi-ku/course",
+  },
+];
+
+export const modulCourseBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/course",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/course",
+>>>>>>> main
   },
 ];
 
@@ -130,12 +163,63 @@ export const quizBreadCumbs = [
     link: "/studi-ku",
   },
   {
+<<<<<<< HEAD
     name: "Menejemen Keuangan",
     link: "/studi-ku/menejemen-keuangan",
   },
   {
     name: "Quiz",
     link: "/studi-ku/menejemen-keuangan/quiz",
+=======
+    name: "Course",
+    link: "/studi-ku/course",
+  },
+  {
+    name: "Quiz",
+    link: "/studi-ku/course/quiz",
+  },
+];
+
+export const modulBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Course",
+    link: "/studi-ku/course",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/modul",
+  },
+];
+
+export const contentModulBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Course",
+    link: "/studi-ku/course",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/couse/modul",
+  },
+  {
+    name: "Modul 1",
+    link: "/studi-ku/modul/modul1",
+>>>>>>> main
   },
 ];
 
@@ -165,7 +249,7 @@ export const contractStudyBreadCumbs = [
   },
   {
     name: "Program Studi",
-    link: "/program-studi",
+    link: "/rencana-studi/fakultas/teknik",
   },
   {
     name: "Kontrak KRS",
@@ -486,5 +570,58 @@ export const guideBreadCumbs = [
   {
     name: "Panduan",
     link: "/panduan",
+  },
+];
+
+export const guideBookBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Buku Panduan",
+    link: "/panduan/buku-panduan",
+  },
+];
+
+export const guideRegistrationBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Buku Panduan",
+    link: "/panduan/buku-panduan",
+  },
+  {
+    name: "Panduan Pendafataran",
+    link: "/panduan/buku-panduan/panduan-pendaftaran",
+  },
+];
+
+export const guideRegistrationVideo = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Video Panduan",
+    link: "/video-panduan/buku-panduan",
+  },
+  {
+    name: "Panduan Pendafataran",
+    link: "/panduan/video-panduan/video-panduan-pendaftaran",
   },
 ];

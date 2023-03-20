@@ -1,30 +1,38 @@
-import { atom, selector } from "recoil";
+import { atom, selectorFamily } from "recoil";
 import { OptionFaculty, OptionSubject } from "./type";
-// import ImgChoiceFaculty2 from "@/assets/StudyPlan/choicefaculty2.svg";
+import ImgChoiceFaculty2 from "@/assets/StudyPlan/choicefaculty2.svg";
 
 export const optionFacultyState = atom<Array<OptionFaculty>>({
   key: "option-faculty-state",
   default: [
-    // dummyData
-    // {
-    //   src: ImgChoiceFaculty2,
-    //   deskripsi: "Pembiayaan dan Optimalisasi Bisnis",
-    //   jumlahstudi: 6,
-    //   slug: "/pembiayaan-optimasi-bisnis",
-    // },
+    {
+      src: ImgChoiceFaculty2,
+      deskripsi: "Teknik",
+      jumlahstudi: 6,
+      slug: "/teknik",
+    },
   ],
 });
 
 export const optionSubjectState = atom<Array<OptionSubject>>({
   key: "option-subject-state",
   default: [
-    // {
-    //   src: ImgChoiceFaculty2,
-    //   deskripsi: "Software Engineering",
-    //   jumlahmatkul: 14,
-    //   sks: 131,
-    //   slug: "/software-engineering",
-    // },
+    {
+      src: ImgChoiceFaculty2,
+      faculty: "Teknik",
+      deskripsi: "Software Engineering",
+      jumlahmatkul: 14,
+      sks: 131,
+      slug: "/software-engineering",
+    },
+    {
+      src: ImgChoiceFaculty2,
+      faculty: "Pendidikan",
+      deskripsi: "Seni Engineering",
+      jumlahmatkul: 14,
+      sks: 131,
+      slug: "/seni-engineering",
+    },
   ],
 });
 
@@ -34,10 +42,10 @@ export const queryOptionSubject = atom({
   default: "",
 });
 
-export const filterOptionSubject = selector({
+export const filterOptionSubject = selectorFamily({
   key: "filter-option-subject",
-  get: ({ get }) =>
-    get(optionSubjectState).filter((item) =>
-      item.deskripsi.toLowerCase().includes(get(queryOptionSubject).toLowerCase()),
-    ),
+  get:
+    (query: string) =>
+    ({ get }) =>
+      get(optionSubjectState).filter((item) => item.faculty.toLowerCase().includes(query)),
 });

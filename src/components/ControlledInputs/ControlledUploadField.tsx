@@ -12,12 +12,11 @@ const ControlledUploadField: FC<UploadFieldProps> = (props): ReactElement => {
   return (
     <UploadField
       {...props}
-      fileName={get}
       onChange={(event) => {
         field.onChange(event.target.files);
         set(event.target?.files?.[0]?.name as string);
       }}
-      files={props.files || field.value}
+      files={get}
       error={error?.message}
     />
   );

@@ -61,7 +61,7 @@ const QuizHome: FC = (): ReactElement => {
             text="Mulai Quiz (Sisa 3)"
             color="blue"
             size="regular"
-            to="/studi-ku/menejemen-keuangan/quiz/mulai-quiz"
+            to="/studi-ku/course/quiz/mulai-quiz"
           />
         </div>
       </ContentLayouts>

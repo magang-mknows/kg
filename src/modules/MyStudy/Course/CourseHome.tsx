@@ -127,29 +127,36 @@ const CourseHome: FC = (): ReactElement => {
             </button>
 
             <div className={`w-[94%] mx-auto ${isSelected[i] ? "visible" : "hidden"}`}>
-              <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
-                <div className="flex gap-x-6">
-                  <Image src={imgModuleIcon} alt="" />
-                  <Link
-                    href="/studi-ku/menejemen-keuangan/modul"
-                    className="text-base text-neutral-800 dark:text-neutral-400"
-                  >
+              <Link
+                href="/studi-ku/couse/modul"
+                className="text-base text-neutral-800 dark:text-neutral-400"
+              >
+                <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
+                  <div className="flex gap-x-6">
+                    <Image src={imgModuleIcon} alt="" />
                     Modul
-                  </Link>
+                  </div>
+
+                  <div className="">
+                    {conference.status.module === "Done" && <Image src={imgDoneIcon} alt="" />}
+                  </div>
                 </div>
                 <div className="">
                   {conference.status.module === "Done" && <Image src={imgDoneIcon} alt="" />}
                 </div>
-              </div>
+              </Link>
               <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
                 <div className="flex gap-x-6">
                   <Image src={imgQuizIcon} alt="" />
                   <Link
-                    href="/studi-ku/menejemen-keuangan/quiz"
+                    href="/studi-ku/course/quiz"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Quiz
                   </Link>
+                  <div className="">
+                    {conference.status.quiz === "Done" && <Image src={imgDoneIcon} alt="" />}
+                  </div>
                 </div>
                 <div className="">
                   {conference.status.quiz === "Done" && <Image src={imgDoneIcon} alt="" />}
@@ -159,14 +166,14 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgAssignmentIcon} alt="" />
                   <Link
-                    href="/studi-ku/menejemen-keuangan/tugas"
+                    href="/studi-ku/course/penugasan-test"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Tugas
                   </Link>
-                </div>
-                <div className="">
-                  {conference.status.assignment === "Done" && <Image src={imgDoneIcon} alt="" />}
+                  <div className="">
+                    {conference.status.assignment === "Done" && <Image src={imgDoneIcon} alt="" />}
+                  </div>
                 </div>
               </div>
               <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
