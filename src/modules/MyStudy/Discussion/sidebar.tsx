@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 const Sidebar: FC = (): ReactElement => {

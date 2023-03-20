@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import Image from "next/image";
 import profileDummy from "@/assets/diskusi/profile-dummy.svg";
 import like from "@/assets/diskusi/like.svg";
@@ -8,11 +8,12 @@ import file from "@/assets/diskusi/file.svg";
 import circle from "@/assets/diskusi/circle.svg";
 import more from "@/assets/diskusi/more.svg";
 import edit from "@/assets/diskusi/edit.svg";
-import deleteIcon from "@/assets/diskusi/delete.svg";
 import down from "@/assets/diskusi/down.svg";
 import redo from "@/assets/diskusi/redo.svg";
+import { MdDelete } from "react-icons/md";
 
 const ContentDiskusi: FC = (): ReactElement => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <div className="card px-10 py-8 bg-white border rounded-[8px] mb-4">
@@ -62,7 +63,7 @@ const ContentDiskusi: FC = (): ReactElement => {
         <Image src={down} alt={"down"} />
       </div>
       {/* card 2 */}
-      <div className="card px-10 py-8 bg-[#F5F5F5] rounded-[8px] ml-14 mb-4 mt-8">
+      <div className="card px-10 py-8 bg-[#F5F5F5] rounded-[8px] ml-14 mb-4 mt-8 relative">
         <div className="profile flex flex-row gap-5 items-center justify-between">
           <div className="kiri flex flex-row gap-4">
             <Image src={profileDummy} alt={"img-profile"} />
@@ -77,10 +78,25 @@ const ContentDiskusi: FC = (): ReactElement => {
               </p>
             </div>
           </div>
-          <div className="kanan">
+          <button className="kanan" onClick={() => setOpen(open === true ? false : true)}>
             <Image src={more} alt={"more"} />
-          </div>
+          </button>
         </div>
+        {open && (
+          <div className="flex min-w-fit absolute justify-self-end ">
+            <div className=" bg-white px-4 py-4 rounded-[8px] flex flex-col gap-2 text-[#171717] font-[400] text-[16px]">
+              <div className="flex flex-row gap-1 justify-start mb-2">
+                <Image src={edit} alt={"edit"} />
+                <p>Edit</p>
+              </div>
+              <div className="flex flex-row gap-1 ml-0">
+                <MdDelete className="text-[#EE2D24] text-[20px]" />
+                <p>Delete</p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <p className="desc mt-8 text-[#171717] text-[14px] font-[400]">
           Diskusikan tentang manajemen keuangan menurut pemahaman anda? Apakah fungsi dan tujuan
           dari manajemen keuangan. Apa modul yang telah kalian pelajari sudah jelas?
