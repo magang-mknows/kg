@@ -7,11 +7,15 @@ import send from "@/assets/diskusi/send.svg";
 import file from "@/assets/diskusi/file.svg";
 import circle from "@/assets/diskusi/circle.svg";
 import more from "@/assets/diskusi/more.svg";
+import edit from "@/assets/diskusi/edit.svg";
+import deleteIcon from "@/assets/diskusi/delete.svg";
+import down from "@/assets/diskusi/down.svg";
+import redo from "@/assets/diskusi/redo.svg";
 
 const ContentDiskusi: FC = (): ReactElement => {
   return (
     <>
-      <div className="card px-10 py-8 bg-white border rounded-[8px] mb-8">
+      <div className="card px-10 py-8 bg-white border rounded-[8px] mb-4">
         <div className="profile flex flex-row gap-5 items-center">
           <Image src={profileDummy} alt={"img-profile"} />
           <div className="">
@@ -52,10 +56,15 @@ const ContentDiskusi: FC = (): ReactElement => {
           </div>
         </div>
       </div>
+      {/* reply */}
+      <div className="flex flex-row gap-4">
+        <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>
+        <Image src={down} alt={"down"} />
+      </div>
       {/* card 2 */}
-      <div className="card px-10 py-8 bg-[#F5F5F5]  rounded-[8px] ml-14 mb-8">
+      <div className="card px-10 py-8 bg-[#F5F5F5] rounded-[8px] ml-14 mb-4 mt-8">
         <div className="profile flex flex-row gap-5 items-center justify-between">
-          <div className="kiri">
+          <div className="kiri flex flex-row gap-4">
             <Image src={profileDummy} alt={"img-profile"} />
             <div className="">
               <h1 className="text-[##171717] font-[600] text-[14px]">
@@ -87,19 +96,29 @@ const ContentDiskusi: FC = (): ReactElement => {
           </p>
         </div>
       </div>
+      {/* reply */}
+      <div className="flex flex-row gap-4 ml-14">
+        <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>
+        <Image src={down} alt={"down"} />
+      </div>
       {/* card 3 */}
-      {/* <div className="card px-10 py-8 bg-[#F5F5F5]  rounded-[8px] ml-28 ">
-        <div className="profile flex flex-row gap-5 items-center">
-          <Image src={profileDummy} alt={"img-profile"} />
-          <div className="">
-            <h1 className="text-[##171717] font-[600] text-[14px]">
-              Manajemen Keuangan | Pertemuan 1
-            </h1>
-            <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1">
-              oleh <span className="text-[#2D9A41] ">Andri Hermawan (dosen)</span>{" "}
-              <Image src={circle} alt={"circle"} />
-              <span className="text-[#737373]">10 jam</span>
-            </p>
+      <div className="card px-10 py-8 bg-[#F5F5F5]  rounded-[8px] ml-28 mb-4 mt-8">
+        <div className="profile flex flex-row gap-5 items-center justify-between">
+          <div className="kiri flex flex-row gap-4">
+            <Image src={profileDummy} alt={"img-profile"} />
+            <div className="">
+              <h1 className="text-[##171717] font-[600] text-[14px]">
+                Komentar: Manajemen Keuangan | Pertemuan 1
+              </h1>
+              <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1">
+                oleh <span className="text-[#2D9A41] ">Andri Hermawan (dosen)</span>{" "}
+                <Image src={circle} alt={"circle"} />
+                <span className="text-[#737373]">10 jam</span>
+              </p>
+            </div>
+          </div>
+          <div className="kanan">
+            <Image src={more} alt={"more"} />
           </div>
         </div>
         <p className="desc mt-8 text-[#171717] text-[14px] font-[400]">
@@ -116,7 +135,12 @@ const ContentDiskusi: FC = (): ReactElement => {
             Balas
           </p>
         </div>
-      </div> */}
+      </div>
+      {/* redo*/}
+      <div className="flex flex-row gap-4 ml-28">
+        <p className="text-[#106FA4] font-[600] text-[16px]">Lihat 8 komentar lain</p>
+        <Image src={redo} alt={"redo"} />
+      </div>
     </>
   );
 };
