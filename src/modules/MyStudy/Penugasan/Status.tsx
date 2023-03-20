@@ -71,6 +71,7 @@ const Status: FC = (): ReactElement => {
           </div>
         </div>
 
+            {/* codingan sesuai figma ⬇️⬇️⬇️*/}
         {/* <div
           className="border-dashed border-2 border-[#D4D4D4] mt-[28px] py-[46px]"
           // onDragOver={handleDrag}
@@ -89,8 +90,8 @@ const Status: FC = (): ReactElement => {
             <div className="col-span-3 py-[16px] px-[16px]">Belum memilih tugas</div>
           </div>
         </div> */}
-        <UploadDragbleField name={"upload"} className="border-dashed border-2 border-[#D4D4D4] mt-[28px]" required={true}/>
-        <UploadField name={"area"}/>
+        <UploadDragbleField name="upload" className="border-dashed border-2 border-[#D4D4D4] mt-[28px]" required={true}/>
+        <UploadField name="area"/>
         <p className="text-[#A3A3A3] text-[14px] font-medium my-[24px]">
           <span className="font-semibold">Note</span> : Pastikan berkas sudah sesuai dengan
           ketentuan
