@@ -612,3 +612,22 @@ export const guideRegistrationVideo = [
     link: "/panduan/video-panduan/video-panduan-pendaftaran",
   },
 ];
+
+export const diskusiMyStudyBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/manajemen-keuangan",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/menejemen-keuangan/diskusi"
+  },
+];

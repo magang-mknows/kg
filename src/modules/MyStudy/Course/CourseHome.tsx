@@ -181,7 +181,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgDiscussionIcon} alt="" />
                   <Link
-                    href="/studiku/menejemen-keuangan/diskusi"
+                    href="/studi-ku/menejemen-keuangan/diskusi"
                     className="text-base text-neutral-800 dark:text-neutral-400"
                   >
                     Diskusi
