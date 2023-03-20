@@ -5,15 +5,19 @@ import Image from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
 import UploadDragbleField from "@/components/Common/UploadDragbleField";
 import UploadField from "@/components/Common/UploadField";
+import { useInstruction } from "@/hooks/MyStudy/useInstruction"; 
+
 
 const Status: FC = (): ReactElement => {
+  const { getInstruction } = useInstruction();
+
   const tabelState: {
     namaTabel: string;
     response: string;
   }[] = [
     { namaTabel: "Status Pengumpulan", response: "Belum Mengumpulkan" },
     { namaTabel: "Status Penilaian", response: "Belum dinilai" },
-    { namaTabel: "Tanggal batas pengumpulan ", response: "25/02/2023 24:59 WIB" },
+    { namaTabel: "Tanggal batas pengumpulan ", response: getInstruction[0].deadline },
     { namaTabel: "Waktu tersisa", response: "Telah melewati batas waktu" },
     { namaTabel: "Terakhir diubah", response: "" },
     { namaTabel: "Pengiriman Tugas", response: "link" },
@@ -31,10 +35,10 @@ const Status: FC = (): ReactElement => {
         style={{ marginLeft: "109px", marginRight: "109px" }}
         className="scale-[0.8] lg:scale-[1] bg-white my-[96px] py-[92px] px-[72px] w-full"
       >
-        <p className="text-[20px] font-semibold mb-[8px]">Accounting 1</p>
-        <p className="text-[16px] font-medium mb-[8px]">Tugas [Pertemuan ke-1]</p>
-        <p className="text-[16px] font-medium mb-[8px]">Post - Bob S.Kom, M.Kom-Dosen-0001</p>
-        <p className="text-[14px] mb-[35px] font-normal">23 Febuari 2023, 9:19 AM</p>
+        <p className="text-[20px] font-semibold mb-[8px]">{getInstruction[0].matkul}</p>
+        <p className="text-[16px] font-medium mb-[8px]">Tugas [Pertemuan ke-{getInstruction[0].pertemuan}]</p>
+        <p className="text-[16px] font-medium mb-[8px]">{getInstruction[0].dosen}</p>
+        <p className="text-[14px] mb-[35px] font-normal">{getInstruction[0].waktu}</p>
         <p className="text-[16px] font-normal">
           Silahkan baca dan kerjakan tugas pada modul berikut ini.
         </p>
@@ -43,7 +47,7 @@ const Status: FC = (): ReactElement => {
           alt="File tugas"
           className="inline-block mr-[8px] scale-[0.8] lg:scale-[1]"
         />
-        <p className="inline">Tugas1.pdf</p>
+        <p className="inline">{getInstruction[0].file}</p>
 
         <div className="mt-[36px]">
           <p className="text-[20px] font-semibold mb-[25px]">Status Penugasan</p>
