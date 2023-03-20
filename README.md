@@ -3,7 +3,7 @@
 Dibuat dengan :
 
 - React
-- Vite
+- Next
 - Recoil
 - Zod
 - Tanstack Query

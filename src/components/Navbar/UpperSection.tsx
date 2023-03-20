@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { FC, Fragment } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 
 import logoBiru from "@/assets/navbar/logoBiru.png";
+import logoKgDark from "@/assets/navbar/logokg-dark.png";
 import MenuIcon from "./MenuIcon";
 
 import useWindowScroll from "@/hooks/Common/useWindowScroll";
@@ -19,20 +20,35 @@ import { navbarMenu } from "@/utilities/constant";
 import ThemeToggle from "@/components/ThemeToggle/index";
 import MobileMenu from "@/components/Common/MobileMenu";
 import { useLoginModal } from "@/hooks/Auth/useLoginModal";
+import { useTheme } from "next-themes";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import Loading from "../Loading";
 
-const UpperSection: FC = () => {
+const UpperSection: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
   const { setLoginModal } = useLoginModal();
 
+  const { systemTheme, theme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <Loading />;
+
   return (
-    <Fragment>
+    <SuspenseError>
       <section className="flex items-center z-[9999] h-[72px] justify-between border-b-2 px-6 md:px-8 lg:px-10  border-neutral-100 dark:border-[#373a3e4a]">
         <Link passHref href={"/"}>
           <Image
-            src={logoBiru}
+            src={currentTheme === "dark" ? logoKgDark : logoBiru}
             alt="Kampus Gratis's Logo"
             width={82}
-            className="w-[60px] md:w-[65px] lg:w-[80px]"
+            priority
+            className="w-[60px] md:w-[65px] lg:w-[80px] w-auto h-auto"
           />
         </Link>
         {isScrollY === "onSticky" && <BottomSection className="dark:bg-transparent px-2" />}
@@ -41,6 +57,7 @@ const UpperSection: FC = () => {
           <MenuIcon
             icon={
               <BiCategoryAlt
+                aria-label="Home Button"
                 size={20}
                 className="text-neutral-900 dark:text-white dark:hover:text-primary-500 stroke-neutral-900 group-hover:text-neutral-300 transition-colors ease-in-out duration-300"
               />
@@ -56,6 +73,7 @@ const UpperSection: FC = () => {
               <div className="grid grid-cols-2 ">
                 <Menu.Item
                   as="div"
+                  aria-label="User"
                   className={
                     "flex flex-col gap-2 items-center p-4 cursor-pointer hover:bg-neutral-200 transition-all duration-300 ease-in-out"
                   }
@@ -95,7 +113,7 @@ const UpperSection: FC = () => {
                 </Menu.Item>
               </div>
               <div className="bg-neutral-200 hover:bg-neutral-300 cursor-pointer transition-colors ease-in-out duration-300 w-full flex items-center justify-center py-4">
-                <Link href={"/"} passHref>
+                <Link href={"/semua-fitur"} passHref>
                   <h1 className="text-xs text-neutral-500 hover:text-neutral-400">Lihat Semua</h1>
                 </Link>
               </div>
@@ -118,7 +136,7 @@ const UpperSection: FC = () => {
           />
         </section>
       </section>
-    </Fragment>
+    </SuspenseError>
   );
 };
 

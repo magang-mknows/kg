@@ -29,7 +29,6 @@ const ThemeToggle: FC = (): ReactElement => {
 
   const changeTheme = (val: string): void => {
     startTransition(() => {
-      // Transition: Show the results
       setTheme(val);
     });
   };
@@ -67,7 +66,6 @@ const ThemeToggle: FC = (): ReactElement => {
                   <button
                     onClick={() =>
                       startTransition(() => {
-                        // Transition: Show the results
                         changeTheme(x.value);
                       })
                     }
