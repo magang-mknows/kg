@@ -1,8 +1,10 @@
-import { FC, ReactElement, useState,useEffect} from "react";
+import { FC, ReactElement, useState, useEffect } from "react";
 import folder from "@/assets/status/folder.svg";
 import pdf from "@/assets/status/pdf.svg";
 import Image from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
+import UploadDragbleField from "@/components/Common/UploadDragbleField";
+import UploadField from '@/components/Common/UploadField'
 
 const Status: FC = (): ReactElement => {
   // const [file, setFile] = useState<FileList | null>(null);
@@ -15,7 +17,7 @@ const Status: FC = (): ReactElement => {
   // const handleDrop = (e: DragEvent) => {
   //   e.preventDefault();
   //   const file = e.dataTransfer?.files as FileList
-  
+
   //   setFile(file)
   //   console.log(file[0].name);
   // };
@@ -69,7 +71,7 @@ const Status: FC = (): ReactElement => {
           </div>
         </div>
 
-        <div
+        {/* <div
           className="border-dashed border-2 border-[#D4D4D4] mt-[28px] py-[46px]"
           // onDragOver={handleDrag}
           // onDrop={handleDrop}
@@ -86,8 +88,9 @@ const Status: FC = (): ReactElement => {
             <div className="col-span-1 bg-[#D4D4D4] py-[16px] text-center">Pilih file</div>
             <div className="col-span-3 py-[16px] px-[16px]">Belum memilih tugas</div>
           </div>
-        </div>
-
+        </div> */}
+        <UploadDragbleField name={"upload"} className="border-dashed border-2 border-[#D4D4D4] mt-[28px]" required={true}/>
+        <UploadField name={"area"}/>
         <p className="text-[#A3A3A3] text-[14px] font-medium my-[24px]">
           <span className="font-semibold">Note</span> : Pastikan berkas sudah sesuai dengan
           ketentuan
