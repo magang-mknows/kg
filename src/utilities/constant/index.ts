@@ -126,9 +126,6 @@ export const courseBreadCumbs = [
   },
   {
     name: "Menejemen Keuangan",
-<<<<<<< HEAD
-    link: "/studi-ku/menejemen-keuangan",
-=======
     link: "/studi-ku/course",
   },
 ];
@@ -149,7 +146,6 @@ export const modulCourseBreadCumbs = [
   {
     name: "Menejemen Keuangan",
     link: "/studi-ku/course",
->>>>>>> main
   },
 ];
 
@@ -163,14 +159,6 @@ export const quizBreadCumbs = [
     link: "/studi-ku",
   },
   {
-<<<<<<< HEAD
-    name: "Menejemen Keuangan",
-    link: "/studi-ku/menejemen-keuangan",
-  },
-  {
-    name: "Quiz",
-    link: "/studi-ku/menejemen-keuangan/quiz",
-=======
     name: "Course",
     link: "/studi-ku/course",
   },
@@ -219,7 +207,6 @@ export const contentModulBreadCumbs = [
   {
     name: "Modul 1",
     link: "/studi-ku/modul/modul1",
->>>>>>> main
   },
 ];
 

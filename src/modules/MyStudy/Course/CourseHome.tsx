@@ -134,15 +134,16 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
                   <div className="flex gap-x-6">
                     <Image src={imgModuleIcon} alt="" />
-                    Modul
+                    <Link
+                      href="/studi-ku/course/quiz"
+                      className="text-base text-neutral-800 dark:text-neutral-400"
+                    >
+                      Modul
+                    </Link>
                   </div>
-
                   <div className="">
                     {conference.status.module === "Done" && <Image src={imgDoneIcon} alt="" />}
                   </div>
-                </div>
-                <div className="">
-                  {conference.status.module === "Done" && <Image src={imgDoneIcon} alt="" />}
                 </div>
               </Link>
               <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
@@ -154,9 +155,6 @@ const CourseHome: FC = (): ReactElement => {
                   >
                     Quiz
                   </Link>
-                  <div className="">
-                    {conference.status.quiz === "Done" && <Image src={imgDoneIcon} alt="" />}
-                  </div>
                 </div>
                 <div className="">
                   {conference.status.quiz === "Done" && <Image src={imgDoneIcon} alt="" />}
@@ -171,9 +169,9 @@ const CourseHome: FC = (): ReactElement => {
                   >
                     Tugas
                   </Link>
-                  <div className="">
-                    {conference.status.assignment === "Done" && <Image src={imgDoneIcon} alt="" />}
-                  </div>
+                </div>
+                <div className="">
+                  {conference.status.assignment === "Done" && <Image src={imgDoneIcon} alt="" />}
                 </div>
               </div>
               <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
