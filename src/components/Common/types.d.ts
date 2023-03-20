@@ -37,7 +37,7 @@ export type ModalProps = {
   hasButton?: boolean;
   lookup: boolean;
   withClose?: boolean;
-  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement | SVGElement>;
 };
 
 export interface MobileMenuProps {
@@ -102,7 +102,7 @@ export interface CheckboxFieldProps {
   name: string;
   value?: string;
   placeholder?: string;
-  required: boolean;
+  required?: boolean;
   label?: string;
   checked?: boolean;
   error?: string;
@@ -161,11 +161,13 @@ export interface UploadFieldProps {
   label?: string;
   hasLabel?: boolean;
   ref?: Ref<HTMLInputElement>;
-  files?: File | FileList;
-  fileName?: string;
+  files?: string;
   value?: string;
   accepted?: string;
   control?: Control<any, T>;
+  onDrop?: (acceptedFiles: any) => void;
+  path?: File;
+  type?: string;
 }
 
 export type PopupModalProps = {

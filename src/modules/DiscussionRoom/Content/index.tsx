@@ -6,7 +6,7 @@ import Search from "./Search";
 
 const Content: FC = (): ReactElement => {
   return (
-    <section className="bg-white dark:bg-[#222529] rounded-md shadow-sm py-8 px-8 ">
+    <section className="bg-white dark:bg-[#1B1E21] rounded-md shadow-sm py-8 px-8 ">
       <Search />
       <Post />
       <Comment />

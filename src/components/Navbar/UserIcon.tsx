@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import userIcon from "@/assets/navbar/userIcon.png";
 import { Menu, Transition } from "@headlessui/react";
 import { RiDashboardFill, RiSettings5Fill } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import Loading from "../Loading";
 
 const UserIcon: FC = (): ReactElement => {
   const UserMenu = [
@@ -25,6 +26,14 @@ const UserIcon: FC = (): ReactElement => {
       name: "Logout",
     },
   ];
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <Loading />;
 
   return (
     <>

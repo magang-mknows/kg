@@ -62,7 +62,7 @@ const QuizScore: FC = (): ReactElement => {
         <div className="w-full lg:w-80 ">
           <Button
             text={"Coba Kembali (Sisa 2)"}
-            page="/"
+            page="/studi-ku/course/quiz/mulai-quiz"
             type="button"
             className="bg-primary-500 dark:bg-[#17A2B8] border-2 border-primary-500 text-white hover:bg-primary-600  dark:hover:bg-neutral-100  w-full   h-12 rounded-md shadow-sm font-bold  transition-colors ease-out duration-300"
           />

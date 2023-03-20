@@ -9,12 +9,10 @@ const Content = lazy(() => import("@/modules/RescheduleSimulation/content"));
 
 const RescheduleSimulation: FC = (): ReactElement => {
   return (
-    <BaseLayouts>
+    <BaseLayouts className="w-full">
       <ErrorBoundary fallback={<>Errow was happen</>}>
         <BreadCrumb items={rescheduleSimulationBreadCumbs} />
-        <MainLayouts>
-          <Content />
-        </MainLayouts>
+        <Content />
       </ErrorBoundary>
     </BaseLayouts>
   );

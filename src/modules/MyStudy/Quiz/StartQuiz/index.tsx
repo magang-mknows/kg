@@ -5,12 +5,12 @@ import { FC, ReactElement, Suspense } from "react";
 import { quizBreadCumbs } from "@/utilities/constant";
 import QuizMain from "./QuizStart";
 
-const index: FC = (): ReactElement => {
+const StartQuiz: FC = (): ReactElement => {
   const newBreadCrumbData = [
     ...quizBreadCumbs,
     {
       name: "Mulai Quiz",
-      link: "/mystudy/financial-management/quiz/start",
+      link: "/studi-ku/course/quiz",
     },
   ];
 
@@ -24,4 +24,4 @@ const index: FC = (): ReactElement => {
   );
 };
 
-export default index;
+export default StartQuiz;
