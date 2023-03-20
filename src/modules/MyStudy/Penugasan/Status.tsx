@@ -4,24 +4,9 @@ import pdf from "@/assets/status/pdf.svg";
 import Image from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
 import UploadDragbleField from "@/components/Common/UploadDragbleField";
-import UploadField from '@/components/Common/UploadField'
+import UploadField from "@/components/Common/UploadField";
 
 const Status: FC = (): ReactElement => {
-  // const [file, setFile] = useState<FileList | null>(null);
-  // const [test, setTest] = useState("Belum Mengumpulkan");
-
-  // const handleDrag = (e: Event) => {
-  //   e.preventDefault();
-  // };
-
-  // const handleDrop = (e: DragEvent) => {
-  //   e.preventDefault();
-  //   const file = e.dataTransfer?.files as FileList
-
-  //   setFile(file)
-  //   console.log(file[0].name);
-  // };
-
   const tabelState: {
     namaTabel: string;
     response: string;
@@ -67,7 +52,7 @@ const Status: FC = (): ReactElement => {
                   </div>
                 </>
               );
-            })}
+            })};
           </div>
         </div>
 
