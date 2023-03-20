@@ -5,3 +5,7 @@ export type SuspenseErrorProps = {
   loadingFallback?: ReactNode;
   children: ReactNode;
 };
+
+export type YTProps = {
+  videoId: string;
+};

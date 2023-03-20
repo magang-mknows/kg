@@ -1,37 +1,36 @@
-import React, { ReactElement } from "react";
+import React, { isValidElement, ReactElement } from "react";
 import Image from "next/image";
-import VideoDummy from "@/assets/guide/video-dummy.svg";
 import { useGuideVideo } from "@/hooks/Guide/useVideoGuide";
 import Link from "next/link";
+import YouTubeThumbnailFetcher from "../Common/YouTubeThumbnailFetcher";
 
-const dummyListVideo = [
-  {
-    img: VideoDummy,
-    title: "Cara daftar studi",
-    desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
-  },
-  {
-    img: VideoDummy,
-    title: "Panduan kalender",
-    desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
-  },
-  {
-    img: VideoDummy,
-    title: "Cara submit tugas",
-    desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
-  },
-  {
-    img: VideoDummy,
-    title: "Panduan lupa password",
-    desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
-  },
-  {
-    img: VideoDummy,
-    title: "Cara melihat nilai",
-    desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
-  },
-];
-
+// const dummyListVideo = [
+//   {
+//     img: VideoDummy,
+//     title: "Cara daftar studi",
+//     desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
+//   },
+//   {
+//     img: VideoDummy,
+//     title: "Panduan kalender",
+//     desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
+//   },
+//   {
+//     img: VideoDummy,
+//     title: "Cara submit tugas",
+//     desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
+//   },
+//   {
+//     img: VideoDummy,
+//     title: "Panduan lupa password",
+//     desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
+//   },
+//   {
+//     img: VideoDummy,
+//     title: "Cara melihat nilai",
+//     desc: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
+//   },
+// ];
 
 const ListVideo = (): ReactElement => {
   const { getGuideVideo } = useGuideVideo();
@@ -42,13 +41,13 @@ const ListVideo = (): ReactElement => {
       </div>
       {getGuideVideo.map((item, index) => {
         return (
-          <Link href={item.videoId}>
+          <Link key={index} href={item.videoId as string}>
             <div
               key={index}
               className="w-full bg-white dark:bg-[#232529] h-fit lg:h-[120px] rounded-[8px] shadow-sm mt-[12px]"
             >
               <div className="flex px-[10px] py-[10px] gap-[16px]">
-                <Image src={item.imgVideo as string} alt={""} />
+                <YouTubeThumbnailFetcher videoId={item.videoId as string}   />
                 <div>
                   <h1 className="text-[14px] font-[700] text-black dark:text-white">
                     {item.titleVideo}

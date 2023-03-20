@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 export type videoGuideTypes = {
-  videoId: string;
+  videoId?: string;
   titleVideo?: string;
   descVideo?: string;
-  imgVideo?: string;
+  imgVideo?: ReactNode | string;
 };
