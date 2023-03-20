@@ -1,17 +1,17 @@
-import Loading from "@/components/Loading";
+import Landing from "@/modules/Landing";
 import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-
-const Landing = lazy(() => import("@/modules/Landing"));
+import { NextSeo } from "next-seo";
+import { Fragment, ReactElement } from "react";
 
 const LandingPages: NextPage = (): ReactElement => {
   return (
-    <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<Loading />}>
-        <Landing />
-      </Suspense>
-    </ErrorBoundary>
+    <Fragment>
+      <NextSeo
+        title="Landing Page Kampus Gratis"
+        description="Kampus grais adalah webisite untuk orang orang yang ingin mengenyam bangku kuliah tanpa biaya namun dengan standard nasional"
+      />
+      <Landing />
+    </Fragment>
   );
 };
 

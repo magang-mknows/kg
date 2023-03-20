@@ -10,7 +10,7 @@ const BaseLayouts: FC<BaseLayoutTypes> = ({ children, widthHScreen, className })
       <main
         className={`flex flex-col ${className} ${
           widthHScreen && "min-h-screen"
-        }  justify-center bg-neutral-100 dark:bg-gray-900  items-center max-w-screen overflow-hidden`}
+        }  justify-center bg-white dark:bg-gray-900  items-center max-w-screen overflow-hidden`}
       >
         {children}
       </main>

@@ -76,7 +76,7 @@ const QuizStart: FC = (): ReactElement => {
               onClick={() => {
                 setCurrentIndexQuestion((prev) => prev + 1);
                 if (currentIndexQuestion === getData.length - 1) {
-                  router.push("/studiku/quiz/nilai-quiz");
+                  router.push("/studi-ku/course/quiz/nilai-quiz");
                 }
               }}
             />
