@@ -98,6 +98,11 @@ export const chooseTimeSimulasiState = atom({
   default: "",
 });
 
+export const categorySimulationState = atom({
+  key: "category-simulation-state",
+  default: "",
+});
+
 // seacrh
 export const queryScheduleSimulation = atom({
   key: "query-schedule-simulation",

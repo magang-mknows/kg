@@ -60,7 +60,7 @@ const SimulationSubmission: FC = (): ReactElement => {
                 </div>
                 <div className="text-[16px] font-[600] text-[#262626] mt-3 ml-1">{items.title}</div>
                 <div className="flex mt-4 justify-end">
-                  <Link href={"/drill-simulation/" + items.slug}>
+                  <Link href={"/perubahan-jadwal"}>
                     <Button
                       disabled={items.schedule === 0 ? true : false}
                       type="submit"

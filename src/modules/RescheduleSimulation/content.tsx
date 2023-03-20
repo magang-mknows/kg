@@ -2,9 +2,7 @@ import { FC, ReactElement, useState } from "react";
 import Image from "next/image";
 import rescheduleSimulasi from "@/assets/rescheduleSimulasi/dummyReschedule.svg";
 import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
-import calendar from "@/assets/rescheduleSimulasi/calendar.svg";
 import afternoon from "@/assets/rescheduleSimulasi/afternoon.svg";
-import checklist from "@/assets/rescheduleSimulasi/checklist.svg";
 import warning from "@/assets/rescheduleSimulasi/warning.svg";
 import pengajuan from "@/assets/rescheduleSimulasi/pengajuan.svg";
 import checked from "@/assets/rescheduleSimulasi/checked.svg";
@@ -15,6 +13,9 @@ import { useChooseTimeSimulation } from "@/hooks/Simulation/useChooseTimeSimulat
 import { useCheckRescheduleSimulation } from "@/hooks/Simulation/useCheckRescheduleSimulation";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
+import { useCategorySimulation } from "@/hooks/Simulation/useCategorySimulation";
+import { BsCalendarDate } from "react-icons/bs";
+import { AiOutlineCheck } from "react-icons/ai";
 
 const Content: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
@@ -23,10 +24,18 @@ const Content: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
   const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
   const [active, setactive] = useState("");
+  const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
+  console.log("data", getCategorySimulation);
+
+  const onSucces = () => {
+    setCategorySimulation("Active");
+    setPopupStatus(true);
+  };
 
   return (
-    <>
-      <h1 className="text-[#262626] text-[28px] font-[700] mb-5 dark:text-white mt-5">
+    <div className="px-6 md:px-8 lg:px-10">
+      <h1 className="text-[#262626] text-[28px] font-[700] mb-5 dark:text-white mt-5 ">
+        {getCategorySimulation == "Active" ? "Reschedule " : ""}
         Simulasi, Drill & Assessment
       </h1>
 
@@ -53,7 +62,6 @@ const Content: FC = (): ReactElement => {
                 tersebut.
               </li>
             </ol>
-            +
           </p>
         </div>
         <div className="lg:basis-7/12">
@@ -70,8 +78,10 @@ const Content: FC = (): ReactElement => {
           <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
             {getCheckRescheduleSimulation.map((item, l) => (
               <button
-                className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border text-[#737373] w-full ${
-                  getChooseSimulation === item.date ? "bg-[#3EB449] text-white " : ""
+                className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
+                  getChooseSimulation === item.date
+                    ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none"
+                    : ""
                 }`}
                 key={l}
                 onClick={() => {
@@ -79,14 +89,14 @@ const Content: FC = (): ReactElement => {
                   setactive(item.date);
                 }}
               >
-                <Image src={calendar} alt={"calendar-date"} />
-                <p
-                  className={` text-[12px] font-[400] mt-1  ${
-                    getChooseSimulation === item.date ? "text-white" : ""
-                  }} `}
+                <div
+                  className={`flex items-center gap-2 text-[#737373] dark:text-white ${
+                    getChooseSimulation === item.date ? "dark:text-white text-white" : ""
+                  }`}
                 >
-                  {item.date}
-                </p>
+                  <BsCalendarDate className="" />
+                  <p className="text-[12px] font-[400] mt-1">{item.date}</p>
+                </div>
               </button>
             ))}
           </div>
@@ -98,15 +108,25 @@ const Content: FC = (): ReactElement => {
                   .map((items, i) => (
                     <button
                       key={i}
-                      className={`flex flex-row text-center  gap-2  py-2 px-3 rounded-[8px] border text-[#525252] ${
-                        getChooseTimeSimulation === items.time ? "bg-[#3EB449] text-white" : ""
+                      className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px] border ${
+                        getChooseTimeSimulation === items.time
+                          ? "bg-[#3EB449] dark:bg-[#17A2B8]"
+                          : ""
                       } `}
                       onClick={() => {
                         setChooseTimeSimulation(items.time);
                       }}
                     >
-                      <Image src={checklist} alt={"icon"} className="mt-1" height={10} />
-                      <p className="font-[500] text-[12px]">{items.time}</p>
+                      <div
+                        className={`flex items-center gap-2 text-[#525252] dark:text-white ${
+                          getChooseTimeSimulation === items.time
+                            ? " text-white dark:text-white"
+                            : ""
+                        }`}
+                      >
+                        <AiOutlineCheck className=" text-sm font-bold" />
+                        <p className="font-[500] text-[12px]">{items.time}</p>
+                      </div>
                     </button>
                   )),
               )}
@@ -116,13 +136,17 @@ const Content: FC = (): ReactElement => {
           <div className="flex justify-end mt-3">
             <button
               onClick={() => {
-                getChooseSimulation === "" || getChooseTimeSimulation === ""
-                  ? setPopupStatus(false)
-                  : setPopupStatus(true);
+                getCategorySimulation !== "" || getChooseTimeSimulation !== "" ? onSucces() : "";
               }}
-              className="bg-[#3EB449] text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4"
+              className={` text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4 ${
+                getCategorySimulation === "Active"
+                  ? "bg-[#FAB317]"
+                  : "bg-[#3EB449] dark:bg-[#17A2B8]"
+              }`}
             >
-              Ajukan Jadwal Simulasi
+              {getCategorySimulation == "Active"
+                ? "Ajukan Perubahan Simulasi "
+                : "Ajukan Jadwal Simulasi"}
             </button>
           </div>
         </div>
@@ -160,7 +184,7 @@ const Content: FC = (): ReactElement => {
           </PopupModal>
         </div> */}
       </div>
-    </>
+    </div>
   );
 };
 
