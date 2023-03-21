@@ -14,8 +14,8 @@ const Sidebar: FC = (): ReactElement => {
       {/* <RxHamburgerMenu className="text-[#9CA3AF] dark:text-white/80 text-[20px] font-[800]" /> */}
       <div className="py-6 px-5 bg-white rounded-[8px] dark:bg-[#1B1E21]">
         {getDiscussion.map((items, i) => (
-          <div className="">
-            <div key={i} className="flex flex-row justify-between items-center mb-5 ">
+          <div key={i}>
+            <div className="flex flex-row justify-between items-center mb-5 ">
               <h1 className="text-[#737373] dark:text-white/80 text-[14px] font-[600]">
                 {items.session}
               </h1>

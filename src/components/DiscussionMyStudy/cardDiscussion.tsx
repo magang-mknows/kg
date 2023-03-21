@@ -17,9 +17,7 @@ const CardDiscussion: FC<cardAuthor> = ({
 }): ReactElement => {
   return (
     <>
-      <div
-        className={`card px-10 py-8 bg-white border rounded-[8px] mb-4 dark:bg-[#1B1E21] dark:border-[#1B1E21]`}
-      >
+      <div className="card px-10 py-8 bg-white border rounded-[8px] mb-4 dark:bg-[#1B1E21] dark:border-[#1B1E21]">
         <div className="profile flex flex-row gap-5 items-center">
           <Image src={avatar} alt={"img-profile"} />
           <div className="">
