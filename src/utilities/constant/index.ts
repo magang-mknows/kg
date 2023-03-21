@@ -630,12 +630,28 @@ export const guideRegistrationVideo = [
   },
 ];
 
-export const guideDictionary = [
+
+export const diskusiMyStudyBreadCumbs = [
   {
-    name: "Home",
-    link: "/",
+    name: "Studi-ku",
+    link: "/studi-ku",
   },
   {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/manajemen-keuangan",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/menejemen-keuangan/diskusi"
+  },
+];
+
+export const guideDictionary = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
     name: "Panduan",
     link: "/panduan",
   },
@@ -663,3 +679,4 @@ export const guideDictionary = [
 //     link: "/kamus-kampus-gratis",
 //   },
 // ];
+
