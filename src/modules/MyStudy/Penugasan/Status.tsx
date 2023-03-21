@@ -5,8 +5,9 @@ import Image from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
 import UploadDragbleField from "@/components/Common/UploadDragbleField";
 import UploadField from "@/components/Common/UploadField";
-import { useInstruction } from "@/hooks/MyStudy/useInstruction"; 
-
+import { useInstruction } from "@/hooks/MyStudy/useInstruction";
+import { useForm } from "react-hook-form";
+import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
 
 const Status: FC = (): ReactElement => {
   const { getInstruction } = useInstruction();
@@ -23,6 +24,18 @@ const Status: FC = (): ReactElement => {
     { namaTabel: "Pengiriman Tugas", response: "link" },
   ];
 
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      name: "",
+      upload: undefined,
+      upload_media: undefined,
+    },
+  });
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
+
   const lateState = (): string => {
     if (tabelState[3].response === "Telah melewati batas waktu") {
       return "bg-[#ffc4c4]";
@@ -36,7 +49,9 @@ const Status: FC = (): ReactElement => {
         className="scale-[0.8] lg:scale-[1] bg-white my-[96px] py-[92px] px-[72px] w-full"
       >
         <p className="text-[20px] font-semibold mb-[8px]">{getInstruction[0].matkul}</p>
-        <p className="text-[16px] font-medium mb-[8px]">Tugas [Pertemuan ke-{getInstruction[0].pertemuan}]</p>
+        <p className="text-[16px] font-medium mb-[8px]">
+          Tugas [Pertemuan ke-{getInstruction[0].pertemuan}]
+        </p>
         <p className="text-[16px] font-medium mb-[8px]">{getInstruction[0].dosen}</p>
         <p className="text-[14px] mb-[35px] font-normal">{getInstruction[0].waktu}</p>
         <p className="text-[16px] font-normal">
@@ -76,45 +91,27 @@ const Status: FC = (): ReactElement => {
             })}
           </div>
         </div>
-
-        {/* codingan sesuai figma ⬇️⬇️⬇️*/}
-        {/* <div
-          className="border-dashed border-2 border-[#D4D4D4] mt-[28px] py-[46px]"
-          // onDragOver={handleDrag}
-          // onDrop={handleDrop}
-        >
-          <Image
-            src={folder}
-            alt="insert folder"
-            className="mx-auto mb-[20px] scale-[0.8] lg:scale-[1]"
+        <form action="" onSubmit={onSubmit}>
+          <ControlledUploadDragbleField
+            control={control}
+            name="upload_media"
+            className="border-dashed border-2 border-[#D4D4D4] mt-[28px]"
           />
-          <p className="text-center">
-            Seret, taruh dan <span className="text-[#106FA4]">pilih file</span> untuk mengunggah
+          <p className="text-[#A3A3A3] text-[14px] font-medium my-[24px]">
+            <span className="font-semibold">Note</span> : Pastikan berkas sudah sesuai dengan
+            ketentuan
           </p>
-          <div className="scale-[0.8] lg:scale-[1] lg:w-[450px] grid grid-cols-4 text-[14px] mx-auto mt-[10px] border-solid border-[1px] rounded-lg ">
-            <div className="col-span-1 bg-[#D4D4D4] py-[16px] text-center">Pilih file</div>
-            <div className="col-span-3 py-[16px] px-[16px]">Belum memilih tugas</div>
-          </div>
-        </div> */}
+          <GlobalButton
+            type="submit"
+            text="Unggah Tugas"
+            className="mx-auto"
+            size="base"
+            hasImg={false}
+            hasExternal={false}
+          />
+        </form>
 
-        <UploadDragbleField
-          name="upload"
-          className="border-dashed border-2 border-[#D4D4D4] mt-[28px]"
-          required={true}
-        />
-        <UploadField name="area" />
-        <p className="text-[#A3A3A3] text-[14px] font-medium my-[24px]">
-          <span className="font-semibold">Note</span> : Pastikan berkas sudah sesuai dengan
-          ketentuan
-        </p>
-
-        <GlobalButton
-          text="Unggah Tugas"
-          className="mx-auto"
-          size="base"
-          hasImg={false}
-          hasExternal={false}
-        />
+        {/* <UploadField name="area" /> */}
       </section>
     </>
   );
