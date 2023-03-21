@@ -1,7 +1,7 @@
 import { atom, selectorFamily } from "recoil";
 import { videoGuideTypes } from "./type";
 import VideoDummy from "@/assets/guide/video-dummy.svg";
-import YoutubeSection from "@/modules/RegistrationVideo/YoutubeSection";
+
 
 export const videoGuideState = atom<Array<videoGuideTypes>>({
   key: "video-guide-state",
@@ -23,9 +23,9 @@ export const videoGuideState = atom<Array<videoGuideTypes>>({
     {
       videoId: "LKATs6MDeCw",
       titleVideo:
-        "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
-      descVideo: "tes",
-      imgVideo: "",
+        "tes",
+      descVideo: "Saat ingin melakukan studi pengguna wajib   memilih studi yang akan diambil dengan cara sebagai berikut  ",
+      imgVideo: ""
     },
     {
       videoId: "SMsb-ZLh_bg",
@@ -47,7 +47,7 @@ export const videoGuideState = atom<Array<videoGuideTypes>>({
 export const filterOption = selectorFamily({
   key: "filter-option-subject",
   get:
-    (query: string) =>
+    (query : string) =>
     ({ get }) =>
       get(videoGuideState).filter((item) => (item.videoId as string).includes(query)),
 });
