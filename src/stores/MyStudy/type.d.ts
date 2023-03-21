@@ -16,6 +16,7 @@ export type OptionSubject = {
 };
 
 export type Question = {
+  id: number;
   question: string;
   choices: array<string>;
   rightAnswer: string;
