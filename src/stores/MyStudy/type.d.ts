@@ -29,3 +29,11 @@ export type Instruction = {
   file: string;
   deadline: string;
 };
+
+export type Course = {
+  conference: number;
+  status: {
+    [key: string]: "Done" | "In Progress";
+  };
+  progress: "Done" | "In Progress";
+};

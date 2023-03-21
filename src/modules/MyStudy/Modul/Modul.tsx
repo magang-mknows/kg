@@ -6,6 +6,9 @@ import { contentModulBreadCumbs } from "@/utilities/constant";
 import YouTube, { YouTubeProps } from "react-youtube";
 import MainLayouts from "@/layouts/Main";
 import GlobalButton from "@/components/Common/GlobalButton";
+import PopupModal from "@/components/Common/PopupModal";
+import { useConfirmModul } from "@/hooks/MyStudy/useConfirmModul";
+import { usePopupConfirmModul } from "@/hooks/Common/usePopupConfirmModul";
 
 import Play from "@/assets/myStudy/button-play.svg";
 import Document from "@/assets/myStudy/iconDoc.svg";
@@ -25,6 +28,8 @@ const ModulContent = (): ReactElement => {
       autoplay: 0,
     },
   };
+  const { setPopupStatus, getPopupStatus } = usePopupConfirmModul();
+  const { getConfirmModul, setConfirmModul } = useConfirmModul();
 
   return (
     <BaseLayouts widthHScreen={false}>
@@ -33,13 +38,20 @@ const ModulContent = (): ReactElement => {
           <div className="px-10">
             <BreadCrumbs items={contentModulBreadCumbs} />
           </div>
-          <div className="flex lg:flex-col h-full w-screen justify-screen items-center px-32 ">
-            <h1 className="lg:text-3xl text-lg font-bold py-4">Mata Kuliah 1</h1>
-            <div className="flex w-full h-full gap-8">
-              <div className="flex w-[65%]">
+          <h1 className="flex w-full justify-center items-center lg:text-3xl text-lg font-bold py-4">
+            Mata Kuliah 1
+          </h1>
+          <div className="flex lg:flex-col h-full w-screen items-center px-4 lg:px-32 ">
+            <div className="flex lg:flex-row flex-col w-full h-full gap-8">
+              <div className="flex lg:w-[65%]">
                 <div className="flex flex-col w-full h-auto gap-4 justify-center items-center">
-                  <YouTube videoId="wqFzwWRdteM" opts={opts} onReady={onPlayerReady} />
-                  <div className="shadow-md rounded-lg p-10 w-full h-full">
+                  <YouTube
+                    videoId="wqFzwWRdteM"
+                    opts={opts}
+                    onReady={onPlayerReady}
+                    iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-[420px] h-[320px]"
+                  />
+                  <div className="shadow-md rounded-lg lg:p-10 w-full h-full">
                     <h1 className="font-bold text-xl">Introduce Manajemen Keuangan</h1>
                     <p className="text-gray-500 py-4">
                       Manajemen keuangan merupakan segala aktivitas perusahaan yang berkaitan dengan
@@ -50,25 +62,27 @@ const ModulContent = (): ReactElement => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col w-full shadow-md rounded-lg p-6">
+              <div className="flex flex-col w-full shadow-lg rounded-lg p-6">
                 <div className="flex flex-col h-[40%]">
                   <h1 className="font-bold text-xl">Video Lainnya</h1>
-                  <div className="flex justify-center items-center gap-y-4 py-4">
+                  <div className="flex items-center gap-y-4 py-4">
                     <Image src={Play} alt="icon" />
                     <p className="font-bold">Introduce Manajemen Keuangan</p>
                   </div>
                 </div>
                 <div className="flex flex-col h-[60%]">
                   <h1 className="font-bold text-xl">Dokumen Lainnya</h1>
-                  <div className="flex justify-center items-center gap-x-2 gap-y-4 py-4">
+                  <div className="flex items-center gap-x-2 gap-y-4 py-4">
                     <Image src={Document} alt="icon" />
                     <p className="font-bold">Fungsi Manajemen Keuangan</p>
                   </div>
                 </div>
                 <div className="flex w-full justify-center items-center">
                   <GlobalButton
+                    color={getConfirmModul ? "gray" : "blue"}
                     text="Selesaikan Modul"
                     size="regular"
+                    onClick={() => setPopupStatus(true)}
                     icon={
                       <svg
                         width="18"
@@ -97,8 +111,40 @@ const ModulContent = (): ReactElement => {
                   />
                 </div>
               </div>
-              ;
             </div>
+          </div>
+          <div>
+            <PopupModal
+              onClose={() => setPopupStatus(false)}
+              lookup={getPopupStatus}
+              className="!h-60 !w-[100%] text-md"
+            >
+              <h1 className="flex p-4 pt-2 rounded-md bg-yellow-400 text-white w-full">
+                Apa Pelajaran yang kamu pelajari hari ini?
+              </h1>
+              <div className="shadow flex justify-start p-2 w-full my-3">
+                <input
+                  className="w-full h-auto p-6 outline-none"
+                  type="text"
+                  placeholder="Tulis materi yang kamu dapat disini..."
+                />
+              </div>
+              <p className="text-gray-400">
+                Materi kamu akan di-review oleh dosen atau pembimbing kamu. Pastikan kamu mengisi
+                dengan sesuai!
+              </p>
+              <div className="p-4 flex w-full justify-end items-end">
+                <GlobalButton
+                  onClick={() => {
+                    setPopupStatus(false);
+                    setConfirmModul(true);
+                  }}
+                  text="Kirim"
+                  color="yellow"
+                  size="base"
+                />
+              </div>
+            </PopupModal>
           </div>
         </MainLayouts>
       </Suspense>

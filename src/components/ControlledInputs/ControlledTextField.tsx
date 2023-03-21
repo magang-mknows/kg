@@ -8,7 +8,7 @@ const ControlledTextField: FC<TextFieldProps> = (props): ReactElement => {
     field,
     fieldState: { error },
   } = useController(props);
-  return <TextField {...field} {...props} error={error?.message} />;
+  return <TextField {...field} {...props} error={error?.message || props.error} />;
 };
 
 export default ControlledTextField;

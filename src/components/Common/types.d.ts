@@ -37,7 +37,7 @@ export type ModalProps = {
   hasButton?: boolean;
   lookup: boolean;
   withClose?: boolean;
-  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement | SVGElement>;
 };
 
 export interface MobileMenuProps {
@@ -133,7 +133,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   text?: string | number;
   size?: "icon" | "modal" | "small" | "base" | "regular" | "large";
-  color?: "noBorder" | "green" | "blue" | "yellow" | "blueBorder" | "greenBorder";
+  color?: "noBorder" | "green" | "blue" | "yellow" | "gray" | "blueBorder" | "greenBorder";
   to?: string;
   icon?: ReactNode | StaticImageData;
   target?: string;

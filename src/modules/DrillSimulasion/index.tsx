@@ -14,7 +14,7 @@ const DrillSimulasion: FC = (): ReactElement => {
     <BaseLayouts>
       <Suspense fallback={"Skeleton loading...."}>
         <BreadCrumbs items={drillSimulation} />
-        <MainLayouts className="bg-[#FAFAFA]">
+        <div className="px-6 md:px-8 lg:px-10 w-full">
           <Title />
           <Tab.Group>
             <Tab.List
@@ -56,7 +56,7 @@ const DrillSimulasion: FC = (): ReactElement => {
               </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
-        </MainLayouts>
+        </div>
       </Suspense>
     </BaseLayouts>
   );

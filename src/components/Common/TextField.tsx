@@ -15,7 +15,6 @@ const TextField: FC<TextFieldProps> = forwardRef(
       disabled = false,
       success,
       warning,
-      hasLabel,
       required,
       className,
     }: TextFieldProps,
@@ -23,8 +22,11 @@ const TextField: FC<TextFieldProps> = forwardRef(
   ): ReactElement => {
     return (
       <section className="flex flex-col gap-y-1 my-2">
-        {hasLabel && (
-          <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl dark:text-white"}>
+        {label && (
+          <label
+            htmlFor={name}
+            className={"font-medium text-neutral-800 text-left text-1xl dark:text-white"}
+          >
             {label} {required && <span className="text-red-700 font-bold">*</span>}
           </label>
         )}
@@ -33,35 +35,43 @@ const TextField: FC<TextFieldProps> = forwardRef(
           type={type}
           name={name}
           disabled={disabled}
-          className={`${
+          className={`
+          ${
             error &&
             !warning &&
             !success &&
-            "focus:outline-1 focus:ring-red-600 focus:border-1 bg-red-50 border-2 border-red-600"
+            "focus:border-[1px] focus:border-red-600 border-red-600  bg-red-50 border-[1px]"
+          }
+
+          ${
+            error &&
+            !warning &&
+            success &&
+            "focus:border-[1px] focus:border-red-600 border-red-600  bg-red-50 border-1"
           }
 
           ${
             success &&
             !warning &&
             !error &&
-            "focus:outline-1 focus:ring-red-600 focus:border-1 bg-red-50 border-2 border-red-600"
+            "focus:border-[1px] focus:border-green-400 border-green-400  bg-green-50 border-[1px]"
           }
           
           ${
             warning &&
             !success &&
             !error &&
-            "focus:outline-1 focus:ring-red-600 focus:border-1 bg-red-50 border-2 border-red-600"
+            "focus:border-[1px] focus:border-yellow-600 border-yellow-600 bg-yellow-50 border-[1px]"
           }
           
           ${
             !warning &&
             !error &&
             !success &&
-            "focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300"
+            "focus:border-2 focus:border-neutral-300 bg-neutral-100"
           }
           ${className}
-            rounded-lg py-1 px-2 outline-none focus:outline-none
+            rounded-lg p-3 outline-none focus:outline-none
           `}
           placeholder={placeholder}
           onChange={onChange}

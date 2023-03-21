@@ -23,7 +23,7 @@ const GuideSection = (): ReactElement => {
     },
   ];
   return (
-    <div className="mt-[76px] mb-[64px]">
+    <div className="mt-[76px] mb-[64px] px-10">
       <div className="grid lg:grid-cols-12 gap-[20px]">
         {dummyGuide.map((item, index) => {
           return (
