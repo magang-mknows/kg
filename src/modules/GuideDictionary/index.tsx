@@ -9,11 +9,13 @@ import Sidebar from "./sidebar";
 const GuideDictionaryModule = (): ReactElement => {
   return (
     <div>
-      <BaseLayoutsLanding className="flex flex-row">
+      <BaseLayoutsLanding>
         <Suspense fallback={<Loading />}>
           <BreadCrumb items={guideDictionary} />
-          <Sidebar />
-          <ContentSection />
+          <div className="flex flex-col-reverse lg:flex-row">
+            <Sidebar />
+            <ContentSection />
+          </div>
         </Suspense>
       </BaseLayoutsLanding>
     </div>

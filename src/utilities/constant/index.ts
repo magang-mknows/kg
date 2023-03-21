@@ -642,21 +642,112 @@ export const guideDictionary = [
   },
 ];
 
-// export const guideCamusDetail = [
-//   {
-//     name: "Home",
-//     link: "/",
-//   },
-//   {
-//     name: "Panduan",
-//     link: "/panduan",
-//   },
-//   {
-//     name: "Kamus Kampus Gratis",
-//     link: "/kamus-kampus-gratis",
-//   },
-//   {
-//     name: "Kamus Kampus Gratis",
-//     link: "/kamus-kampus-gratis",
-//   },
-// ];
+export const guideDictionaryKrs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+  {
+    name: "KRS",
+    link: "/panduan/kamus-kampus-gratis/krs",
+  },
+];
+
+export const guideDictionarySKS = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+  {
+    name: "SKS",
+    link: "/panduan/kamus-kampus-gratis/sks",
+  },
+];
+export const guideDictionaryIPK = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+  {
+    name: "IPK",
+    link: "/panduan/kamus-kampus-gratis/ipk",
+  },
+];
+export const guideDictionaryProgramStudi = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+  {
+    name: "Program Studi",
+    link: "/panduan/kamus-kampus-gratis/program-studi",
+  },
+];
+export const guideDictionaryIP = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+  {
+    name: "IP",
+    link: "/panduan/kamus-kampus-gratis/ip",
+  },
+];
+export const guideDictionaryDosen = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+  {
+    name: "Dosen",
+    link: "/panduan/kamus-kampus-gratis/dosen",
+  },
+];
