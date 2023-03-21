@@ -104,10 +104,10 @@ const Footbar: FC = (): ReactElement => {
             </h6>
 
             <p className="lg:text-[14px] mb-2 mt-8">
-              <a className="dark:text-gray-400">+62 2143 1244 </a>
+              <span className="dark:text-gray-400">+62 2143 1244 </span>
             </p>
             <p className="lg:text-[14px] mb-2">
-              <a className="dark:text-gray-400">kampusgratis123@gmail.com</a>
+              <span className="dark:text-gray-400">kampusgratis123@gmail.com</span>
             </p>
           </div>
 
