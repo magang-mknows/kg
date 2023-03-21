@@ -39,8 +39,8 @@ const tabel = [
 const TabelSubmission: FC = (): ReactElement => {
   return (
     <>
-      <div className="p-8">
-        <table className="min-w-full border border-gray-200  rounded-lg divide-y divide-neutral-400 dark:divide-gray-700">
+      <div className="p-8 overflow-x-auto">
+        <table className="min-w-full border border-gray-200 rounded-lg divide-y divide-neutral-400 dark:divide-gray-700 overflow-x-auto">
           <thead className=" bg-gray-100 ">
             <tr>
               <th className="p-3 rounded-md">No.</th>

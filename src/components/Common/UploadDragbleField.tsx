@@ -12,7 +12,7 @@ const UploadDragbleField: FC<UploadFieldProps> = forwardRef(
     return (
       <div
         {...getRootProps(props)}
-        className="flex items-center justify-center w-full p-2 border-2 rounded-lg border-neutral-300 hover:text-white"
+        className={`flex items-center justify-center w-full p-2 border-2 rounded-lg border-neutral-300 hover:text-white ${props.className}`}
       >
         {props.path && ACCEPTED_IMAGE_TYPES.includes(props.type as string) ? (
           <Image src={URL.createObjectURL(props.path)} width={400} height={400} alt={"drag"} />
@@ -108,6 +108,7 @@ const UploadDragbleField: FC<UploadFieldProps> = forwardRef(
             <input ref={ref} {...getInputProps(props)} {...props} className="hidden" type="file" />
           </label>
         )}
+        
       </div>
     );
   },
