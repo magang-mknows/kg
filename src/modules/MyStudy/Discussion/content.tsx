@@ -85,8 +85,8 @@ const ContentDiskusi: FC = (): ReactElement => {
           </button>
         </div>
         {open && (
-          <div className="flex min-w-max absolute justify-end w-full -ml-20 ">
-            <div className=" bg-white px-6 py-4 rounded-[8px] flex flex-col gap-2 text-[#171717] font-[400] text-[16px]">
+          <div className="flex min-w-max absolute justify-end w-full -ml-20  ">
+            <div className=" bg-white px-6 py-4 rounded-[8px] flex flex-col gap-2 text-[#171717] font-[400] text-[16px] dark:bg-[#222529] dark:text-white/80">
               <div className="flex flex-row gap-1 justify-start mb-2">
                 <Image src={edit} alt={"edit"} />
                 <p>Edit</p>
