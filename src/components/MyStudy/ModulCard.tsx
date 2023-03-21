@@ -3,7 +3,7 @@ import Card from "@/components/Common/Card";
 
 const ModulCard: FC = (): ReactElement => {
   return (
-    <div className="w-full justify-start px-32 p-10">
+    <div className="w-full justify-start lg:px-32 p-2 lg:p-10">
       <Card
         hasImage={false}
         className="border border-2 text-start rounded-lg"

@@ -173,6 +173,9 @@ export const modulBreadCumbs = [
     name: "Home",
     link: "/",
   },
+];
+
+export const tugasBreadCumbs = [
   {
     name: "Studi-ku",
     link: "/studi-ku",
@@ -624,6 +627,21 @@ export const guideRegistrationVideo = [
   {
     name: "Panduan Pendafataran",
     link: "/panduan/video-panduan/video-panduan-pendaftaran",
+  },
+];
+
+export const diskusiMyStudyBreadCumbs = [
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/manajemen-keuangan",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/menejemen-keuangan/diskusi",
   },
 ];
 

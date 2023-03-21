@@ -51,6 +51,9 @@ const GlobalButton: FC<ButtonProps> = ({
     blue: `bg-[#106FA4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
       loading && "!bg-[#67A5C8]"
     }`,
+    gray: `bg-[#D4D4D4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
+      loading && "!bg-[#67A5C8]"
+    }`,
     yellow: `bg-[#FAB317] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3]${
       loading && "!bg-[#FBCB50]"
     }`,
