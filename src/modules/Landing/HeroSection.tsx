@@ -40,7 +40,7 @@ const HeroSection: FC = (): ReactElement => {
                 <Image
                   src={ImageLanding}
                   alt="Image Landing"
-                  className="z-0 select-none lg:w-[680px] lg:h-[500px] md:w-[600px] md:h-[450px] w-[340px] h-[400px] sm:w-[400px] sm:h-[400px]"
+                  className="z-10 select-none lg:w-[680px] lg:h-[500px] md:w-[600px] md:h-[450px] w-[340px] h-[400px] sm:w-[400px] sm:h-[400px]"
                 />
               </Suspense>
               <div className="flex flex-col select-none items-center bg-white lg:w-[300px] w-[220px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 ">
@@ -62,7 +62,7 @@ const HeroSection: FC = (): ReactElement => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row xl:flex-row lg:flex-row w-full justify-center lg:justify-between bg-[#106FA4] h-[300px] md:h-[100px] lg:h-[140px] mt-[-220px] xl:mt-[-234px] lg:mt-[-234px] z-40 lg:px-40 font-normal px-[20%] md:px-[40%] ">
+      <div className="flex flex-col md:flex-row xl:flex-row lg:flex-row w-full justify-center lg:justify-between bg-[#106FA4] h-[300px] md:h-[100px] lg:h-[140px] mt-[-220px] xl:mt-[-234px] lg:mt-[-234px] z-20 lg:px-40 font-normal px-[20%] md:px-[40%] ">
         <div className="flex flex-row my-4 lg:my-8 mx-6">
           <div className="rounded-full bg-white bg-opacity-[10%] absolute w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px]">
             <Image

@@ -13,7 +13,7 @@ const ContentSection = (): ReactElement => {
             Berupa video tutorial penggunaan dan fungsi fitur yang ada di Website KG
           </p>
         </div>
-        <div className="seacrh lg:w-[700px] h-[56px] w-full bg-neautral-100 dark:bg-[#232529] rounded-[8px] mt-[48px] flex items-center gap-4  ">
+        <div className="seacrh lg:w-[700px] h-[56px] w-full bg-neautral-100 dark:bg-[#232529] rounded-[8px] my-5 flex items-center gap-4  ">
           <Image src={search} alt={"search"} className={"ml-[24px]"} />
           <input
             type="text"
@@ -24,8 +24,11 @@ const ContentSection = (): ReactElement => {
           />
         </div>
       </div>
-      <div className="col-span-1 grid place-content-end ">
+      <div className="col-span-1 grid place-content-center my-5 ">
         <Image src={CamusEmpty} alt={""} className={" w-0 lg:w-full h-full"} />
+        <p className="w-full flex justify-center px-20 text-neutral-700 dark:text-white font-semibold">
+          Tidak ada riwayat pencarian
+        </p>
       </div>
     </div>
   );
