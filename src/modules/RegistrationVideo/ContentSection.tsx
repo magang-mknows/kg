@@ -7,8 +7,8 @@ import ListVideo from "./ListVideo";
 import YoutubeSection from "./YoutubeSection";
 
 const ContentSection = (): ReactElement => {
-  const { query: q } = useRouter();
-  const getOption = useRecoilValue(filterOption(q.videoId as unknown as string));
+  const { query } = useRouter();
+  const getOption = useRecoilValue(filterOption(query.videoId as unknown as string));
 
   return (
     <div className="w-full px-6 md:px-8 lg:px10 my-[68px]">
