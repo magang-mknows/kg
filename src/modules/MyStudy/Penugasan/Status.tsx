@@ -3,8 +3,6 @@ import folder from "@/assets/status/folder.svg";
 import pdf from "@/assets/status/pdf.svg";
 import Image from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
-import UploadDragbleField from "@/components/Common/UploadDragbleField";
-import UploadField from "@/components/Common/UploadField";
 import { useInstruction } from "@/hooks/MyStudy/useInstruction";
 import { useForm } from "react-hook-form";
 import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
@@ -45,8 +43,7 @@ const Status: FC = (): ReactElement => {
   return (
     <>
       <section
-        style={{ marginLeft: "109px", marginRight: "109px" }}
-        className="scale-[0.8] lg:scale-[1] bg-white my-[96px] py-[92px] px-[72px] w-full"
+        className="scale-[0.8] lg:scale-[1] bg-white  py-[92px] px-[109px] w-full"
       >
         <p className="text-[20px] font-semibold mb-[8px]">{getInstruction[0].matkul}</p>
         <p className="text-[16px] font-medium mb-[8px]">
