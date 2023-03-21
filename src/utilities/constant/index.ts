@@ -633,6 +633,10 @@ export const guideRegistrationVideo = [
 
 export const diskusiMyStudyBreadCumbs = [
   {
+    name: "Home",
+    link: "/",
+  },
+  {
     name: "Studi-ku",
     link: "/studi-ku",
   },

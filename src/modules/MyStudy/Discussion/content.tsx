@@ -16,21 +16,22 @@ const ContentDiskusi: FC = (): ReactElement => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="card px-10 py-8 bg-white border rounded-[8px] mb-4">
+      <div className="card px-10 py-8 bg-white border rounded-[8px] mb-4 dark:bg-[#1B1E21] dark:border-[#1B1E21]">
         <div className="profile flex flex-row gap-5 items-center">
           <Image src={profileDummy} alt={"img-profile"} />
           <div className="">
             <h1 className="text-[##171717] font-[600] text-[14px]">
               Manajemen Keuangan | Pertemuan 1
             </h1>
-            <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1">
-              oleh <span className="text-[#2D9A41] ">Andri Hermawan (dosen)</span>{" "}
+            <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 dark:text-white/80">
+              oleh{" "}
+              <span className="text-[#2D9A41] dark:text-yellow-500">Andri Hermawan (dosen)</span>
               <Image src={circle} alt={"circle"} />
               <span className="text-[#737373]">10 jam</span>
             </p>
           </div>
         </div>
-        <p className="desc mt-8 text-[#171717] text-[14px] font-[400]">
+        <p className="desc mt-8 text-[#171717] text-[14px] font-[400] dark:text-white/80">
           Diskusikan tentang manajemen keuangan menurut pemahaman anda? Apakah fungsi dan tujuan
           dari manajemen keuangan. Apa modul yang telah kalian pelajari sudah jelas?
         </p>
@@ -44,10 +45,10 @@ const ContentDiskusi: FC = (): ReactElement => {
             Balas
           </p>
         </div>
-        <div className="comment  border rounded-[8px] mt-4 px-3 flex justify-end h-[44px]">
+        <div className="comment  border rounded-[8px] mt-4 px-3 flex justify-end h-[44px] dark:bg-[#222529]">
           <input
             type="text"
-            className="w-full outline-none text-[14px] font-[400]"
+            className="w-full outline-none text-[14px] font-[400] dark:bg-[#222529]"
             placeholder="Ketikan Balasan disini"
           />
 
@@ -63,7 +64,7 @@ const ContentDiskusi: FC = (): ReactElement => {
         <Image src={down} alt={"down"} />
       </div>
       {/* card 2 */}
-      <div className="card px-10 py-8 bg-[#F5F5F5] rounded-[8px] ml-14 mb-4 mt-8 relative">
+      <div className="card px-10 py-8 bg-[#F5F5F5] rounded-[8px] ml-14 mb-4 mt-8 relative dark:bg-[#1B1E21] dark:border-[#1B1E21]">
         <div className="profile flex flex-row gap-5 items-center justify-between">
           <div className="kiri flex flex-row gap-4">
             <Image src={profileDummy} alt={"img-profile"} />
@@ -71,8 +72,9 @@ const ContentDiskusi: FC = (): ReactElement => {
               <h1 className="text-[##171717] font-[600] text-[14px]">
                 Komentar: Manajemen Keuangan | Pertemuan 1
               </h1>
-              <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1">
-                oleh <span className="text-[#2D9A41] ">Andri Hermawan (dosen)</span>{" "}
+              <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 dark:text-white/80">
+                oleh{" "}
+                <span className="text-[#2D9A41] dark:text-yellow-500">Andri Hermawan (dosen)</span>{" "}
                 <Image src={circle} alt={"circle"} />
                 <span className="text-[#737373]">10 jam</span>
               </p>
@@ -97,7 +99,7 @@ const ContentDiskusi: FC = (): ReactElement => {
           </div>
         )}
 
-        <p className="desc mt-8 text-[#171717] text-[14px] font-[400]">
+        <p className="desc mt-8 text-[#171717] text-[14px] font-[400] dark:text-white/80">
           Diskusikan tentang manajemen keuangan menurut pemahaman anda? Apakah fungsi dan tujuan
           dari manajemen keuangan. Apa modul yang telah kalian pelajari sudah jelas?
         </p>
@@ -118,7 +120,7 @@ const ContentDiskusi: FC = (): ReactElement => {
         <Image src={down} alt={"down"} />
       </div>
       {/* card 3 */}
-      <div className="card px-10 py-8 bg-[#F5F5F5]  rounded-[8px] ml-28 mb-4 mt-8">
+      <div className="card px-10 py-8 bg-[#F5F5F5]  rounded-[8px] ml-28 mb-4 mt-8 dark:bg-[#1B1E21] dark:border-[#1B1E21]">
         <div className="profile flex flex-row gap-5 items-center justify-between">
           <div className="kiri flex flex-row gap-4">
             <Image src={profileDummy} alt={"img-profile"} />
@@ -126,8 +128,9 @@ const ContentDiskusi: FC = (): ReactElement => {
               <h1 className="text-[##171717] font-[600] text-[14px]">
                 Komentar: Manajemen Keuangan | Pertemuan 1
               </h1>
-              <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1">
-                oleh <span className="text-[#2D9A41] ">Andri Hermawan (dosen)</span>{" "}
+              <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 dark:text-white/80">
+                oleh{" "}
+                <span className="text-[#2D9A41] dark:text-yellow-500">Andri Hermawan (dosen)</span>{" "}
                 <Image src={circle} alt={"circle"} />
                 <span className="text-[#737373]">10 jam</span>
               </p>
@@ -137,7 +140,7 @@ const ContentDiskusi: FC = (): ReactElement => {
             <Image src={more} alt={"more"} />
           </div>
         </div>
-        <p className="desc mt-8 text-[#171717] text-[14px] font-[400]">
+        <p className="desc mt-8 text-[#171717] text-[14px] font-[400] dark:text-white/80">
           Diskusikan tentang manajemen keuangan menurut pemahaman anda? Apakah fungsi dan tujuan
           dari manajemen keuangan. Apa modul yang telah kalian pelajari sudah jelas?
         </p>
@@ -154,8 +157,8 @@ const ContentDiskusi: FC = (): ReactElement => {
       </div>
       {/* redo*/}
       <div className="flex flex-row gap-4 ml-28">
-        <p className="text-[#106FA4] font-[600] text-[16px]">Lihat 8 komentar lain</p>
         <Image src={redo} alt={"redo"} />
+        <p className="text-[#106FA4] font-[600] text-[16px]">Lihat 8 komentar lain</p>
       </div>
     </>
   );
