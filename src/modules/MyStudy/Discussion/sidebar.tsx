@@ -2,6 +2,7 @@ import { useChooseSidebar } from "@/hooks/MyStudy/useChooseSidebar";
 import { useSidebar } from "@/hooks/MyStudy/useDiscussion";
 import { FC, ReactElement, useState } from "react";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Sidebar: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const Sidebar: FC = (): ReactElement => {
 
   return (
     <>
+      {/* <RxHamburgerMenu className="text-[#9CA3AF] dark:text-white/80 text-[20px] font-[800]" /> */}
       <div className="py-6 px-5 bg-white rounded-[8px] dark:bg-[#1B1E21]">
         {getDiscussion.map((items, i) => (
           <div className="">
@@ -25,7 +27,7 @@ const Sidebar: FC = (): ReactElement => {
               </div>
             </div>
             {items.modul.map((item, j) => (
-              <div className="" key={j}>
+              <div key={j}>
                 {isOpen && (
                   <div
                     className={`text-[#106FA4] text-[14px] font-[600] h-10 flex items-center ml-4 px-4 rounded-[8px] mb-2 dark:text-yellow-500 ${
