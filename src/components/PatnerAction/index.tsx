@@ -48,12 +48,12 @@ const CarouselMenu: FC = (): ReactElement => {
         <Carousel
           className="flex items-center justify-center"
           width={"100%"}
-          thumbWidth={10}
+          thumbWidth={20}
           centerMode={true}
           stopOnHover={true}
-          centerSlidePercentage={32}
+          centerSlidePercentage={20}
           infiniteLoop={true}
-          selectedItem={10}
+          selectedItem={20}
           autoPlay={true}
           showThumbs={false}
           showArrows={true}

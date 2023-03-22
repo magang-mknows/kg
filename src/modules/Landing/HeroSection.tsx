@@ -15,7 +15,7 @@ const HeroSection: FC = (): ReactElement => {
   return (
     <SuspenseError>
       <div className=" z-0">
-        <div className="flex flex-col bg-gray-100 justify-between w-full lg:items-start items-center lg:px-20 md:px-10 px-60 py-20 md:py-28 lg:py-28 lg:flex-row md:items-center">
+        <div className="flex flex-col bg-gray-100 dark:bg-gray-900 justify-between w-full lg:items-start items-center lg:px-20 md:px-10 px-60 py-20 md:py-28 lg:py-28 lg:flex-row md:items-center">
           <ContentLayouts className="w-full  dark:text-white">
             <div className="flex flex-col gap-y-4 ">
               <div className="lg:flex-col font-bold space-y-4 text-3xl md:text-5xl lg:text-6xl  w-full">
@@ -107,7 +107,7 @@ const HeroSection: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-      <div className="bg-white h-[30] w-screen pt-24"></div>
+      <div className="bg-white dark:bg-gray-900 h-[30] w-screen pt-24"></div>
     </SuspenseError>
   );
 };
