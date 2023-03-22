@@ -14,23 +14,27 @@ import SuspenseError from "../Common/SuspenseError";
 const HeroSection: FC = (): ReactElement => {
   return (
     <SuspenseError>
-      <div className="z-0">
-        <div className="flex flex-col justify-between xl:items-start lg:items-start w-full lg:px-10 md:lg:px-8 px-6 py-20 lg:flex-row md:items-center">
-          <ContentLayouts className="w-full dark:text-white">
+      <div className=" z-0">
+        <div className="flex flex-col bg-gray-100 justify-between w-full lg:items-start items-center lg:px-20 md:px-10 px-60 py-20 md:py-28 lg:py-28 lg:flex-row md:items-center">
+          <ContentLayouts className="w-full  dark:text-white">
             <div className="flex flex-col gap-y-4 ">
-              <div className="lg:flex-col font-bold space-y-2 text-3xl xl:text-5xl lg:text-5xl md:text-4xl w-full">
-                <div>Solusi Pendidikan</div>
-
-                <div>Gratis & Berkualitas</div>
+              <div className="lg:flex-col font-bold space-y-4 text-3xl md:text-5xl lg:text-6xl  w-full">
+                <div>
+                  <h1 className="text-center lg:text-start md:text-start">Solusi Pendidikan</h1>
+                </div>
+                <div>
+                  <h1 className="text-center lg:text-start md:text-start">Gratis & Berkualitas</h1>
+                </div>
               </div>
-              <p className="text-sm my-4 text-[#525252] dark:text-white">
+              <p className="text-xl my-4 text-[#525252] lg:text-start md:text-start text-center dark:text-white">
                 Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
                 bagi siapa saja, tanpa terkecuali.
               </p>
-
-              <button className="font-semibold bg-[#3EB449] w-full h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] justify-items-end text-sm">
-                Coba Sekarang - Gratis
-              </button>
+              <div className="w-full">
+                <button className="font-semibold bg-[#3EB449] w-full h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
+                  Coba Sekarang - Gratis
+                </button>
+              </div>
             </div>
           </ContentLayouts>
 
@@ -43,7 +47,7 @@ const HeroSection: FC = (): ReactElement => {
                   className="z-10 select-none lg:w-[680px] lg:h-[500px] md:w-[600px] md:h-[450px] w-[340px] h-[400px] sm:w-[400px] sm:h-[400px]"
                 />
               </Suspense>
-              <div className="flex flex-col select-none items-center bg-white lg:w-[300px] w-[220px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 ">
+              <div className="flex flex-col select-none items-center bg-white lg:w-[300px] w-[220px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 px-2">
                 <div className="font-semibold pt-6 dark:text-black">Mahasiswa Kampus Gratis</div>
                 <div className="flex flex-row py-2 items-start">
                   <Image
@@ -62,7 +66,7 @@ const HeroSection: FC = (): ReactElement => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row xl:flex-row lg:flex-row w-full justify-center lg:justify-between bg-[#106FA4] h-[300px] md:h-[100px] lg:h-[140px] mt-[-220px] xl:mt-[-234px] lg:mt-[-234px] z-20 lg:px-40 font-normal px-[20%] md:px-[40%] ">
+      <div className="flex flex-col md:flex-row xl:flex-row lg:flex-row w-full justify-center lg:justify-between bg-[#106FA4] h-[300px] md:h-[100px] lg:h-[140px] mt-[-220px] xl:mt-[-234px] lg:mt-[-234px] z-20 lg:px-40 font-normal px-[20%] md:px-[40%] items-center">
         <div className="flex flex-row my-4 lg:my-8 mx-6">
           <div className="rounded-full bg-white bg-opacity-[10%] absolute w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px]">
             <Image
@@ -103,6 +107,7 @@ const HeroSection: FC = (): ReactElement => {
           </div>
         </div>
       </div>
+      <div className="bg-white h-[30] w-screen pt-24"></div>
     </SuspenseError>
   );
 };

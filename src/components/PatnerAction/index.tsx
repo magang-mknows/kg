@@ -25,11 +25,10 @@ const CarouselMenu: FC = (): ReactElement => {
       {(size.width as number) < 580 ? (
         <Carousel
           className="flex items-center justify-center w-full md:px-20"
-          width={"100%"}
-          thumbWidth={500}
-          centerMode={true}
+          width={"60%"}
+          thumbWidth={40}
+          centerMode={false}
           stopOnHover={true}
-          centerSlidePercentage={25}
           infiniteLoop={true}
           selectedItem={20}
           autoPlay={true}
@@ -41,7 +40,7 @@ const CarouselMenu: FC = (): ReactElement => {
         >
           {Mitra.map((x, i) => (
             <div key={i} className={"mx-8"}>
-              <Image draggable={false} width={800} key={i} src={x.icon} alt={"Mitra Section"} />
+              <Image draggable={false} width={1000} key={i} src={x.icon} alt={"Mitra Section"} />
             </div>
           ))}
         </Carousel>
@@ -49,12 +48,12 @@ const CarouselMenu: FC = (): ReactElement => {
         <Carousel
           className="flex items-center justify-center"
           width={"100%"}
-          thumbWidth={300}
+          thumbWidth={10}
           centerMode={true}
           stopOnHover={true}
-          centerSlidePercentage={20}
+          centerSlidePercentage={32}
           infiniteLoop={true}
-          selectedItem={20}
+          selectedItem={10}
           autoPlay={true}
           showThumbs={false}
           showArrows={true}

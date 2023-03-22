@@ -7,15 +7,16 @@ import RedSekilasInfo from "@/assets/landing/redInfo.svg";
 const SekilasSection = (): ReactElement => {
   return (
     <>
-      <section className=" mt-5 mb-20 lg:mb-10 bg-green-landing-hero flex flex-col-reverse lg:flex-row justify-between ">
+      <div className="flex w-full pl-20 pt-20">
+        <h1 className="title px-20 gap-x-4 text-4xl md:text-5xl lg:text-6xl font-bold text-[#262626] dark:text-white lg:text-start md:text-start text-center">
+          Sekilas <span className=" text-[#FAB317]">Info </span>
+          Kampus Gratis
+        </h1>
+      </div>
+      <section className=" mt-10 mb-20 lg:mb-10 bg-green-landing-hero flex flex-col-reverse lg:flex-row justify-between ">
         <div className="relative lg:w-full">
           <div className="banner">
             <div className="relative  z-[99]  mt-[30px] lg:pl-10 md:px-8 px-6">
-              <h1 className="flex flex-col lg:flex-row md:flex-row gap-x-3 lg:justify-start justify-center title text-4xl md:text-[40px] lg:text-[44px] font-bold text-[#262626] dark:text-white">
-                Sekilas <span className=" text-[#FAB317]">Info</span>
-                Kampus Gratis
-              </h1>
-
               <p className="pt-[50px] align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
                 <span className="text-[#171717] text-[24px] dark:text-white">Kampus Gratis</span>{" "}
                 merupakan sistem manajemen E-learning yang mencantumkan laporan peningkatan atau
