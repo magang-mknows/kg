@@ -31,7 +31,7 @@ const QuizStart: FC = (): ReactElement => {
             {currentIndexQuestion + 1}. {getData[currentIndexQuestion].question}
           </p>
           <div className="flex flex-col justify-between w-[80%] lg:w-[540px] h-[320px]">
-            {getData[currentIndexQuestion].choices.map((choice: any, i: any) => (
+            {getData[currentIndexQuestion].choices.map((choice: string, i: number) => (
               <div
                 key={i}
                 className={`${
@@ -97,7 +97,7 @@ const QuizStart: FC = (): ReactElement => {
               Daftar Soal :
             </p>
             <div className="grid grid-cols-5 grid-rows-2 gap-x-1">
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((el, i) => (
+              {Array(5).map((_, i) => (
                 <div key={i} className="w-12 h-12 bg-transparent p-1">
                   <button className="w-full h-full bg-[#106FA4] rounded-lg m-auto text-base font-bold text-neutral-100">
                     {i + 1}
