@@ -1,21 +1,18 @@
 import { FC, ReactElement } from "react";
-import MainLayout from "@/layouts/Main";
 import CarouselMenu from "@/components/PatnerAction";
 
 const MitraSection: FC = (): ReactElement => {
   return (
-    <MainLayout withHScreen={false}>
-      <div className="flex flex-col p-6  lg:py-20 mb-10 overflow-hidden">
-        <div className="flex gap-2 lg:p-8 pb-10 lg:justify-center justify-start items-start lg:items-center ">
-          <h1 className="flex gap-2 text-3xl font-bold">
-            Mitra <span className="text-[#106FA4] ">Kampus Kami</span>
-          </h1>
-        </div>
-        <div className="flex items-center justify-center">
-          <CarouselMenu />
-        </div>
+    <div className="flex flex-col py-0 lg:py-20 mb-10 overflow-hidden">
+      <div className="mt-10 lg:mt-0 flex gap-2 lg:justify-center justify-start items-start lg:items-center ">
+        <p className="flex gap-2 title text-[35px] md:text-[40px] lg:text-[44px] font-bold text-[#262626] dark:text-white justify-center w-full">
+          Mitra <span className="text-[#106FA4] ">Kampus Kami</span>
+        </p>
       </div>
-    </MainLayout>
+      <div className="flex items-center justify-center pt-[65px]">
+        <CarouselMenu />
+      </div>
+    </div>
   );
 };
 

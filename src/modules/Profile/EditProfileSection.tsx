@@ -73,7 +73,7 @@ const EditProfile: FC = (): ReactElement => {
                 <GlobalButton
                   text={"Reset Password"}
                   className="!text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
-                  to="reset-password"
+                  to="ubah-password"
                 />
               </div>
             </div>
