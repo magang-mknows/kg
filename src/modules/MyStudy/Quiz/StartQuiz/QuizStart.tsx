@@ -97,7 +97,7 @@ const QuizStart: FC = (): ReactElement => {
               Daftar Soal :
             </p>
             <div className="grid grid-cols-5 grid-rows-2 gap-x-1">
-              {Array(5).map((_, i) => (
+              {[...Array(5)].map((_, i) => (
                 <div key={i} className="w-12 h-12 bg-transparent p-1">
                   <button className="w-full h-full bg-[#106FA4] rounded-lg m-auto text-base font-bold text-neutral-100">
                     {i + 1}
