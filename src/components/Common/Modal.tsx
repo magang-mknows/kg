@@ -9,35 +9,41 @@ const Modal: FC<ModalProps> = ({
   button,
   lookup,
   hasButton,
+  hasImage,
   withClose,
+  widthModal,
   onClose,
 }): ReactElement => {
   return (
     <Fragment>
       {lookup && (
         <div
-          className="relative z-[999999999]"
+          className="relative z-[999999999] "
           aria-labelledby="modal-title"
           role="dialog"
           aria-modal="true"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75 " />
           <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex min-h-full w-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
-              <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 w-auto">
-                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 w-full">
+            <div className="flex items-center justify-center w-full min-h-full p-4 text-center sm:items-center sm:p-0">
+              <div
+                className={`relative w-auto overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 ${widthModal} `}
+              >
+                <div className="w-full px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
                   <div className="flex items-center justify-between w-full">
-                    <Image
-                      src="/logo-light.svg"
-                      width={82}
-                      height={35}
-                      alt={"Logo kg"}
-                      loading="lazy"
-                    />
+                    {hasImage && (
+                      <Image
+                        src="/logo-light.svg"
+                        width={82}
+                        height={35}
+                        alt={"Logo kg"}
+                        loading="lazy"
+                      />
+                    )}
                     {withClose && (
                       <AiOutlineClose
                         onClick={onClose}
-                        className="text-2xl text-gray-400 font-bold cursor-pointer"
+                        className="text-2xl font-bold text-gray-400 cursor-pointer"
                       />
                     )}
                   </div>
@@ -50,11 +56,11 @@ const Modal: FC<ModalProps> = ({
                         {title}
                       </h3>
                     )}
-                    <div className="flex w-full items-center">{children}</div>
+                    <div className="flex items-center w-full">{children}</div>
                   </div>
                 </div>
                 {hasButton && (
-                  <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                  <div className="px-4 py-3 bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
                     {button}
                   </div>
                 )}
