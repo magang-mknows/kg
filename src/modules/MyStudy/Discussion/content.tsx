@@ -1,15 +1,12 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import Image from "next/image";
 import profileDummy from "@/assets/diskusi/profile-dummy.svg";
 import down from "@/assets/diskusi/down.svg";
 import redo from "@/assets/diskusi/redo.svg";
-import { usePopupEditDiscussion } from "@/hooks/Common/usePopupEditDiscussion";
-import PopupEditDiscussion from "@/components/DiscussionMyStudy/popupEditDiscussion";
 import CardAuthor from "@/components/DiscussionMyStudy/cardDiscussion";
 import CardComment from "@/components/DiscussionMyStudy/cardComment";
 
 const ContentDiskusi: FC = (): ReactElement => {
-  const [open, setOpen] = useState(false);
   return (
     <>
       <CardAuthor
@@ -25,6 +22,7 @@ const ContentDiskusi: FC = (): ReactElement => {
         <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>
         <Image src={down} alt={"down"} />
       </div>
+
       <CardComment
         styleCard="ml-14 bg-[#F5F5F5]"
         title={"Manajemen Keuangan"}
@@ -41,6 +39,7 @@ const ContentDiskusi: FC = (): ReactElement => {
         <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>
         <Image src={down} alt={"down"} />
       </div>
+
       <CardComment
         styleCard="ml-28 bg-[#F5F5F5]"
         title={"Manajemen Keuangan"}

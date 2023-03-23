@@ -15,7 +15,6 @@ const CardDiscussion: FC<cardAuthor> = ({
   author,
   role,
   styleCard,
-  children,
 }): ReactElement => {
   return (
     <>

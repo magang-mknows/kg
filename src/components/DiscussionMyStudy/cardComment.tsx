@@ -3,10 +3,14 @@ import Image from "next/image";
 import circle from "@/assets/diskusi/circle.svg";
 import like from "@/assets/diskusi/like.svg";
 import comment from "@/assets/diskusi/comment.svg";
-import { cardAuthor } from "./type";
 import edit from "@/assets/diskusi/edit.svg";
+import deleteICon from "@/assets/diskusi/delete.svg";
 import { MdDelete } from "react-icons/md";
+import { cardAuthor } from "./type";
 import more from "@/assets/diskusi/more.svg";
+import PopupModal from "../Common/PopupModal";
+import { usePopupEditDiscussion } from "@/hooks/Common/usePopupEditDiscussion";
+import { usePopupDeleteDiscussion } from "@/hooks/Common/usePopupDeleteDiscussion";
 
 const CardDiscussion: FC<cardAuthor> = ({
   title,
@@ -18,6 +22,8 @@ const CardDiscussion: FC<cardAuthor> = ({
   styleCard,
 }): ReactElement => {
   const [open, setOpen] = useState(false);
+  const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussion();
+  const { setPopupDeleteStatus, getPopupDeleteStatus } = usePopupDeleteDiscussion();
   return (
     <>
       <div
@@ -45,14 +51,20 @@ const CardDiscussion: FC<cardAuthor> = ({
         {open && (
           <div className="flex min-w-max absolute justify-end w-full -ml-20  ">
             <div className=" bg-white px-6 py-4 rounded-[8px] flex flex-col gap-2 text-[#171717] font-[400] text-[16px] dark:bg-[#222529] dark:text-white/80">
-              <div className="flex flex-row gap-1 justify-start mb-2">
+              <button
+                className="flex flex-row gap-1 justify-start mb-2"
+                onClick={() => setPopupEditStatus(true)}
+              >
                 <Image src={edit} alt={"edit"} />
                 <p>Edit</p>
-              </div>
-              <div className="flex flex-row gap-1 ml-1">
+              </button>
+              <button
+                className="flex flex-row gap-1 ml-1"
+                onClick={() => setPopupDeleteStatus(true)}
+              >
                 <MdDelete className="text-[#EE2D24] text-[20px]" />
                 <p>Delete</p>
-              </div>
+              </button>
             </div>
           </div>
         )}
@@ -70,6 +82,35 @@ const CardDiscussion: FC<cardAuthor> = ({
             Balas
           </p>
         </div>
+      </div>
+      <div className="edit-popup">
+        <PopupModal
+          lookup={getPopupEditStatus}
+          onClose={() => setPopupEditStatus(false)}
+          popupTitle={"Edit Komentar"}
+          description={"Ubah Komentar"}
+        >
+          <p>Maks. 1000 karater</p>
+          <button>Ubah</button>
+        </PopupModal>
+      </div>
+      <div className="delete-popup">
+        <PopupModal
+          icon={deleteICon}
+          lookup={getPopupDeleteStatus}
+          onClose={() => setPopupDeleteStatus(false)}
+          popupTitle={"Konfirmasi"}
+          description={"Apakah anda ingin menghapus postingan ini?"}
+        >
+          <div className="flex flex-row gap-6 mt-4">
+            <button className="bg-white outline outline-[#106FA4] h-[46px] w-[236px] text-[#106FA4] font-[600] text-[16px] rounded-[8px]">
+              Ya, Hapus
+            </button>
+            <button className="bg-[#106FA4] h-[46px] w-[236px] text-white font-[600] text-[16px] rounded-[8px]">
+              Tidak
+            </button>
+          </div>
+        </PopupModal>
       </div>
     </>
   );
