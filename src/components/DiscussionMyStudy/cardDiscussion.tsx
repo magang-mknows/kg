@@ -14,10 +14,14 @@ const CardDiscussion: FC<cardAuthor> = ({
   content,
   author,
   role,
+  styleCard,
+  children,
 }): ReactElement => {
   return (
     <>
-      <div className="card px-10 py-8 bg-white border rounded-[8px] mb-4 dark:bg-[#1B1E21] dark:border-[#1B1E21]">
+      <div
+        className={`card px-10 py-8 bg-white border rounded-[8px] mb-4 dark:bg-[#1B1E21] dark:border-[#1B1E21] ${styleCard}`}
+      >
         <div className="profile flex flex-row gap-5 items-center">
           <Image src={avatar} alt={"img-profile"} />
           <div className="">
@@ -25,13 +29,14 @@ const CardDiscussion: FC<cardAuthor> = ({
             <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 dark:text-white/80">
               oleh{" "}
               <span className="text-[#2D9A41] dark:text-yellow-500">
-                {author} <span>{role}</span>
+                {author} <span>({role})</span>
               </span>
               <Image src={circle} alt={"circle"} />
               <span className="text-[#737373]">{time}</span>
             </p>
           </div>
         </div>
+
         <p className="desc mt-8 text-[#171717] text-[14px] font-[400] dark:text-white/80">
           {content}
         </p>
@@ -45,7 +50,8 @@ const CardDiscussion: FC<cardAuthor> = ({
             Balas
           </p>
         </div>
-        {/* <div className="comment  border rounded-[8px] mt-4 px-3 flex justify-end h-[44px] dark:bg-[#222529]">
+
+        <div className="comment  border rounded-[8px] mt-4 px-3 flex justify-end h-[44px] dark:bg-[#222529]">
           <input
             type="text"
             className="w-full outline-none text-[14px] font-[400] dark:bg-[#222529]"
@@ -56,7 +62,7 @@ const CardDiscussion: FC<cardAuthor> = ({
             <Image src={file} alt={"file"} />
             <Image src={send} alt={"send"} />
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

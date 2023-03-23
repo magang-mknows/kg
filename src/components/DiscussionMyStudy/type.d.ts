@@ -7,5 +7,7 @@ export interface cardAuthor {
     content: string,
     author: string,
     role: string,
+    styleCard?: string,
+    children?: React.ReactNode;
     
 }
