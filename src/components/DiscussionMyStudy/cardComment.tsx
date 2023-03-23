@@ -1,16 +1,16 @@
 import { FC, ReactElement, useState } from "react";
 import Image from "next/image";
 import circle from "@/assets/diskusi/circle.svg";
-import like from "@/assets/diskusi/like.svg";
-import comment from "@/assets/diskusi/comment.svg";
 import edit from "@/assets/diskusi/edit.svg";
 import deleteICon from "@/assets/diskusi/delete.svg";
 import { MdDelete } from "react-icons/md";
+import { RiPencilFill } from "react-icons/ri";
 import { cardAuthor } from "./type";
 import more from "@/assets/diskusi/more.svg";
 import PopupModal from "../Common/PopupModal";
 import { usePopupEditDiscussion } from "@/hooks/Common/usePopupEditDiscussion";
 import { usePopupDeleteDiscussion } from "@/hooks/Common/usePopupDeleteDiscussion";
+import LikeComment from "./likeComment";
 
 const CardDiscussion: FC<cardAuthor> = ({
   title,
@@ -72,26 +72,30 @@ const CardDiscussion: FC<cardAuthor> = ({
         <p className="desc mt-8 text-[#171717] text-[14px] font-[400] dark:text-white/80">
           {content}
         </p>
-        <div className="like-comment flex gap-5 text-[#737373] font-[500] text-[14px]">
-          <p className="flex flex-row mt-8 gap-2 items-center">
-            <Image src={like} alt={"like"} />
-            Suka
-          </p>
-          <p className="flex flex-row mt-8 gap-2 items-center">
-            <Image src={comment} alt={"comment"} />
-            Balas
-          </p>
-        </div>
+        <LikeComment />
       </div>
+
       <div className="edit-popup">
         <PopupModal
           lookup={getPopupEditStatus}
           onClose={() => setPopupEditStatus(false)}
           popupTitle={"Edit Komentar"}
-          description={"Ubah Komentar"}
         >
-          <p>Maks. 1000 karater</p>
-          <button>Ubah</button>
+          <h1 className="flex justify-start w-full mb-4">Ubah Komentar</h1>
+          <textarea className="h-[144px] w-[467px] outline outline-[#D4D4D4] rounded-[8px]"></textarea>
+          <h5 className="text-[#A3A3A3] text-[12px] font-[500] flex justify-start mt-3 w-full">
+            Maks. 1000 karater
+          </h5>
+          <div className=" flex justify-end mt-3 w-full">
+            <button className="flex items-center rounded-[8px] bg-[#3EB449] gap-[8px] px-6 py-2">
+              <>
+                <RiPencilFill className="text-white text-[20px]" />
+              </>
+              <>
+                <p className="text-white text-[14px] font-[400]">Ubah</p>
+              </>
+            </button>
+          </div>
         </PopupModal>
       </div>
       <div className="delete-popup">
