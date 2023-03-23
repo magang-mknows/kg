@@ -43,7 +43,7 @@ const CardDiscussion: FC<cardAuthor> = ({
         <div className="comment  border rounded-[8px] mt-4 px-3 flex justify-end h-[44px] dark:bg-[#222529]">
           <input
             type="text"
-            className="w-full outline-none text-[14px] font-[400] dark:bg-[#222529]"
+            className="w-full px-3 outline-none text-[14px] font-[400] dark:bg-[#222529]"
             placeholder="Ketikan Balasan disini"
           />
 
