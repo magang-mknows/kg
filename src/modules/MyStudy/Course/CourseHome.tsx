@@ -3,7 +3,6 @@ import ContentLayouts from "@/layouts/Content";
 import MainLayouts from "@/layouts/Main";
 import Image from "next/image";
 import { MdArrowDropDown } from "react-icons/md";
-
 import imgCourseHome from "@/assets/course/course-home-1.svg";
 import imgModuleIcon from "@/assets/course/module-icon.svg";
 import imgQuizIcon from "@/assets/course/quiz-icon.svg";
