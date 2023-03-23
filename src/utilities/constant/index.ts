@@ -267,6 +267,20 @@ export const dashboardBreadCumbs = [
     link: "/dashboard",
   },
 ];
+export const leaderBoardBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
+  },
+  {
+    name: "Papan Skor",
+    link: "/papan-skor",
+  },
+];
 export const acaraKampusBreadCumbs = [
   {
     name: "Home",
