@@ -103,7 +103,7 @@ const CourseHome: FC = (): ReactElement => {
                 <div className="flex gap-x-6">
                   <Image src={imgModuleIcon} alt="" />
                   <Link
-                    href="/studi-ku/course/module"
+                    href="/studi-ku/course/modul"
                     className="text-base text-neutral-800 dark:text-neutral-400 hover:border-b border-b-neutral-800 dark:border-b-neutral-400"
                   >
                     Modul
