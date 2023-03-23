@@ -11,10 +11,13 @@ import Card from "@/components/Common/Card";
 
 const AboutSection: FC = (): ReactElement => {
   return (
-    <section className="mt-[-100px] lg:mt-[140px] md:mt-0 mb-0 md:mb-[350px] lg:mx-10 md:mx-8 mx-6 w-full">
-      <div className="flex flex-col lg:flex-row lg:gap-20 md:gap-14 gap-0 ">
+    <section className="mt-[-100px] py-14 pl-10 pr-40 md:mb-[350px] lg:mx-10 md:mx-8 mx-6 w-full">
+      <h1 className="dark:text-[#ffff] pl-40 lg:pl-1 text-[#262626] w-full flex flex-col lg:flex-row md:flex-row justify-end gap-x-3 md:text-5xl text-5xl my-4 text-[30px] font-bold leading-tight ml-4">
+        Kelebihan <span className="text-[#0B568D]">Kampus Gratis</span>
+      </h1>
+      <div className="flex flex-col lg:flex-row py-10 px-20 pr-10 lg:gap-10 md:gap-14 gap-0 ">
         <div className="flex justify-center">
-          <div className="w-full md:w-[500px] lg:w-[500px] h-[382px] relative col-span-1 md:px-0 md:ml-0 mx-4">
+          <div className="w-full w-[100px] lg:w-[500px] h-[382px] relative col-span-1 md:px-0 md:ml-0 mx-4">
             <Image
               src={RectangleUp}
               alt={"rectangle-up"}
@@ -29,7 +32,7 @@ const AboutSection: FC = (): ReactElement => {
               src={AboutCard2}
               alt={"About-Landing"}
               className={
-                "lg:w-[500px] md:w-[80%] w-[90%] object-cover rounded-xl absolute top-5 left-5"
+                "lg:w-[500px] md:w-[80%] w-[50%] object-cover rounded-xl absolute top-5 left-5"
               }
             />
             <Card
@@ -70,11 +73,8 @@ const AboutSection: FC = (): ReactElement => {
             </Card>
           </div>
         </div>
-        <div className="relative mt-12 lg:mt-[30px] lg:pl-20 px-10">
-          <h1 className="dark:text-[#ffff] text-[#262626] w-full flex flex-col lg:flex-row md:flex-row justify-center gap-x-3 md:text-[44px] text-[30px] font-bold leading-tight">
-            Kelebihan <span className="text-[#0B568D]">Kampus Gratis</span>
-          </h1>
-          <p className="pt-[50px] align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
+        <div className="relative mt-12 lg:mt-[30px] pl-28">
+          <p className="align-center text-left lg:text-left text-[#262626] text-[16px] md:text-[17px] lg:text-[20px] dark:text-white">
             Ada banyak kategori pelatihan terlaris yang ada di Kampus Gratis
           </p>
           <div className="">

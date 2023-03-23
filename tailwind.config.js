@@ -78,7 +78,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        landing: "url('/bg-landing.svg')",
+        hero: "url('/public/bg-hero.svg')",
       },
     },
   },
