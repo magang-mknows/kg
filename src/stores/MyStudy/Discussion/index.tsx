@@ -5,6 +5,7 @@ export const discussionSidebar = atom<Array<Sidebar>>({
   key: "discussion-Mystudy",
   default: [
     {
+      id: "1",
       session: "Pertemuan 1",
       modul: [
         {
@@ -18,6 +19,7 @@ export const discussionSidebar = atom<Array<Sidebar>>({
       ],
     },
     {
+      id: "2",
       session: "Pertemuan 2",
       modul: [
         {

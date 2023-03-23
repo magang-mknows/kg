@@ -5,9 +5,10 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const Sidebar: FC = (): ReactElement => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState("");
   const { getDiscussion } = useSidebar();
   const { setChoose, getChoose } = useChooseSidebar();
+  console.log(getDiscussion);
 
   return (
     <>
@@ -20,15 +21,15 @@ const Sidebar: FC = (): ReactElement => {
                 {items.session}
               </h1>
               <div
-                className="text-[#9CA3AF]"
-                onClick={() => setIsOpen(isOpen === true ? false : true)}
+                className="text-[#9CA3AF] cursor-pointer"
+                onClick={() => setIsOpen(isOpen == "" ? items.id : "")}
               >
-                {isOpen === true ? <IoMdArrowDropdown /> : <IoMdArrowDropup />}
+                {isOpen === items.id ? <IoMdArrowDropdown /> : <IoMdArrowDropup />}
               </div>
             </div>
             {items.modul.map((item, j) => (
               <div key={j}>
-                {isOpen && (
+                {isOpen === items.id ? (
                   <div
                     className={`text-[#106FA4] text-[14px] font-[600] h-10 flex items-center ml-4 px-4 rounded-[8px] mb-2 dark:text-yellow-500 ${
                       getChoose == item.id ? "bg-[#E9F6FD] dark:bg-yellow-100" : ""
@@ -37,7 +38,7 @@ const Sidebar: FC = (): ReactElement => {
                   >
                     {item.modul}
                   </div>
-                )}
+                ) : null}
               </div>
             ))}
           </div>
