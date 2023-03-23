@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Loading from "@/components/Loading";
-import CreateDiscussion from "@/modules/DiscussionRoom/CreateDiscussion";
 
 const Event = lazy(() => import("@/modules/Event"));
 
@@ -11,7 +10,6 @@ const EventPage: NextPage = (): ReactElement => {
     <ErrorBoundary fallback={<>Error was happen</>}>
       <Suspense fallback={<Loading />}>
         <Event />
-        <CreateDiscussion />
       </Suspense>
     </ErrorBoundary>
   );
