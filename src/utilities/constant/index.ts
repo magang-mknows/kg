@@ -59,6 +59,7 @@ export const publicRoutes = [
   "/ubah-password",
   "/event",
   "/semua-fitur",
+  "/papan-skor",
 ];
 
 export const assigmentBreadCumbs = [
