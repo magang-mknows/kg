@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import Image from "next/image";
 import circle from "@/assets/diskusi/circle.svg";
 import send from "@/assets/diskusi/send.svg";
