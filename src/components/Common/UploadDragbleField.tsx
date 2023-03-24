@@ -7,7 +7,7 @@ const UploadDragbleField: FC<UploadFieldProps> = forwardRef(
   (props, ref: Ref<HTMLInputElement>): ReactElement => {
     const { onDrop } = props;
     const { getRootProps, getInputProps } = useDropzone({ ...props, onDrop });
-    const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "image/png"];
+    const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "image/png", "document/pdf"];
 
     return (
       <div
