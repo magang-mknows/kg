@@ -7,23 +7,23 @@ import RedSekilasInfo from "@/assets/landing/redInfo.svg";
 const SekilasSection = (): ReactElement => {
   return (
     <>
-      <div className="flex w-full lg:pl-20 pl-8 pr-8 pt-20">
-        <h1 className="lg:px-2 px-40 text-4xl md:text-5xl lg:text-5xl font-bold text-[#262626] dark:text-white lg:text-start md:text-start text-center">
+      <div className="flex w-full lg:pl-20 md:px-8 px-[70px] pt-20">
+        <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-[#262626] dark:text-white lg:text-start md:text-start text-center">
           Sekilas <span className="mx-2 text-[#FAB317]"> Info </span>
           Kampus Gratis
         </h1>
       </div>
-      <section className="flex flex-col px-60 lg:px-2 mb-20 lg:mb-10 lg:flex-row justify-between ">
+      <section className="flex flex-col mb-20 lg:mb-10 lg:flex-row justify-between ">
         <div className="relative lg:w-full h-full">
-          <div className=" lg:pl-24 lg:px-40">
-            <p className="pt-[50px] text-gray-600 align-center text-center lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
+          <div className="px-[70px] lg:relative z-[99]">
+            <p className="pt-[50px] align-center text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
               <span className="text-gray-600 text-[24px] dark:text-white font-semibold">
                 Kampus Gratis
               </span>{" "}
               merupakan sistem manajemen E-learning yang mencantumkan laporan peningkatan atau
               progres pembelajaran mahasiswa layaknya seperti perguruan tinggi.{" "}
             </p>
-            <p className="align-center text-gray-600 text-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] mt-5 dark:text-white ">
+            <p className="align-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] mt-5 dark:text-white">
               Pengembangan platform pembelajaran ini merupakan salah satu inisiasi dari pendiri PT
               Menara Indonesia atau M-Knows Consulting, yang inginmemberikan solusi pendidikan
               tinggi yang gratis, berkualitas, berkualitas diakses siapapun khususnya kaum marginal,
@@ -38,7 +38,7 @@ const SekilasSection = (): ReactElement => {
           <Image
             src={yellowSekilasInfo}
             alt={"Yellow-sekilas-info"}
-            className="lg:flex lg:absolute hidden left-0 bottom-40 dark:w-0 lg:-right-15 z-0 "
+            className="lg:flex lg:absolute lg:top-[100px] hidden left-0 bottom-40 dark:w-0 lg:right-15 z-0 "
           />
         </div>
         <div className="w-[80%] h-full container flex justify-center items-center mb-10 ml-4">
