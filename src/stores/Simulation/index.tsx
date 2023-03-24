@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom, selector, selectorFamily } from "recoil";
 import { T, HistorySimulation, RescheduleSimulation } from "./type";
 import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
 import DummyHistory from "@/assets/drillSimulation/dummy-drillHistory.svg";
@@ -7,20 +7,19 @@ export const sceduleSimulationState = atom<Array<T>>({
   key: "scedule-simulation-state",
   default: [
     {
-      title: "Contoh 1",
+      title: "Sejarah Indonesia",
       schedule: 3,
       src: drillDummy,
-      dosen: "Pak P",
+      dosen: "Pak Rungkad",
       category: "Drill",
-      slug: "/Contoh-1",
+      location: "Ruang 1",
     },
     {
-      title: "Example 2",
+      title: "Bahasa Jawa",
       schedule: 0,
       src: drillDummy,
-      dosen: "Pak P",
+      dosen: "Pak Rungkad",
       category: "Simulasi",
-      slug: "/Example-2",
     },
   ],
 });
@@ -123,4 +122,12 @@ export const filterHistorySimulation = selector({
     get(historySimulationsState).filter((item) =>
       item.title.toLowerCase().includes(get(queryScheduleSimulation).toLowerCase()),
     ),
+});
+
+export const filterSlug = selectorFamily({
+  key: "filter-slug-subject",
+  get:
+    (query: string) =>
+    ({ get }) =>
+      get(sceduleSimulationState).filter((item) => (item.title as string).includes(query)),
 });
