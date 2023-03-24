@@ -7,7 +7,7 @@ import { queryScheduleSimulation } from "@/stores/Simulation";
 const Title: FC = (): ReactElement => {
   const [query, setQuery] = useRecoilState(queryScheduleSimulation);
   return (
-    <div className=" py-10">
+    <div className=" py-10 ">
       <div className="text-center">
         <h1 className="text-[28px] font-[700] ">Simulasi, Drill & Assessment</h1>
         <h3 className="text-[16px] font-[600] text-[#A3A3A3] mt-5 ">

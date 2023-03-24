@@ -6,7 +6,8 @@ export type T = {
     dosen: string;
     category: string;
     title: string;
-    slug: string
+    slug?: string
+    location?: string;
   }
 
 export type HistorySimulation ={
