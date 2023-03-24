@@ -59,6 +59,7 @@ export const publicRoutes = [
   "/ubah-password",
   "/event",
   "/semua-fitur",
+  "/papan-skor",
 ];
 
 export const assigmentBreadCumbs = [
@@ -265,6 +266,20 @@ export const dashboardBreadCumbs = [
   {
     name: "Dashboard",
     link: "/dashboard",
+  },
+];
+export const leaderBoardBreadCumbs = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
+  },
+  {
+    name: "Papan Skor",
+    link: "/papan-skor",
   },
 ];
 export const acaraKampusBreadCumbs = [
