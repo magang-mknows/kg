@@ -48,7 +48,7 @@ const UpperSection: FC = (): ReactElement => {
             alt="Kampus Gratis's Logo"
             width={82}
             priority
-            className="w-[60px] md:w-[65px] lg:w-[80px] w-auto h-auto"
+            className="w-[60px] md:w-[65px] lg:w-[80px] h-auto"
           />
         </Link>
         {isScrollY === "onSticky" && <BottomSection className="dark:bg-transparent px-2" />}
@@ -59,7 +59,7 @@ const UpperSection: FC = (): ReactElement => {
               <BiCategoryAlt
                 aria-label="Home Button"
                 size={20}
-                className="text-neutral-900 dark:text-white dark:hover:text-primary-500 stroke-neutral-900 group-hover:text-neutral-300 transition-colors ease-in-out duration-300"
+                className="text-neutral-900 dark:text-white  dark:hover:text-primary-500 stroke-neutral-900 group-hover:text-primary-500 transition-colors ease-in-out duration-300"
               />
             }
           >
@@ -112,11 +112,11 @@ const UpperSection: FC = (): ReactElement => {
                   <h1 className="text-[#171717] text-xs text-center">Penyeluran Kerja</h1>
                 </Menu.Item>
               </div>
-              <div className="bg-neutral-200 hover:bg-neutral-300 cursor-pointer transition-colors ease-in-out duration-300 w-full flex items-center justify-center py-4">
-                <Link href={"/semua-fitur"} passHref>
+              <Link href={"/semua-fitur"} passHref>
+                <div className="bg-neutral-200 hover:bg-neutral-300 cursor-pointer transition-colors ease-in-out duration-300 w-full flex items-center justify-center py-4">
                   <h1 className="text-xs text-neutral-500 hover:text-neutral-400">Lihat Semua</h1>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </Menu.Items>
           </MenuIcon>
           <ThemeToggle />

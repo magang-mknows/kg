@@ -1,7 +1,6 @@
 import { FC, ReactElement } from "react";
 
 // img
-import GooglePlayStore from "@/assets/footbar/google-play-store.svg";
 import Image from "next/image";
 
 import { LoadConditionalLogo } from "@/utilities/helper/index";
@@ -57,11 +56,13 @@ const Footbar: FC = (): ReactElement => {
                 </div>
               </div>
               <div className="mt-[-10px] flex justify-end">
-                <a href="" className="">
+                <a href="play.google.com" className="">
                   <Image
                     className="lg:w-full lg:h-[62px]"
-                    src={GooglePlayStore}
+                    src={"@/assets/footbar/google-play-store.svg"}
                     alt="Google Play Store"
+                    width={50}
+                    height={50}
                   />
                 </a>
               </div>
@@ -76,24 +77,24 @@ const Footbar: FC = (): ReactElement => {
             <h6 className="flex text-[18px] font-bold dark:text-white">Halaman</h6>
 
             <p className="mb-2 mt-8 lg:text-[14px]  dark:text-gray-400">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/" className="hover:text-blue-400">
                 Beranda
-              </a>
+              </Link>
             </p>
             <p className="mb-2 lg:text-[14px] dark:text-gray-400">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/fitur" className="hover:text-blue-400">
                 Fitur
-              </a>
+              </Link>
             </p>
             <p className="mb-2 lg:text-[14px] dark:text-gray-400 ">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/mentor" className="hover:text-blue-400">
                 Mentor
-              </a>
+              </Link>
             </p>
             <p className="mb-2 lg:text-[14px] dark:text-gray-400">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/panduan" className="hover:text-blue-400">
                 Panduan
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -105,10 +106,10 @@ const Footbar: FC = (): ReactElement => {
             </h6>
 
             <p className="lg:text-[14px] mb-2 mt-8">
-              <a className="dark:text-gray-400">+62 2143 1244 </a>
+              <span className="dark:text-gray-400">+62 2143 1244 </span>
             </p>
             <p className="lg:text-[14px] mb-2">
-              <a className="dark:text-gray-400">kampusgratis123@gmail.com</a>
+              <span className="dark:text-gray-400">kampusgratis123@gmail.com</span>
             </p>
           </div>
 
