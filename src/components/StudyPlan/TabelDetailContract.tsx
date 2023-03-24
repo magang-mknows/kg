@@ -3,14 +3,15 @@ import Image from "next/image";
 import { useDataTable } from "@/hooks/StudyPlan/useDataTable";
 import Confirm from "@/assets/StudyPlan/Confirm.svg";
 import Success from "@/assets/StudyPlan/Success.svg";
+import SuspenseError from "@/modules/Common/SuspenseError";
 import Button from "../Common/Button";
 import { usePopupConfirmStatus } from "@/hooks/Common/usePopupConfirmSatus";
 import { usePopupSucces } from "@/hooks/Common/usePopupSucces";
 import { usePopupAddStudy } from "@/hooks/Common/UsePopupAddStudy";
 
 import PopupModal from "@/components/Common/PopupModal";
-
-const TabelDetailContract: FC = (): ReactElement => {
+import { moveProps } from "./types";
+const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement => {
   const { getDataTable } = useDataTable();
   const { setPopupStatus, getPopupStatus } = usePopupConfirmStatus();
   const { setPopupSuccess, getPopupSuccess } = usePopupSucces();
@@ -116,7 +117,7 @@ const TabelDetailContract: FC = (): ReactElement => {
             </tr>
           </tfoot>
         </table>
-        <div>
+        <SuspenseError>
           <PopupModal
             onClose={() => setPopupStatus(false)}
             icon={Confirm}
@@ -146,8 +147,8 @@ const TabelDetailContract: FC = (): ReactElement => {
               />
             </div>
           </PopupModal>
-        </div>
-        <div>
+        </SuspenseError>
+        <SuspenseError>
           <PopupModal
             onClose={() => setPopupSuccess(false)}
             icon={Success}
@@ -162,7 +163,7 @@ const TabelDetailContract: FC = (): ReactElement => {
               <Button
                 text="Lihat Konversi"
                 className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
-                onClick={() => setPopupSuccess(false)}
+                onClick={onMove}
                 type={"button"}
               />
               <Button
@@ -173,8 +174,8 @@ const TabelDetailContract: FC = (): ReactElement => {
               />
             </div>
           </PopupModal>
-        </div>
-        <div>
+        </SuspenseError>
+        <SuspenseError>
           <PopupModal
             onClose={() => setPopupSuccess(false)}
             icon={Success}
@@ -189,7 +190,7 @@ const TabelDetailContract: FC = (): ReactElement => {
               <Button
                 text="Lihat Draft KRS"
                 className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
-                onClick={() => setPopupAdd(false)}
+                onClick={onClick}
                 type={"button"}
               />
               <Button
@@ -200,7 +201,7 @@ const TabelDetailContract: FC = (): ReactElement => {
               />
             </div>
           </PopupModal>
-        </div>
+        </SuspenseError>
       </div>
     </>
   );

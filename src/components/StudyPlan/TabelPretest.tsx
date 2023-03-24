@@ -1,28 +1,6 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { useDataTable } from "@/hooks/StudyPlan/useDataTable";
-import Example1 from "@/assets/StudyPlan/example1.svg";
-import Example2 from "@/assets/StudyPlan/example2.svg";
-const tabel = [
-  {
-    no: 1,
-    matkul: "Bahasa Inggris",
-    img: Example1,
-    jmlh_mahasiswa: 15,
-    kode_matkul: "123456ASD",
-    jmlh_sks: 4,
-    tindakan: "abc.pdf",
-  },
-  {
-    no: 2,
-    matkul: "Kalkulus",
-    img: Example2,
-    jmlh_mahasiswa: 21,
-    kode_matkul: "18ASl22",
-    jmlh_sks: 8,
-    tindakan: "Upload",
-  },
-];
 
 const TabelPretest: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
