@@ -1,11 +1,13 @@
+import Loading from "@/components/Loading";
+import SuspenseError from "@/modules/Common/SuspenseError";
 import LeaderBoardModules from "@/modules/Leaderboard";
-import React, { ReactElement, Suspense } from "react";
+import React, { ReactElement } from "react";
 
 const LeaderBoardPages = (): ReactElement => {
   return (
-    <Suspense>
+    <SuspenseError loadingFallback={<Loading />}>
       <LeaderBoardModules />
-    </Suspense>
+    </SuspenseError>
   );
 };
 
