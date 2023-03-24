@@ -1,15 +1,15 @@
 import { useRecoilState } from "recoil";
-import { PopupModalSuccessOpen } from "@/stores/Common";
+import { PopupModalEditDiscussion } from "@/stores/Common";
 
 type ReturnTypes = {
-  setPopupStatus: (val: boolean) => void;
-  getPopupStatus: boolean;
+  setPopupEditStatus: (val: boolean) => void;
+  getPopupEditStatus: boolean;
 };
 
 export const usePopupEditDiscussion = (): ReturnTypes => {
-  const [get, set] = useRecoilState(PopupModalSuccessOpen);
+  const [get, set] = useRecoilState(PopupModalEditDiscussion);
   return {
-    setPopupStatus: (val: boolean) => set(val),
-    getPopupStatus: get,
+    setPopupEditStatus: (val: boolean) => set(val),
+    getPopupEditStatus: get,
   };
 };

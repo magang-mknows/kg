@@ -61,6 +61,8 @@ const Footbar: FC = (): ReactElement => {
                     className="lg:w-full lg:h-[62px]"
                     src={"@/assets/footbar/google-play-store.svg"}
                     alt="Google Play Store"
+                    width={50}
+                    height={50}
                   />
                 </a>
               </div>
