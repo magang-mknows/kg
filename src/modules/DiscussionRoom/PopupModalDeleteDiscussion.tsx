@@ -17,7 +17,6 @@ const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={"!w-2/5"}
     >
       <div className="flex flex-col justify-center gap-8 p-6 bg-white rounded-lg">
         <div className="grid gap-3 text-center">
