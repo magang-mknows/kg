@@ -27,5 +27,6 @@ export type Course = {
   status: {
     [key: string]: "Done" | "In Progress";
   };
-  progress: "Done" | "In Progress";
+  progress: Array<"Done" | "In Progress">;
+  isOpen: boolean;
 };
