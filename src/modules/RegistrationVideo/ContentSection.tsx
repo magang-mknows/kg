@@ -17,7 +17,7 @@ const ContentSection = (): ReactElement => {
           <div key={index} className="lg:flex gap-[68px] xl:flex-nowrap lg:flex-wrap">
             <div className="w-full">
               <YoutubeSection videoId={item.videoId} />
-              <Description />
+              <Description titleVideo={item.titleVideo} descVideo={item.descVideo} />
             </div>
             <div className="w-full">
               <ListVideo />

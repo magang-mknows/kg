@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { PopupModalSubmissionOpen } from "@/stores/Common";
+import { PopupModalConfirmModul } from "@/stores/Common";
 
 type ReturnTypes = {
   setPopupStatus: (val: boolean) => void;
@@ -7,7 +7,7 @@ type ReturnTypes = {
 };
 
 export const usePopupConfirmModul = (): ReturnTypes => {
-  const [get, set] = useRecoilState(PopupModalSubmissionOpen);
+  const [get, set] = useRecoilState(PopupModalConfirmModul);
   return {
     setPopupStatus: (val: boolean) => set(val),
     getPopupStatus: get,

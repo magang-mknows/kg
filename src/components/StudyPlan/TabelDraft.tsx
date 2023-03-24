@@ -1,30 +1,16 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import Example1 from "@/assets/StudyPlan/example1.svg";
-import Example2 from "@/assets/StudyPlan/example2.svg";
+import { useDataTable } from "@/hooks/StudyPlan/useDataTable";
+import { usePopupDeleteStudy } from "@/hooks/Common/usePopupDeleteStudy";
 
-const tabel = [
-  {
-    no: 1,
-    matkul: "Bahasa Inggris",
-    img: Example1,
-    jmlh_mahasiswa: 15,
-    kode_matkul: "ASD9128",
-    jmlh_sks: 4,
-    tindakan: "hapus",
-  },
-  {
-    no: 2,
-    matkul: "Kalkulus",
-    img: Example2,
-    jmlh_mahasiswa: 21,
-    kode_matkul: "18AASK32",
-    jmlh_sks: 8,
-    tindakan: "hapus",
-  },
-];
+import Button from "../Common/Button";
+import Delete from "@/assets/StudyPlan/Delete.svg";
+import PopupModal from "../Common/PopupModal";
 
 const TabelDraft: FC = (): ReactElement => {
+  const { getDataTable } = useDataTable();
+  const { setPopupDelete, getPopupDelete } = usePopupDeleteStudy();
+
   return (
     <>
       <div className="p-8">
@@ -34,11 +20,12 @@ const TabelDraft: FC = (): ReactElement => {
               <th className="p-3 rounded-md">No.</th>
               <th className="text-start ">Mata Kuliah</th>
               <th className="text-start">Kode Matkul</th>
-              <th className="text-start">Jumlah SKS</th>
+              <th className="text-start">SKS</th>
+              <th className="text-start">Semester</th>
               <th className="text-start">Tindakan</th>
             </tr>
           </thead>
-          {tabel.map((x, i) => (
+          {getDataTable.map((x, i) => (
             <tbody key={i} className="divide-y dark:divide-gray-700  ">
               <tr className="border">
                 <td className="p-3 text-center">{x.no}</td>
@@ -57,12 +44,14 @@ const TabelDraft: FC = (): ReactElement => {
                 </td>
                 <td>{x.kode_matkul}</td>
                 <td>{x.jmlh_sks} SKS</td>
-                <td
+                <td>Semester {x.semester} </td>
+                <button
+                  onClick={() => setPopupDelete(true)}
                   className={`flex gap-2 items-center p-4 font-semibold ${
-                    x.tindakan === "tambah" ? "text-blue-600" : "text-red-600"
+                    x.tindakan_draft === "tambah" ? "text-blue-600" : "text-red-600"
                   }`}
                 >
-                  {x.tindakan === "tambah" ? (
+                  {x.tindakan_draft === "tambah" ? (
                     <svg
                       width="25"
                       height="25"
@@ -97,8 +86,8 @@ const TabelDraft: FC = (): ReactElement => {
                     </svg>
                   )}
 
-                  {x.tindakan === "tambah" ? " tambah " : "hapus"}
-                </td>
+                  {x.tindakan_draft === "tambah" ? " tambah " : "hapus"}
+                </button>
               </tr>
             </tbody>
           ))}
@@ -113,6 +102,31 @@ const TabelDraft: FC = (): ReactElement => {
             </tr>
           </tfoot>
         </table>
+        <div>
+          <PopupModal
+            onClose={() => setPopupDelete(false)}
+            icon={Delete}
+            popupTitle="Konfirmasi"
+            lookup={getPopupDelete}
+            className="!h-80 !w-[100%] text-md py-10"
+          >
+            <h1 className="py-2 text-2xl">Apakah anda ingin mengahpus mata kuliah ini?</h1>
+            <div className="flex gap-3 my-2 py-4">
+              <Button
+                text="Ya, Hapus"
+                className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+                onClick={() => setPopupDelete(false)}
+                type={"button"}
+              />
+              <Button
+                className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+                type={"button"}
+                text="Tidak"
+                onClick={() => setPopupDelete(false)}
+              />
+            </div>
+          </PopupModal>
+        </div>
       </div>
     </>
   );
