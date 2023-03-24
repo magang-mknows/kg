@@ -41,19 +41,20 @@ export const PopupModalDeleteStudy = atom({
   default: false,
 });
 
-export const GetFile = atom({
-  key: "get-file",
-  default: "",
+export const PopupModalCreateDiscussion = atom({
+  key: "modal-popup-create-discussion",
+  default: false,
+});
+export const PopupModalEditDiscussion = atom({
+  key: "modal-popup-edit-discussion",
+  default: false,
 });
 
 export const PopupModalDeleteDiscussion = atom({
   key: "modal-popup-delete-Discussion",
   default: false,
 });
-
-export const PopupModalEditDiscussion = atom({
-  key: "modal-popup-edit-Discussion",
-  default: false,
+export const GetFile = atom({
+  key: "get-file",
+  default: "",
 });
-
-

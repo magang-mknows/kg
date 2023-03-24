@@ -21,13 +21,10 @@ const TextField: FC<TextFieldProps> = forwardRef(
     ref: Ref<HTMLInputElement>,
   ): ReactElement => {
     return (
-      <section className="flex flex-col gap-y-1 my-2">
+      <section className="flex flex-col my-2 gap-y-1">
         {label && (
-          <label
-            htmlFor={name}
-            className={"font-medium text-neutral-800 text-left text-1xl dark:text-white"}
-          >
-            {label} {required && <span className="text-red-700 font-bold">*</span>}
+          <label htmlFor={name} className={"font-medium text-neutral-800 text-left text-1xl "}>
+            {label} {required && <span className="font-bold text-red-700">*</span>}
           </label>
         )}
         <input
