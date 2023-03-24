@@ -10,7 +10,7 @@ import CardDot from "@/assets/landing/card-dot.svg";
 const InformationBanner: FC = (): ReactElement => {
   return (
     <Card
-      className="mt-[90px] md:mt-[-200px] lg:mt-[-100px] mx-0 lg:mx-[-40px] md:px-8 px-6"
+      className="mt-[90px] md:mt-[200px] lg:mt-[-100px] mx-0 lg:mx-[20px] mx-60"
       img={InfoLanding}
       imgWidth={"w-full"}
       imgHeight={"h-full"}

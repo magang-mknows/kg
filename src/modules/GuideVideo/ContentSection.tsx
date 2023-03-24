@@ -14,7 +14,7 @@ const ContentSection = (): ReactElement => {
           return (
             <Link href={`/panduan/video-panduan/${item.videoId}`} key={i}>
               <Card
-                className="relative w-full min-h-min border rounded-lg px-3 shadow-md"
+                className="relative w-full min-h-min dark:bg-[#232529] shadow-[#969696]/10 rounded-lg px-3 shadow-md"
                 src={`https://i.ytimg.com/vi/${item.videoId}/hq720.jpg`}
                 imgwidth={380}
                 imgheight={170}
@@ -28,8 +28,8 @@ const ContentSection = (): ReactElement => {
                   </div>
                 }
               >
-                <p className="w-full text-sm font-base mt-3.5" style={{ color: "#000000" }}>
-                  {item.descVideo?.substring(0, 80)}...
+                <p className="w-full text-sm font-base mt-3.5 dark:text-white text-black">
+                  {item.descVideo?.substring(0, 80)} ...
                 </p>
               </Card>
             </Link>

@@ -63,7 +63,7 @@ const DetailContract: FC = (): ReactElement => {
                           : ""
                       } py-2 px-4 cursor-pointer`}
                     >
-                      Pre - Test
+                      Konversi
                     </div>
                   )}
                 </Tab>
