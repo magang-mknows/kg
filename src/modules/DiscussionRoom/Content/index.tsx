@@ -7,6 +7,8 @@ import Search from "./Search";
 import PopupModalCreateDiscussion from "../PopupModalCreateDiscussion";
 import PopupModalDeleteDiscussion from "../PopupModalDeleteDiscussion";
 import PopupModalEditDiscussion from "../PopupModalEditDiscussion";
+import PopupModalReportDiscussion from "../PopupModalReportDiscussion";
+
 import SuspenseError from "@/modules/Common/SuspenseError";
 
 const Content: FC = (): ReactElement => {
@@ -19,6 +21,7 @@ const Content: FC = (): ReactElement => {
         <PopupModalEditDiscussion />
         <PopupModalCreateDiscussion />
         <PopupModalDeleteDiscussion />
+        <PopupModalReportDiscussion />
       </SuspenseError>
     </section>
   );
