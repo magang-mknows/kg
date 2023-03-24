@@ -1,4 +1,5 @@
 export type Sidebar={
+    id: string,
     session: string,
     modul: Array<T>,
 };

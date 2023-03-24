@@ -45,3 +45,15 @@ export const GetFile = atom({
   key: "get-file",
   default: "",
 });
+
+export const PopupModalDeleteDiscussion = atom({
+  key: "modal-popup-delete-Discussion",
+  default: false,
+});
+
+export const PopupModalEditDiscussion = atom({
+  key: "modal-popup-edit-Discussion",
+  default: false,
+});
+
+
