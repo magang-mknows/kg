@@ -7,6 +7,7 @@ import Search from "./Search";
 import PopupModalCreateDiscussion from "../PopupModalCreateDiscussion";
 import PopupModalDeleteDiscussion from "../PopupModalDeleteDiscussion";
 import PopupModalEditDiscussion from "../PopupModalEditDiscussion";
+import SuspenseError from "@/modules/Common/SuspenseError";
 
 const Content: FC = (): ReactElement => {
   return (
@@ -14,9 +15,11 @@ const Content: FC = (): ReactElement => {
       <Search />
       <Post />
       <Comment />
-      <PopupModalCreateDiscussion />
-      <PopupModalEditDiscussion />
-      <PopupModalDeleteDiscussion />
+      <SuspenseError>
+        <PopupModalEditDiscussion />
+        <PopupModalCreateDiscussion />
+        <PopupModalDeleteDiscussion />
+      </SuspenseError>
     </section>
   );
 };
