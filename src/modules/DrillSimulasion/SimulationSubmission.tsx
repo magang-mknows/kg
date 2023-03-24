@@ -63,7 +63,7 @@ const SimulationSubmission: FC = (): ReactElement => {
                   {items.title}
                 </div>
                 <div className="flex mt-4 justify-end">
-                  <Link href={`/perubahan-jadwal/${items.title}`}>
+                  <Link href={`${items.schedule !== 0 ? `/perubahan-jadwal/${items.title}` : ""} `}>
                     <Button
                       disabled={items.schedule === 0 ? true : false}
                       type="submit"
