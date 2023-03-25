@@ -26,8 +26,8 @@ const Landing: FC = (): ReactElement => {
     }
   });
   return (
-    <BaseLayouts>
-      <div ref={ref}>
+   
+      <BaseLayouts ref={ref}>
         <SuspenseError>{inView && <HeroSection />}</SuspenseError>
         <SuspenseError>{inView && <PatnerSection />}</SuspenseError>
         <SuspenseError>{inView && <SekilasSection />}</SuspenseError>
@@ -38,8 +38,8 @@ const Landing: FC = (): ReactElement => {
         <SuspenseError>{inView && <InformationSection />}</SuspenseError>
         <SuspenseError>{inView && <PromotionBanner />}</SuspenseError>
         <SuspenseError>{inView && <Footbar />}</SuspenseError>
-      </div>
-    </BaseLayouts>
+       </BaseLayouts>
+   
   );
 };
 

@@ -54,6 +54,10 @@ export const PopupModalDeleteDiscussion = atom({
   key: "modal-popup-delete-Discussion",
   default: false,
 });
+export const PopupModalReportDiscussion = atom({
+  key: "modal-popup-report-Discussion",
+  default: false,
+});
 export const GetFile = atom({
   key: "get-file",
   default: "",

@@ -61,7 +61,7 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
       withClose={true}
       widthModal={"!w-2/5"}
     >
-      <div className="flex items-center justify-center text-center">
+      <div className="flex items-center justify-center w-full">
         <Form onSubmit={onSubmit}>
           <h1 className="text-center text-neutral-800 text-[20px] font-semibold dark:text-white">
             Edit Diskusi
@@ -74,7 +74,7 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
                 type={"text"}
                 label={"Judul Diskusi"}
                 name={"judulDiskusi"}
-                placeholder={"Ketik Judul Diskusi Kamu"}
+                placeholder={"Bahas Negara"}
                 required={true}
                 className="px-2 py-2 rounded-lg md:mb-2 md:py-3 focus:outline-none"
                 labelClassName="block  mb-2 dark:text-white text-sm font-medium text-gray-900 "
@@ -99,8 +99,6 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
               <p className="text-[12px] text-[#A3A3A3]">Maks. 1000 karakter</p>
             </div>
             <div className="flex justify-end">
-              {isValid ? "valid" : "tidak"}
-
               <GlobalButton
                 className="!w-[111px] !h-[40px]"
                 disabled={!isValid}

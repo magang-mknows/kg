@@ -11,7 +11,6 @@ import simulasiDone from "@/assets/drillSimulation/simulasi-done.svg";
 import simulasiChecked from "@/assets/drillSimulation/simulasi-checked.svg";
 
 const SimulationHistory: FC = (): ReactElement => {
-  // const { getHistorySimulation } = useHistorySimulation();
   const getHistorySimulation = useRecoilValue(filterHistorySimulation);
   const { setPopupStatus, getPopupStatus } = usePopupSubmissionStatus();
 
@@ -72,7 +71,7 @@ const SimulationHistory: FC = (): ReactElement => {
                         </p>
                       </div>
                     ) : (
-                      <Link href={"/perubahan-jadwal"}>
+                      <Link href={`/perubahan-jadwal/${items.title}`}>
                         <button className="bg-[#FAB317] text-white md:text-[14px] text-[12px] font-[600] rounded-[8px] px-4 py-2 md:w-[230px] w-[200px] md:h-[36px] h-[30px] md:mt-3 mt-0">
                           Ajukan Perubahan Jadwal
                         </button>

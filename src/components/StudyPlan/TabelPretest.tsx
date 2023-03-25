@@ -4,12 +4,12 @@ import { useDataTable } from "@/hooks/StudyPlan/useDataTable";
 import Example1 from "@/assets/StudyPlan/example1.svg";
 import Example2 from "@/assets/StudyPlan/example2.svg";
 import Delete from "@/assets/StudyPlan/Delete.svg";
-import PopupUploadStudyPlan from "@/components/StudyPlan/PopUps/PopupUploadStudyPlan";
 import { usePopupUploadStudyPlan } from "@/hooks/StudyPlan/usePopupUploadStudyPlan";
+import { usePopupDeleteStudyPlan } from "@/hooks/StudyPlan/usePopupDeleteStudyPlan";
 import { usePopupSubmissionStudyPlan } from "@/hooks/StudyPlan/usePopupSubmissionStudyPlan";
+import PopupUploadStudyPlan from "@/components/StudyPlan/PopUps/PopupUploadStudyPlan";
 import PopupSubmissionStudyPlan from "./PopUps/PopupSubmissionStudyPlan";
 import PopupDeleteStudyPlan from "./PopUps/PopupDeleteStudyPlan";
-import { usePopupDeleteStudyPlan } from "@/hooks/StudyPlan/usePopupDeleteStudyPlan";
 import PopupSuccessStudyPlan from "./PopUps/PopupSuccessStudyPlan";
 
 const tabel = [
@@ -35,8 +35,8 @@ const tabel = [
 
 const TabelPretest: FC = (): ReactElement => {
   const { setPopupUploadStatus } = usePopupUploadStudyPlan();
-  const { popupSubmissionStatus, setPopupSubmissionStatus } = usePopupSubmissionStudyPlan();
-  const { popupDeleteStatus, setPopupDeleteStatus } = usePopupDeleteStudyPlan();
+  const { setPopupSubmissionStatus } = usePopupSubmissionStudyPlan();
+  const { setPopupDeleteStatus } = usePopupDeleteStudyPlan();
   const { getDataTable } = useDataTable();
   return (
     <>

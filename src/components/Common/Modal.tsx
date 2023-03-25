@@ -30,7 +30,7 @@ const Modal: FC<ModalProps> = ({
                 className={`relative w-auto overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 ${widthModal} `}
               >
                 <div className="w-full px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
-                  <div className="flex items-center justify-between w-full">
+                  <div className={`flex items-center justify-between w-full ${"!justify-end"}`}>
                     {hasImage && (
                       <Image
                         src="/logo-light.svg"
