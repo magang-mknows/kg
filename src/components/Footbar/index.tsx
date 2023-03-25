@@ -6,6 +6,7 @@ import Image from "next/image";
 import { LoadConditionalLogo } from "@/utilities/helper/index";
 import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 import Link from "next/link";
+import PlayStore from "@/assets/footbar//google-play-store.svg";
 import { FaLinkedinIn } from "react-icons/fa";
 import { RiFacebookFill } from "react-icons/ri";
 
@@ -21,7 +22,7 @@ const Footbar: FC = (): ReactElement => {
         dark:bg-[#222529]
         transition-all ease-in-out duration-300"
     >
-      <div className="py-10 mx-10 text-justify  md:text-justify lg:mx-20 md:mx-14 md:py-5 ">
+      <div className="py-10 mx-56 text-justify  md:text-justify lg:mx-20 md:mx-14 md:py-5 ">
         <div className="grid gap-10  grid-1 md:grid-cols-2 lg:grid-cols-4">
           {/* kampus gratis */}
           <div className="text-sm w-full lg:w-[360px]">
@@ -55,14 +56,14 @@ const Footbar: FC = (): ReactElement => {
                   </Link>
                 </div>
               </div>
-              <div className="mt-[-10px] flex justify-end">
+              <div className="mt-[6px] flex justify-end">
                 <a href="play.google.com" className="">
                   <Image
                     className="lg:w-full lg:h-[62px]"
-                    src={"@/assets/footbar/google-play-store.svg"}
+                    src={PlayStore}
                     alt="Google Play Store"
-                    width={50}
-                    height={50}
+                    width={120}
+                    height={120}
                   />
                 </a>
               </div>
