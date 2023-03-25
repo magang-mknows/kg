@@ -1,17 +1,29 @@
-import { FC, ReactElement, lazy, Suspense } from "react";
+import { FC, ReactElement, lazy, Suspense, useState } from "react";
 import BaseLayouts from "@/layouts/Base";
-import { Tab } from "@headlessui/react";
 import { contractStudyBreadCumbs } from "@/utilities/constant";
 import MainLayouts from "@/layouts/Main";
 import Contract from "./Contract";
 import Draft from "./Draft";
 import PreTest from "./PreTest";
 import Submission from "./Submission";
+import { usePopupAddStudy } from "@/hooks/Common/UsePopupAddStudy";
+import { usePopupSucces } from "@/hooks/Common/usePopupSucces";
 
 import Loading from "@/components/Loading";
 
 const BreadCrumbs = lazy(() => import("@/components/StudyPlan/BreadCumb"));
 const DetailContract: FC = (): ReactElement => {
+  const [active, setactive] = useState("kontrak-krs");
+  const { setPopupAdd } = usePopupAddStudy();
+  const { setPopupSuccess } = usePopupSucces();
+  const moveKRS = (): void => {
+    setactive("draft-krs");
+    setPopupAdd(false);
+  };
+  const moveKonversi = (): void => {
+    setactive("konversi");
+    setPopupSuccess(false);
+  };
   return (
     <BaseLayouts>
       <Suspense fallback={<Loading />}>
@@ -22,82 +34,86 @@ const DetailContract: FC = (): ReactElement => {
             <p className="text-[20px] font-semibold">Software Engineering</p>
           </div>
 
-          <div className="p-4 mt-6">
-            <Tab.Group>
-              <Tab.List
-                as={"div"}
-                className=" mb-10 border-b-2 flex gap-6 px-2 text-lg text-neutral-400 font-medium"
-              >
-                <Tab>
-                  {({ selected }) => (
-                    <div
-                      className={`${
-                        selected
-                          ? "border-b-2 outline-none font-semibold  border-primary-500 text-primary-500"
-                          : ""
-                      } py-2 px-4 cursor-pointer`}
-                    >
-                      Kontrak KRS
-                    </div>
-                  )}
-                </Tab>
-                <Tab as={"div"}>
-                  {({ selected }) => (
-                    <div
-                      className={`${
-                        selected
-                          ? "border-b-2 outline-none font-semibold border-primary-500 text-primary-500"
-                          : ""
-                      } py-2 px-4 cursor-pointer`}
-                    >
-                      Draft KRS
-                    </div>
-                  )}
-                </Tab>
-                <Tab as={"div"}>
-                  {({ selected }) => (
-                    <div
-                      className={`${
-                        selected
-                          ? "border-b-2 outline-none font-semibold border-primary-500 text-primary-500"
-                          : ""
-                      } py-2 px-4 cursor-pointer`}
-                    >
-                      Pre - Test
-                    </div>
-                  )}
-                </Tab>
-                <Tab as={"div"}>
-                  {({ selected }) => (
-                    /* Use the `selected` state to conditionally style the selected tab. */
-                    <div
-                      className={`${
-                        selected
-                          ? "border-b-2 outline-none font-semibold border-primary-500 text-primary-500"
-                          : ""
-                      } py-2 px-4 cursor-pointer`}
-                    >
-                      Pengajuan
-                    </div>
-                  )}
-                </Tab>
-              </Tab.List>
-              <Tab.Panels>
-                <Tab.Panel>
-                  <Contract />
-                </Tab.Panel>
-                {/* riwayat simulasi */}
-                <Tab.Panel>
-                  <Draft />
-                </Tab.Panel>
-                <Tab.Panel>
-                  <PreTest />
-                </Tab.Panel>
-                <Tab.Panel>
-                  <Submission />
-                </Tab.Panel>
-              </Tab.Panels>
-            </Tab.Group>
+          <div>
+            <div className="bg-white h-full rounded-[8px] dark:bg-gray-800 ">
+              <div className="text-[18px] font-semibold text-center text-gray-400 border-b border-gray-200  px-[26px] mb-10">
+                <ul className="flex flex-wrap ">
+                  <li className="mr-2">
+                    <button>
+                      <a
+                        className={`inline-block p-4 ${
+                          active == "kontrak-krs"
+                            ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                            : ""
+                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
+                        aria-current="page"
+                        onClick={() => setactive("kontrak-krs")}
+                      >
+                        Kontrak KRS
+                      </a>
+                    </button>
+                  </li>
+                  <li className="mr-2">
+                    <button>
+                      <a
+                        className={`inline-block p-4 ${
+                          active == "draft-krs"
+                            ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                            : ""
+                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  dark:text-white `}
+                        aria-current="page"
+                        onClick={() => setactive("draft-krs")}
+                      >
+                        Draft KRS
+                      </a>
+                    </button>
+                  </li>
+                  <li className="mr-2">
+                    <button>
+                      <a
+                        className={`inline-block p-4 ${
+                          active == "konversi"
+                            ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                            : ""
+                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
+                        aria-current="page"
+                        onClick={() => setactive("konversi")}
+                      >
+                        Konversi
+                      </a>
+                    </button>
+                  </li>
+                  <li className="mr-2">
+                    <button>
+                      <a
+                        className={`inline-block p-4 ${
+                          active == "pengajuan"
+                            ? "text-[#0B568D] border-[#ffff] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                            : ""
+                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white `}
+                        aria-current="page"
+                        onClick={() => setactive("pengajuan")}
+                      >
+                        Pengajuan
+                      </a>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              {active === "kontrak-krs" ? (
+                <Contract onClick={() => moveKRS()} onMove={() => moveKonversi()} />
+              ) : active === "draft-krs" ? (
+                <Draft />
+              ) : active === "konversi" ? (
+                <PreTest />
+              ) : active === "pengajuan" ? (
+                <Submission />
+              ) : (
+                <span>Tidak ada data</span>
+              )}
+            </div>
           </div>
         </MainLayouts>
       </Suspense>

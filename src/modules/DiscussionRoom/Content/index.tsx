@@ -4,12 +4,25 @@ import Comment from "./Post/Coment";
 
 import Search from "./Search";
 
+import PopupModalCreateDiscussion from "../PopupModalCreateDiscussion";
+import PopupModalDeleteDiscussion from "../PopupModalDeleteDiscussion";
+import PopupModalEditDiscussion from "../PopupModalEditDiscussion";
+import PopupModalReportDiscussion from "../PopupModalReportDiscussion";
+
+import SuspenseError from "@/modules/Common/SuspenseError";
+
 const Content: FC = (): ReactElement => {
   return (
     <section className="bg-white dark:bg-[#1B1E21] rounded-md shadow-sm py-8 px-8 ">
       <Search />
       <Post />
       <Comment />
+      <SuspenseError>
+        <PopupModalEditDiscussion />
+        <PopupModalCreateDiscussion />
+        <PopupModalDeleteDiscussion />
+        <PopupModalReportDiscussion />
+      </SuspenseError>
     </section>
   );
 };

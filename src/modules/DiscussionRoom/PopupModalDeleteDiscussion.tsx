@@ -1,10 +1,23 @@
-import GlobalButton from "@/components/Common/GlobalButton";
-import Image from "next/image";
-import { FC, Fragment, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 
-const DeleteConfirmation: FC = (): ReactElement => {
+import Modal from "@/components/Common/Modal";
+
+import GlobalButton from "@/components/Common/GlobalButton";
+
+import { PopupModalProps } from "@/components/Common/types";
+import { usePopupDeleteDiscussionStatus } from "@/hooks/Discussion/usePopupDeleteDiscussionStatus";
+
+const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
+  const { setPopupStatus, getPopupStatus } = usePopupDeleteDiscussionStatus();
+
   return (
-    <Fragment>
+    <Modal
+      lookup={getPopupStatus}
+      onClose={() => setPopupStatus(!getPopupStatus)}
+      hasButton={true}
+      hasImage={false}
+      withClose={true}
+    >
       <div className="flex flex-col justify-center gap-8 p-6 bg-white rounded-lg">
         <div className="grid gap-3 text-center">
           <svg
@@ -30,8 +43,8 @@ const DeleteConfirmation: FC = (): ReactElement => {
           <GlobalButton className="!w-[236px]" text={"Tidak"} color="blue" />
         </div>
       </div>
-    </Fragment>
+    </Modal>
   );
 };
 
-export default DeleteConfirmation;
+export default PopupModalDeleteDiscussion;

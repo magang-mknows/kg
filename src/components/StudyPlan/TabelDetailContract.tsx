@@ -1,30 +1,22 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import Example1 from "@/assets/StudyPlan/example1.svg";
-import Example2 from "@/assets/StudyPlan/example2.svg";
+import { useDataTable } from "@/hooks/StudyPlan/useDataTable";
+import Confirm from "@/assets/StudyPlan/Confirm.svg";
+import Success from "@/assets/StudyPlan/Success.svg";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import Button from "../Common/Button";
+import { usePopupConfirmStatus } from "@/hooks/Common/usePopupConfirmSatus";
+import { usePopupSucces } from "@/hooks/Common/usePopupSucces";
+import { usePopupAddStudy } from "@/hooks/Common/UsePopupAddStudy";
 
-const tabel = [
-  {
-    no: 1,
-    matkul: "Bahasa Inggris",
-    img: Example1,
-    jmlh_mahasiswa: 15,
-    kode_matkul: "123ASD65",
-    jmlh_sks: 4,
-    tindakan: "tambah",
-  },
-  {
-    no: 2,
-    matkul: "Kalkulus",
-    img: Example2,
-    jmlh_mahasiswa: 21,
-    kode_matkul: "AHHH824",
-    jmlh_sks: 8,
-    tindakan: "hapus",
-  },
-];
+import PopupModal from "@/components/Common/PopupModal";
+import { moveProps } from "./types";
+const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement => {
+  const { getDataTable } = useDataTable();
+  const { setPopupStatus, getPopupStatus } = usePopupConfirmStatus();
+  const { setPopupSuccess, getPopupSuccess } = usePopupSucces();
+  const { setPopupAdd, getPopupAdd } = usePopupAddStudy();
 
-const TabelDetailContract: FC = (): ReactElement => {
   return (
     <>
       <div className="p-8">
@@ -34,11 +26,12 @@ const TabelDetailContract: FC = (): ReactElement => {
               <th className="p-3 rounded-md">No.</th>
               <th className="text-start ">Mata Kuliah</th>
               <th className="text-start">Kode Matkul</th>
-              <th className="text-start">Jumlah SKS</th>
+              <th className="text-start">SKS</th>
+              <th className="text-start">Semester</th>
               <th className="text-start">Tindakan</th>
             </tr>
           </thead>
-          {tabel.map((x, i) => (
+          {getDataTable.map((x, i) => (
             <tbody key={i} className="divide-y dark:divide-gray-700  ">
               <tr className="border">
                 <td className="p-3 text-center">{x.no}</td>
@@ -57,54 +50,58 @@ const TabelDetailContract: FC = (): ReactElement => {
                 </td>
                 <td>{x.kode_matkul}</td>
                 <td>{x.jmlh_sks} SKS</td>
-                <td
-                  className={`flex gap-2 items-center p-4 font-semibold ${
-                    x.tindakan === "tambah" ? "text-blue-600" : "text-red-600"
-                  }`}
-                >
-                  {x.tindakan === "tambah" ? (
-                    <svg
-                      width="25"
-                      height="25"
-                      viewBox="0 0 25 25"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        y="0.311523"
-                        width="24.3762"
-                        height="24.3762"
-                        rx="12.1881"
-                        fill="#106FA4"
-                      />
-                      <path
-                        d="M19.298 13.515H13.204V19.6091H11.1727V13.515H5.07861V11.4837H11.1727V5.38965H13.204V11.4837H19.298V13.515Z"
-                        fill="white"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      width="25"
-                      height="25"
-                      viewBox="0 0 25 25"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        y="0.311523"
-                        width="24.3762"
-                        height="24.3762"
-                        rx="12.1881"
-                        fill="#EE2D24"
-                      />
-                      <path
-                        d="M16.4971 18.2445L12.188 13.9354L7.87885 18.2445L6.44247 16.8081L10.7516 12.499L6.44247 8.18986L7.87885 6.75348L12.188 11.0626L16.4971 6.75348L17.9335 8.18986L13.6244 12.499L17.9335 16.8081L16.4971 18.2445Z"
-                        fill="white"
-                      />
-                    </svg>
-                  )}
+                <td>Semester {x.semester}</td>
+                <td>
+                  <button
+                    className={`flex gap-2 items-center p-4 font-semibold ${
+                      x.tindakan_kontrak === "tambah" ? "text-blue-600" : "text-red-600"
+                    }`}
+                    onClick={() => setPopupStatus(true)}
+                  >
+                    {x.tindakan_kontrak === "tambah" ? (
+                      <svg
+                        width="25"
+                        height="25"
+                        viewBox="0 0 25 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          y="0.311523"
+                          width="24.3762"
+                          height="24.3762"
+                          rx="12.1881"
+                          fill="#106FA4"
+                        />
+                        <path
+                          d="M19.298 13.515H13.204V19.6091H11.1727V13.515H5.07861V11.4837H11.1727V5.38965H13.204V11.4837H19.298V13.515Z"
+                          fill="white"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        width="25"
+                        height="25"
+                        viewBox="0 0 25 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          y="0.311523"
+                          width="24.3762"
+                          height="24.3762"
+                          rx="12.1881"
+                          fill="#EE2D24"
+                        />
+                        <path
+                          d="M16.4971 18.2445L12.188 13.9354L7.87885 18.2445L6.44247 16.8081L10.7516 12.499L6.44247 8.18986L7.87885 6.75348L12.188 11.0626L16.4971 6.75348L17.9335 8.18986L13.6244 12.499L17.9335 16.8081L16.4971 18.2445Z"
+                          fill="white"
+                        />
+                      </svg>
+                    )}
 
-                  {x.tindakan === "tambah" ? " tambah " : "hapus"}
+                    {x.tindakan_kontrak === "tambah" ? " tambah " : "hapus"}
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -120,6 +117,91 @@ const TabelDetailContract: FC = (): ReactElement => {
             </tr>
           </tfoot>
         </table>
+        <SuspenseError>
+          <PopupModal
+            onClose={() => setPopupStatus(false)}
+            icon={Confirm}
+            popupTitle="Konfirmasi"
+            lookup={getPopupStatus}
+            className="!h-80 !w-[100%] text-md py-10"
+          >
+            <h1 className="py-2 text-2xl">Apakah anda sudah mempelajari mata kuliah ini?</h1>
+            <div className="flex gap-3 my-2 py-4">
+              <Button
+                text="Pernah"
+                className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+                onClick={() => {
+                  setPopupSuccess(true);
+                  setPopupStatus(false);
+                }}
+                type={"button"}
+              />
+              <Button
+                className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+                type={"button"}
+                text="Belum"
+                onClick={() => {
+                  setPopupAdd(true);
+                  setPopupStatus(false);
+                }}
+              />
+            </div>
+          </PopupModal>
+        </SuspenseError>
+        <SuspenseError>
+          <PopupModal
+            onClose={() => setPopupSuccess(false)}
+            icon={Success}
+            popupTitle="Berhasil"
+            lookup={getPopupSuccess}
+            className="!h-80 !w-[100%] text-md py-10"
+          >
+            <h1 className="py-2 text-2xl">
+              Mata kuliah berhasil di tambah ke <span className="font-bold">Konversi</span>
+            </h1>
+            <div className="flex gap-3 my-2 py-4">
+              <Button
+                text="Lihat Konversi"
+                className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+                onClick={onMove}
+                type={"button"}
+              />
+              <Button
+                className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+                type={"button"}
+                text="Kembali"
+                onClick={() => setPopupSuccess(false)}
+              />
+            </div>
+          </PopupModal>
+        </SuspenseError>
+        <SuspenseError>
+          <PopupModal
+            onClose={() => setPopupSuccess(false)}
+            icon={Success}
+            popupTitle="Berhasil"
+            lookup={getPopupAdd}
+            className="!h-80 !w-[100%] text-md py-10"
+          >
+            <h1 className="py-2 text-2xl">
+              Mata kuliah berhasil di tambah ke <span className="font-bold">Draft KRS</span>
+            </h1>
+            <div className="flex gap-3 my-2 py-4">
+              <Button
+                text="Lihat Draft KRS"
+                className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+                onClick={onClick}
+                type={"button"}
+              />
+              <Button
+                className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+                type={"button"}
+                text="Kembali"
+                onClick={() => setPopupAdd(false)}
+              />
+            </div>
+          </PopupModal>
+        </SuspenseError>
       </div>
     </>
   );

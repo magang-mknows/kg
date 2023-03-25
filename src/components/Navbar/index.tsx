@@ -27,7 +27,7 @@ const Navbar: FC = (): ReactElement => {
             : isScrollY === "onRender"
             ? "absolute top-0 "
             : ""
-        } bg-white dark:bg-[#222529]  z-[9999] left-0 w-full transition-all ease-in duration-300`}
+        } bg-white dark:bg-[#222529]  z-50 left-0 w-full transition-all ease-in duration-300`}
       >
         <UpperSection />
         {isScrollY === "onRender" && (

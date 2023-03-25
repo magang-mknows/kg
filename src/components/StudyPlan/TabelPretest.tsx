@@ -1,29 +1,9 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import Example1 from "@/assets/StudyPlan/example1.svg";
-import Example2 from "@/assets/StudyPlan/example2.svg";
-const tabel = [
-  {
-    no: 1,
-    matkul: "Bahasa Inggris",
-    img: Example1,
-    jmlh_mahasiswa: 15,
-    kode_matkul: "123456ASD",
-    jmlh_sks: 4,
-    tindakan: "abc.pdf",
-  },
-  {
-    no: 2,
-    matkul: "Kalkulus",
-    img: Example2,
-    jmlh_mahasiswa: 21,
-    kode_matkul: "18ASl22",
-    jmlh_sks: 8,
-    tindakan: "Upload",
-  },
-];
+import { useDataTable } from "@/hooks/StudyPlan/useDataTable";
 
 const TabelPretest: FC = (): ReactElement => {
+  const { getDataTable } = useDataTable();
   return (
     <>
       <div className="p-8">
@@ -33,12 +13,15 @@ const TabelPretest: FC = (): ReactElement => {
               <th className="p-3 rounded-md">No.</th>
               <th className="text-start ">Mata Kuliah</th>
               <th className="text-start">Kode Matkul</th>
-              <th className="text-start">Jumlah SKS</th>
+              <th className="text-start">SKS</th>
+              <th className="text-start">Semester</th>
+              <th className="text-start">Upload</th>
               <th className="text-start">Tindakan</th>
-              <th className="text-start">Ajukan</th>
+              <th className="text-start">Status</th>
+              <th className="text-start">Waktu Selesai</th>
             </tr>
           </thead>
-          {tabel.map((x, i) => (
+          {getDataTable.map((x, i) => (
             <tbody key={i} className="divide-y dark:divide-gray-700  ">
               <tr className="border">
                 <td className="p-3 text-center">{x.no}</td>
@@ -57,9 +40,10 @@ const TabelPretest: FC = (): ReactElement => {
                 </td>
                 <td>{x.kode_matkul}</td>
                 <td>{x.jmlh_sks} SKS</td>
+                <td>Semester {x.semester}</td>
 
-                <td className={`flex p-4 ${x.tindakan === "Upload" && "text-green-600"}`}>
-                  {x.tindakan === "Upload" && (
+                <td className={`flex p-4 ${x.tindakan_pretest === "Upload" && "text-green-600"}`}>
+                  {x.tindakan_pretest === "Upload" && (
                     <svg
                       width="25"
                       height="26"
@@ -91,10 +75,10 @@ const TabelPretest: FC = (): ReactElement => {
                       <g mask="url(#mask0_3705_3416)"></g>
                     </svg>
                   )}
-                  {x.tindakan}
+                  {x.tindakan_pretest}
                 </td>
                 <td>
-                  {x.tindakan === "Upload" ? (
+                  {x.tindakan_pretest === "Upload" ? (
                     <button className="p-2 px-4 bg-gray-400 text-gray-300 font-semibold rounded-md">
                       Ajukan
                     </button>
@@ -104,6 +88,8 @@ const TabelPretest: FC = (): ReactElement => {
                     </button>
                   )}
                 </td>
+                <td>{x.status}</td>
+                <td className="text-gray-400">{x.waktu_selesai}</td>
               </tr>
             </tbody>
           ))}
