@@ -2,7 +2,7 @@ name: Testing
 
 on:
   pull_request:
-    types: [closed, opened]
+    types: [opened]
 
 jobs:
   lint:
