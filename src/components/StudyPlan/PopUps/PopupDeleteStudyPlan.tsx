@@ -13,18 +13,21 @@ const PopupDeleteStudyPlan: FC = (): ReactElement => {
       icon={Delete}
       popupTitle="Konfirmasi"
       lookup={popupDeleteStatus}
-      className="!h-80 !w-[100%] text-md py-10"
+      className="!h-60 !w-[100%] text-md"
+      widthModal="!w-[560px]"
     >
-      <h1 className="py-2 text-2xl">Apakah anda ingin menghapus mata kuliah ini?</h1>
-      <div className="flex gap-3 my-2 py-4">
+      <h1 className="py-2 text-xl font-normal text-black">
+        Apakah anda ingin menghapus mata kuliah ini?
+      </h1>
+      <div className="flex justify-center gap-3 w-[90%] mt-4">
         <Button
           text="Ya, Hapus"
-          className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+          className="w-[40%] md:w-[230px] h-[48px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
           onClick={() => setPopupDeleteStatus(false)}
           type={"button"}
         />
         <Button
-          className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+          className="w-[40%] md:w-[230px] h-[48px] bg-[#106FA4] rounded-[8px] text-white"
           type={"button"}
           text="Tidak"
           onClick={() => setPopupDeleteStatus(false)}
