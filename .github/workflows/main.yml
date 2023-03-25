@@ -1,8 +1,8 @@
-name: Test Build and Lint
+name: Testing
 
 on:
   pull_request:
-    types: [closed, opened]
+    types: [opened]
 
 jobs:
   lint:
@@ -13,6 +13,15 @@ jobs:
           node-version: 18
       - run: yarn install
       - run: yarn lint
+
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          node-version: 18
+      - run: yarn install
+      - run: yarn test
 
   build:
     runs-on: ubuntu-latest

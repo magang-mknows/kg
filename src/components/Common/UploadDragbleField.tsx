@@ -18,6 +18,8 @@ const UploadDragbleField: FC<UploadFieldProps> = forwardRef(
           <Image src={URL.createObjectURL(props.path)} width={400} height={400} alt={"drag"} />
         ) : props.path && !ACCEPTED_IMAGE_TYPES.includes(props.type as string) ? (
           <video width={400} controls height={400} src={URL.createObjectURL(props.path)} />
+        ) : props.path && props.type === "application/pdf" ? (
+          <span>{props.type}</span>
         ) : (
           <label className="flex flex-col items-center w-full px-4 py-6 bg-[#F5F5F5] rounded-lg cursor-pointer hover:text-white">
             <svg
@@ -108,7 +110,6 @@ const UploadDragbleField: FC<UploadFieldProps> = forwardRef(
             <input ref={ref} {...getInputProps(props)} {...props} className="hidden" type="file" />
           </label>
         )}
-        
       </div>
     );
   },
