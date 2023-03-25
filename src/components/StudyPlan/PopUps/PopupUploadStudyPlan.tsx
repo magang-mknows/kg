@@ -14,7 +14,7 @@ const PopupUploadStudyPlan: FC = (): ReactElement => {
       hasButton={false}
       hasImage={false}
       withClose={false}
-      widthModal={"!w-[78%]"}
+      widthModal={"w-[90%] sm:w-[78%]"}
     >
       <AiOutlineClose
         onClick={() => setPopupUploadStatus(false)}
