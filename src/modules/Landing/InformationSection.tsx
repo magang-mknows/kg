@@ -23,7 +23,7 @@ const InformationSection: FC = (): ReactElement => {
   };
 
   return (
-    <section className="w-full lg:px-20 md:px-20 px-10 mt-40">
+    <section className="w-full lg:px-20 md:px-20 px-60 mt-40">
       <h1 className="text-center text-2xl lg:text-5xl md:text-3xl font-bold mb-10 text-[#000000] dark:text-[#f9feff]">
         Informasi Untuk Membantu Karirmu
       </h1>

@@ -8,7 +8,7 @@ import GlobalButton from "@/components/Common/GlobalButton";
 const PromotionBanner: FC = (): ReactElement => {
   return (
     <Card
-      className="my-20 lg:mx-[40px] md:px-8 px-6"
+      className="my-20 lg:mx-[40px] md:px-8 mx-60"
       img={InfoLanding}
       imgWidth={""}
       imgHeight={""}
@@ -22,6 +22,7 @@ const PromotionBanner: FC = (): ReactElement => {
           apa lagi?
         </h2>
         <GlobalButton
+          to="/auth/register"
           text="Daftar Sekarang!"
           hasImg={false}
           size="regular"
