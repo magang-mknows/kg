@@ -15,22 +15,23 @@ const PopupSubmissionStudyPlan: FC = (): ReactElement => {
       icon={Confirm}
       popupTitle="Konfirmasi"
       lookup={popupSubmissionStatus}
-      className="!h-80 !w-[100%] text-md py-10"
+      className="!h-60 !w-[100%] text-md"
+      widthModal="!max-w-[540px]"
     >
-      <h1 className="py-2 text-2xl">
+      <h1 className="py-2 text-xl font-normal text-black">
         Kamu akan mengajukan konversi pada mata kuliah Logika Algoritma
       </h1>
-      <div className="flex gap-3 my-2 py-4">
+      <div className="flex justify-center gap-3 mt-4 -mb-4 w-full">
         <Button
           text="Kembali"
-          className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+          className="w-[40%] md:w-[230px] h-12 border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
           onClick={() => {
             setPopupSubmissionStatus(false);
           }}
           type={"button"}
         />
         <Button
-          className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+          className="w-[40%] md:w-[230px] h-12 bg-[#106FA4] rounded-[8px] text-white"
           type={"button"}
           text="Lanjut"
           onClick={() => {
