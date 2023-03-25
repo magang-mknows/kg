@@ -11,7 +11,7 @@ const Accordion: FC<AccordionProps> = ({
 }): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   return (
-    <div data-accordion="collapse" className="mb-8">
+    <div data-accordion="collapse" data-testid="accordion" className="mb-8">
       <h2>
         <button
           onClick={() => (isOpen == "" ? setIsOpen(`${idAccordion}`) : setIsOpen(""))}
