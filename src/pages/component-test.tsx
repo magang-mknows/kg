@@ -4,7 +4,6 @@ import ControlledUploadField from "@/components/ControlledInputs/ControlledUploa
 import { NextPage } from "next";
 import { ReactElement } from "react";
 import { useForm } from "react-hook-form";
-import videoDummy from "@/assets/guide/video-dummy.svg";
 
 const TestPages: NextPage = (): ReactElement => {
   const { control, handleSubmit } = useForm({
@@ -19,8 +18,6 @@ const TestPages: NextPage = (): ReactElement => {
   const onSubmit = handleSubmit((data) => {
     console.log(data);
   });
-
-  console.log(typeof videoDummy);
 
   return (
     <section className="flex items-center justify-center bg-gray-50 w-full h-screen">
