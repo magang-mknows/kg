@@ -1,6 +1,6 @@
 import { sceduleSimulationState } from "@/stores/Simulation";
 import { useRecoilState } from "recoil";
-import { StaticImageData } from "next/image";
+import { T } from "@/stores/Simulation/type";
 
 
 type ScheduleReturnTypes = {
@@ -8,14 +8,6 @@ type ScheduleReturnTypes = {
     getScheduleSimulation: Array<T>;
 }
 
-type T = {
-  schedule: number;
-  src: StaticImageData;
-  dosen: string;
-  category: string;
-  title: string;
-  slug: string
-}
 
 export const useScheduleSimulation = (): ScheduleReturnTypes => {
   const [getSchedule, setSchedule] = useRecoilState(

@@ -1,12 +1,12 @@
 import { FC, ReactElement } from "react";
 
 // img
-import GooglePlayStore from "@/assets/footbar/google-play-store.svg";
 import Image from "next/image";
 
 import { LoadConditionalLogo } from "@/utilities/helper/index";
 import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 import Link from "next/link";
+import PlayStore from "@/assets/footbar//google-play-store.svg";
 import { FaLinkedinIn } from "react-icons/fa";
 import { RiFacebookFill } from "react-icons/ri";
 
@@ -22,7 +22,7 @@ const Footbar: FC = (): ReactElement => {
         dark:bg-[#222529]
         transition-all ease-in-out duration-300"
     >
-      <div className="py-10 mx-10 text-justify  md:text-justify lg:mx-20 md:mx-14 md:py-5 ">
+      <div className="py-10 mx-56 text-justify  md:text-justify lg:mx-20 md:mx-14 md:py-5 ">
         <div className="grid gap-10  grid-1 md:grid-cols-2 lg:grid-cols-4">
           {/* kampus gratis */}
           <div className="text-sm w-full lg:w-[360px]">
@@ -56,12 +56,14 @@ const Footbar: FC = (): ReactElement => {
                   </Link>
                 </div>
               </div>
-              <div className="mt-[-10px] flex justify-end">
-                <a href="" className="">
+              <div className="mt-[6px] flex justify-end">
+                <a href="play.google.com" className="">
                   <Image
                     className="lg:w-full lg:h-[62px]"
-                    src={GooglePlayStore}
+                    src={PlayStore}
                     alt="Google Play Store"
+                    width={120}
+                    height={120}
                   />
                 </a>
               </div>
@@ -76,24 +78,24 @@ const Footbar: FC = (): ReactElement => {
             <h6 className="flex text-[18px] font-bold dark:text-white">Halaman</h6>
 
             <p className="mb-2 mt-8 lg:text-[14px]  dark:text-gray-400">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/" className="hover:text-blue-400">
                 Beranda
-              </a>
+              </Link>
             </p>
             <p className="mb-2 lg:text-[14px] dark:text-gray-400">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/fitur" className="hover:text-blue-400">
                 Fitur
-              </a>
+              </Link>
             </p>
             <p className="mb-2 lg:text-[14px] dark:text-gray-400 ">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/mentor" className="hover:text-blue-400">
                 Mentor
-              </a>
+              </Link>
             </p>
             <p className="mb-2 lg:text-[14px] dark:text-gray-400">
-              <a href="#!" className="hover:text-blue-400">
+              <Link href="/panduan" className="hover:text-blue-400">
                 Panduan
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -105,10 +107,10 @@ const Footbar: FC = (): ReactElement => {
             </h6>
 
             <p className="lg:text-[14px] mb-2 mt-8">
-              <a className="dark:text-gray-400">+62 2143 1244 </a>
+              <span className="dark:text-gray-400">+62 2143 1244 </span>
             </p>
             <p className="lg:text-[14px] mb-2">
-              <a className="dark:text-gray-400">kampusgratis123@gmail.com</a>
+              <span className="dark:text-gray-400">kampusgratis123@gmail.com</span>
             </p>
           </div>
 

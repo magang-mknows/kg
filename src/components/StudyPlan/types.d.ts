@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { MouseEventHandler } from "react";
 
 export interface AssigmentProps {
   titleAssigment: string;
@@ -24,4 +25,9 @@ export type BreadCrumbProps = {
 export type AlertProps = {
   detail?: string;
   color?: string;
+};
+
+export type moveProps = {
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  onMove: MouseEventHandler<HTMLButtonElement>;
 };

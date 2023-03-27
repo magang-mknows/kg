@@ -23,11 +23,11 @@ const InformationSection: FC = (): ReactElement => {
   };
 
   return (
-    <section className="w-full lg:px-10 md:px-8 px-6 mt-40">
+    <section className="w-full lg:px-20 md:px-20 px-60 mt-40">
       <h1 className="text-center text-2xl lg:text-5xl md:text-3xl font-bold mb-10 text-[#000000] dark:text-[#f9feff]">
         Informasi Untuk Membantu Karirmu
       </h1>
-      <div className="justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
+      <div className="justify-between grid lg:grid-cols-3 md:grid-cols-1  lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5">
         {getInformation.slice(0, 3).map((dummy, i) => {
           const color = handleColor(dummy.tag);
           return (

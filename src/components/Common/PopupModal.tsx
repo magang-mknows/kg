@@ -13,9 +13,16 @@ const PopupModal: FC<PopupModalProps> = ({
   children,
   className,
   stylePopup,
+  widthModal,
 }): ReactElement => {
   return (
-    <Modal lookup={lookup as boolean} onClose={onClose} hasButton={true} withClose={true}>
+    <Modal
+      lookup={lookup as boolean}
+      onClose={onClose}
+      hasButton={true}
+      withClose={true}
+      widthModal={widthModal}
+    >
       <div
         className={`flex flex-col items-center justify-center w-full py-10 text-center ${className}`}
       >

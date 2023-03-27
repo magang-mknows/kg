@@ -1,7 +1,4 @@
 import { FC, ReactElement, useState } from "react";
-import Image from "next/image";
-import rescheduleSimulasi from "@/assets/rescheduleSimulasi/dummyReschedule.svg";
-import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
 import afternoon from "@/assets/rescheduleSimulasi/afternoon.svg";
 import warning from "@/assets/rescheduleSimulasi/warning.svg";
 import pengajuan from "@/assets/rescheduleSimulasi/pengajuan.svg";
@@ -16,6 +13,10 @@ import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
 import { useCategorySimulation } from "@/hooks/Simulation/useCategorySimulation";
 import { BsCalendarDate } from "react-icons/bs";
 import { AiOutlineCheck } from "react-icons/ai";
+import Rules from "./rules";
+import { useRouter } from "next/router";
+import { useRecoilValue } from "recoil";
+import { filterSlug } from "@/stores/Simulation";
 
 const Content: FC = (): ReactElement => {
   const [isOpen] = useState("");
@@ -25,15 +26,11 @@ const Content: FC = (): ReactElement => {
   const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
   const [active, setactive] = useState("");
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
-  console.log("data", getCategorySimulation);
-
   const onSucces = (): void => {
     setCategorySimulation("Active"), setPopupStatus(true);
   };
-  // const onReschedule = () => {
-  //   setCategorySimulation("Reschedule");
-  //   setPopupStatus(true);
-  // };
+  const { query } = useRouter();
+  const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
 
   return (
     <div className="px-6 md:px-8 lg:px-10">
@@ -43,38 +40,20 @@ const Content: FC = (): ReactElement => {
       </h1>
 
       <div className="flex lg:flex-row flex-col lg:gap-16 gap-10 mb-20">
-        <div className=" lg:basis-5/12">
-          <Image src={rescheduleSimulasi} alt={"reshedule-image"} />
-          <div className="flex flex-row mt-3">
-            <Image src={iconWarning} alt={"warning"} />
-            <p className="ml-2 text-[#171717] text-[18px] font-[600] dark:text-white">
-              Informasi Mengenai Drill Simulasi & Assessment
-            </p>
-          </div>
-          <p className="mt-3 text-[#171717] dark:text-white text-[14px] font-[400] text-justify">
-            <ol>
-              <li>
-                1. Peserta harus memastikan bahwa perangkat dan teknologi yang digunakan untuk drill
-                simulasi & assessment berfungsi dengan baik. Pastikan bahwa peserta memiliki akses
-                yang cukup dan perangkat yang dapat mendukung drill simulasi & assessment pada LMS.
-              </li>
-              <li>
-                2. Sebelum memulai drill simulasi & assessment pada LMS, pastikan bahwa peserta
-                telah diberikan instruksi yang jelas dan sasaran yang harus dicapai. Sasaran harus
-                sesuai dengan kemampuan dan kebutuhan dari setiap individu yang terlibat dalam drill
-                tersebut.
-              </li>
-            </ol>
-          </p>
-        </div>
-        <div className="lg:basis-7/12">
-          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">
-            Sales dan Penjualan
-          </h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">
-            Bambang Sutiyoso, S.Ak, M.Ak
-          </p>
-          <p className="text-[#737373] text-[16px] font-[400]">Lokasi : Zoom Meeting</p>
+        <section className=" lg:basis-5/12">
+          <Rules />
+        </section>
+        <section className="lg:basis-7/12">
+          {getSlug.map((x, y) => (
+            <div key={y}>
+              <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{x.title}</h1>
+              <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{x.dosen}</p>
+              <p className="text-[#737373] text-[16px] font-[400]">
+                Lokasi : {x.location !== null ? x.location : "Tidak ada lokasi"}
+              </p>
+            </div>
+          ))}
+
           <p className="text-[#171717] text-[14px] font-[600] mt-3 mb-1 dark:text-white">
             Pilih tanggal dan waktu Simulasi
           </p>
@@ -97,7 +76,7 @@ const Content: FC = (): ReactElement => {
                     getChooseSimulation === item.date ? "dark:text-white text-white" : ""
                   }`}
                 >
-                  <BsCalendarDate className="" />
+                  <BsCalendarDate />
                   <p className="text-[12px] font-[400] mt-1">{item.date}</p>
                 </div>
               </button>
@@ -177,31 +156,14 @@ const Content: FC = (): ReactElement => {
             >
               <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
                 Kamu telah mengajukan
-                {getCategorySimulation === "Active" ? " Reschedule Jadwal pertemuan " : ""}
+                {getCategorySimulation === "Active" ? " Reschedule Jadwal pertemuan" : ""}
                 simulasi <br /> di hari {`${getChooseSimulation}`} Pukul{" "}
                 {`${getChooseTimeSimulation}`} WIB, Link Zoom simulasi akan dikirimkan melalui
                 email.
               </p>
             </PopupModal>
           </div>
-        </div>
-
-        {/* <div>
-          <PopupModal
-            icon={warning}
-            image={rescheduleJadwal}
-            popupTitle="Reschedule Jadwal"
-            stylePopup={"font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]"}
-            lookup={getPopupStatus}
-            className="!h-85 w-[100%] text-md py-10"
-            onClose={() => setPopupStatus(false)}
-          >
-            <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
-              Kamu telah mengajukan Reschedule Jadwal pertemuan simulasi, silahkan menunggu jadwal
-              simulasi terbaru.
-            </p>
-          </PopupModal>
-        </div> */}
+        </section>
       </div>
     </div>
   );

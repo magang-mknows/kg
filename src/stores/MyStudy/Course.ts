@@ -10,19 +10,21 @@ export const courseState = atom<Array<Course>>({
         module: "Done",
         quiz: "Done",
         assignment: "Done",
-        disscussion: "In Progress",
+        disscussion: "Done",
       },
-      progress: "Done",
+      progress: [],
+      isOpen: true,
     },
     {
       conference: 2,
       status: {
-        module: "In Progress",
+        module: "Done",
         quiz: "In Progress",
-        assignment: "In Progress",
+        assignment: "Done",
         disscussion: "In Progress",
       },
-      progress: "In Progress",
+      progress: ["In Progress", "In Progress", "In Progress", "In Progress"],
+      isOpen: false,
     },
     {
       conference: 3,
@@ -32,30 +34,31 @@ export const courseState = atom<Array<Course>>({
         assignment: "In Progress",
         disscussion: "In Progress",
       },
-      progress: "In Progress",
+      progress: ["In Progress", "In Progress", "In Progress", "In Progress"],
+      isOpen: false,
     },
   ],
 });
 
+export const moduleState = atom({
+  key: "module",
+  default: false,
+});
+export const quizState = atom({
+  key: "quiz",
+  default: false,
+});
+export const assigmentState = atom({
+  key: "tugas",
+  default: false,
+});
+export const discusionState = atom({
+  key: "diskusi",
+  default: false,
+});
+
 export const changedConferencePrograssState = selector({
   key: "change-conference-progress-course",
-  get: ({ get }) => {
-    const course = get(courseState);
-    const temp: Array<string[]> = [];
-
-    for (let i = 0; i < course.length; i++) {
-      const statusProperty = Object.keys(course[i].status) as Array<keyof Course["status"]>;
-      temp.push([]);
-      for (let j = 0; j < statusProperty.length; j++) {
-        temp[j]?.push(course[i].status[statusProperty[j]]);
-      }
-      const arrayOftemp = temp[i].every((item) => item === "Done");
-      if (arrayOftemp) {
-        course[i].progress = "Done";
-      } else if (!arrayOftemp) {
-        course[i].progress = "In Progress";
-      }
-    }
-    return course;
-  },
+  get: ({ get }) => get(courseState),
+  set: ({ set }, newCourse) => set(courseState, newCourse),
 });

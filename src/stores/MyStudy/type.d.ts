@@ -16,9 +16,19 @@ export type OptionSubject = {
 };
 
 export type Question = {
+  id: number;
   question: string;
-  choices: array;
+  choices: array<string>;
   rightAnswer: string;
+};
+
+export type Instruction = {
+  matkul: string;
+  pertemuan: number;
+  dosen: string;
+  waktu: string;
+  file: string;
+  deadline: string;
 };
 
 export type Course = {
@@ -26,5 +36,6 @@ export type Course = {
   status: {
     [key: string]: "Done" | "In Progress";
   };
-  progress: "Done" | "In Progress";
+  progress: Array<"Done" | "In Progress">;
+  isOpen: boolean;
 };

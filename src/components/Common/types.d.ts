@@ -35,8 +35,10 @@ export type ModalProps = {
   children: ReactNode;
   button?: ReactNode;
   hasButton?: boolean;
+  hasImage?: boolean;
   lookup: boolean;
   withClose?: boolean;
+  widthModal?: string;
   onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement | SVGElement>;
 };
 
@@ -180,4 +182,5 @@ export type PopupModalProps = {
   children?: ReactNode;
   className?: string;
   stylePopup?: string;
+  widthModal?: string;
 };
