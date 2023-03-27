@@ -17,8 +17,8 @@ import { usePopupCreateDiscussionStatus } from "@/hooks/Discussion/usePopupCreat
 const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupCreateDiscussionStatus();
 
-  const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "video/mp4"];
 
   const validationSchema = z.object({
     judulDiskusi: z
@@ -34,7 +34,7 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
       )
       .refine(
         (files: File) => ACCEPTED_MEDIA_TYPES.includes(files?.type),
-        "hanya menerima .jpg, .jpeg, .mp4, dan .webp.",
+        "hanya menerima .jpg, .jpeg, .png, .webp, dan .mp4.",
       ),
   });
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -85,9 +85,7 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
             </div>
             <div className="form-label">
               <section className="flex flex-col my-2 ">
-                <label className={"font-medium text-neutral-800 text-1xl"}>
-                  Isi Diskusi
-                </label>
+                <label className={"font-medium text-neutral-800 text-1xl"}>Isi Diskusi</label>
                 <div className="flex flex-col my-2 border-2 border-neutral-300 gap-y-2 p-[12px] rounded-lg">
                   <input
                     type="text"
