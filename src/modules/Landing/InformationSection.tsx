@@ -39,8 +39,8 @@ const InformationSection: FC = (): ReactElement => {
               imgStyle="w-full"
               icon={
                 <div
-                  className="my-4"
-                  style={{ width: "180px", background: `${color}`, borderRadius: "8px" }}
+                  className="my-4 lg:w-[180px] md:w-[180px] w-[150px]"
+                  style={{ background: `${color}`, borderRadius: "8px" }}
                 >
                   <p
                     style={{
