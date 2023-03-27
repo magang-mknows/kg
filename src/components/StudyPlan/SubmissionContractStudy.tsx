@@ -1,5 +1,4 @@
 import { FC, ReactElement } from "react";
-import MainLayouts from "@/layouts/Main";
 import Confirm from "@/assets/StudyPlan/Confirm.svg";
 import Button from "../Common/Button";
 import PopupModal from "@/components/Common/PopupModal";
@@ -17,21 +16,25 @@ const SubmissionContractStudy: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
 
   return (
-    <MainLayouts>
-      <div className="flex  p-8 py-4 w-[100%] justify-between">
-        <div className="flex flex-col gap-3 w-[100%]">
+    <div className="flex flex-col w-full lg:px-16 px-0 py-6 overflow-auto">
+      <div className="flex p-8 py-4 w-[100%] ">
+        <div className="flex flex-col py-4 pb-4">
           <div className="flex gap-6">
-            <h1 className="text-2xl py-4 font-semibold">Pengajuan Kartu Rencana Study</h1>
-            <GlobalButton
-              className="text-center !w-44 !h-14 text-lg py-4 bg-[#3EB449]"
-              text="+ Mengajukan"
-              onClick={() => setPopupStatus(true)}
-              hasImg={false}
-            />
+            <h1 className="flex lg:text-2xl text-xl justify-center items-center font-semibold">
+              Pengajuan Kartu Rencana Study
+            </h1>
+            <div>
+              <GlobalButton
+                className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 bg-[#3EB449]"
+                text="+ Mengajukan"
+                onClick={() => setPopupStatus(true)}
+                hasImg={false}
+              />
+            </div>
           </div>
           {/*isi span dari API */}
           {getDataCard.map((x, i) => (
-            <p key={i} className="flex text-xl justify-between">
+            <p key={i} className="flex lg:text-xl py-2 text-md">
               <div className="flex w-full jutify-start">
                 <span>{x.label}</span>
               </div>
@@ -41,54 +44,56 @@ const SubmissionContractStudy: FC = (): ReactElement => {
             </p>
           ))}
         </div>
-        <div className="flex justify-end items-end gap-2 ">
-          <GlobalButton
-            className="text-center ml-80 "
-            size="regular"
-            color="greenBorder"
-            text="Download Silabus"
-            hasImg={true}
-            icon={Download}
-          />
+      </div>
+      <div className="flex justify-end items-center ">
+        <GlobalButton
+          className="lg:text-center text-start text-md ml-80 "
+          size="regular"
+          color="greenBorder"
+          text="Download Silabus"
+          hasImg={true}
+          icon={Download}
+        />
+      </div>
+      <div className="px-4 mx-auto md:w-full">
+        <div className="my-6 flex mx-4">
+          <table className="mx-auto w-auto border border-gray-200 rounded-lg divide-y divide-neutral-400 dark:divide-gray-700 w-full">
+            <thead className=" bg-gray-100 w-full">
+              <tr>
+                <th className="p-3 rounded-md">No.</th>
+                <th className="text-start ">Mata Kuliah</th>
+                <th className="text-start">Kode Matkul</th>
+                <th className="text-start">SKS</th>
+                <th className="text-start">Semester</th>
+                <th className="text-start">Jumlah Pertemuan</th>
+              </tr>
+            </thead>
+            {getDataTable.map((x, i) => (
+              <tbody key={i} className="divide-y dark:divide-gray-700  ">
+                <tr className="border">
+                  <td className="p-3 text-center">{x.no}</td>
+                  <td>
+                    <div className="flex justify-center w-full gap-4 p-4">
+                      <div>
+                        <Image src={x.img} alt="User" />
+                      </div>
+                      <div className="flex w-full flex-col w-auto">
+                        <h1 className="font-bold text-start">{x.matkul}</h1>
+                        <p className="text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{x.kode_matkul}</td>
+                  <td>{x.jmlh_sks} SKS</td>
+                  <td>Semester {x.semester}</td>
+                  <td>{x.jmlh_pertemuan} Pertemuan</td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
         </div>
       </div>
 
-      <div className="p-8 relative">
-        <table className="overflow-x-auto min-w-full border border-gray-200  rounded-lg divide-y divide-neutral-400 dark:divide-gray-700">
-          <thead className=" bg-gray-100 ">
-            <tr>
-              <th className="p-3 rounded-md">No.</th>
-              <th className="text-start ">Mata Kuliah</th>
-              <th className="text-start">Kode Matkul</th>
-              <th className="text-start">SKS</th>
-              <th className="text-start">Semester</th>
-              <th className="text-start">Jumlah Pertemuan</th>
-            </tr>
-          </thead>
-          {getDataTable.map((x, i) => (
-            <tbody key={i} className="divide-y dark:divide-gray-700  ">
-              <tr className="border">
-                <td className="p-3 text-center">{x.no}</td>
-                <td>
-                  <div className="flex justify-center w-full gap-4 p-4">
-                    <div>
-                      <Image src={x.img} alt="User" />
-                    </div>
-                    <div className="flex w-full flex-col w-auto">
-                      <h1 className="font-bold text-start">{x.matkul}</h1>
-                      <p className="text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
-                    </div>
-                  </div>
-                </td>
-                <td>{x.kode_matkul}</td>
-                <td>{x.jmlh_sks} SKS</td>
-                <td>Semester {x.semester}</td>
-                <td>{x.jmlh_pertemuan} Pertemuan</td>
-              </tr>
-            </tbody>
-          ))}
-        </table>
-      </div>
       <div>
         <PopupModal
           onClose={() => setPopupStatus(false)}
@@ -128,7 +133,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           </div>
         </PopupModal>
       </div>
-    </MainLayouts>
+    </div>
   );
 };
 
