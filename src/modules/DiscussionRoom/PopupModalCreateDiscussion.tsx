@@ -3,16 +3,20 @@ import { FC, ReactElement } from "react";
 import Modal from "@/components/Common/Modal";
 import Form from "@/components/Form";
 
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { z } from "zod";
-import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
+import { useCreateDiscussion } from "@/hooks/Discussion/useCreateDiscussion";
+
 import GlobalButton from "@/components/Common/GlobalButton";
+import { PopupModalProps } from "@/components/Common/types";
+import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
 
-import { PopupModalProps } from "@/components/Common/types";
 import { usePopupCreateDiscussionStatus } from "@/hooks/Discussion/usePopupCreateDiscussionStatus";
+import { handleError } from "@/utilities/helper";
+import { DiscussionPayloadTypes } from "@/services/Discussion";
 
 const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupCreateDiscussionStatus();
@@ -21,11 +25,11 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "video/mp4"];
 
   const validationSchema = z.object({
-    judulDiskusi: z
+    title: z
       .string()
       .min(5, { message: "Min. 5 Karakter" })
       .max(250, { message: "Maks. 250 Karakter" }),
-    upload_media: z
+    images: z
       .any()
       .refine((files: File) => files !== undefined, "Harus ada file yang di upload.")
       .refine(
@@ -36,8 +40,12 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
         (files: File) => ACCEPTED_MEDIA_TYPES.includes(files?.type),
         "hanya menerima .jpg, .jpeg, .png, .webp, dan .mp4.",
       ),
+    content: z.any(),
+    category: z.any(),
   });
+
   type ValidationSchema = z.infer<typeof validationSchema>;
+  const { mutate, isLoading } = useCreateDiscussion();
 
   const {
     control,
@@ -47,13 +55,19 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      judulDiskusi: "",
-      upload_media: undefined,
+      title: "",
+      content: "",
+      images: undefined,
+      category: "",
     },
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    try {
+      mutate(data as DiscussionPayloadTypes);
+    } catch (err) {
+      throw handleError(err);
+    }
   });
   return (
     <Modal
