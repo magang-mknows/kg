@@ -8,8 +8,6 @@ import RankingSection from "./RankingSection";
 import Pagination from "../Event/Common/Pagination";
 import Filter from "./Filter";
 
-
-
 const dummyRanking = [
   {
     name: "Garnes",
