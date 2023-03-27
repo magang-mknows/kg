@@ -2,7 +2,6 @@ import { atom, selectorFamily } from "recoil";
 import { videoGuideTypes } from "./type";
 import VideoDummy from "@/assets/guide/video-dummy.svg";
 
-
 export const videoGuideState = atom<Array<videoGuideTypes>>({
   key: "video-guide-state",
   default: [
@@ -54,7 +53,7 @@ export const videoGuideState = atom<Array<videoGuideTypes>>({
 export const filterOption = selectorFamily({
   key: "filter-option-subject",
   get:
-    (query : string) =>
+    (query: string) =>
     ({ get }) =>
       get(videoGuideState).filter((item) => (item.videoId as string).includes(query)),
 });
