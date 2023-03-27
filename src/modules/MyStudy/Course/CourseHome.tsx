@@ -104,7 +104,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgModuleIcon} alt="" />
                   <Link
                     href="/studi-ku/course/modul"
-                    className="text-base text-neutral-800 dark:text-neutral-400 hover:border-b border-b-neutral-800 dark:border-b-neutral-400"
+                    className="text-base text-neutral-800 dark:text-neutral-400 hover:underline"
                   >
                     Modul
                   </Link>
@@ -118,7 +118,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgQuizIcon} alt="" />
                   <Link
                     href="/studi-ku/course/quiz"
-                    className="text-base text-neutral-800 dark:text-neutral-400 hover:border-b border-b-neutral-800 dark:border-b-neutral-400"
+                    className="text-base text-neutral-800 dark:text-neutral-400 hover:underline"
                   >
                     Quiz
                   </Link>
@@ -132,7 +132,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgAssignmentIcon} alt="" />
                   <Link
                     href="/studi-ku/course/penugasan-test"
-                    className="text-base text-neutral-800 dark:text-neutral-400 hover:border-b border-b-neutral-800 dark:border-b-neutral-400"
+                    className="text-base text-neutral-800 dark:text-neutral-400 hover:underline"
                   >
                     Tugas
                   </Link>
@@ -146,7 +146,7 @@ const CourseHome: FC = (): ReactElement => {
                   <Image src={imgDiscussionIcon} alt="" />
                   <Link
                     href="/studi-ku/course/diskusi"
-                    className="text-base text-neutral-800 dark:text-neutral-400 hover:border-b border-b-neutral-800 dark:border-b-neutral-400"
+                    className="text-base text-neutral-800 dark:text-neutral-400 hover:underline"
                   >
                     Diskusi
                   </Link>

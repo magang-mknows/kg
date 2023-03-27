@@ -15,11 +15,12 @@ const PopupDeleteStudyPlan: FC = (): ReactElement => {
       lookup={popupDeleteStatus}
       className="!h-60 !w-[100%] text-md"
       widthModal="!w-[560px]"
+      hasButton={false}
     >
-      <h1 className="py-2 text-xl font-normal text-black">
+      <h1 className="py-2 text-xl font-normal text-black dark:text-neutral-300">
         Apakah anda ingin menghapus mata kuliah ini?
       </h1>
-      <div className="flex justify-center gap-3 w-[90%] mt-4">
+      <div className="flex justify-center gap-3 w-[90%] my-2">
         <Button
           text="Ya, Hapus"
           className="w-[40%] md:w-[230px] h-[48px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
