@@ -788,3 +788,42 @@ export const guideDictionaryDosen = [
     link: "/panduan/kamus-kampus-gratis/dosen",
   },
 ];
+
+export const testDoangGess = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Panduan",
+    link: "/panduan",
+  },
+  {
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
+  },
+  {
+    name: "Dosen",
+    link: "/panduan/kamus-kampus-gratis/dosen",
+  },
+  {
+    name: "Studi-ku",
+    link: "/studi-ku",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/manajemen-keuangan",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/menejemen-keuangan/diskusi",
+  },
+  {
+    name: "Menejemen Keuangan",
+    link: "/studi-ku/manajemen-keuangan",
+  },
+  {
+    name: "Modul",
+    link: "/studi-ku/menejemen-keuangan/diskusi",
+  },
+];
