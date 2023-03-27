@@ -6,7 +6,8 @@ import Medal from "@/assets/leaderboard/medal.svg";
 import Avatar from "@/assets/leaderboard/avatar.svg";
 import RankingSection from "./RankingSection";
 import Pagination from "../Event/Common/Pagination";
-import Filter from "./Filter";
+import Filter from "./filter";
+
 
 const dummyRanking = [
   {
