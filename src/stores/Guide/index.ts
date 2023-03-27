@@ -1,7 +1,6 @@
 import { atom, selectorFamily } from "recoil";
 import { videoGuideTypes } from "./type";
 import VideoDummy from "@/assets/guide/video-dummy.svg";
-import YoutubeSection from "@/modules/RegistrationVideo/YoutubeSection";
 
 export const videoGuideState = atom<Array<videoGuideTypes>>({
   key: "video-guide-state",
