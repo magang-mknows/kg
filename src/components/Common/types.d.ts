@@ -182,4 +182,5 @@ export type PopupModalProps = {
   children?: ReactNode;
   className?: string;
   stylePopup?: string;
+  widthModal?: string;
 };

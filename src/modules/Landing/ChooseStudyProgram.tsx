@@ -34,8 +34,8 @@ const DataDummy: {
 
 const ChooseStudyProgram: FC = (): ReactElement => {
   return (
-    <section className="w-full my-20 lg:px-24 md:px-8 px-6 pt-10">
-      <h1 className="lg:text-[44px] md:text-[44px] text-[30px] font-bold text-[#262626] dark:text-white">
+    <section className="w-full my-20 lg:px-24 md:px-8 px-24">
+      <h1 className="flex lg:justify-start justify-center lg:text-[44px] md:text-[44px] text-[30px] font-bold text-[#262626] dark:text-white">
         3 Pilihan Program Studi
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5 justify-center lg:justify-between py-[20px]">

@@ -9,6 +9,8 @@ import { useDataCard } from "@/hooks/StudyPlan/useDataCard";
 import Download from "@/assets/StudyPlan/download1.svg";
 import Warning from "@/assets/StudyPlan/warning.svg";
 import { usePopupConfirmCardStudy } from "@/hooks/Common/usePopupConfirmCardStudy";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import Loading from "../Loading";
 
 const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
@@ -94,7 +96,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
         </div>
       </div>
 
-      <div>
+      <SuspenseError loadingFallback={<Loading />}>
         <PopupModal
           onClose={() => setPopupStatus(false)}
           icon={Confirm}
@@ -132,7 +134,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
             />
           </div>
         </PopupModal>
-      </div>
+      </SuspenseError>
     </div>
   );
 };

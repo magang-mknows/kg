@@ -62,3 +62,23 @@ export const GetFile = atom({
   key: "get-file",
   default: "",
 });
+
+export const PopupUploadStudyPlanState = atom({
+  key: "modal-popup-upload-StudyPlan",
+  default: false,
+});
+
+export const PopupSubmissionStudyPlanState = atom({
+  key: "modal-popup-submission-StudyPlan",
+  default: false,
+});
+
+export const PopupDeleteStudyPlanState = atom({
+  key: "modal-popup-delete-StudyPlan",
+  default: false,
+});
+
+export const PopupSuccessStudyPlanState = atom({
+  key: "modal-popup-success-StudyPlan",
+  default: false,
+});
