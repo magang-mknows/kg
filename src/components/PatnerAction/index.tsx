@@ -1,9 +1,9 @@
 import { FC, ReactElement } from "react";
-import Mitra1 from "@/assets/logoPatner/mitra1.png";
-import Mitra2 from "@/assets/logoPatner/mitra2.png";
-import Mitra3 from "@/assets/logoPatner/mitra3.png";
-import Mitra4 from "@/assets/logoPatner/mitra4.png";
-import Mitra5 from "@/assets/logoPatner/mitra5.png";
+import Mitra1 from "@/assets/logoPatner/mitra1.svg";
+import Mitra2 from "@/assets/logoPatner/mitra2.svg";
+import Mitra3 from "@/assets/logoPatner/mitra3.svg";
+import Mitra4 from "@/assets/logoPatner/mitra4.svg";
+import Mitra5 from "@/assets/logoPatner/mitra5.svg";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from "next/image";
