@@ -20,7 +20,7 @@ const PopupUploadStudyPlan: FC = (): ReactElement => {
         onClick={() => setPopupUploadStatus(false)}
         className="text-2xl leading-6 font-extrabold text-black dark:text-gray-400 cursor-pointer absolute top-4 sm:top-10 right-4 sm:right-8"
       />
-      <div className="w-full flex flex-col gap-y-9 p-1 my-3 dark:bg-gray-900">
+      <div className="w-full flex flex-col gap-y-9 p-1 my-3 dark:bg-[#222529]">
         <div className="w-[90%] xl:w-full mx-auto sm:mx-0">
           <h5 className="text-xl text-black dark:text-neutral-300 font-semibold">
             Silahkan mengirimkan bukti untuk dapat mengkonversi mata kuliah ini
