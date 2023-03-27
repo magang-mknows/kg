@@ -183,4 +183,5 @@ export type PopupModalProps = {
   className?: string;
   stylePopup?: string;
   widthModal?: string;
+  hasButton?: boolean;
 };
