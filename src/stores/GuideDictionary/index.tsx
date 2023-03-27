@@ -37,7 +37,7 @@ export const GuideDictionaryState = atom<Array<DictionaryType>>({
       title: "IP",
       description:
         "Adalah singkatan dari “Indeks Prestasi,” yang artinya sama aja kayak nilai akhir semester.",
-      slug: "ip",
+      slug: "indeks-prestasi",
     },
     {
       id: "6",

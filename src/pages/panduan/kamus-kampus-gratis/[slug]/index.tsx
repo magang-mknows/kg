@@ -60,10 +60,10 @@ const GuideDictionaryDetail = (): ReactElement => {
             return (
               <div
                 key={index}
-                className="lg:w-[700px] w-full rounded-[8px] flex flex-col place-content-center my-5 shadow-lg dark:bg-[#232529] text-neutral-700 dark:text-white px-[10px]"
+                className="lg:w-[700px] w-full rounded-[8px] flex flex-col place-content-center my-5 shadow-lg dark:bg-[#232529] text-black dark:text-white px-[10px]"
               >
                 <div className="font-bold text-xl my-1">{item.title}</div>
-                <div className="font-medium my-2">{item.description}</div>
+                <div className="font-medium my-2 text-sm lg:text-base">{item.description}</div>
               </div>
             );
           })}
