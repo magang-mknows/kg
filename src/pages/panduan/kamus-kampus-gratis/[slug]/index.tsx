@@ -10,8 +10,8 @@ import BreadCrumb from "@/components/Assigment/BreadCrumb";
 
 const GuideDictionaryDetail = (): ReactElement => {
   const { query: q } = useRouter();
-  const getOption = useRecoilValue(filterOptionDictionary(q.id as unknown as string));
-  const EndpointBreadCrumb = q.id;
+  const getOption = useRecoilValue(filterOptionDictionary(q.slug as unknown as string));
+  const EndpointBreadCrumb = q.slug;
 
   const BreadCrumbEndpoint = [
     {

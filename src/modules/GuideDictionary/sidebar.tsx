@@ -12,7 +12,7 @@ const Sidebar = (): ReactElement => {
           return (
             <Card
               key={i}
-              href={`/panduan/kamus-kampus-gratis/${dummy.id}`}
+              href={`/panduan/kamus-kampus-gratis/${dummy.slug}`}
               hasImage={false}
               title={dummy.title}
               titleStyle="font-bold text-[16px]"
