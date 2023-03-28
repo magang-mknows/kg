@@ -1,6 +1,6 @@
 export type leaderBoardRankProps = {
     img: string;
-    score: string | number;
+    score: number;
     name: string;
     index?: string | number;
   };

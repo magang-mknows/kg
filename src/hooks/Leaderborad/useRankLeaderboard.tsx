@@ -1,16 +1,16 @@
 import { useRecoilState } from "recoil";
-import { LeaderboardRankState } from "@/stores/Leaderboard/index";
+import { LeaderboardRankState } from "@/stores/Leaderboard";
 import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
 
 type leaderBoardRankTypes = {
-  setHistorySimulation: (val: Array<leaderBoardRankProps>) => void;
-  getHistorySimulation: Array<leaderBoardRankProps>;
+  setRank: (val: Array<leaderBoardRankProps>) => void;
+  getRank: Array<leaderBoardRankProps>;
 };
 
 export const useRankLeaderboard = (): leaderBoardRankTypes => {
   const [get, set] = useRecoilState(LeaderboardRankState);
   return {
-    setHistorySimulation: (val: Array<leaderBoardRankProps>) => set(val),
-    getHistorySimulation: get,
+    setRank: (val: Array<leaderBoardRankProps>) => set(val),
+    getRank: get,
   };
 };

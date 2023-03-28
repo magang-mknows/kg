@@ -1,12 +1,12 @@
 import Image from "next/image";
 import React, { FC, ReactElement } from "react";
 import Avatar from "@/assets/leaderboard/avatar.svg";
-import { leaderBoardProps } from "./type";
+import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
 import PopupProfil from "@/components/Leaderboard/PopupProfil";
 import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
-const RankingSection: FC<leaderBoardProps> = ({ name, img, score, index }): ReactElement => {
-  const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
 
+const RankingSection: FC<leaderBoardRankProps> = ({ name, img, score, index }): ReactElement => {
+  const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
   return (
     <>
       <div>
@@ -32,13 +32,13 @@ const RankingSection: FC<leaderBoardProps> = ({ name, img, score, index }): Reac
         onClose={() => setPopupLeaderboardStatus(false)}
         lookup={getPopupLeaderboardStatus}
         widthModal="!max-w-[748px]"
-        popupRank={4}
-        point={7000}
+        popupRank={index as number}
+        point={score}
         image={Avatar}
-        name={"Tanto Sutowo"}
+        name={name}
         major={"Blokchain"}
         semester={"5"}
-      ></PopupProfil>
+      />
     </>
   );
 };
