@@ -12,13 +12,13 @@ const Features: FC = (): ReactElement => {
 
   return (
     <>
-      <section className="pt-5 px-[72px] bg-white w-full">
+      <section className="pt-5 lg:px-[72px] md:px-[72px] px-[50px] bg-white w-full">
         <p className="font-bold text-[28px] text-center">Apa yang ingin kamu pelajari?</p>
         <p className="text-[#A3A3A3] font-semibold text-[16px] text-center">
           Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
           Berbagai macam jenis materi tersedia.
         </p>
-        <div className="flex bg-[#F5F5F5] my-[36px] rounded-lg py-[16px] px-[26px] w-[1146px]">
+        <div className="flex bg-[#F5F5F5] my-[36px] rounded-lg py-[16px] px-[26px] w-full">
           <Image src={search} alt={"tes"} />
           <input
             type="text"
@@ -35,7 +35,7 @@ const Features: FC = (): ReactElement => {
               <div
                 key={fitur.id}
                 style={{ background: fitur.warna }}
-                className="lg:col-span-3 md:col-span-4 col-span-6 py-[25px] rounded-lg"
+                className="lg:col-span-3 md:col-span-4 col-span-6 py-[25px] rounded-lg lg:scale-100 md:scale-100 scale-90"
               >
                 <Card
                   href={fitur.slug}
@@ -43,6 +43,8 @@ const Features: FC = (): ReactElement => {
                   src={fitur.icon}
                   imgStyle="w-[80px] mx-auto"
                   imgwidth={80}
+                 
+                  
                 >
                   <p className="font-bold mx-auto">{fitur.namaFitur}</p>
                 </Card>

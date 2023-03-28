@@ -28,8 +28,8 @@ const HeroSection: FC = (): ReactElement => {
   if (!mounted) return <Loading />;
   return (
     <SuspenseError loadingFallback={<Loading />}>
-      <div className="z-0">
-        <div className="flex flex-col bg-gray-100 dark:bg-gray-900 justify-between w-full lg:items-start items-center lg:px-20 md:px-10 px-60 py-20 md:py-28 lg:py-28 lg:flex-row md:items-center">
+      <div className="lg:px-10 px-2">
+        <div className="flex flex-col bg-gray-100 dark:bg-gray-900 justify-between w-full lg:items-start items-center lg:px-44 md:px-10 px-60 py-20 md:py-28 lg:py-28 lg:flex-row md:items-center">
           <ContentLayouts className="w-full  dark:text-white">
             <div className="flex flex-col gap-y-4 ">
               <div className="lg:flex-col font-bold space-y-4 text-3xl md:text-5xl lg:text-6xl  w-full">
@@ -40,11 +40,11 @@ const HeroSection: FC = (): ReactElement => {
                   <h1 className="text-center lg:text-start md:text-start">Gratis & Berkualitas</h1>
                 </div>
               </div>
-              <p className="text-xl my-4 text-[#525252] lg:text-start md:text-start text-center dark:text-white">
+              <p className="lg:text-xl text-md px-4 my-4 text-[#525252] lg:text-start md:text-start text-center dark:text-white">
                 Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
                 bagi siapa saja, tanpa terkecuali.
               </p>
-              <div className="w-full">
+              <div className="w-full px-10">
                 <Link href={"/auth/register"}>
                   <button className="font-semibold bg-[#3EB449] w-full h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
                     Coba Sekarang - Gratis
@@ -84,7 +84,7 @@ const HeroSection: FC = (): ReactElement => {
         </div>
       </div>
 
-      <div className="flex flex-col relative md:flex-row xl:flex-row lg:flex-row w-full justify-center lg:justify-between bg-[#106FA4] h-[300px] md:h-[100px] lg:h-[140px] mt-[-220px] xl:mt-[-275px] lg:mt-[-275px] z-[100%] lg:px-40 font-normal items-center">
+      <div className="flex flex-col relative md:flex-row xl:flex-row lg:flex-row w-full justify-center lg:justify-between bg-[#106FA4] h-[300px] md:h-[100px] lg:h-[140px] mt-[-220px] xl:mt-[-275px] lg:mt-[-275px] z-[100%] lg:px-44 font-normal items-center">
         <div className="flex flex-row my-4 lg:my-8 mx-6">
           <div className="rounded-full bg-white bg-opacity-[10%] absolute w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px]">
             <Image
@@ -125,7 +125,7 @@ const HeroSection: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-900 h-[30] w-screen pt-24"></div>
+      <div className="bg-white dark:bg-gray-900 h-[30] w-full pt-20"></div>
     </SuspenseError>
   );
 };

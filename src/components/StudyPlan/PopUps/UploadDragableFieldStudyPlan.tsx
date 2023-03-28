@@ -19,7 +19,7 @@ const UploadDragbleFieldStudyPlan: FC<UploadFieldProps> = forwardRef(
         ) : props.path && !ACCEPTED_IMAGE_TYPES.includes(props.type as string) ? (
           <video width={400} controls height={400} src={URL.createObjectURL(props.path)} />
         ) : (
-          <label className="flex flex-col items-center w-full px-4 py-6 bg-[#F5F5F5] rounded-lg cursor-pointer hover:text-white">
+          <label className="flex flex-col items-center w-full px-4 py-6 bg-[#F5F5F5] dark:bg-[#222529] rounded-lg cursor-pointer hover:text-white">
             <svg
               width="100"
               height="67.94"

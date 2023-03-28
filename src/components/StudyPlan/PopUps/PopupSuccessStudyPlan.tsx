@@ -17,6 +17,7 @@ const PopupSuccessStudyPlan: FC = (): ReactElement => {
       lookup={popupSuccessStatus}
       className="!h-80 !w-[100%] text-md"
       widthModal="!max-w-[590px]"
+      hasButton={false}
     >
       <div className="flex items-center justify-around gap-x-[10px] bg-primary-100 rounded-lg p-3">
         <Image src={InfoBlueIcon} alt="info-blue-icon" className="w-5 h-5" />
@@ -24,10 +25,10 @@ const PopupSuccessStudyPlan: FC = (): ReactElement => {
           Hasil konversi bisa dilihat pada tab pengajuan
         </p>
       </div>
-      <h1 className="py-2 text-xl font-normal text-black">
+      <h1 className="py-2 text-xl font-normal text-black dark:text-neutral-300">
         Kamu berhasil mengajukan konversi mata kuliah Logika Algoritma
       </h1>
-      <div className="w-full mt-6">
+      <div className="w-full my-2">
         <Button
           text="Tutup"
           className="w-[95%] h-14 mx-auto rounded-lg bg-primary-500 text-white"

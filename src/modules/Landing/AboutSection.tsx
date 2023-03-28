@@ -11,28 +11,21 @@ import Card from "@/components/Common/Card";
 
 const AboutSection: FC = (): ReactElement => {
   return (
-    <section className="mt-[-100px] py-14 pl-10 pr-40 md:mb-[350px] lg:mx-10 md:mx-8 mx-6 w-full">
-      <h1 className="dark:text-[#ffff] pl-40 lg:pl-1 text-[#262626] w-full flex flex-col lg:flex-row md:flex-row justify-end gap-x-3 md:text-5xl text-5xl my-4 text-[30px] font-bold leading-tight ml-4">
-        Kelebihan <span className="text-[#0B568D]">Kampus Gratis</span>
-      </h1>
-      <div className="flex flex-col lg:flex-row py-10 px-20 pr-10 lg:gap-10 md:gap-14 gap-0 ">
-        <div className="flex justify-center">
-          <div className="w-full w-[100px] lg:w-[500px] h-[382px] relative col-span-1 md:px-0 md:ml-0 mx-4">
-            <Image
-              src={RectangleUp}
-              alt={"rectangle-up"}
-              className="relative md:w-5/12 w-3/12  lg:visible invisible"
-            />
+    <div className="flex w-full h-auto mt-[140px] p-20px lg:px-16 px-20">
+      <div className="grid lg:grid-cols-2 lg:gap-16 md:gap-14 pl-20 pr-20">
+        <div className="mx-auto ">
+          <div className="w-[500px] h-[382px] relative col-span-1 md:px-0 px-5 md:ml-0 ml-24">
+            <Image src={RectangleUp} alt={"rectangle-up"} className="relative md:w-5/12 w-3/12" />
             <Image
               src={RectangleDown}
               alt={"rectangle-down"}
-              className="relative lg:left-96 md:left-72 left-52 md:-top-14 top-6 md:w-5/12 w-3/12 lg:visible invisible"
+              className="relative lg:left-96 md:left-72 left-52 md:-top-14 top-6 md:w-5/12 w-3/12  "
             />
             <Image
               src={AboutCard2}
               alt={"About-Landing"}
               className={
-                "lg:w-[500px] md:w-[80%] w-[50%] object-cover rounded-xl absolute top-5 left-5"
+                "lg:w-[500px] md:w-11/12 w-7/12 object-cover rounded-xl absolute top-5 left-5"
               }
             />
             <Card
@@ -48,7 +41,7 @@ const AboutSection: FC = (): ReactElement => {
                 <Image
                   src={PlayButton}
                   alt={"Play-video"}
-                  className="text-[#CDF5FA] hover:text-[#fff] hover:bg-[#0cbc87] bg-[#ffffff] rounded-full md:p-3 md:w-12 md:h-12 w-10 p-2 absolute md:top-20 md:left-32 top-14 left-20 justify-start"
+                  className="text-[#CDF5FA] hover:text-[#fff] hover:bg-[#0cbc87] bg-[#ffffff] rounded-full md:p-3 md:w-12 md:h-12 w-10 p-2 absolute md:top-20 md:left-32 top-14 left-20"
                 />
               </button>
             </Card>
@@ -56,7 +49,7 @@ const AboutSection: FC = (): ReactElement => {
             <Card
               hasImage={false}
               className={
-                "flex justify-center bg-[rgb(255,255,255)] rounded-2xl md:w-max w-[70%] md:px-6 md:py-4 drop-shadow-xl shadow-lg absolute lg:-right-24 lg:top-96 md:-right-5 md:top-80 top-60"
+                "grid items-center bg-[rgb(255,255,255)] rounded-2xl md:w-max w-4/12 md:px-6 md:py-4 py-3 drop-shadow-xl shadow-lg absolute lg:-right-24 lg:top-96 md:-right-5 right-32 md:top-80 top-48"
               }
             >
               <Image
@@ -73,34 +66,42 @@ const AboutSection: FC = (): ReactElement => {
             </Card>
           </div>
         </div>
-        <div className="relative mt-12 lg:mt-[30px] pl-28">
-          <p className="align-center text-left lg:text-left text-[#262626] text-[16px] md:text-[17px] lg:text-[20px] dark:text-white">
-            Ada banyak kategori pelatihan terlaris yang ada di Kampus Gratis
-          </p>
+
+        <div className="px-10 md:px-10 lg:place-content-start place-content-center">
+          <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[28px] font-bold lg:text-start text-center leading-tight">
+            Mengapa <span className="text-[#0B568D]">Kampus Gratis?</span>
+          </h1>
           <div className="">
-            <ul className="pt-[20px] space-y-[20px] lg:text-base text-sm ">
-              <div className="checklist flex gap-2 mt-1 justfiy-start items-center ">
-                <Image src={Checklist} alt={"checklist"} />
-                <li>Kuliah & Belajar semua materi GRATIS</li>
-              </div>
-              <div className="checklist flex gap-2 mt-1 justfiy-start items-center">
-                <Image src={Checklist} alt={"checklist"} />
-                <li>Dibimbing oleh mentor yang profesional</li>
-              </div>
-              <div className="checklist flex gap-2 mt-1 justfiy-start items-center">
-                <Image src={Checklist} alt={"checklist"} />
-                <li>Dukungan untuk karir masa depan</li>
-              </div>
-              <div className="checklist flex gap-2 mt-1 justfiy-start items-center">
-                <Image src={Checklist} alt={"checklist"} />
-                <li>Pembelajaran yang fleksibel</li>
-              </div>
-            </ul>
+            <p className="text-[#8e8e8e] md:text-[24px] text-[18px] leading-normal md:mt-[46px] mt-[20px] px-20 lg:px-2">
+              Ada banyak kategori pelatihan terlaris yang ada di Kampus Gratis
+            </p>
+            <div className="px-20 lg:px-2">
+              <ul className="md:mt-[46px] mt-[30px] md:text-[24px] text-[16px] ">
+                <div className="checklist flex gap-2 mb-3">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li className="-mt-1 ">Belajar semua materi GRATIS</li>
+                </div>
+                <div className="checklist flex gap-2 mb-3">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li className="-mt-1 ">Dibimbing oleh mentor yang profesional</li>
+                </div>
+                <div className="checklist flex gap-2 mb-3">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li className="-mt-1 ">Dukungan untuk karir masa depan</li>
+                </div>
+                <div className="checklist flex gap-2 mb-3">
+                  <Image src={Checklist} alt={"checklist"} />
+                  <li className="-mt-1 ">Pembelajaran yang fleksibel</li>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
 export default AboutSection;
+
+// ;
