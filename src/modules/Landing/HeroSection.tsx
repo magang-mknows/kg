@@ -26,18 +26,18 @@ const HeroSection: FC = (): ReactElement => {
   return (
     <SuspenseError loadingFallback={<Loading />}>
       {/* section1 */}
-      <div className="flex relative flex-col h-500px w-full overflow-hidden">
-        <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-full h-auto gap-y-4 lg:px-20 pl-2 lg:py-28 py-16 absolute z-40">
-          <div>
-            <h1 className="flex flex-col py-6 lg:text-6xl text-3xl font-bold gap-y-4 text-center lg:text-start md:text-start dark:text-white">
-              Solusi Pendidikan <br />
-              <span>Gratis dan Berkualitas</span>
+      <div className="flex relative flex-col h-full w-full overflow-hidden">
+        <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-screen h-full gap-y-4 lg:px-20 pl-2 lg:py-28 py-16 absolute z-40">
+          <div className="w-[100%] lg:w-[100%]">
+            <h1 className="flex flex-col py-6 lg:text-[60px] text-3xl font-bold gap-y-4 text-center lg:text-start md:text-start dark:text-white">
+              Solusi Pendidikan
+              <span className="lg:text-[55px] text-3xl lg:my-6 my-2">Gratis & Berkualitas</span>
             </h1>
-            <p className="flex flex-col gap-y-2 text-md lg:text-start text-center lg:text-xl text-gray-500">
-              Platform belajar gratis pertama di Indonesia memungkinkan akses <br />
-              <span>belajar yang mudah bagi siapa saja, tanpa terkecuali.</span>
+            <p className="flex flex-col gap-y-2 text-md lg:text-start text-center lg:text-xl text-gray-500 dark:text-white">
+              Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
+              bagi siapa saja, tanpa terkecuali.
             </p>
-            <div className="flex w-full lg:justify-start justify-center py-10 ">
+            <div className="flex w-full lg:justify-start justify-center py-14 ">
               <Link href={"/auth/register"}>
                 <button className="font-semibold lg:animate-none animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
                   Coba Sekarang - Gratis
@@ -45,7 +45,7 @@ const HeroSection: FC = (): ReactElement => {
               </Link>
             </div>
           </div>
-          <div className="h-full">
+          <div className="h-full w-screen absolute lg:relative object-right ml-0 lg:ml-44 lg:pt-0 pt-20">
             <SuspenseError loadingFallback={<Loading />}>
               <Image
                 loading="eager"
@@ -86,37 +86,6 @@ const HeroSection: FC = (): ReactElement => {
             loading="eager"
           />
         </div>
-        {/* picture */}
-        {/* <div className="flex lg:absolute h-full w-full lg:justify-end justiy-start items-start lg:items-end lg:py-1 lg:mt-6 mx-6 lg:pt-24 pt-1 pr-20">
-          <div>
-            <SuspenseError loadingFallback={<Loading />}>
-              <Image
-                loading="eager"
-                width={1000}
-                height={1000}
-                src={currentTheme === "light" ? ImageLanding : LandingDark}
-                alt="Image Landing"
-                className="z-20 select-none lg:pt-24 lg:w-[600px] lg:h-[600px] w-[500px] h-[600px]"
-              />
-            </SuspenseError>
-            <div className="flex flex-col shadow-lg select-none items-center bg-white lg:w-[320px] w-[230px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 px-2">
-              <div className="font-semibold pt-6 dark:text-black">Mahasiswa Kampus Gratis</div>
-              <div className="flex flex-row py-2 items-start">
-                <SuspenseError loadingFallback={<Loading />}>
-                  <Image
-                    src={UserKampusGratis}
-                    alt="User Kampus Gratis"
-                    className="select-none w-[60%] lg:w-[80%] md:w-[60%]"
-                  ></Image>
-                </SuspenseError>
-                <div className="flex flex-col">
-                  <span className="text-pink-400 font-bold ">2185+</span>
-                  <span className="text-black font-semibold">Mahasiswa</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </SuspenseError>
   );

@@ -69,7 +69,7 @@ const AboutSection: FC = (): ReactElement => {
         <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[28px] font-bold lg:text-start text-center leading-tight lg:px-0">
           Kelebihan <span className="text-[#0B568D]">Kampus Gratis?</span>
         </h1>
-        <p className="py-10 mx-4 text-gray-600 text-md lg:text-xl">
+        <p className="py-10 mx-4 text-gray-600 text-md lg:text-xl dark:text-white">
           Terdapat 3 program studi, dan banyak topik pelatihan yang akan merubah masa depan kita, di
           Kampus Gratis
         </p>

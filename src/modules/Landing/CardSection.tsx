@@ -7,7 +7,7 @@ import IconHero3 from "@/assets/landing/icon-hero3.svg";
 const CardSection: FC = (): ReactElement => {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row w-full h-auto justify-center lg:justify-between bg-[#106FA4] h-[306px] md:h-[100px] lg:h-[140px] z-[40] lg:px-44 mt-2  items-center">
+      <div className="flex flex-col lg:flex-row w-full h-auto justify-center lg:justify-between bg-[#106FA4] h-[306px] md:h-[100px] lg:h-[140px] z-[40] lg:px-20 mt-2 items-center">
         <div className="flex flex-row  lg:my-8 mx-6">
           <div className="rounded-full bg-white bg-opacity-[10%] absolute w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px]">
             <Image
