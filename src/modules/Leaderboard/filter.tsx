@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Filter = (): ReactElement => {
   const [open, setOpen] = useState(false);
-  const [filter, setFilter] = useState("semua");
+  const [filter, setFilter] = useState("global");
   return (
     <button
       className="w-[109px] h-[40px] rounded-[8px] text-center border-[3px] border-[#106FA4] relative mt-[46px] "

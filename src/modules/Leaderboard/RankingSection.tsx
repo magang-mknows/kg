@@ -29,6 +29,7 @@ const RankingSection: FC<leaderBoardProps> = ({ name, img, score, index }): Reac
         </div>
       </div>
       <PopupProfil
+        onClose={() => setPopupLeaderboardStatus(false)}
         lookup={getPopupLeaderboardStatus}
         widthModal="!max-w-[748px]"
         popupRank={4}
