@@ -78,7 +78,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        hero: "url('/public/bg-hero.svg')",
+        hero: "url(/public/bg-hero.svg)",
       },
     },
   },
