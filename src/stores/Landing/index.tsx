@@ -1,8 +1,8 @@
 import { atom } from "recoil";
 import { Info } from "./type";
-import Dummy from "@/assets/landing/dummy.svg";
-import Dummy1 from "@/assets/landing/dumy1.svg";
-import Dummy2 from "@/assets/landing/dummy2.svg";
+import Dummy from "@/assets/landing/dummy.webp";
+import Dummy1 from "@/assets/landing/dumy1.webp";
+import Dummy2 from "@/assets/landing/dummy2.webp";
 
 export const InformationState = atom<Array<Info>>({
   key: "information-state",

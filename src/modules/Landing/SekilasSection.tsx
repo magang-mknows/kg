@@ -1,13 +1,13 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import pictureSekilasInfo from "@/assets/landing/picture-landing-sekilas-info.svg";
+import pictureSekilasInfo from "@/assets/landing/picture-sekilas-landing.webp";
 import RedSekilasInfo from "@/assets/landing/redInfo.svg";
 
 const SekilasSection: FC = (): ReactElement => {
   return (
-    <div className="flex flex-col lg:px-20 px-0 py-20 lg:flex-row w-screen h-auto">
-      <div className="flex flex-col lg:w-[60%] w-screen">
-        <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-[#262626] dark:text-white lg:text-start text-center my-2">
+    <div className="flex flex-col lg:px-20 px-0 py-24 lg:py-28 lg:flex-row w-screen h-auto">
+      <div className="flex flex-col lg:w-[100%] w-screen">
+        <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-[#262626] dark:text-white  text-center my-2">
           Sekilas <span className="mx-2 text-[#FAB317]"> Info </span>
           Kampus Gratis
         </h1>
@@ -27,11 +27,11 @@ const SekilasSection: FC = (): ReactElement => {
         </p>
         <Image src={RedSekilasInfo} alt={"picture-sekilas-landing"} className="my-8 mx-8" />
       </div>
-      <div>
+      <div className="w-[100%]">
         <Image
           src={pictureSekilasInfo}
           alt={"picture-sekilas-landing"}
-          className="lg:px-0 px-8 my-6 lg:my-0"
+          className="lg:mx-10 w-[600] px-8 my-6 lg:my-0"
         />
       </div>
     </div>

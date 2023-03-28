@@ -6,11 +6,12 @@ import Link from "next/link";
 import Loading from "@/components/Loading";
 import SuspenseError from "../Common/SuspenseError";
 
-import BgHero from "@/assets/landing/bg-hero.svg";
+import BgHero from "@/assets/landing/bg-hero.webp";
 import BgDark from "@/assets/landing/bg-dark.webp";
-import ImageLanding from "@/assets/landing/landing-img.svg";
-import LandingDark from "@/assets/landing/dark.svg";
+import ImageLanding from "@/assets/landing/landing-img.webp";
+import LandingDark from "@/assets/landing/dark.webp";
 import UserKampusGratis from "@/assets/landing/mahasiswa_kampus-gratis.svg";
+import HeroSkeleton from "@/components/Loading/Landing/HeroSkeleton";
 
 const HeroSection: FC = (): ReactElement => {
   const { systemTheme, theme } = useTheme();
@@ -24,14 +25,14 @@ const HeroSection: FC = (): ReactElement => {
 
   if (!mounted) return <Loading />;
   return (
-    <SuspenseError loadingFallback={<Loading />}>
+    <SuspenseError loadingFallback={<HeroSkeleton />}>
       {/* section1 */}
       <div className="flex relative flex-col h-full w-full overflow-hidden">
-        <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-screen h-full gap-y-4 lg:px-20 pl-2 lg:py-28 py-16 absolute z-40">
-          <div className="w-[100%] lg:w-[100%]">
-            <h1 className="flex flex-col py-6 lg:text-[60px] text-3xl font-bold gap-y-4 text-center lg:text-start md:text-start dark:text-white">
+        <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-screen h-full gap-y-4 lg:px-16 pl-2 lg:py-28 py-16 absolute z-40">
+          <div className="w-[100%]">
+            <h1 className="flex flex-col py-6 lg:text-[54px] text-3xl font-bold gap-y-4 text-center lg:text-start md:text-center text-center dark:text-white">
               Solusi Pendidikan
-              <span className="lg:text-[55px] text-3xl lg:my-6 my-2">Gratis & Berkualitas</span>
+              <span className="lg:text-[50px] text-3xl lg:my-6 my-2">Gratis & Berkualitas</span>
             </h1>
             <p className="flex flex-col gap-y-2 text-md lg:text-start text-center lg:text-xl text-gray-500 dark:text-white">
               Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
@@ -45,7 +46,7 @@ const HeroSection: FC = (): ReactElement => {
               </Link>
             </div>
           </div>
-          <div className="h-full w-screen absolute lg:relative object-right ml-0 lg:ml-44 lg:pt-0 pt-20">
+          <div className="h-full w-screen lg:relative object-right lg:ml-44 lg:pt-0 pt-10">
             <SuspenseError loadingFallback={<Loading />}>
               <Image
                 loading="eager"
@@ -53,7 +54,7 @@ const HeroSection: FC = (): ReactElement => {
                 height={1000}
                 src={currentTheme === "light" ? ImageLanding : LandingDark}
                 alt="Image Landing"
-                className="z-40 select-none lg:pt-24 lg:w-[600px] lg:h-[600px] w-[500px] h-[1000px]"
+                className="z-40 select-none lg:pt-34 mb-10 pb-10 lg:w-[600px] lg:h-[480px] w-[500px] h-[500px]"
               />
             </SuspenseError>
             <div className="flex flex-col shadow-lg select-none items-center bg-white lg:w-[320px] w-[230px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 px-2">

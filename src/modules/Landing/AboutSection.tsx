@@ -1,8 +1,8 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import AboutVideo from "@/assets/landing/aboutVideo.svg";
+import AboutVideo from "@/assets/landing/aboutVideo.webp";
+import AboutCard2 from "@/assets/landing/aboutCard.webp";
 import PlayButton from "@/assets/landing/playButton.svg";
-import AboutCard2 from "@/assets/landing/aboutCard.svg";
 import RectangleUp from "@/assets/landing/rectangleUp.svg";
 import RectangleDown from "@/assets/landing/rectangleDown.svg";
 import PhoneLaptopAbout from "@/assets/landing/phoneLaptopAbout.svg";
@@ -12,7 +12,7 @@ import Card from "@/components/Common/Card";
 const AboutSection: FC = (): ReactElement => {
   return (
     <div className="flex flex-col lg:px-20 px-0 py-20 lg:flex-row w-screen h-auto lg:justify-between justify-start">
-      <div className="w-[40%]">
+      <div className="w-[30%]">
         <div className="w-[500px] h-[382px] relative col-span-1 px-8">
           <Image src={RectangleUp} alt={"rectangle-up"} className="relative md:w-5/12 w-3/12" />
           <Image
@@ -24,17 +24,17 @@ const AboutSection: FC = (): ReactElement => {
             src={AboutCard2}
             alt={"About-Landing"}
             className={
-              "lg:w-[500px] md:w-11/12 w-7/12 object-cover rounded-xl absolute top-5 left-5"
+              "lg:w-[460px] md:w-8/12 w-7/12 object-cover rounded-xl absolute top-5 left-5"
             }
           />
           <Card
             hasImage={true}
             className={
-              "grid items-center rounded-2xl md:w-max absolute lg:-right-36 md:-top-24 md:-right-7 right-24 w-5/12 -top-10 lg:mr-0 mr-4"
+              "grid items-center rounded-2xl md:w-max absolute lg:-right-34 md:-top-24 md:-right-7 right-24 w-4/12 -top-10 lg:mr-0 mr-4 my-4 px-2"
             }
             src={AboutVideo}
-            imgwidth={261}
-            imgheight={173}
+            imgwidth={160}
+            imgheight={160}
           >
             <button>
               <Image
@@ -48,7 +48,7 @@ const AboutSection: FC = (): ReactElement => {
           <Card
             hasImage={false}
             className={
-              "grid items-center bg-[rgb(255,255,255)] rounded-2xl md:w-max w-4/12 md:px-6 md:py-4 py-3 drop-shadow-xl shadow-lg absolute lg:-right-24 lg:top-96 md:-right-5 right-32 md:top-80 top-48"
+              "grid items-center bg-[rgb(255,255,255)] rounded-2xl md:w-max w-4/12 md:px-6 md:py-4 py-3 drop-shadow-xl shadow-lg absolute lg:-right-24 lg:top-94 md:-right-5 right-32 md:top-80 top-48"
             }
           >
             <Image
@@ -66,31 +66,31 @@ const AboutSection: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex lg:w-[50%] w-[100%] px-8  flex-col">
-        <h1 className="dark:text-[#ffff] text-[#000000] md:text-[44px] text-[28px] font-bold lg:text-start text-center leading-tight lg:px-0">
+        <h1 className="dark:text-[#ffff] text-[#000000] md:text-[48px] text-[28px] font-bold text-center leading-tight lg:px-0">
           Kelebihan <span className="text-[#0B568D]">Kampus Gratis?</span>
         </h1>
         <p className="py-10 mx-4 text-gray-600 text-md lg:text-xl dark:text-white">
           Terdapat 3 program studi, dan banyak topik pelatihan yang akan merubah masa depan kita, di
           Kampus Gratis
         </p>
-        <ul className="md:text-[24px] text-[16px] ">
+        <div className="md:text-[24px] text-[16px] ">
           <div className="checklist flex gap-2 mb-3">
             <Image src={Checklist} alt={"checklist"} />
-            <li className="-mt-1 ">Belajar semua materi GRATIS</li>
+            <h1 className="-mt-1 ">Belajar semua materi GRATIS</h1>
           </div>
           <div className="checklist flex gap-2 mb-3">
             <Image src={Checklist} alt={"checklist"} />
-            <li className="-mt-1 ">Dibimbing oleh mentor yang profesional</li>
+            <h1 className="-mt-1 ">Dibimbing oleh mentor yang profesional</h1>
           </div>
           <div className="checklist flex gap-2 mb-3">
             <Image src={Checklist} alt={"checklist"} />
-            <li className="-mt-1 ">Dukungan untuk karir masa depan</li>
+            <h1 className="-mt-1 ">Dukungan untuk karir masa depan</h1>
           </div>
           <div className="checklist flex gap-2 mb-3">
             <Image src={Checklist} alt={"checklist"} />
-            <li className="-mt-1 ">Pembelajaran yang fleksibel</li>
+            <h1 className="-mt-1 ">Pembelajaran yang fleksibel</h1>
           </div>
-        </ul>
+        </div>
       </div>
     </div>
   );

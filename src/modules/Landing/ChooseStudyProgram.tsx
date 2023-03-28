@@ -3,9 +3,9 @@ import Card from "@/components/Common/Card";
 import { StaticImageData } from "next/image";
 
 // asset
-import ImgStudyProgram from "@/assets/landing/img-study-program.svg";
-import ImgStudyProgram2 from "@/assets/landing/img-study-program2.svg";
-import ImgStudyProgram3 from "@/assets/landing/img-study-program3.svg";
+import ImgStudyProgram from "@/assets/landing/img-study-program.webp";
+import ImgStudyProgram2 from "@/assets/landing/img-study-program2.webp";
+import ImgStudyProgram3 from "@/assets/landing/img-study-program3.webp";
 
 const DataDummy: {
   id: number;

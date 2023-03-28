@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import GlobalButton from "@/components/Common/GlobalButton";
 
-import InfoLanding from "@/assets/landing/info-landing.svg";
+import InfoLanding from "@/assets/landing/info-landing.webp";
 import CardDot from "@/assets/landing/card-dot.svg";
 
 const InformationBanner: FC = (): ReactElement => {

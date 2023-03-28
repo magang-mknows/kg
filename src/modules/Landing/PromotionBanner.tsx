@@ -1,7 +1,7 @@
 import Card from "@/layouts/Card";
 import { FC, ReactElement } from "react";
 
-import InfoLanding from "@/assets/landing/promotion-landing.svg";
+import InfoLanding from "@/assets/landing/promotion-landing.webp";
 import GlobalButton from "@/components/Common/GlobalButton";
 
 const PromotionBanner: FC = (): ReactElement => {
