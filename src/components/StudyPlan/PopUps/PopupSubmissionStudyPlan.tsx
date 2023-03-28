@@ -17,11 +17,12 @@ const PopupSubmissionStudyPlan: FC = (): ReactElement => {
       lookup={popupSubmissionStatus}
       className="!h-60 !w-[100%] text-md"
       widthModal="!max-w-[540px]"
+      hasButton={false}
     >
-      <h1 className="py-2 text-xl font-normal text-black">
+      <h1 className="py-2 text-xl font-normal text-black dark:text-neutral-300">
         Kamu akan mengajukan konversi pada mata kuliah Logika Algoritma
       </h1>
-      <div className="flex justify-center gap-3 mt-4 -mb-4 w-full">
+      <div className="flex justify-center gap-3 my-2 w-full">
         <Button
           text="Kembali"
           className="w-[40%] md:w-[230px] h-12 border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "

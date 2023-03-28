@@ -1,5 +1,6 @@
-export type OptionDictionary = {
-  title: string;
-  description: string;
-  slug: string;
+export type DictionaryType = {
+  id?: string;
+  title?: string;
+  description?: string;
+  slug?: string;
 };

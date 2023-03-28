@@ -58,7 +58,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
         />
       </div>
       <div className="px-4 mx-auto md:w-full">
-        <div className="my-6 flex mx-4">
+        <div className="my-6 flex mx-4 overflow-x-auto overflow-y-hidden whitespace-nowrap">
           <table className="mx-auto w-auto border border-gray-200 rounded-lg divide-y divide-neutral-400 dark:divide-gray-700 w-full">
             <thead className=" bg-gray-100 w-full">
               <tr>

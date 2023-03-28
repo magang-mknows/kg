@@ -27,9 +27,9 @@ const Modal: FC<ModalProps> = ({
           <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex items-center justify-center w-full min-h-full p-4 text-center sm:items-center sm:p-0">
               <div
-                className={`relative w-auto overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 ${widthModal} `}
+                className={`relative w-auto overflow-hidden text-left transition-all transform bg-white dark:bg-[#222529] rounded-lg shadow-xl sm:my-8 ${widthModal} `}
               >
-                <div className="w-full px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
+                <div className="w-full px-4 pt-5 pb-4 bg-white dark:bg-[#222529] sm:p-6 sm:pb-4">
                   <div
                     className={`flex items-center justify-between w-full ${
                       !hasImage && "!justify-end"
