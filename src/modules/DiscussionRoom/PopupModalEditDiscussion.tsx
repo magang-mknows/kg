@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 
 import Modal from "@/components/Common/Modal";
 import Form from "@/components/Form";
@@ -13,12 +13,23 @@ import ControlledUploadDragbleField from "@/components/ControlledInputs/Controll
 
 import { PopupModalProps } from "@/components/Common/types";
 import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDiscussionStatus";
+import { useGetAllDiscussion } from "@/hooks/Discussion/useGetAllDiscussion";
+import { MetaTypes } from "@/services/types";
 
 const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
+  const [meta, setMeta] = useState<MetaTypes>({
+    page: 1,
+    page_size: 1,
+    search: "",
+    role_id: 1,
+  });
+
   const { setPopupStatus, getPopupStatus } = usePopupEditDiscussionStatus();
 
   const MAX_FILE_SIZE = 300000000;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
+
+  const { data } = useGetAllDiscussion(meta);
 
   const validationSchema = z.object({
     judulDiskusi: z.string().max(250, { message: "Maks. 250 Karakter" }),
@@ -49,7 +60,7 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(() => {
     console.log(data);
   });
   return (
