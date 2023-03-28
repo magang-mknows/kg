@@ -29,7 +29,7 @@ const HeroSection: FC = (): ReactElement => {
       {/* section1 */}
       <div className="flex relative flex-col h-full w-full overflow-hidden">
         <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-screen h-full gap-y-4 lg:px-16 pl-2 lg:py-28 py-16 absolute z-40">
-          <div className="w-[100%]">
+          <div data-aos="fade-up" className="w-[100%]">
             <h1 className="flex flex-col py-6 lg:text-[54px] text-3xl font-bold gap-y-4 text-center lg:text-start md:text-center text-center dark:text-white">
               Solusi Pendidikan
               <span className="lg:text-[50px] text-3xl lg:my-6 my-2">Gratis & Berkualitas</span>
@@ -40,7 +40,7 @@ const HeroSection: FC = (): ReactElement => {
             </p>
             <div className="flex w-full lg:justify-start justify-center py-14 ">
               <Link href={"/auth/register"}>
-                <button className="font-semibold lg:animate-none animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
+                <button className="font-semibold animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
                   Coba Sekarang - Gratis
                 </button>
               </Link>

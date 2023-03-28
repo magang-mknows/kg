@@ -6,7 +6,7 @@ import RedSekilasInfo from "@/assets/landing/redInfo.svg";
 const SekilasSection: FC = (): ReactElement => {
   return (
     <div className="flex flex-col lg:px-20 px-0 py-24 lg:py-28 lg:flex-row w-screen h-auto">
-      <div className="flex flex-col lg:w-[100%] w-screen">
+      <div data-aos="flip-left" data-aos-delay="300" className="flex flex-col lg:w-[100%] w-screen">
         <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-[#262626] dark:text-white  text-center my-2">
           Sekilas <span className="mx-2 text-[#FAB317]"> Info </span>
           Kampus Gratis

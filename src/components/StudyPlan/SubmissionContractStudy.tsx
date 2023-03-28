@@ -49,7 +49,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
       </div>
       <div className="flex justify-end items-center ">
         <GlobalButton
-          className="lg:text-center text-start text-md ml-80 "
+          className="lg:text-center text-start text-md mx-4 lg:ml-80 "
           size="regular"
           color="greenBorder"
           text="Download Silabus"
@@ -84,7 +84,10 @@ const SubmissionContractStudy: FC = (): ReactElement => {
 
             {getDataTable.map((x, i) => (
               <>
-                <div className="p-3 text-center border-t border-[#E5E5E5] dark:divide-gray-700 col-span-1 lg:text-[16px] md:text-[16px] text-[12px]">
+                <div
+                  key={i}
+                  className="p-3 text-center border-t border-[#E5E5E5] dark:divide-gray-700 col-span-1 lg:text-[16px] md:text-[16px] text-[12px]"
+                >
                   {x.no}
                 </div>
                 <div className="border-t border-[#E5E5E5] dark:divide-gray-700 col-span-3 lg:text-[16px] md:text-[16px] text-[12px]">
@@ -120,7 +123,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           icon={Confirm}
           popupTitle="Konfirmasi"
           lookup={getPopupStatus}
-          className="!h-80 !w-[100%] text-md py-10"
+          className="!h-80 lg:!w-[100%] text-md py-10"
         >
           <h1 className="py-2">
             Kamu akan mengajukan program study{" "}
@@ -140,12 +143,12 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           <div className="flex gap-3 my-2 py-4">
             <Button
               text="Batal"
-              className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+              className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
               onClick={() => setPopupStatus(false)}
               type={"button"}
             />
             <Button
-              className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+              className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
               type={"button"}
               text="Konfirmasi"
               page={"/kontrak-krs/detail"}

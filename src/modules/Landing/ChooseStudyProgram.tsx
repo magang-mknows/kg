@@ -37,7 +37,11 @@ const ChooseStudyProgram: FC = (): ReactElement => {
       <h1 className="flex lg:text-start text-center lg:text-[44px] md:text-[44px] text-[30px] font-bold text-[#262626] dark:text-white px-6">
         3 Pilihan Program Studi
       </h1>
-      <div className="grid lg:grid-cols-3 grid-cols-1 px-6 lg:gap-x-5 gap-y-5 justify-center lg:justify-between py-[20px]">
+      <div
+        data-aos="slide-right"
+        data-aos-delay="100"
+        className="grid lg:grid-cols-3 grid-cols-1 px-6 lg:gap-x-5 gap-y-5 justify-center lg:justify-between py-[20px]"
+      >
         {DataDummy.map((dummy, i) => (
           <Card
             key={i}
