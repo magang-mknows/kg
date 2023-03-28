@@ -14,26 +14,26 @@ import ControlledUploadDragbleField from "@/components/ControlledInputs/Controll
 import { PopupModalProps } from "@/components/Common/types";
 import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDiscussionStatus";
 import { useGetAllDiscussion } from "@/hooks/Discussion/useGetAllDiscussion";
-import { MetaTypes } from "@/services/types";
+// import { MetaTypes } from "@/services/types";
 
 const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const [meta, setMeta] = useState<MetaTypes>({
-    page: 1,
-    page_size: 1,
-    search: "",
-    role_id: 1,
-  });
+  // const [meta] = useState<MetaTypes>({
+  //   page: 1,
+  //   page_size: 1,
+  //   search: "",
+  //   role_id: 1,
+  // });
 
-  const { setPopupStatus, getPopupStatus } = usePopupEditDiscussionStatus();
+  const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussionStatus();
 
   const MAX_FILE_SIZE = 300000000;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
 
-  const { data } = useGetAllDiscussion(meta);
+  // const { data } = useGetAllDiscussion(meta);
 
   const validationSchema = z.object({
-    judulDiskusi: z.string().max(250, { message: "Maks. 250 Karakter" }),
-    upload_media: z
+    title: z.string().max(250, { message: "Maks. 250 Karakter" }),
+    images: z
       .any()
       .refine((files: File) => files !== undefined, "Harus ada file yang di upload.")
       .refine(
@@ -44,6 +44,8 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
         (files: File) => ACCEPTED_MEDIA_TYPES.includes(files?.type),
         "hanya menerima .jpg, .jpeg, .mp4, dan .webp.",
       ),
+    content: z.any(),
+    category: z.any(),
   });
   type ValidationSchema = z.infer<typeof validationSchema>;
 
@@ -55,18 +57,20 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      judulDiskusi: "",
-      upload_media: undefined,
+      title: "",
+      content: "",
+      images: undefined,
+      category: "",
     },
   });
 
   const onSubmit = handleSubmit(() => {
-    console.log(data);
+    // console.log(data);
   });
   return (
     <Modal
-      lookup={getPopupStatus}
-      onClose={() => setPopupStatus(!getPopupStatus)}
+      lookup={getPopupEditStatus}
+      onClose={() => setPopupEditStatus(!getPopupEditStatus)}
       hasButton={true}
       hasImage={false}
       withClose={true}

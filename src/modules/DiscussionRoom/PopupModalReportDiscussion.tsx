@@ -1,20 +1,22 @@
 import { FC, ReactElement } from "react";
 
-import Modal from "@/components/Common/Modal";
-
-import GlobalButton from "@/components/Common/GlobalButton";
-
-import { PopupModalProps } from "@/components/Common/types";
-import { usePopupReportDiscussionStatus } from "@/hooks/Discussion/usePopupReportDiscussionStatus";
 import Form from "@/components/Form";
+import Modal from "@/components/Common/Modal";
+import GlobalButton from "@/components/Common/GlobalButton";
+import { PopupModalProps } from "@/components/Common/types";
+
+import { usePopupReportDiscussionStatus } from "@/hooks/Discussion/usePopupReportDiscussionStatus";
+import { usePopupSuccessDiscussionStatus } from "@/hooks/Discussion/usePopupSuccessDiscussionStatus";
+import Button from "@/components/Common/Button";
 
 const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupStatus, getPopupStatus } = usePopupReportDiscussionStatus();
+  const { setPopupReportStatus, getPopupReportStatus } = usePopupReportDiscussionStatus();
+  const { setPopupSuccessStatus } = usePopupSuccessDiscussionStatus();
 
   return (
     <Modal
-      lookup={getPopupStatus}
-      onClose={() => setPopupStatus(!getPopupStatus)}
+      lookup={getPopupReportStatus}
+      onClose={() => setPopupReportStatus(!getPopupReportStatus)}
       hasButton={true}
       hasImage={false}
       withClose={true}
@@ -65,7 +67,12 @@ const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
             ></textarea>
           </section>
           <div className="flex justify-end">
-            <GlobalButton className="" text={"Lapor"} color="blue" />
+            <GlobalButton
+              className=""
+              text={"Lapor"}
+              color="blue"
+              onClick={() => setPopupSuccessStatus(true)}
+            />
           </div>
         </div>
       </Form>

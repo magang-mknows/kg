@@ -8,12 +8,12 @@ import { PopupModalProps } from "@/components/Common/types";
 import { usePopupDeleteDiscussionStatus } from "@/hooks/Discussion/usePopupDeleteDiscussionStatus";
 
 const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupStatus, getPopupStatus } = usePopupDeleteDiscussionStatus();
+  const { setPopupDeleteStatus, getPopupDeleteStatus } = usePopupDeleteDiscussionStatus();
 
   return (
     <Modal
-      lookup={getPopupStatus}
-      onClose={() => setPopupStatus(!getPopupStatus)}
+      lookup={getPopupDeleteStatus}
+      onClose={() => setPopupDeleteStatus(!getPopupDeleteStatus)}
       hasButton={true}
       hasImage={false}
       withClose={true}
