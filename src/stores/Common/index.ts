@@ -82,3 +82,8 @@ export const PopupSuccessStudyPlanState = atom({
   key: "modal-popup-success-StudyPlan",
   default: false,
 });
+
+export const PopupProfilLeaderborad = atom({
+  key: "modal-popup-profil-leaderboard",
+  default: false,
+})
