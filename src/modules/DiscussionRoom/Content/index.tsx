@@ -8,6 +8,11 @@ import PopupModalCreateDiscussion from "../PopupModalCreateDiscussion";
 import PopupModalDeleteDiscussion from "../PopupModalDeleteDiscussion";
 import PopupModalEditDiscussion from "../PopupModalEditDiscussion";
 import PopupModalReportDiscussion from "../PopupModalReportDiscussion";
+import PopupModalSuccessDiscussion from "../PopupModalSuccessDiscussion";
+
+// const PopupModalReportDiscussion = lazy(
+//   () => import("@/modules/"),
+// );
 
 import SuspenseError from "@/modules/Common/SuspenseError";
 
@@ -22,6 +27,7 @@ const Content: FC = (): ReactElement => {
         <PopupModalCreateDiscussion />
         <PopupModalDeleteDiscussion />
         <PopupModalReportDiscussion />
+        <PopupModalSuccessDiscussion />
       </SuspenseError>
     </section>
   );
