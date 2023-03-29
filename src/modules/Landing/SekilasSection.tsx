@@ -1,14 +1,13 @@
-import { ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import Image from "next/image";
-import pictureSekilasInfo from "@/assets/landing/picture-landing-sekilas-info.svg";
-// import yellowSekilasInfo from "@/assets/landing/yellowInfo.svg";
-// import RedSekilasInfo from "@/assets/landing/redInfo.svg";
+import pictureSekilasInfo from "@/assets/landing/picture-sekilas-landing.webp";
+import RedSekilasInfo from "@/assets/landing/redInfo.svg";
 
-const SekilasSection = (): ReactElement => {
+const SekilasSection: FC = (): ReactElement => {
   return (
-    <div className="flex flex-col lg:flex-row gap-x-14 gap-y-10 w-screen h-auto lg:px-16 pl-40 mx-44 justify-center items-center pt-16">
-      <div className="flex flex-col lg:w-[50%] w-screen">
-        <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-[#262626] dark:text-white lg:text-start text-center my-2">
+    <div className="flex flex-col lg:px-20 px-0 py-24 lg:py-28 lg:flex-row w-screen h-auto">
+      <div data-aos="flip-left" data-aos-delay="300" className="flex flex-col lg:w-[100%] w-screen">
+        <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-[#262626] dark:text-white  text-center my-2">
           Sekilas <span className="mx-2 text-[#FAB317]"> Info </span>
           Kampus Gratis
         </h1>
@@ -17,8 +16,8 @@ const SekilasSection = (): ReactElement => {
           <span className="text-gray-600 text-[24px] dark:text-white font-semibold">
             Kampus Gratis
           </span>{" "}
-          merupakan sistem manajemen E-learning yang mencantumkan laporan peningkatan atau progres
-          pembelajaran mahasiswa layaknya seperti perguruan tinggi.{" "}
+          atau disingkat KG, merupakan sistem manajemen E-learning yang mencantumkan laporan
+          peningkatan atau progres pembelajaran mahasiswa layaknya seperti perguruan tinggi.{" "}
         </p>
         <p className="align-center px-4 text-gray-600 text-center text-left lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] mt-5 dark:text-white ">
           Pengembangan platform pembelajaran ini merupakan salah satu inisiasi dari pendiri PT
@@ -26,9 +25,14 @@ const SekilasSection = (): ReactElement => {
           yang gratis, berkualitas, berkualitas diakses siapapun khususnya kaum marginal, dan selalu
           update layaknya platform Wikipedia.
         </p>
+        <Image src={RedSekilasInfo} alt={"picture-sekilas-landing"} className="my-8 mx-8" />
       </div>
-      <div>
-        <Image src={pictureSekilasInfo} alt={"picture-sekilas-landing"} className="" />
+      <div className="w-[100%]">
+        <Image
+          src={pictureSekilasInfo}
+          alt={"picture-sekilas-landing"}
+          className="lg:mx-10 w-[600] px-8 my-6 lg:my-0"
+        />
       </div>
     </div>
   );

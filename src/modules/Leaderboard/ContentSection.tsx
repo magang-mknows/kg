@@ -3,40 +3,13 @@ import Image from "next/image";
 import Medal1 from "@/assets/leaderboard/medal-1.svg";
 import Medal3 from "@/assets/leaderboard/medal-3.svg";
 import Medal from "@/assets/leaderboard/medal.svg";
-import Avatar from "@/assets/leaderboard/avatar.svg";
 import RankingSection from "./RankingSection";
 import Pagination from "../Event/Common/Pagination";
 import Filter from "./filter";
+import { useRankLeaderboard } from "@/hooks/Leaderborad/useRankLeaderboard";
 
-
-const dummyRanking = [
-  {
-    name: "Garnes",
-    img: Avatar,
-    score: 4900,
-  },
-  {
-    name: "Alex",
-    img: Avatar,
-    score: 4100,
-  },
-  {
-    name: "Adit",
-    img: Avatar,
-    score: 5000,
-  },
-  {
-    name: "Garnes",
-    img: Avatar,
-    score: 4800,
-  },
-  {
-    name: "Thor",
-    img: Avatar,
-    score: 5800,
-  },
-];
 const ContentSection = (): ReactElement => {
+  const { getRank } = useRankLeaderboard();
   return (
     <div className="mt-[71px] w-full lg:px-[130px] md:px-[100px] px-3  mb-10">
       <h1 className="text-center dark:text-white text-black text-28px font-[700] rounded-[8px]">
@@ -48,7 +21,8 @@ const ContentSection = (): ReactElement => {
           <Filter />
         </div>
         <div className="w-full flex justify-center flex-row  md:mt-0 mt-10 md:px-0 ">
-          {dummyRanking
+          {getRank
+            .slice()
             .sort((a, b) => {
               return b.score - a.score;
             })
@@ -133,24 +107,22 @@ const ContentSection = (): ReactElement => {
               );
             })}
         </div>
+        <RankingSection />
 
-        {dummyRanking
+        {/* {getRank
+          .slice()
           .sort((a, b) => {
             return b.score - a.score;
           })
-          .map((item, index) => {
+          .map((item, i) => {
             return (
-              index >= 3 && (
+              i >= 3 && (
                 <RankingSection
-                  key={index}
-                  index={index + 1}
-                  img={item.img}
-                  score={item.score}
-                  name={item.name}
+                 
                 />
               )
             );
-          })}
+          })} */}
         <div className="flex justify-center">
           <Pagination />
         </div>

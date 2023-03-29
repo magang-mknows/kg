@@ -14,6 +14,7 @@ const PopupModal: FC<PopupModalProps> = ({
   className,
   stylePopup,
   widthModal,
+  classImg,
   hasButton = true,
 }): ReactElement => {
   return (
@@ -35,12 +36,13 @@ const PopupModal: FC<PopupModalProps> = ({
               height={280.75}
               width={280.75}
               alt="Popup-Image"
+              className={classImg}
             />
           </>
         ) : (
           <Image
             src={image as StaticImageData}
-            className={"w-full"}
+            className={`w-full ${classImg}`}
             height={280.75}
             width={280.75}
             alt="Popup-Image"

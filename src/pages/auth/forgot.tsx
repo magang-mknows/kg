@@ -1,7 +1,8 @@
+import ForgotSkeleton from "@/components/Loading/Auth/ForgotSkeleton";
 import AuthLayouts from "@/layouts/Auth/AuthLayouts";
+import SuspenseError from "@/modules/Common/SuspenseError";
 import { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
+import { lazy, ReactElement } from "react";
 
 const ForgotPasswordForm = lazy(() => import("@/modules/Auth/Forgot/Form"));
 
@@ -14,11 +15,9 @@ const ForgotPassword: NextPage = (): ReactElement => {
       description="Sudah ingat akun mu?"
       img="/forgot-pass.svg"
     >
-      <ErrorBoundary fallback={<>Error Was Happen</>}>
-        <Suspense fallback={<>Loading...</>}>
-          <ForgotPasswordForm />
-        </Suspense>
-      </ErrorBoundary>
+      <SuspenseError loadingFallback={<ForgotSkeleton />}>
+        <ForgotPasswordForm />
+      </SuspenseError>
     </AuthLayouts>
   );
 };
