@@ -1,24 +1,26 @@
 import { FC, ReactElement } from "react";
 
-import Modal from "@/components/Common/Modal";
-
-import GlobalButton from "@/components/Common/GlobalButton";
-
-import { PopupModalProps } from "@/components/Common/types";
-import { usePopupReportDiscussionStatus } from "@/hooks/Discussion/usePopupReportDiscussionStatus";
 import Form from "@/components/Form";
+import Modal from "@/components/Common/Modal";
+import GlobalButton from "@/components/Common/GlobalButton";
+import { PopupModalProps } from "@/components/Common/types";
+
+import { usePopupReportDiscussionStatus } from "@/hooks/Discussion/usePopupReportDiscussionStatus";
+import { usePopupSuccessDiscussionStatus } from "@/hooks/Discussion/usePopupSuccessDiscussionStatus";
+import Button from "@/components/Common/Button";
 
 const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupStatus, getPopupStatus } = usePopupReportDiscussionStatus();
+  const { setPopupReportStatus, getPopupReportStatus } = usePopupReportDiscussionStatus();
+  const { setPopupSuccessStatus } = usePopupSuccessDiscussionStatus();
 
   return (
     <Modal
-      lookup={getPopupStatus}
-      onClose={() => setPopupStatus(!getPopupStatus)}
+      lookup={getPopupReportStatus}
+      onClose={() => setPopupReportStatus(!getPopupReportStatus)}
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={"!w-2/5"}
+      widthModal={"!w-full md:!w-2/5"}
     >
       <Form>
         <div className="flex flex-col justify-center w-full gap-4 text-center bg-white rounded-lg">
@@ -61,11 +63,16 @@ const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
             <h1 className="text-[20px] font-semibold">Ini adalah Spam</h1>
             <textarea
               placeholder="Ceritakan lebih detail disini"
-              className="w-full min-h-[144px] border border-[#D4D4D4] outline-none rounded-lg p-3 text-[14px] font-light"
+              className="w-full min-h-[112px] md:min-h-[144px] border border-[#D4D4D4] outline-none rounded-lg p-3 text-[14px] font-light"
             ></textarea>
           </section>
-          <div className="flex justify-end">
-            <GlobalButton className="" text={"Lapor"} color="blue" />
+          <div className="flex lg:justify-end">
+            <GlobalButton
+              className="!w-full h-[40px]"
+              text={"Lapor"}
+              color="blue"
+              onClick={() => setPopupSuccessStatus(true)}
+            />
           </div>
         </div>
       </Form>

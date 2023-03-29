@@ -1,5 +1,4 @@
 import { FC, ReactElement } from "react";
-import MainLayouts from "@/layouts/Main";
 import Confirm from "@/assets/StudyPlan/Confirm.svg";
 import Button from "../Common/Button";
 import PopupModal from "@/components/Common/PopupModal";
@@ -10,6 +9,8 @@ import { useDataCard } from "@/hooks/StudyPlan/useDataCard";
 import Download from "@/assets/StudyPlan/download1.svg";
 import Warning from "@/assets/StudyPlan/warning.svg";
 import { usePopupConfirmCardStudy } from "@/hooks/Common/usePopupConfirmCardStudy";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import Loading from "../Loading";
 
 const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
@@ -17,21 +18,25 @@ const SubmissionContractStudy: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
 
   return (
-    <MainLayouts>
-      <div className="flex  p-8 py-4 w-[100%] justify-between">
-        <div className="flex flex-col gap-3 w-[100%]">
+    <div className="flex flex-col w-full lg:px-16 px-0 py-6">
+      <div className="flex p-8 py-4 w-[100%]">
+        <div className="flex flex-col py-4 pb-4">
           <div className="flex gap-6">
-            <h1 className="text-2xl py-4 font-semibold">Pengajuan Kartu Rencana Study</h1>
-            <GlobalButton
-              className="text-center !w-44 !h-14 text-lg py-4 bg-[#3EB449]"
-              text="+ Mengajukan"
-              onClick={() => setPopupStatus(true)}
-              hasImg={false}
-            />
+            <h1 className="flex lg:text-2xl text-xl justify-center items-center font-semibold">
+              Pengajuan Kartu Rencana Study
+            </h1>
+            <div>
+              <GlobalButton
+                className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 bg-[#3EB449]"
+                text="+ Mengajukan"
+                onClick={() => setPopupStatus(true)}
+                hasImg={false}
+              />
+            </div>
           </div>
           {/*isi span dari API */}
           {getDataCard.map((x, i) => (
-            <p key={i} className="flex text-xl justify-between">
+            <p key={i} className="flex lg:text-xl py-2 text-md">
               <div className="flex w-full jutify-start">
                 <span>{x.label}</span>
               </div>
@@ -41,61 +46,84 @@ const SubmissionContractStudy: FC = (): ReactElement => {
             </p>
           ))}
         </div>
-        <div className="flex justify-end items-end gap-2 ">
-          <GlobalButton
-            className="text-center ml-80 "
-            size="regular"
-            color="greenBorder"
-            text="Download Silabus"
-            hasImg={true}
-            icon={Download}
-          />
+      </div>
+      <div className="flex justify-end items-center ">
+        <GlobalButton
+          className="lg:text-center text-start text-md mx-4 lg:ml-80 "
+          size="regular"
+          color="greenBorder"
+          text="Download Silabus"
+          hasImg={true}
+          icon={Download}
+        />
+      </div>
+      <div className="px-4 mx-auto md:w-full">
+        <div className="my-6 flex mx-4">
+          <div className="grid grid-cols-12 overflow-auto whitespace-nowrap mx-auto border border-[#E5E5E5] rounded-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+            <div className="bg-gray-100 text-center md:text-[16px] rounded-md p-3 font-semibold col-span-1 lg:text-[16px] text-[12px] dark:bg-transparent">
+              No.
+            </div>
+            <div className="lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-3 lg:text-[16px] text-[12px] dark:bg-transparent">
+              <p>Mata</p>
+              <p> Kuliah</p>
+            </div>
+            <div className="lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 lg:text-[16px] text-[12px] dark:bg-transparent">
+              <p>Kode </p>
+              <p>Matkul</p>
+            </div>
+            <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 lg:text-[16px] text-[12px] dark:bg-transparent">
+              SKS
+            </div>
+            <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 lg:text-[16px] md:text-[16px] text-[12px] dark:bg-transparent">
+              Semester
+            </div>
+            <div className="lg:flex md:flex md:gap-[4px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 md:text-[16px] lg:text-[16px] text-[12px] dark:bg-transparent">
+              <p>Jumlah</p>
+              <p>Pertemuan</p>
+            </div>
+
+            {getDataTable.map((x, i) => (
+              <>
+                <div
+                  key={i}
+                  className="p-3 text-center border-t border-[#E5E5E5] dark:divide-gray-700 col-span-1 lg:text-[16px] md:text-[16px] text-[12px]"
+                >
+                  {x.no}
+                </div>
+                <div className="border-t border-[#E5E5E5] dark:divide-gray-700 col-span-3 lg:text-[16px] md:text-[16px] text-[12px]">
+                  <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
+                    <Image src={x.img} alt="User" />
+                    <div className="flex w-full flex-col w-auto">
+                      <h1 className="pt-3 font-bold text-start ">{x.matkul}</h1>
+                      <p className="pt-3 text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
+                  {x.kode_matkul}
+                </div>
+                <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
+                  {x.jmlh_sks} SKS
+                </div>
+                <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
+                  {x.semester}
+                </div>
+                <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
+                  {x.jmlh_pertemuan} Pertemuan
+                </div>
+              </>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="p-8 relative">
-        <table className="overflow-x-auto min-w-full border border-gray-200  rounded-lg divide-y divide-neutral-400 dark:divide-gray-700">
-          <thead className=" bg-gray-100 ">
-            <tr>
-              <th className="p-3 rounded-md">No.</th>
-              <th className="text-start ">Mata Kuliah</th>
-              <th className="text-start">Kode Matkul</th>
-              <th className="text-start">SKS</th>
-              <th className="text-start">Semester</th>
-              <th className="text-start">Jumlah Pertemuan</th>
-            </tr>
-          </thead>
-          {getDataTable.map((x, i) => (
-            <tbody key={i} className="divide-y dark:divide-gray-700  ">
-              <tr className="border">
-                <td className="p-3 text-center">{x.no}</td>
-                <td>
-                  <div className="flex justify-center w-full gap-4 p-4">
-                    <div>
-                      <Image src={x.img} alt="User" />
-                    </div>
-                    <div className="flex w-full flex-col w-auto">
-                      <h1 className="font-bold text-start">{x.matkul}</h1>
-                      <p className="text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
-                    </div>
-                  </div>
-                </td>
-                <td>{x.kode_matkul}</td>
-                <td>{x.jmlh_sks} SKS</td>
-                <td>Semester {x.semester}</td>
-                <td>{x.jmlh_pertemuan} Pertemuan</td>
-              </tr>
-            </tbody>
-          ))}
-        </table>
-      </div>
-      <div>
+      <SuspenseError loadingFallback={<Loading />}>
         <PopupModal
           onClose={() => setPopupStatus(false)}
           icon={Confirm}
           popupTitle="Konfirmasi"
           lookup={getPopupStatus}
-          className="!h-80 !w-[100%] text-md py-10"
+          className="!h-80 lg:!w-[100%] text-md py-10"
         >
           <h1 className="py-2">
             Kamu akan mengajukan program study{" "}
@@ -115,20 +143,20 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           <div className="flex gap-3 my-2 py-4">
             <Button
               text="Batal"
-              className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+              className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
               onClick={() => setPopupStatus(false)}
               type={"button"}
             />
             <Button
-              className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+              className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
               type={"button"}
               text="Konfirmasi"
               page={"/kontrak-krs/detail"}
             />
           </div>
         </PopupModal>
-      </div>
-    </MainLayouts>
+      </SuspenseError>
+    </div>
   );
 };
 

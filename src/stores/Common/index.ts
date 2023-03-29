@@ -51,14 +51,43 @@ export const PopupModalEditDiscussion = atom({
 });
 
 export const PopupModalDeleteDiscussion = atom({
-  key: "modal-popup-delete-Discussion",
+  key: "modal-popup-delete-discussion",
   default: false,
 });
 export const PopupModalReportDiscussion = atom({
-  key: "modal-popup-report-Discussion",
+  key: "modal-popup-report-discussion",
+  default: false,
+});
+export const PopupModalSuccessDiscussion = atom({
+  key: "modal-popup-success-discussion",
   default: false,
 });
 export const GetFile = atom({
   key: "get-file",
   default: "",
+});
+
+export const PopupUploadStudyPlanState = atom({
+  key: "modal-popup-upload-StudyPlan",
+  default: false,
+});
+
+export const PopupSubmissionStudyPlanState = atom({
+  key: "modal-popup-submission-StudyPlan",
+  default: false,
+});
+
+export const PopupDeleteStudyPlanState = atom({
+  key: "modal-popup-delete-StudyPlan",
+  default: false,
+});
+
+export const PopupSuccessStudyPlanState = atom({
+  key: "modal-popup-success-StudyPlan",
+  default: false,
+});
+
+export const PopupProfilLeaderborad = atom({
+  key: "modal-popup-profil-leaderboard",
+  default: false,
 });

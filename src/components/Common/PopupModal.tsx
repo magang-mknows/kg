@@ -13,11 +13,20 @@ const PopupModal: FC<PopupModalProps> = ({
   children,
   className,
   stylePopup,
+  widthModal,
+  classImg,
+  hasButton = true,
 }): ReactElement => {
   return (
-    <Modal lookup={lookup as boolean} onClose={onClose} hasButton={true} withClose={true}>
+    <Modal
+      lookup={lookup as boolean}
+      onClose={onClose}
+      withClose={true}
+      widthModal={widthModal}
+      hasButton={hasButton}
+    >
       <div
-        className={`flex flex-col items-center justify-center w-full py-10 text-center ${className}`}
+        className={`flex flex-col items-center justify-center w-full py-10 text-center dark:bg-[#222529] ${className}`}
       >
         {icon ? (
           <>
@@ -27,12 +36,13 @@ const PopupModal: FC<PopupModalProps> = ({
               height={280.75}
               width={280.75}
               alt="Popup-Image"
+              className={classImg}
             />
           </>
         ) : (
           <Image
             src={image as StaticImageData}
-            className={"w-full"}
+            className={`w-full ${classImg}`}
             height={280.75}
             width={280.75}
             alt="Popup-Image"

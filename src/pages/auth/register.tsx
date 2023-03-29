@@ -1,7 +1,8 @@
+import RegisterSkeleton from "@/components/Loading/Auth/RegisterSkeleton";
 import AuthLayouts from "@/layouts/Auth/AuthLayouts";
+import SuspenseError from "@/modules/Common/SuspenseError";
 import { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
+import { lazy, ReactElement } from "react";
 
 const RegisterForm = lazy(() => import("@/modules/Auth/Register/Form"));
 
@@ -13,11 +14,9 @@ const Register: NextPage = (): ReactElement => {
       linkText="Login Disini"
       to="/auth/login"
     >
-      <ErrorBoundary fallback={<>Error was Happen</>}>
-        <Suspense fallback={<>Loading...</>}>
-          <RegisterForm />
-        </Suspense>
-      </ErrorBoundary>
+      <SuspenseError loadingFallback={<RegisterSkeleton />}>
+        <RegisterForm />
+      </SuspenseError>
     </AuthLayouts>
   );
 };

@@ -23,14 +23,18 @@ const Modal: FC<ModalProps> = ({
           role="dialog"
           aria-modal="true"
         >
-          <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75 " />
+          <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-25 " />
           <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex items-center justify-center w-full min-h-full p-4 text-center sm:items-center sm:p-0">
               <div
                 className={`relative w-auto overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 ${widthModal} `}
               >
                 <div className="w-full px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
-                  <div className={`flex items-center justify-between w-full ${"!justify-end"}`}>
+                  <div
+                    className={`flex items-center justify-between w-full ${
+                      !hasImage && "!justify-end"
+                    }`}
+                  >
                     {hasImage && (
                       <Image
                         src="/logo-light.svg"
@@ -47,7 +51,7 @@ const Modal: FC<ModalProps> = ({
                       />
                     )}
                   </div>
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                  <div className="mt-3 text-center sm:mt-0 sm:text-left">
                     {title && (
                       <h3
                         className="text-base font-semibold leading-6 text-gray-900"

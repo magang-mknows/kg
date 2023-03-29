@@ -1,18 +1,12 @@
 import Card from "@/layouts/Card";
 import { FC, ReactElement } from "react";
 
-import InfoLanding from "@/assets/landing/promotion-landing.svg";
-
+import InfoLanding from "@/assets/landing/promotion-landing.webp";
 import GlobalButton from "@/components/Common/GlobalButton";
 
 const PromotionBanner: FC = (): ReactElement => {
   return (
-    <Card
-      className="my-20 lg:mx-[40px] md:px-8 px-6"
-      img={InfoLanding}
-      imgWidth={""}
-      imgHeight={""}
-    >
+    <Card img={InfoLanding} imgWidth={"100px"} imgHeight={"100px"}>
       <div className="flex flex-col gap-[14px] lg:gap-[28px] p-[32px] lg:px-[64px] place-content-center">
         <h1 className="text-[33px] lg:text-[44px] text-white font-semibold">
           Yuk, Mulai Bangun Karirmu Disini!
@@ -22,6 +16,7 @@ const PromotionBanner: FC = (): ReactElement => {
           apa lagi?
         </h2>
         <GlobalButton
+          to="/auth/register"
           text="Daftar Sekarang!"
           hasImg={false}
           size="regular"

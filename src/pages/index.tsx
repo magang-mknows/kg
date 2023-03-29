@@ -18,7 +18,7 @@ const LandingPages: NextPage = (): ReactElement => {
         description="Kampus grais adalah webisite untuk orang orang yang ingin mengenyam bangku kuliah tanpa biaya namun dengan standard nasional"
       />
       <SuspenseError>
-        <Modal withClose lookup={getLoginModal} onClose={() => setLoginModal(false)}>
+        <Modal withClose hasImage lookup={getLoginModal} onClose={() => setLoginModal(false)}>
           <SuspenseError loadingFallback={<LoginSkeleton />}>
             <LoginForm />
           </SuspenseError>

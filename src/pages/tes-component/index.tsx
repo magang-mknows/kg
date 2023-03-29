@@ -16,6 +16,8 @@ import {
   PopupModalSubmissionOpen,
 } from "@/stores/Common";
 import { useSetRecoilState } from "recoil";
+import BreadCrumb from "@/components/Assigment/BreadCrumb";
+import { testDoangGess } from "@/utilities/constant";
 
 const Test = (): ReactElement => {
   const MAX_FILE_SIZE = 5000000;
@@ -58,6 +60,7 @@ const Test = (): ReactElement => {
 
   return (
     <section className="flex flex-col items-center w-full px-6 gap-y-5">
+      <BreadCrumb items={testDoangGess} />
       <GlobalButton
         onClick={() => setModalSuccess(true)}
         text={"Open Modal Success"}

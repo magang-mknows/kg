@@ -8,17 +8,18 @@ import { PopupModalProps } from "@/components/Common/types";
 import { usePopupDeleteDiscussionStatus } from "@/hooks/Discussion/usePopupDeleteDiscussionStatus";
 
 const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupStatus, getPopupStatus } = usePopupDeleteDiscussionStatus();
+  const { setPopupDeleteStatus, getPopupDeleteStatus } = usePopupDeleteDiscussionStatus();
 
   return (
     <Modal
-      lookup={getPopupStatus}
-      onClose={() => setPopupStatus(!getPopupStatus)}
+      lookup={getPopupDeleteStatus}
+      onClose={() => setPopupDeleteStatus(!getPopupDeleteStatus)}
       hasButton={true}
       hasImage={false}
       withClose={true}
+      widthModal={"!w-full md:!w-2/5"}
     >
-      <div className="flex flex-col justify-center gap-8 p-6 bg-white rounded-lg">
+      <div className="flex flex-col justify-center bg-white rounded-lg md:gap-8">
         <div className="grid gap-3 text-center">
           <svg
             className="justify-self-center"
@@ -39,8 +40,8 @@ const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
           </section>
         </div>
         <div className="flex justify-center gap-4">
-          <GlobalButton className="!w-[236px]" text={"Ya, Hapus"} color="blueBorder" />
-          <GlobalButton className="!w-[236px]" text={"Tidak"} color="blue" />
+          <GlobalButton className="md:!w-[236px] h-[36px]" text={"Ya, Hapus"} color="blueBorder" />
+          <GlobalButton className="md:!w-[236px] h-[36px]" text={"Tidak"} color="blue" />
         </div>
       </div>
     </Modal>

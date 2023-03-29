@@ -1,11 +1,49 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { useDataTable } from "@/hooks/StudyPlan/useDataTable";
+import Example1 from "@/assets/StudyPlan/example1.svg";
+import Example2 from "@/assets/StudyPlan/example2.svg";
+import Delete from "@/assets/StudyPlan/Delete.svg";
+import { usePopupUploadStudyPlan } from "@/hooks/StudyPlan/usePopupUploadStudyPlan";
+import { usePopupDeleteStudyPlan } from "@/hooks/StudyPlan/usePopupDeleteStudyPlan";
+import { usePopupSubmissionStudyPlan } from "@/hooks/StudyPlan/usePopupSubmissionStudyPlan";
+import PopupUploadStudyPlan from "@/components/StudyPlan/PopUps/PopupUploadStudyPlan";
+import PopupSubmissionStudyPlan from "./PopUps/PopupSubmissionStudyPlan";
+import PopupDeleteStudyPlan from "./PopUps/PopupDeleteStudyPlan";
+import PopupSuccessStudyPlan from "./PopUps/PopupSuccessStudyPlan";
+
+const tabel = [
+  {
+    no: 1,
+    matkul: "Bahasa Inggris",
+    img: Example1,
+    jmlh_mahasiswa: 15,
+    kode_matkul: "123456ASD",
+    jmlh_sks: 4,
+    tindakan: "abc.pdf",
+  },
+  {
+    no: 2,
+    matkul: "Kalkulus",
+    img: Example2,
+    jmlh_mahasiswa: 21,
+    kode_matkul: "18ASl22",
+    jmlh_sks: 8,
+    tindakan: "Upload",
+  },
+];
 
 const TabelPretest: FC = (): ReactElement => {
+  const { setPopupUploadStatus } = usePopupUploadStudyPlan();
+  const { setPopupSubmissionStatus } = usePopupSubmissionStudyPlan();
+  const { setPopupDeleteStatus } = usePopupDeleteStudyPlan();
   const { getDataTable } = useDataTable();
   return (
     <>
+      <PopupUploadStudyPlan />
+      <PopupSubmissionStudyPlan />
+      <PopupDeleteStudyPlan />
+      <PopupSuccessStudyPlan />
       <div className="p-8">
         <table className="min-w-full border border-gray-200  rounded-lg divide-y divide-neutral-400 dark:divide-gray-700">
           <thead className=" bg-gray-100 ">
@@ -42,7 +80,12 @@ const TabelPretest: FC = (): ReactElement => {
                 <td>{x.jmlh_sks} SKS</td>
                 <td>Semester {x.semester}</td>
 
-                <td className={`flex p-4 ${x.tindakan_pretest === "Upload" && "text-green-600"}`}>
+                <td
+                  onClick={() => setPopupUploadStatus(true)}
+                  className={`flex p-4 cursor-pointer ${
+                    x.tindakan_pretest === "Upload" && "text-green-600"
+                  }`}
+                >
                   {x.tindakan_pretest === "Upload" && (
                     <svg
                       width="25"
@@ -83,9 +126,26 @@ const TabelPretest: FC = (): ReactElement => {
                       Ajukan
                     </button>
                   ) : (
-                    <button className="p-2 px-4 bg-blue-600 text-white font-semibold  rounded-md">
-                      Ajukan
-                    </button>
+                    <div className="flex gap-x-2">
+                      <button
+                        onClick={() => setPopupSubmissionStatus(true)}
+                        className="p-2 px-4 bg-blue-600 text-white font-semibold rounded-md"
+                      >
+                        Ajukan
+                      </button>
+                      <button
+                        onClick={() => setPopupDeleteStatus(true)}
+                        className="w-9 h-9 bg-red-100 rounded-md"
+                      >
+                        <Image
+                          src={Delete}
+                          alt="delete-icon"
+                          width={14.22}
+                          height={18.28}
+                          className="m-auto"
+                        />
+                      </button>
+                    </div>
                   )}
                 </td>
                 <td>{x.status}</td>

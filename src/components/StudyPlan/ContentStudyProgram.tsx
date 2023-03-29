@@ -1,8 +1,7 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, Fragment, ReactElement, useState } from "react";
 import Image from "next/image";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { queryOptionSubject, filterOptionSubject } from "@/stores/StudyPlan";
-import MainLayouts from "@/layouts/Main";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import ContentLayouts from "@/layouts/Content";
 import Search from "@/assets/StudyPlan/search.svg";
@@ -15,8 +14,8 @@ const ContentStudyProgram: FC = (): ReactElement => {
   const [query, setQuery] = useRecoilState(queryOptionSubject);
   const [isClose, setClose] = useState(false);
   return (
-    <MainLayouts>
-      <div className="flex p-8 justify-center px-40 items-center flex-col">
+    <div>
+      <div className="flex p-8 justify-center items-center flex-col">
         <div className="bg-gray-200 dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
           <div className="flex ml-5 py-4">
             <Image src={Search} alt={"search"} width={28} />
@@ -30,16 +29,16 @@ const ContentStudyProgram: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-      <ContentLayouts>
+      <ContentLayouts className="px-10">
         <div
           className={`${
             isClose && "hidden"
-          } flex bg-yellow-100 dark:bg-yellow-300 border border-yellow-400 dark:border-yellow-100 dark:text-whitetext-yellow-700 px-4 py-3 rounded relative`}
+          } flex bg-yellow-100 dark:bg-yellow-300 border border-yellow-400 dark:border-yellow-100 dark:text-whitetext-yellow-700 py-3 rounded relative px-6`}
           role="alert"
         >
           <svg
-            width="17"
-            height="17"
+            width="30"
+            height="30"
             viewBox="0 0 17 17"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +106,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
           </>
         </div>
       </ContentLayouts>
-    </MainLayouts>
+    </div>
   );
 };
 

@@ -1,113 +1,96 @@
-import { FC, ReactElement, Suspense } from "react";
-import ContentLayouts from "@/layouts/Content";
-
-// asset
-import ImageLanding from "@/assets/landing/landing-img.svg";
-import UserKampusGratis from "@/assets/landing/mahasiswa_kampus-gratis.svg";
-import IconHero1 from "@/assets/landing/icon-hero1.svg";
-import IconHero2 from "@/assets/landing/icon-hero2.svg";
-import IconHero3 from "@/assets/landing/icon-hero3.svg";
-
+import { FC, ReactElement, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
+import Link from "next/link";
+
+import Loading from "@/components/Loading";
 import SuspenseError from "../Common/SuspenseError";
 
+import BgHero from "@/assets/landing/bg-hero.webp";
+import BgDark from "@/assets/landing/bg-dark.webp";
+import ImageLanding from "@/assets/landing/landing-img.webp";
+import LandingDark from "@/assets/landing/dark.webp";
+import UserKampusGratis from "@/assets/landing/mahasiswa_kampus-gratis.svg";
+import HeroSkeleton from "@/components/Loading/Landing/HeroSkeleton";
+
 const HeroSection: FC = (): ReactElement => {
+  const { systemTheme, theme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <Loading />;
   return (
-    <SuspenseError>
-      <div className=" z-0">
-        <div className="flex flex-col bg-gray-100 dark:bg-gray-900 justify-between w-full lg:items-start items-center lg:px-20 md:px-10 px-10 py-20 md:py-28 lg:py-28 lg:flex-row md:items-center">
-          <ContentLayouts className="w-full  dark:text-white">
-            <div className="flex flex-col gap-y-4 ">
-              <div className="lg:flex-col font-bold space-y-4 text-3xl md:text-5xl lg:text-6xl  w-full">
-                <div>
-                  <h1 className="text-center lg:text-start md:text-start">Solusi Pendidikan</h1>
-                </div>
-                <div>
-                  <h1 className="text-center lg:text-start md:text-start">Gratis & Berkualitas</h1>
-                </div>
-              </div>
-              <p className="text-xl my-4 text-[#525252] lg:text-start md:text-start text-center dark:text-white">
-                Platform belajar gratis pertama di Indonesia memungkinkan akses belajar yang mudah
-                bagi siapa saja, tanpa terkecuali.
-              </p>
-              <div className="w-full">
-                <button className="font-semibold bg-[#3EB449] w-full h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
+    <SuspenseError loadingFallback={<HeroSkeleton />}>
+      {/* section1 */}
+      <div className="flex relative flex-col h-full w-full overflow-hidden">
+        <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-screen h-full gap-y-4 lg:px-14 pl-2 lg:py-24 py-16 absolute z-40">
+          <div>
+            <h1 className="flex flex-col lg:text-[42px] text-[36px] font-bold text-center lg:text-start md:text-center text-center dark:text-white py-4">
+              SARJANA Gratis & Berkualitas <span className="py-2"> Dengan Konversi SKS : </span>
+            </h1>
+            <h3 className="lg:text-[32px] text-[22px] lg:text-start text-center font-semibold px-4 text-blue-500">
+              Kuliah, Pelatihan, Magang, Pengalaman Kerja
+            </h3>
+            <p className="flex flex-col py-8 text-md lg:text-start text-center lg:text-xl text-gray-500 dark:text-white">
+              Platform Pendidikan Tinggi Gratis pertama di Indonesia. Dengan akses belajar yang
+              mudah dan Gratis bagi semua tanpa syarat
+            </p>
+
+            <div className="flex w-full justify-center py-4 ">
+              <Link href={"/auth/register"}>
+                <button className="font-semibold animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
                   Coba Sekarang - Gratis
                 </button>
-              </div>
+              </Link>
             </div>
-          </ContentLayouts>
-
-          <ContentLayouts className="sm:flex-col md:flex-col w-full xl:mt-0 lg:mt-[-80px] md:mt-[20px] sm:mt-[20px] xs:mt-[-100px] md:justify-start sm:justify-start xs:justify-start ">
-            <div>
-              <Suspense fallback={"Load the image...."}>
-                <Image
-                  src={ImageLanding}
-                  alt="Image Landing"
-                  className="z-10 select-none lg:w-[680px] lg:h-[500px] md:w-[600px] md:h-[450px] w-[340px] h-[400px] sm:w-[400px] sm:h-[400px]"
-                />
-              </Suspense>
-              <div className="flex flex-col select-none items-center bg-white lg:w-[300px] w-[220px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 px-2">
-                <div className="font-semibold pt-6 dark:text-black">Mahasiswa Kampus Gratis</div>
-                <div className="flex flex-row py-2 items-start">
+          </div>
+          <div className="h-full w-auto lg:relative object-right lg:ml-44 lg:pt-8 pt-49">
+            <SuspenseError loadingFallback={<Loading />}>
+              <Image
+                loading="eager"
+                width={1000}
+                height={1000}
+                src={currentTheme === "light" ? ImageLanding : LandingDark}
+                alt="Image Landing"
+                className="z-40 select-none lg:pt-34 mb-10 pb-10 lg:w-[840px] lg:h-[480px] w-[500px] h-[350px]"
+              />
+            </SuspenseError>
+            <div className="flex flex-col shadow-lg select-none items-center bg-white lg:w-[320px] w-[230px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 px-2">
+              <div className="font-semibold pt-6 dark:text-black">Mahasiswa Kampus Gratis</div>
+              <div className="flex flex-row py-2 items-start">
+                <SuspenseError loadingFallback={<Loading />}>
                   <Image
                     src={UserKampusGratis}
                     alt="User Kampus Gratis"
                     className="select-none w-[60%] lg:w-[80%] md:w-[60%]"
                   ></Image>
-                  <div className="flex flex-col">
-                    <span className="text-pink-400 font-bold ">2185+</span>
-                    <span className="text-black font-semibold">Mahasiswa</span>
-                  </div>
+                </SuspenseError>
+                <div className="flex flex-col">
+                  <span className="text-pink-400 font-bold ">2185+</span>
+                  <span className="text-black font-semibold">Mahasiswa</span>
                 </div>
               </div>
             </div>
-          </ContentLayouts>
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col md:flex-row xl:flex-row lg:flex-row w-full justify-center lg:justify-between bg-[#106FA4] h-[300px] md:h-[100px] lg:h-[140px] mt-[-220px] xl:mt-[-234px] lg:mt-[-234px] z-20 lg:px-40 font-normal px-[20%] md:px-[40%] items-center">
-        <div className="flex flex-row my-4 lg:my-8 mx-6">
-          <div className="rounded-full bg-white bg-opacity-[10%] absolute w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px]">
-            <Image
-              src={IconHero1}
-              alt="icon hero1"
-              className="relative ml-4 lg:ml-6 lg:w-[40%] lg:h-[100%] w-[50%] h-[100%] flex items-center justify-center"
-            />
-          </div>
-          <div className="flex flex-col text-white text-[16px] lg:text-[20px] my-3 ml-28">
-            <div>Insturktur</div>
-            <div>Profesional</div>
-          </div>
-        </div>
-        <div className="flex flex-row my-4 lg:my-8 mx-6">
-          <div className="rounded-full bg-white bg-opacity-[10%] absolute w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px]">
-            <Image
-              src={IconHero2}
-              alt="icon hero1"
-              className="relative px-4 w-[100%] h-[100%] flex items-center justify-center"
-            />
-          </div>
-          <div className="flex flex-col text-white text-[16px] lg:text-[20px] my-3 ml-28">
-            <div>Sertifikasi</div>
-            <div>Online</div>
-          </div>
-        </div>
-        <div className="flex flex-row my-4 lg:my-8 mx-6">
-          <div className="rounded-full bg-white bg-opacity-[10%] absolute w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px]">
-            <Image
-              src={IconHero3}
-              alt="icon hero1"
-              className="relative px-4 w-[100%] h-[100%] flex items-center justify-center"
-            />
-          </div>
-          <div className="flex flex-col text-white text-[16px] lg:text-[20px] my-3 ml-28">
-            <div>6000</div>
-            <div>Peserta</div>
-          </div>
+        {/* bgHero */}
+        <div className="left-0 right-0 bottom-0 top-0 w-auto h-screen">
+          <Image
+            alt="bg-hero"
+            className="h-full z-0 w-full object-cover bg-opacity-100 dark:bg-opacity-0"
+            src={currentTheme === "light" ? BgHero : BgDark}
+            width={1000}
+            height={1000}
+            loading="eager"
+          />
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-900 h-[30] w-screen pt-24"></div>
     </SuspenseError>
   );
 };
