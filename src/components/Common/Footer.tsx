@@ -16,6 +16,7 @@ const Footer: FC = (): ReactElement => {
         justify-between
         text-[12px]
         text-[#737373]
+        bg-gray-200
         dark:bg-[#222529]"
     >
       <div className="dark:text-gray-400 flex justify-center text-center lg:justify-start">

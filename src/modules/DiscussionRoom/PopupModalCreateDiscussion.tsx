@@ -1,31 +1,34 @@
 import { FC, ReactElement } from "react";
+import { z } from "zod";
 
 import Modal from "@/components/Common/Modal";
 import Form from "@/components/Form";
-
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { z } from "zod";
-import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import GlobalButton from "@/components/Common/GlobalButton";
+import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
 
 import { PopupModalProps } from "@/components/Common/types";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { useCreateDiscussion } from "@/hooks/Discussion/useCreateDiscussion";
 import { usePopupCreateDiscussionStatus } from "@/hooks/Discussion/usePopupCreateDiscussionStatus";
 
-const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupStatus, getPopupStatus } = usePopupCreateDiscussionStatus();
+import { handleError } from "@/utilities/helper";
+import { DiscussionPayloadTypes } from "@/services/Discussion";
 
-  const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
+const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
+  const { setPopupCreateStatus, getPopupCreateStatus } = usePopupCreateDiscussionStatus();
+
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "video/mp4"];
 
   const validationSchema = z.object({
-    judulDiskusi: z
+    title: z
       .string()
       .min(5, { message: "Min. 5 Karakter" })
       .max(250, { message: "Maks. 250 Karakter" }),
-    upload_media: z
+    images: z
       .any()
       .refine((files: File) => files !== undefined, "Harus ada file yang di upload.")
       .refine(
@@ -34,31 +37,44 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
       )
       .refine(
         (files: File) => ACCEPTED_MEDIA_TYPES.includes(files?.type),
-        "hanya menerima .jpg, .jpeg, .mp4, dan .webp.",
+        "hanya menerima .jpg, .jpeg, .png, .webp, dan .mp4.",
       ),
+    content: z.any(),
+    category: z.any(),
   });
+
   type ValidationSchema = z.infer<typeof validationSchema>;
+
+  const { mutate, isLoading } = useCreateDiscussion();
 
   const {
     control,
     handleSubmit,
+    register,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      judulDiskusi: "",
-      upload_media: undefined,
+      title: "",
+      content: "default content",
+      images: undefined,
+      category: "default category",
     },
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    try {
+      mutate(data as DiscussionPayloadTypes);
+      console.log(data);
+    } catch (err) {
+      throw handleError(err);
+    }
   });
   return (
     <Modal
-      lookup={getPopupStatus}
-      onClose={() => setPopupStatus(!getPopupStatus)}
+      lookup={getPopupCreateStatus}
+      onClose={() => setPopupCreateStatus(!getPopupCreateStatus)}
       hasButton={true}
       hasImage={false}
       withClose={true}
@@ -76,7 +92,7 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
                 control={control}
                 type={"text"}
                 label={"Judul Diskusi"}
-                name={"judulDiskusi"}
+                name={"title"}
                 placeholder={"Ketik Judul Diskusi Kamu"}
                 required={true}
                 className="px-2 py-2 rounded-lg md:mb-2 md:py-3 focus:outline-none"
@@ -85,17 +101,15 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
             </div>
             <div className="form-label">
               <section className="flex flex-col my-2 ">
-                <label className={"font-medium text-neutral-800 text-1xl"}>
-                  Isi Diskusi
-                </label>
+                <label className={"font-medium text-neutral-800 text-1xl"}>Isi Diskusi</label>
                 <div className="flex flex-col my-2 border-2 border-neutral-300 gap-y-2 p-[12px] rounded-lg">
                   <input
                     type="text"
-                    name=""
+                    {...register("content")}
                     className="px-2 py-1 bg-transparent border-2 border-transparent rounded-lg outline-none focus:outline-1 focus:border-1 focus:outline-none"
                     placeholder="Mau diskusi apa hari ini?"
                   />
-                  <ControlledUploadDragbleField control={control} name={"upload_media"} />
+                  <ControlledUploadDragbleField control={control} name={"images"} />
                 </div>
               </section>
               <p className="text-[12px] text-[#A3A3A3]">Maks. 1000 karakter</p>
@@ -105,7 +119,7 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
                 className="!w-[111px] !h-[40px]"
                 disabled={!isValid}
                 type="submit"
-                text="Kirim"
+                text={isLoading ? "Sedang Mengirim..." : "Kirim"}
                 color="green"
                 icon={
                   <svg

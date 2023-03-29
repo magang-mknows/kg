@@ -1,7 +1,6 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { useOptionFaculty } from "@/hooks/StudyPlan/useOptionFaculty";
-import MainLayouts from "@/layouts/Main";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import Card from "@/components/Common/Card";
 
@@ -9,7 +8,7 @@ const ContentFaculty: FC = (): ReactElement => {
   const { getOptionFaculty } = useOptionFaculty();
 
   return (
-    <MainLayouts>
+    <div className="px-8">
       <h5 className="p-0 text-2xl font-semibold lg:p-2">Pilihan Fakultas</h5>
       <div className="grid grid-cols-1 gap-4 pb-40 lg:grid-cols-3">
         <>
@@ -46,7 +45,7 @@ const ContentFaculty: FC = (): ReactElement => {
           )}
         </>
       </div>
-    </MainLayouts>
+    </div>
   );
 };
 
