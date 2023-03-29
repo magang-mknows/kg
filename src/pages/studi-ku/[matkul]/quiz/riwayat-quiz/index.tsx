@@ -1,12 +1,8 @@
-import { FC, Fragment, ReactElement } from "react";
-import HistoryQuiz from "@/modules/MyStudy/Quiz/AfterQuiz/QuizHistory";
+import { FC, ReactElement } from "react";
+import QuizHistory from "@/modules/MyStudy/Quiz/AfterQuiz/QuizHistory";
 
 const index: FC = (): ReactElement => {
-  return (
-    <Fragment>
-      <HistoryQuiz />
-    </Fragment>
-  );
+  return <QuizHistory />;
 };
 
 export default index;
