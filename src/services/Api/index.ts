@@ -34,8 +34,8 @@ const ApiService = {
           } else {
             try {
               const res = await AuthService.RefreshToken();
-              TokenService.saveRefreshToken(res?.data?.refresh_token);
-              TokenService.saveToken(res?.data?.access_token);
+              TokenService.saveRefreshToken(res?.data?.data.refresh_token);
+              TokenService.saveToken(res?.data?.data.access_token);
             } catch (e) {
               AuthService.Logout();
               throw error;

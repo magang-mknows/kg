@@ -4,10 +4,6 @@ import Comment from "./Post/Coment";
 
 import Search from "./Search";
 
-// const PopupModalReportDiscussion = lazy(
-//   () => import("@/modules/"),
-// );
-
 import SuspenseError from "@/modules/Common/SuspenseError";
 
 const Content: FC = (): ReactElement => {

@@ -3,6 +3,7 @@ import { handleError } from "@/utilities/helper";
 import { MetaTypes } from "../types";
 
 import { serialize } from "object-to-formdata";
+import TokenService from "../Token";
 
 export type DiscussionPayloadTypes = {
   title: string;
@@ -14,14 +15,18 @@ export type DiscussionPayloadTypes = {
 const DiscussionService = {
   CreateDiscussion: async (payload: DiscussionPayloadTypes) => {
     const data = serialize(payload);
+    const token = TokenService.getToken();
+    console.log(token);
+
     const requestData = {
       method: "post",
       withCrededentials: true,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
       },
       data,
-      url: "/discussion/forum/f39b703d-7fd7-4142-afcb-38f9a0bcb371",
+      url: "/discussion/forum/6bc3b730-8c7d-41f0-a1dc-03bac621a825",
     };
     try {
       const res = await ApiService.customRequest(requestData);
