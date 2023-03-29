@@ -8,7 +8,7 @@ import Button from "@/components/Common/Button";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const QuizScoreHome: FC = (): ReactElement => {
+const QuizScoreSection: FC = (): ReactElement => {
   const data = {
     labels: ["Your Score"],
     datasets: [
@@ -72,4 +72,4 @@ const QuizScoreHome: FC = (): ReactElement => {
   );
 };
 
-export default QuizScoreHome;
+export default QuizScoreSection;

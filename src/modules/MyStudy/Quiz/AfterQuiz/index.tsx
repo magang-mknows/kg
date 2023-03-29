@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import QuizScore from "./QuizScore/QuizScoreHome";
+import QuizScore from "./QuizScore/QuizScoreSection";
 
 const AfterQuiz: FC = (): ReactElement => {
   return (

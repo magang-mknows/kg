@@ -1,8 +1,8 @@
 import { FC, ReactElement } from "react";
-import QuizHistory from "@/modules/MyStudy/Quiz/AfterQuiz/QuizHistory";
+import QuizHistoryModule from "@/modules/MyStudy/Quiz/AfterQuiz/QuizHistory";
 
 const index: FC = (): ReactElement => {
-  return <QuizHistory />;
+  return <QuizHistoryModule />;
 };
 
 export default index;

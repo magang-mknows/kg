@@ -1,8 +1,8 @@
 import { FC, ReactElement } from "react";
-import StartQuiz from "@/modules/MyStudy/Quiz/StartQuiz";
+import StartQuizModule from "@/modules/MyStudy/Quiz/StartQuiz";
 
 const index: FC = (): ReactElement => {
-  return <StartQuiz />;
+  return <StartQuizModule />;
 };
 
 export default index;

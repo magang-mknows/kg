@@ -4,7 +4,7 @@ import BaseLayouts from "@/layouts/Base";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import { quizBreadCumbs } from "@/utilities/constant";
 import { FC, ReactElement } from "react";
-import QuizScore from "@/modules/MyStudy/Quiz/AfterQuiz/QuizScore/QuizScoreHome";
+import QuizScoreSection from "@/modules/MyStudy/Quiz/AfterQuiz/QuizScore/QuizScoreSection";
 import { ErrorBoundary } from "react-error-boundary";
 
 const newBreadCrumbData = [
@@ -21,7 +21,7 @@ const index: FC = (): ReactElement => {
       <BaseLayouts widthHScreen={false}>
         <SuspenseError errorFallback={<QuizScoreSkeleton />}>
           <BreadCrumb items={newBreadCrumbData} />
-          <QuizScore />
+          <QuizScoreSection />
         </SuspenseError>
       </BaseLayouts>
     </ErrorBoundary>
