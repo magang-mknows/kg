@@ -6,6 +6,7 @@ import SuspenseError from "../Common/SuspenseError";
 import { useInView } from "react-intersection-observer";
 
 const HeroSection = dynamic(() => import("./HeroSection"));
+const CardSection = dynamic(() => import("./CardSection"));
 const PatnerSection = dynamic(() => import("./PatnerSection"));
 const SekilasSection = dynamic(() => import("./SekilasSection"));
 const AboutSection = dynamic(() => import("./AboutSection"));
@@ -29,6 +30,7 @@ const Landing: FC = (): ReactElement => {
     <BaseLayouts>
       <div ref={ref}>
         <SuspenseError>{inView && <HeroSection />}</SuspenseError>
+        <SuspenseError>{inView && <CardSection />}</SuspenseError>
         <SuspenseError>{inView && <PatnerSection />}</SuspenseError>
         <SuspenseError>{inView && <SekilasSection />}</SuspenseError>
         <SuspenseError>{inView && <AboutSection />}</SuspenseError>

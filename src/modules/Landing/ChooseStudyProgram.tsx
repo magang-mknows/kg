@@ -1,12 +1,11 @@
 import { FC, ReactElement } from "react";
 import Card from "@/components/Common/Card";
 import { StaticImageData } from "next/image";
-import GlobalButton from "@/components/Common/GlobalButton";
 
 // asset
-import ImgStudyProgram from "@/assets/landing/img-study-program.svg";
-import ImgStudyProgram2 from "@/assets/landing/img-study-program2.svg";
-import ImgStudyProgram3 from "@/assets/landing/img-study-program3.svg";
+import ImgStudyProgram from "@/assets/landing/img-study-program.webp";
+import ImgStudyProgram2 from "@/assets/landing/img-study-program2.webp";
+import ImgStudyProgram3 from "@/assets/landing/img-study-program3.webp";
 
 const DataDummy: {
   id: number;
@@ -34,11 +33,15 @@ const DataDummy: {
 
 const ChooseStudyProgram: FC = (): ReactElement => {
   return (
-    <section className="w-full my-20 lg:px-24 md:px-8 px-24">
-      <h1 className="flex lg:justify-start justify-center lg:text-[44px] md:text-[44px] text-[30px] font-bold text-[#262626] dark:text-white">
+    <section className="w-full my-20 lg:px-24">
+      <h1 className="flex lg:text-start text-center lg:text-[44px] md:text-[44px] text-[30px] font-bold text-[#262626] dark:text-white px-6">
         3 Pilihan Program Studi
       </h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-5 md:gap-x-5 md:gap-y-5 gap-y-5 justify-center lg:justify-between py-[20px]">
+      <div
+        data-aos="slide-right"
+        data-aos-delay="100"
+        className="grid lg:grid-cols-3 grid-cols-1 px-6 lg:gap-x-5 gap-y-5 justify-center lg:justify-between py-[20px]"
+      >
         {DataDummy.map((dummy, i) => (
           <Card
             key={i}
@@ -65,13 +68,10 @@ const ChooseStudyProgram: FC = (): ReactElement => {
           </Card>
         ))}
       </div>
-      <div className="flex flex-row justify-center w-full mt-[40px]">
-        <GlobalButton
-          size="regular"
-          color="green"
-          text={"Lihat Semua"}
-          className="justify-center"
-        />
+      <div className="flex flex-row justify-center mt-[40px]">
+        <button className="font-semibold lg:animate-none animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
+          Lihat Semua
+        </button>
       </div>
     </section>
   );

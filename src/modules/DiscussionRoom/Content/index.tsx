@@ -4,10 +4,9 @@ import Comment from "./Post/Coment";
 
 import Search from "./Search";
 
-import PopupModalCreateDiscussion from "../PopupModalCreateDiscussion";
-import PopupModalDeleteDiscussion from "../PopupModalDeleteDiscussion";
-import PopupModalEditDiscussion from "../PopupModalEditDiscussion";
-import PopupModalReportDiscussion from "../PopupModalReportDiscussion";
+// const PopupModalReportDiscussion = lazy(
+//   () => import("@/modules/"),
+// );
 
 import SuspenseError from "@/modules/Common/SuspenseError";
 
@@ -17,12 +16,6 @@ const Content: FC = (): ReactElement => {
       <Search />
       <Post />
       <Comment />
-      <SuspenseError>
-        <PopupModalEditDiscussion />
-        <PopupModalCreateDiscussion />
-        <PopupModalDeleteDiscussion />
-        <PopupModalReportDiscussion />
-      </SuspenseError>
     </section>
   );
 };
