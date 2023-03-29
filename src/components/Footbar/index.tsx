@@ -22,12 +22,12 @@ const Footbar: FC = (): ReactElement => {
         dark:bg-[#222529]
         transition-all ease-in-out duration-300"
     >
-      <div className="py-10 mx-56 text-justify  md:text-justify lg:mx-20 md:mx-14 md:py-5 ">
+      <div className=" mx-6 lg:mx-20 md:mx-14 md:py-5 ">
         <div className="grid gap-10  grid-1 md:grid-cols-2 lg:grid-cols-4">
           {/* kampus gratis */}
           <div className="text-sm w-full lg:w-[360px]">
             <Image src={LoadConditionalLogo()} className="mb-4  h-19 w-100 sm:h-15" alt="logo" />
-            <p className="lg:text-[14px] dark:text-gray-400">
+            <p className="lg:text-[14px] dark:text-gray-400 text-start">
               Kampus Gratis merupakan Kampus Gratis disingkat KG, merupakan sistem manajemen
               e-learning, yang mencantumkan laporan peningkatan atau kemajuan pembelajaran
               mahasiswa, layaknya perguruan tinggi.
@@ -59,11 +59,11 @@ const Footbar: FC = (): ReactElement => {
               <div className="mt-[6px] flex justify-end">
                 <a href="play.google.com" className="">
                   <Image
-                    className="lg:w-full lg:h-[62px]"
+                    className="lg:w-full lg:h-[64px]"
                     src={PlayStore}
                     alt="Google Play Store"
-                    width={120}
-                    height={120}
+                    width={140}
+                    height={140}
                   />
                 </a>
               </div>
@@ -73,7 +73,7 @@ const Footbar: FC = (): ReactElement => {
           {/* Halaman */}
           <div
             className="
-            lg:pl-[160px]"
+            lg:pl-[160px] text-start"
           >
             <h6 className="flex text-[18px] font-bold dark:text-white">Halaman</h6>
 
