@@ -41,7 +41,7 @@ const HeroSection: FC = (): ReactElement => {
               mudah dan Gratis bagi semua tanpa syarat
             </p>
 
-            <div className="flex w-full justify-center py-8 ">
+            <div className="flex w-full justify-center py-4 ">
               <Link href={"/auth/register"}>
                 <button className="font-semibold animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
                   Coba Sekarang - Gratis
@@ -49,7 +49,7 @@ const HeroSection: FC = (): ReactElement => {
               </Link>
             </div>
           </div>
-          <div className="h-full w-auto lg:relative object-right lg:ml-44 lg:pt-8 pt-44">
+          <div className="h-full w-auto lg:relative object-right lg:ml-44 lg:pt-8 pt-49">
             <SuspenseError loadingFallback={<Loading />}>
               <Image
                 loading="eager"
@@ -57,7 +57,7 @@ const HeroSection: FC = (): ReactElement => {
                 height={1000}
                 src={currentTheme === "light" ? ImageLanding : LandingDark}
                 alt="Image Landing"
-                className="z-40 select-none lg:pt-34 mb-10 pb-10 lg:w-[840px] lg:h-[480px] w-[500px] h-[500px]"
+                className="z-40 select-none lg:pt-34 mb-10 pb-10 lg:w-[840px] lg:h-[480px] w-[500px] h-[350px]"
               />
             </SuspenseError>
             <div className="flex flex-col shadow-lg select-none items-center bg-white lg:w-[320px] w-[230px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 px-2">
