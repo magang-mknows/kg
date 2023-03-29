@@ -1,16 +1,31 @@
+import BreadCrumb from "@/components/Assigment/BreadCrumb";
+import BaseLayouts from "@/layouts/Base";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import { quizBreadCumbs } from "@/utilities/constant";
 import { FC, ReactElement } from "react";
-import HistoryCard from "./HistoryCard";
+import { ErrorBoundary } from "react-error-boundary";
+import QuizHistorySection from "@/modules/MyStudy/Quiz/AfterQuiz/QuizHistory/QuizHistorySection";
+import QuizHistorySkeleton from "@/components/Loading/Quiz/QuizHistorySkeleton";
 
-const QuizHistory: FC = (): ReactElement => {
+const newBreadCrumbData = [
+  ...quizBreadCumbs,
+  {
+    name: "Riwayat Quiz",
+    link: "",
+  },
+];
+
+const index: FC = (): ReactElement => {
   return (
-    <div className="px-6 md:px-8 lg:px-10 w-full min-h-screen mb-20">
-      <section className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-        <HistoryCard />
-        <HistoryCard />
-        <HistoryCard />
-      </section>
-    </div>
+    <ErrorBoundary fallback={<>Error was happen</>}>
+      <BaseLayouts widthHScreen={false}>
+        <SuspenseError errorFallback={<QuizHistorySkeleton />}>
+          <BreadCrumb items={newBreadCrumbData} />
+          <QuizHistorySection />
+        </SuspenseError>
+      </BaseLayouts>
+    </ErrorBoundary>
   );
 };
 
-export default QuizHistory;
+export default index;
