@@ -12,23 +12,23 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDiscussionStatus";
-import { useGetAllDiscussion } from "@/hooks/Discussion/useGetAllDiscussion";
-// import { MetaTypes } from "@/services/types";
+
+import { useGetDiscussionById } from "@/hooks/Discussion/useGetDiscussionById";
+
+import { MetaTypes, MetaTypesId } from "@/services/types";
 
 const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  // const [meta] = useState<MetaTypes>({
-  //   page: 1,
-  //   page_size: 1,
-  //   search: "",
-  //   role_id: 1,
-  // });
+  const [meta] = useState<MetaTypesId>({
+    id: "030581e6-481f-47ef-9127-b4e3006f9a29",
+  });
+  const { data } = useGetDiscussionById(meta);
+
+  console.log(data);
 
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussionStatus();
 
   const MAX_FILE_SIZE = 300000000;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
-
-  // const { data } = useGetAllDiscussion(meta);
 
   const validationSchema = z.object({
     title: z.string().max(250, { message: "Maks. 250 Karakter" }),
@@ -57,10 +57,10 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      title: "",
-      content: "",
-      images: undefined,
-      category: "",
+      title: data?.data?.title,
+      content: data?.data?.content,
+      images: data?.data?.images[0],
+      category: data?.data?.category,
     },
   });
 
