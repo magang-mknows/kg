@@ -12,10 +12,12 @@ export type DiscussionPayloadTypes = {
   category?: string;
 };
 
+const token = TokenService.getToken();
+
 const DiscussionService = {
   CreateDiscussion: async (payload: DiscussionPayloadTypes) => {
     const data = serialize(payload);
-    const token = TokenService.getToken();
+
     console.log(token);
 
     const requestData = {
@@ -42,6 +44,7 @@ const DiscussionService = {
       method: "get",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
       },
       params: props,
       url: "/discussion",

@@ -1,17 +1,16 @@
 import { FC, ReactElement, useState } from "react";
+import { z } from "zod";
 
-import Modal from "@/components/Common/Modal";
 import Form from "@/components/Form";
+import Modal from "@/components/Common/Modal";
+import GlobalButton from "@/components/Common/GlobalButton";
+import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
+import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
+import { PopupModalProps } from "@/components/Common/types";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { z } from "zod";
-import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
-import GlobalButton from "@/components/Common/GlobalButton";
-import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
-
-import { PopupModalProps } from "@/components/Common/types";
 import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDiscussionStatus";
 import { useGetAllDiscussion } from "@/hooks/Discussion/useGetAllDiscussion";
 // import { MetaTypes } from "@/services/types";
@@ -52,6 +51,7 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const {
     control,
     handleSubmit,
+    register,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -74,7 +74,7 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={"!w-2/5"}
+      widthModal={"!w-full md:!w-2/5"}
     >
       <div className="flex items-center justify-center w-full">
         <Form onSubmit={onSubmit}>
@@ -82,13 +82,13 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
             Edit Diskusi
           </h1>
           <div className="flex flex-col w-full gap-4">
-            <div className="form-label">
+            <div className="form-label text-start">
               <ControlledTextField
                 hasLabel
                 control={control}
                 type={"text"}
                 label={"Judul Diskusi"}
-                name={"judulDiskusi"}
+                name={"title"}
                 placeholder={"Bahas Negara"}
                 required={true}
                 className="px-2 py-2 rounded-lg md:mb-2 md:py-3 focus:outline-none"
@@ -96,19 +96,19 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
               />
               <p className="text-[12px] text-[#A3A3A3] -mt-2 ">Maks. 250 karakter</p>
             </div>
-            <div className="form-label">
-              <section className="flex flex-col my-2 ">
-                <label className={"font-medium text-neutral-800 text-1xl dark:text-white"}>
+            <div className="form-label text-start">
+              <section className="flex flex-col my-2">
+                <label className={" font-medium text-neutral-800 text-1xl dark:text-white"}>
                   Isi Diskusi
                 </label>
                 <div className="flex flex-col my-2 border-2 border-neutral-300 gap-y-2 p-[12px] rounded-lg">
                   <input
                     type="text"
-                    name=""
+                    {...register("content")}
                     className="px-2 py-1 bg-transparent border-2 border-transparent rounded-lg outline-none focus:outline-1 focus:border-1 focus:outline-none"
                     placeholder="Mau diskusi apa hari ini?"
                   />
-                  <ControlledUploadDragbleField control={control} name={"upload_media"} />
+                  <ControlledUploadDragbleField control={control} name={"images"} />
                 </div>
               </section>
               <p className="text-[12px] text-[#A3A3A3]">Maks. 1000 karakter</p>
