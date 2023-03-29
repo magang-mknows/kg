@@ -1,17 +1,18 @@
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
-import Loading from "@/components/Loading";
 import BaseLayouts from "@/layouts/Base";
-import { FC, ReactElement, Suspense } from "react";
-import QuizHome from "./QuizHome";
+import { FC, ReactElement } from "react";
+import QuizHome from "@/modules/MyStudy/Quiz/QuizHome";
 import { tugasBreadCumbs } from "@/utilities/constant";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import QuizHomeSkeleton from "@/components/Loading/Quiz/QuizHomeSkeleton";
 
 const index: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
-      <Suspense fallback={<Loading />}>
+      <SuspenseError loadingFallback={<QuizHomeSkeleton />}>
         <BreadCrumb items={tugasBreadCumbs} />
         <QuizHome />
-      </Suspense>
+      </SuspenseError>
     </BaseLayouts>
   );
 };
