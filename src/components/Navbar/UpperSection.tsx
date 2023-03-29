@@ -76,7 +76,7 @@ const UpperSection: FC = (): ReactElement => {
                   }
                 >
                   <HiChatAlt2 className="bg-yellow-400 text-white rounded-md p-2" size={32} />
-                  <h1 className="text-[#171717] text-xs text-center">Diskusi Global</h1>
+                  <h1 className="text-[#171717] text-xs text-center">Ruang Diskusi</h1>
                 </Menu.Item>
                 <Menu.Item
                   as="div"
