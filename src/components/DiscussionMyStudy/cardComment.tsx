@@ -80,7 +80,7 @@ const CardDiscussion: FC<cardAuthor> = ({
           lookup={getPopupEditStatus}
           onClose={() => setPopupEditStatus(false)}
           popupTitle={"Edit Komentar"}
-          classImg="hidden"
+          hasImg={false}
         >
           <h1 className="flex justify-start w-full mb-4">Ubah Komentar</h1>
           <textarea className="h-[144px] w-[467px] outline outline-[#D4D4D4] rounded-[8px]"></textarea>
@@ -106,7 +106,7 @@ const CardDiscussion: FC<cardAuthor> = ({
           onClose={() => setPopupDeleteStatus(false)}
           popupTitle={"Konfirmasi"}
           description={"Apakah anda ingin menghapus postingan ini?"}
-          classImg="hidden"
+          hasImg={false}
         >
           <div className="flex flex-row gap-6 mt-4">
             <button className="bg-white outline outline-[#106FA4] h-[46px] w-[236px] text-[#106FA4] font-[600] text-[16px] rounded-[8px]">

@@ -181,7 +181,7 @@ export type PopupModalProps = {
   lookup?: boolean;
   children?: ReactNode;
   className?: string;
-  classImg?: string;
+  hasImg?: boolean;
   stylePopup?: string;
   widthModal?: string;
   hasButton?: boolean;
