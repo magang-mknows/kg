@@ -30,6 +30,7 @@ export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
       score: 4800,
     },
     {
+      id: "5",
       name: "Thor",
       img: Avatar,
       score: 5800,

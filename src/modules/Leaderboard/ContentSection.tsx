@@ -107,8 +107,9 @@ const ContentSection = (): ReactElement => {
               );
             })}
         </div>
+        <RankingSection />
 
-        {getRank
+        {/* {getRank
           .slice()
           .sort((a, b) => {
             return b.score - a.score;
@@ -117,15 +118,11 @@ const ContentSection = (): ReactElement => {
             return (
               i >= 3 && (
                 <RankingSection
-                  key={i}
-                  index={i + 1}
-                  img={item.img}
-                  score={item.score}
-                  name={item.name}
+                 
                 />
               )
             );
-          })}
+          })} */}
         <div className="flex justify-center">
           <Pagination />
         </div>
