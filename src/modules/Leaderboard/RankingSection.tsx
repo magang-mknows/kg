@@ -10,7 +10,7 @@ const RankingSection: FC = (): ReactElement => {
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
   const { getRank } = useRankLeaderboard();
   return (
-    <>
+    <div className="relative lg:-top-64 md:-top-44 -top-36">
       {getRank
         .slice()
         .sort((a, b) => {
@@ -56,7 +56,7 @@ const RankingSection: FC = (): ReactElement => {
             )
           );
         })}
-    </>
+    </div>
   );
 };
 
