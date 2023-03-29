@@ -1,11 +1,9 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import DiscussionService from "@/services/Discussion";
 import { DiscussionResponseTypes } from "@/services/Discussion/types";
-import { MetaTypes } from "@/services/types";
+import { MetaTypesId } from "@/services/types";
 
-export const useGetAllDiscussion = (
-  props: MetaTypes,
-): UseQueryResult<DiscussionResponseTypes> =>
+export const useGetDiscussionById = (props: MetaTypesId): UseQueryResult<DiscussionResponseTypes> =>
   useQuery<DiscussionResponseTypes>({
-    queryFn: async () => await DiscussionService.GetAllDiscussion(props),
+    queryFn: async () => await DiscussionService.GetDiscussion(props),
   });
