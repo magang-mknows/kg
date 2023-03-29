@@ -78,9 +78,9 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={"!w-2/5"}
+      widthModal={"!w-full md:!w-2/5 "}
     >
-      <div className="flex items-center justify-center w-full ">
+      <div className="flex items-center justify-center w-full">
         <Form onSubmit={onSubmit}>
           <h1 className="text-center text-neutral-800 text-[20px] font-semibold ">
             Buat Diskusi Baru
@@ -101,7 +101,9 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
             </div>
             <div className="form-label">
               <section className="flex flex-col my-2 ">
-                <label className={"font-medium text-neutral-800 text-1xl"}>Isi Diskusi</label>
+                <label className={"font-medium text-start text-neutral-800 text-1xl"}>
+                  Isi Diskusi
+                </label>
                 <div className="flex flex-col my-2 border-2 border-neutral-300 gap-y-2 p-[12px] rounded-lg">
                   <input
                     type="text"
