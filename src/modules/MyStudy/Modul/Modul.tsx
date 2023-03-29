@@ -49,7 +49,7 @@ const ModulContent = (): ReactElement => {
                     videoId="wqFzwWRdteM"
                     opts={opts}
                     onReady={onPlayerReady}
-                    iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-[420px] h-[320px]"
+                    iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-[360px] h-[320px]"
                   />
                   <div className="shadow-md rounded-lg lg:p-10 w-full h-full">
                     <h1 className="font-bold text-xl">Introduce Manajemen Keuangan</h1>
@@ -124,12 +124,12 @@ const ModulContent = (): ReactElement => {
               </h1>
               <div className="shadow flex justify-start p-2 w-full my-3">
                 <input
-                  className="w-full h-auto p-6 outline-none"
+                  className="w-full h-auto lg:p-5 p-2 rounded-md outline-none"
                   type="text"
                   placeholder="Tulis materi yang kamu dapat disini..."
                 />
               </div>
-              <p className="text-gray-400">
+              <p className="text-gray-400 lg:text-lg text-sm">
                 Materi kamu akan di-review oleh dosen atau pembimbing kamu. Pastikan kamu mengisi
                 dengan sesuai!
               </p>
