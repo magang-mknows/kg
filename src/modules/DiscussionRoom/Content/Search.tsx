@@ -1,11 +1,15 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, lazy, ReactElement } from "react";
 
-import Button from "@/components/Common/Button";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
-import PopupModalCreateDiscussion from "../PopupModalCreateDiscussion";
+import Button from "@/components/Common/Button";
+const PopupModalCreateDiscussion = lazy(
+  () => import("@/modules/DiscussionRoom/PopupModalCreateDiscussion"),
+);
+
 import { usePopupCreateDiscussionStatus } from "@/hooks/Discussion/usePopupCreateDiscussionStatus";
+import SuspenseError from "@/modules/Common/SuspenseError";
 
 const Search: FC = (): ReactElement => {
   const { setPopupCreateStatus } = usePopupCreateDiscussionStatus();
@@ -32,7 +36,9 @@ const Search: FC = (): ReactElement => {
           onClick={() => setPopupCreateStatus(true)}
         />
       </section>
-      <PopupModalCreateDiscussion />
+      <SuspenseError>
+        <PopupModalCreateDiscussion />
+      </SuspenseError>
     </section>
   );
 };

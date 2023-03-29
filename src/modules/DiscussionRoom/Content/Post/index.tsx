@@ -11,7 +11,7 @@ import dummyCourse from "@/assets/dashboard/dummyCourse.png";
 const Post: FC = (): ReactElement => {
   return (
     <div>
-      <section className="py-4 relative w-fit">
+      <section className="relative w-full py-4">
         <PostCard
           type="post"
           hasImage={false}

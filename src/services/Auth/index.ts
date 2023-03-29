@@ -19,8 +19,8 @@ const AuthService = {
     };
     try {
       const res = await ApiService.customRequest(requestData);
-      TokenService.saveToken(res.data.data.token.access_token);
-      TokenService.saveRefreshToken(res.data.data.token.refresh_token);
+      TokenService.saveToken(res.data.token.access_token);
+      TokenService.saveRefreshToken(res.data.token.refresh_token);
       ApiService.setHeader();
       return res.data;
     } catch (error) {

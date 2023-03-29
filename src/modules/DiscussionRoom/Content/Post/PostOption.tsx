@@ -47,7 +47,7 @@ const PostOption: FC = (): ReactElement => {
     <Fragment>
       <Menu as="div" className={"relative inline-block text-left z-50 left-0 mt-1.5"}>
         <Menu.Button>
-          <div className="cursor-pointer text-neutral-800 group">
+          <div className="cursor-pointer text-neutral-800 dark:text-white group">
             <GoKebabVertical />
           </div>
         </Menu.Button>

@@ -18,7 +18,7 @@ const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={"!w-2/5"}
+      widthModal={"!w-full md:!w-2/5"}
     >
       <Form>
         <div className="flex flex-col justify-center w-full gap-4 text-center bg-white rounded-lg">
