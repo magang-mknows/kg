@@ -66,9 +66,6 @@ const UpperSection: FC = (): ReactElement => {
             <Menu.Items className="absolute right-0 top-2 origin-top-right   bg-white   shadow-md   rounded-md overflow-hidden">
               <div className="bg-yellow-200 h-[92px] w-[220px] md:w-[270px] flex gap-1 flex-col items-center justify-center text-xl">
                 <h1 className="text-neutral-800">Fitur</h1>
-                <p className="text-white bg-yellow-500 text-sm px-2 py-1 rounded-md shadow-sm">
-                  Total 16 Fitur
-                </p>
               </div>
               <div className="grid grid-cols-2 ">
                 <Menu.Item
