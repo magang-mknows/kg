@@ -10,7 +10,7 @@ import { useChooseTimeSimulation } from "@/hooks/Simulation/useChooseTimeSimulat
 import { useCheckRescheduleSimulation } from "@/hooks/Simulation/useCheckRescheduleSimulation";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
-import { useCategorySimulation } from "@/hooks/Simulation/useCategorySimulation";
+import { useCategorySimulation, useScheduleSimulation } from "@/hooks/Simulation/useCategorySimulation";
 import { BsCalendarDate } from "react-icons/bs";
 import { AiOutlineCheck } from "react-icons/ai";
 import Rules from "./rules";
@@ -20,6 +20,7 @@ import { filterSlug } from "@/stores/Simulation";
 
 const Content: FC = (): ReactElement => {
   const [isOpen] = useState("");
+  const {getScheduleSimulation, setScheduleSimulation} = useScheduleSimulation();
   const { getChooseSimulation, setChooseSimulation } = useChooseSimulation();
   const { getChooseTimeSimulation, setChooseTimeSimulation } = useChooseTimeSimulation();
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
@@ -27,7 +28,13 @@ const Content: FC = (): ReactElement => {
   const [active, setactive] = useState("");
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
   const onSucces = (): void => {
-    setCategorySimulation("Active"), setPopupStatus(true);
+    if (!getScheduleSimulation){
+      setCategorySimulation("Active");
+    }
+    else {
+      setCategorySimulation("Reschedule");
+    }
+    setPopupStatus(true),setScheduleSimulation(true);
   };
   const { query } = useRouter();
   const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
@@ -143,10 +150,10 @@ const Content: FC = (): ReactElement => {
               icon={getCategorySimulation === "" ? warning : checked}
               image={getCategorySimulation === "" ? rescheduleJadwal : pengajuan}
               popupTitle={
-                getCategorySimulation === "Active"
+                getCategorySimulation === "Active"  
                   ? "Berhasil Mengajukan Simulasi!"
-                  : getCategorySimulation == "Reschedule"
-                  ? "reschedule"
+                  : getCategorySimulation === "Reschedule" 
+                  ? "Reschedule"
                   : ""
               }
               stylePopup={"font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]"}
