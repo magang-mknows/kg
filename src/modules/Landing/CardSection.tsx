@@ -17,8 +17,8 @@ const CardSection: FC = (): ReactElement => {
             />
           </div>
           <div className="flex flex-col text-white text-[16px] lg:text-[20px] my-3 ml-28">
-            <div>Insturktur</div>
-            <div>Profesional</div>
+            <div>Asesment</div>
+            <div>Kompetensi</div>
           </div>
         </div>
         <div className="flex flex-row my-4 lg:my-8 mx-6">
@@ -30,8 +30,8 @@ const CardSection: FC = (): ReactElement => {
             />
           </div>
           <div className="flex flex-col text-white text-[16px] lg:text-[20px] my-3 ml-28">
-            <div>Sertifikasi</div>
-            <div>Online</div>
+            <div>Penyaluran</div>
+            <div>Kerja</div>
           </div>
         </div>
         <div className="flex flex-row my-4 lg:my-8 mx-6">
@@ -43,7 +43,7 @@ const CardSection: FC = (): ReactElement => {
             />
           </div>
           <div className="flex flex-col text-white text-[16px] lg:text-[20px] my-3 ml-28">
-            <div>6000</div>
+            <div>50.000</div>
             <div>Peserta</div>
           </div>
         </div>

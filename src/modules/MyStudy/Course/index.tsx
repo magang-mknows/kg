@@ -1,9 +1,10 @@
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
-import Loading from "@/components/Loading";
 import BaseLayouts from "@/layouts/Base";
-import { FC, lazy, ReactElement, Suspense } from "react";
+import { FC, lazy, ReactElement } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { courseBreadCumbs } from "@/utilities/constant";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import CourseHomeSkeleton from "@/components/Loading/Course/CourseHomeSkeleton";
 
 const CourseHome = lazy(() => import("@/modules/MyStudy/Course/CourseHome"));
 
@@ -11,10 +12,10 @@ const Course: FC = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
       <BaseLayouts widthHScreen={false}>
-        <Suspense fallback={<Loading />}>
+        <SuspenseError loadingFallback={<CourseHomeSkeleton />}>
           <BreadCrumb items={courseBreadCumbs} />
           <CourseHome />
-        </Suspense>
+        </SuspenseError>
       </BaseLayouts>
     </ErrorBoundary>
   );
