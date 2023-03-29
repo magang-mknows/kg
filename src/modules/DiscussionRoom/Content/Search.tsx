@@ -4,13 +4,11 @@ import Button from "@/components/Common/Button";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
-import { useSetRecoilState } from "recoil";
-import { PopupModalCreateDiscussion } from "@/stores/Common";
-
+import PopupModalCreateDiscussion from "../PopupModalCreateDiscussion";
+import { usePopupCreateDiscussionStatus } from "@/hooks/Discussion/usePopupCreateDiscussionStatus";
 
 const Search: FC = (): ReactElement => {
-  const setModalCreateDiscussion = useSetRecoilState(PopupModalCreateDiscussion);
-  
+  const { setPopupCreateStatus } = usePopupCreateDiscussionStatus();
   return (
     <section className="flex flex-wrap items-center justify-between w-full mb-6 md:flex-nowrap gap-x-2 gap-y-3">
       <label
@@ -31,9 +29,10 @@ const Search: FC = (): ReactElement => {
           icon={<IoMdAddCircleOutline color="" className="text-lg text-white" />}
           type="button"
           className="flex items-center px-4 lg:px-6 gap-3 bg-primary-500 dark:bg-[#17A2B8] hover:bg-primary-600 dark:hover:bg-[#0f8c9f] text-white text-xs rounded-md shadow-sm transition-colors ease-in-out duration-300"
-          onClick={() => setModalCreateDiscussion(true)}
+          onClick={() => setPopupCreateStatus(true)}
         />
       </section>
+      <PopupModalCreateDiscussion />
     </section>
   );
 };

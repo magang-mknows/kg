@@ -9,12 +9,12 @@ import { usePopupSuccessDiscussionStatus } from "@/hooks/Discussion/usePopupSucc
 import Form from "@/components/Form";
 
 const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupStatus, getPopupStatus } = usePopupSuccessDiscussionStatus();
+  const { setPopupSuccessStatus, getPopupSuccessStatus } = usePopupSuccessDiscussionStatus();
 
   return (
     <Modal
-      lookup={getPopupStatus}
-      onClose={() => setPopupStatus(!getPopupStatus)}
+      lookup={getPopupSuccessStatus}
+      onClose={() => setPopupSuccessStatus(!getPopupSuccessStatus)}
       hasButton={true}
       hasImage={false}
       withClose={true}

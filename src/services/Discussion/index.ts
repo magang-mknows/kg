@@ -16,11 +16,12 @@ const DiscussionService = {
     const data = serialize(payload);
     const requestData = {
       method: "post",
+      withCrededentials: true,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
       data,
-      url: "/discussion",
+      url: "/discussion/forum/f39b703d-7fd7-4142-afcb-38f9a0bcb371",
     };
     try {
       const res = await ApiService.customRequest(requestData);
