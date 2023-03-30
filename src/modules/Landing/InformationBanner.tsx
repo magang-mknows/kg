@@ -35,7 +35,7 @@ const InformationBanner: FC = (): ReactElement => {
               </svg>
             }
             size="regular"
-            className="bg-[#3EB449] leading-6 font-semibold px-0 lg:px-20 py-4"
+            className="bg-[#3EB449] animate-bounce leading-6 font-semibold px-0 lg:px-20 py-4 my-6 mx-10"
           />
 
           <Image

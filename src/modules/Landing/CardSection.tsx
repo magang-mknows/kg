@@ -45,8 +45,8 @@ const CardSection: FC = (): ReactElement => {
             />
           </div>
           <div className="flex flex-col text-white text-[16px] lg:text-[18px] my-4 ml-20">
-            <div>Sertifikasi</div>
-            <div>Online</div>
+            <div>Asesment</div>
+            <div>Kompetensi</div>
           </div>
         </div>
         <div className="flex flex-row lg:my-4">
