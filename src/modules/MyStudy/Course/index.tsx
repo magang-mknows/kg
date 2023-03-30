@@ -1,24 +1,9 @@
-import BreadCrumb from "@/components/Assigment/BreadCrumb";
-import BaseLayouts from "@/layouts/Base";
-import { FC, lazy, ReactElement } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import { courseBreadCumbs } from "@/utilities/constant";
-import SuspenseError from "@/modules/Common/SuspenseError";
-import CourseHomeSkeleton from "@/components/Loading/Course/CourseHomeSkeleton";
+import { FC, ReactElement } from "react";
 
-const CourseHome = lazy(() => import("@/modules/MyStudy/Course/CourseHome"));
+import CourseHome from "@/modules/MyStudy/Course/CourseHome";
 
 const Course: FC = (): ReactElement => {
-  return (
-    <ErrorBoundary fallback={<>Error was happen</>}>
-      <BaseLayouts widthHScreen={false}>
-        <SuspenseError loadingFallback={<CourseHomeSkeleton />}>
-          <BreadCrumb items={courseBreadCumbs} />
-          <CourseHome />
-        </SuspenseError>
-      </BaseLayouts>
-    </ErrorBoundary>
-  );
+  return <CourseHome />;
 };
 
 export default Course;
