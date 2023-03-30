@@ -121,4 +121,4 @@ const CardDiscussion: FC<cardAuthor> = ({
     </>
   );
 };
-export default CardDiscussion;
+export default CardDiscussion;
