@@ -10,7 +10,10 @@ import { useChooseTimeSimulation } from "@/hooks/Simulation/useChooseTimeSimulat
 import { useCheckRescheduleSimulation } from "@/hooks/Simulation/useCheckRescheduleSimulation";
 import PopupModal from "@/components/Common/PopupModal";
 import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
-import { useCategorySimulation, useScheduleSimulation } from "@/hooks/Simulation/useCategorySimulation";
+import {
+  useCategorySimulation,
+  useScheduleSimulation,
+} from "@/hooks/Simulation/useCategorySimulation";
 import { BsCalendarDate } from "react-icons/bs";
 import { AiOutlineCheck } from "react-icons/ai";
 import Rules from "./rules";
@@ -20,7 +23,7 @@ import { filterSlug } from "@/stores/Simulation";
 
 const Content: FC = (): ReactElement => {
   const [isOpen] = useState("");
-  const {getScheduleSimulation, setScheduleSimulation} = useScheduleSimulation();
+  const { getScheduleSimulation, setScheduleSimulation } = useScheduleSimulation();
   const { getChooseSimulation, setChooseSimulation } = useChooseSimulation();
   const { getChooseTimeSimulation, setChooseTimeSimulation } = useChooseTimeSimulation();
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
@@ -28,13 +31,12 @@ const Content: FC = (): ReactElement => {
   const [active, setactive] = useState("");
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
   const onSucces = (): void => {
-    if (!getScheduleSimulation){
+    if (!getScheduleSimulation) {
       setCategorySimulation("Active");
-    }
-    else {
+    } else {
       setCategorySimulation("Reschedule");
     }
-    setPopupStatus(true),setScheduleSimulation(true);
+    setPopupStatus(true), setScheduleSimulation(true);
   };
   const { query } = useRouter();
   const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
@@ -147,13 +149,25 @@ const Content: FC = (): ReactElement => {
           {/* popUp */}
           <div>
             <PopupModal
-              icon={getCategorySimulation === "" ? warning : checked}
-              image={getCategorySimulation === "" ? rescheduleJadwal : pengajuan}
+              icon={
+                getCategorySimulation === "Reschedule"
+                  ? warning
+                  : getCategorySimulation === "Active"
+                  ? checked
+                  : ""
+              }
+              image={
+                getCategorySimulation === "Reschedule"
+                  ? rescheduleJadwal
+                  : getCategorySimulation === "Active"
+                  ? pengajuan
+                  : ""
+              }
               popupTitle={
-                getCategorySimulation === "Active"  
+                getCategorySimulation === "Active"
                   ? "Berhasil Mengajukan Simulasi!"
-                  : getCategorySimulation === "Reschedule" 
-                  ? "Reschedule"
+                  : getCategorySimulation === "Reschedule"
+                  ? "Reschedule Jadwal"
                   : ""
               }
               stylePopup={"font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]"}
@@ -162,11 +176,14 @@ const Content: FC = (): ReactElement => {
               onClose={() => setPopupStatus(false)}
             >
               <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
-                Kamu telah mengajukan
-                {getCategorySimulation === "Active" ? " Reschedule Jadwal pertemuan" : ""}
-                simulasi <br /> di hari {`${getChooseSimulation}`} Pukul{" "}
-                {`${getChooseTimeSimulation}`} WIB, Link Zoom simulasi akan dikirimkan melalui
-                email.
+                Kamu telah mengajukan <br />
+                {getCategorySimulation === "Reschedule"
+                  ? " Reschedule Jadwal pertemuan simulasi, silahkan menunggu jadwal simulasi terbaru."
+                  : getCategorySimulation === "Active"
+                  ? ` simulasi  di hari ${getChooseSimulation} Pukul
+                  ${getChooseTimeSimulation} WIB, Link Zoom simulasi akan dikirimkan melalui
+                  email.`
+                  : ""}
               </p>
             </PopupModal>
           </div>
