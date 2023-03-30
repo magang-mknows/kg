@@ -4,10 +4,14 @@ import Avatar from "@/assets/leaderboard/avatar.svg";
 import PopupProfil from "@/components/Leaderboard/PopupProfil";
 import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
 import { useRankLeaderboard } from "@/hooks/Leaderborad/useRankLeaderboard";
+import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
+import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
 
 const RankingSection: FC = (): ReactElement => {
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
   const { getRank } = useRankLeaderboard();
+  const { setPopupUser, getPopupUser } = usePopupGetUser();
+
   return (
     <div className="relative lg:-top-56 md:-top-44 -top-36 ">
       {getRank
@@ -28,7 +32,10 @@ const RankingSection: FC = (): ReactElement => {
                           src={x.img}
                           alt="avatar"
                           className="w-[56px] h-[56px] rounded-full overflow-hidden cursor-pointer"
-                          onClick={() => setPopupLeaderboardStatus(true)}
+                          onClick={() => {
+                            setPopupUser(x);
+                            setPopupLeaderboardStatus(true);
+                          }}
                         />
                         <h1 className="font-[600] lg:text-[18px] text-[14px]">{x.name}</h1>
                       </div>
@@ -41,15 +48,13 @@ const RankingSection: FC = (): ReactElement => {
                   </div>
                 </div>
                 <PopupProfil
-                  onClose={() => setPopupLeaderboardStatus(false)}
+                  onClose={() => {
+                    setPopupLeaderboardStatus(false);
+                    setPopupUser({} as leaderBoardRankProps);
+                  }}
                   lookup={getPopupLeaderboardStatus}
                   widthModal="!max-w-[748px]"
-                  popupRank={5}
-                  point={x.score}
-                  image={Avatar}
-                  name={x.name}
-                  major={"Blokchain"}
-                  semester={"5"}
+                  {...getPopupUser}
                 />
               </>
             )
