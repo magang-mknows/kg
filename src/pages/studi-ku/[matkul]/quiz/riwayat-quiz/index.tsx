@@ -1,5 +1,4 @@
-import { FC, ReactElement } from "react";
-import QuizHistoryModule from "@/modules/MyStudy/Quiz/AfterQuiz/QuizHistory";
+import { FC, ReactElement, lazy } from "react";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import QuizHistorySkeleton from "@/components/Loading/Quiz/QuizHistorySkeleton";
 import BaseLayouts from "@/layouts/Base";
@@ -13,6 +12,8 @@ const newBreadCrumbData = [
     link: "",
   },
 ];
+
+const QuizHistoryModule = lazy(() => import("@/modules/MyStudy/Quiz/AfterQuiz/QuizHistory"));
 
 const QuizHistoryPage: FC = (): ReactElement => {
   return (

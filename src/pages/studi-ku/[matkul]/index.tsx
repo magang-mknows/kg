@@ -7,7 +7,7 @@ import CourseHomeSkeleton from "@/components/Loading/Course/CourseHomeSkeleton";
 
 const CourseHome = lazy(() => import("@/modules/MyStudy/Course"));
 
-const Course: FC = (): ReactElement => {
+const CoursePage: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
       <SuspenseError>
@@ -20,4 +20,4 @@ const Course: FC = (): ReactElement => {
   );
 };
 
-export default Course;
+export default CoursePage;

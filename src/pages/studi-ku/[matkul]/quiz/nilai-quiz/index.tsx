@@ -1,9 +1,8 @@
-import { FC, ReactElement } from "react";
+import { FC, lazy, ReactElement } from "react";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import BaseLayouts from "@/layouts/Base";
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import { quizBreadCumbs } from "@/utilities/constant";
-import QuizScoreSection from "@/modules/MyStudy/Quiz/AfterQuiz/QuizScore";
 import QuizScoreSkeleton from "@/components/Loading/Quiz/QuizScoreSkeleton";
 
 const newBreadCrumbData = [
@@ -14,6 +13,8 @@ const newBreadCrumbData = [
   },
 ];
 
+const QuizScoreModule = lazy(() => import("@/modules/MyStudy/Quiz/AfterQuiz/QuizScore"));
+
 const QuizScorePage: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
@@ -21,7 +22,7 @@ const QuizScorePage: FC = (): ReactElement => {
         <BreadCrumb items={newBreadCrumbData} />
       </SuspenseError>
       <SuspenseError loadingFallback={<QuizScoreSkeleton />}>
-        <QuizScoreSection />
+        <QuizScoreModule />
       </SuspenseError>
     </BaseLayouts>
   );
