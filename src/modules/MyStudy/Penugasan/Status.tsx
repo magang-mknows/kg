@@ -43,7 +43,7 @@ const Status: FC = (): ReactElement => {
   return (
     <>
       <section
-        className="scale-[0.8] lg:scale-[1] bg-white dark:bg-[#222529]  py-[92px] px-[109px] w-full"
+        className="scale-[0.8] lg:scale-[1] md:scale-[1] bg-white dark:bg-[#222529]  py-[92px] lg:px-[109px] md:px-[70px] px-[50px] w-full"
       >
         <p className="text-[20px] font-semibold mb-[8px]">{getInstruction[0].matkul}</p>
         <p className="text-[16px] font-medium mb-[8px]">
