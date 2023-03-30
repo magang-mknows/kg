@@ -11,6 +11,7 @@ const LoginForm = lazy(() => import("@/modules/Auth/Login/Form"));
 
 const LandingPages: NextPage = (): ReactElement => {
   const { getLoginModal, setLoginModal } = useLoginModal();
+
   return (
     <Fragment>
       <NextSeo
