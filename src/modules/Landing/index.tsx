@@ -17,6 +17,8 @@ const PromotionBanner = dynamic(() => import("./PromotionBanner"));
 const TestimonySection = dynamic(() => import("./TestimonySection"));
 const Footbar = dynamic(() => import("@/components/Footbar"));
 
+import HeroSkeleton from "@/components/Loading/Landing/HeroSkeleton";
+
 const Landing: FC = (): ReactElement => {
   const { inView, ref } = useInView({
     threshold: 0.0,
@@ -29,7 +31,9 @@ const Landing: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <div ref={ref}>
-        <SuspenseError>{inView && <HeroSection />}</SuspenseError>
+        <SuspenseError loadingFallback={<HeroSkeleton />}>
+          {inView && <HeroSection />}
+        </SuspenseError>
         <SuspenseError>{inView && <CardSection />}</SuspenseError>
         <SuspenseError>{inView && <PatnerSection />}</SuspenseError>
         <SuspenseError>{inView && <SekilasSection />}</SuspenseError>
