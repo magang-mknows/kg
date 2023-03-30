@@ -1,7 +1,6 @@
 import BaseLayouts from "@/layouts/Base";
 import { FC, lazy, ReactElement, Suspense } from "react";
 import { drillSimulation } from "@/utilities/constant";
-import MainLayouts from "@/layouts/Main";
 import { Tab } from "@headlessui/react";
 import SimulationSubmission from "./SimulationSubmission";
 import SimulationHistory from "./SimulationHistory";
@@ -23,7 +22,6 @@ const DrillSimulasion: FC = (): ReactElement => {
             >
               <Tab>
                 {({ selected }) => (
-                  /* Use the `selected` state to conditionally style the selected tab. */
                   <div
                     className={`${
                       selected ? "border-b-2 outline-none  border-primary-500 text-primary-500" : ""
@@ -35,7 +33,6 @@ const DrillSimulasion: FC = (): ReactElement => {
               </Tab>
               <Tab as={"div"}>
                 {({ selected }) => (
-                  /* Use the `selected` state to conditionally style the selected tab. */
                   <div
                     className={`${
                       selected ? "border-b-2 outline-none  border-primary-500 text-primary-500" : ""
@@ -50,7 +47,6 @@ const DrillSimulasion: FC = (): ReactElement => {
               <Tab.Panel>
                 <SimulationSubmission />
               </Tab.Panel>
-              {/* riwayat simulasi */}
               <Tab.Panel>
                 <SimulationHistory />
               </Tab.Panel>
