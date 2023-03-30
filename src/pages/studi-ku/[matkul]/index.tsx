@@ -10,7 +10,9 @@ const CourseHome = lazy(() => import("@/modules/MyStudy/Course"));
 const Course: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
-      <BreadCrumb items={courseBreadCumbs} />
+      <SuspenseError>
+        <BreadCrumb items={courseBreadCumbs} />
+      </SuspenseError>
       <SuspenseError loadingFallback={<CourseHomeSkeleton />}>
         <CourseHome />
       </SuspenseError>

@@ -11,13 +11,15 @@ const QuizStartPage: FC = (): ReactElement => {
     ...quizBreadCumbs,
     {
       name: "Mulai Quiz",
-      link: "/studi-ku/course/quiz",
+      link: "",
     },
   ];
 
   return (
     <BaseLayouts widthHScreen={false}>
-      <BreadCrumb items={newBreadCrumbData} />
+      <SuspenseError>
+        <BreadCrumb items={newBreadCrumbData} />
+      </SuspenseError>
       <SuspenseError errorFallback={<QuizStartSkeleton />}>
         <QuizStart />
       </SuspenseError>

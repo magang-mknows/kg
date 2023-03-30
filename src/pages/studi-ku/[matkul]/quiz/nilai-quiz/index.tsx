@@ -17,7 +17,9 @@ const newBreadCrumbData = [
 const QuizScorePage: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
-      <BreadCrumb items={newBreadCrumbData} />
+      <SuspenseError>
+        <BreadCrumb items={newBreadCrumbData} />
+      </SuspenseError>
       <SuspenseError loadingFallback={<QuizScoreSkeleton />}>
         <QuizScoreSection />
       </SuspenseError>
