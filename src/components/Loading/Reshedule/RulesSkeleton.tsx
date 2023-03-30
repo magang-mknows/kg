@@ -3,32 +3,32 @@ import { FC, ReactElement } from "react";
 const RulesSkeleton: FC = (): ReactElement => {
   return (
     <>
-      <section className=" lg:basis-5/12">
-        {/* <Image alt={"reshedule-image"} className={"object-cover w-full h-48 rounded-[10px]"} /> */}
-
-        <div className="flex flex-row mt-3">
-          {/* <Image src={iconWarning} alt={"warning"} /> */}
-
-          <p className="ml-2 text-[#171717] text-[18px] font-[600] dark:text-white">
-            {/* Informasi Mengenai Drill Simulasi & Assessment */}
-          </p>
-        </div>
-        <p className="mt-3 text-[#171717] dark:text-white text-[14px] font-[400] text-justify">
-          <ol>
-            <li>
-              {/* 1. Peserta harus memastikan bahwa perangkat dan teknologi yang digunakan untuk drill
-              simulasi & assessment berfungsi dengan baik. Pastikan bahwa peserta memiliki akses
-              yang cukup dan perangkat yang dapat mendukung drill simulasi & assessment pada LMS. */}
-            </li>
-            <li>
-              {/* 2. Sebelum memulai drill simulasi & assessment pada LMS, pastikan bahwa peserta telah
-              diberikan instruksi yang jelas dan sasaran yang harus dicapai. Sasaran harus sesuai
-              dengan kemampuan dan kebutuhan dari setiap individu yang terlibat dalam drill
-              tersebut. */}
-            </li>
-          </ol>
-        </p>
-      </section>
+      <div className="flex lg:flex-row flex-col lg:gap-16 gap-10 mt-56 ml-10">
+        <section className="lg:basis-5/12">
+          <div className="animate-pulse rounded-lg py-20 w-11/12 h-48  bg-neutral-300"></div>
+          <div className="flex mt-3">
+            <div className="animate-pulse bg-neutral-200 rounded-lg py-3 w-96"></div>
+          </div>
+          <div className="animate-pulse bg-neutral-200 rounded-lg py-36 w-11/12 mt-5"></div>
+        </section>
+        <section className="lg:basis-7/12">
+          <div>
+            <h1 className="animate-pulse bg-neutral-200 rounded-lg py-4 w-96"></h1>
+            <p className="animate-pulse bg-neutral-200 rounded-lg py-3 w-64 mt-2 mb-1"></p>
+            <p className="animate-pulse bg-neutral-200 rounded-lg py-3 w-44 mt-3"></p>
+          </div>
+          <p className="animate-pulse bg-neutral-200 rounded-lg py-3 w-64 mt-5 mb-1 "></p>
+          <div className="flex flex-row gap-6 mr-16">
+            <div className="animate-pulse bg-neutral-200 rounded-lg w-full px-5 py-6 mt-10"></div>
+            <div className="animate-pulse bg-neutral-200 rounded-lg w-full px-5 py-6 mt-10"></div>
+            <div className="animate-pulse bg-neutral-200 rounded-lg w-full px-5 py-6 mt-10"></div>
+          </div>
+          <div className="animate-pulse bg-neutral-200 rounded-lg flex items-center justify-between w-11/12 px-5 py-9 mt-10"></div>
+          <div className="flex justify-end mt-3 mr-16">
+            <button className=" animate-pulse bg-neutral-200 rounded-lg mb-1 h-[45px] w-[289px] justify-center mt-4"></button>
+          </div>
+        </section>
+      </div>
     </>
   );
 };
