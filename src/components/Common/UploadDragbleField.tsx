@@ -21,7 +21,7 @@ const UploadDragbleField: FC<UploadFieldProps> = forwardRef(
         ) : props.path && props.type === "application/pdf" ? (
           <span>{props.type}</span>
         ) : (
-          <label className="flex flex-col items-center w-full px-4 py-6 bg-[#F5F5F5] rounded-lg cursor-pointer hover:text-white">
+          <label className="flex flex-col items-center w-full px-4 py-6 bg-[#F5F5F5] dark:bg-transparent rounded-lg cursor-pointer hover:text-white">
             <svg
               width="47"
               height="32"
@@ -105,8 +105,8 @@ const UploadDragbleField: FC<UploadFieldProps> = forwardRef(
               />
             </svg>
 
-            <span className="mt-2 text-[14px] text-black">Tambahkan foto/video</span>
-            <span className="mt-2 text-[12px] text-[#737373] ">atau seret dan letakkan</span>
+            <span className="mt-2 text-[14px] text-black dark:text-white">Tambahkan foto/video</span>
+            <span className="mt-2 text-[12px] text-[#737373] dark:text-white">atau seret dan letakkan</span>
             <input ref={ref} {...getInputProps(props)} {...props} className="hidden" type="file" />
           </label>
         )}

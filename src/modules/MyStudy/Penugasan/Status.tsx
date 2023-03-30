@@ -36,14 +36,14 @@ const Status: FC = (): ReactElement => {
 
   const lateState = (): string => {
     if (tabelState[3].response === "Telah melewati batas waktu") {
-      return "bg-[#ffc4c4]";
+      return "bg-[#ffc4c4] dark:bg-[#a3342c]";
     }
-    return "bg-none";
+    return "bg-transparent";
   };
   return (
     <>
       <section
-        className="scale-[0.8] lg:scale-[1] bg-white  py-[92px] px-[109px] w-full"
+        className="scale-[0.8] lg:scale-[1] bg-white dark:bg-[#222529]  py-[92px] px-[109px] w-full"
       >
         <p className="text-[20px] font-semibold mb-[8px]">{getInstruction[0].matkul}</p>
         <p className="text-[16px] font-medium mb-[8px]">
@@ -67,7 +67,7 @@ const Status: FC = (): ReactElement => {
             {tabelState.map((row) => {
               return (
                 <>
-                  <div className="col-span-1 bg-[#F5F5F5] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+                  <div className="col-span-1 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
                     {row.namaTabel}
                   </div>
                   <div
@@ -77,7 +77,7 @@ const Status: FC = (): ReactElement => {
                     ${
                       row.response === "Belum Mengumpulkan"
                         ? lateState()
-                        : row.response === "Terkirim" && "bg-[#C2F7B6]"
+                        : row.response === "Terkirim" && "bg-[#C2F7B6] dark:bg-[#4c9b3b]"
                     }
                     ${row.response === "Telah melewati batas waktu" && "text-[#EE2D24] font-bold"}`}
                   >
@@ -107,8 +107,6 @@ const Status: FC = (): ReactElement => {
             hasExternal={false}
           />
         </form>
-
-        {/* <UploadField name="area" /> */}
       </section>
     </>
   );
