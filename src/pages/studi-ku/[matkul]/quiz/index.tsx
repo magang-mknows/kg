@@ -7,15 +7,15 @@ import QuizHomeSkeleton from "@/components/Loading/Quiz/QuizHomeSkeleton";
 
 const QuizHomeModule = lazy(() => import("@/modules/MyStudy/Quiz/QuizHome"));
 
-const index: FC = (): ReactElement => {
+const QuizHomePage: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
+      <BreadCrumb items={tugasBreadCumbs} />
       <SuspenseError loadingFallback={<QuizHomeSkeleton />}>
-        <BreadCrumb items={tugasBreadCumbs} />
         <QuizHomeModule />
       </SuspenseError>
     </BaseLayouts>
   );
 };
 
-export default index;
+export default QuizHomePage;
