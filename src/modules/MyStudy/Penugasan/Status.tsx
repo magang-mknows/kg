@@ -77,7 +77,7 @@ const Status: FC = (): ReactElement => {
                     ${
                       row.response === "Belum Mengumpulkan"
                         ? lateState()
-                        : row.response === "Terkirim" && "bg-[#C2F7B6]"
+                        : row.response === "Terkirim" && "bg-[#C2F7B6] dark:bg-[#4c9b3b]"
                     }
                     ${row.response === "Telah melewati batas waktu" && "text-[#EE2D24] font-bold"}`}
                   >
