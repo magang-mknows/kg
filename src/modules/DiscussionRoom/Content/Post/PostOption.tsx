@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement } from "react";
+import { FC, Fragment, lazy, ReactElement } from "react";
 import { GoKebabVertical } from "react-icons/go";
 import { AiFillFlag } from "react-icons/ai";
 import { Menu, Transition } from "@headlessui/react";
@@ -10,9 +10,15 @@ import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDis
 import { usePopupDeleteDiscussionStatus } from "@/hooks/Discussion/usePopupDeleteDiscussionStatus";
 import { usePopupReportDiscussionStatus } from "@/hooks/Discussion/usePopupReportDiscussionStatus";
 
-import PopupModalEditDiscussion from "../../PopupModalEditDiscussion";
-import PopupModalDeleteDiscussion from "../../PopupModalDeleteDiscussion";
-import PopupModalReportDiscussion from "../../PopupModalReportDiscussion";
+const PopupModalEditDiscussion = lazy(
+  () => import("@/modules/DiscussionRoom/PopupModalEditDiscussion"),
+);
+const PopupModalDeleteDiscussion = lazy(
+  () => import("@/modules/DiscussionRoom/PopupModalDeleteDiscussion"),
+);
+const PopupModalReportDiscussion = lazy(
+  () => import("@/modules/DiscussionRoom/PopupModalReportDiscussion"),
+);
 
 const PostOption: FC = (): ReactElement => {
   const { setPopupEditStatus } = usePopupEditDiscussionStatus();
@@ -41,7 +47,7 @@ const PostOption: FC = (): ReactElement => {
     <Fragment>
       <Menu as="div" className={"relative inline-block text-left z-50 left-0 mt-1.5"}>
         <Menu.Button>
-          <div className="cursor-pointer text-neutral-800 group">
+          <div className="cursor-pointer text-neutral-800 dark:text-white group">
             <GoKebabVertical />
           </div>
         </Menu.Button>

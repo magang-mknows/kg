@@ -7,5 +7,5 @@ export const useGetAllDiscussion = (
   props: MetaTypes,
 ): UseQueryResult<DiscussionResponseTypes> =>
   useQuery<DiscussionResponseTypes>({
-    queryFn: async () => await DiscussionService.GetDiscussion(props),
+    queryFn: async () => await DiscussionService.GetAllDiscussion(props),
   });

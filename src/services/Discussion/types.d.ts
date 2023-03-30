@@ -1,4 +1,4 @@
-import { CommonResponseInterface } from "../types";
+import { DiscussionResponseInterface } from "../types";
 
 export type DiscussionItemsTypes = {
   id: string;
@@ -6,6 +6,7 @@ export type DiscussionItemsTypes = {
   session_id: string;
   title: string;
   content: string;
+  images: Array<string>;
   is_global: string;
   category: string;
   updated_at?: Date;
@@ -13,4 +14,4 @@ export type DiscussionItemsTypes = {
   deleted_at?: Date;
 };
 
-export type DiscussionResponseTypes = CommonResponseInterface<DiscussionItemsTypes>;
+export type DiscussionResponseTypes = DiscussionResponseInterface<DiscussionItemsTypes>;
