@@ -18,9 +18,7 @@ const QuizScoreModule = lazy(() => import("@/modules/MyStudy/Quiz/AfterQuiz/Quiz
 const QuizScorePage: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
-      <SuspenseError>
-        <BreadCrumb items={newBreadCrumbData} />
-      </SuspenseError>
+      <BreadCrumb items={newBreadCrumbData} />
       <SuspenseError loadingFallback={<QuizScoreSkeleton />}>
         <QuizScoreModule />
       </SuspenseError>

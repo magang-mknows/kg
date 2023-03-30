@@ -10,9 +10,7 @@ const QuizHomeModule = lazy(() => import("@/modules/MyStudy/Quiz/QuizHome"));
 const QuizHomePage: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
-      <SuspenseError>
-        <BreadCrumb items={tugasBreadCumbs} />
-      </SuspenseError>
+      <BreadCrumb items={tugasBreadCumbs} />
       <SuspenseError loadingFallback={<QuizHomeSkeleton />}>
         <QuizHomeModule />
       </SuspenseError>
