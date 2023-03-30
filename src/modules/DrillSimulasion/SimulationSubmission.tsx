@@ -27,15 +27,15 @@ const SimulationSubmission: FC = (): ReactElement => {
               className="px-0 py-0 dark:bg-[#1B1E21] border-[#E5E5E5] border dark:border-[#1B1E21] rounded-lg cursor-default"
               imgStyle="rounded-tl-[7px] rounded-tr-[7px] relative z-10 "
             >
-              <div className="mb-10 px-5 w-full ">
+              <div className="mb-10 px-5 w-full relative">
                 <div
-                  className={`text-black text-[12px] font-[500] rounded-[7px] inline-block px-3 relative z-20 -top-48 justify-end  ${
+                  className={`text-black text-[12px] font-[500] rounded-[7px] inline-block px-3 absolute z-20 sm:-top-[170px] -top-[160px] md:-top-[180px] right-6 justify-end ${
                     items.category === "Simulasi"
-                      ? "bg-primary-500 text-white -right-64 ml-5"
+                      ? "bg-primary-500 text-white "
                       : items.category === "Drill"
-                      ? "bg-secondary-yellow-600 text-white -right-72 ml-3"
+                      ? "bg-secondary-yellow-600 text-white "
                       : items.category === "Assessmen"
-                      ? "bg-white  -right-64 ml-1"
+                      ? "bg-white"
                       : ""
                   }`}
                 >
@@ -47,7 +47,7 @@ const SimulationSubmission: FC = (): ReactElement => {
                     ? "Assessmen"
                     : ""}
                 </div>
-                <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4">
+                <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4 mt-5">
                   <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px] dark:bg-[#222529] dark:text-white">
                     {items.dosen}
                   </div>

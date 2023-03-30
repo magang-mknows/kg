@@ -1,9 +1,10 @@
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
-import Loading from "@/components/Loading";
 import BaseLayouts from "@/layouts/Base";
-import { FC, ReactElement, Suspense } from "react";
+import { FC, ReactElement } from "react";
 import { quizBreadCumbs } from "@/utilities/constant";
 import QuizMain from "./QuizStart";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import QuizStartSkeleton from "@/components/Loading/Quiz/QuizStartSkeleton";
 
 const StartQuiz: FC = (): ReactElement => {
   const newBreadCrumbData = [
@@ -16,10 +17,10 @@ const StartQuiz: FC = (): ReactElement => {
 
   return (
     <BaseLayouts widthHScreen={false}>
-      <Suspense fallback={<Loading />}>
+      <SuspenseError errorFallback={<QuizStartSkeleton />}>
         <BreadCrumb items={newBreadCrumbData} />
         <QuizMain />
-      </Suspense>
+      </SuspenseError>
     </BaseLayouts>
   );
 };

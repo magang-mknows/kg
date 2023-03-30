@@ -16,7 +16,7 @@ const Title: FC = (): ReactElement => {
         </h3>
       </div>
 
-      <div className="px-16">
+      <div className="lg:px-16 md:px-10">
         <div className="bg-[#F5F5F5] dark:bg-[#222529] h-[56px] mt-10 mb-10 rounded-[8px] text-black">
           <div className="flex ml-5 py-4">
             <Image src={Search} alt={"search"} width={28} />

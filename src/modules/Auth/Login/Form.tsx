@@ -54,7 +54,7 @@ const LoginForm: FC = (): ReactElement => {
   return (
     <Form
       onSubmit={onSubmit}
-      className="lg:w-[720px] sm:w-[620px] lg:h-[800px] sm:h-[600px] flex flex-col justify-center p-8"
+      className="lg:w-[720px] sm:w-[620px] lg:h-[600px] sm:h-[400px] flex flex-col justify-center p-8"
     >
       <section className="flex flex-col w-full gap-y-2 mb-4">
         <h1 className="md:text-5xl text-2xl text-center font-bold font-black-900">Masuk</h1>
