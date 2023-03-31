@@ -1,6 +1,5 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import rescheduleSimulasi from "@/assets/rescheduleSimulasi/dummyReschedule.svg";
 import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
 import { useRouter } from "next/router";
 import { filterSlug } from "@/stores/Simulation";
@@ -10,7 +9,7 @@ const Rules: FC = (): ReactElement => {
   const { query } = useRouter();
   const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
   return (
-    <>
+    <section className=" lg:basis-5/12">
       {getSlug.map((x, y) => (
         <Image
           key={y}
@@ -40,7 +39,7 @@ const Rules: FC = (): ReactElement => {
           </li>
         </ol>
       </p>
-    </>
+    </section>
   );
 };
 
