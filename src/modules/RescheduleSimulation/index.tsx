@@ -1,21 +1,20 @@
 import BaseLayouts from "@/layouts/Base";
-import MainLayouts from "@/layouts/Main";
 import { FC, lazy, ReactElement } from "react";
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import { rescheduleSimulationBreadCumbs } from "@/utilities/constant";
 import SuspenseError from "../Common/SuspenseError";
-import ContentSkeleton from "@/components/Loading/Reshedule/ContentSkeleton";
+import RescheduleSkeleton from "@/components/Loading/Reshedule/RescheduleSkeleton";
 
 const Content = lazy(() => import("@/modules/RescheduleSimulation/content"));
 
 const RescheduleSimulation: FC = (): ReactElement => {
   return (
-    <BaseLayouts className="w-full">
-      <BreadCrumb items={rescheduleSimulationBreadCumbs} />
-      <SuspenseError loadingFallback={<ContentSkeleton />}>
+    <SuspenseError loadingFallback={<RescheduleSkeleton />}>
+      <BaseLayouts className="w-full">
+        <BreadCrumb items={rescheduleSimulationBreadCumbs} />
         <Content />
-      </SuspenseError>
-    </BaseLayouts>
+      </BaseLayouts>
+    </SuspenseError>
   );
 };
 
