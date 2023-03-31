@@ -12,15 +12,15 @@ const PromotionBanner: FC = (): ReactElement => {
           Yuk, Mulai Bangun Karirmu Disini!
         </h1>
         <h2 className="text-[18px] lg:text-[20px] text-white font-normal">
-          Belajar 100% gratis tanpa batas waktu bersama para mentor yang ahli dibidangnya, tunggu
-          apa lagi?
+          Belajar 100% gratis tanpa batas waktu dapat dikonversi SKS, dengan mentor ahli dibidangnya
         </h2>
+        <p className="text-white font-semibold text-2xl px-6">Ayooo Tunggu Apa lagi??</p>
         <GlobalButton
           to="/auth/register"
           text="Daftar Sekarang!"
           hasImg={false}
           size="regular"
-          className="bg-[#3EB449] leading-6 font-semibold px-0 lg:px-20 py-4"
+          className="bg-[#3EB449] animate-bounce leading-6 font-semibold px-0 lg:px-20 py-4 my-4"
         />
       </div>
     </Card>
