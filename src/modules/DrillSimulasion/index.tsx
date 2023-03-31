@@ -1,10 +1,6 @@
 import BaseLayouts from "@/layouts/Base";
 import { FC, lazy, ReactElement, Suspense } from "react";
 import { drillSimulation } from "@/utilities/constant";
-import SuspenseError from "../Common/SuspenseError";
-import TitleSkeleton from "@/components/Loading/Simulasion/TitleSkeleton";
-import SubmissionSkeleton from "@/components/Loading/Simulasion/SubmissionSkeleton";
-import Breadcrumb from "@/components/Loading/Assigment/Breadcrumb";
 
 const Title = lazy(() => import("@/modules/DrillSimulasion/Title"));
 const Content = lazy(() => import("@/modules/DrillSimulasion/Content"));
@@ -15,12 +11,8 @@ const DrillSimulasion: FC = (): ReactElement => {
     <BaseLayouts>
       <BreadCrumbs items={drillSimulation} />
       <div className="px-6 md:px-8 lg:px-10 w-full">
-        <SuspenseError loadingFallback={<TitleSkeleton />}>
-          <Title />
-        </SuspenseError>
-        <SuspenseError loadingFallback={<SubmissionSkeleton />}>
-          <Content />
-        </SuspenseError>
+        <Title />
+        <Content />
       </div>
     </BaseLayouts>
   );
