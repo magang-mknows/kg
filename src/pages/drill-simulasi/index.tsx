@@ -1,6 +1,7 @@
 import { lazy, ReactElement, Suspense } from "react";
 import type { NextPage } from "next";
 import TitleSkeleton from "@/components/Loading/Simulasion/TitleSkeleton";
+import Breadcrumb from "@/components/Loading/Assigment/Breadcrumb";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import SubmissionSkeleton from "@/components/Loading/Simulasion/SubmissionSkeleton";
 import BaseLayouts from "@/layouts/Base";
@@ -14,7 +15,9 @@ const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 const drillSimulasion: NextPage = (): ReactElement => {
   return (
     <BaseLayouts>
-      {/* <BreadCrumbs items={drillSimulation} /> */}
+      <SuspenseError loadingFallback={<Breadcrumb />}>
+        <BreadCrumbs items={drillSimulation} />
+      </SuspenseError>
       <div className="px-6 md:px-8 lg:px-10 w-full">
         <SuspenseError loadingFallback={<TitleSkeleton />}>
           <Title />
