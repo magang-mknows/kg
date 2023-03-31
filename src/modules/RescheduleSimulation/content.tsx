@@ -4,7 +4,7 @@ import Rules from "./rules";
 import DateTime from "./dateTime";
 
 const Content: FC = (): ReactElement => {
-  const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
+  const { getCategorySimulation } = useCategorySimulation();
   return (
     <div className="px-6 md:px-8 lg:px-10">
       <h1 className="text-[#262626] text-[28px] font-[700] mb-5 dark:text-white mt-5 ">
