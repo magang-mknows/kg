@@ -15,7 +15,7 @@ const ContentSection: FC = (): ReactElement => {
   console.log(getAssigment.length);
   return (
     <section className="lg:px-20 md:px-10 px-5 py-3 w-full mt-[36px] drop-shadow-md mb-3 min-h-screen">
-      <div className="   bg-white h-full   rounded-[8px] dark:bg-gray-800 ">
+      <div className="bg-white h-full rounded-[8px] dark:bg-gray-800 ">
         <div className="text-[20px] font-semibold text-center text-[#262626] border-b border-gray-200 hover:text-[#000] px-[50px] mb-10">
           <ul className="flex flex-wrap ">
             <li className="mr-2">
