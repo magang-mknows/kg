@@ -1,20 +1,19 @@
 import { FC, ReactElement } from "react";
 import GlobalButton from "@/components/Common/GlobalButton";
 import Image from "next/image";
-import testimoniImg1 from "@/assets/landing/testimonial-01.svg";
-import testimoniImg4 from "@/assets/landing/testimonial-04.svg";
+import User from "@/assets/landing/user.png";
 
 const alumniDatas = [
   {
-    name: "Robert Tapp",
-    job: "UI Designer",
-    imgSrc: testimoniImg1,
+    name: "Moch. Syaqir",
+    job: "Front End Developer",
+    imgSrc: User,
     text: "Aku berterima kasih banget adanya program pelatihan gratis dari Kampus Gratis. Kalo Ga ada program ini, saya sulit untuk melanjutkan studi saya karena finansial.",
   },
   {
-    name: "Ray Sanchez",
+    name: "Raysa H",
     job: "Student",
-    imgSrc: testimoniImg4,
+    imgSrc: User,
     text: "Pelatihannya seru, mentornya asik juga, materinya pun berbobot dan juga menyenangkan BGT dah!!!",
   },
 ];
@@ -37,7 +36,7 @@ const TestimonySection: FC = (): ReactElement => {
           text="Lihat Semua"
           hasImg={false}
           size="regular"
-          className="bg-[#3EB449] leading-6 font-semibold px-0 lg:px-28 py-6"
+          className="bg-[#3EB449] animate-bounce leading-6 font-semibold px-0 lg:px-28 py-6 my-6"
         />
       </div>
       <div className="flex flex-col lg:flex-row gap-x-[30px] gap-y-[10px] px-10  ">

@@ -21,7 +21,7 @@ const DataDummy: {
     studyProgramme: "Pembiayaan dan Optimalisasi Bisnis",
     img: ImgStudyProgram,
   },
-  { id: 2, sks: 12, totMataKuliah: 4, studyProgramme: "Design Digital", img: ImgStudyProgram2 },
+  { id: 2, sks: 12, totMataKuliah: 4, studyProgramme: "Desain Digital", img: ImgStudyProgram2 },
   {
     id: 3,
     sks: 12,
@@ -69,7 +69,7 @@ const ChooseStudyProgram: FC = (): ReactElement => {
         ))}
       </div>
       <div className="flex flex-row justify-center mt-[40px]">
-        <button className="font-semibold lg:animate-none animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
+        <button className="font-semibold animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
           Lihat Semua
         </button>
       </div>
