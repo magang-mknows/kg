@@ -1,9 +1,10 @@
 import { FC, ReactElement } from "react";
 
-const RulesSkeleton: FC = (): ReactElement => {
+const ContentSkeleton: FC = (): ReactElement => {
   return (
     <>
-      <div className="flex lg:flex-row flex-col lg:gap-16 gap-10 mt-56 ml-10">
+      <h1 className="animate-pulse bg-neutral-200 rounded-lg mt-56 py-6 w-96 ml-10 mb-10"></h1>
+      <div className="flex lg:flex-row flex-col lg:gap-16 gap-10 mt-0 ml-10">
         <section className="lg:basis-5/12">
           <div className="animate-pulse rounded-lg py-20 w-11/12 h-48  bg-neutral-300"></div>
           <div className="flex mt-3">
@@ -33,4 +34,4 @@ const RulesSkeleton: FC = (): ReactElement => {
   );
 };
 
-export default RulesSkeleton;
+export default ContentSkeleton;
