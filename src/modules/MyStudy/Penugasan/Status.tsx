@@ -43,7 +43,7 @@ const Status: FC = (): ReactElement => {
   return (
     <>
       <section
-        className="scale-[0.8] lg:scale-[1] md:scale-[1] bg-white dark:bg-[#222529]  py-[92px] lg:px-[109px] md:px-[70px] px-[50px] w-full"
+        className="bg-white dark:bg-[#222529]  lg:py-[92px] md:py-[70px] py-[50px] lg:px-[109px] md:px-[70px] px-[50px] w-full"
       >
         <p className="text-[20px] font-semibold mb-[8px]">{getInstruction[0].matkul}</p>
         <p className="text-[16px] font-medium mb-[8px]">
@@ -63,11 +63,11 @@ const Status: FC = (): ReactElement => {
 
         <div className="mt-[36px]">
           <p className="text-[20px] font-semibold mb-[25px]">Status Penugasan</p>
-          <div className="grid grid-cols-4 lg:text-[12px] text-[10px]">
+          <div className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-5 lg:text-[12px] text-[10px]">
             {tabelState.map((row) => {
               return (
                 <>
-                  <div className="col-span-1 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+                  <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
                     {row.namaTabel}
                   </div>
                   <div
