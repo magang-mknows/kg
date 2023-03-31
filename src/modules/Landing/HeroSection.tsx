@@ -27,17 +27,17 @@ const HeroSection: FC = (): ReactElement => {
       <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-screen h-full gap-y-4 lg:px-14 pl-2 lg:py-24 py-16 absolute z-40">
         <div>
           <h1 className="flex flex-col lg:text-[42px] text-[36px] font-bold text-center lg:text-start md:text-center text-center dark:text-white py-4">
-            SARJANA Gratis & Berkualitas <span className="py-2"> Dengan Konversi SKS : </span>
+            SARJANA Gratis & Berkualitas <span> Dengan Konversi SKS : </span>
           </h1>
-          <h3 className="lg:text-[32px] text-[22px] lg:text-start text-center font-semibold px-4 text-blue-500">
-            Kuliah, Pelatihan, Magang, Pengalaman Kerja
+          <h3 className="lg:text-[26px] text-[22px] lg:text-start text-center font-semibold text-blue-500">
+            Kuliah, Pelatihan, Magang & Pengalaman Kerja
           </h3>
-          <p className="flex flex-col py-8 text-md lg:text-start text-center lg:text-xl text-gray-500 dark:text-white">
-            Platform Pendidikan Tinggi Gratis pertama di Indonesia. Dengan akses belajar yang mudah
-            dan Gratis bagi semua tanpa syarat
+          <p className="flex flex-col py-8 text-lg lg:text-start text-center lg:text-xl text-gray-500 dark:text-white">
+            Platform Pendidikan Tinggi Gratis Pertama di Indonesia. Dengan akses belajar yang mudah
+            bagi semua tanpa syarat.
           </p>
 
-          <div className="flex w-full justify-center py-4 ">
+          <div className="flex w-full justify-center py-12 ">
             <Link href={"/auth/register"}>
               <button className="font-semibold animate-bounce bg-[#3EB449] w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px] text-white rounded-[8px] text-sm">
                 Coba Sekarang - Gratis
