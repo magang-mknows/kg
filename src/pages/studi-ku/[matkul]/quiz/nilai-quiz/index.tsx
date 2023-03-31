@@ -1,19 +1,29 @@
-import QuizScore from "@/modules/MyStudy/Quiz/AfterQuiz/QuizScore";
+import { FC, lazy, ReactElement } from "react";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import BaseLayouts from "@/layouts/Base";
+import BreadCrumb from "@/components/Assigment/BreadCrumb";
+import { quizBreadCumbs } from "@/utilities/constant";
+import QuizScoreSkeleton from "@/components/Loading/Quiz/QuizScoreSkeleton";
 
-import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
+const newBreadCrumbData = [
+  ...quizBreadCumbs,
+  {
+    name: "Nilai Quiz",
+    link: "",
+  },
+];
 
-const Loading = lazy(() => import("@/components/Loading"));
+const QuizScoreModule = lazy(() => import("@/modules/MyStudy/Quiz/AfterQuiz/QuizScore"));
 
-const AssigmentPages: NextPage = (): ReactElement => {
+const QuizScorePage: FC = (): ReactElement => {
   return (
-    <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<Loading />}>
-        <QuizScore />
-      </Suspense>
-    </ErrorBoundary>
+    <BaseLayouts widthHScreen={false}>
+      <BreadCrumb items={newBreadCrumbData} />
+      <SuspenseError loadingFallback={<QuizScoreSkeleton />}>
+        <QuizScoreModule />
+      </SuspenseError>
+    </BaseLayouts>
   );
 };
 
-export default AssigmentPages;
+export default QuizScorePage;

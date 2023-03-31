@@ -37,3 +37,13 @@ export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
     },
   ],
 });
+
+export const popupGetUser = atom<leaderBoardRankProps>({
+  key: "popup-get-user",
+  default: {
+    id: "",
+    name: "",
+    img: "",
+    score: 0,
+  },
+});

@@ -28,9 +28,8 @@ const Footbar: FC = (): ReactElement => {
           <div className="text-sm w-full lg:w-[360px]">
             <Image src={LoadConditionalLogo()} className="mb-4  h-19 w-100 sm:h-15" alt="logo" />
             <p className="lg:text-[14px] dark:text-gray-400 text-start">
-              Kampus Gratis merupakan Kampus Gratis disingkat KG, merupakan sistem manajemen
-              e-learning, yang mencantumkan laporan peningkatan atau kemajuan pembelajaran
-              mahasiswa, layaknya perguruan tinggi.
+              Kampus Gratis disingkat KG, merupakan platform e-learning, magang dan pengalaman kerja
+              yang menyediakan laporan kemajuan siswa layakya Perguruan Tinggi.
             </p>
 
             <div className="flex justify-between lg:flex-row md:flex-row sm:flex-col xs:flex-col lg:mt-2 sm:mt-4">
@@ -87,11 +86,6 @@ const Footbar: FC = (): ReactElement => {
                 Fitur
               </Link>
             </p>
-            <p className="mb-2 lg:text-[14px] dark:text-gray-400 ">
-              <Link href="/mentor" className="hover:text-blue-400">
-                Mentor
-              </Link>
-            </p>
             <p className="mb-2 lg:text-[14px] dark:text-gray-400">
               <Link href="/panduan" className="hover:text-blue-400">
                 Panduan
@@ -107,7 +101,7 @@ const Footbar: FC = (): ReactElement => {
             </h6>
 
             <p className="lg:text-[14px] mb-2 mt-8">
-              <span className="dark:text-gray-400">+62 2143 1244 </span>
+              <span className="dark:text-gray-400">+622 1720 9729 </span>
             </p>
             <p className="lg:text-[14px] mb-2">
               <span className="dark:text-gray-400">kampusgratis123@gmail.com</span>
@@ -129,24 +123,14 @@ const Footbar: FC = (): ReactElement => {
               <div className=" dark:text-white">Utama </div>
               <div className="ml-2  dark:text-white">: </div>
               <div className="ml-2 dark:text-gray-400">
-                Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
-                Khusus Ibukota Jakarta 12130
+                Jl. Radio IV No.8B, Kramat Pela,Kebayoran Baru, Kota Jakarta Selatan, Jakarta 12130
               </div>
             </div>
             <div className="flex flex-row mb-2 mt-2 lg:text-[14px]">
               <div className=" dark:text-white">Cabang </div>
               <div className="ml-2  dark:text-white">: </div>
               <div className="ml-2 dark:text-gray-400">
-                Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
-                Khusus Ibukota Jakarta 12130
-              </div>
-            </div>
-            <div className="flex flex-row mb-2 mt-2 lg:text-[14px]">
-              <div className=" dark:text-white">Cabang </div>
-              <div className="ml-2  dark:text-white">: </div>
-              <div className="ml-2 dark:text-gray-400">
-                Jl. Radio IV No.8 B, RW.4, Kramat Pela, Kec. Kby.Baru, Kota Jakarta Selatan, Daerah
-                Khusus Ibukota Jakarta 12130
+                Jl. Cireundeu Raya No. 59 ,Ciputat Timur, Tangerang Selatan, Banten 15419
               </div>
             </div>
           </div>
