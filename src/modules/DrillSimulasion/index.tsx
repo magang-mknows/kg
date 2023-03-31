@@ -11,8 +11,7 @@ const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
 const DrillSimulasion: FC = (): ReactElement => {
   return (
-    // <BaseLayouts>
-    <>
+    <BaseLayouts>
       <BreadCrumbs items={drillSimulation} />
       <div className="px-6 md:px-8 lg:px-10 w-full">
         <SuspenseError loadingFallback={<TitleSkeleton />}>
@@ -22,8 +21,7 @@ const DrillSimulasion: FC = (): ReactElement => {
           <Content />
         </SuspenseError>
       </div>
-    </>
-    // </BaseLayouts>
+    </BaseLayouts>
   );
 };
 

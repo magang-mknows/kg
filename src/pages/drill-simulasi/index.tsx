@@ -13,6 +13,7 @@ const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
 const drillSimulasion: NextPage = (): ReactElement => {
   return (
+    // <DrillSimulasion />
     <BaseLayouts>
       {/* <BreadCrumbs items={drillSimulation} /> */}
       <div className="px-6 md:px-8 lg:px-10 w-full">
