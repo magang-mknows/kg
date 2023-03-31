@@ -4,6 +4,7 @@ import { drillSimulation } from "@/utilities/constant";
 import SuspenseError from "../Common/SuspenseError";
 import TitleSkeleton from "@/components/Loading/Simulasion/TitleSkeleton";
 import SubmissionSkeleton from "@/components/Loading/Simulasion/SubmissionSkeleton";
+import Breadcrumb from "@/components/Loading/Assigment/Breadcrumb";
 
 const Title = lazy(() => import("@/modules/DrillSimulasion/Title"));
 const Content = lazy(() => import("@/modules/DrillSimulasion/Content"));
