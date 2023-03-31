@@ -10,6 +10,7 @@ const drillSimulasion: NextPage = (): ReactElement => {
     <SuspenseError loadingFallback={<SimulasionSkeleton />}>
       <DrillSimulasion />
     </SuspenseError>
+
   );
 };
 
