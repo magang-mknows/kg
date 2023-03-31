@@ -3,7 +3,7 @@ import { FC, ReactElement } from "react";
 const AdministrationSkeleton: FC = (): ReactElement => {
   return (
     <>
-      <div className="title lg:px-20 px-5 w-full mt-56">
+      <div className="lg:px-20 px-5 w-full mt-36">
         <h1 className="animate-pulse bg-neutral-200 w-64 py-4 rounded-lg mb-7"></h1>
         <div className="animate-pulse bg-neutral-200 w-full items-center rounded-lg flex gap-x-4 px-4 py-6 "></div>
         <div className="animate-pulse bg-neutral-200 w-full items-center rounded-lg flex flex-col mt-[40px] lg:px-[20px] md:px-[60px] px-[20px] py-20">
