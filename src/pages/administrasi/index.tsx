@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
-import { ReactElement, Suspense } from "react";
-import Administration from "@/modules/Administration";
+import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useQueryErrorResetBoundary } from "@tanstack/react-query";
-import Loading from "@/components/Loading";
+import AdministrationSkeleton from "@/components/Loading/Administration/AdministrationSkeleton";
+import SuspenseError from "@/modules/Common/SuspenseError";
+
+const Administration = lazy(() => import("@/modules/Administration"));
 
 const AdministrationPages: NextPage = (): ReactElement => {
   const { reset } = useQueryErrorResetBoundary();
@@ -17,9 +19,10 @@ const AdministrationPages: NextPage = (): ReactElement => {
         </div>
       )}
     >
-      <Suspense fallback={<Loading />}>
+      <SuspenseError loadingFallback={<AdministrationSkeleton />}>
+        <AdministrationSkeleton />
         <Administration />
-      </Suspense>
+      </SuspenseError>
     </ErrorBoundary>
   );
 };

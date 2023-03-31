@@ -1,9 +1,10 @@
 import BaseLayouts from "@/layouts/Base";
-import { FC, lazy, ReactElement, Suspense } from "react";
+import { FC, lazy, ReactElement } from "react";
 import { administrationBreadCumbs } from "@/utilities/constant";
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import TitleAdministration from "./TitleAdministration";
-import Loading from "@/components/Loading";
+import AdministrationSkeleton from "@/components/Loading/Administration/AdministrationSkeleton";
+import SuspenseError from "@/modules/Common/SuspenseError";
 
 const ContentAdministration = lazy(() => import("@/modules/Administration/ContentAdministration"));
 
@@ -11,11 +12,11 @@ const Administration: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <div className=" bg-[#F5F5F5] w-full">
-        <Suspense fallback={<Loading />}>
+        <SuspenseError loadingFallback={<AdministrationSkeleton />}>
           <BreadCrumb items={administrationBreadCumbs} />
           <TitleAdministration />
           <ContentAdministration />
-        </Suspense>
+        </SuspenseError>
       </div>
     </BaseLayouts>
   );
