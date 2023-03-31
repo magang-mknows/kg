@@ -4,6 +4,6 @@ export type leaderBoardRankProps = {
     score: number;
     name: string;
     index?: string | number;
-
   };
+
   

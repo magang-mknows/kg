@@ -2,13 +2,12 @@ import { StaticImageData } from "next/image";
 import { MouseEventHandler, ReactNode } from "react";
 
 export interface PopupProfilProps {
-    name?: string,
-    point?: number | string,
-    popupRank?: number,
-    image?: StaticImageData,
-    lookup?: boolean,
-    semester?: string,
-    major?: string
+    id?: string,
+    img: string;
+    score: number;
+    lookup?: boolean
+    name: string;
+    index?: string | number;
     stylePopup?: string,
     widthModal?: string,
     onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>,
