@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
-import AdministrationSkeleton from "@/components/Loading/Administration/ContentSkeleton";
+import AdministrationSkeleton from "@/components/Loading/Administration/AdministrationSkeleton";
 import SuspenseError from "@/modules/Common/SuspenseError";
 
 const Administration = lazy(() => import("@/modules/Administration"));
