@@ -1,4 +1,4 @@
-import { lazy, ReactElement} from "react";
+import { lazy, ReactElement } from "react";
 import type { NextPage } from "next";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import SimulasionSkeleton from "@/components/Loading/Simulasion/SimulasionSkeleton";
@@ -10,7 +10,6 @@ const drillSimulasion: NextPage = (): ReactElement => {
     <SuspenseError loadingFallback={<SimulasionSkeleton />}>
       <DrillSimulasion />
     </SuspenseError>
-
   );
 };
 
