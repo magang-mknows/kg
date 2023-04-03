@@ -6,7 +6,7 @@ import ContentSection from "./ContentSection";
 
 const LeaderBoardModules = (): ReactElement => {
   return (
-    <BaseLayoutsLanding className="!bg-[#FAFAFA]">
+    <BaseLayoutsLanding className="!bg-[#FAFAFA] dark:!bg-[#222529] ">
       <BreadCrumb items={leaderBoardBreadCumbs} />
       <ContentSection />
     </BaseLayoutsLanding>

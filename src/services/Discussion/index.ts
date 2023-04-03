@@ -1,6 +1,6 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
-import { MetaTypes } from "../types";
+import { MetaTypes, MetaTypesId } from "../types";
 
 import { serialize } from "object-to-formdata";
 import TokenService from "../Token";
@@ -39,7 +39,7 @@ const DiscussionService = {
     }
   },
 
-  GetDiscussion: async (props: MetaTypes) => {
+  GetAllDiscussion: async (props: MetaTypes) => {
     const requestData = {
       method: "get",
       headers: {
@@ -48,6 +48,26 @@ const DiscussionService = {
       },
       params: props,
       url: "/discussion",
+    };
+
+    try {
+      const res = await ApiService.customRequest(requestData);
+      ApiService.setHeader();
+      return res.data;
+    } catch (error) {
+      throw handleError(error);
+    }
+  },
+  
+  GetDiscussion: async (props: MetaTypesId) => {
+    const requestData = {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
+      },
+      params: props,
+      url: `/discussion/forum/${props.id}`,
     };
 
     try {

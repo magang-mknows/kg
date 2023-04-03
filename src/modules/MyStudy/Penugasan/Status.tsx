@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState, useEffect } from "react";
+import { FC, ReactElement } from "react";
 import folder from "@/assets/status/folder.svg";
 import pdf from "@/assets/status/pdf.svg";
 import Image from "next/image";
@@ -6,6 +6,7 @@ import GlobalButton from "@/components/Common/GlobalButton";
 import { useInstruction } from "@/hooks/MyStudy/useInstruction";
 import { useForm } from "react-hook-form";
 import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
+import StatusSkeleton from "@/components/Loading/MyStudy/StatusSkeleton";
 
 const Status: FC = (): ReactElement => {
   const { getInstruction } = useInstruction();
@@ -36,14 +37,14 @@ const Status: FC = (): ReactElement => {
 
   const lateState = (): string => {
     if (tabelState[3].response === "Telah melewati batas waktu") {
-      return "bg-[#ffc4c4]";
+      return "bg-[#ffc4c4] dark:bg-[#a3342c]";
     }
-    return "bg-none";
+    return "bg-transparent";
   };
   return (
     <>
       <section
-        className="scale-[0.8] lg:scale-[1] bg-white  py-[92px] px-[109px] w-full"
+        className="bg-white dark:bg-[#222529]  lg:py-[92px] md:py-[70px] py-[50px] lg:px-[109px] md:px-[70px] px-[50px] w-full"
       >
         <p className="text-[20px] font-semibold mb-[8px]">{getInstruction[0].matkul}</p>
         <p className="text-[16px] font-medium mb-[8px]">
@@ -63,11 +64,11 @@ const Status: FC = (): ReactElement => {
 
         <div className="mt-[36px]">
           <p className="text-[20px] font-semibold mb-[25px]">Status Penugasan</p>
-          <div className="grid grid-cols-4 lg:text-[12px] text-[10px]">
+          <div className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-5 lg:text-[12px] text-[10px]">
             {tabelState.map((row) => {
               return (
                 <>
-                  <div className="col-span-1 bg-[#F5F5F5] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+                  <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
                     {row.namaTabel}
                   </div>
                   <div
@@ -77,7 +78,7 @@ const Status: FC = (): ReactElement => {
                     ${
                       row.response === "Belum Mengumpulkan"
                         ? lateState()
-                        : row.response === "Terkirim" && "bg-[#C2F7B6]"
+                        : row.response === "Terkirim" && "bg-[#C2F7B6] dark:bg-[#4c9b3b]"
                     }
                     ${row.response === "Telah melewati batas waktu" && "text-[#EE2D24] font-bold"}`}
                   >
@@ -107,8 +108,6 @@ const Status: FC = (): ReactElement => {
             hasExternal={false}
           />
         </form>
-
-        {/* <UploadField name="area" /> */}
       </section>
     </>
   );

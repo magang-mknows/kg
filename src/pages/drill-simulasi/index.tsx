@@ -1,17 +1,16 @@
-import { lazy, ReactElement, Suspense } from "react";
+import { lazy, ReactElement} from "react";
 import type { NextPage } from "next";
-import { ErrorBoundary } from "react-error-boundary";
-import Loading from "@/components/Loading";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import SimulasionSkeleton from "@/components/Loading/Simulasion/SimulasionSkeleton";
 
 const DrillSimulasion = lazy(() => import("@/modules/DrillSimulasion"));
 
 const drillSimulasion: NextPage = (): ReactElement => {
   return (
-    <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<Loading />}>
-        <DrillSimulasion />
-      </Suspense>
-    </ErrorBoundary>
+    <SuspenseError loadingFallback={<SimulasionSkeleton />}>
+      <DrillSimulasion />
+    </SuspenseError>
+
   );
 };
 

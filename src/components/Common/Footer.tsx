@@ -20,7 +20,7 @@ const Footer: FC = (): ReactElement => {
         dark:bg-[#222529]"
     >
       <div className="dark:text-gray-400 flex justify-center text-center lg:justify-start">
-        2022 - www.kampusgratis.id - Hak Cipta Dilindungi.
+        2023 - www.kampusgratis.id - Hak Cipta Dilindungi.
       </div>
       <div className="flex justify-center gap gap-x-4 text-center ">
         <div className=" hover:text-blue-400 dark:text-gray-400 xs:pb-2">
