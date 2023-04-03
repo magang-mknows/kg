@@ -13,10 +13,6 @@ const Sidebar: FC = (): ReactElement => {
 
   return (
     <>
-      {/* <button>
-        <RxHamburgerMenu className="text-[#9CA3AF] dark:text-white/80 text-[20px] font-[800]" />
-      </button> */}
-
       <div className="py-6 px-5 bg-white rounded-[8px] dark:bg-[#1B1E21]">
         {getDiscussion.map((items, i) => (
           <div key={i}>
