@@ -1,17 +1,15 @@
-import Loading from "@/components/Loading";
+import SuspenseError from "@/modules/Common/SuspenseError";
 import { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
+import { lazy, ReactElement } from "react";
+import RescheduleSkeleton from "@/components/Loading/Reshedule/RescheduleSkeleton";
 
 const Reschedule = lazy(() => import("@/modules/RescheduleSimulation"));
 
 const RescheduleSimulation: NextPage = (): ReactElement => {
   return (
-    <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<Loading />}>
-        <Reschedule />
-      </Suspense>
-    </ErrorBoundary>
+    <SuspenseError loadingFallback={<RescheduleSkeleton />}>
+      <Reschedule />
+    </SuspenseError>
   );
 };
 

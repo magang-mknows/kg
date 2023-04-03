@@ -24,7 +24,7 @@ const InformationSection: FC = (): ReactElement => {
   return (
     <section className="py-10 lg:px-20 px-8">
       <h1 className="text-center text-2xl lg:text-5xl md:text-3xl font-bold mb-10 text-[#000000] dark:text-[#f9feff]">
-        Informasi Untuk Membantu Karirmu
+        Sekilas <span className="text-orange-600">Ilmu</span>
       </h1>
       <div className="grid w-auto lg:grid-cols-3 md:grid-cols-1 lg:gap-x-10 md:gap-x-5 md:gap-y-5 gap-y-5">
         {getInformation.slice(0, 3).map((dummy, i) => {

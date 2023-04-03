@@ -17,10 +17,10 @@ const SekilasSection: FC = (): ReactElement => {
             Kampus Gratis
           </span>{" "}
           atau disingkat KG, mengadopsi aturan baru dari merdeka belajar depdikbud, seperti Magang,
-          Studi independent Bersertifikat (MSIB) dan Rekognisi Pembelajaran Lampau program (RPL),
-          sesuai Peraturan Menteri Kementerian Riset, Teknologi, Dan Pendidikan Tinggi Republik
-          Indonesia NO. 26 tahun 2016. Program MSIB telah team KG ikuti sejak awal peluncurannya
-          hingga sekarang.{" "}
+          Studi independent Bersertifikat (MSIB) dan Rekognisi Pembelajaran Lampau (RPL), sesuai
+          Peraturan Menteri Kementerian Riset, Teknologi, Dan Pendidikan Tinggi Republik Indonesia
+          N0. 26 tahun 2016. Program MSIB telah team KG ikuti sejak awal peluncurannya hingga
+          sekarang.{" "}
         </p>
         <p className="align-center px-4 text-gray-600 text-center lg:text-left text-[15px] md:text-[17px] lg:text-[18px] mt-5 dark:text-white ">
           RPL adalah pengakuan atas Capaian Pembelajaran seseorang yang diperoleh dari pendidikan
@@ -38,8 +38,8 @@ const SekilasSection: FC = (): ReactElement => {
         />
         <p className="px-14 py-8 text-gray-600 lg:text-start text-center text-[15px] md:text-[17px] lg:text-[18px] mt-5 dark:text-white">
           KG bekerjasama dengan perguruan tinggi yang berkualitas, dimana seluruh pembelajaran di
-          KG, baik berupa (1) Perkuliahan, (2) Pelatihan, (3) Magang maupun (4) Pengalaman kerja
-          dari siswa akan dikonversi menjadi SKS untuk memperoleh ijazah Pendidikan tinggi setara S1
+          KG, baik berupa : (1) Perkuliahan, (2) Pelatihan, (3) Magang maupun (4) Pengalaman kerja
+          dari siswa akan dikonversi menjadi SKS untuk memperoleh Ijazah Pendidikan tinggi setara S1
           dan S2.
         </p>
         <p className="text-gray-600 lg:text-start text-center text-[15px] md:text-[17px] lg:text-[18px] mt-5 dark:text-white px-4">
