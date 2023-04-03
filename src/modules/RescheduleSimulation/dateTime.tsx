@@ -137,6 +137,7 @@ const DateTime: FC = (): ReactElement => {
               ? checked
               : ""
           }
+          hasImg={true}
           image={
             getCategorySimulation === "Reschedule"
               ? rescheduleJadwal
