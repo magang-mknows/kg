@@ -33,7 +33,6 @@ const EventDetail: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <BreadCrumbs items={acaraKampusBreadCumbs} />
-      <EventDetailSkeleton />
       <div className="px-10 py-10 lg:px-20">
         {/* card */}
         <section className="block mb-10 lg:flex gap-36">
