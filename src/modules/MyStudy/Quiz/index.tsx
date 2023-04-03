@@ -1,8 +1,19 @@
-import { FC, ReactElement } from "react";
-import QuizHome from "@/modules/MyStudy/Quiz/QuizHome";
+import BreadCrumb from "@/components/Assigment/BreadCrumb";
+import BaseLayouts from "@/layouts/Base";
+import { FC, ReactElement, lazy } from "react";
+import { tugasBreadCumbs } from "@/utilities/constant";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import QuizHomeSkeleton from "@/components/Loading/Quiz/QuizHomeSkeleton";
 
-const index: FC = (): ReactElement => {
-  return <QuizHome />;
+const QuizHome = lazy(() => import("@/modules/MyStudy/Quiz/QuizHome"));
+
+const QuizHomeModule: FC = (): ReactElement => {
+  return (
+    <BaseLayouts widthHScreen={false}>
+      <BreadCrumb items={tugasBreadCumbs} />
+      <QuizHome />
+    </BaseLayouts>
+  );
 };
 
-export default index;
+export default QuizHomeModule;
