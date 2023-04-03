@@ -1,5 +1,10 @@
 # Kampus Gratis WEB
 
+## Demo App
+
+- [Development Build Vercel](https://kg-theta.vercel.app/)
+- [Production Build Railway](https://kg-production.up.railway.app/)
+
 Dibuat dengan :
 
 - React
@@ -194,6 +199,4 @@ Untuk bisa menggunakan husky agar berjalan baik dan benar maka perlu di inisiali
 - Jalankan perintah
   > `npx husky-init`
 
-## Demo App
 
-- [Development Build](https://himatif-revamp.netlify.app/)

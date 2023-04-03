@@ -47,7 +47,9 @@ const TaskCarousel: FC = (): ReactElement => {
   return (
     <div className="bg-primary-500/10 flex items-center justify-center dark:bg-[#1B1E21] p-7 rounded-md shadow-sm w-full">
       <section className="flex flex-col items-center">
-        <Image src={emptyTask} alt="emptyTask" />
+        <div className="">
+          <Image src={emptyTask} alt="emptyTask" />
+        </div>
         <h1 className="text-sm text-neutral-800 dark:text-white/80 font-medium -mt-5">
           Belum ada penugasan
         </h1>
