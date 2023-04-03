@@ -1,7 +1,8 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
-import DrillSimulasion from "@/modules/DrillSimulasion";
+import DrillSimulasion from "@/pages/drill-simulasi/index";
+// import DrillSimulasion from "@/modules/DrillSimulasion";
 
 const Detail: NextPage = (): ReactElement => {
   const { query } = useRouter();
