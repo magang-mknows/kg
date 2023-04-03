@@ -1,12 +1,14 @@
-import Loading from "@/components/Loading";
-import GuideBookModule from "@/modules/GuideBook";
-import React, { ReactElement, Suspense } from "react";
+import React, { lazy, ReactElement, Suspense } from "react";
+import GuideBookSkeleton from "@/components/Loading/Guide/GuideBook/GuideBookSkeleton";
+import SuspenseError from "@/modules/Common/SuspenseError";
+
+const GuideBookModule = lazy(() => import("@/modules/GuideBook"));
 
 const GuideBookPages = (): ReactElement => {
   return (
-    <Suspense fallback={<Loading />}>
+    <SuspenseError loadingFallback={<GuideBookSkeleton />}>
       <GuideBookModule />
-    </Suspense>
+    </SuspenseError>
   );
 };
 
