@@ -8,8 +8,8 @@ const EventSkeleton: FC = (): ReactElement => {
         <div className="flex justify-center lg:justify-start lg:basis-1/3">
           <div className="animate-pulse flex flex-col gap-[36px] w-[339px] ">
             <div className="animate-pulse flex flex-col gap-[24px] ">
-              <div className="animate-pulse text-[28px] font-[600] bg-gray-200"></div>
-              <div className="animate-pulse text-[18px] font-[400] bg-gray-200"></div>
+              <div className="bg-gray-200 animate-pulse"></div>
+              <div className="bg-gray-200 animate-pulse"></div>
             </div>
             <div className="animate-pulse flex items-center justify-center flex-col rounded-[8px] gap-[8px] w-[339px] h-[188px] py-[20px] px-[16px] ">
               <div className="animate-pulse flex items-center px-[12px] rounded-[8px] w-full h-full bg-gray-200"></div>
@@ -20,7 +20,7 @@ const EventSkeleton: FC = (): ReactElement => {
         </div>
         <div className="w-full lg:basis-2/3">
           {/* SearchBar */}
-          <div className=" flex justify-center w-full rounded-[8px] mb-4 text-[#A3A3A3] bg-gray-200 ">
+          <div className=" flex justify-center w-full rounded-[8px] mb-4 bg-gray-200 ">
             <button
               className="flex items-center rounded-l px-6 py-2.5 leading-tight"
               type="button"
