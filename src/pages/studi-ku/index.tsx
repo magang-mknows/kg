@@ -8,8 +8,7 @@ const MyStudyModules = lazy(() => import("@/modules/MyStudy"));
 const MyStudy: NextPage = (): ReactElement => {
   return (
     <SuspenseError loadingFallback={<MyStudySkeleton />}>
-      {/* <MyStudyModules /> */}
-      <MyStudySkeleton />
+      <MyStudyModules />
     </SuspenseError>
   );
 };
