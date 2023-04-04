@@ -7,9 +7,9 @@ const FaqSkeleton: FC = (): ReactElement => {
         <div className="bg-neutral-300  text-center dark:text-white mb-[36px] h-[34px] rounded-[8px] w-[300px]"></div>
       </div>
 
-      {[...Array(2)].map((_, i) => (
+      {[...Array(2)].map((a, y) => (
         <div
-          key={i}
+          key={y}
           className=" flex lg:w-[1000px] md:w-[800px] w-full px-10 flex-wrap items-center justify-center mb-[20px] gap-6 "
         >
           {[...Array(3)].map((_, i) => (
