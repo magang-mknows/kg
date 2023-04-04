@@ -7,7 +7,6 @@ const RegistrationVideoModules = lazy(() => import("@/modules/RegistrationVideo"
 const RegistrationVideoPages = (): ReactElement => {
   return (
     <SuspenseError loadingFallback={<GuideVideoDetail />}>
-      <GuideVideoDetail />
       <RegistrationVideoModules />
     </SuspenseError>
   );
