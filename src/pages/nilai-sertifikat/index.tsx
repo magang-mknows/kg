@@ -8,7 +8,6 @@ const Score = lazy(() => import("@/modules/Score"));
 const ScorePage: NextPage = (): ReactElement => {
   return (
     <SuspenseError loadingFallback={<SkorSkeleton />}>
-      <SkorSkeleton />
       <Score />
     </SuspenseError>
   );
