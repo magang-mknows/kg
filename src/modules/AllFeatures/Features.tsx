@@ -4,7 +4,6 @@ import search from "@/assets/semuaFitur/search.svg";
 import Image from "next/image";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { filterSemuaFitur, querySemuaFitur } from "@/stores/SemuaFitur";
-import SemuaFiturSkeleton from "@/components/Loading/SemuaFitur/SemuaFiturSkeleton";
 
 const Features: FC = (): ReactElement => {
 
@@ -13,7 +12,7 @@ const Features: FC = (): ReactElement => {
 
   return (
     <>
-      <section className="py-5 lg:px-[72px] md:px-[72px] px-[50px] bg-white w-full">
+      <section className="py-5 lg:px-[72px] md:px-[72px] px-[50px] bg-white dark:bg-[#222529] w-full">
         <p className="font-bold text-[28px] text-center">Apa yang ingin kamu pelajari?</p>
         <p className="text-[#A3A3A3] font-semibold text-[16px] text-center">
           Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
@@ -24,7 +23,7 @@ const Features: FC = (): ReactElement => {
           <input
             type="text"
             placeholder="Cari Fitur"
-            className="ml-[24px] w-full bg-[#F5F5F5] focus:outline-none"
+            className="ml-[24px] w-full bg-[#F5F5F5] focus:outline-none dark:text-black"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
@@ -47,7 +46,7 @@ const Features: FC = (): ReactElement => {
                  
                   
                 >
-                  <p className="font-bold mx-auto">{fitur.namaFitur}</p>
+                  <p className="font-bold mx-auto dark:text-black">{fitur.namaFitur}</p>
                 </Card>
               </div>
             );
