@@ -6,14 +6,14 @@ const HeroSkeleton: FC = (): ReactElement => {
       <div className="col-span-1 ">
         <div className="title">
           <h1 className="animate-pulse bg-neutral-200 w-72 py-8 rounded-lg"></h1>
-          <p className="animate-pulse bg-neutral-200 w-10/12 py-2 rounded-lg mt-5"></p>
+          <p className="animate-pulse bg-neutral-200 w-10/12 py-5 rounded-lg mt-5"></p>
         </div>
         <div className="animate-pulse bg-neutral-200 rounded-lg seacrh lg:w-[700px] h-[56px]  mt-[48px] flex items-center gap-4  ">
           <input disabled className="" />
         </div>
       </div>
       <div className="col-span-1 grid place-content-end lg:-mt-10">
-        <div className="animate-pulse bg-neutral-200 md:w-[400px] lg:h-[250px] w-0 h-0 rounded-md" />
+        <div className="animate-pulse bg-neutral-200 md:w-[300px] lg:h-[400px] w-0 h-0 rounded-md" />
       </div>
     </div>
   );

@@ -1,12 +1,14 @@
-import Loading from "@/components/Loading";
-import GuideVideoModule from "@/modules/GuideVideo";
-import React, { ReactElement, Suspense } from "react";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import GuideVideoSkeleton from "@/components/Loading/Guide/GuideVideo/GuideVideoSkeleton";
+import React, { lazy, ReactElement } from "react";
+
+const GuideVideoModule = lazy(() => import("@/modules/GuideVideo"));
 
 const GuideVideoPages = (): ReactElement => {
   return (
-    <Suspense fallback={<Loading />}>
+    <SuspenseError loadingFallback={<GuideVideoSkeleton />}>
       <GuideVideoModule />
-    </Suspense>
+    </SuspenseError>
   );
 };
 
