@@ -1,9 +1,11 @@
 import { FC, ReactElement } from "react";
 import BreadcrumbAssignment from "../Assigment/Breadcrumb";
+import NavbarSkeleton from "../Navbar";
 
 const EventSkeleton: FC = (): ReactElement => {
   return (
-    <div className="mt-36">
+    <div >
+      <NavbarSkeleton/>
       <BreadcrumbAssignment />
       <div className="w-full px-6 animate-pulse md:px-8 lg:px-10">
         <div className="flex flex-col gap-4 animate-pulse lg:gap-0 lg:flex-row">

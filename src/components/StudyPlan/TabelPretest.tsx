@@ -64,7 +64,7 @@ const TabelPretest: FC = (): ReactElement => {
               <tr className="border">
                 <td className="p-3 text-center">{x.no}</td>
                 <td>
-                  <div className="flex justify-center w-full gap-4 p-4">
+                  <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
                     <div>
                       <Image src={x.img} alt="User" />
                     </div>
