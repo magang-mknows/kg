@@ -1,10 +1,6 @@
 import { FC, ReactElement } from "react";
 import BreadCrumbSkeleton from "@/components/Loading/Assigment/Breadcrumb";
 import MainLayouts from "@/layouts/Main";
-import { YouTubePlayer } from "react-youtube";
-import Image from "next/image";
-import GlobalButton from "@/components/Common/GlobalButton";
-import PopupModal from "@/components/Common/PopupModal";
 
 const ModuleContentSkeleton: FC = (): ReactElement => {
   return (
