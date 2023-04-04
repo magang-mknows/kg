@@ -4,6 +4,7 @@ import search from "@/assets/semuaFitur/search.svg";
 import Image from "next/image";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { filterSemuaFitur, querySemuaFitur } from "@/stores/SemuaFitur";
+import SemuaFiturSkeleton from "@/components/Loading/SemuaFitur/SemuaFiturSkeleton";
 
 const Features: FC = (): ReactElement => {
 
@@ -12,7 +13,7 @@ const Features: FC = (): ReactElement => {
 
   return (
     <>
-      <section className="pt-5 lg:px-[72px] md:px-[72px] px-[50px] bg-white w-full">
+      <section className="py-5 lg:px-[72px] md:px-[72px] px-[50px] bg-white w-full">
         <p className="font-bold text-[28px] text-center">Apa yang ingin kamu pelajari?</p>
         <p className="text-[#A3A3A3] font-semibold text-[16px] text-center">
           Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
