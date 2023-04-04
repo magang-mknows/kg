@@ -1,10 +1,10 @@
-import { FC, ReactElement } from "react";
+import { FC, Fragment, ReactElement } from "react";
 import BreadCrumbSkeleton from "@/components/Loading/Assigment/Breadcrumb";
 import MainLayouts from "@/layouts/Main";
 
 const ModuleContentSkeleton: FC = (): ReactElement => {
   return (
-    <div className="mt-36">
+    <Fragment>
       <BreadCrumbSkeleton />
       <MainLayouts withPadding={false} className="">
         <div className="animate-pulse rounded-md bg-gray-200 w-52 h-11 mx-auto my-6" />
@@ -48,7 +48,7 @@ const ModuleContentSkeleton: FC = (): ReactElement => {
           </div>
         </div>
       </MainLayouts>
-    </div>
+    </Fragment>
   );
 };
 
