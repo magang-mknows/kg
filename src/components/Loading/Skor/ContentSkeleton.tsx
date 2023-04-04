@@ -9,12 +9,12 @@ const ContentSkeleton: FC = (): ReactElement => {
         <div className="bg-neutral-200 w-36 py-4 rounded-lg "></div>
       </div>
       <div className=" bg-neutral-100 py-1 w-full rounded-lg mt-4 flex "></div>
-      <div className="flex md:flex-row flex-col md:mt-10 mt-5 gap-14 ">
+      <div className="flex lg:flex-row flex-col md:mt-10 mt-5 gap-14 ">
         <div className="bg-neutral-200 lg:w-[45%] w-[100%] py-40 rounded-lg"></div>
         <TableSkeleton />
       </div>
-      <div className="flex justify-end -mt-10">
-        <div className="bg-neutral-200 md:w-96 w-56 md:py-8 py-5 rounded-lg"></div>
+      <div className="flex justify-end lg:-mt-10">
+        <div className="bg-neutral-200 lg:w-96 w-full md:py-8 py-5 rounded-lg"></div>
       </div>
     </div>
   );
