@@ -1,17 +1,16 @@
 import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import Loading from "@/components/Loading";
+import { lazy, ReactElement } from "react";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import MyStudySkeleton from "@/components/Loading/MyStudy/MyStudySkeleton";
 
-const MyStudyDash = lazy(() => import("@/modules/MyStudy/studiku-dash"));
+const MyStudyModules = lazy(() => import("@/modules/MyStudy"));
 
 const MyStudy: NextPage = (): ReactElement => {
   return (
-    <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<Loading />}>
-        <MyStudyDash />
-      </Suspense>
-    </ErrorBoundary>
+    <SuspenseError loadingFallback={<MyStudySkeleton />}>
+      {/* <MyStudyModules /> */}
+      <MyStudySkeleton />
+    </SuspenseError>
   );
 };
 
