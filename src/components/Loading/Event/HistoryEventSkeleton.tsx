@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import BreadcrumbAssignment from "../Assigment/Breadcrumb";
 
-const EventSkeleton: FC = (): ReactElement => {
+const HistoryEventSkeleton: FC = (): ReactElement => {
   return (
     <div className="mt-36">
       <BreadcrumbAssignment />
@@ -52,22 +52,44 @@ const EventSkeleton: FC = (): ReactElement => {
               />
             </div>
             {/* CardList */}
-            <div className="grid w-full grid-flow-row gap-4 lg:gap-16 lg:grid-cols-2">
-              <div className="w-full bg-gray-200 rounded-lg animate-pulse h-[188px]">
-                <div className="object-cover w-full animate-pulse"></div>
-                <div className="w-full p-2 bg-gray-200 rounded-lg title animate-pulse"></div>
-                <section className="flex flex-col animate-pulse children">
-                  <div className="w-full p-2 bg-gray-200 rounded-lg animate-pulse"></div>
-                  <div className="w-full p-2 bg-gray-200 rounded-lg animate-pulse"></div>
-                </section>
+            <div className="grid w-full grid-flow-row gap-4 lg:gap-8 ">
+              <div className="flex auto bg-white rounded-lg w-full h-fit py-2 lg:py-0 flex-row gap-2 lg:gap-10 items-center dark:bg-[#1b1e21]">
+                <div className="w-full bg-gray-200 rounded-lg h-[188px]"></div>
+                <div className="flex flex-row w-full gap-2 lg:gap-4">
+                  <div className="flex-col w-1/2 gap-4">
+                    <h1 className="text-[16px] text-transparent bg-gray-200 mb-4 w-fit rounded-md">
+                      Webinar Cyber Security
+                    </h1>
+                    <h1 className="text-[18px] text-transparent bg-gray-200 w-fit rounded-md">
+                      Terdaftar
+                    </h1>
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="w-6 h-6 bg-gray-200 rounded-md"></div>
+                    <h1 className="text-[16px] text-transparent bg-gray-200 rounded-md h-fit">
+                      Unduh Sertifikat
+                    </h1>
+                  </div>
+                </div>
               </div>
-              <div className="w-full bg-gray-200 rounded-lg animate-pulse h-[188px]">
-                <div className="object-cover w-full animate-pulse"></div>
-                <div className="w-full p-2 bg-gray-200 rounded-lg title animate-pulse"></div>
-                <section className="flex flex-col animate-pulse children">
-                  <div className="w-full p-2 bg-gray-200 rounded-lg animate-pulse"></div>
-                  <div className="w-full p-2 bg-gray-200 rounded-lg animate-pulse"></div>
-                </section>
+              <div className="flex auto bg-white rounded-lg w-full h-fit py-2 lg:py-0 flex-row gap-2 lg:gap-10 items-center dark:bg-[#1b1e21]">
+                <div className="w-full bg-gray-200 rounded-lg h-[188px]"></div>
+                <div className="flex flex-row w-full gap-2 lg:gap-4">
+                  <div className="flex-col w-1/2 gap-4">
+                    <h1 className="text-[16px] text-transparent bg-gray-200 mb-4 w-fit rounded-md">
+                      Webinar Cyber Security
+                    </h1>
+                    <h1 className="text-[18px] text-transparent bg-gray-200 w-fit rounded-md">
+                      Terdaftar
+                    </h1>
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="w-6 h-6 bg-gray-200 rounded-md"></div>
+                    <h1 className="text-[16px] text-transparent bg-gray-200 rounded-md h-fit">
+                      Unduh Sertifikat
+                    </h1>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -135,4 +157,4 @@ const EventSkeleton: FC = (): ReactElement => {
   );
 };
 
-export default EventSkeleton;
+export default HistoryEventSkeleton;

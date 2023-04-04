@@ -14,38 +14,57 @@ const TabelDraft: FC = (): ReactElement => {
   return (
     <>
       <div className="p-8">
-        <table className="min-w-full border border-gray-200  rounded-lg divide-y divide-neutral-400 dark:divide-gray-700">
-          <thead className=" bg-gray-100 ">
-            <tr>
-              <th className="p-3 rounded-md">No.</th>
-              <th className="text-start ">Mata Kuliah</th>
-              <th className="text-start">Kode Matkul</th>
-              <th className="text-start">SKS</th>
-              <th className="text-start">Semester</th>
-              <th className="text-start">Tindakan</th>
-            </tr>
-          </thead>
+        <div className="grid grid-cols-12 overflow-auto whitespace-nowrap mx-auto border bg-gray-100 border-gray-200 rounded-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+          <div className="bg-gray-100 text-center md:text-[16px] rounded-md p-3 font-semibold col-span-1 lg:text-[16px] text-[12px] dark:bg-transparent">
+            No.
+          </div>
+          <div className="lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-4 lg:text-[16px] text-[12px] dark:bg-transparent">
+            <p>Mata</p>
+            <p> Kuliah</p>
+          </div>
+          <div className="lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 lg:text-[16px] text-[12px] dark:bg-transparent">
+            <p>Kode </p>
+            <p>Matkul</p>
+          </div>
+          <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-1 lg:text-[16px] text-[12px] dark:bg-transparent">
+            SKS
+          </div>
+          <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 lg:text-[16px] md:text-[16px] text-[12px] dark:bg-transparent">
+            Semester
+          </div>
+          <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 md:text-[16px] lg:text-[16px] text-[12px] dark:bg-transparent">
+            Tindakan
+          </div>
+
           {getDataTable.map((x, i) => (
-            <tbody key={i} className="divide-y dark:divide-gray-700  ">
-              <tr className="border">
-                <td className="p-3 text-center">{x.no}</td>
-                <td>
-                  <div className="flex justify-center w-full gap-4 p-4">
-                    <div>
-                      <Image src={x.img} alt="User" />
-                    </div>
-                    <div className="flex w-full flex-col w-auto">
-                      <h1 className="font-bold text-start">{x.matkul}</h1>
-                      <p className="text-gray-400 text-start">
-                        {x.jmlh_mahasiswa} Mahasiswa Terdaftar
-                      </p>
-                    </div>
+            <>
+              <div className="border-t border-[#E5E5E5] bg-gray-100 text-center md:text-[16px] p-3 font-medium col-span-1 lg:text-[16px] text-[12px] dark:bg-transparent">
+                {x.no}
+              </div>
+              <div className="border-t border-[#E5E5E5] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-medium col-span-4 lg:text-[16px] text-[12px] dark:bg-transparent">
+                <div className="flex justify-center w-full gap-4 p-4">
+                  <div>
+                    <Image src={x.img} alt="User" />
                   </div>
-                </td>
-                <td>{x.kode_matkul}</td>
-                <td>{x.jmlh_sks} SKS</td>
-                <td>Semester {x.semester} </td>
-                <button
+                  <div className="flex w-full flex-col w-auto">
+                    <h1 className="font-bold text-start">{x.matkul}</h1>
+                    <p className="text-gray-400 text-start">
+                      {x.jmlh_mahasiswa} Mahasiswa Terdaftar
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="border-t border-[#E5E5E5] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-medium col-span-2 lg:text-[16px] text-[12px] dark:bg-transparent">
+                {x.kode_matkul}
+              </div>
+              <div className="bg-gray-100 border-t border-[#E5E5E5] lg:text-start text-center py-3 font-medium col-span-1 lg:text-[16px] text-[12px] dark:bg-transparent">
+                {x.jmlh_sks}
+              </div>
+              <div className="bg-gray-100 border-t border-[#E5E5E5] lg:text-start text-center py-3 font-medium col-span-2 lg:text-[16px] md:text-[16px] text-[12px] dark:bg-transparent">
+                {x.semester}
+              </div>
+              <div className="bg-gray-100 border-t border-[#E5E5E5] dark:divide-gray-700 lg:text-start text-center py-3 font-medium col-span-2 md:text-[16px] lg:text-[16px] text-[12px] dark:bg-transparent">
+              <button
                   onClick={() => setPopupDelete(true)}
                   className={`flex gap-2 items-center p-4 font-semibold ${
                     x.tindakan_draft === "tambah" ? "text-blue-600" : "text-red-600"
@@ -88,20 +107,16 @@ const TabelDraft: FC = (): ReactElement => {
 
                   {x.tindakan_draft === "tambah" ? " tambah " : "hapus"}
                 </button>
-              </tr>
-            </tbody>
+              </div>
+            </>
           ))}
-          <tfoot>
-            <tr>
-              <th scope="row" className="px-6 py-3 text-base">
-                Total SKS
-              </th>
-              <td></td>
-              <td></td>
-              <td className="font-bold">12 SKS</td>
-            </tr>
-          </tfoot>
-        </table>
+          <div className="border-t border-[#E5E5E5] bg-gray-100 lg:text-start text-center py-3 px-6 font-semibold col-span-6 md:text-[16px] lg:text-[16px] text-[12px] dark:bg-transparent">
+            Total SKS
+          </div>
+          <div className="border-t border-[#E5E5E5] bg-gray-100 lg:text-start text-center py-3 px-6 font-semibold col-span-6 md:text-[16px] lg:text-[16px] text-[12px] dark:bg-transparent">
+            24 SKS
+          </div>
+        </div>
         <div>
           <PopupModal
             onClose={() => setPopupDelete(false)}
