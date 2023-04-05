@@ -32,13 +32,7 @@ const SidebarSkeleton: FC = (): ReactElement => {
             <input disabled className="" />
           </div>
         </div>
-
-        <div className="animate-pulse col-span-1 grid place-content-center my-5 mt-8 ">
-          <div className="flex flex-col items-center">
-            <div className=" bg-neutral-200 md:w-96 md:h-56 w-72 h-36 rounded-lg flex justify-center px-20 mb-5"></div>
-            <div className=" bg-neutral-200 w-72 py-3 rounded-lg flex justify-center px-20"></div>
-          </div>
-        </div>
+        <div className=" bg-neutral-200 w-full md:py-20 py-10 rounded-lg flex justify-center px-20 mt-5"></div>
       </div>
     </div>
   );
