@@ -1,5 +1,4 @@
 import Image from "next/image";
-import BaseLayouts from "@/layouts/Base";
 import { lazy, ReactElement } from "react";
 import { contentModulBreadCumbs } from "@/utilities/constant";
 import YouTube, { YouTubeProps } from "react-youtube";
