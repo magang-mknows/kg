@@ -38,7 +38,7 @@ const GuideDictionaryDetail = (): ReactElement => {
     <SuspenseError loadingFallback={<GuideDicDetail />}>
       <BaseLayoutsLanding>
         <BreadCrumb items={BreadCrumbEndpoint} />
-        <div className="flex lg:flex-row flex-col-reverse ">
+        <div className="w-full flex flex-col-reverse lg:flex-row ">
           <Sidebar />
           <div className="flex flex-col px-6 md:px-8 lg:px10 mt-[30px] mb-[50px]">
             <div className="col-span-1 ">
