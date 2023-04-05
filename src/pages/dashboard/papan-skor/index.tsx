@@ -1,11 +1,13 @@
-import Loading from "@/components/Loading";
+import LeaderboardSkeleton from "@/components/Loading/Leaderboard/LeaderboardSkeleton";
 import SuspenseError from "@/modules/Common/SuspenseError";
-import LeaderBoardModules from "@/modules/Leaderboard";
-import { ReactElement } from "react";
+import { ReactElement, lazy } from "react";
+
+const LeaderBoardModules = lazy(() => import("@/modules/Leaderboard"));
 
 const LeaderBoardPages = (): ReactElement => {
   return (
-    <SuspenseError loadingFallback={<Loading />}>
+    <SuspenseError loadingFallback={<LeaderboardSkeleton />}>
+      <LeaderboardSkeleton />
       <LeaderBoardModules />
     </SuspenseError>
   );
