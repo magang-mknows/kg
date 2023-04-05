@@ -36,7 +36,6 @@ const GuideDictionaryDetail = (): ReactElement => {
 
   return (
     <SuspenseError loadingFallback={<GuideDicDetail />}>
-      <GuideDicDetail />
       <BaseLayoutsLanding>
         <BreadCrumb items={BreadCrumbEndpoint} />
         <div className="flex lg:flex-row flex-col-reverse ">
