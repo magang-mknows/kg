@@ -7,7 +7,6 @@ const LeaderBoardModules = lazy(() => import("@/modules/Leaderboard"));
 const LeaderBoardPages = (): ReactElement => {
   return (
     <SuspenseError loadingFallback={<LeaderboardSkeleton />}>
-      <LeaderboardSkeleton />
       <LeaderBoardModules />
     </SuspenseError>
   );
