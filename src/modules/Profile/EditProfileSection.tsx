@@ -13,7 +13,6 @@ import Form from "@/components/Form";
 import userProfileImg from "@/assets/profile/profile-user-img.svg";
 import camera from "@/assets/profile/camera-1.svg";
 import BaseLayouts from "@/layouts/Base";
-import ProfilSkeleton from "@/components/Loading/Profil/ProfilSkeleton";
 
 const EditProfile: FC = (): ReactElement => {
   const options = [
@@ -59,7 +58,6 @@ const EditProfile: FC = (): ReactElement => {
 
   return (
     <BaseLayouts>
-    {/* <ProfilSkeleton/> */}
       <div className="w-full h-full justify-start px-20 bg-neutral-100 dark:bg-black ">
         <Suspense fallback={"Skeleton loading...."}>
           <div className="font-semibold text-[20px] w-full justify-start mb-[12px] lg:mb-[48px] mt-[30px]">
