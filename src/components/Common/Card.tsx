@@ -1,4 +1,4 @@
-  import type { FC, ReactElement } from "react";
+import type { FC, ReactElement } from "react";
 import { CardProps } from "./types";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,7 +21,7 @@ const Card: FC<CardProps> = ({
     <>
       {href ? (
         <Link href={`${href}`}>
-          <div className={`${className} flex auto p-4 flex-col`} onClick={() => onClick}>
+          <div className={`${className} flex auto p-4 flex-col`} onClick={onClick}>
             {hasImage && (
               <Image
                 className={`object-cover ${imgStyle}`}
@@ -42,7 +42,7 @@ const Card: FC<CardProps> = ({
             <Image
               className={`w-full object-cover ${imgStyle}`}
               src={src}
-              alt="Picture of the author"
+              alt={title as string}
               width={imgwidth}
               height={imgheight}
             />

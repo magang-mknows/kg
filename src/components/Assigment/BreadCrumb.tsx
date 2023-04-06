@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, Fragment } from "react";
 import Link from "next/link";
 import { BreadCrumbProps } from "./type.d";
 
@@ -14,7 +14,7 @@ const BreadCrumb: FC<BreadCrumbProps> = ({ items }): ReactElement => {
             const isLastItem = index === items.length - 1;
             if (!isLastItem) {
               return (
-                <>
+                <Fragment key={index}>
                   <Link
                     href={crumb.link}
                     key={index}
@@ -23,7 +23,7 @@ const BreadCrumb: FC<BreadCrumbProps> = ({ items }): ReactElement => {
                     {crumb.name}
                   </Link>
                   <span className="px-3 text-[#A3A3A3] font-[600]">{">"}</span>
-                </>
+                </Fragment>
               );
             } else {
               return crumb.name;

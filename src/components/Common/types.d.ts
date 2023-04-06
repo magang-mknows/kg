@@ -110,7 +110,7 @@ export interface CheckboxFieldProps {
   error?: string;
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
-  control: Control<any, T>;
+  control?: Control<any, T>;
 }
 
 export interface CardProps {

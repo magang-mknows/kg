@@ -1,11 +1,11 @@
 import { StaticImageData } from "next/image";
 
 export interface AssigmentProps {
-  titleAssigment: string;
-  category: string;
+  titleAssigment?: string;
+  category?: string;
   date?: string;
   time?: string;
-  titleCourse: string;
+  titleCourse?: string;
   bgLine?: string;
   classNameCategory?: string;
   imgAssigment?: StaticImageData;
