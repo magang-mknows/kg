@@ -11,9 +11,7 @@ const SubmissionContractSkeleton: FC = (): ReactElement => {
         <div className="flex p-8 py-4 w-[100%]">
           <div className="flex flex-col gap-4 py-4 pb-4">
             <div className="flex gap-6">
-              <section className="flex items-center justify-center text-xl font-semibold text-transparent bg-gray-200 rounded-md lg:text-2xl">
-                Pengajuan Kartu Rencana Study
-              </section>
+              <section className="flex items-center justify-center text-xl font-semibold text-transparent bg-gray-200 rounded-md w-80 h-14 lg:textmax-w-2xl" />
               <section className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 py-4 bg-gray-200 rounded-md" />
             </div>
             <div className="flex flex-col gap-4">
@@ -25,7 +23,7 @@ const SubmissionContractSkeleton: FC = (): ReactElement => {
           </div>
         </div>
         <div className="flex items-center justify-end ">
-          <section className="mx-4 bg-gray-200 lg:ml-80 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium rounded-md"></section>
+          <section className="mx-4 bg-gray-200 lg:ml-80 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium rounded-md" />
         </div>
         <div className="px-4 mx-auto md:w-full">
           <div className="flex mx-4 my-6">
