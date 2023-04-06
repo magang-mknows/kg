@@ -18,6 +18,7 @@ const TestimonySection = dynamic(() => import("./TestimonySection"));
 const Footbar = dynamic(() => import("@/components/Footbar"));
 
 import HeroSkeleton from "@/components/Loading/Landing/HeroSkeleton";
+import InformationBannerSkeleton from "@/components/Loading/Landing/InformationBannerSkeleton";
 
 const Landing: FC = (): ReactElement => {
   const { inView, ref } = useInView({
@@ -38,7 +39,9 @@ const Landing: FC = (): ReactElement => {
         <SuspenseError>{inView && <PatnerSection />}</SuspenseError>
         <SuspenseError>{inView && <SekilasSection />}</SuspenseError>
         <SuspenseError>{inView && <AboutSection />}</SuspenseError>
-        <SuspenseError>{inView && <InformationBanner />}</SuspenseError>
+        <SuspenseError loadingFallback={<InformationBannerSkeleton />}>
+          {inView && <InformationBanner />}
+        </SuspenseError>
         <SuspenseError>{inView && <ChooseStudyProgram />}</SuspenseError>
         <SuspenseError>{inView && <TestimonySection />}</SuspenseError>
         <SuspenseError>{inView && <InformationSection />}</SuspenseError>
