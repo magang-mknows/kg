@@ -11,19 +11,13 @@ const StudyProgramSkeleton: FC = (): ReactElement => {
         <section className="w-full h-[56px] bg-gray-200 rounded-lg" />
       </div>
       <div className="px-10">
-        <section className="relative flex px-6 py-3 text-transparent bg-gray-200 border rounded">
-          Kamu hanya bisa mengambil satu progam studi
-        </section>
+        <section className="flex w-full h-12 px-6 py-3 text-transparent bg-gray-200 border rounded " />
         <div className="grid grid-cols-1 gap-4 pb-40 lg:grid-cols-4">
           <div className="flex flex-col gap-4 p-4 auto">
             <section className="p-2 bg-gray-200 rounded-lg h-52 w-96" />
             <div className="flex flex-row gap-2 px-2">
-              <section className="px-2 text-transparent bg-gray-200 rounded-md w-fit">
-                6 Program Studi
-              </section>
-              <section className="px-2 text-transparent bg-gray-200 rounded-md w-fit">
-                131 Sks
-              </section>
+              <section className="h-6 px-2 text-transparent bg-gray-200 rounded-md w-28" />
+              <section className="w-20 h-6 px-2 text-transparent bg-gray-200 rounded-md" />
             </div>
             <section className="w-full h-6 px-4 text-xl text-transparent bg-gray-200 rounded-md" />
           </div>

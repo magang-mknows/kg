@@ -13,9 +13,7 @@ const StudyPlanSkeleton: FC = (): ReactElement => {
           <div className="flex flex-col gap-4 p-4 auto">
             <section className="p-2 bg-gray-200 rounded-lg h-52 w-96" />
             <div className="px-2">
-              <section className="px-2 text-transparent bg-gray-200 rounded-md w-fit">
-                6 Program Studi
-              </section>
+              <section className="h-6 px-2 text-transparent bg-gray-200 rounded-md w-28" />
             </div>
             <section className="w-full h-6 px-4 text-xl text-transparent bg-gray-200 rounded-md" />
           </div>
