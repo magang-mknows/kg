@@ -64,7 +64,7 @@ const TabelDraft: FC = (): ReactElement => {
                 {x.semester}
               </div>
               <div className="bg-gray-100 border-t border-[#E5E5E5] dark:divide-gray-700 lg:text-start text-center py-3 font-medium col-span-2 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
-              <button
+                <button
                   onClick={() => setPopupDelete(true)}
                   className={`flex gap-2 items-center p-4 font-semibold ${
                     x.tindakan_draft === "tambah" ? "text-blue-600" : "text-red-600"
