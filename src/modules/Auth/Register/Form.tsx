@@ -61,45 +61,46 @@ const RegisterForm: FC = (): ReactElement => {
     <Form onSubmit={onSubmit}>
       <ControlledTextField
         control={control}
-        type={"email"}
-        label={"Email"}
-        name={"email"}
-        placeholder={"Masukan Email Anda"}
-        required
-      />
-      <ControlledTextField
-        control={control}
         type={"text"}
         label={"Nama Lengkap"}
         name={"fullname"}
-        placeholder={"Masukan Nama Lengkap Anda"}
+        placeholder={"Masukan Nama Lengkap"}
         required
       />
       <ControlledTextField
         control={control}
+        type={"email"}
+        label={"Email"}
+        name={"email"}
+        placeholder={"Masukan Email"}
+        required
+      />
+
+      <ControlledTextField
+        control={control}
         type={"password"}
-        label={"Password"}
+        label={"Kata Sandi"}
         name={"password"}
-        placeholder={"*********"}
+        placeholder={"Masukan Kata Sandi"}
         required
       />
       <ControlledTextField
         control={control}
         type={"password"}
-        label={"Confirm Password"}
+        label={"Konfirmasi Kata Sandi"}
         name={"confirm_password"}
-        placeholder={"*********"}
+        placeholder={"Konfirmasi Kata Sandi"}
         required
       />
       <ControlledCheckboxField
         control={control}
         name={"terms"}
-        label={"Saya setuju dengan syarat dan ketentuan."}
+        label={"Saya setuju dengan syarat & ketentuan"}
       />
       <div className="flex flex-col w-full my-8">
         <Button
           disabled={!isValid}
-          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
+          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-[#106FA4] text-white font-bold p-3 text-1xl rounded-md"
           text={isLoading ? "Sedang Memuat..." : "Daftar"}
           type={"submit"}
         />
@@ -107,7 +108,7 @@ const RegisterForm: FC = (): ReactElement => {
         <DashedText />
 
         <Button
-          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
+          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-[#106FA4] text-white font-bold p-3 text-1xl rounded-md"
           text={isLoading ? "Sedang Memuat..." : "Daftar Dengan Google"}
           type={"button"}
         />
