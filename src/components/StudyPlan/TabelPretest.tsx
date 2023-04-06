@@ -81,7 +81,7 @@ const TabelPretest: FC = (): ReactElement => {
 
           {/* tbody⬇️⬇️⬇️⬇️ */}
           {getDataTable.map((x, i) => (
-            <div className="grid grid-flow-col auto-cols-min mx-auto border border-gray-200 divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+            <div key={i} className="grid grid-flow-col auto-cols-min mx-auto border border-gray-200 divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
               <div className="w-[50px] px-1 text-center md:text-[16px] rounded-md p-3 lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.no}
               </div>
