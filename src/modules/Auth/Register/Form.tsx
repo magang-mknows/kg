@@ -100,7 +100,7 @@ const RegisterForm: FC = (): ReactElement => {
       <div className="flex flex-col w-full my-8">
         <Button
           disabled={!isValid}
-          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
+          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-[#106FA4] text-white font-bold p-3 text-1xl rounded-md"
           text={isLoading ? "Sedang Memuat..." : "Daftar"}
           type={"submit"}
         />
@@ -108,7 +108,7 @@ const RegisterForm: FC = (): ReactElement => {
         <DashedText />
 
         <Button
-          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"
+          className="my-4 w-full disabled:bg-gray-400 disabled:text-gray-200 bg-[#106FA4] text-white font-bold p-3 text-1xl rounded-md"
           text={isLoading ? "Sedang Memuat..." : "Daftar Dengan Google"}
           type={"button"}
         />

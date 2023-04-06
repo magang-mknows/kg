@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import Image from "next/image";
 import Slide1 from "@/assets/auth/slide-1.svg";
 import Slide2 from "@/assets/auth/slide-2.svg";
@@ -6,6 +6,14 @@ import Slide3 from "@/assets/auth/slide-3.svg";
 
 const SliderLayout: FC = (): ReactElement => {
   const [slider, Setslider] = useState(1);
+  useEffect(() => {
+    setTimeout(() => {
+      Setslider(slider + 1);
+    }, 3000);
+    return () => {
+      slider === 3 ? Setslider(1) : "";
+    };
+  }, [slider]);
   return (
     <div className="hidden lg:flex flex-col justify-center items-center w-full h-auto p-6">
       {slider === 1 ? (
@@ -70,6 +78,29 @@ const SliderLayout: FC = (): ReactElement => {
       ) : (
         ""
       )}
+      <div className="flex justify-center gap-[15px] mt-[40px]">
+        <button onClick={() => (slider != 1 ? Setslider(1) : "")}>
+          <div
+            className={`${
+              slider == 1 ? "w-12 bg-primary-500" : " w-3 "
+            } h-3  transition-all rounded-full bg-neutral-300`}
+          ></div>
+        </button>
+        <button onClick={() => (slider != 2 ? Setslider(2) : "")}>
+          <div
+            className={`${
+              slider == 2 ? "w-12 bg-primary-500" : " w-3 "
+            } h-3  transition-all rounded-full bg-neutral-300`}
+          ></div>
+        </button>
+        <button onClick={() => (slider != 3 ? Setslider(3) : "")}>
+          <div
+            className={`${
+              slider == 3 ? "w-12 bg-primary-500" : " w-3 "
+            } h-3  transition-all rounded-full bg-neutral-300`}
+          ></div>
+        </button>
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import SliderLayout from "./SliderLayout";
 
 const AuthLayouts: FC<AuthLayoutTypes> = ({ children, title, description }): ReactElement => {
   return (
-    <section className="w-full bg-[#FAFAFA] flex items-center lg:p-16 md:p-8 sm:p-6 p-4 h-full dark:bg-gray-900">
+    <section className="w-full bg-[#FAFAFA] flex items-center lg:py-10 lg:px-14 md:p-8 sm:p-6 p-4 h-full dark:bg-gray-900">
       <section className="flex items-center bg-white w-full h-auto rounded-lg shadow-lg">
         {/* <div className="hidden lg:flex flex-col justify-center items-center w-full h-auto p-6">
           <SuspenseError>
