@@ -12,10 +12,10 @@ import { NavbarProps } from "./types";
 
 const NotificationDropdown: FC<NavbarProps> = ({ list }): ReactElement => {
   return (
-    <Menu as="div" className={`relative inline-block text-left ${""}`}>
+    <Menu role="menu" as="div" className={`relative inline-block text-left ${""}`}>
       <div>
-        <Menu.Button className="bg-[#4FC9DA]  p-3 rounded-md shadow-sm ">
-          <div className="h-4 w-4 flex items-center justify-center text-slate-100">
+        <Menu.Button role="button" className="bg-[#4FC9DA]  p-3 rounded-md shadow-sm ">
+          <div role="menuitem" className="h-4 w-4 flex items-center justify-center text-slate-100">
             {list.length}
           </div>
         </Menu.Button>
@@ -37,7 +37,7 @@ const NotificationDropdown: FC<NavbarProps> = ({ list }): ReactElement => {
             /* Use the `active` state to conditionally style the active item. */
             <Menu.Item as={Fragment} key={item.link}>
               {() => (
-                <div className="flex justify-between py-3 px-6">
+                <div role="menuitem" className="flex justify-between py-3 px-6">
                   <Link
                     href={item.link}
                     passHref

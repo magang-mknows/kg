@@ -46,6 +46,7 @@ const Modal: FC<ModalProps> = ({
                     )}
                     {withClose && (
                       <AiOutlineClose
+                        role="button"
                         onClick={onClose}
                         className="text-2xl font-bold text-gray-400 cursor-pointer"
                       />
