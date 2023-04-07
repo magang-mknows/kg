@@ -11,7 +11,9 @@ const SekilasSection: FC = (): ReactElement => {
           <span className="mx-2 text-[#FAB317]"> Tentang </span>
           Kampus Gratis
         </h1>
-        <h1 className="py-6 font-bold text-3xl px-4">Apa itu Kampus Gratis ??</h1>
+        <h1 className="py-6 font-bold lg:text-left text-center text-3xl px-4">
+          Apa itu Kampus Gratis ???
+        </h1>
         <p className="px-4 text-gray-600 align-center text-center lg:text-left text-[#262626] text-[15px] md:text-[17px] lg:text-[18px] dark:text-white">
           <span className="text-gray-600 text-[24px] dark:text-white font-semibold">
             Kampus Gratis

@@ -1,12 +1,14 @@
-import Loading from "@/components/Loading";
-import RegistrationVideoModules from "@/modules/RegistrationVideo";
-import React, { ReactElement, Suspense } from "react";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import React, { lazy, ReactElement } from "react";
+import GuideVideoDetail from "@/components/Loading/Guide/GuideVideoDetail/GuideVideoDetail";
+
+const RegistrationVideoModules = lazy(() => import("@/modules/RegistrationVideo"));
 
 const RegistrationVideoPages = (): ReactElement => {
   return (
-    <Suspense fallback={<Loading />}>
+    <SuspenseError loadingFallback={<GuideVideoDetail />}>
       <RegistrationVideoModules />
-    </Suspense>
+    </SuspenseError>
   );
 };
 

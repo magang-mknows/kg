@@ -53,7 +53,9 @@ const PopupModal: FC<PopupModalProps> = ({
             )}
           </>
         )}
-        <h1 className={`my-4 font-bold text-[23.4px] ${stylePopup}`}>{popupTitle}</h1>
+        <h1 role="title" className={`my-4 font-bold text-[23.4px] ${stylePopup}`}>
+          {popupTitle}
+        </h1>
         <h5 className="font-medium text-[16px] text-[#A3A3A3] px-10">{description}</h5>
         {children}
       </div>
