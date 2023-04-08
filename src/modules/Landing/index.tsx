@@ -41,7 +41,7 @@ const Landing: FC = (): ReactElement => {
   return (
     <BaseLayouts>
       <div ref={ref}>
-        {/* <SuspenseError loadingFallback={<HeroSkeleton />}>
+        <SuspenseError loadingFallback={<HeroSkeleton />}>
           {inView && <HeroSection />}
         </SuspenseError>
         <SuspenseError loadingFallback={<CardSkeleton />}>
@@ -70,8 +70,7 @@ const Landing: FC = (): ReactElement => {
         </SuspenseError>
         <SuspenseError loadingFallback={<PromotionBannerSkeleton />}>
           {inView && <PromotionBanner />}
-        </SuspenseError> */}
-
+        </SuspenseError>
         <SuspenseError loadingFallback={<FootbarSkeleton />}>{inView && <Footbar />}</SuspenseError>
       </div>
     </BaseLayouts>
