@@ -26,6 +26,7 @@ import InformationBannerSkeleton from "@/components/Loading/Landing/InformationB
 import ChooseStudySkeleton from "@/components/Loading/Landing/ChooseStudySkeleton";
 import InformationSkeleton from "@/components/Loading/Landing/InformationSkeleton";
 import TestimonySkeleton from "@/components/Loading/Landing/TestimonySkeleton";
+import PromotionBannerSkeleton from "@/components/Loading/Landing/PromotionBannerSkeleton";
 
 const Landing: FC = (): ReactElement => {
   const { inView, ref } = useInView({
@@ -59,15 +60,17 @@ const Landing: FC = (): ReactElement => {
         </SuspenseError>
         <SuspenseError loadingFallback={<ChooseStudySkeleton />}>
           {inView && <ChooseStudyProgram />}
-        </SuspenseError> */}
-        <TestimonySkeleton />
+        </SuspenseError>
         <SuspenseError loadingFallback={<TestimonySkeleton />}>
           {inView && <TestimonySection />}
         </SuspenseError>
         <SuspenseError loadingFallback={<InformationSkeleton />}>
           {inView && <InformationSection />}
+        </SuspenseError> */}
+        {/* <PromotionBannerSkeleton /> */}
+        <SuspenseError loadingFallback={<PromotionBannerSkeleton />}>
+          {inView && <PromotionBanner />}
         </SuspenseError>
-        <SuspenseError>{inView && <PromotionBanner />}</SuspenseError>
         <SuspenseError>{inView && <Footbar />}</SuspenseError>
       </div>
     </BaseLayouts>
