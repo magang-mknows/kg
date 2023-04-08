@@ -1,19 +1,35 @@
+import Image from "next/image";
+import LandingDark from "@/assets/landing/dark.webp";
 import { FC, ReactElement } from "react";
 
 const HeroSkeleton: FC = (): ReactElement => {
   return (
-    <>
-      <div className="flex relative flex-col h-full w-full animate-pulse ">
-        <div className="flex flex-col lg:flex-row justify-start lg:justify-between animate-pulse ">
-          <div className="w-[100%] bg-gray animate pulse">
-            <div className="flex w-full lg:justify-start justify-center animate-pulse py-14 "></div>
-          </div>
-          <div className="h-full animate pulse w-screen lg:relative object-right bg-gray-100 animate-pulse lg:ml-44 lg:pt-0 pt-10">
-            <div className="flex flex-col shadow-lg select-none items-center bg-white lg:w-[320px] w-[230px] lg:h-[131px] md:w-[260px] sm:w-[240px] rounded-lg mb-2 z-20 relative bottom-40 lg:right-14 px-2"></div>
-          </div>
+    <div className="animate-pulse px-14 py-24 grid grid-cols-1 lg:grid-cols-2">
+      <div className="">
+        <div className="mt-4 flex flex-col gap-4">
+          <h1 className="bg-gray-200 rounded-md h-11 w-[90%]" />
+          <h1 className="bg-gray-200 rounded-md h-11 w-[70%]" />
+          <h3 className="bg-gray-200 rounded-md h-9 w-[90%]" />
+        </div>
+        <div className="flex flex-col gap-2 my-8">
+          <p className="bg-gray-200 rounded-md h-7 w-full" />
+          <p className="bg-gray-200 rounded-md h-7 w-[65%]" />
+        </div>
+        <div className="flex w-full justify-center py-12 ">
+          <div className="bg-gray-200 rounded-lg w-auto px-4 h-[40px] lg:w-[250px] lg:h-[56px] sm:w-full sm:h-[40px]" />
         </div>
       </div>
-    </>
+      <div className="h-full w-auto lg:relative object-right lg:ml-44 lg:pt-8 pt-49">
+        <Image
+          loading="eager"
+          width={1000}
+          height={1000}
+          src={LandingDark}
+          alt="Image Landing"
+          className="z-40 select-none lg:pt-34 mb-10 pb-10 lg:w-[840px] lg:h-[600px] w-[500px] h-[350px] grayscale"
+        />
+      </div>
+    </div>
   );
 };
 
