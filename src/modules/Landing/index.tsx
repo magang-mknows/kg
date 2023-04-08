@@ -1,4 +1,5 @@
 import { FC, lazy, ReactElement, useEffect } from "react";
+import dynamic from "next/dynamic";
 
 import BaseLayouts from "@/layouts/Base";
 import SuspenseError from "../Common/SuspenseError";
