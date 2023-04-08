@@ -1,7 +1,6 @@
 import { FC, lazy, ReactElement, useEffect } from "react";
 
 import BaseLayouts from "@/layouts/Base";
-import dynamic from "next/dynamic";
 import SuspenseError from "../Common/SuspenseError";
 import { useInView } from "react-intersection-observer";
 
@@ -22,6 +21,7 @@ import CardSkeleton from "@/components/Loading/Landing/CardSkeleton";
 import PartnerSkeleton from "@/components/Loading/Landing/PartnerSkeleton";
 import SekilasSkeleton from "@/components/Loading/Landing/SekilasSkeleton";
 import AboutSkeleton from "@/components/Loading/Landing/AboutSkeleton";
+import InformationBannerSkeleton from "@/components/Loading/Landing/InformationBannerSkeleton";
 
 const Landing: FC = (): ReactElement => {
   const { inView, ref } = useInView({
@@ -50,7 +50,9 @@ const Landing: FC = (): ReactElement => {
         <SuspenseError loadingFallback={<AboutSkeleton />}>
           {inView && <AboutSection />}
         </SuspenseError>
-        <SuspenseError>{inView && <InformationBanner />}</SuspenseError>
+        <SuspenseError loadingFallback={<InformationBannerSkeleton />}>
+          {inView && <InformationBanner />}
+        </SuspenseError>
         <SuspenseError>{inView && <ChooseStudyProgram />}</SuspenseError>
         <SuspenseError>{inView && <TestimonySection />}</SuspenseError>
         <SuspenseError>{inView && <InformationSection />}</SuspenseError>

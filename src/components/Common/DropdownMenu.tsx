@@ -4,7 +4,7 @@ import { DropdownProps } from "./types";
 
 const DropdownMenu: FC<DropdownProps> = ({ children, list }): ReactElement => {
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu role="menu" as="div" className="relative inline-block text-left">
       {children}
       <Transition
         as={Fragment}
@@ -15,9 +15,12 @@ const DropdownMenu: FC<DropdownProps> = ({ children, list }): ReactElement => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0  mt-2 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white dark:bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items
+          role="menuitems"
+          className="absolute right-0  mt-2 w-30 px-4 origin-top-right  divide-gray-100 rounded-md bg-white dark:bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        >
           {list.map((x, i) => (
-            <div key={i} className=" py-1 ">
+            <div role="menuitem" key={i} className=" py-1 ">
               <Menu.Item>
                 {({ active }) => (
                   <button

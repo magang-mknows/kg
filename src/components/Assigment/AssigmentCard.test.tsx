@@ -1,29 +1,48 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import { StaticImageData } from "next/image";
 import Assigment from "./AssigmentCard";
 
-describe("Accordion Test", () => {
-  it("should render successfully", () => {
-    const { baseElement } = render(
-      <Assigment titleAssigment={""} category={""} titleCourse={""} />,
+describe("Assigment Component", () => {
+  it("renders the title and titleCourse", () => {
+    const titleAssigment = "Test Title Assigment";
+    const titleCourse = "Test Title Course";
+    const imgAssigment = "/test-image.png" as unknown as StaticImageData;
+    render(
+      <Assigment
+        imgAssigment={imgAssigment}
+        titleAssigment={titleAssigment}
+        titleCourse={titleCourse}
+      />,
     );
-    expect(baseElement).toBeTruthy();
+    expect(screen.getByText(titleAssigment)).toBeInTheDocument();
+    expect(screen.getByText(titleCourse)).toBeInTheDocument();
   });
 
-  it("should render text successfully", () => {
-    const COMPONENT = render(
-      <Assigment titleAssigment={"test"} category={"test-category"} titleCourse={"test-title"} />,
-    );
-
-    const text = COMPONENT.findAllByText("test");
-    expect(text).toBeDefined();
+  it("renders the category, date, and time", () => {
+    const category = "Test Category";
+    const date = "Test Date";
+    const time = "Test Time";
+    const imgAssigment = "/test-image.png" as unknown as StaticImageData;
+    render(<Assigment imgAssigment={imgAssigment} category={category} date={date} time={time} />);
+    expect(screen.getByText(category)).toBeInTheDocument();
+    expect(screen.getByText(date)).toBeInTheDocument();
+    expect(screen.getByText(time)).toBeInTheDocument();
   });
 
-  it("id assigment card must 'test' ", () => {
-    const COMPONENT = render(
-      <Assigment titleAssigment={"test"} category={"test-category"} titleCourse={"test-title"} />,
+  it("renders the correct image", () => {
+    const imgAssigment = "/test-image.png" as unknown as StaticImageData;
+    render(<Assigment imgAssigment={imgAssigment} />);
+    const image = screen.getByAltText("Image");
+    expect(image).toBeInTheDocument();
+    expect(image.getAttribute("src")).toEqual(
+      `/_next/image?url=%2F${(imgAssigment as unknown as string).replace("/", "")}&w=48&q=75`,
     );
+  });
 
-    const text = COMPONENT.findAllByTestId("accordion");
-    expect(text).toBeDefined();
+  it("renders the correct background line class", () => {
+    const imgAssigment = "/test-image.png" as unknown as StaticImageData;
+    const bgLine = "test-bgLine";
+    render(<Assigment imgAssigment={imgAssigment} bgLine={bgLine} />);
+    expect(screen.getByTestId(bgLine)).toHaveClass(bgLine);
   });
 });
