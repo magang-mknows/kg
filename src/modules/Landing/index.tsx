@@ -23,6 +23,7 @@ import PartnerSkeleton from "@/components/Loading/Landing/PartnerSkeleton";
 import SekilasSkeleton from "@/components/Loading/Landing/SekilasSkeleton";
 import AboutSkeleton from "@/components/Loading/Landing/AboutSkeleton";
 import InformationBannerSkeleton from "@/components/Loading/Landing/InformationBannerSkeleton";
+import ChooseStudySkeleton from "@/components/Loading/Landing/ChooseStudySkeleton";
 
 const Landing: FC = (): ReactElement => {
   const { inView, ref } = useInView({
@@ -34,33 +35,32 @@ const Landing: FC = (): ReactElement => {
     }
   });
   return (
-    <BaseLayouts>
-      <div ref={ref}>
-        <SuspenseError loadingFallback={<HeroSkeleton />}>
-          {inView && <HeroSection />}
-        </SuspenseError>
-        <SuspenseError loadingFallback={<CardSkeleton />}>
-          {inView && <CardSection />}
-        </SuspenseError>
-        <SuspenseError loadingFallback={<PartnerSkeleton />}>
-          {inView && <PatnerSection />}
-        </SuspenseError>
-        <SuspenseError loadingFallback={<SekilasSkeleton />}>
-          {inView && <SekilasSection />}
-        </SuspenseError>
-        <SuspenseError loadingFallback={<AboutSkeleton />}>
-          {inView && <AboutSection />}
-        </SuspenseError>
-        <SuspenseError loadingFallback={<InformationBannerSkeleton />}>
-          {inView && <InformationBanner />}
-        </SuspenseError>
-        <SuspenseError>{inView && <ChooseStudyProgram />}</SuspenseError>
-        <SuspenseError>{inView && <TestimonySection />}</SuspenseError>
-        <SuspenseError>{inView && <InformationSection />}</SuspenseError>
-        <SuspenseError>{inView && <PromotionBanner />}</SuspenseError>
-        <SuspenseError>{inView && <Footbar />}</SuspenseError>
-      </div>
-    </BaseLayouts>
+    // <BaseLayouts>
+    <div ref={ref}>
+      {/* <SuspenseError loadingFallback={<HeroSkeleton />}>{inView && <HeroSection />}</SuspenseError>
+      <SuspenseError loadingFallback={<CardSkeleton />}>{inView && <CardSection />}</SuspenseError>
+      <SuspenseError loadingFallback={<PartnerSkeleton />}>
+        {inView && <PatnerSection />}
+      </SuspenseError>
+      <SuspenseError loadingFallback={<SekilasSkeleton />}>
+        {inView && <SekilasSection />}
+      </SuspenseError>
+      <SuspenseError loadingFallback={<AboutSkeleton />}>
+        {inView && <AboutSection />}
+      </SuspenseError>
+      <SuspenseError loadingFallback={<InformationBannerSkeleton />}>
+        {inView && <InformationBanner />}
+      </SuspenseError> */}
+      <ChooseStudySkeleton />
+      <SuspenseError loadingFallback={<ChooseStudySkeleton />}>
+        {inView && <ChooseStudyProgram />}
+      </SuspenseError>
+      <SuspenseError>{inView && <TestimonySection />}</SuspenseError>
+      <SuspenseError>{inView && <InformationSection />}</SuspenseError>
+      <SuspenseError>{inView && <PromotionBanner />}</SuspenseError>
+      <SuspenseError>{inView && <Footbar />}</SuspenseError>
+    </div>
+    // </BaseLayouts>
   );
 };
 
