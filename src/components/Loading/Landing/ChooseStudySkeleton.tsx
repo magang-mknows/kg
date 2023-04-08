@@ -8,7 +8,7 @@ const ChooseStudySkeleton: FC = (): ReactElement => {
       </div>
       <div className="flex md:flex-row flex-col lg:flex-nowrap flex-wrap mt-10 w-full gap-4  ">
         {[...Array(3)].map((_, i) => (
-          <div className="bg-neutral-200 lg:w-4/12 w-full py-5 rounded-lg px-3">
+          <div key={i} className="bg-neutral-200 lg:w-4/12 w-full py-5 rounded-lg px-3">
             <div className="bg-neutral-300 w-full lg:py-36 md:py-44 py-24"></div>
             <div className="flex flex-row mt-4 gap-3">
               <div className="bg-neutral-300 w-2/12 py-3 rounded-lg"></div>

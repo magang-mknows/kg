@@ -17,7 +17,10 @@ const TestimonySkeleton: FC = (): ReactElement => {
       <div className="basis-3/5">
         <div className="flex lg:flex-row flex-col gap-5 px-5">
           {[...Array(2)].map((_, i) => (
-            <div className="bg-neutral-200 w-full lg:w-[45%] lg:py-10 py-8 rounded-lg px-7 ">
+            <div
+              key={i}
+              className="bg-neutral-200 w-full lg:w-[45%] lg:py-10 py-8 rounded-lg px-7 "
+            >
               <div className="bg-neutral-300 w-16 h-16 rounded-full mb-5"></div>
               <div className="bg-neutral-300 w-full lg:py-9 py-8 rounded-lg mb-9"></div>
               <div className="bg-neutral-300 w-36 py-4 rounded-lg mb-4"></div>
