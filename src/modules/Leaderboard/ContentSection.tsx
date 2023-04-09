@@ -7,9 +7,15 @@ import RankingSection from "./RankingSection";
 import Pagination from "../Event/Common/Pagination";
 import Filter from "./filter";
 import { useRankLeaderboard } from "@/hooks/Leaderborad/useRankLeaderboard";
+import PopupProfil from "@/components/Leaderboard/PopupProfil";
+import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
+import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
+import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
 
 const ContentSection = (): ReactElement => {
   const { getRank } = useRankLeaderboard();
+  const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
+  const { setPopupUser, getPopupUser } = usePopupGetUser();
   return (
     <div className="mt-[71px] w-full lg:px-[130px] md:px-[100px] px-3  mb-10 dark:bg-[#222529]">
       <h1 className="text-center dark:text-white text-black text-28px font-[700] rounded-[8px]">
@@ -35,7 +41,11 @@ const ContentSection = (): ReactElement => {
                         <Image
                           src={item.img}
                           alt={"avatar"}
-                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16"
+                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
+                          onClick={() => {
+                            setPopupUser(item);
+                            setPopupLeaderboardStatus(true);
+                          }}
                         />
                         <Image
                           src={Medal}
@@ -62,7 +72,11 @@ const ContentSection = (): ReactElement => {
                         <Image
                           src={item.img}
                           alt={"avatar"}
-                          className="lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] sm:w-[88px] sm:h-[88px] w-[70px] h-[70px]"
+                          className="lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] sm:w-[88px] sm:h-[88px] w-[70px] h-[70px] cursor-pointer"
+                          onClick={() => {
+                            setPopupUser(item);
+                            setPopupLeaderboardStatus(true);
+                          }}
                         />
                         <Image
                           src={Medal1}
@@ -89,7 +103,11 @@ const ContentSection = (): ReactElement => {
                         <Image
                           src={item.img}
                           alt={"avatar"}
-                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16"
+                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
+                          onClick={() => {
+                            setPopupUser(item);
+                            setPopupLeaderboardStatus(true);
+                          }}
                         />
                         <Image
                           src={Medal3}
@@ -118,6 +136,15 @@ const ContentSection = (): ReactElement => {
           <Pagination />
         </div>
       </div>
+      <PopupProfil
+        onClose={() => {
+          setPopupLeaderboardStatus(false);
+          setPopupUser({} as leaderBoardRankProps);
+        }}
+        lookup={getPopupLeaderboardStatus}
+        widthModal="!max-w-[748px]"
+        {...getPopupUser}
+      />
     </div>
   );
 };
