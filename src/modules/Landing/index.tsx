@@ -23,6 +23,11 @@ import PartnerSkeleton from "@/components/Loading/Landing/PartnerSkeleton";
 import SekilasSkeleton from "@/components/Loading/Landing/SekilasSkeleton";
 import AboutSkeleton from "@/components/Loading/Landing/AboutSkeleton";
 import InformationBannerSkeleton from "@/components/Loading/Landing/InformationBannerSkeleton";
+import ChooseStudySkeleton from "@/components/Loading/Landing/ChooseStudySkeleton";
+import InformationSkeleton from "@/components/Loading/Landing/InformationSkeleton";
+import TestimonySkeleton from "@/components/Loading/Landing/TestimonySkeleton";
+import PromotionBannerSkeleton from "@/components/Loading/Landing/PromotionBannerSkeleton";
+import FootbarSkeleton from "@/components/Loading/Landing/FootbarSkeleton";
 
 const Landing: FC = (): ReactElement => {
   const { inView, ref } = useInView({
@@ -54,11 +59,19 @@ const Landing: FC = (): ReactElement => {
         <SuspenseError loadingFallback={<InformationBannerSkeleton />}>
           {inView && <InformationBanner />}
         </SuspenseError>
-        <SuspenseError>{inView && <ChooseStudyProgram />}</SuspenseError>
-        <SuspenseError>{inView && <TestimonySection />}</SuspenseError>
-        <SuspenseError>{inView && <InformationSection />}</SuspenseError>
-        <SuspenseError>{inView && <PromotionBanner />}</SuspenseError>
-        <SuspenseError>{inView && <Footbar />}</SuspenseError>
+        <SuspenseError loadingFallback={<ChooseStudySkeleton />}>
+          {inView && <ChooseStudyProgram />}
+        </SuspenseError>
+        <SuspenseError loadingFallback={<TestimonySkeleton />}>
+          {inView && <TestimonySection />}
+        </SuspenseError>
+        <SuspenseError loadingFallback={<InformationSkeleton />}>
+          {inView && <InformationSection />}
+        </SuspenseError>
+        <SuspenseError loadingFallback={<PromotionBannerSkeleton />}>
+          {inView && <PromotionBanner />}
+        </SuspenseError>
+        <SuspenseError loadingFallback={<FootbarSkeleton />}>{inView && <Footbar />}</SuspenseError>
       </div>
     </BaseLayouts>
   );
