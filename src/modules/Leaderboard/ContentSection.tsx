@@ -81,7 +81,7 @@ const ContentSection = (): ReactElement => {
                         <Image
                           src={Medal1}
                           alt={"medal"}
-                          className="lg:top-28 lg:right-[38px] md:top-[90px] md:right-[34px] sm:top-[80px] sm:right-[28px] lg:w-[50px] md:w-[38px] sm:w-[33px] w-8 top-[60px] right-[20px] absolute "
+                          className="lg:top-28 lg:right-[30px] md:top-[90px] md:right-[27px] sm:top-[74px] sm:right-[22px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[60px] right-[16px] absolute "
                         />
                       </div>
                     </div>
