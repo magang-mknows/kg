@@ -53,7 +53,7 @@ const PopupProfil: FC<PopupProfilProps> = ({
           Rank <span className="text-[#106FA4] font-[600] text-[28px]">{props.index}</span> Global
         </h1>
         <div className="flex sm:flex-row flex-col outline sm:justify-between justify-start outline-[#E5E5E5] bg-[#FAFAFA] rounded-[8px] md:px-10 px-0 h-[125px] w-full items-center">
-          <div className="flex items-center sm:gap-7 gap-4 sm:-mt-3 ">
+          <div className="flex items-center sm:gap-7 gap-4 sm:-mt-3">
             <Image
               src={props.img as unknown as StaticImageData}
               alt={"avatar"}
