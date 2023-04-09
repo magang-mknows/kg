@@ -9,9 +9,7 @@ const DashboardModules = lazy(() => import("@/modules/Dashboard"));
 const DashboardPages: NextPage = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
-      <SuspenseError loadingFallback={<DashboardSkeleton />}>
-        <DashboardModules />
-      </SuspenseError>
+      <DashboardModules />
     </BaseLayouts>
   );
 };
