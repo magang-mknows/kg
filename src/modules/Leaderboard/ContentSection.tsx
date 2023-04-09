@@ -3,6 +3,7 @@ import Image from "next/image";
 import Medal1 from "@/assets/leaderboard/medal-1.svg";
 import Medal3 from "@/assets/leaderboard/medal-3.svg";
 import Medal from "@/assets/leaderboard/medal.svg";
+import Crown from "@/assets/leaderboard/crown.svg";
 import RankingSection from "./RankingSection";
 import Pagination from "../Event/Common/Pagination";
 import Filter from "./filter";
@@ -68,7 +69,7 @@ const ContentSection = (): ReactElement => {
                 <div className="relative lg:-top-72 md:-top-60 sm:-top-52 -top-44 order-2">
                   <div className="bg-[#FEF6D0] dark:bg-[#61b3bf]   lg:h-[374px] lg:w-[204px] md:h-[280px] md:w-[180px] sm:h-[240px] sm:w-[150px] h-[220px] w-[120px] text-center rounded-tr-[8px] rounded-tl-[8px] ">
                     <div className="absolute lg:top-[280px] lg:left-[40px] md:top-[180px] md:left-[36px] sm:top-[140px] sm:left-[32px] top-36 left-7">
-                      <div className="rounded-full lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] outline outline-4 outline-[#FBCB50]">
+                      <div className="rounded-full lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] outline outline-4 outline-[#FBCB50] ">
                         <Image
                           src={item.img}
                           alt={"avatar"}
@@ -77,6 +78,11 @@ const ContentSection = (): ReactElement => {
                             setPopupUser(item);
                             setPopupLeaderboardStatus(true);
                           }}
+                        />
+                        <Image
+                          src={Crown}
+                          alt="crown"
+                          className="absolute lg:-top-9 lg:right-11 lg:w-10 md:-top-8 md:right-8 md:w-9 sm:-top-6 sm:right-7 sm:w-7 w-7 -top-6 right-5"
                         />
                         <Image
                           src={Medal1}
