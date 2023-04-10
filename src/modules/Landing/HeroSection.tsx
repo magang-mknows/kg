@@ -8,7 +8,7 @@ import SuspenseError from "../Common/SuspenseError";
 
 import BgHero from "@/assets/landing/bg-hero.webp";
 import BgDark from "@/assets/landing/bg-dark.webp";
-import ImageLanding from "@/assets/landing/landing-img.webp";
+import ImageLanding from "@/assets/landing/bg-landing.svg";
 import LandingDark from "@/assets/landing/dark.webp";
 
 const HeroSection: FC = (): ReactElement => {
@@ -29,9 +29,9 @@ const HeroSection: FC = (): ReactElement => {
           <h1 className="flex flex-col lg:text-[42px] text-[36px] font-bold text-center lg:text-start md:text-center text-center dark:text-white py-4">
             SARJANA Gratis & Berkualitas <span> Dengan Konversi SKS : </span>
           </h1>
-          <h3 className="lg:text-[26px] text-[22px] lg:text-start text-center font-semibold text-blue-500">
+          <div className="lg:text-[26px] text-[22px] lg:text-start text-center font-semibold text-blue-500">
             Kuliah, Pelatihan, Magang & Pengalaman Kerja
-          </h3>
+          </div>
           <p className="flex flex-col py-8 text-lg lg:text-start text-center lg:text-xl text-gray-500 dark:text-white">
             Platform Pendidikan Tinggi Gratis Pertama di Indonesia. Dengan akses belajar yang mudah
             bagi semua tanpa syarat.
@@ -45,15 +45,13 @@ const HeroSection: FC = (): ReactElement => {
             </Link>
           </div>
         </div>
-        <div className="h-full w-auto lg:relative object-right lg:ml-44 lg:pt-8 pt-49">
+        <div className="lg:flex hidden h-full w-auto lg:relative object-right lg:ml-44 ">
           <SuspenseError loadingFallback={<Loading />}>
             <Image
               loading="eager"
-              width={1000}
-              height={1000}
               src={currentTheme === "light" ? ImageLanding : LandingDark}
               alt="Image Landing"
-              className="z-40 select-none lg:pt-34 mb-10 pb-10 lg:w-[840px] lg:h-[600px] w-[500px] h-[350px]"
+              className="z-40 select-none lg:w-full lg:h-full "
             />
           </SuspenseError>
         </div>

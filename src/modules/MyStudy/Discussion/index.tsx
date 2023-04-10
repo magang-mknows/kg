@@ -9,7 +9,7 @@ const Discussion: FC = (): ReactElement => {
       <div className="md:basis-3/12 ">
         <Sidebar />
       </div>
-      <div className="">
+      <div>
         <Content />
       </div>
     </div>

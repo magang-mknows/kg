@@ -27,7 +27,7 @@ export interface TextFieldProps {
   success?: string;
   warning?: string;
   hasLabel?: boolean;
-  control: Control<any, T>;
+  control?: Control<any, T>;
 }
 
 export type ModalProps = {
@@ -57,7 +57,7 @@ export interface SelectFieldProps {
   value?: string;
   name: string;
   label: string | ReactNode;
-  defaultValue: string;
+  defaultValue?: string;
   required?: boolean;
   disabled?: boolean;
   options: OptionFieldProps[];
@@ -110,7 +110,7 @@ export interface CheckboxFieldProps {
   error?: string;
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
-  control: Control<any, T>;
+  control?: Control<any, T>;
 }
 
 export interface CardProps {

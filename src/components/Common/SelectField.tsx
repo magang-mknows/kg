@@ -13,7 +13,6 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
       value,
       onChange,
       disabled = false,
-      defaultValue,
       options,
       className,
     }: SelectFieldProps,
@@ -30,12 +29,12 @@ const SelectField: FC<SelectFieldProps> = forwardRef(
         </label>
         <Fragment>
           <select
+            id={name}
             required={required}
             className={className}
             onChange={onChange}
             value={value}
             name={name}
-            defaultValue={defaultValue}
             disabled={disabled}
             ref={ref}
           >

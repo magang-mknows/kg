@@ -1,12 +1,22 @@
-import { FC, Fragment, ReactElement } from "react";
-import Navbar from "@/components/Navbar";
+import { FC, Fragment, lazy, ReactElement } from "react";
 import { BaseLayoutTypes } from "./types";
 import Footer from "@/components/Common/Footer";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import NavbarSkeleton from "@/components/Loading/Navbar";
 
-const BaseLayouts: FC<BaseLayoutTypes> = ({ children, widthHScreen, className, ref }): ReactElement => {
+const Navbar = lazy(() => import("@/components/Navbar"));
+
+const BaseLayouts: FC<BaseLayoutTypes> = ({
+  children,
+  widthHScreen,
+  className,
+  ref,
+}): ReactElement => {
   return (
     <Fragment>
-      <Navbar />
+      <SuspenseError loadingFallback={<NavbarSkeleton />}>
+        <Navbar />
+      </SuspenseError>
       <main
         className={`flex flex-col ${className} ${
           widthHScreen && "min-h-screen"

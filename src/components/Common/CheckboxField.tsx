@@ -4,16 +4,7 @@ import { CheckboxFieldProps } from "./types";
 
 const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
   (
-    {
-      error,
-      required,
-      label,
-      name,
-      value,
-      onChange,
-      disabled = false,
-      checked,
-    }: CheckboxFieldProps,
+    { error, required, label, name, value, onChange, disabled, checked }: CheckboxFieldProps,
     ref: Ref<HTMLInputElement>,
   ): ReactElement => {
     return (
@@ -31,6 +22,7 @@ const CheckboxField: FC<CheckboxFieldProps> = forwardRef(
             onChange={onChange}
             disabled={disabled}
             ref={ref}
+            id={name}
           />
           <label htmlFor={name} className={"font-medium text-neutral-800 text-1xl"}>
             {label}

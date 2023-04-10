@@ -24,7 +24,7 @@ const ContentDiskusi: FC = (): ReactElement => {
       </div>
 
       <CardComment
-        styleCard="ml-14 bg-[#F5F5F5]"
+        styleCard="md:ml-14 ml-9 bg-[#F5F5F5]"
         title={"Manajemen Keuangan"}
         author={"Bakti Husada"}
         avatar={profileDummy}
@@ -41,7 +41,7 @@ const ContentDiskusi: FC = (): ReactElement => {
       </div>
 
       <CardComment
-        styleCard="ml-28 bg-[#F5F5F5]"
+        styleCard="md:ml-28 ml-23 bg-[#F5F5F5]"
         title={"Manajemen Keuangan"}
         author={"Bakti Husada"}
         avatar={profileDummy}

@@ -1,26 +1,24 @@
 import BaseLayouts from "@/layouts/Base";
 
 import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import Loading from "@/components/Loading";
+import { lazy, ReactElement } from "react";
 import { acaraKampusBreadCumbs } from "@/utilities/constant";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import HistoryEventSkeleton from "@/components/Loading/Event/HistoryEventSkeleton";
 
 const EventHistory = lazy(() => import("@/modules/Event/EventHistory"));
 const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 
 const EventPage: NextPage = (): ReactElement => {
   return (
-    <BaseLayouts className="">
-      <ErrorBoundary fallback={<>Error was happen</>}>
-        <Suspense fallback={<Loading />}>
-          <BreadCrumbs items={acaraKampusBreadCumbs} />
-          <div className="w-full px-6 md:px-8 lg:px-10">
-            <EventHistory />
-          </div>
-        </Suspense>
-      </ErrorBoundary>
-    </BaseLayouts>
+    <SuspenseError loadingFallback={<HistoryEventSkeleton />}>
+      <BaseLayouts className="">
+        <BreadCrumbs items={acaraKampusBreadCumbs} />
+        <div className="w-full px-6 md:px-8 lg:px-10">
+          <EventHistory />
+        </div>
+      </BaseLayouts>
+    </SuspenseError>
   );
 };
 

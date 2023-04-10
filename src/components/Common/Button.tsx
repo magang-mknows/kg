@@ -9,17 +9,18 @@ const Button: FC<ButtonProps> = ({
   icon,
   disabled,
   onClick,
+  type,
 }): ReactElement => {
   return (
     <Fragment>
       {page === undefined ? (
-        <button onClick={onClick} disabled={disabled} className={className}>
+        <button type={type} onClick={onClick} disabled={disabled} className={className}>
           {icon}
           <p>{text}</p>
         </button>
       ) : (
         <Link href={`${page}`}>
-          <button onClick={onClick} disabled={disabled} className={className}>
+          <button type={type} onClick={onClick} disabled={disabled} className={className}>
             {icon}
             <p>{text}</p>
           </button>

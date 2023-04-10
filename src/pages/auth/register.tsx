@@ -8,16 +8,18 @@ const RegisterForm = lazy(() => import("@/modules/Auth/Register/Form"));
 
 const Register: NextPage = (): ReactElement => {
   return (
-    <AuthLayouts
-      title="Daftar Akun"
-      description="Silahkan isi data berikut untuk melakukan pendaftaran"
-      linkText="Login Disini"
-      to="/auth/login"
-    >
+    <div className="bg-[#FAFAFA]">
       <SuspenseError loadingFallback={<RegisterSkeleton />}>
-        <RegisterForm />
+        <AuthLayouts
+          title="Daftar Akun"
+          description="Silahkan isi data berikut untuk melakukan pendaftaran"
+          linkText="Login Disini"
+          to="/auth/login"
+        >
+          <RegisterForm />
+        </AuthLayouts>
       </SuspenseError>
-    </AuthLayouts>
+    </div>
   );
 };
 

@@ -1,16 +1,17 @@
 import type { NextPage } from "next";
 import { lazy, ReactElement, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import Loading from "@/components/Loading";
+import SuspenseError from "@/modules/Common/SuspenseError";
+import SemuaFiturSkeleton from "@/components/Loading/SemuaFitur/SemuaFiturSkeleton";
 
 const AllFeatures = lazy(() => import("@/modules/AllFeatures"));
 
 const AllFeaturesPage: NextPage = (): ReactElement => {
   return (
     <ErrorBoundary fallback={<>Error was happen</>}>
-      <Suspense fallback={<Loading />}>
+      <SuspenseError loadingFallback={<SemuaFiturSkeleton />}>
         <AllFeatures />
-      </Suspense>
+      </SuspenseError>
     </ErrorBoundary>
   );
 };

@@ -1,9 +1,17 @@
-import { FC, ReactElement } from "react";
+import BreadCrumb from "@/components/Assigment/BreadCrumb";
+import BaseLayouts from "@/layouts/Base";
+import { FC, lazy, ReactElement } from "react";
+import { courseBreadCumbs } from "@/utilities/constant";
 
-import CourseHome from "@/modules/MyStudy/Course/CourseHome";
+const CourseHome = lazy(() => import("@/modules/MyStudy/Course/CourseHome"));
 
-const Course: FC = (): ReactElement => {
-  return <CourseHome />;
+const CourseModule: FC = (): ReactElement => {
+  return (
+    <BaseLayouts widthHScreen={false}>
+      <BreadCrumb items={courseBreadCumbs} />
+      <CourseHome />
+    </BaseLayouts>
+  );
 };
 
-export default Course;
+export default CourseModule;

@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { FC, lazy, ReactElement } from "react";
 import { BaseLayoutTypes } from "../Base/types";
 
@@ -9,7 +8,6 @@ const BreadCrumbs = lazy(() => import("@/components/Assigment/BreadCrumb"));
 const DashboardLayout: FC<BaseLayoutTypes> = ({ children, className }): ReactElement => {
   return (
     <>
-      <Navbar />
       <main
         className={`${className} py-2 bg-neutral-50 dark:bg-[#222529] min-h-[220vh] w-full overflow-hidden`}
       >
