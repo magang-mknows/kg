@@ -3,13 +3,20 @@ import Image from "next/image";
 import Medal1 from "@/assets/leaderboard/medal-1.svg";
 import Medal3 from "@/assets/leaderboard/medal-3.svg";
 import Medal from "@/assets/leaderboard/medal.svg";
+import Crown from "@/assets/leaderboard/crown.svg";
 import RankingSection from "./RankingSection";
 import Pagination from "../Event/Common/Pagination";
 import Filter from "./filter";
 import { useRankLeaderboard } from "@/hooks/Leaderborad/useRankLeaderboard";
+import PopupProfil from "@/components/Leaderboard/PopupProfil";
+import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
+import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
+import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
 
 const ContentSection = (): ReactElement => {
   const { getRank } = useRankLeaderboard();
+  const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
+  const { setPopupUser, getPopupUser } = usePopupGetUser();
   return (
     <div className="mt-[71px] w-full lg:px-[130px] md:px-[100px] px-3  mb-10 dark:bg-[#222529]">
       <h1 className="text-center dark:text-white text-black text-28px font-[700] rounded-[8px]">
@@ -35,7 +42,11 @@ const ContentSection = (): ReactElement => {
                         <Image
                           src={item.img}
                           alt={"avatar"}
-                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16"
+                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
+                          onClick={() => {
+                            setPopupUser(item);
+                            setPopupLeaderboardStatus(true);
+                          }}
                         />
                         <Image
                           src={Medal}
@@ -58,16 +69,25 @@ const ContentSection = (): ReactElement => {
                 <div className="relative lg:-top-72 md:-top-60 sm:-top-52 -top-44 order-2">
                   <div className="bg-[#FEF6D0] dark:bg-[#61b3bf]   lg:h-[374px] lg:w-[204px] md:h-[280px] md:w-[180px] sm:h-[240px] sm:w-[150px] h-[220px] w-[120px] text-center rounded-tr-[8px] rounded-tl-[8px] ">
                     <div className="absolute lg:top-[280px] lg:left-[40px] md:top-[180px] md:left-[36px] sm:top-[140px] sm:left-[32px] top-36 left-7">
-                      <div className="rounded-full lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] outline outline-4 outline-[#FBCB50]">
+                      <div className="rounded-full lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] outline outline-4 outline-[#FBCB50] ">
                         <Image
                           src={item.img}
                           alt={"avatar"}
-                          className="lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] sm:w-[88px] sm:h-[88px] w-[70px] h-[70px]"
+                          className="lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] sm:w-[88px] sm:h-[88px] w-[70px] h-[70px] cursor-pointer"
+                          onClick={() => {
+                            setPopupUser(item);
+                            setPopupLeaderboardStatus(true);
+                          }}
+                        />
+                        <Image
+                          src={Crown}
+                          alt="crown"
+                          className="absolute lg:-top-9 lg:right-11 lg:w-10 md:-top-8 md:right-8 md:w-9 sm:-top-6 sm:right-7 sm:w-7 w-7 -top-6 right-5"
                         />
                         <Image
                           src={Medal1}
                           alt={"medal"}
-                          className="lg:top-28 lg:right-[38px] md:top-[90px] md:right-[34px] sm:top-[80px] sm:right-[28px] lg:w-[50px] md:w-[38px] sm:w-[33px] w-8 top-[60px] right-[20px] absolute "
+                          className="lg:top-28 lg:right-[30px] md:top-[90px] md:right-[27px] sm:top-[74px] sm:right-[22px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[60px] right-[16px] absolute "
                         />
                       </div>
                     </div>
@@ -89,7 +109,11 @@ const ContentSection = (): ReactElement => {
                         <Image
                           src={item.img}
                           alt={"avatar"}
-                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16"
+                          className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
+                          onClick={() => {
+                            setPopupUser(item);
+                            setPopupLeaderboardStatus(true);
+                          }}
                         />
                         <Image
                           src={Medal3}
@@ -118,6 +142,15 @@ const ContentSection = (): ReactElement => {
           <Pagination />
         </div>
       </div>
+      <PopupProfil
+        onClose={() => {
+          setPopupLeaderboardStatus(false);
+          setPopupUser({} as leaderBoardRankProps);
+        }}
+        lookup={getPopupLeaderboardStatus}
+        widthModal="!max-w-[748px]"
+        {...getPopupUser}
+      />
     </div>
   );
 };
