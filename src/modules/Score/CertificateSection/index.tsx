@@ -95,12 +95,13 @@ const CertificateSection = (): ReactElement => {
                   <PopupModal
                     lookup={getPopupStatus}
                     image={dummyCertificate}
+                    hasImg
                     onClose={() => setPopupStatus(false)}
                     className={"!py-2"}
                   >
-                    <div className="flex gap-3">
+                    <div className="flex md:flex-row flex-col md:gap-3 gap-0 items-center ">
                       <Link href={item.urlDownload}>
-                        <button className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white">
+                        <button className="w-[230px] h-[56px]  bg-[#106FA4] rounded-[8px] text-white mb-3 md:mb-0">
                           <div className=" flex justify-center gap-3">
                             <div>
                               <Image src={download} alt={"download-icon"} />
@@ -154,12 +155,13 @@ const CertificateSection = (): ReactElement => {
                     <PopupModal
                       lookup={getPopupStatus}
                       image={dummyCertificate}
+                      hasImg
                       onClose={() => setPopupStatus(false)}
                       className={"!py-2"}
                     >
-                      <div className="flex gap-3">
+                      <div className="flex md:flex-row flex-col md:gap-3 gap-0 items-center ">
                         <Link href={item.urlDownload}>
-                          <button className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white">
+                          <button className="w-[230px] h-[56px]  bg-[#106FA4] rounded-[8px] text-white mb-3 md:mb-0">
                             <div className=" flex justify-center gap-3">
                               <div>
                                 <Image src={download} alt={"download-icon"} />
