@@ -1,6 +1,5 @@
 import { handleError } from "@/utilities/helper";
 import ApiService from "../Api";
-
 const LeaderboardService = {
   GetAllLeaderboard: async () => {
     const requestData = {
@@ -12,6 +11,7 @@ const LeaderboardService = {
     };
     try {
       const res = await ApiService.customRequest(requestData);
+
       return res.data;
     } catch (error) {
       throw handleError(error);

@@ -12,8 +12,12 @@ import PopupProfil from "@/components/Leaderboard/PopupProfil";
 import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
 import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
 import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
+import { useGetAllLeaderboard } from "@/hooks/Leaderborad/useGetAllLeaderboard";
 
 const ContentSection = (): ReactElement => {
+  const { data } = useGetAllLeaderboard();
+  console.log("tes", data?.data);
+
   const { getRank } = useRankLeaderboard();
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
   const { setPopupUser, getPopupUser } = usePopupGetUser();
