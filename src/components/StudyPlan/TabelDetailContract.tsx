@@ -44,7 +44,7 @@ const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement =
           </div>
 
           {getDataTable.map((x, i) => (
-            <div className="grid grid-flow-col auto-cols-min mx-auto border bg-gray-100 border-gray-200 rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+            <div key={i} className="grid grid-flow-col auto-cols-min mx-auto border bg-gray-100 border-gray-200 rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
               <div className="w-[88px] border-t border-[#E5E5E5] bg-gray-100 text-center md:text-[16px] p-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.no}
               </div>
