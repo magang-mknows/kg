@@ -27,13 +27,23 @@ const AdministrationService = {
     }
   },
 
-  GetAdministration: async (props: MetaTypes) => {
+  // GetAdministration: async (props: MetaTypes) => {
+  //   const requestData = {
+  //     method: "get",
+  //     headers: {
+  //       "Content-Type": "application/json; charset=utf-8",
+  //     },
+  //     params: props,
+  //     url: "/administration",
+  //   };
+  
+  GetAdministration: async () => {
     const requestData = {
       method: "get",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      params: props,
+    
       url: "/administration",
     };
 
