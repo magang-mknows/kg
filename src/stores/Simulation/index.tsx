@@ -29,8 +29,8 @@ export const historySimulationsState = atom<Array<HistorySimulation>>({
   default: [
     {
       src: DummyHistory,
-      title: "Pengantar Sejarah",
-      dosen: "Irawan Irawati",
+      title: "Sejarah Indonesia",
+      dosen: "Pak Rungkad",
       date: "27 April 2022",
       time: "15:00",
       status: "selesai",
