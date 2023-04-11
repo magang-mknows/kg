@@ -52,12 +52,11 @@ const TabelPretest: FC = (): ReactElement => {
             <div className="w-[50px] px-1 bg-gray-100 text-center md:text-[16px] rounded-md p-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               No.
             </div>
-            <div className="w-[275px] md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="lg:w-[275px] md:w-[275px] w-[180px] md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               Mata Kuliah
             </div>
-            <div className="w-[115px] px-1 lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
-              <p>Kode </p>
-              <p>Matkul</p>
+            <div className="w-[115px] px-1 md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+              Kode Matkul
             </div>
             <div className="w-[50px] px-1 bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
               SKS
@@ -81,22 +80,25 @@ const TabelPretest: FC = (): ReactElement => {
 
           {/* tbody⬇️⬇️⬇️⬇️ */}
           {getDataTable.map((x, i) => (
-            <div key={i} className="grid grid-flow-col auto-cols-min mx-auto border border-gray-200 divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+            <div
+              key={i}
+              className="grid grid-flow-col auto-cols-min mx-auto border border-gray-200 divide-neutral-400 dark:divide-gray-700 w-full text-[16px]"
+            >
               <div className="w-[50px] px-1 text-center md:text-[16px] rounded-md p-3 lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.no}
               </div>
-              <div className="w-[275px] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
-              <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
-                    <div>
-                      <Image src={x.img} alt="User" />
-                    </div>
-                    <div className="flex w-full flex-col w-auto">
-                      <h1 className="font-bold text-start">{x.matkul}</h1>
-                      <p className="text-gray-400 text-start">
-                        {x.jmlh_mahasiswa} Mahasiswa Terdaftar
-                      </p>
-                    </div>
+              <div className="lg:w-[275px] md:w-[275px] w-[180px] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+                <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
+                  <div>
+                    <Image src={x.img} alt="User" />
                   </div>
+                  <div className="flex w-full flex-col w-auto">
+                    <h1 className="font-bold text-start">{x.matkul}</h1>
+                    <p className="text-gray-400 text-start">
+                      {x.jmlh_mahasiswa} Mahasiswa Terdaftar
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className="w-[115px] px-1 md:gap-[4px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.kode_matkul}
@@ -176,15 +178,15 @@ const TabelPretest: FC = (): ReactElement => {
                 )}
               </div>
               <div className="w-[80px] px-1 lg:text-start text-center py-3 lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
-              {x.status}
+                {x.status}
               </div>
               <div className="px-1 text-gray-400 lg:text-start text-center py-3 lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
-              {x.waktu_selesai}
+                {x.waktu_selesai}
               </div>
             </div>
           ))}
         </div>
-        <div></div>
+        {/* <div></div> */}
       </div>
     </>
   );
