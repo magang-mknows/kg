@@ -4,8 +4,8 @@ import ControlledCheckboxField from "@/components/ControlledInputs/ControlledChe
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
 import { useLogin } from "@/hooks/Auth/useLogin";
-import { handleError } from "@/utilities/helper";
-import { AuthPayloadTypes } from "@/utilities/types/Auth";
+import { useLoginModal } from "@/hooks/Auth/useLoginModal";
+import { TLoginPayload } from "@/services/Auth/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { FC, ReactElement } from "react";
@@ -18,7 +18,7 @@ const LoginForm: FC = (): ReactElement => {
       message: "Email harus valid",
     }),
     password: z.string().min(1, { message: "Password harus diisi" }),
-    remember: z.boolean(),
+    remember: z.boolean().optional(),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -38,17 +38,17 @@ const LoginForm: FC = (): ReactElement => {
   });
 
   const { mutate, isLoading } = useLogin();
+  const { setLoginModal } = useLoginModal();
 
-  const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
-    try {
-      mutate(data, {
-        onError: (err) => {
-          console.log(err as string);
-        },
-      });
-    } catch (err) {
-      throw handleError(err);
-    }
+  const onSubmit = handleSubmit((data: TLoginPayload) => {
+    mutate(data, {
+      onError: (err) => {
+        console.log(err.message);
+      },
+      onSuccess: () => {
+        setLoginModal(false);
+      },
+    });
   });
 
   return (
@@ -69,7 +69,6 @@ const LoginForm: FC = (): ReactElement => {
         name={"email"}
         placeholder={"Masukan Email Anda"}
         required
-        error="Error gays"
       />
       <ControlledTextField
         control={control}
