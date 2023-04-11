@@ -3,6 +3,7 @@ import DashedText from "@/components/Common/DashedText";
 import ControlledCheckboxField from "@/components/ControlledInputs/ControlledCheckboxField";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Form from "@/components/Form";
+import { useAuth } from "@/hooks/Auth/useAuth";
 import { useLogin } from "@/hooks/Auth/useLogin";
 import { useLoginModal } from "@/hooks/Auth/useLoginModal";
 import { TLoginPayload } from "@/services/Auth/types";
@@ -39,6 +40,7 @@ const LoginForm: FC = (): ReactElement => {
 
   const { mutate, isLoading } = useLogin();
   const { setLoginModal } = useLoginModal();
+  const { setAuth } = useAuth();
 
   const onSubmit = handleSubmit((data: TLoginPayload) => {
     mutate(data, {
@@ -47,6 +49,7 @@ const LoginForm: FC = (): ReactElement => {
       },
       onSuccess: () => {
         setLoginModal(false);
+        setAuth(true);
       },
     });
   });
