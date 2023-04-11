@@ -33,10 +33,10 @@ const montserrat = Montserrat({
   weight: "500",
 });
 
-if (TokenService.getToken()){
-ApiService.setHeader()
+if (TokenService.getToken()) {
+  ApiService.setHeader();
 } else {
-ApiService.removeHeader()
+  ApiService.removeHeader();
 }
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
