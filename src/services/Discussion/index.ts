@@ -1,35 +1,19 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
-import { MetaTypes, MetaTypesId } from "../types";
-
-
 import { serialize } from "object-to-formdata";
-import TokenService from "../Token";
-
-export type DiscussionPayloadTypes = {
-  title: string;
-  content: string;
-  images?: File;
-  category?: string;
-};
-
-const token = TokenService.getToken();
+import { TCreateDiscussionResponse, TDiscussionPayload } from "./types";
 
 const DiscussionService = {
-  CreateDiscussion: async (payload: DiscussionPayloadTypes) => {
+  CreateDiscussion: async (payload: TDiscussionPayload): Promise<TCreateDiscussionResponse> => {
     const data = serialize(payload);
-
-    console.log(token);
-
     const requestData = {
       method: "post",
       withCrededentials: true,
       headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       data,
-      url: "/discussion/forum/6bc3b730-8c7d-41f0-a1dc-03bac621a825",
+      url: "/discussion",
     };
     try {
       const res = await ApiService.customRequest(requestData);
@@ -43,22 +27,10 @@ const DiscussionService = {
     const requestData = {
       method: "get",
       headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       url: "/discussion",
     };
-
-  // GetAllDiscussion: async (props: MetaTypes) => {
-  //   const requestData = {
-  //     method: "get",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     params: props,
-  //     url: "/discussion",
-  //   };
 
     try {
       const res = await ApiService.customRequest(requestData);
@@ -69,27 +41,14 @@ const DiscussionService = {
     }
   },
 
-  GetDiscussion: async (props: MetaTypesId) => {
+  GetDiscussion: async (id: number) => {
     const requestData = {
       method: "get",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization: `Bearer ${token}`,
       },
-      params: props,
-      url: `/discussion/forum/${props.id}`,
+      url: `/discussion/forum/${id}`,
     };
-  
-  // GetDiscussion: async (props: MetaTypesId) => {
-  //   const requestData = {
-  //     method: "get",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     params: props,
-  //     url: `/discussion/forum/${props.id}`,
-  //   };
 
     try {
       const res = await ApiService.customRequest(requestData);

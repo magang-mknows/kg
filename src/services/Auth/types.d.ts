@@ -1,13 +1,6 @@
-import { TMetaResponseSingle } from "../types";
-
 export type TLoginData = {
-  user: {
-    id: string;
-  };
-  token: {
-    refresh_token: string;
-    access_token: string;
-  };
+  refresh_token: string;
+  access_token: string;
 };
 
 export type TLoginPayload = {
@@ -23,4 +16,4 @@ export type TRegisterPayload = {
   password_confirmation: string;
 };
 
-export type TLoginResponse = TMetaResponseSingle<TLoginData>;
+export type TLoginResponse = TLoginData;

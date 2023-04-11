@@ -1,17 +1,19 @@
-import { DiscussionResponseInterface } from "../types";
+import { TMetaResponseSingle } from "../types";
 
-export type DiscussionItemsTypes = {
+export type TDiscussionPayload = {
+  title: string;
+  content: string;
+  images: File;
+};
+
+type TCreateDiscussionItem = {
   id: string;
   user_id: string;
   session_id: string;
   title: string;
   content: string;
+  is_global: boolean;
   images: Array<string>;
-  is_global: string;
-  category: string;
-  updated_at?: Date;
-  created_at?: Date;
-  deleted_at?: Date;
 };
 
-export type DiscussionResponseTypes = DiscussionResponseInterface<DiscussionItemsTypes>;
+export type TCreateDiscussionResponse = TMetaResponseSingle<TCreateDiscussionItem>;
