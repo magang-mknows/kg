@@ -16,7 +16,7 @@ import { useGetAllLeaderboard } from "@/hooks/Leaderborad/useGetAllLeaderboard";
 
 const ContentSection = (): ReactElement => {
   const { data } = useGetAllLeaderboard();
-  console.log("tes", data);
+  console.log("tes", data?.data);
 
   const { getRank } = useRankLeaderboard();
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
