@@ -12,12 +12,13 @@
 
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import AdministrationService from "@/services/Administration";
-import { AdministrationResponseTypes } from "@/services/Administration/types";
-import { MetaTypes } from "@/services/types";
+import { TAdministrationResponse } from "@/services/Administration/types";
+
 
 export const useFetchAllAdministration = (
 
-): UseQueryResult<AdministrationResponseTypes> =>
-  useQuery<AdministrationResponseTypes>({
+): UseQueryResult<TAdministrationResponse, unknown> =>
+  useQuery<TAdministrationResponse>({
+    queryKey: ["fetch-all-administration"],
     queryFn: async () => await AdministrationService.GetAdministration(),
   });

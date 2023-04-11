@@ -1,6 +1,6 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
-import { MetaTypes } from "../types";
+// import { MetaTypes } from "../types";
 
 type EventPayloadTypes = {
   nama: string;

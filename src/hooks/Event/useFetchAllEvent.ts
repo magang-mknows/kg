@@ -11,11 +11,11 @@
 
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import EventService from "@/services/Event";
-import { AdministrationResponseTypes } from "@/services/Administration/types";
-import { MetaTypes } from "@/services/types";
+import { TAdministrationResponse } from "@/services/Administration/types";
 
-export const useFetchAllEvent = (): UseQueryResult<AdministrationResponseTypes> =>
-  useQuery<AdministrationResponseTypes>({
+
+export const useFetchAllEvent = (): UseQueryResult<TAdministrationResponse, unknown> =>
+  useQuery<TAdministrationResponse>({
     queryKey: ["fetch-all-event-data"],
     queryFn: async () => await EventService.GetEvent(),
   });
