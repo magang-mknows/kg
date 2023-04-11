@@ -27,13 +27,22 @@ const EventService = {
     }
   },
 
-  GetEvent: async (props: MetaTypes) => {
+  // GetEvent: async (props: MetaTypes) => {
+  //   const requestData = {
+  //     method: "get",
+  //     headers: {
+  //       "Content-Type": "application/json; charset=utf-8",
+  //     },
+  //     params: props,
+  //     url: "/acara-kampus",
+  //   };
+  GetEvent: async () => {
     const requestData = {
       method: "get",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      params: props,
+
       url: "/acara-kampus",
     };
 
