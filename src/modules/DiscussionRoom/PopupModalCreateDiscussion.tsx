@@ -15,9 +15,9 @@ import { useCreateDiscussion } from "@/hooks/Discussion/useCreateDiscussion";
 import { usePopupCreateDiscussionStatus } from "@/hooks/Discussion/usePopupCreateDiscussionStatus";
 
 import { handleError } from "@/utilities/helper";
-import { DiscussionPayloadTypes } from "@/services/Discussion";
 import PopupCreateEditSkeleton from "@/components/Loading/Discussion/PopupCreateEditSkeleton";
 import SuspenseError from "../Common/SuspenseError";
+import { TDiscussionPayload } from "@/services/Discussion/types";
 
 const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupCreateStatus, getPopupCreateStatus } = usePopupCreateDiscussionStatus();
@@ -41,8 +41,7 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
         (files: File) => ACCEPTED_MEDIA_TYPES.includes(files?.type),
         "hanya menerima .jpg, .jpeg, .png, .webp, dan .mp4.",
       ),
-    content: z.any(),
-    category: z.any(),
+    content: z.string(),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -61,14 +60,12 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
       title: "",
       content: "default content",
       images: undefined,
-      category: "default category",
     },
   });
 
   const onSubmit = handleSubmit((data) => {
     try {
-      mutate(data as DiscussionPayloadTypes);
-      console.log(data);
+      mutate(data as TDiscussionPayload);
     } catch (err) {
       throw handleError(err);
     }

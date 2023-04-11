@@ -1,12 +1,5 @@
 import { FC, ReactElement } from "react";
-import userIcon from "@/assets/discussionRoom/userIcon.svg";
-import Image from "next/image";
-import { GoCommentDiscussion } from "react-icons/go";
-import { AiFillCloseCircle, AiFillLike } from "react-icons/ai";
-import PostOption from "./PostOption";
 import PostCard from "./PostCard";
-
-import dummyCourse from "@/assets/dashboard/dummyCourse.png";
 
 const Post: FC = (): ReactElement => {
   return (
