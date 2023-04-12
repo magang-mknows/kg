@@ -1,8 +1,9 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import DiscussionService from "@/services/Discussion";
-import { TCreateDiscussionResponse } from "@/services/Discussion/types";
+import { TDiscussionResponse } from "@/services/Discussion/types";
 
-export const useGetAllDiscussion = (): UseQueryResult<TCreateDiscussionResponse> =>
-  useQuery<TCreateDiscussionResponse>({
+export const useGetAllDiscussion = (): UseQueryResult<TDiscussionResponse> =>
+  useQuery<TDiscussionResponse>({
+    queryKey: ["get-all-leaderboard"],
     queryFn: async () => await DiscussionService.GetAllDiscussion(),
   });
