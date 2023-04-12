@@ -148,7 +148,7 @@ const EventCarouselSection: FC = (): ReactElement => {
                 <Button
                   type="button"
                   text={"Daftar Sekarang"}
-                  className="text-white w-full lg:w-44 bg-yellow-500 text-sm py-3 px-4 rounded-md hover:bg-yellow-600 transition-colors ease-in-out duration-300"
+                  className="text-white w-[95%] lg:w-44 bg-yellow-500 text-sm py-3 px-4 mx-auto md:mx-0 rounded-md hover:bg-yellow-600 transition-colors ease-in-out duration-300"
                 />
               </section>
             </div>
