@@ -8,6 +8,10 @@ export type TLoginPayload = {
   password: string;
 };
 
+export type TForgotPayload = {
+  email: string;
+};
+
 export type TRegisterPayload = {
   full_name: string;
   user_name: string;

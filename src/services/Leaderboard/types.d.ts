@@ -1,12 +1,9 @@
-import { MetaTypes } from "../types";
+import { TMetaResponse } from "../types";
 
 export type TLeaderboard = {
-    student_name: string
-    subject_count: string
-    average_score: number
+  student_name: string;
+  subject_count: string;
+  average_score: number;
 };
 
-export type TLeaderboardResponse = MetaTypes<TLeaderboard>;
-
-
-  
+export type TLeaderboardResponse = TMetaResponse<TLeaderboard>;
