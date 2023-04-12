@@ -10,7 +10,7 @@ import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
 const ContentStudyProgram: FC = (): ReactElement => {
   const getOptionSubject = useRecoilValue(filterOptionCourse);
   const [query, setQuery] = useRecoilState(queryOptionCourse);
-  
+
   const { data } = useGetAllSubject();
   console.log("tes", data?.data);
 
@@ -43,10 +43,10 @@ const ContentStudyProgram: FC = (): ReactElement => {
             </div>
           ) : (
             <>
-              {data?.data?.map((x, i) => (
+              {data?.data?.map((x:any) => (
                 <Card
                   href={"/studi-ku/course"}
-                  key={i}
+                  key={x.id}
                   className="rounded-lg px-3"
                   hasImage={true}
                   imgStyle="rounded-lg"
