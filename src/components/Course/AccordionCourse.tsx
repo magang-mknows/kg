@@ -19,7 +19,7 @@ const AccordionCourse: FC<AccordionCourseProps> = ({ conference, index, key }): 
         onClick={() => (isOpen == "" ? setIsOpen(`Accordion-${index}`) : setIsOpen(""))}
         disabled={!conference.isOpen}
         className={`px-[30px] py-[14px] flex justify-between items-center rounded-lg text-white cursor-pointer ${
-          conference.isOpen ? "bg-primary-500" : "bg-neutral-500"
+          conference.isOpen ? "bg-primary-500 hover:opacity-80" : "bg-neutral-500 cursor-auto"
         }`}
       >
         <p className="text-lg font-medium">Pertemuan {(index as number) + 1}</p>
