@@ -51,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
 
   if (!mounted) return <Loading />;
   return (
-    <SuspenseError loadingFallback="Loading...">
+    <SuspenseError>
       <DefaultSeo
         title="Kampus Gratis"
         description="Kampus Gratis membuat kuliah jadi gratis dan bisa di nikmati olaeh banyak umat"
