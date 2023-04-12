@@ -1,4 +1,4 @@
-import { TMeta } from "../types";
+import { TMetaResponse } from "../types";
 
 export type TDiscussionPayload = {
   title: string;
@@ -16,4 +16,4 @@ type TDiscussionItem = {
   images: Array<string>;
 };
 
-export type TDiscussionResponse = TMeta<TDiscussionItem>;
+export type TDiscussionResponse = TMetaResponse<TDiscussionItem>;

@@ -5,7 +5,6 @@ import PostCard from "./PostCard";
 const Post: FC = (): ReactElement => {
   const { data } = useGetAllDiscussion();
   const postList = data?.data;
-  console.log(postList);
 
   return (
     <div>
