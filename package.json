@@ -84,7 +84,7 @@
     "jest-environment-jsdom": "^29.4.3",
     "jest-enzyme": "^7.1.2",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.7",
     "stylelint": "^15.4.0",
     "stylelint-config-standard": "^30.0.1",
     "tailwindcss": "^3.2.6",
