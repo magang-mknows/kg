@@ -9,7 +9,7 @@ const Post: FC = (): ReactElement => {
   return (
     <div>
       <section className="relative w-full py-4">
-        {postList?.map((item, index) => (
+        {postList?.map((item: any, index: any) => (
           <PostCard
             key={index}
             type="post"
