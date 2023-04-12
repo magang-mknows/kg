@@ -1,13 +1,13 @@
 import { handleError } from "@/utilities/helper";
-import ApiService from "../Api";
-const LeaderboardService = {
-  GetAllLeaderboard: async () => {
+import ApiService from "@/services/Api";
+const SubjectService = {
+  GetAllSubject: async () => {
     const requestData = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      url: "/leaderboard",
+      url: "/subject",
     };
     try {
       const res = await ApiService.customRequest(requestData);
@@ -19,4 +19,4 @@ const LeaderboardService = {
   },
 };
 
-export default LeaderboardService;
+export default SubjectService;

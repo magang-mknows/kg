@@ -1,10 +1,10 @@
 import DiscussionService from "@/services/Discussion";
-import { TCreateDiscussionResponse, TDiscussionPayload } from "@/services/Discussion/types";
+import { TDiscussionResponse, TDiscussionPayload } from "@/services/Discussion/types";
 import { TMetaError } from "@/services/types";
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
 
 export const useCreateDiscussion = (): UseMutationResult<
-  TCreateDiscussionResponse,
+  TDiscussionResponse,
   TMetaError,
   TDiscussionPayload,
   unknown

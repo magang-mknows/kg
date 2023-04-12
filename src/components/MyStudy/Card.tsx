@@ -5,10 +5,14 @@ import { queryOptionCourse, filterOptionCourse } from "@/stores/MyStudy";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import Search from "@/assets/myStudy/search.svg";
 import Card from "../Common/Card";
+import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
 
 const ContentStudyProgram: FC = (): ReactElement => {
   const getOptionSubject = useRecoilValue(filterOptionCourse);
   const [query, setQuery] = useRecoilState(queryOptionCourse);
+
+  const { data } = useGetAllSubject();
+  console.log("tes", data?.data);
 
   return (
     <>
@@ -30,7 +34,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
 
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 pb-40">
         <>
-          {getOptionSubject.length === 0 ? (
+          {data?.data?.length === 0 ? (
             <div className="flex flex-col w-screen h-screen gap-8 justify-center lg:items-center ">
               <div className="lg:flex hidden h-auto w-auto bg-gray-100 dark:bg-gray-600 rounded-full p-1 lg:p-4">
                 <Image src={DefaultView} alt="simulasi-null" />
@@ -39,32 +43,33 @@ const ContentStudyProgram: FC = (): ReactElement => {
             </div>
           ) : (
             <>
-              {getOptionSubject.map((x, i) => (
+              {data?.data?.map((x:any) => (
                 <Card
                   href={"/studi-ku/course"}
-                  key={i}
-                  className="rounded-lg px-3 "
+                  key={x.id}
+                  className="rounded-lg px-3"
                   hasImage={true}
                   imgStyle="rounded-lg"
-                  src={x.src}
+                  // src={x.thumbnail}
+                  // src={`data:image/png;base64,${x.thumbnail}`}
                   titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                   icon={
                     <div className="flex justify-end gap-2 py-2">
                       <div className="lg:h-[22px] text-[#FAB317] px-2 my-[10px] text-[12px] rounded-[5px]  bg-[#FEF6D0]">
-                        {x.sks} SKS
+                        {x.credit} SKS
                       </div>
                       <div className="lg:h-[22px] text-[#106FA4] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E9F6FD]">
-                        {x.pertemuan} Pertemuan
+                        {x.level} Pertemuan
                       </div>
                     </div>
                   }
                 >
                   <div className="flex flex-col w-full">
-                    <p className="text-md text-gray-500">{x.kodematkul}</p>
+                    <p className="text-md text-gray-500">{x.subject_code}</p>
                     <h1 className="text-lg font-bold mt-0 text-[#106FA4] w-full">
-                      Matkul {x.tipematkul}
+                      Matkul {x.name}
                     </h1>
-                    <p className="text-md text-gray-500 pb-4">{x.namaDosen}</p>
+                    <p className="text-md text-gray-500 pb-4">nama dosen</p>
 
                     <div className="flex w-[100%] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                       <div

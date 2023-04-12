@@ -4,8 +4,10 @@ import { FC, Fragment, ReactElement } from "react";
 import Card from "@/components/Common/Card";
 import CardStudy from "@/components/MyStudy/Card";
 import { useDataCard } from "@/hooks/MyStudy/useDataCard";
+import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
 
 const MyStudy: FC = (): ReactElement => {
+  //api
   const { getData } = useDataCard();
 
   return (

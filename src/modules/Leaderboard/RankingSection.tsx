@@ -4,7 +4,6 @@ import React, { FC, ReactElement } from "react";
 import PopupProfil from "@/components/Leaderboard/PopupProfil";
 import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
 import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
-import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
 import { useGetAllLeaderboard } from "@/hooks/Leaderborad/useGetAllLeaderboard";
 
 const RankingSection: FC = (): ReactElement => {
@@ -12,6 +11,7 @@ const RankingSection: FC = (): ReactElement => {
   const { data } = useGetAllLeaderboard();
   const getRank = data?.data;
   const { setPopupUser, getPopupUser } = usePopupGetUser();
+  // console.log("user : ", getPopupUser);
 
   return (
     <div className="relative lg:-top-56 md:-top-44 -top-36 ">
@@ -20,10 +20,11 @@ const RankingSection: FC = (): ReactElement => {
           return b.averageScore - a.averageScore;
         })
         ?.map((x: any, y: any) => {
+          console.log(x);
           return (
             y >= 3 && (
               <>
-                <div key={y}>
+                <div key={y} id={y}>
                   <div className="flex lg:px-[56px] px-3 mt-[15px] ">
                     <div className="w-full dark:bg-[#222529] bg-white flex justify-between dark:border-b-[#222529] border-b-[#F5F5F5] border-b-2 px-[20px] rounded-[8px]">
                       <div className="flex items-center gap-[30px] p-2">
@@ -50,7 +51,6 @@ const RankingSection: FC = (): ReactElement => {
                 <PopupProfil
                   onClose={() => {
                     setPopupLeaderboardStatus(false);
-                    setPopupUser({} as leaderBoardRankProps);
                   }}
                   lookup={getPopupLeaderboardStatus}
                   widthModal="!max-w-[748px]"
