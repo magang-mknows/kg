@@ -1,4 +1,4 @@
-import { TMetaResponseSingle } from "../types";
+import { TMeta } from "../types";
 
 export type TDiscussionPayload = {
   title: string;
@@ -6,7 +6,7 @@ export type TDiscussionPayload = {
   images: File;
 };
 
-type TCreateDiscussionItem = {
+type TDiscussionItem = {
   id: string;
   user_id: string;
   session_id: string;
@@ -16,4 +16,4 @@ type TCreateDiscussionItem = {
   images: Array<string>;
 };
 
-export type TCreateDiscussionResponse = TMetaResponseSingle<TCreateDiscussionItem>;
+export type TDiscussionResponse = TMeta<TDiscussionItem>;

@@ -1,10 +1,13 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
 import { serialize } from "object-to-formdata";
-import { TCreateDiscussionResponse, TDiscussionPayload } from "./types";
+import TokenService from "../Token";
+import { TDiscussionResponse, TDiscussionPayload } from "./types";
+
+const token = TokenService.getToken();
 
 const DiscussionService = {
-  CreateDiscussion: async (payload: TDiscussionPayload): Promise<TCreateDiscussionResponse> => {
+  CreateDiscussion: async (payload: TDiscussionPayload): Promise<TDiscussionResponse> => {
     const data = serialize(payload);
     const requestData = {
       method: "post",
@@ -23,18 +26,19 @@ const DiscussionService = {
       throw handleError(error);
     }
   },
-  GetAllDiscussion: async () => {
+  GetAllDiscussion: async (): Promise<TDiscussionResponse> => {
     const requestData = {
       method: "get",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
+
       url: "/discussion",
     };
 
     try {
       const res = await ApiService.customRequest(requestData);
-      ApiService.setHeader();
       return res.data;
     } catch (error) {
       throw handleError(error);
