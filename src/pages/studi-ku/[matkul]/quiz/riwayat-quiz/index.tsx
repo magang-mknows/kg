@@ -18,8 +18,8 @@ const QuizHistoryModule = lazy(() => import("@/modules/MyStudy/Quiz/AfterQuiz/Qu
 const QuizHistoryPage: FC = (): ReactElement => {
   return (
     <BaseLayouts widthHScreen={false}>
-      <BreadCrumb items={newBreadCrumbData} />
       <SuspenseError loadingFallback={<QuizHistorySkeleton />}>
+        <BreadCrumb items={newBreadCrumbData} />
         <QuizHistoryModule />
       </SuspenseError>
     </BaseLayouts>

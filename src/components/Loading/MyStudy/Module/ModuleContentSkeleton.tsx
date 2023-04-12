@@ -4,7 +4,7 @@ import MainLayouts from "@/layouts/Main";
 
 const ModuleContentSkeleton: FC = (): ReactElement => {
   return (
-    <Fragment>
+    <div className="w-full">
       <BreadCrumbSkeleton />
       <MainLayouts withPadding={false} className="">
         <div className="animate-pulse rounded-md bg-gray-200 w-52 h-11 mx-auto my-6" />
@@ -48,7 +48,7 @@ const ModuleContentSkeleton: FC = (): ReactElement => {
           </div>
         </div>
       </MainLayouts>
-    </Fragment>
+    </div>
   );
 };
 
