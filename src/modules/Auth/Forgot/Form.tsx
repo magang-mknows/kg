@@ -3,7 +3,6 @@ import ControlledTextField from "@/components/ControlledInputs/ControlledTextFie
 import Form from "@/components/Form";
 import { useForgotPassword } from "@/hooks/Auth/useForgotPassword";
 import { handleError } from "@/utilities/helper";
-import { AuthPayloadTypes } from "@/utilities/types/Auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, ReactElement } from "react";
 import { useForm } from "react-hook-form";
@@ -32,7 +31,7 @@ const ForgotPasswordForm: FC = (): ReactElement => {
 
   const { mutate, isLoading } = useForgotPassword();
 
-  const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
+  const onSubmit = handleSubmit((data) => {
     try {
       mutate(data);
     } catch (err) {
@@ -51,7 +50,6 @@ const ForgotPasswordForm: FC = (): ReactElement => {
         required={true}
         labelClassName="block mb-2 text-sm dark:text-white font-medium text-gray-900 "
       />
-
       <Button
         disabled={!isValid}
         className="my-4 w-full disabled:bg-slate-400 disabled:text-gray-300 bg-blue-600 text-white font-bold p-3 text-1xl rounded-md"

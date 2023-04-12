@@ -1,7 +1,7 @@
 import ApiService from "@/services/Api";
 import TokenService from "@/services/Token";
 import { handleError } from "@/utilities/helper";
-import { TLoginPayload, TLoginResponse, TRegisterPayload } from "./types";
+import { TForgotPayload, TLoginPayload, TLoginResponse, TRegisterPayload } from "./types";
 
 const AuthService = {
   Login: async (payload: TLoginPayload): Promise<TLoginResponse> => {
@@ -48,15 +48,13 @@ const AuthService = {
     }
   },
 
-  ForgotPassword: async (payload: string) => {
+  ForgotPassword: async (payload: TForgotPayload) => {
     const requestData = {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      data: {
-        email: payload,
-      },
+      data: payload,
       url: "/auth/forgot-password",
     };
     try {
