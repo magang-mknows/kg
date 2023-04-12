@@ -10,6 +10,7 @@ import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
 const ContentStudyProgram: FC = (): ReactElement => {
   const getOptionSubject = useRecoilValue(filterOptionCourse);
   const [query, setQuery] = useRecoilState(queryOptionCourse);
+  
   const { data } = useGetAllSubject();
   console.log("tes", data?.data);
 

@@ -1,4 +1,4 @@
-import { TMeta } from "@/services/types";
+import { TMetaResponse } from "@/services/types";
 
 export type TSubject = {
     id: string,
@@ -20,7 +20,7 @@ export type TSubject = {
     subject_id: string
 };
 
-export type TSubjectResponse = TMeta<TSubject>;
+export type TSubjectResponse = TMetaResponse<TSubject>;
 
 
   
