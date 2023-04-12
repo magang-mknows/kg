@@ -13,22 +13,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDiscussionStatus";
 
-import { useGetDiscussionById } from "@/hooks/Discussion/useGetDiscussionById";
-
-import { MetaTypesId } from "@/services/types";
 import PopupCreateEditSkeleton from "@/components/Loading/Discussion/PopupCreateEditSkeleton";
 import SuspenseError from "../Common/SuspenseError";
 
 const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  // const [meta] = useState<MetaTypesId>({
-  //   id: "030581e6-481f-47ef-9127-b4e3006f9a29",
-  // });
-  // const { data } = useGetDiscussionById(meta);
-
-  // console.log(data);
-
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussionStatus();
-
   const MAX_FILE_SIZE = 300000000;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
 

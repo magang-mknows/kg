@@ -1,4 +1,4 @@
-import { MetaTypes } from "../types";
+import { TMetaResponse } from "../types";
 
 export type TLeaderboard = {
     student_name: string
@@ -7,3 +7,4 @@ export type TLeaderboard = {
 };
 
 export type TLeaderboardResponse = MetaTypes<TLeaderboard>;
+

@@ -7,26 +7,25 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegister } from "@/hooks/Auth/useRegister";
-import { AuthPayloadTypes } from "@/utilities/types/Auth";
-import { handleError } from "@/utilities/helper";
 import DashedText from "@/components/Common/DashedText";
 
 const RegisterForm: FC = (): ReactElement => {
   const validationSchema = z
     .object({
-      fullname: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+      full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+      user_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
       email: z.string().min(1, { message: "Email harus diisi" }).email({
         message: "Email harus valid",
       }),
       password: z.string().min(6, { message: "Password setidaknya harus 6 karakter" }),
-      confirm_password: z.string().min(1, { message: "Konfirmasi password harus diisi" }),
+      password_confirmation: z.string().min(1, { message: "Konfirmasi password harus diisi" }),
       terms: z.literal(true, {
         errorMap: () => ({ message: "Terms dan Condition Harus disetujui" }),
       }),
     })
-    .refine((data) => data.password === data.confirm_password, {
+    .refine((data) => data.password === data.password_confirmation, {
       message: "Password tidak sesuai",
-      path: ["confirm_password"],
+      path: ["password_confirmation"],
     });
 
   const { mutate, isLoading } = useRegister();
@@ -43,18 +42,15 @@ const RegisterForm: FC = (): ReactElement => {
     defaultValues: {
       email: "",
       password: "",
-      confirm_password: "",
-      fullname: "",
+      password_confirmation: "",
+      full_name: "",
+      user_name: "",
       terms: undefined,
     },
   });
 
-  const onSubmit = handleSubmit((data: AuthPayloadTypes) => {
-    try {
-      mutate(data);
-    } catch (err) {
-      throw handleError(err);
-    }
+  const onSubmit = handleSubmit((data) => {
+    mutate(data);
   });
 
   return (

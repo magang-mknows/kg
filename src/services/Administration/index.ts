@@ -7,14 +7,13 @@ const AdministrationService = {
     const requestData = {
       method: "get",
       headers: {
-        "Content-Type": "application/json; charset=utf-8",
+        "Content-Type": "application/json",
       },
       url: "/administration",
     };
 
     try {
       const res = await ApiService.customRequest(requestData);
-      ApiService.setHeader();
       return res.data;
     } catch (error) {
       throw handleError(error);
