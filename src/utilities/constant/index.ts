@@ -323,7 +323,7 @@ export const rescheduleSimulationBreadCumbs = [
   },
   {
     name: "Pengajuan Perubahan Jadwal Simulasi",
-    link: "/perubahan-simulasi",
+    link: "/drill-simulasi/perubahan-jadwal",
   },
 ];
 
