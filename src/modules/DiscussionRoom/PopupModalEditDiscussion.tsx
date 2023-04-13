@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import { z } from "zod";
 
 import Form from "@/components/Form";
@@ -15,9 +15,11 @@ import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDis
 
 import PopupCreateEditSkeleton from "@/components/Loading/Discussion/PopupCreateEditSkeleton";
 import SuspenseError from "../Common/SuspenseError";
+import { useGetDiscussionById } from "@/hooks/Discussion/useGetDiscussionById";
 
 const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussionStatus();
+  // const { data } = useGetDiscussionById();
   const MAX_FILE_SIZE = 300000000;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
 
