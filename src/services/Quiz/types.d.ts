@@ -1,6 +1,6 @@
 import { TMetaResponseSingle } from "../types";
 
-export type TQuizPayload = {
+export type TCreateQuizPayload = {
   session_id: string;
   duration_sec: number;
   questions_answers: Array<{
@@ -21,4 +21,14 @@ type TCreateQuizItem = {
   created_at: string;
 };
 
+type TQuizReviewItem = Array<{
+  question: string;
+  answers: Array<{
+    answer: string;
+    is_correct: boolean;
+    is_selected: boolean;
+  }>;
+}>;
+
+export type TQuizReviewResponse = TMetaResponseSingle<TQuizReviewItem>;
 export type TCreateQuizResponse = TMetaResponseSingle<TCreateQuizItem>;

@@ -1,6 +1,6 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
-import { TCreateQuizResponse, TQuizPayload } from "./types";
+import { TCreateQuizResponse, TCreateQuizPayload } from "./types";
 
 const QuizService = {
   GetQuiz: async (id: number) => {
@@ -20,7 +20,22 @@ const QuizService = {
       throw handleError(error);
     }
   },
-  CreateQuiz: async (payload: TQuizPayload): Promise<TCreateQuizResponse> => {
+  GetQuizReview: async () => {
+    const requestData = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      url: "/studi-ku/quiz/review",
+    };
+    try {
+      const res = await ApiService.customRequest(requestData);
+      return res.data;
+    } catch (error) {
+      throw handleError(error);
+    }
+  },
+  CreateQuiz: async (payload: TCreateQuizPayload): Promise<TCreateQuizResponse> => {
     const requestData = {
       method: "POST",
       withCredentials: true,
