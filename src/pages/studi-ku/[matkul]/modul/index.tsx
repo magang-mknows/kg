@@ -2,15 +2,21 @@ import type { NextPage } from "next";
 import { lazy, ReactElement } from "react";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import ModuleHomeSkeleton from "@/components/Loading/MyStudy/Module/ModuleHomeSkeleton";
+import BaseLayouts from "@/layouts/Base";
+import { modulBreadCumbs } from "@/utilities/constant";
+import BreadCrumbs from "@/components/Assigment/BreadCrumb";
 
-const ModulStudyContent = lazy(() => import("@/modules/MyStudy/Modul"));
+const ModuleStudyContent = lazy(() => import("@/modules/MyStudy/Modul"));
 
-const ModulStudy: NextPage = (): ReactElement => {
+const ModulePage: NextPage = (): ReactElement => {
   return (
-    <SuspenseError loadingFallback={<ModuleHomeSkeleton />}>
-      <ModulStudyContent />
-    </SuspenseError>
+    <BaseLayouts>
+      <SuspenseError loadingFallback={<ModuleHomeSkeleton />}>
+        <BreadCrumbs items={modulBreadCumbs} />
+        <ModuleStudyContent />
+      </SuspenseError>
+    </BaseLayouts>
   );
 };
 
-export default ModulStudy;
+export default ModulePage;

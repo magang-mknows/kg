@@ -3,7 +3,7 @@ import BreadCrumbSkeleton from "@/components/Loading/Assigment/Breadcrumb";
 
 const ModuleHomeSkeleton: FC = (): ReactElement => {
   return (
-    <div className="mt-36">
+    <div className="w-full">
       <BreadCrumbSkeleton />
       <div className="w-full justify-start lg:px-32 p-2 lg:p-10">
         <div className="animate-pulse bg-gray-500 flex auto p-4 flex-col rounded-lg">

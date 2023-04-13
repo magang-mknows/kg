@@ -10,7 +10,6 @@ import Filter from "./filter";
 import PopupProfil from "@/components/Leaderboard/PopupProfil";
 import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
 import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
-import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
 import { useGetAllLeaderboard } from "@/hooks/Leaderborad/useGetAllLeaderboard";
 import Avatar from "@/assets/leaderboard/avatar.svg";
 
@@ -147,7 +146,6 @@ const ContentSection = (): ReactElement => {
       <PopupProfil
         onClose={() => {
           setPopupLeaderboardStatus(false);
-          setPopupUser({} as leaderBoardRankProps);
         }}
         lookup={getPopupLeaderboardStatus}
         widthModal="!max-w-[748px]"
