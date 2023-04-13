@@ -1,14 +1,10 @@
 import { FC, ReactElement } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { useGetQuizReview } from "@/hooks/Quiz/useGetQuizReview";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Score: FC = (): ReactElement => {
-  const { data: quizReviewDatas } = useGetQuizReview();
-  console.log("tes", quizReviewDatas?.quizReviewDatas);
-
   const data = {
     labels: ["Your Score"],
     datasets: [
