@@ -45,13 +45,13 @@ const DiscussionService = {
     }
   },
 
-  GetDiscussion: async (id: number) => {
+  GetDiscussion: async (id: string) => {
     const requestData = {
       method: "get",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      url: `/discussion/${id}`,
+      url: `/discussion/forum/${id}`,
     };
 
     try {

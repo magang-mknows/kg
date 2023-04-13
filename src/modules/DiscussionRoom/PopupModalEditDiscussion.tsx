@@ -17,9 +17,13 @@ import PopupCreateEditSkeleton from "@/components/Loading/Discussion/PopupCreate
 import SuspenseError from "../Common/SuspenseError";
 import { useGetDiscussionById } from "@/hooks/Discussion/useGetDiscussionById";
 
-const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
+const PopupModalEditDiscussion: FC<PopupModalProps> = ({ id }): ReactElement => {
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussionStatus();
-  // const { data } = useGetDiscussionById();
+  const { data } = useGetDiscussionById(id as string);
+
+  const postData = data?.data;
+  console.log(postData);
+
   const MAX_FILE_SIZE = 300000000;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
 
@@ -50,10 +54,9 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      // title: data?.data?.title,
-      // content: data?.data?.content,
-      // images: data?.data?.images[0],
-      // category: data?.data?.category,
+      title: postData?.title,
+      content: postData?.content,
+      images: data?.data?.images[0],
     },
   });
 
