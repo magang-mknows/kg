@@ -1,18 +1,17 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { queryOptionCourse, filterOptionCourse } from "@/stores/MyStudy";
+import { queryOptionCourse} from "@/stores/MyStudy";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import Search from "@/assets/myStudy/search.svg";
 import Card from "../Common/Card";
 import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
+import dummy from "@/assets/landing/dummy.webp"
+import { TSubjectResponse } from "@/services/MyStudy/Subject/types";
 
 const ContentStudyProgram: FC = (): ReactElement => {
-  const getOptionSubject = useRecoilValue(filterOptionCourse);
-  const [query, setQuery] = useRecoilState(queryOptionCourse);
-
   const { data } = useGetAllSubject();
-  console.log("tes", data?.data);
+  const [query, setQuery] = useRecoilState(queryOptionCourse);
 
   return (
     <>
@@ -43,7 +42,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
             </div>
           ) : (
             <>
-              {data?.data?.map((x:any) => (
+              {data?.data?.map((x:TSubjectResponse) => (
                 <Card
                   href={"/studi-ku/course"}
                   key={x.id}
@@ -52,6 +51,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
                   imgStyle="rounded-lg"
                   // src={x.thumbnail}
                   // src={`data:image/png;base64,${x.thumbnail}`}
+                    src={dummy}
                   titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                   icon={
                     <div className="flex justify-end gap-2 py-2">

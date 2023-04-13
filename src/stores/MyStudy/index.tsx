@@ -5,6 +5,8 @@ import Icon2 from "@/assets/myStudy/matkul.svg";
 import Icon3 from "@/assets/myStudy/sks.svg";
 import Icon4 from "@/assets/myStudy/semester.svg";
 import ImgChoiceFaculty2 from "@/assets/StudyPlan/choicefaculty2.svg";
+import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
+import { TSubject, TSubjectResponse } from "@/services/MyStudy/Subject/types";
 
 export const dataCardState = atom<Array<Data>>({
   key: "option-faculty-state",
@@ -16,9 +18,13 @@ export const dataCardState = atom<Array<Data>>({
   ],
 });
 
+// const {data} = useGetAllSubject();
+
 export const optionCourseState = atom<Array<OptionSubject>>({
   key: "option-course-state",
-  default: [
+  default:
+  
+  [
     {
       src: ImgChoiceFaculty2,
       namaDosen: "Indah Saritem, S. AK, M.Ak",
