@@ -19,6 +19,7 @@ import {
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { filterSlug } from "@/stores/Simulation";
+import { useGetAllSimulation } from "@/hooks/Simulation/useGetAllSimulation";
 
 const DateTime: FC = (): ReactElement => {
   const [isOpen] = useState("");
@@ -31,6 +32,10 @@ const DateTime: FC = (): ReactElement => {
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
   const { query } = useRouter();
   const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
+  //
+  const { data } = useGetAllSimulation();
+  const getSchedule = data?.data;
+  console.log("tes", getSchedule);
 
   const onSucces = (): void => {
     if (!getScheduleSimulation) {
@@ -40,15 +45,17 @@ const DateTime: FC = (): ReactElement => {
     }
     setPopupStatus(true), setScheduleSimulation(true);
   };
+
   return (
     <section className="lg:basis-7/12">
-      {getSlug.map((x, y) => (
+      {getSchedule.map((data: any, y: any) => (
         <div key={y}>
-          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{x.title}</h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{x.dosen}</p>
+          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{data.topic}</h1>
+          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{data.assessor_id}</p>
           <p className="text-[#737373] text-[16px] font-[400]">
-            Lokasi : {x.location !== null ? x.location : "Tidak ada lokasi"}
+            Lokasi : {data.place !== null ? data.place : "Tidak ada lokasi"}
           </p>
+          date: {`${data.schedules}`.split(",")}
         </div>
       ))}
 

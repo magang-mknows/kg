@@ -1,4 +1,4 @@
-import { TMetaResponse } from "../types"
+import { TMetaResponse } from "../types";
 
 export type TSimulationItem = {
     id: string
