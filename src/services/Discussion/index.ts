@@ -51,12 +51,11 @@ const DiscussionService = {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      url: `/discussion/forum/${id}`,
+      url: `/discussion/${id}`,
     };
 
     try {
       const res = await ApiService.customRequest(requestData);
-      ApiService.setHeader();
       return res.data;
     } catch (error) {
       throw handleError(error);

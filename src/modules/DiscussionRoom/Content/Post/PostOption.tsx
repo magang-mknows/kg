@@ -79,11 +79,6 @@ const PostOption: FC = (): ReactElement => {
           </Menu.Items>
         </Transition>
       </Menu>
-      <SuspenseError>
-        <PopupModalEditDiscussion />
-        <PopupModalDeleteDiscussion />
-        <PopupModalReportDiscussion />
-      </SuspenseError>
     </Fragment>
   );
 };
