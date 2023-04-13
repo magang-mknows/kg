@@ -48,14 +48,14 @@ const DateTime: FC = (): ReactElement => {
 
   return (
     <section className="lg:basis-7/12">
-      {getSchedule.map((data: any, y: any) => (
+      {getSchedule.map((items: any, y: any) => (
         <div key={y}>
-          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{data.topic}</h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{data.assessor_id}</p>
+          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{items.topic}</h1>
+          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.assessor_id}</p>
           <p className="text-[#737373] text-[16px] font-[400]">
-            Lokasi : {data.place !== null ? data.place : "Tidak ada lokasi"}
+            Lokasi : {items.place !== null ? items.place : "Tidak ada lokasi"}
           </p>
-          date: {`${data.schedules}`.split(",")}
+          date: {`${items.schedules}`.split(",")}
         </div>
       ))}
 

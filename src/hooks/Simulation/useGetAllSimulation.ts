@@ -5,5 +5,5 @@ import { UseQueryResult, useQuery } from "@tanstack/react-query";
 export const useGetAllSimulation = (): UseQueryResult<TSimulationResponse, unknown> =>
     useQuery<TSimulationResponse>({
         queryKey: ["get-all-simulation"],
-        queryFn: async()=>await SimulationService.GetAllSimulation()
+        queryFn: async()=>await SimulationService.GetAllSimulation(),
     });

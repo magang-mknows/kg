@@ -6,5 +6,5 @@ export type TLeaderboard = {
     averageScore: number
 };
 
-export type TLeaderboardResponse = MetaTypes<TLeaderboard>;
+export type TLeaderboardResponse = TMetaResponse<TLeaderboard>;
 
