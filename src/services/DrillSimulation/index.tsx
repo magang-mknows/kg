@@ -1,18 +1,17 @@
 import { handleError } from "@/utilities/helper";
 import ApiService from "../Api";
-import { TLeaderboardResponse } from "./types";
-const LeaderboardService = {
-  GetAllLeaderboard: async (): Promise<TLeaderboardResponse> => {
+import { TSimulationResponse } from "./types";
+const SimulationService = {
+  GetAllSimulation: async (): Promise<TSimulationResponse> => {
     const requestData = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      url: "/leaderboard",
+      url: "/meeting",
     };
     try {
       const res = await ApiService.customRequest(requestData);
-
       return res.data;
     } catch (error) {
       throw handleError(error);
@@ -20,4 +19,4 @@ const LeaderboardService = {
   },
 };
 
-export default LeaderboardService;
+export default SimulationService;
