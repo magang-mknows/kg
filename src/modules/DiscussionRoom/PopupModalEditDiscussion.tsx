@@ -21,11 +21,10 @@ import { useDiscussionId } from "@/hooks/Discussion/useDiscussionId";
 const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussionStatus();
   const { getDiscussionId } = useDiscussionId();
-  
-  const { data } = useGetDiscussionById(getDiscussionId);
-  const postData = data?.data;
-  
-  console.log(postData);
+
+  // const { data } = useGetDiscussionById(getDiscussionId);
+  // const postData = data?.data;
+  // console.log(postData);
 
   const MAX_FILE_SIZE = 300000000;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/webp", "video/mp4"];
@@ -57,9 +56,9 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      title: postData?.title,
-      content: postData?.content,
-      images: data?.data?.images[0],
+      // title: postData?.title,
+      // content: postData?.content,
+      // images: data?.data?.images[0],
     },
   });
 
