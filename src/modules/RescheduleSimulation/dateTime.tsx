@@ -100,7 +100,7 @@ const DateTime: FC = (): ReactElement => {
                 <div
                   className={`flex items-center gap-2 text-[#737373] dark:text-white ${
                     getChooseSimulation === Day ? "dark:text-white text-white" : ""
-                  } `}
+                  }`}
                 >
                   <BsCalendarDate />
                   <p className="text-[12px] font-[400] mt-1">{Day}</p>
@@ -109,27 +109,6 @@ const DateTime: FC = (): ReactElement => {
             );
           }),
         )}
-        {/* {getCheckRescheduleSimulation.map((item, l) => (
-          <button
-            className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
-              getChooseSimulation === item.date ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none" : ""
-            }`}
-            key={l}
-            onClick={() => {
-              setChooseSimulation(item.date);
-              setactive(item.date);
-            }}
-          >
-            <div
-              className={`flex items-center gap-2 text-[#737373] dark:text-white ${
-                getChooseSimulation === item.date ? "dark:text-white text-white" : ""
-              }`}
-            >
-              <BsCalendarDate />
-              <p className="text-[12px] font-[400] mt-1">{item.date}</p>
-            </div>
-          </button>
-        ))} */}
       </div>
       <Accordion
         title="Sore"
