@@ -513,10 +513,10 @@
   dependencies:
     client-only "^0.0.1"
 
-"@hookform/resolvers@^2.9.11":
-  version "2.9.11"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.9.11.tgz#9ce96e7746625a89239f68ca57c4f654264c17ef"
-  integrity sha512-bA3aZ79UgcHj7tFV7RlgThzwSSHZgvfbt2wprldRkYBcMopdMvHyO17Wwp/twcJasNFischFfS7oz8Katz8DdQ==
+"@hookform/resolvers@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-3.0.1.tgz#e030f8ef5c407beb5be9bbafd68059cbdd02e0cb"
+  integrity sha512-n5oOt0cLw9mQNW3/k9zWaPsNWQcc0k6Jpc7XUrg2Q/AqqsHp3IVa1juqHCxczXI6uXHBa69ILc4pdtsRGyuzsw==
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
@@ -1018,17 +1018,17 @@
   resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.4.2.tgz#f353c5a8ab2c939c6267ac5b907f012e5ee130f9"
   integrity sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw==
 
-"@tanstack/query-core@4.24.4":
-  version "4.24.4"
-  resolved "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.24.4.tgz"
-  integrity sha512-9dqjv9eeB6VHN7lD3cLo16ZAjfjCsdXetSAD5+VyKqLUvcKTL0CklGQRJu+bWzdrS69R6Ea4UZo8obHYZnG6aA==
+"@tanstack/query-core@4.29.1":
+  version "4.29.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.29.1.tgz#62a4bc120b85e6bb3c6c0aca96346e643e232248"
+  integrity sha512-vkPewLEG8ua0efo3SsVT0BcBtkq5RZX8oPhDAyKL+k/rdOYSQTEocfGEXSaBwIwsXeOGBUpfKqI+UmHvNqdWXg==
 
-"@tanstack/react-query@^4.24.4":
-  version "4.24.4"
-  resolved "https://registry.npmjs.org/@tanstack/react-query/-/react-query-4.24.4.tgz"
-  integrity sha512-RpaS/3T/a3pHuZJbIAzAYRu+1nkp+/enr9hfRXDS/mojwx567UiMksoqW4wUFWlwIvWTXyhot2nbIipTKEg55Q==
+"@tanstack/react-query@^4.29.1":
+  version "4.29.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.29.1.tgz#5f166aca63915c52f6eda930a54d6933bfd11d1b"
+  integrity sha512-/crv1v+OeuGG6EOvaQmyeo9GCKtH4jbmuhZkvk9ulufRiHcTr/A9+YP9GevEAZzUTdzXMwenpTbyxBGvG2xXvw==
   dependencies:
-    "@tanstack/query-core" "4.24.4"
+    "@tanstack/query-core" "4.29.1"
     use-sync-external-store "^1.2.0"
 
 "@testing-library/dom@^8.5.0":
@@ -5721,10 +5721,10 @@ node-abi@^3.3.0:
   dependencies:
     semver "^7.3.5"
 
-node-addon-api@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-5.1.0.tgz#49da1ca055e109a23d537e9de43c09cca21eb762"
-  integrity sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==
+node-addon-api@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-6.0.0.tgz#cfb3574e6df708ff71a30db6c4762d9e06e11c27"
+  integrity sha512-GyHvgPvUXBvAkXa0YvYnhilSB1A+FRYMpIVggKzPZqdaZfevZOuzfWzyvgzOwRLHBeo/MMswmJFsrNF4Nw1pmA==
 
 node-int64@^0.4.0:
   version "0.4.0"
@@ -6922,14 +6922,14 @@ set-value@^2.0.0, set-value@^2.0.1:
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
 
-sharp@^0.31.3:
-  version "0.31.3"
-  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.31.3.tgz#60227edc5c2be90e7378a210466c99aefcf32688"
-  integrity sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==
+sharp@^0.32.0:
+  version "0.32.0"
+  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.32.0.tgz#146b3e1930d56518699908d9116d8a03be1f5cf6"
+  integrity sha512-yLAypVcqj1toSAqRSwbs86nEzfyZVDYqjuUX8grhFpeij0DDNagKJXELS/auegDBRDg1XBtELdOGfo2X1cCpeA==
   dependencies:
     color "^4.2.3"
     detect-libc "^2.0.1"
-    node-addon-api "^5.0.0"
+    node-addon-api "^6.0.0"
     prebuild-install "^7.1.1"
     semver "^7.3.8"
     simple-get "^4.0.1"
@@ -7745,15 +7745,20 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
-typescript-language-server@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/typescript-language-server/-/typescript-language-server-3.3.0.tgz#7ae8d5f0ad61ed0ed54eb0ae5250f6c691cd9013"
-  integrity sha512-dwHmsXWMqCFJ44XTzrmpq6yIjmprGlh3NUSc6zs1YU63ZFPEyn+K3+66misKrISJ4UfmBpugJmFUtQrik7PuvQ==
+typescript-language-server@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/typescript-language-server/-/typescript-language-server-3.3.1.tgz#2d1a123ca12e403bb52980976eff4b8585d19334"
+  integrity sha512-sm9KNsjYMxzXTNhkNK05K3BN1NkYlOFF4TgqVvzk8l9E2I5SBE7Odrhe3LzCA/78MASO1nWfXx3u96wAhLIhsw==
 
-typescript@^4.8.4, typescript@^4.9.5:
+typescript@^4.8.4:
   version "4.9.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
+
+typescript@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
+  integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
