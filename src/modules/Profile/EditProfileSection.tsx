@@ -9,12 +9,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Form from "@/components/Form";
 
-// asset
 import userProfileImg from "@/assets/profile/profile-user-img.svg";
 import camera from "@/assets/profile/camera-1.svg";
 import BaseLayouts from "@/layouts/Base";
+import { useGetUserProfile } from "@/hooks/Profile/useGetUserProfile";
 
 const EditProfile: FC = (): ReactElement => {
+  const { data } = useGetUserProfile();
+  const userData = data?.data?.user;
+
   const options = [
     { id: 1, value: "L", label: "Laki-Laki" },
     { id: 2, value: "P", label: "Perempuan" },
@@ -42,8 +45,9 @@ const EditProfile: FC = (): ReactElement => {
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
     }),
-    phoneNumber: z.string().min(1, { message: "nomor handphone harus diisi" }),
-    fullname: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+    full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+    phone_number: z.string().min(1, { message: "nomor handphone harus diisi" }),
+    gender: z.any(),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -54,18 +58,24 @@ const EditProfile: FC = (): ReactElement => {
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: "all",
+    defaultValues: {
+      email: userData?.email,
+      full_name: userData?.full_name,
+      phone_number: userData?.phone_number,
+      gender: userData?.gender,
+    },
   });
 
   return (
     <BaseLayouts>
-      <div className="w-full h-full justify-start px-20 bg-neutral-100 dark:bg-black ">
+      <div className="justify-start w-full h-full px-20 bg-neutral-100 dark:bg-black ">
         <Suspense fallback={"Skeleton loading...."}>
           <div className="font-semibold text-[20px] w-full justify-start mb-[12px] lg:mb-[48px] mt-[30px]">
             Profile
           </div>
           <div className="flex flex-col lg:flex-row w-full mb-[30px]">
             <div className="w-full lg:w-[600px] lg:h-[50%] space-y-2 justify-center dark:bg-gray-900 bg-white rounded-lg my-2 lg:my-0">
-              <div className="my-4 mx-4 ">
+              <div className="mx-4 my-4 ">
                 <GlobalButton
                   text={"Edit Profile"}
                   className="bg-primary-100 dark:bg-[#222529] !text-[#106FA4] font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
@@ -77,11 +87,11 @@ const EditProfile: FC = (): ReactElement => {
                 />
               </div>
             </div>
-            <div className="w-full flex flex-col bg-white dark:bg-gray-900 rounded-lg mx-0 lg:mx-9">
+            <div className="flex flex-col w-full mx-0 bg-white rounded-lg dark:bg-gray-900 lg:mx-9">
               <div className="flex flex-col mx-9">
                 <div className="font-semibold text-[20px] mt-9 ">Edit Profile</div>
                 <div className="relative w-full my-[16px] border-y">
-                  <div className=" flex justify-center py-5 ">
+                  <div className="flex justify-center py-5 ">
                     <div>
                       <Image
                         src={userProfileImg}
@@ -108,15 +118,15 @@ const EditProfile: FC = (): ReactElement => {
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
                         >
-                          <Menu.Items className="absolute left-20 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <Menu.Items className="absolute w-40 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg left-20 ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="px-1 py-1 ">
-                              <label className="hover:bg-neutral-100 flex w-full items-center rounded-md px-2 py-2 text-sm group cursor-pointer">
+                              <label className="flex items-center w-full px-2 py-2 text-sm rounded-md cursor-pointer hover:bg-neutral-100 group">
                                 <span className="text-sm text-gray-900 ">
                                   Ambil Foto
                                   <input type="file" className="hidden" />
                                 </span>
                               </label>
-                              <label className="hover:bg-neutral-100 flex w-full items-center rounded-md px-2 py-2 text-sm group cursor-pointer">
+                              <label className="flex items-center w-full px-2 py-2 text-sm rounded-md cursor-pointer hover:bg-neutral-100 group">
                                 <span className="text-sm text-gray-900 ">
                                   Unggah Foto
                                   <input type="file" className="hidden" />
@@ -128,16 +138,16 @@ const EditProfile: FC = (): ReactElement => {
                       </Menu>
 
                       <div className="my-2">
-                        <p className="font-semibold text-lg">Bandi Aljabar</p>
-                        <p className="text-[#737373] px-4">Mahasiswa</p>
+                        <p className="text-lg font-semibold">{userData?.full_name}</p>
+                        <p className="text-[#737373] px-4">{userData?.role}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <Form>
-                  <div className="flex flex-col gap-x-4 lg:flex-row my-4">
-                    <div className="flex flex-col gap-y-2 mr-0 lg:mr-2 w-full mt-0 lg:mt-3">
+                  <div className="flex flex-col my-4 gap-x-4 lg:flex-row">
+                    <div className="flex flex-col w-full mt-0 mr-0 gap-y-2 lg:mr-2 lg:mt-3">
                       <ControlledTextField
                         control={control}
                         placeholder="Masukkan Email"
@@ -153,7 +163,7 @@ const EditProfile: FC = (): ReactElement => {
                         label="Nama Lengkap"
                         type={"text"}
                         hasLabel
-                        name="fullname"
+                        name="full_name"
                         className=""
                       />
                     </div>
@@ -173,12 +183,12 @@ const EditProfile: FC = (): ReactElement => {
                         control={control}
                         placeholder="Masukkan Nomor Handphone"
                         label="Nomor Handphone"
-                        type={"number"}
+                        type={"text"}
                         hasLabel
-                        name="phoneNumber"
+                        name="phone_number"
                         className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                       />
-                      <div className="w-full flex justify-center lg:justify-end">
+                      <div className="flex justify-center w-full lg:justify-end">
                         <GlobalButton
                           text={"Simpan"}
                           type={"submit"}

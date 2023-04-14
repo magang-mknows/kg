@@ -1,4 +1,5 @@
 import { useGetAllDiscussion } from "@/hooks/Discussion/useGetAllDiscussion";
+import { useDiscussionId } from "@/hooks/Discussion/useDiscussionId";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import { FC, ReactElement } from "react";
 import PopupModalDeleteDiscussion from "../../PopupModalDeleteDiscussion";
@@ -6,7 +7,6 @@ import PopupModalEditDiscussion from "../../PopupModalEditDiscussion";
 import PopupModalReportDiscussion from "../../PopupModalReportDiscussion";
 import PostCard from "./PostCard";
 import PostOption from "./PostOption";
-import { useDiscussionId } from "@/hooks/Discussion/useDiscussionId";
 
 const Post: FC = (): ReactElement => {
   const { data } = useGetAllDiscussion();
