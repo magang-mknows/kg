@@ -3,7 +3,7 @@ import DiscussionService from "@/services/Discussion";
 import { TDiscussionResponse } from "@/services/Discussion/types";
 
 export const useGetAllDiscussion = (): UseQueryResult<TDiscussionResponse> =>
-  useQuery<TDiscussionResponse>({
-    queryKey: ["get-all-leaderboard"],
+  useQuery({
+    queryKey: ["get-all-discussion"],
     queryFn: async () => await DiscussionService.GetAllDiscussion(),
   });

@@ -16,12 +16,15 @@ import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDis
 import PopupCreateEditSkeleton from "@/components/Loading/Discussion/PopupCreateEditSkeleton";
 import SuspenseError from "../Common/SuspenseError";
 import { useGetDiscussionById } from "@/hooks/Discussion/useGetDiscussionById";
+import { useDiscussionId } from "@/hooks/Discussion/useDiscussionId";
 
-const PopupModalEditDiscussion: FC<PopupModalProps> = ({ id }): ReactElement => {
+const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussionStatus();
-  const { data } = useGetDiscussionById(id as string);
-
+  const { getDiscussionId } = useDiscussionId();
+  
+  const { data } = useGetDiscussionById(getDiscussionId);
   const postData = data?.data;
+  
   console.log(postData);
 
   const MAX_FILE_SIZE = 300000000;

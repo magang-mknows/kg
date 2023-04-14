@@ -1,4 +1,4 @@
-import { FC, Fragment, lazy, ReactElement } from "react";
+import { FC, Fragment, lazy, MouseEventHandler, ReactElement } from "react";
 import { GoKebabVertical } from "react-icons/go";
 import { AiFillFlag } from "react-icons/ai";
 import { Menu, Transition } from "@headlessui/react";
@@ -20,26 +20,21 @@ const PopupModalReportDiscussion = lazy(
   () => import("@/modules/DiscussionRoom/PopupModalReportDiscussion"),
 );
 
-const PostOption: FC = (): ReactElement => {
-  const { setPopupEditStatus } = usePopupEditDiscussionStatus();
-  const { setPopupDeleteStatus } = usePopupDeleteDiscussionStatus();
-  const { setPopupReportStatus } = usePopupReportDiscussionStatus();
-
+const PostOption: FC<{
+  onClick: MouseEventHandler<HTMLDivElement>;
+}> = ({ onClick }): ReactElement => {
   const options = [
     {
       title: "Report",
       icon: <AiFillFlag className="text-primary-500" />,
-      trigger: setPopupReportStatus,
     },
     {
       title: "Edit",
       icon: <BsPencilFill className="text-yellow-500" />,
-      trigger: setPopupEditStatus,
     },
     {
       title: "Delete",
       icon: <MdDelete className="text-red-500" />,
-      trigger: setPopupDeleteStatus,
     },
   ];
 
@@ -63,11 +58,11 @@ const PostOption: FC = (): ReactElement => {
             as="div"
             className="absolute right-0 overflow-hidden origin-top-right bg-white rounded-md shadow-lg top-2 w-30 "
           >
-            {options.map(({ icon, title, trigger }, index) => (
+            {options.map(({ icon, title }, index) => (
               <Menu.Item
                 key={index}
                 as="div"
-                onClick={() => trigger(true)}
+                onClick={onClick}
                 className={
                   "flex gap-3 items-center px-4 py-3 cursor-pointer  hover:bg-neutral-100 transition-all duration-300 ease-in-out"
                 }

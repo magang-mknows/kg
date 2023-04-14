@@ -3,8 +3,11 @@ import AddComent from "./AddComent";
 import PostCard from "../PostCard";
 
 import dummyCourse from "@/assets/dashboard/dummyCourse.png";
+import PostOption from "../PostOption";
+import { useDiscussionId } from "@/hooks/Discussion/useDiscussionId";
 
 const Comment: FC = (): ReactElement => {
+  const { setDiscussionId } = useDiscussionId();
   const dummyComments = [
     {
       hasImage: false,
@@ -13,6 +16,7 @@ const Comment: FC = (): ReactElement => {
       time: "10 detik",
       countLikes: 10,
       type: "comment",
+      id: "",
     },
     {
       hasImage: true,
@@ -22,6 +26,7 @@ const Comment: FC = (): ReactElement => {
       time: "10 detik",
       countLikes: 3,
       type: "comment",
+      id: "",
     },
   ];
 
@@ -35,7 +40,7 @@ const Comment: FC = (): ReactElement => {
         <section>
           {dummyComments.map((comment, index) => {
             return (
-              <section key={index} className="mb-10 pl-6 md:pl-8 lg:pl-14">
+              <section key={index} className="pl-6 mb-10 md:pl-8 lg:pl-14">
                 <PostCard
                   hasImage={comment.hasImage}
                   countLikes={comment.countLikes}
@@ -44,7 +49,9 @@ const Comment: FC = (): ReactElement => {
                   userName={comment.userName}
                   text={comment.text}
                   imgSource={comment.imgSource}
-                />
+                >
+                  <PostOption onClick={() => setDiscussionId(comment.id)} />
+                </PostCard>
               </section>
             );
           })}

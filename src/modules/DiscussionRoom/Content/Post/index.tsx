@@ -5,9 +5,12 @@ import PopupModalDeleteDiscussion from "../../PopupModalDeleteDiscussion";
 import PopupModalEditDiscussion from "../../PopupModalEditDiscussion";
 import PopupModalReportDiscussion from "../../PopupModalReportDiscussion";
 import PostCard from "./PostCard";
+import PostOption from "./PostOption";
+import { useDiscussionId } from "@/hooks/Discussion/useDiscussionId";
 
 const Post: FC = (): ReactElement => {
   const { data } = useGetAllDiscussion();
+  const { setDiscussionId } = useDiscussionId();
   const postList = data?.data;
 
   return (
@@ -23,9 +26,11 @@ const Post: FC = (): ReactElement => {
               userName="Bandi Sukanto"
               text={item.content}
               title={item.title}
-            />
+            >
+              <PostOption onClick={() => setDiscussionId(item.id)} />
+            </PostCard>
             <SuspenseError>
-              <PopupModalEditDiscussion id={item.id} />
+              <PopupModalEditDiscussion />
               <PopupModalDeleteDiscussion />
               <PopupModalReportDiscussion />
             </SuspenseError>
