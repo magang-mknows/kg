@@ -7745,10 +7745,10 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
-typescript-language-server@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/typescript-language-server/-/typescript-language-server-3.3.0.tgz#7ae8d5f0ad61ed0ed54eb0ae5250f6c691cd9013"
-  integrity sha512-dwHmsXWMqCFJ44XTzrmpq6yIjmprGlh3NUSc6zs1YU63ZFPEyn+K3+66misKrISJ4UfmBpugJmFUtQrik7PuvQ==
+typescript-language-server@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/typescript-language-server/-/typescript-language-server-3.3.1.tgz#2d1a123ca12e403bb52980976eff4b8585d19334"
+  integrity sha512-sm9KNsjYMxzXTNhkNK05K3BN1NkYlOFF4TgqVvzk8l9E2I5SBE7Odrhe3LzCA/78MASO1nWfXx3u96wAhLIhsw==
 
 typescript@^4.8.4, typescript@^4.9.5:
   version "4.9.5"
