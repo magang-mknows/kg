@@ -17,14 +17,14 @@ const SimulationSubmission: FC = (): ReactElement => {
 
   return (
     <>
-      {getSchedule.length === 0 ? (
+      {getSchedule?.length === 0 ? (
         <div className="flex flex-col align-center items-center">
           <Image src={simulasiNull} alt="simulasi-null" />
           <h1 className="text-black">Belum ada simulasi yang tersedia.</h1>
         </div>
       ) : (
         <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-20 gap-5">
-          {getSchedule.map((items: any, i: any) => (
+          {getSchedule?.map((items: any, i: any) => (
             <Card
               key={i}
               hasImage
@@ -54,7 +54,8 @@ const SimulationSubmission: FC = (): ReactElement => {
                 </div>
                 <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4 mt-5">
                   <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px] dark:bg-[#222529] dark:text-white">
-                    {items.dosen}
+                    {/* {items.dosen} */}
+                    {/* {items.assessor.name} */}
                   </div>
                   {items.schedules.length === 0 ? (
                     ""

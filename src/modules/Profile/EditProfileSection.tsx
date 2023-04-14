@@ -16,7 +16,7 @@ import { useGetUserProfile } from "@/hooks/Profile/useGetUserProfile";
 
 const EditProfile: FC = (): ReactElement => {
   const { data } = useGetUserProfile();
-  const userData = data?.data?.user;
+  const userData = data?.data;
 
   const options = [
     { id: 1, value: "L", label: "Laki-Laki" },

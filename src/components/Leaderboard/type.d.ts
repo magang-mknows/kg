@@ -4,7 +4,7 @@ import { MouseEventHandler, ReactNode } from "react";
 
 export interface PopupProfilProps {
     id?: string,
-    img: string;
+    img?: string;
     averageScore: number;
     lookup?: boolean
     student_name: string;
