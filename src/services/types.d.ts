@@ -6,7 +6,7 @@ export interface TMetaSingle<T> {
   data?: T;
 }
 
-export interface TMeta<T> {
+export interface TMetaResponse<T> {
   code?: number;
   status?: string;
   message?: string;
@@ -21,5 +21,4 @@ export type TMetaErrorItem = {
 
 export type TMetaError = AxiosError<TMetaErrorItem>;
 
-export type TMetaResponse = AxiosResponse<TMeta<T>>;
 export type TMetaResponseSingle = AxiosResponse<TMetaSingle<T>>;

@@ -36,6 +36,7 @@ const DateTime: FC = (): ReactElement => {
   //
   const { data } = useGetAllSimulation();
   const getSchedule = data?.data;
+  console.log("wkwkwk", getSchedule);
 
   const onSucces = (): void => {
     if (!getScheduleSimulation) {
@@ -48,30 +49,22 @@ const DateTime: FC = (): ReactElement => {
 
   return (
     <section className="lg:basis-7/12">
-      {getSchedule.map((items: any, y: any) => (
+      {getSchedule?.map((items, y) => (
         <div key={y}>
           <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{items.topic}</h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.assessor_id}</p>
+          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.topic}</p>
           <p className="text-[#737373] text-[16px] font-[400]">
             Lokasi : {items.place !== null ? items.place : "Tidak ada lokasi"}
           </p>
-          {getSchedule.map((item: TSimulationItem, index: number) =>
+          {/* {getSchedule?.map((item, index) =>
             item.schedules.map((x, y) => {
               const stringToDate = new Date(x);
-              const shortTime = new Intl.DateTimeFormat("id", {
-                timeStyle: "short",
-              }).format(stringToDate);
               const Day = new Intl.DateTimeFormat("id", {
                 dateStyle: "full",
               }).format(stringToDate);
-              return (
-                <h1 key={y}>
-                  {Day}
-                  {shortTime}
-                </h1>
-              );
+              return <h1 key={y}>{Day}</h1>;
             }),
-          )}
+          )} */}
         </div>
       ))}
 
@@ -80,7 +73,7 @@ const DateTime: FC = (): ReactElement => {
       </p>
 
       <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
-        {getSchedule.map((item: TSimulationItem, index: number) =>
+        {getSchedule?.map((item, index) =>
           item.schedules.map((x, y) => {
             const stringToDate = new Date(x);
             const Day = new Intl.DateTimeFormat("id", {
@@ -117,7 +110,16 @@ const DateTime: FC = (): ReactElement => {
         disabled={getChooseSimulation === "" ? true : false}
       >
         <div className="flex gap-5">
-          {getCheckRescheduleSimulation.map((item) =>
+          {getSchedule?.map((item, index) =>
+            item.schedules.map((x, y) => {
+              const stringToDate = new Date(x);
+              const shortTime = new Intl.DateTimeFormat("id", {
+                timeStyle: "short",
+              }).format(stringToDate);
+              return <h1 key={y}>{shortTime}</h1>;
+            }),
+          )}
+          {/* {getCheckRescheduleSimulation.map((item) =>
             item.time
               .filter(() => item.date.includes(active))
               .map((items, i) => (
@@ -140,7 +142,7 @@ const DateTime: FC = (): ReactElement => {
                   </div>
                 </button>
               )),
-          )}
+          )} */}
         </div>
       </Accordion>
 
