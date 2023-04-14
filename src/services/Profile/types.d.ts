@@ -1,4 +1,4 @@
-import { TMetaResponse } from "../types";
+import {  TMetaResponseSingle } from "../types";
 
 export type TProfileItem = {
   id: string;
@@ -14,4 +14,4 @@ export type TProfileItem = {
   updated_at: string;
 };
 
-export type TProfileResponse = TMetaResponse<TProfileItem>;
+export type TProfileResponse = TMetaResponseSingle<TProfileItem>;
