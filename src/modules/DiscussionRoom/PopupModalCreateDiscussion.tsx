@@ -58,7 +58,7 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
     mode: "all",
     defaultValues: {
       title: "",
-      content: "default content",
+      content: "",
       images: undefined,
     },
   });
