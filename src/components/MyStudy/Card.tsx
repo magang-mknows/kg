@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { queryOptionCourse } from "@/stores/MyStudy";
+import { filterOptionCourse, queryOptionCourse } from "@/stores/MyStudy";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import Search from "@/assets/myStudy/search.svg";
 import Card from "../Common/Card";
@@ -11,6 +11,7 @@ import { TSubject } from "@/services/MyStudy/Subject/types";
 
 const ContentStudyProgram: FC = (): ReactElement => {
   const { data } = useGetAllSubject();
+  const getOptionSubject = useRecoilValue(filterOptionCourse);
   const [query, setQuery] = useRecoilState(queryOptionCourse);
 
   return (
