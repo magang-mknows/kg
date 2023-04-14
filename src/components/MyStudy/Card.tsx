@@ -7,7 +7,7 @@ import Search from "@/assets/myStudy/search.svg";
 import Card from "../Common/Card";
 import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
 import dummy from "@/assets/landing/dummy.webp";
-import { TSubjectResponse } from "@/services/MyStudy/Subject/types";
+import { TSubject } from "@/services/MyStudy/Subject/types";
 
 const ContentStudyProgram: FC = (): ReactElement => {
   const { data } = useGetAllSubject();
@@ -42,7 +42,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
             </div>
           ) : (
             <>
-              {data?.data?.map((x: TSubjectResponse) => (
+              {data?.data?.map((x: TSubject) => (
                 <Card
                   href={"/studi-ku/course"}
                   key={x.id}
