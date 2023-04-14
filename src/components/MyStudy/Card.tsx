@@ -1,18 +1,18 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { filterOptionCourse, queryOptionCourse } from "@/stores/MyStudy";
+import { queryOptionCourse, filterOptionCourse } from "@/stores/MyStudy";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import Search from "@/assets/myStudy/search.svg";
 import Card from "../Common/Card";
 import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
-import dummy from "@/assets/landing/dummy.webp";
-import { TSubject } from "@/services/MyStudy/Subject/types";
 
 const ContentStudyProgram: FC = (): ReactElement => {
-  const { data } = useGetAllSubject();
   const getOptionSubject = useRecoilValue(filterOptionCourse);
   const [query, setQuery] = useRecoilState(queryOptionCourse);
+
+  const { data } = useGetAllSubject();
+  console.log("tes", data?.data);
 
   return (
     <>
@@ -43,16 +43,15 @@ const ContentStudyProgram: FC = (): ReactElement => {
             </div>
           ) : (
             <>
-              {data?.data?.map((x: any) => (
+              {data?.data?.map((x:any) => (
                 <Card
                   href={"/studi-ku/course"}
                   key={x.id}
                   className="rounded-lg px-3"
-                  hasImage={true}
+                  hasImage={false}
                   imgStyle="rounded-lg"
-                  // src={x.thumbnail}
+                  // src=""
                   // src={`data:image/png;base64,${x.thumbnail}`}
-                  src={dummy}
                   titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                   icon={
                     <div className="flex justify-end gap-2 py-2">
@@ -81,9 +80,9 @@ const ContentStudyProgram: FC = (): ReactElement => {
                   </div>
                   <p className="text-gray-400 ext-sm pt-20 pl-2">45%</p>
                 </Card>
-              ))};
+              ))}
             </>
-          )};
+          )}
         </>
       </div>
     </>
