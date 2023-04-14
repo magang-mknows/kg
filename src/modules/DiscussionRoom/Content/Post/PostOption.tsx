@@ -1,24 +1,9 @@
-import { FC, Fragment, lazy, MouseEventHandler, ReactElement } from "react";
+import { FC, Fragment, MouseEventHandler, ReactElement } from "react";
 import { GoKebabVertical } from "react-icons/go";
 import { AiFillFlag } from "react-icons/ai";
 import { Menu, Transition } from "@headlessui/react";
 import { BsPencilFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
-
-import SuspenseError from "@/modules/Common/SuspenseError";
-import { usePopupEditDiscussionStatus } from "@/hooks/Discussion/usePopupEditDiscussionStatus";
-import { usePopupDeleteDiscussionStatus } from "@/hooks/Discussion/usePopupDeleteDiscussionStatus";
-import { usePopupReportDiscussionStatus } from "@/hooks/Discussion/usePopupReportDiscussionStatus";
-
-const PopupModalEditDiscussion = lazy(
-  () => import("@/modules/DiscussionRoom/PopupModalEditDiscussion"),
-);
-const PopupModalDeleteDiscussion = lazy(
-  () => import("@/modules/DiscussionRoom/PopupModalDeleteDiscussion"),
-);
-const PopupModalReportDiscussion = lazy(
-  () => import("@/modules/DiscussionRoom/PopupModalReportDiscussion"),
-);
 
 const PostOption: FC<{
   onClick: MouseEventHandler<HTMLDivElement>;
