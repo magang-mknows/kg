@@ -11,11 +11,17 @@ import { useRouter } from "next/router";
 import useWindowSize from "@/hooks/Common/useWindowSize";
 import { useCurrentQuizNumber } from "@/hooks/MyStudy/useCurrentQuizNumber";
 import QuizTimer from "./QuizTimer";
+import { useGetQuizById } from "@/hooks/Quiz/useGetQuizById";
 
 const QuizStart: FC = (): ReactElement => {
   const windowSize = useWindowSize();
   const { getQuestionsData } = useQuizQuestion();
   const router = useRouter();
+
+  // const id = "0ac8c4a7-b22b-4284-9d82-d6ec6066d143";
+  // const { data: quizData } = useGetQuizById(id);
+  // console.log("tes ", quizData?.data);
+
   // onClick toggle
   // const tempArray = getData[0].choices.map(() => false);
   // const [selectedChoice, setSelectedChoice] = useState<boolean[]>(tempArray);

@@ -1,9 +1,9 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
-import { TCreateQuizResponse, TCreateQuizPayload } from "./types";
+import { TQuizCreateResponse, TQuizCreatePayload } from "./types";
 
 const QuizService = {
-  GetQuiz: async (id: number) => {
+  GetQuiz: async (id: string) => {
     const requestData = {
       method: "GET",
       headers: {
@@ -35,7 +35,7 @@ const QuizService = {
       throw handleError(error);
     }
   },
-  CreateQuiz: async (payload: TCreateQuizPayload): Promise<TCreateQuizResponse> => {
+  CreateQuiz: async (payload: TQuizCreatePayload): Promise<TQuizCreateResponse> => {
     const requestData = {
       method: "POST",
       withCredentials: true,
