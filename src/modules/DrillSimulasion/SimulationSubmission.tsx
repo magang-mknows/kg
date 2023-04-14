@@ -54,7 +54,8 @@ const SimulationSubmission: FC = (): ReactElement => {
                 </div>
                 <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4 mt-5">
                   <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px] dark:bg-[#222529] dark:text-white">
-                    {items.dosen}
+                    {/* {items.dosen} */}
+                    {/* {items.assessor.name} */}
                   </div>
                   {items.schedules.length === 0 ? (
                     ""
