@@ -7,9 +7,8 @@ import Form from "@/components/Form";
 import ControlledTextField from "@/components/ControlledInputs/ControlledTextField";
 import Button from "@/components/Common/Button";
 import { handleError } from "@/utilities/helper";
-import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
-import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
 import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
+import { useJobInformationStatus, usePrivateInformationStatus } from "../hooks";
 import {
   optionFatherJob,
   optionMotherJob,
