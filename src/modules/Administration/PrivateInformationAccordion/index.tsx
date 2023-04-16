@@ -7,10 +7,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
-import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
-import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
 import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
 import { optionsGender, optionsLastEducation } from "@/utilities/constant";
+import { usePrivateInformationStatus, useAdministrationStatus } from "../hooks";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({

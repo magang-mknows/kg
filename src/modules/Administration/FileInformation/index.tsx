@@ -1,17 +1,18 @@
 import React, { FC, ReactElement } from "react";
 import Accordion from "@/components/Administration/Accordion";
-
 import Button from "@/components/Common/Button";
 import ControlledUploadField from "@/components/ControlledInputs/ControlledUploadField";
 import Form from "@/components/Form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useFileInformationStatus } from "@/hooks/Administration/useFileInformationStatus";
 import { handleError } from "@/utilities/helper";
-import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
-import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
-import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
+import {
+  useAdministrationStatus,
+  useFileInformationStatus,
+  usePrivateInformationStatus,
+  useJobInformationStatus,
+} from "../hooks";
 
 const FileInformation: FC = (): ReactElement => {
   const { setAdministrationStatus } = useAdministrationStatus();

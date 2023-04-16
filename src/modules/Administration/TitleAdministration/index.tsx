@@ -1,4 +1,4 @@
-import { useAdministrationStatus } from "@/hooks/Administration/useAdministrationStatus";
+import { useAdministrationStatus } from "../hooks";
 import React, { FC, ReactElement } from "react";
 import { RiErrorWarningFill } from "react-icons/ri";
 
