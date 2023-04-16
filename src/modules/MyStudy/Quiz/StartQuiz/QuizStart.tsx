@@ -18,9 +18,9 @@ const QuizStart: FC = (): ReactElement => {
   const { getQuestionsData } = useQuizQuestion();
   const router = useRouter();
 
-  // const id = "0ac8c4a7-b22b-4284-9d82-d6ec6066d143";
-  // const { data: quizData } = useGetQuizById(id);
-  // console.log("tes ", quizData?.data);
+  const id = "0ac8c4a7-b22b-4284-9d82-d6ec6066d143";
+  const { data: quizData } = useGetQuizById(id);
+  console.log("tes ", quizData?.data);
 
   // onClick toggle
   // const tempArray = getData[0].choices.map(() => false);
