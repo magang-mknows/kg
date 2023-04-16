@@ -20,6 +20,7 @@ import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { filterSlug } from "@/stores/Simulation";
 import { useGetAllSimulation } from "@/hooks/Simulation/useGetAllSimulation";
+import { TSimulationItem } from "@/services/DrillSimulation/types";
 
 const DateTime: FC = (): ReactElement => {
   const [isOpen] = useState("");
@@ -35,7 +36,7 @@ const DateTime: FC = (): ReactElement => {
   //
   const { data } = useGetAllSimulation();
   const getSchedule = data?.data;
-  console.log("tes", getSchedule);
+  console.log("wkwkwk", getSchedule);
 
   const onSucces = (): void => {
     if (!getScheduleSimulation) {
@@ -48,42 +49,59 @@ const DateTime: FC = (): ReactElement => {
 
   return (
     <section className="lg:basis-7/12">
-      {getSchedule.map((items: any, y: any) => (
+      {getSchedule?.map((items, y) => (
         <div key={y}>
           <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{items.topic}</h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.assessor_id}</p>
+          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.topic}</p>
           <p className="text-[#737373] text-[16px] font-[400]">
             Lokasi : {items.place !== null ? items.place : "Tidak ada lokasi"}
           </p>
-          date: {`${items.schedules}`.split(",")}
+          {/* {getSchedule?.map((item, index) =>
+            item.schedules.map((x, y) => {
+              const stringToDate = new Date(x);
+              const Day = new Intl.DateTimeFormat("id", {
+                dateStyle: "full",
+              }).format(stringToDate);
+              return <h1 key={y}>{Day}</h1>;
+            }),
+          )} */}
         </div>
       ))}
 
       <p className="text-[#171717] text-[14px] font-[600] mt-3 mb-1 dark:text-white">
         Pilih tanggal dan waktu Simulasi
       </p>
+
       <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
-        {getCheckRescheduleSimulation.map((item, l) => (
-          <button
-            className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
-              getChooseSimulation === item.date ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none" : ""
-            }`}
-            key={l}
-            onClick={() => {
-              setChooseSimulation(item.date);
-              setactive(item.date);
-            }}
-          >
-            <div
-              className={`flex items-center gap-2 text-[#737373] dark:text-white ${
-                getChooseSimulation === item.date ? "dark:text-white text-white" : ""
-              }`}
-            >
-              <BsCalendarDate />
-              <p className="text-[12px] font-[400] mt-1">{item.date}</p>
-            </div>
-          </button>
-        ))}
+        {getSchedule?.map((item, index) =>
+          item.schedules.map((x, y) => {
+            const stringToDate = new Date(x);
+            const Day = new Intl.DateTimeFormat("id", {
+              dateStyle: "full",
+            }).format(stringToDate);
+            return (
+              <button
+                className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
+                  getChooseSimulation === Day ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none" : ""
+                } `}
+                key={y}
+                onClick={() => {
+                  setChooseSimulation(Day);
+                  setactive(Day);
+                }}
+              >
+                <div
+                  className={`flex items-center gap-2 text-[#737373] dark:text-white ${
+                    getChooseSimulation === Day ? "dark:text-white text-white" : ""
+                  }`}
+                >
+                  <BsCalendarDate />
+                  <p className="text-[12px] font-[400] mt-1">{Day}</p>
+                </div>
+              </button>
+            );
+          }),
+        )}
       </div>
       <Accordion
         title="Sore"
@@ -92,7 +110,16 @@ const DateTime: FC = (): ReactElement => {
         disabled={getChooseSimulation === "" ? true : false}
       >
         <div className="flex gap-5">
-          {getCheckRescheduleSimulation.map((item) =>
+          {getSchedule?.map((item, index) =>
+            item.schedules.map((x, y) => {
+              const stringToDate = new Date(x);
+              const shortTime = new Intl.DateTimeFormat("id", {
+                timeStyle: "short",
+              }).format(stringToDate);
+              return <h1 key={y}>{shortTime}</h1>;
+            }),
+          )}
+          {/* {getCheckRescheduleSimulation.map((item) =>
             item.time
               .filter(() => item.date.includes(active))
               .map((items, i) => (
@@ -115,7 +142,7 @@ const DateTime: FC = (): ReactElement => {
                   </div>
                 </button>
               )),
-          )}
+          )} */}
         </div>
       </Accordion>
 

@@ -6,14 +6,14 @@ export type TDiscussionPayload = {
   images: File;
 };
 
-type TDiscussionItem = {
+export type TDiscussionItem = {
   id: string;
   user_id: string;
   session_id: string;
   title: string;
   content: string;
   is_global: boolean;
-  images: Array<string>;
+  images?: Array<string>;
 };
 
 export type TDiscussionResponse = TMetaResponse<TDiscussionItem>;

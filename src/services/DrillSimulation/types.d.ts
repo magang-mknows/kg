@@ -7,7 +7,8 @@ export type TSimulationItem = {
     place: string
     topic: string
     student_id: string
-    assessor_id: string
+    "assessor.id": string
+    "assessor.name": string
     status: string
     picked_schedule: any
 }

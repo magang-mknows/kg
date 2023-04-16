@@ -1,9 +1,10 @@
 import { FC, ReactElement } from "react";
-
-import { usePrivateInformationStatus } from "@/hooks/Administration/usePrivateInformationStatus";
-import { useJobInformationStatus } from "@/hooks/Administration/useJobInformationStatus";
+import {
+  usePrivateInformationStatus,
+  useJobInformationStatus,
+  useFileInformationStatus,
+} from "../hooks";
 import { BiCheck } from "react-icons/bi";
-import { useFileInformationStatus } from "@/hooks/Administration/useFileInformationStatus";
 
 const Stepper: FC = (): ReactElement => {
   const { getPrivateStatus } = usePrivateInformationStatus();

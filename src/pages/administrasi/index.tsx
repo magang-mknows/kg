@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
-import AdministrationSkeleton from "@/components/Loading/Administration/AdministrationSkeleton";
+import { lazy, ReactElement } from "react";
 import SuspenseError from "@/modules/Common/SuspenseError";
+import LoadingAdministration from "@/modules/Administration/loading";
 
 const Administration = lazy(() => import("@/modules/Administration"));
 
 const AdministrationPages: NextPage = (): ReactElement => {
   return (
-    <SuspenseError loadingFallback={<AdministrationSkeleton />}>
+    <SuspenseError loadingFallback={<LoadingAdministration />}>
       <Administration />
     </SuspenseError>
   );
