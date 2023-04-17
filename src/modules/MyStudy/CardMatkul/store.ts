@@ -1,5 +1,6 @@
 import { atom, selector } from "recoil";
 import ImgChoiceFaculty2 from "@/assets/StudyPlan/choicefaculty2.svg";
+import { OptionSubject } from "./type";
 
 export const optionCourseState = atom<Array<OptionSubject>>({
     key: "option-course-state",
