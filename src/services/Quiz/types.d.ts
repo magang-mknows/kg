@@ -30,19 +30,5 @@ type TQuizReviewItem = Array<{
   }>;
 }>;
 
-type TQuizTakeItem = {
-  type: string;
-  duration: number;
-  questions_answers: Array<{
-    id: string;
-    question: string;
-    answers: Array<{
-      id: string;
-      answer: string;
-    }>;
-  }>;
-};
-
 export type TQuizCreateResponse = TMetaResponseSingle<TQuizCreateItem>;
 export type TQuizReviewResponse = TMetaResponseSingle<TQuizReviewItem>;
-export type TQuizTakeResponse = TMetaResponseSingle<TQuizTakeItem>;
