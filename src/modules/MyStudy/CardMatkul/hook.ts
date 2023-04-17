@@ -1,5 +1,5 @@
-import SubjectService from "@/services/MyStudy/Subject";
-import { TSubjectResponse } from "@/services/MyStudy/Subject/types";
+import SubjectService from "./service";
+import { TSubjectResponse } from "./type";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 
 export const useGetAllSubject = (): UseQueryResult<TSubjectResponse, unknown> =>

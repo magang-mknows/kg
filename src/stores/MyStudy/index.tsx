@@ -1,10 +1,9 @@
 import { atom, selector } from "recoil";
-import { Data, OptionSubject, Question } from "./type";
+import { Data,Question } from "./type";
 import Icon from "@/assets/myStudy/mahasiswa.svg";
 import Icon2 from "@/assets/myStudy/matkul.svg";
 import Icon3 from "@/assets/myStudy/sks.svg";
 import Icon4 from "@/assets/myStudy/semester.svg";
-import ImgChoiceFaculty2 from "@/assets/StudyPlan/choicefaculty2.svg";
 
 export const dataCardState = atom<Array<Data>>({
   key: "option-faculty-state",
@@ -16,38 +15,10 @@ export const dataCardState = atom<Array<Data>>({
   ],
 });
 
-export const optionCourseState = atom<Array<OptionSubject>>({
-  key: "option-course-state",
-  default: [
-    {
-      src: ImgChoiceFaculty2,
-      namaDosen: "Indah Saritem, S. AK, M.Ak",
-      tipematkul: 4,
-      pertemuan: 14,
-      kodematkul: 1142,
-      sks: 131,
-      slug: "/software-engineering",
-    },
-  ],
-});
 
 export const confirmModuleState = atom({
   key: "confirm-module-state",
   default: false,
-});
-
-//seacrch
-export const queryOptionCourse = atom({
-  key: "query-option-course",
-  default: "",
-});
-
-export const filterOptionCourse = selector({
-  key: "filter-option-course",
-  get: ({ get }) =>
-    get(optionCourseState).filter((item) =>
-      item.namaDosen.toLowerCase().includes(get(queryOptionCourse).toLowerCase()),
-    ),
 });
 
 export const quizQuestionState = atom<Array<Question>>({

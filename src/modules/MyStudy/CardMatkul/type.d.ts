@@ -1,5 +1,15 @@
 import { TMetaResponse } from "@/services/types";
 
+export type OptionSubject = {
+    src: StaticImageData;
+    namaDosen: string;
+    pertemuan: number;
+    kodematkul: number;
+    tipematkul: number;
+    sks: number;
+    slug: string;
+  };
+
 export type TSubject = {
     id: string,
     name: string,
@@ -21,6 +31,3 @@ export type TSubject = {
 };
 
 export type TSubjectResponse = TMetaResponse<TSubject>;
-
-
-  
