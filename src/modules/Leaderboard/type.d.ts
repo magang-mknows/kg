@@ -1,5 +1,4 @@
-import { TLeaderboardItem } from "@/services/Leaderboard/types";
-import { TMetaResponse } from "../types";
+import { TMetaResponse } from "../../services/types";
 
 export type ReturnTypesPopupProfil = {
     getPopupLeaderboardStatus: boolean;
