@@ -73,7 +73,7 @@ const DateTime: FC = (): ReactElement => {
       </p>
 
       <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
-        {getSchedule?.map((item, index) =>
+        {/* {getSchedule?.map((item, index) =>
           item.schedules.map((x, y) => {
             const stringToDate = new Date(x);
             const Day = new Intl.DateTimeFormat("id", {
@@ -101,7 +101,7 @@ const DateTime: FC = (): ReactElement => {
               </button>
             );
           }),
-        )}
+        )} */}
       </div>
       <Accordion
         title="Sore"
@@ -110,7 +110,7 @@ const DateTime: FC = (): ReactElement => {
         disabled={getChooseSimulation === "" ? true : false}
       >
         <div className="flex gap-5">
-          {getSchedule?.map((item, index) =>
+          {/* {getSchedule?.map((item, index) =>
             item.schedules.map((x, y) => {
               const stringToDate = new Date(x);
               const shortTime = new Intl.DateTimeFormat("id", {
@@ -118,7 +118,7 @@ const DateTime: FC = (): ReactElement => {
               }).format(stringToDate);
               return <h1 key={y}>{shortTime}</h1>;
             }),
-          )}
+          )} */}
           {/* {getCheckRescheduleSimulation.map((item) =>
             item.time
               .filter(() => item.date.includes(active))
