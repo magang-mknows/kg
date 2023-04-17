@@ -1,6 +1,6 @@
 import { handleError } from "@/utilities/helper";
-import ApiService from "../Api";
-import { TLeaderboardResponse } from "./types";
+import ApiService from "../../services/Api/index";
+import { TLeaderboardResponse } from "./type";
 
 const LeaderboardService = {
   GetAllLeaderboard: async (): Promise<TLeaderboardResponse> => {
