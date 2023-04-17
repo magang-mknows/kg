@@ -1,17 +1,15 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
+import Filter from "./filter";
+import RankingSection from "./RankingSection";
+import Pagination from "../Event/Common/Pagination";
+import PopupProfil from "@/components/Leaderboard/PopupProfil";
 import Medal1 from "@/assets/leaderboard/medal-1.svg";
 import Medal3 from "@/assets/leaderboard/medal-3.svg";
 import Medal from "@/assets/leaderboard/medal.svg";
 import Crown from "@/assets/leaderboard/crown.svg";
-import RankingSection from "./RankingSection";
-import Pagination from "../Event/Common/Pagination";
-import Filter from "./filter";
-import PopupProfil from "@/components/Leaderboard/PopupProfil";
-import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
-import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
-import { useGetAllLeaderboard } from "@/hooks/Leaderborad/useGetAllLeaderboard";
 import Avatar from "@/assets/leaderboard/avatar.svg";
+import { usePopupProfilLeaderboard, usePopupGetUser, useGetAllLeaderboard } from "./hooks";
 
 const ContentSection = (): ReactElement => {
   const { data } = useGetAllLeaderboard();
