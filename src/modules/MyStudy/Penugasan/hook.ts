@@ -1,5 +1,5 @@
-import { dataTabelState } from "@/stores/MyStudy/index";
-import { Instruction } from "@/stores/MyStudy/type";
+import { dataTabelState } from "./store";
+import { Instruction } from "./type";
 import { useRecoilState } from "recoil";
 
 type Instructions = {

@@ -22,15 +22,6 @@ export type Question = {
   rightAnswer: string;
 };
 
-export type Instruction = {
-  matkul: string;
-  pertemuan: number;
-  dosen: string;
-  waktu: string;
-  file: string;
-  deadline: string;
-};
-
 export type Course = {
   conference: number;
   status: {
