@@ -3,7 +3,7 @@ import Card from "@/components/Common/Card";
 import search from "@/assets/semuaFitur/search.svg";
 import Image from "next/image";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { filterSemuaFitur, querySemuaFitur } from "@/stores/SemuaFitur";
+import { filterSemuaFitur, querySemuaFitur } from "./store";
 
 const Features: FC = (): ReactElement => {
 
