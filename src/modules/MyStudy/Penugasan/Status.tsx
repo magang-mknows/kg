@@ -1,9 +1,8 @@
 import { FC, ReactElement } from "react";
-import folder from "@/assets/status/folder.svg";
 import pdf from "@/assets/status/pdf.svg";
 import Image from "next/image";
 import GlobalButton from "@/components/Common/GlobalButton";
-import { useInstruction } from "@/hooks/MyStudy/useInstruction";
+import {useInstruction} from "./hook";
 import { useForm } from "react-hook-form";
 import ControlledUploadDragbleField from "@/components/ControlledInputs/ControlledUploadDragbleField";
 import StatusSkeleton from "@/components/Loading/MyStudy/StatusSkeleton";
