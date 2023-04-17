@@ -38,12 +38,3 @@ export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
     },
   ],
 });
-
-export const popupGetUser = atom<TLeaderboard>({
-  key: "popup-get-user",
-  default: {
-    student_name: "",
-    averageScore: 0,
-    subjectCount: "",
-  },
-});
