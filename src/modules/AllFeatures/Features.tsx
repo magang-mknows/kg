@@ -12,7 +12,7 @@ const Features: FC = (): ReactElement => {
 
   return (
     <>
-      <section className="py-5 lg:px-[72px] md:px-[72px] px-[50px] bg-white dark:bg-[#222529] w-full">
+      <section className="py-5 lg:px-[72px] md:px-[72px] px-[20px] bg-white dark:bg-[#222529] w-full">
         <p className="font-bold text-[28px] text-center">Apa yang ingin kamu pelajari?</p>
         <p className="text-[#A3A3A3] font-semibold text-[16px] text-center">
           Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
