@@ -5,6 +5,13 @@ export type DataTypes = {
   getData: Array<Data>;
 };
 
+export type Data = {
+  icon: StaticImageData;
+  jumlah: string;
+  detail: string;
+  warna: string;
+};
+
 // SERVICE API
 
 export type TSubject = {

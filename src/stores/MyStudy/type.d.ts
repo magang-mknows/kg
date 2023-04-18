@@ -1,10 +1,3 @@
-export type Data = {
-  icon: StaticImageData;
-  jumlah: string;
-  detail: string;
-  warna: string;
-};
-
 export type OptionSubject = {
   src: StaticImageData;
   namaDosen: string;

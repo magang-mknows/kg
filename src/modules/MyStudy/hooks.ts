@@ -1,9 +1,9 @@
-import { dataCardState } from "@/stores/MyStudy";
-import { Data } from "@/stores/MyStudy/type";
 import { useRecoilState } from "recoil";
-import { DataTypes, TSubjectResponse } from "./type";
-import SubjectService from "@/services/MyStudy/Subject";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
+
+import SubjectService from "@/modules/MyStudy/service";
+import { dataCardState } from "@/modules/MyStudy/store";
+import { Data, DataTypes, TSubjectResponse } from "@/modules/MyStudy/type";
 
 export const useDataCard = (): DataTypes => {
   const [getData, setData] = useRecoilState(dataCardState);
