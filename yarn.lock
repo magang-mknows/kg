@@ -359,14 +359,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.19.0"
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
-  version "7.20.13"
-  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.20.13.tgz"
-  integrity sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==
-  dependencies:
-    regenerator-runtime "^0.13.11"
-
-"@babel/runtime@^7.20.13":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.20.13", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
   integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
@@ -5680,10 +5673,10 @@ nearley@^2.7.10:
     railroad-diagrams "^1.0.0"
     randexp "0.4.6"
 
-next-auth@^4.20.1:
-  version "4.20.1"
-  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.20.1.tgz#6e65c4fde14171f6ce64f05f672f80f39fc418c7"
-  integrity sha512-ZcTUN4qzzZ/zJYgOW0hMXccpheWtAol8QOMdMts+LYRcsPGsqf2hEityyaKyECQVw1cWInb9dF3wYwI5GZdEmQ==
+next-auth@^4.22.0:
+  version "4.22.0"
+  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.22.0.tgz#325982b8efaaa55f505ee104a382c3118fec9d96"
+  integrity sha512-08+kjnDoE7aQ52O996x6cwA3ffc2CbHIkrCgLYhbE+aDIJBKI0oA9UbIEIe19/+ODYJgpAHHOtJx4izmsgaVag==
   dependencies:
     "@babel/runtime" "^7.20.13"
     "@panva/hkdf" "^1.0.2"
