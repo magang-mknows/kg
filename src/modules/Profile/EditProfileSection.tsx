@@ -12,11 +12,13 @@ import Form from "@/components/Form";
 import userProfileImg from "@/assets/profile/profile-user-img.svg";
 import camera from "@/assets/profile/camera-1.svg";
 import BaseLayouts from "@/layouts/Base";
-import { useGetUserProfile } from "@/hooks/Profile/useGetUserProfile";
+import { useGetUserProfile } from "@/modules/Profile/hooks";
 
 const EditProfile: FC = (): ReactElement => {
   const { data } = useGetUserProfile();
-  const userData = data?.data;
+
+  const userData = data?.data?.user;
+  console.log(userData);
 
   const options = [
     { id: 1, value: "L", label: "Laki-Laki" },

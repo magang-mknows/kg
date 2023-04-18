@@ -8,6 +8,7 @@ import { filterScheduleSimulation } from "@/stores/Simulation";
 import Link from "next/link";
 import { useGetAllSimulation } from "@/hooks/Simulation/useGetAllSimulation";
 import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
+import { TSimulationItem } from "@/services/DrillSimulation/types";
 
 const SimulationSubmission: FC = (): ReactElement => {
   const getScheduleSimulation = useRecoilValue(filterScheduleSimulation);
@@ -24,7 +25,7 @@ const SimulationSubmission: FC = (): ReactElement => {
         </div>
       ) : (
         <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-20 gap-5">
-          {getSchedule?.map((items: any, i: any) => (
+          {getSchedule?.map((items, i) => (
             <Card
               key={i}
               hasImage
@@ -54,8 +55,7 @@ const SimulationSubmission: FC = (): ReactElement => {
                 </div>
                 <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4 mt-5">
                   <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px] dark:bg-[#222529] dark:text-white">
-                    {/* {items.dosen} */}
-                    {/* {items.assessor.name} */}
+                    {items.assessor_name}
                   </div>
                   {items.schedules.length === 0 ? (
                     ""
@@ -71,7 +71,7 @@ const SimulationSubmission: FC = (): ReactElement => {
                 <div className="flex mt-4 justify-end">
                   <Link
                     href={`${
-                      items.schedules.length !== 0 ? `/perubahan-jadwal/${items.title}` : ""
+                      items.schedules.length !== 0 ? `/perubahan-jadwal/${items.topic}` : ""
                     } `}
                   >
                     <Button

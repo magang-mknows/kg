@@ -21,6 +21,8 @@ import { useRecoilValue } from "recoil";
 import { filterSlug } from "@/stores/Simulation";
 import { useGetAllSimulation } from "@/hooks/Simulation/useGetAllSimulation";
 import { TSimulationItem } from "@/services/DrillSimulation/types";
+import { date } from "zod";
+import { scheduler } from "timers/promises";
 
 const DateTime: FC = (): ReactElement => {
   const [isOpen] = useState("");
@@ -33,10 +35,9 @@ const DateTime: FC = (): ReactElement => {
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
   const { query } = useRouter();
   const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
-  //
+
   const { data } = useGetAllSimulation();
   const getSchedule = data?.data;
-  console.log("wkwkwk", getSchedule);
 
   const onSucces = (): void => {
     if (!getScheduleSimulation) {
@@ -52,19 +53,10 @@ const DateTime: FC = (): ReactElement => {
       {getSchedule?.map((items, y) => (
         <div key={y}>
           <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{items.topic}</h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.topic}</p>
+          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.assessor_name}</p>
           <p className="text-[#737373] text-[16px] font-[400]">
             Lokasi : {items.place !== null ? items.place : "Tidak ada lokasi"}
           </p>
-          {/* {getSchedule?.map((item, index) =>
-            item.schedules.map((x, y) => {
-              const stringToDate = new Date(x);
-              const Day = new Intl.DateTimeFormat("id", {
-                dateStyle: "full",
-              }).format(stringToDate);
-              return <h1 key={y}>{Day}</h1>;
-            }),
-          )} */}
         </div>
       ))}
 
@@ -75,10 +67,9 @@ const DateTime: FC = (): ReactElement => {
       <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
         {getSchedule?.map((item, index) =>
           item.schedules.map((x, y) => {
-            const stringToDate = new Date(x);
             const Day = new Intl.DateTimeFormat("id", {
               dateStyle: "full",
-            }).format(stringToDate);
+            }).format(new Date(x.date));
             return (
               <button
                 className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
@@ -111,38 +102,37 @@ const DateTime: FC = (): ReactElement => {
       >
         <div className="flex gap-5">
           {getSchedule?.map((item, index) =>
-            item.schedules.map((x, y) => {
-              const stringToDate = new Date(x);
-              const shortTime = new Intl.DateTimeFormat("id", {
-                timeStyle: "short",
+            item.schedules?.map((x, y) => {
+              const stringToDate = new Date(x.date);
+              const Day = new Intl.DateTimeFormat("id", {
+                dateStyle: "full",
               }).format(stringToDate);
-              return <h1 key={y}>{shortTime}</h1>;
+              return x.times
+                .filter(() => Day.includes(active))
+                .map((time, i) => {
+                  return (
+                    <button
+                      key={i}
+                      className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px] border ${
+                        getChooseTimeSimulation === time ? "bg-[#3EB449] dark:bg-[#17A2B8]" : ""
+                      } `}
+                      onClick={() => {
+                        setChooseTimeSimulation(time);
+                      }}
+                    >
+                      <div
+                        className={`flex items-center gap-2 text-[#525252] dark:text-white ${
+                          getChooseTimeSimulation === time ? " text-white dark:text-white" : ""
+                        }`}
+                      >
+                        <AiOutlineCheck className=" text-sm font-bold" />
+                        <p className="font-[500] text-[12px]">{time}</p>
+                      </div>
+                    </button>
+                  );
+                });
             }),
           )}
-          {/* {getCheckRescheduleSimulation.map((item) =>
-            item.time
-              .filter(() => item.date.includes(active))
-              .map((items, i) => (
-                <button
-                  key={i}
-                  className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px] border ${
-                    getChooseTimeSimulation === items.time ? "bg-[#3EB449] dark:bg-[#17A2B8]" : ""
-                  } `}
-                  onClick={() => {
-                    setChooseTimeSimulation(items.time);
-                  }}
-                >
-                  <div
-                    className={`flex items-center gap-2 text-[#525252] dark:text-white ${
-                      getChooseTimeSimulation === items.time ? " text-white dark:text-white" : ""
-                    }`}
-                  >
-                    <AiOutlineCheck className=" text-sm font-bold" />
-                    <p className="font-[500] text-[12px]">{items.time}</p>
-                  </div>
-                </button>
-              )),
-          )} */}
         </div>
       </Accordion>
 
