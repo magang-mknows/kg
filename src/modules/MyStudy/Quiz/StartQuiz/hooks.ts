@@ -4,7 +4,7 @@ import { useQuery, UseQueryResult } from "@tanstack/react-query";
 
 import { quizQuestionState, currentQuizNumberState } from "@/modules/MyStudy/Quiz/StartQuiz/store";
 import { DataTypes, QuestionTypes, TQuizTakeResponse } from "@/modules/MyStudy/Quiz/StartQuiz/type";
-import { GetQuizById } from "@/modules/MyStudy/Quiz/StartQuiz/service";
+import QuizStartService from "@/modules/MyStudy/Quiz/StartQuiz/service";
 
 export const useQuizQuestion = (): QuestionTypes => {
   const [getQuestion, setQuestion] = useRecoilState(quizQuestionState);
@@ -27,5 +27,5 @@ export const useCurrentQuizNumber = (): DataTypes => {
 export const useGetQuizById = (id: string): UseQueryResult<TQuizTakeResponse> =>
   useQuery<TQuizTakeResponse>({
     queryKey: ["get-quiz-by-id", id],
-    queryFn: async () => await GetQuizById(id),
+    queryFn: async () => await QuizStartService.GetQuizById(id),
   });
