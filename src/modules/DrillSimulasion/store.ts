@@ -1,9 +1,8 @@
 import { atom, selector, selectorFamily } from "recoil";
-import { T, HistorySimulation, RescheduleSimulation } from "./type";
 import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
 import DummyHistory from "@/assets/drillSimulation/dummy-drillHistory.svg";
+import { HistorySimulation, RescheduleSimulation, T } from "./type";
 
-//
 export const sceduleSimulationState = atom<Array<T>>({
   key: "scedule-simulation-state",
   default: [
@@ -131,3 +130,9 @@ export const filterSlug = selectorFamily({
     ({ get }) =>
       get(sceduleSimulationState).filter((item) => (item.title as string).includes(query)),
 });
+
+export const PopupModalSubmissionOpen = atom({
+    key: "modal-popup-submission",
+    default: false,
+  });
+
