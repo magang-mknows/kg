@@ -17,11 +17,6 @@ export const optionCourseState = atom<Array<OptionSubject>>({
   ],
 });
 
-export const confirmModuleState = atom({
-  key: "confirm-module-state",
-  default: false,
-});
-
 //seacrch
 export const queryOptionCourse = atom({
   key: "query-option-course",
