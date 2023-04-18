@@ -1,21 +1,30 @@
+import { FC, ReactElement, useState } from "react";
+import { useRouter } from "next/router";
+
 import GlobalButton from "@/components/Common/GlobalButton";
 import ContentLayouts from "@/layouts/Content";
 import MainLayouts from "@/layouts/Main";
-import { FC, ReactElement, useState } from "react";
-import { useQuizQuestion } from "@/hooks/MyStudy/useQuizQuestion";
+import QuizTimer from "@/modules/MyStudy/Quiz/StartQuiz/quiz-timer";
 
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-import { useRouter } from "next/router";
 import useWindowSize from "@/hooks/Common/useWindowSize";
-import { useCurrentQuizNumber } from "@/hooks/MyStudy/useCurrentQuizNumber";
-import QuizTimer from "./QuizTimer";
+import {
+  useCurrentQuizNumber,
+  useQuizQuestion,
+  useGetQuizById,
+} from "@/modules/MyStudy/Quiz/StartQuiz/hooks";
 
 const QuizStart: FC = (): ReactElement => {
   const windowSize = useWindowSize();
   const { getQuestionsData } = useQuizQuestion();
   const router = useRouter();
+
+  // const id = "0ac8c4a7-b22b-4284-9d82-d6ec6066d143";
+  // const { data: quizData } = useGetQuizById(id);
+  // console.log("tes ", quizData?.data);
+
   // onClick toggle
   // const tempArray = getData[0].choices.map(() => false);
   // const [selectedChoice, setSelectedChoice] = useState<boolean[]>(tempArray);

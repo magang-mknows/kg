@@ -1,6 +1,6 @@
 import { TMetaResponseSingle } from "../types";
 
-export type TQuizPayload = {
+export type TQuizCreatePayload = {
   session_id: string;
   duration_sec: number;
   questions_answers: Array<{
@@ -12,7 +12,7 @@ export type TQuizPayload = {
   }>;
 };
 
-type TCreateQuizItem = {
+type TQuizCreateItem = {
   id: string;
   session_id: string;
   type: string;
@@ -21,4 +21,14 @@ type TCreateQuizItem = {
   created_at: string;
 };
 
-export type TCreateQuizResponse = TMetaResponseSingle<TCreateQuizItem>;
+type TQuizReviewItem = Array<{
+  question: string;
+  answers: Array<{
+    answer: string;
+    is_correct: boolean;
+    is_selected: boolean;
+  }>;
+}>;
+
+export type TQuizCreateResponse = TMetaResponseSingle<TQuizCreateItem>;
+export type TQuizReviewResponse = TMetaResponseSingle<TQuizReviewItem>;

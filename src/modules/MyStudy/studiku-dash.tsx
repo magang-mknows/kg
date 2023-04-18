@@ -1,10 +1,9 @@
+import { FC, Fragment, ReactElement } from "react";
 import Image from "next/image";
 import Dummy from "@/assets/myStudy/Dummy.svg";
-import { FC, Fragment, ReactElement } from "react";
 import Card from "@/components/Common/Card";
 import CardStudy from "@/components/MyStudy/Card";
-import { useDataCard } from "@/hooks/MyStudy/useDataCard";
-import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
+import { useDataCard, useGetAllSubject } from "@/modules/MyStudy/hooks";
 
 const MyStudy: FC = (): ReactElement => {
   //api

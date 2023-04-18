@@ -5,7 +5,7 @@ import { queryOptionCourse, filterOptionCourse } from "@/stores/MyStudy";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import Search from "@/assets/myStudy/search.svg";
 import Card from "../Common/Card";
-import { useGetAllSubject } from "@/hooks/MyStudy/useSubjectCard";
+import { useGetAllSubject } from "@/modules/MyStudy/hooks";
 
 const ContentStudyProgram: FC = (): ReactElement => {
   const getOptionSubject = useRecoilValue(filterOptionCourse);
@@ -43,7 +43,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
             </div>
           ) : (
             <>
-              {data?.data?.map((x:any) => (
+              {data?.data?.map((x: any) => (
                 <Card
                   href={"/studi-ku/course"}
                   key={x.id}

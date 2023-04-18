@@ -1,40 +1,5 @@
-import { atom, selector } from "recoil";
-import { OptionSubject, Question } from "./type";
-import ImgChoiceFaculty2 from "@/assets/StudyPlan/choicefaculty2.svg";
-
-export const optionCourseState = atom<Array<OptionSubject>>({
-  key: "option-course-state",
-  default: [
-    {
-      src: ImgChoiceFaculty2,
-      namaDosen: "Indah Saritem, S. AK, M.Ak",
-      tipematkul: 4,
-      pertemuan: 14,
-      kodematkul: 1142,
-      sks: 131,
-      slug: "/software-engineering",
-    },
-  ],
-});
-
-export const confirmModuleState = atom({
-  key: "confirm-module-state",
-  default: false,
-});
-
-//seacrch
-export const queryOptionCourse = atom({
-  key: "query-option-course",
-  default: "",
-});
-
-export const filterOptionCourse = selector({
-  key: "filter-option-course",
-  get: ({ get }) =>
-    get(optionCourseState).filter((item) =>
-      item.namaDosen.toLowerCase().includes(get(queryOptionCourse).toLowerCase()),
-    ),
-});
+import { atom } from "recoil";
+import { Question } from "@/stores/MyStudy/type";
 
 export const quizQuestionState = atom<Array<Question>>({
   key: "quiz-question-state",
@@ -85,9 +50,4 @@ export const quizQuestionState = atom<Array<Question>>({
 export const currentQuizNumberState = atom({
   key: "currentQuizNumberState",
   default: 1,
-});
-
-export const userAnswer = atom({
-  key: "userAnswer",
-  default: Array,
 });
