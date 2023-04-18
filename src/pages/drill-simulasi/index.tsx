@@ -8,7 +8,6 @@ const DrillSimulasion = lazy(() => import("@/modules/DrillSimulasion"));
 const drillSimulasion: NextPage = (): ReactElement => {
   return (
     <SuspenseError loadingFallback={<SimulasionSkeleton />}>
-      <SimulasionSkeleton />
       <DrillSimulasion />
     </SuspenseError>
   );

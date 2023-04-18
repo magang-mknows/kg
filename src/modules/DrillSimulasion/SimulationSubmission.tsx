@@ -1,17 +1,16 @@
 import { FC, ReactElement } from "react";
 import Card from "@/components/Common/Card";
-import simulasiNull from "@/assets/drillSimulation/simualasi-null.svg";
 import Button from "@/components/Common/Button";
-import Image from "next/image";
-import { useRecoilValue } from "recoil";
-import { filterScheduleSimulation } from "@/stores/Simulation";
-import Link from "next/link";
-import { useGetAllSimulation } from "@/hooks/Simulation/useGetAllSimulation";
+import simulasiNull from "@/assets/drillSimulation/simualasi-null.svg";
 import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
-import { TSimulationItem } from "@/services/DrillSimulation/types";
+import Image from "next/image";
+import Link from "next/link";
+import { useGetAllSimulation } from "./hooks";
+// import { useRecoilValue } from "recoil";
+// import { filterScheduleSimulation } from "./store";
 
 const SimulationSubmission: FC = (): ReactElement => {
-  const getScheduleSimulation = useRecoilValue(filterScheduleSimulation);
+  // const getScheduleSimulation = useRecoilValue(filterScheduleSimulation);
   const { data } = useGetAllSimulation();
   const getSchedule = data?.data;
   console.log("cek", getSchedule);
