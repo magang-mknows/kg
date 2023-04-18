@@ -1,7 +1,7 @@
 import SimulationService from "./service";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { useRecoilState } from "recoil";
-import {PopupModalSubmissionOpen} from "./store"
+import {PopupModalSubmissionOpen} from "./store";
 import { ReturnTypesPopupSubmissionStatus, TSimulationResponse } from "./type";
 
 export const useGetAllSimulation = (): UseQueryResult<TSimulationResponse, unknown> =>
