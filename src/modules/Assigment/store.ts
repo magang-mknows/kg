@@ -16,7 +16,7 @@ export const assigmentState = atom<Array<T>>({
       id: 2,
       title: "tes",
       course: "Japanese-culture",
-      category: "terlambat",
+      category: "selesai",
       date: "20-09-2021",
       time: "20:00:00",
     },
