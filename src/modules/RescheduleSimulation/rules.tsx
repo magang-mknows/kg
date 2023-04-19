@@ -2,8 +2,8 @@ import { FC, ReactElement } from "react";
 import Image from "next/image";
 import iconWarning from "@/assets/rescheduleSimulasi/iconWarning.svg";
 import { useRouter } from "next/router";
-import { filterSlug } from "@/stores/Simulation";
 import { useRecoilValue } from "recoil";
+import { filterSlug } from "../DrillSimulasion/store";
 
 const Rules: FC = (): ReactElement => {
   const { query } = useRouter();

@@ -1,8 +1,11 @@
 import { FC, ReactElement } from "react";
 
-const ContentSkeleton: FC = (): ReactElement => {
+const LoadingReschedule: FC = (): ReactElement => {
   return (
-    <>
+    <div className="mt-36">
+      <div className="px-9 py-5">
+        <section className="animate-pulse w-64 py-3 rounded-lg bg-gray-200" />
+      </div>
       <h1 className="animate-pulse bg-neutral-200 rounded-lg mt-10 py-6 w-96 ml-10 mb-10"></h1>
       <div className="flex lg:flex-row flex-col lg:gap-16 gap-10 mt-0 ml-10">
         <section className="lg:basis-5/12">
@@ -30,8 +33,8 @@ const ContentSkeleton: FC = (): ReactElement => {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 
-export default ContentSkeleton;
+export default LoadingReschedule;
