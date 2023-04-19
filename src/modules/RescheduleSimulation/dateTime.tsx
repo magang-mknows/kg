@@ -14,30 +14,28 @@ import {
   useScheduleSimulation,
   usePopupScheduleStatus,
   useChooseTimeSimulation,
-  useCheckRescheduleSimulation,
+  // useCheckRescheduleSimulation,
 } from "./hooks";
 import { useGetAllSimulation } from "../DrillSimulasion/hooks";
-import { useRouter } from "next/router";
-import { useRecoilValue } from "recoil";
-import { filterSlug } from "@/stores/Simulation";
-import { TSimulationItem } from "@/services/DrillSimulation/types";
-import { date } from "zod";
-import { scheduler } from "timers/promises";
+// import { useRouter } from "next/router";
+// import { useRecoilValue } from "recoil";
+// import { filterSlug } from "@/stores/Simulation";
 
 const DateTime: FC = (): ReactElement => {
   const [isOpen] = useState("");
   const { getChooseSimulation, setChooseSimulation } = useChooseSimulation();
   const { getChooseTimeSimulation, setChooseTimeSimulation } = useChooseTimeSimulation();
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
-  const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
+  // const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
   const [active, setactive] = useState("");
   const { getScheduleSimulation, setScheduleSimulation } = useScheduleSimulation();
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
-  const { query } = useRouter();
-  const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
+  // const { query } = useRouter();
+  // const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
 
   const { data } = useGetAllSimulation();
   const getSchedule = data?.data;
+  console.log("dataa", getSchedule);
 
   const onSucces = (): void => {
     if (!getScheduleSimulation) {
@@ -101,8 +99,8 @@ const DateTime: FC = (): ReactElement => {
         disabled={getChooseSimulation === "" ? true : false}
       >
         <div className="flex gap-5">
-          {getSchedule?.map((item, index) =>
-            item.schedules?.map((x, y) => {
+          {getSchedule?.map((item) =>
+            item.schedules?.map((x) => {
               const stringToDate = new Date(x.date);
               const Day = new Intl.DateTimeFormat("id", {
                 dateStyle: "full",
@@ -110,23 +108,26 @@ const DateTime: FC = (): ReactElement => {
               return x.times
                 .filter(() => Day.includes(active))
                 .map((time, i) => {
+                  const TimeShort = time.slice(0, 5);
                   return (
                     <button
                       key={i}
                       className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px] border ${
-                        getChooseTimeSimulation === time ? "bg-[#3EB449] dark:bg-[#17A2B8]" : ""
+                        getChooseTimeSimulation === TimeShort
+                          ? "bg-[#3EB449] dark:bg-[#17A2B8]"
+                          : ""
                       } `}
                       onClick={() => {
-                        setChooseTimeSimulation(time);
+                        setChooseTimeSimulation(TimeShort);
                       }}
                     >
                       <div
                         className={`flex items-center gap-2 text-[#525252] dark:text-white ${
-                          getChooseTimeSimulation === time ? " text-white dark:text-white" : ""
+                          getChooseTimeSimulation === TimeShort ? " text-white dark:text-white" : ""
                         }`}
                       >
                         <AiOutlineCheck className=" text-sm font-bold" />
-                        <p className="font-[500] text-[12px]">{time}</p>
+                        <p className="font-[500] text-[12px]">{TimeShort}</p>
                       </div>
                     </button>
                   );

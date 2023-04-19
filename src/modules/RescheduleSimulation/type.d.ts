@@ -31,3 +31,8 @@ export type RescheduleSimulation={
 export type Time={
     time: string,
   }
+
+export type CheckRescheduleReturnTypes = {
+    setCheckResheduleSimulation: (val: Array<RescheduleSimulation>) => void;
+    getCheckRescheduleSimulation: Array<RescheduleSimulation>;
+}

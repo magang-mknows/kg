@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { CategorySimulationTypes, ScheduleTypes, ChooseSimulationTypes, ReturnTypesPopupScheduleStatus, ChooseTimeSimulasiTypes } from "./type";
+import { CategorySimulationTypes, ScheduleTypes, ChooseSimulationTypes, ReturnTypesPopupScheduleStatus, ChooseTimeSimulasiTypes, CheckRescheduleReturnTypes, RescheduleSimulation } from "./type";
 import { categorySimulationState, chooseScheduleState, chooseSimulasiState, PopupModalScheduleOpen, ChooseTimeSimulasiState, CheckRescheduleSimulationState } from "./store";
 
 export const useCategorySimulation = (): CategorySimulationTypes => {
@@ -41,13 +41,6 @@ export const useChooseTimeSimulation = (): ChooseTimeSimulasiTypes =>{
         getChooseTimeSimulation: getTimeReschedule,
     };
 };
-import { RescheduleSimulation } from "@/stores/Simulation/type";
-
-
-type CheckRescheduleReturnTypes = {
-    setCheckResheduleSimulation: (val: Array<RescheduleSimulation>) => void;
-    getCheckRescheduleSimulation: Array<RescheduleSimulation>;
-}
 
 export const useCheckRescheduleSimulation = (): CheckRescheduleReturnTypes => {
   const [getCheckReschedule, setCheckReschedule] = useRecoilState(
