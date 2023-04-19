@@ -1,7 +1,5 @@
 import { atom } from "recoil";
 import { RescheduleSimulation } from "./type";
-import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
-import DummyHistory from "@/assets/drillSimulation/dummy-drillHistory.svg";
 
 export const categorySimulationState = atom({
     key: "category-simulation-state",

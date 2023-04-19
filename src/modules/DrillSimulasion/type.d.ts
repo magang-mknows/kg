@@ -25,14 +25,6 @@ export type ReturnTypesPopupSubmissionStatus = {
     getPopupStatus: boolean;
   };
   
-export type RescheduleSimulation={
-    date: string,
-    time: Array<Time>
-}
-  
-export type Time={
-    time: string,
-}
 
 export type TSimulationItem = {
   id: string

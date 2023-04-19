@@ -1,7 +1,7 @@
 import { atom, selector, selectorFamily } from "recoil";
 import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
 import DummyHistory from "@/assets/drillSimulation/dummy-drillHistory.svg";
-import { HistorySimulation, RescheduleSimulation, T } from "./type";
+import { HistorySimulation, T } from "./type";
 
 export const sceduleSimulationState = atom<Array<T>>({
   key: "scedule-simulation-state",
@@ -46,65 +46,6 @@ export const historySimulationsState = atom<Array<HistorySimulation>>({
       slug: "/Penganatar-Indonesia",
     },
   ],
-});
-
-export const checkRescheduleSimulatiionState = atom<Array<RescheduleSimulation>>({
-  key: "check-reschedule-simulatiion-state",
-  default: [
-    {
-      date: "Senin, 27 Juli 2021",
-      time: [
-        {
-          time: "30:00",
-        },
-        {
-          time: "32:00",
-        },
-      ],
-    },
-    {
-      date: "Selasa, 2 Juli 2021",
-      time: [
-        {
-          time: "20:00",
-        },
-        {
-          time: "12:00",
-        },
-      ],
-    },
-    {
-      date: "Rabu, 5 April 2021",
-      time: [
-        {
-          time: "24:00",
-        },
-        {
-          time: "02:00",
-        },
-      ],
-    },
-  ],
-});
-
-export const chooseSimulasiState = atom({
-  key: "reschedule-simulasi-state",
-  default: "",
-});
-
-export const chooseTimeSimulasiState = atom({
-  key: "reschedule-time-simulasi-state",
-  default: "",
-});
-
-export const categorySimulationState = atom({
-  key: "category-simulation-state",
-  default: "",
-});
-
-export const chooseScheduleState = atom({
-  key: "choose-schedule-state",
-  default: false,
 });
 
 // seacrh

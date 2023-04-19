@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import { useCategorySimulation } from "./hooks";
 import Rules from "./rules";
 import DateTime from "./dateTime";
