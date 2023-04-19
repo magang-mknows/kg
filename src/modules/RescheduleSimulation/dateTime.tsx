@@ -5,21 +5,21 @@ import pengajuan from "@/assets/rescheduleSimulasi/pengajuan.svg";
 import checked from "@/assets/rescheduleSimulasi/checked.svg";
 import rescheduleJadwal from "@/assets/rescheduleSimulasi/reschedule-jadwal.svg";
 import Accordion from "@/components/Simulasion/Accordion";
-import { useChooseSimulation } from "@/hooks/Simulation/useChooseSimulation";
 import PopupModal from "@/components/Common/PopupModal";
 import { BsCalendarDate } from "react-icons/bs";
 import { AiOutlineCheck } from "react-icons/ai";
-import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
-import { useChooseTimeSimulation } from "@/hooks/Simulation/useChooseTimeSimulation";
-import { useCheckRescheduleSimulation } from "@/hooks/Simulation/useCheckRescheduleSimulation";
 import {
+  useChooseSimulation,
   useCategorySimulation,
   useScheduleSimulation,
-} from "@/hooks/Simulation/useCategorySimulation";
+  usePopupScheduleStatus,
+  useChooseTimeSimulation,
+  useCheckRescheduleSimulation,
+} from "./hooks";
+import { useGetAllSimulation } from "../DrillSimulasion/hooks";
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { filterSlug } from "@/stores/Simulation";
-import { useGetAllSimulation } from "@/hooks/Simulation/useGetAllSimulation";
 import { TSimulationItem } from "@/services/DrillSimulation/types";
 import { date } from "zod";
 import { scheduler } from "timers/promises";

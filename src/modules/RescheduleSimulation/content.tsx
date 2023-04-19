@@ -1,5 +1,5 @@
 import { FC, ReactElement, useState } from "react";
-import { useCategorySimulation } from "@/hooks/Simulation/useCategorySimulation";
+import { useCategorySimulation } from "./hooks";
 import Rules from "./rules";
 import DateTime from "./dateTime";
 
