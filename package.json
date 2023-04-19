@@ -30,7 +30,7 @@
     "clsx": "^1.2.1",
     "husky": "^8.0.3",
     "next": "^13.3.0",
-    "next-auth": "^4.20.1",
+    "next-auth": "^4.22.0",
     "next-seo": "^5.15.0",
     "next-themes": "^0.2.1",
     "object-to-formdata": "^4.4.2",
