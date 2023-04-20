@@ -4,10 +4,10 @@ import AssigmentAssigned from "@/assets/assigment/assigned-assigment.svg";
 import AssigmentDone from "@/assets/assigment/assigned-done.svg";
 import AssignedAssesment from "@/assets/assigment/assigned-assesment.svg";
 import AssignedLate from "@/assets/assigment/assigned-late.svg";
-import { T } from "@/stores/Assigment/type";
-import { useAssigment } from "@/hooks/Assigment/useAssigment";
 import ImageNull from "@/assets/assigment/data-null.svg";
 import Image from "next/image";
+import { T } from "./type";
+import { useAssigment } from "./hooks";
 
 const ContentSection: FC = (): ReactElement => {
   const [active, setactive] = useState("semua-tugas");

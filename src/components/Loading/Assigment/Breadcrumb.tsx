@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 
-const BreadcrumbAssignment: FC = (): ReactElement => {
+const Breadcrumb: FC = (): ReactElement => {
   return (
     <div className="px-9 py-5">
       <section className="animate-pulse w-64 py-3 rounded-lg bg-gray-200" />
@@ -8,4 +8,4 @@ const BreadcrumbAssignment: FC = (): ReactElement => {
   );
 };
 
-export default BreadcrumbAssignment;
+export default Breadcrumb;
