@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
+import { lazy, ReactElement } from "react";
 import SuspenseError from "@/modules/Common/SuspenseError";
-import GuideSkeleton from "@/components/Loading/Guide/GuideSkeleton";
+import LoadingGuide from "@/modules/Guide/loading";
 
 const Landing = lazy(() => import("@/modules/Guide"));
 
 const Panduan: NextPage = (): ReactElement => {
   return (
-    <SuspenseError loadingFallback={<GuideSkeleton />}>
+    <SuspenseError loadingFallback={<LoadingGuide />}>
       <Landing />
     </SuspenseError>
   );
