@@ -2773,10 +2773,10 @@ emittery@^0.13.1:
   resolved "https://registry.npmjs.org/emittery/-/emittery-0.13.1.tgz"
   integrity sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==
 
-emmet-ls@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/emmet-ls/-/emmet-ls-0.3.1.tgz#6fb2fdc984dc1d3367de3026d3f0fbb553c33346"
-  integrity sha512-SbNxxpLHnkaT/lA8CpOnnu1fH+VMzEAniAoyqQV+CGVJ9BYwHbaDlOPRckoJFK/6czWCQqDWax1Gk5Pa+HrNmA==
+emmet-ls@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/emmet-ls/-/emmet-ls-0.4.2.tgz#bef5849dfdb2c0ebbe9c0640805a2f292d4bda40"
+  integrity sha512-nwiUsbph9c4TkZjrKb7OqrUG6XQ3AxmmVn3IDR6FTx/xLLAegpmSxfOrvvPADbz9vOkSP6jjShpux1tNrqqIkQ==
   dependencies:
     "@types/node" "^17.0.45"
     emmet "^2.3.6"
