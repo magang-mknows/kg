@@ -3,7 +3,7 @@ import { FC, ReactElement } from "react";
 const ContentSkeleton: FC = (): ReactElement => {
   return (
     <div className="w-full px-6 mt-44 md:px-8 lg:px-10">
-      <div className="mt-[24px] mb-[54px] justify-between grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-8 md:gap-x-8 md:gap-y-5 gap-y-5">
+      <div className="mt-[24px] mb-[54px] justify-between grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-x-8 md:gap-x-8 md:gap-y-5 gap-y-5">
         {[...Array(3)].map((_, i) => (
           <div
             key={i}
