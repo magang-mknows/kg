@@ -1,14 +1,14 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
 import search from "@/assets/guide/search.svg";
-import { filterOptionDictionary } from "@/stores/GuideDictionary";
+import { filterOptionDictionary } from "@/modules/GuideDictionary/store";
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import Sidebar from "@/modules/GuideDictionary/sidebar";
 import BaseLayoutsLanding from "@/layouts/BaseLanding";
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import SuspenseError from "@/modules/Common/SuspenseError";
-import GuideDicDetail from "@/components/Loading/Guide/GuideDictionaryDetail/GuideDictionaryDetail";
+import LoadingGuideDictionaryDetail from "./loading";
 
 const GuideDictionaryDetail = (): ReactElement => {
   const { query: q } = useRouter();
@@ -35,7 +35,7 @@ const GuideDictionaryDetail = (): ReactElement => {
   ];
 
   return (
-    <SuspenseError loadingFallback={<GuideDicDetail />}>
+    <SuspenseError loadingFallback={<LoadingGuideDictionaryDetail />}>
       <BaseLayoutsLanding>
         <BreadCrumb items={BreadCrumbEndpoint} />
         <div className="w-full flex flex-col-reverse lg:flex-row ">

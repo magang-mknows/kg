@@ -7,7 +7,6 @@ const GuideDictionaryModule = lazy(() => import("@/modules/GuideDictionary"));
 const GuideDictionaryPages = (): ReactElement => {
   return (
     <SuspenseError loadingFallback={<LoadingGuideDictionary />}>
-      <LoadingGuideDictionary />
       <GuideDictionaryModule />
     </SuspenseError>
   );
