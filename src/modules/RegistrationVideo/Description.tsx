@@ -1,7 +1,7 @@
-import { videoGuideTypes } from "@/stores/Guide/type";
+import { videoGuideTypes } from "../GuideVideo/type";
 import React, { ReactElement } from "react";
 
-const Description = (props:  videoGuideTypes): ReactElement => {
+const Description = (props: videoGuideTypes): ReactElement => {
   const { titleVideo, descVideo } = props;
   return (
     <div className="bg-white dark:bg-[#232529] w-full lg:h-[269px] h-fit rounded-[8px] mt-[28px] shadow-md py-[23px] px-[46px] mb-10">
