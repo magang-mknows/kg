@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { useGuideVideo } from "@/hooks/Guide/useVideoGuide";
+import { useGuideVideo } from "../GuideVideo/hooks";
 import Link from "next/link";
 import YouTubeThumbnailFetcher from "../Common/YouTubeThumbnailFetcher";
 

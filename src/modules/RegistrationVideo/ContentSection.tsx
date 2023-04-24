@@ -1,4 +1,4 @@
-import { filterOption } from "@/stores/Guide";
+import { filterOption } from "../GuideVideo/store";
 import { useRouter } from "next/router";
 import React, { ReactElement } from "react";
 import { useRecoilValue } from "recoil";
@@ -11,7 +11,7 @@ const ContentSection = (): ReactElement => {
   const getOption = useRecoilValue(filterOption(query.videoId as unknown as string));
 
   return (
-    <div className="w-full px-6 md:px-8 lg:px10 my-[68px]">
+    <div className="w-full px-6 md:px-8 lg:px-10 my-[68px]">
       {getOption.map((item, index) => {
         return (
           <div key={index} className="lg:flex gap-[68px] xl:flex-nowrap lg:flex-wrap">
@@ -27,8 +27,6 @@ const ContentSection = (): ReactElement => {
       })}
     </div>
   );
-
-
 };
 
 export default ContentSection;
