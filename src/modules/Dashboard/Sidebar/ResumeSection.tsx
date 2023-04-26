@@ -1,36 +1,9 @@
-import Card from "@/components/Common/Card";
 import React, { FC, ReactElement } from "react";
-
-import labIcon from "@/assets/dashboard/labIcon.svg";
-import homeIcon from "@/assets/dashboard/homeIcon.svg";
-import clockIcon from "@/assets/dashboard/clockIcon.svg";
-import thropyIcon from "@/assets/dashboard/trophyIcon.svg";
 import Image from "next/image";
+import Card from "@/components/Common/Card";
+import { dummySidebarItems } from "@/modules/Dashboard/Sidebar/store";
 
 const ResumeSection: FC = (): ReactElement => {
-  const dummySidebarItems = [
-    {
-      src: labIcon,
-      number: 0,
-      title: "Kelas Terdaftar",
-    },
-    {
-      src: homeIcon,
-      number: 0,
-      title: "Sertifikat",
-    },
-    {
-      src: clockIcon,
-      number: 0,
-      title: "IPK Rata-rata",
-    },
-    {
-      src: thropyIcon,
-      number: 0,
-      title: "Total Poin",
-    },
-  ];
-
   return (
     <div className="w-full bg-white dark:bg-[#17A2B8] shadow-sm dark:shadow-md dark:shadow-neutral-800 shadow-neutral-100  rounded-md min-h-[540px] mb-10 overflow-hidden">
       <section className="text-white bg-[#106FA4] dark:bg-[#1B1E21] rounded-md relative px-6 pt-12 pb-28">
