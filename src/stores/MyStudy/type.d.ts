@@ -11,12 +11,3 @@ export type Question = {
   choices: array<string>;
   rightAnswer: string;
 };
-
-export type Course = {
-  conference: number;
-  status: {
-    [key: string]: "Done" | "In Progress";
-  };
-  progress: Array<"Done" | "In Progress">;
-  isOpen: boolean;
-};

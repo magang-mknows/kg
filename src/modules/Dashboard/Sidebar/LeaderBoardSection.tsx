@@ -5,33 +5,11 @@ import medal2Icon from "@/assets/dashboard/medal2Icon.svg";
 import medal3Icon from "@/assets/dashboard/medal3Icon.svg";
 import emptyLeaderBoard from "@/assets/dashboard/emptyLeaderBoard.svg";
 import Button from "@/components/Common/Button";
+import { dummyRankList } from "@/modules/Dashboard/Sidebar/store";
 
 import Image from "next/image";
 
 const LeaderBoardSection: FC = (): ReactElement => {
-  const dummyRankList = [
-    {
-      name: "Ahmad Baharudin",
-      score: 7000,
-    },
-    {
-      name: "Siti Amelia",
-      score: 6740,
-    },
-    {
-      name: "Kisana Hajar",
-      score: 5600,
-    },
-    {
-      name: "Jhom Bang",
-      score: 4050,
-    },
-    {
-      name: "Sumaryo",
-      score: 800,
-    },
-  ];
-
   return (
     <section className="w-full bg-white dark:bg-[#1B1E21]  mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100 dark:shadow-md dark:shadow-neutral-800">
       <section className="flex justify-between items-start mb-4">

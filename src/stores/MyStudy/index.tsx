@@ -1,5 +1,5 @@
-import { atom, selector } from "recoil";
-import { Data,Question } from "./type";
+import { atom } from "recoil";
+import { Data, Question } from "./type";
 import Icon from "@/assets/myStudy/mahasiswa.svg";
 import Icon2 from "@/assets/myStudy/matkul.svg";
 import Icon3 from "@/assets/myStudy/sks.svg";
@@ -14,7 +14,6 @@ export const dataCardState = atom<Array<Data>>({
     { icon: Icon4, jumlah: "-", detail: "semester", warna: "#E9F6FD" },
   ],
 });
-
 
 export const confirmModuleState = atom({
   key: "confirm-module-state",

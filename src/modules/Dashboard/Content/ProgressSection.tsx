@@ -2,51 +2,12 @@ import { FC, ReactElement, useState } from "react";
 import Image from "next/image";
 import dummyImg from "@/assets/dashboard/dummyCourse.png";
 import moreIcon from "@/assets/dashboard/LihatSemua.svg";
-import { useRecoilValue } from "recoil";
-import { ProgressState } from "@/stores/Dashboard";
 import Button from "@/components/Common/Button";
-
-const dataDummy: {
-  id: number;
-  judul: string;
-  subjudul: string;
-  semester: number;
-  totalPertemuan: number;
-  pertemuanDone: number;
-}[] = [
-  {
-    id: 1,
-    judul: "Introduction to Japanese Culture",
-    subjudul: "Japanese Culture",
-    semester: 1,
-    totalPertemuan: 10,
-    pertemuanDone: 8,
-  },
-  {
-    id: 2,
-    judul: "Introduction to Japanese Culture",
-    subjudul: "Japanese Culture",
-    semester: 1,
-    totalPertemuan: 5,
-    pertemuanDone: 5,
-  },
-  {
-    id: 3,
-    judul: "Introduction to Japanese Culture",
-    subjudul: "Japanese Culture",
-    semester: 1,
-    totalPertemuan: 10,
-    pertemuanDone: 9,
-  },
-  {
-    id: 4,
-    judul: "Introduction to Japanese Culture",
-    subjudul: "Japanese Culture",
-    semester: 1,
-    totalPertemuan: 14,
-    pertemuanDone: 5,
-  },
-];
+import { useRecoilValue } from "recoil";
+import {
+  ProgressState,
+  progressSectionDummyData as dataDummy,
+} from "@/modules/Dashboard/Content/store";
 
 const ProgressSection: FC = (): ReactElement => {
   const getProgress = useRecoilValue(ProgressState);
