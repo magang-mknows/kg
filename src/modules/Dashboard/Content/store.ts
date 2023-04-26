@@ -2,6 +2,11 @@ import { atom } from "recoil";
 
 const now = new Date();
 
+export const selectedEvent = atom({
+  key: "selectedEvent",
+  default: 1,
+});
+
 export const selectedDate = atom({
   key: "selectedDate",
   default: now,

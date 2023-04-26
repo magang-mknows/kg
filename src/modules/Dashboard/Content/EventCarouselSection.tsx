@@ -4,13 +4,13 @@ import penugasan from "@/assets/dashboard/penugasan.svg";
 import acara from "@/assets/dashboard/acara.svg";
 import Image from "next/image";
 
-import { useSelectedTask } from "@/hooks/Dashboard/useSelectedEvent";
-
 import { MdNavigateNext } from "react-icons/md";
 import Button from "@/components/Common/Button";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+import { useSelectedTask } from "@/modules/Dashboard/Content/hooks";
 
 const EventCarouselSection: FC = (): ReactElement => {
   const { setSelectedEvent, getSelectedEvent } = useSelectedTask();
