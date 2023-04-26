@@ -1,6 +1,11 @@
 import { useRecoilState } from "recoil";
-import { selectedEvent, selectedTasks } from "@/modules/Dashboard/Content/store";
-import { TUseSelectedEvent, TUseSelectedTask } from "@/modules/Dashboard/Content/type";
+import { ProgressState, selectedEvent, selectedTasks } from "@/modules/Dashboard/Content/store";
+import {
+  Progress,
+  ProgressReturnTypes,
+  TUseSelectedEvent,
+  TUseSelectedTask,
+} from "@/modules/Dashboard/Content/type";
 
 export const useSelectedEvent = (): TUseSelectedEvent => {
   const [getEvent, setEvent] = useRecoilState(selectedEvent);
@@ -15,5 +20,13 @@ export const useSelectedTask = (): TUseSelectedTask => {
   return {
     setSelectedTask: (val: number) => setTask(val),
     getSelectedTask: getTask,
+  };
+};
+
+export const useProgress = (): ProgressReturnTypes => {
+  const [getProgress, setProgress] = useRecoilState(ProgressState);
+  return {
+    setProgress: (val: Array<Progress>) => setProgress(val),
+    getProgress: getProgress,
   };
 };

@@ -15,3 +15,8 @@ export type Progress = {
   totalPertemuan: number;
   pertemuanDone: number;
 };
+
+export type ProgressReturnTypes = {
+  setProgress: (val: Array<Progress>) => void;
+  getProgress: Array<Progress>;
+};
