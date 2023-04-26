@@ -10,10 +10,10 @@ import Button from "@/components/Common/Button";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import { useSelectedTask } from "@/modules/Dashboard/Content/hooks";
+import { useSelectedEvent } from "@/modules/Dashboard/Content/hooks";
 
 const EventCarouselSection: FC = (): ReactElement => {
-  const { setSelectedEvent, getSelectedEvent } = useSelectedTask();
+  const { setSelectedEvent, getSelectedEvent } = useSelectedEvent();
 
   const dummyEvent = [
     {

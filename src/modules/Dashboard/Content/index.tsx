@@ -7,9 +7,11 @@ const ProgressSection = lazy(() => import("@/modules/Dashboard/Content/ProgressS
 
 import SuspenseError from "@/modules/Common/SuspenseError";
 
-import ProgressSkeleton from "@/components/Loading/Dashboard/Content/ProgressSkeleton";
-import TaskEventCarouselSkeleton from "@/components/Loading/Dashboard/Content/TaskEventCarouselSkeleton";
-import MyCalendarSkeleton from "@/components/Loading/Dashboard/Content/MyCalendarSkeleton";
+import {
+  ProgressSkeleton,
+  TaskEventCarouselSkeleton,
+  MyCalendarSkeleton,
+} from "@/modules/Dashboard/Content/loading";
 
 const ContentSection: FC = (): ReactElement => {
   return (
