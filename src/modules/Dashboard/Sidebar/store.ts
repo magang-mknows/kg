@@ -2,6 +2,7 @@ import labIcon from "@/assets/dashboard/labIcon.svg";
 import homeIcon from "@/assets/dashboard/homeIcon.svg";
 import clockIcon from "@/assets/dashboard/clockIcon.svg";
 import thropyIcon from "@/assets/dashboard/trophyIcon.svg";
+import ArticleSlide from "@/assets/dashboard/article-slide.svg";
 
 export const dummySidebarItems = [
   {
@@ -47,4 +48,9 @@ export const dummyRankList = [
     name: "Sumaryo",
     score: 800,
   },
+];
+
+export const Mitra = [
+  { image: ArticleSlide, text: "Apa itu Cyber Attack?" },
+  { image: ArticleSlide, text: "Apa itu Cyber Defense?" },
 ];
