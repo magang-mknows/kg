@@ -1,20 +1,23 @@
-import { DiscussionItemsTypes } from "./Discussion/types";
+import { AxiosError, AxiosResponse } from "axios";
+export interface TMetaResponseSingle<T> {
+  code?: number;
+  status?: string;
+  message?: string;
+  data?: T;
+}
 
-export type MetaTypes = {
-  page?: number;
-  page_size?: number;
-  search?: string;
-  role_id?: number;
+export interface TMetaResponse<T> {
+  code?: number;
+  status?: string;
+  message?: string;
+  data?: Array<T>;
+}
+
+export type TMetaErrorItem = {
+  code: number;
+  status: string;
+  message: string;
 };
 
-export type MetaTypesId = {
-  id: string;
-};
+export type TMetaError = AxiosError<TMetaErrorItem>;
 
-export interface CommonResponseInterface<T> {
-  meta: MetaTypes;
-  items: Array<T>;
-}
-export interface DiscussionResponseInterface<T> {
-  data: DiscussionItemsTypes;
-}

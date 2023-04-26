@@ -1,13 +1,14 @@
+import { TLeaderboard } from "@/services/Leaderboard/types";
 import { StaticImageData } from "next/image";
 import { MouseEventHandler, ReactNode } from "react";
 
 export interface PopupProfilProps {
     id?: string,
-    img: string;
-    score: number;
+    img?: string;
+    averageScore: number;
     lookup?: boolean
-    name: string;
-    index?: string | number;
+    student_name: string;
+    subjectCount: string;
     stylePopup?: string,
     widthModal?: string,
     onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>,

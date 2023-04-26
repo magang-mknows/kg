@@ -5,32 +5,37 @@ import pengajuan from "@/assets/rescheduleSimulasi/pengajuan.svg";
 import checked from "@/assets/rescheduleSimulasi/checked.svg";
 import rescheduleJadwal from "@/assets/rescheduleSimulasi/reschedule-jadwal.svg";
 import Accordion from "@/components/Simulasion/Accordion";
-import { useChooseSimulation } from "@/hooks/Simulation/useChooseSimulation";
 import PopupModal from "@/components/Common/PopupModal";
 import { BsCalendarDate } from "react-icons/bs";
 import { AiOutlineCheck } from "react-icons/ai";
-import { usePopupScheduleStatus } from "@/hooks/Common/usePopupScheduleStatus";
-import { useChooseTimeSimulation } from "@/hooks/Simulation/useChooseTimeSimulation";
-import { useCheckRescheduleSimulation } from "@/hooks/Simulation/useCheckRescheduleSimulation";
 import {
+  useChooseSimulation,
   useCategorySimulation,
   useScheduleSimulation,
-} from "@/hooks/Simulation/useCategorySimulation";
-import { useRouter } from "next/router";
-import { useRecoilValue } from "recoil";
-import { filterSlug } from "@/stores/Simulation";
+  usePopupScheduleStatus,
+  useChooseTimeSimulation,
+  // useCheckRescheduleSimulation,
+} from "./hooks";
+import { useGetAllSimulation } from "../DrillSimulasion/hooks";
+// import { useRouter } from "next/router";
+// import { useRecoilValue } from "recoil";
+// import { filterSlug } from "@/stores/Simulation";
 
 const DateTime: FC = (): ReactElement => {
   const [isOpen] = useState("");
   const { getChooseSimulation, setChooseSimulation } = useChooseSimulation();
   const { getChooseTimeSimulation, setChooseTimeSimulation } = useChooseTimeSimulation();
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
-  const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
+  // const { getCheckRescheduleSimulation } = useCheckRescheduleSimulation();
   const [active, setactive] = useState("");
   const { getScheduleSimulation, setScheduleSimulation } = useScheduleSimulation();
   const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
-  const { query } = useRouter();
-  const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
+  // const { query } = useRouter();
+  // const getSlug = useRecoilValue(filterSlug(query.title as unknown as string));
+
+  const { data } = useGetAllSimulation();
+  const getSchedule = data?.data;
+  console.log("dataa", getSchedule);
 
   const onSucces = (): void => {
     if (!getScheduleSimulation) {
@@ -40,14 +45,15 @@ const DateTime: FC = (): ReactElement => {
     }
     setPopupStatus(true), setScheduleSimulation(true);
   };
+
   return (
     <section className="lg:basis-7/12">
-      {getSlug.map((x, y) => (
+      {getSchedule?.map((items, y) => (
         <div key={y}>
-          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{x.title}</h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{x.dosen}</p>
+          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{items.topic}</h1>
+          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.assessor_name}</p>
           <p className="text-[#737373] text-[16px] font-[400]">
-            Lokasi : {x.location !== null ? x.location : "Tidak ada lokasi"}
+            Lokasi : {items.place !== null ? items.place : "Tidak ada lokasi"}
           </p>
         </div>
       ))}
@@ -55,28 +61,36 @@ const DateTime: FC = (): ReactElement => {
       <p className="text-[#171717] text-[14px] font-[600] mt-3 mb-1 dark:text-white">
         Pilih tanggal dan waktu Simulasi
       </p>
+
       <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
-        {getCheckRescheduleSimulation.map((item, l) => (
-          <button
-            className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
-              getChooseSimulation === item.date ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none" : ""
-            }`}
-            key={l}
-            onClick={() => {
-              setChooseSimulation(item.date);
-              setactive(item.date);
-            }}
-          >
-            <div
-              className={`flex items-center gap-2 text-[#737373] dark:text-white ${
-                getChooseSimulation === item.date ? "dark:text-white text-white" : ""
-              }`}
-            >
-              <BsCalendarDate />
-              <p className="text-[12px] font-[400] mt-1">{item.date}</p>
-            </div>
-          </button>
-        ))}
+        {getSchedule?.map((item, index) =>
+          item.schedules.map((x, y) => {
+            const Day = new Intl.DateTimeFormat("id", {
+              dateStyle: "full",
+            }).format(new Date(x.date));
+            return (
+              <button
+                className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
+                  getChooseSimulation === Day ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none" : ""
+                } `}
+                key={y}
+                onClick={() => {
+                  setChooseSimulation(Day);
+                  setactive(Day);
+                }}
+              >
+                <div
+                  className={`flex items-center gap-2 text-[#737373] dark:text-white ${
+                    getChooseSimulation === Day ? "dark:text-white text-white" : ""
+                  }`}
+                >
+                  <BsCalendarDate />
+                  <p className="text-[12px] font-[400] mt-1">{Day}</p>
+                </div>
+              </button>
+            );
+          }),
+        )}
       </div>
       <Accordion
         title="Sore"
@@ -85,29 +99,40 @@ const DateTime: FC = (): ReactElement => {
         disabled={getChooseSimulation === "" ? true : false}
       >
         <div className="flex gap-5">
-          {getCheckRescheduleSimulation.map((item) =>
-            item.time
-              .filter(() => item.date.includes(active))
-              .map((items, i) => (
-                <button
-                  key={i}
-                  className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px] border ${
-                    getChooseTimeSimulation === items.time ? "bg-[#3EB449] dark:bg-[#17A2B8]" : ""
-                  } `}
-                  onClick={() => {
-                    setChooseTimeSimulation(items.time);
-                  }}
-                >
-                  <div
-                    className={`flex items-center gap-2 text-[#525252] dark:text-white ${
-                      getChooseTimeSimulation === items.time ? " text-white dark:text-white" : ""
-                    }`}
-                  >
-                    <AiOutlineCheck className=" text-sm font-bold" />
-                    <p className="font-[500] text-[12px]">{items.time}</p>
-                  </div>
-                </button>
-              )),
+          {getSchedule?.map((item) =>
+            item.schedules?.map((x) => {
+              const stringToDate = new Date(x.date);
+              const Day = new Intl.DateTimeFormat("id", {
+                dateStyle: "full",
+              }).format(stringToDate);
+              return x.times
+                .filter(() => Day.includes(active))
+                .map((time, i) => {
+                  const TimeShort = time.slice(0, 5);
+                  return (
+                    <button
+                      key={i}
+                      className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px] border ${
+                        getChooseTimeSimulation === TimeShort
+                          ? "bg-[#3EB449] dark:bg-[#17A2B8]"
+                          : ""
+                      } `}
+                      onClick={() => {
+                        setChooseTimeSimulation(TimeShort);
+                      }}
+                    >
+                      <div
+                        className={`flex items-center gap-2 text-[#525252] dark:text-white ${
+                          getChooseTimeSimulation === TimeShort ? " text-white dark:text-white" : ""
+                        }`}
+                      >
+                        <AiOutlineCheck className=" text-sm font-bold" />
+                        <p className="font-[500] text-[12px]">{TimeShort}</p>
+                      </div>
+                    </button>
+                  );
+                });
+            }),
           )}
         </div>
       </Accordion>

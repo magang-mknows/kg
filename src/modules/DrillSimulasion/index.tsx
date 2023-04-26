@@ -1,5 +1,5 @@
 import BaseLayouts from "@/layouts/Base";
-import { FC, lazy, ReactElement, Suspense } from "react";
+import { FC, lazy, ReactElement } from "react";
 import { drillSimulation } from "@/utilities/constant";
 
 const Title = lazy(() => import("@/modules/DrillSimulasion/Title"));

@@ -23,6 +23,8 @@ import { useLoginModal } from "@/hooks/Auth/useLoginModal";
 import { useTheme } from "next-themes";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import Loading from "../Loading";
+import { useAuth } from "@/hooks/Auth/useAuth";
+import AuthService from "@/services/Auth";
 
 const UpperSection: FC = (): ReactElement => {
   const { isScrollY } = useWindowScroll();
@@ -32,6 +34,7 @@ const UpperSection: FC = (): ReactElement => {
   const currentTheme = theme === "system" ? systemTheme : theme;
 
   const [mounted, setMounted] = useState(false);
+  const { getAuth } = useAuth();
 
   useEffect(() => {
     setMounted(true);
@@ -118,19 +121,31 @@ const UpperSection: FC = (): ReactElement => {
           </MenuIcon>
           <ThemeToggle />
 
-          {/* before login */}
-          <Button
-            onClick={() => setLoginModal(true)}
-            type="button"
-            text={"Masuk"}
-            className="hidden lg:block text-[#106FA4] dark:text-white dark:border-white/20 dark:hover:bg-neutral-700/40 border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
-          />
-          <Button
-            type="button"
-            text={"Daftar"}
-            page={"/auth/register"}
-            className="hidden lg:block bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm dark:bg-[#323335] dark:hover:bg-[#30353b] dark:border-[#30353b] "
-          />
+          {getAuth ? (
+            <div className="flex">
+              <Button
+                onClick={() => AuthService.Logout()}
+                type="button"
+                text={"Logout"}
+                className="hidden lg:block text-[#106FA4] dark:text-white dark:border-white/20 dark:hover:bg-neutral-700/40 border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+              />
+            </div>
+          ) : (
+            <div className="flex gap-x-4">
+              <Button
+                onClick={() => setLoginModal(true)}
+                type="button"
+                text={"Masuk"}
+                className="hidden lg:block text-[#106FA4] dark:text-white dark:border-white/20 dark:hover:bg-neutral-700/40 border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:text-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm"
+              />
+              <Button
+                type="button"
+                text={"Daftar"}
+                page={"/auth/register"}
+                className="hidden lg:block bg-[#106FA4] text-white border-2 border-[#106FA4] px-5 py-2 text-sm rounded-md hover:bg-[#40A0C8] hover:border-[#40A0C8] transition-colors ease-in-out duration-300 shadow-sm dark:bg-[#323335] dark:hover:bg-[#30353b] dark:border-[#30353b] "
+              />
+            </div>
+          )}
         </section>
       </section>
     </SuspenseError>

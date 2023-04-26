@@ -1,15 +1,16 @@
-import DiscussionService, { DiscussionPayloadTypes } from "@/services/Discussion";
+import DiscussionService from "@/services/Discussion";
+import { TDiscussionResponse, TDiscussionPayload } from "@/services/Discussion/types";
+import { TMetaError } from "@/services/types";
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
 
 export const useCreateDiscussion = (): UseMutationResult<
-  unknown,
-  unknown,
-  DiscussionPayloadTypes,
+  TDiscussionResponse,
+  TMetaError,
+  TDiscussionPayload,
   unknown
 > => {
   return useMutation({
     mutationKey: ["create-discussion"],
-    mutationFn: async (data: DiscussionPayloadTypes) =>
-      await DiscussionService.CreateDiscussion(data),
+    mutationFn: async (data) => await DiscussionService.CreateDiscussion(data),
   });
 };

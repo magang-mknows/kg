@@ -27,10 +27,20 @@ import { Montserrat } from "next/font/google";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import Loading from "@/components/Loading";
 import { DefaultSeo } from "next-seo";
+import TokenService from "@/services/Token";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
 });
+
+if (typeof window !== "undefined" && !!TokenService.getToken()) {
+  if (TokenService.getToken()) {
+    ApiService.setHeader();
+  } else {
+    ApiService.removeHeader();
+  }
+}
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   const [mounted, setMounted] = useState(false);

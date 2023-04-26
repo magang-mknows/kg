@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { lazy, ReactElement, Suspense } from "react";
+import { lazy, ReactElement } from "react";
 import SkorSkeleton from "@/components/Loading/Skor/SkorSkeleton";
 import SuspenseError from "@/modules/Common/SuspenseError";
 

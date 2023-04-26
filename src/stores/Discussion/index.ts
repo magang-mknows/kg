@@ -1,3 +1,4 @@
+import { TDiscussionItem } from "@/services/Discussion/types";
 import { atom } from "recoil";
 
 export const PopupModalCreateDiscussion = atom({
@@ -19,4 +20,21 @@ export const PopupModalReportDiscussion = atom({
 export const PopupModalSuccessDiscussion = atom({
   key: "modal-popup-success-discussion",
   default: false,
+});
+export const popupGetUser = atom<TDiscussionItem>({
+  key: "popup-get-user",
+  default: {
+    id: "",
+    user_id: "",
+    session_id: "",
+    title: "",
+    content: "",
+    is_global: true,
+    images: [],
+  },
+});
+
+export const setid = atom({
+  key: "id-dicussion",
+  default: "",
 });

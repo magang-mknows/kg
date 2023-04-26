@@ -1,40 +1,16 @@
 import Link from "next/link";
 import { FC, ReactElement } from "react";
-
+import { Montserrat } from "next/font/google";
 import { useRecoilState } from "recoil";
 
-import { selectedDate } from "@/stores/Dashboard/Calendar";
-import { Montserrat } from "next/font/google";
+import { selectedDate, months, days } from "@/modules/Dashboard/Content/store";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
 });
 
 const MyCalendarSection: FC = (): ReactElement => {
-  const days: string[] = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const months: string[] = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth() + 1;

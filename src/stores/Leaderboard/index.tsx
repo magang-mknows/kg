@@ -1,6 +1,7 @@
-import { atom } from "recoil";
+import { atom, selectorFamily } from "recoil";
 import { leaderBoardRankProps } from "./type";
 import Avatar from "@/assets/leaderboard/avatar.svg";
+import { TLeaderboard } from "@/services/Leaderboard/types";
 
 export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
   key: "leaderboard-rank",
@@ -36,14 +37,4 @@ export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
       score: 5800,
     },
   ],
-});
-
-export const popupGetUser = atom<leaderBoardRankProps>({
-  key: "popup-get-user",
-  default: {
-    id: "",
-    name: "",
-    img: "",
-    score: 0,
-  },
 });

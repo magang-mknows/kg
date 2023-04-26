@@ -1,9 +1,14 @@
-import { CommonResponseInterface } from "../types";
+import { TMetaResponseSingle } from "../types";
 
-export type AdministrationItemsTypes = {
-  nama: string;
-  nim: string;
-  kelas: string;
+export type TAdministrationItem = {
+  id: string;
+  user_id: string;
+  status: string;
+  type: string;
+  action_by: string;
+  biodata: string;
+  familial: string;
+  file: string;
 };
 
-export type AdministrationResponseTypes = CommonResponseInterface<AdministrationItemsTypes>;
+export type TAdministrationResponse = TMetaResponseSingle<TAdministrationItem>;

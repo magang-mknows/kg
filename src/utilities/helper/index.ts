@@ -11,5 +11,5 @@ export const LoadConditionalLogo = (): StaticImageData => {
 
 export const handleError = (error: unknown): string | string[] => {
   const err = error as ErrorComplete;
-  return err.response.data.message;
+  return err?.response?.data.message;
 };

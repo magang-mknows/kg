@@ -1,26 +1,23 @@
 import ApiService from "@/services/Api";
 import TokenService from "@/services/Token";
 import { handleError } from "@/utilities/helper";
-import { AuthPayloadTypes } from "@/utilities/types/Auth";
+import { TForgotPayload, TLoginPayload, TLoginResponse, TRegisterPayload } from "./types";
 
 const AuthService = {
-  Login: async (payload: AuthPayloadTypes) => {
+  Login: async (payload: TLoginPayload): Promise<TLoginResponse> => {
     const { email, password } = payload;
     const requestData = {
       method: "post",
       headers: {
-        "Content-Type": "application/json; charset=utf-8",
+        "Content-Type": "application/json",
       },
-      data: {
-        email,
-        password,
-      },
+      data: { email, password },
       url: "/auth/login",
     };
     try {
       const res = await ApiService.customRequest(requestData);
-      TokenService.saveToken(res.data.token.access_token);
-      TokenService.saveRefreshToken(res.data.token.refresh_token);
+      TokenService.saveToken(res.data.access_token);
+      TokenService.saveRefreshToken(res.data.refresh_token);
       ApiService.setHeader();
       return res.data;
     } catch (error) {
@@ -35,18 +32,13 @@ const AuthService = {
     window.location.reload();
   },
 
-  Register: async (payload: AuthPayloadTypes) => {
-    const { email, password, fullname } = payload;
+  Register: async (payload: TRegisterPayload) => {
     const requestData = {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      data: {
-        email,
-        password,
-        fullname,
-      },
+      data: payload,
       url: "/auth/register",
     };
     try {
@@ -56,16 +48,13 @@ const AuthService = {
     }
   },
 
-  ForgotPassword: async (payload: AuthPayloadTypes) => {
-    const { email } = payload;
+  ForgotPassword: async (payload: TForgotPayload) => {
     const requestData = {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      data: {
-        email,
-      },
+      data: payload,
       url: "/auth/forgot-password",
     };
     try {

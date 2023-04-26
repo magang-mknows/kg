@@ -1,34 +1,34 @@
 import Image from "next/image";
+import Avatar from "@/assets/leaderboard/avatar.svg";
 import React, { FC, ReactElement } from "react";
 import PopupProfil from "@/components/Leaderboard/PopupProfil";
-import { usePopupProfilLeaderboard } from "@/hooks/Leaderborad/usePopupProfilLeaderboard";
-import { useRankLeaderboard } from "@/hooks/Leaderborad/useRankLeaderboard";
-import { usePopupGetUser } from "@/hooks/Leaderborad/usePopupGetUser";
-import { leaderBoardRankProps } from "@/stores/Leaderboard/type";
+import { usePopupProfilLeaderboard, usePopupGetUser, useGetAllLeaderboard } from "./hooks";
 
 const RankingSection: FC = (): ReactElement => {
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
-  const { getRank } = useRankLeaderboard();
+  const { data } = useGetAllLeaderboard();
+  const getRank = data?.data;
   const { setPopupUser, getPopupUser } = usePopupGetUser();
+  // console.log("user : ", getPopupUser);
 
   return (
     <div className="relative lg:-top-56 md:-top-44 -top-36 ">
       {getRank
-        .slice()
-        .sort((a, b) => {
-          return b.score - a.score;
+        ?.sort((a: any, b: any) => {
+          return b.averageScore - a.averageScore;
         })
-        .map((x, y) => {
+        ?.map((x: any, y: any) => {
+          console.log(x);
           return (
             y >= 3 && (
               <>
-                <div key={y}>
+                <div key={y} id={y}>
                   <div className="flex lg:px-[56px] px-3 mt-[15px] ">
                     <div className="w-full dark:bg-[#222529] bg-white flex justify-between dark:border-b-[#222529] border-b-[#F5F5F5] border-b-2 px-[20px] rounded-[8px]">
                       <div className="flex items-center gap-[30px] p-2">
-                        <h1 className="font-[400] lg:text-[24px] text-[20px]">{x.index}</h1>
+                        <h1 className="font-[400] lg:text-[24px] text-[20px]">{x.subjectCount}</h1>
                         <Image
-                          src={x.img}
+                          src={Avatar}
                           alt="avatar"
                           className="w-[56px] h-[56px] rounded-full overflow-hidden cursor-pointer"
                           onClick={() => {
@@ -36,11 +36,11 @@ const RankingSection: FC = (): ReactElement => {
                             setPopupLeaderboardStatus(true);
                           }}
                         />
-                        <h1 className="font-[600] lg:text-[18px] text-[14px]">{x.name}</h1>
+                        <h1 className="font-[600] lg:text-[18px] text-[14px]">{x.student_name}</h1>
                       </div>
                       <div className="flex items-center">
                         <h1 className="font-[600] lg:text-[16px] text-[14px] text-[#0B568D]">
-                          {x.score} poin
+                          {x.averageScore} poin
                         </h1>
                       </div>
                     </div>
@@ -49,7 +49,6 @@ const RankingSection: FC = (): ReactElement => {
                 <PopupProfil
                   onClose={() => {
                     setPopupLeaderboardStatus(false);
-                    setPopupUser({} as leaderBoardRankProps);
                   }}
                   lookup={getPopupLeaderboardStatus}
                   widthModal="!max-w-[748px]"

@@ -1,15 +1,16 @@
 import AuthService from "@/services/Auth";
-import { AuthPayloadTypes } from "@/utilities/types/Auth";
+import { TLoginPayload, TLoginResponse } from "@/services/Auth/types";
+import { TMetaError } from "@/services/types";
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
-import { useRouter } from "next/router";
 
-export const useLogin = (): UseMutationResult<unknown, unknown, AuthPayloadTypes, unknown> => {
-  const router = useRouter();
+export const useLogin = (): UseMutationResult<
+  TLoginResponse,
+  TMetaError,
+  TLoginPayload,
+  unknown
+> => {
   return useMutation({
     mutationKey: ["auth-login"],
-    mutationFn: async (data: AuthPayloadTypes) => await AuthService.Login(data),
-    onSuccess: () => {
-      router.push("/");
-    },
+    mutationFn: async (data) => await AuthService.Login(data),
   });
 };

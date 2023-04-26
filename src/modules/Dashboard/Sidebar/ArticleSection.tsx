@@ -2,15 +2,12 @@ import { FC, Fragment, ReactElement } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import ArticleSlide from "@/assets/dashboard/article-slide.svg";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Mitra } from "@/modules/Dashboard/Sidebar/store";
+
 const ArticleSection: FC = (): ReactElement => {
-  const Mitra = [
-    { image: ArticleSlide, text: "Apa itu Cyber Attack?" },
-    { image: ArticleSlide, text: "Apa itu Cyber Defense?" },
-  ];
   return (
     <Fragment>
       <div className=" w-full  ">
