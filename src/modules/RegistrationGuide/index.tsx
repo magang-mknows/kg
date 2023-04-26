@@ -1,7 +1,7 @@
 import BreadCrumb from "@/components/Assigment/BreadCrumb";
 import BaseLayoutsLanding from "@/layouts/BaseLanding";
 import { guideRegistrationBreadCumbs } from "@/utilities/constant";
-import React, { ReactElement, Suspense } from "react";
+import React, { ReactElement } from "react";
 import AnotherGuideBookSection from "./AnotherGuideBookSection";
 import ContentSection from "./ContentSection";
 import HeroSection from "./HeroSection";

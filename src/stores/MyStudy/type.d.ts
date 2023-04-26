@@ -3,7 +3,7 @@ export type Data = {
   jumlah: string;
   detail: string;
   warna: string;
-};
+}
 
 export type Question = {
   id: number;

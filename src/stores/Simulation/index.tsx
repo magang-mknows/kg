@@ -3,6 +3,7 @@ import { T, HistorySimulation, RescheduleSimulation } from "./type";
 import drillDummy from "@/assets/drillSimulation/dummy-drill.svg";
 import DummyHistory from "@/assets/drillSimulation/dummy-drillHistory.svg";
 
+//
 export const sceduleSimulationState = atom<Array<T>>({
   key: "scedule-simulation-state",
   default: [
@@ -108,19 +109,13 @@ export const chooseScheduleState = atom({
 });
 
 // seacrh
+//
 export const queryScheduleSimulation = atom({
   key: "query-schedule-simulation",
   default: "",
 });
 
-export const filterScheduleSimulation = selector({
-  key: "filter-schedule-simulation",
-  get: ({ get }) =>
-    get(sceduleSimulationState).filter((item) =>
-      item.title.toLowerCase().includes(get(queryScheduleSimulation).toLowerCase()),
-    ),
-});
-
+//
 export const filterHistorySimulation = selector({
   key: "history-schedule-simulation",
   get: ({ get }) =>

@@ -1,13 +1,13 @@
 import { lazy, ReactElement } from "react";
 import type { NextPage } from "next";
 import SuspenseError from "@/modules/Common/SuspenseError";
-import SimulasionSkeleton from "@/components/Loading/Simulasion/SimulasionSkeleton";
+import LoadingSimulasion from "@/modules/DrillSimulasion/Loading/loading";
 
 const DrillSimulasion = lazy(() => import("@/modules/DrillSimulasion"));
 
 const drillSimulasion: NextPage = (): ReactElement => {
   return (
-    <SuspenseError loadingFallback={<SimulasionSkeleton />}>
+    <SuspenseError loadingFallback={<LoadingSimulasion />}>
       <DrillSimulasion />
     </SuspenseError>
   );

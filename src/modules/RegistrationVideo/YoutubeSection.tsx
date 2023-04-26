@@ -1,10 +1,9 @@
-import { videoGuideTypes } from "@/stores/Guide/type";
-import { useRouter } from "next/router";
+import { videoGuideTypes } from "../GuideVideo/type";
 import React, { ReactElement } from "react";
 import YouTube, { YouTubeProps } from "react-youtube";
 
-const YoutubeSection = (props:videoGuideTypes): ReactElement => {
-  const {  videoId } = props;
+const YoutubeSection = (props: videoGuideTypes): ReactElement => {
+  const { videoId } = props;
 
   const onPlayerReady: YouTubeProps["onReady"] = (event) => {
     // access to player in all event handlers via event.target

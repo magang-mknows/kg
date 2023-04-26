@@ -43,7 +43,7 @@ const ContentStudyProgram: FC = (): ReactElement => {
             </div>
           ) : (
             <>
-              {data?.data?.map((x:any) => (
+              {data?.data?.map((x: any) => (
                 <Card
                   href={"/studi-ku/course"}
                   key={x.id}

@@ -5,10 +5,14 @@ import { Doughnut } from "react-chartjs-2";
 
 import DetailCard from "./DetailCard";
 import Button from "@/components/Common/Button";
+import { useGetQuizReview } from "@/hooks/Quiz/useGetQuizReview";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const QuizScore: FC = (): ReactElement => {
+  // const { data: quizReviewDatas } = useGetQuizReview();
+  // console.log("tes", quizReviewDatas?.quizReviewDatas);
+
   const data = {
     labels: ["Your Score"],
     datasets: [

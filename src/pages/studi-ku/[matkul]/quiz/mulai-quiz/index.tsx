@@ -14,7 +14,7 @@ const QuizStartPage: FC = (): ReactElement => {
     },
   ];
 
-  const QuizStartModule = lazy(() => import("@/modules/MyStudy/Quiz/StartQuiz/QuizStart"));
+  const QuizStartModule = lazy(() => import("@/modules/MyStudy/Quiz/StartQuiz"));
 
   return (
     <BaseLayouts widthHScreen={false}>

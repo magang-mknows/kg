@@ -1,14 +1,15 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import Done from "@/assets/drillSimulation/assigned-done.svg";
-import { useRecoilValue } from "recoil";
-import { filterHistorySimulation } from "@/stores/Simulation";
-import simulasiNull from "@/assets/drillSimulation/simualasi-null.svg";
-import { usePopupSubmissionStatus } from "@/hooks/Common/usePopupSubmissionStatus";
 import Link from "next/link";
 import PopupModal from "@/components/Common/PopupModal";
+import Done from "@/assets/drillSimulation/assigned-done.svg";
+import simulasiNull from "@/assets/drillSimulation/simualasi-null.svg";
 import simulasiDone from "@/assets/drillSimulation/simulasi-done.svg";
 import simulasiChecked from "@/assets/drillSimulation/simulasi-checked.svg";
+import { useRecoilValue } from "recoil";
+import { filterHistorySimulation } from "./store";
+import { usePopupSubmissionStatus } from "./hooks";
+// import { filterHistorySimulation } from "@/stores/Simulation";
 
 const SimulationHistory: FC = (): ReactElement => {
   const getHistorySimulation = useRecoilValue(filterHistorySimulation);
