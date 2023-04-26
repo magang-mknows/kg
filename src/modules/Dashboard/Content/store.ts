@@ -7,6 +7,11 @@ export const selectedEvent = atom({
   default: 1,
 });
 
+export const selectedTasks = atom({
+  key: "selectedTasks",
+  default: 1,
+});
+
 export const selectedDate = atom({
   key: "selectedDate",
   default: now,

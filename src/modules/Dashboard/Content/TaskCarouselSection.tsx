@@ -4,8 +4,6 @@ import penugasan from "@/assets/dashboard/penugasan.svg";
 import acara from "@/assets/dashboard/acara.svg";
 import emptyTask from "@/assets/dashboard/emptyTask.svg";
 
-import { useSelectedTask } from "@/hooks/Dashboard/useSelectedTask";
-
 import { MdNavigateNext } from "react-icons/md";
 import Button from "@/components/Common/Button";
 import { AiFillWarning } from "react-icons/ai";
@@ -13,6 +11,8 @@ import { AiFillWarning } from "react-icons/ai";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+import { useSelectedTask } from "@/modules/Dashboard/Content/hooks";
 
 const TaskCarouselSection: FC = (): ReactElement => {
   const { setSelectedTask, getSelectedTask } = useSelectedTask();
