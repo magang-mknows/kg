@@ -4,6 +4,14 @@ export type TProfileItem = {
   user?: user;
 };
 
+export type TProfilePayload = {
+  full_name: string;
+  user_name: string;
+  email?: string;
+  gender?: string;
+  phone_number: string;
+};
+
 export type user = {
   id: string;
   email: string;
