@@ -1,6 +1,6 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
-import { TAdministrationResponse } from "./types";
+import { TAdministrationResponse } from "./type";
 
 const AdministrationService = {
   GetAdministration: async (): Promise<TAdministrationResponse> => {
