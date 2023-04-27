@@ -13,8 +13,8 @@ import {
   usePrivateInformationStatus,
   useAdministrationStatus,
   useFetchAllAdministration,
+  useUpdateBiodataAdm,
 } from "../hooks";
-import { useUpdateBiodataAdm } from "../hooks";
 import { TBiodataAdm } from "../type";
 
 const PrivateInformationSection: FC = (): ReactElement => {
@@ -42,11 +42,11 @@ const PrivateInformationSection: FC = (): ReactElement => {
   const { mutate, isLoading } = useUpdateBiodataAdm();
   const { data } = useFetchAllAdministration();
   const getBiodata = data?.data?.biodata;
-  console.log("tesss", getBiodata);
 
   const {
     control,
     handleSubmit,
+    register,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -69,7 +69,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((PayloadData) => {
     try {
-      mutate(PayloadData as unknown as TBiodataAdm);
+      mutate(PayloadData as TBiodataAdm);
       setPrivateStatus(true);
       setAdministrationStatus("onProgress");
     } catch (err) {
