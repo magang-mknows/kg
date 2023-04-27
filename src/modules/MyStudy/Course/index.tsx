@@ -3,7 +3,7 @@ import ContentLayouts from "@/layouts/Content";
 import MainLayouts from "@/layouts/Main";
 import Image from "next/image";
 import { useRecoilState } from "recoil";
-import { courseState } from "@/stores/MyStudy/Course";
+import { courseState } from "@/modules/MyStudy/Course/store";
 import imgCourseHome from "@/assets/course/course-home-1.svg";
 
 const AccordionCourse = lazy(() => import("@/components/Course/AccordionCourse"));

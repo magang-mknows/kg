@@ -6,7 +6,7 @@ const ModulCard: FC = (): ReactElement => {
     <div className="w-full justify-start lg:px-32 p-2 lg:p-10">
       <Card
         hasImage={false}
-        className="border border-2 text-start rounded-lg"
+        className="border-2  text-start rounded-lg"
         href="/studi-ku/couse/modul/modul1"
       >
         <div className="flex flex-col p-4">

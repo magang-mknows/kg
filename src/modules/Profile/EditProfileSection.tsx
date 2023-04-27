@@ -12,13 +12,16 @@ import Form from "@/components/Form";
 import userProfileImg from "@/assets/profile/profile-user-img.svg";
 import camera from "@/assets/profile/camera-1.svg";
 import BaseLayouts from "@/layouts/Base";
-import { useGetUserProfile } from "@/modules/Profile/hooks";
+import { useGetUserProfile, useUpdateUserProfile } from "@/modules/Profile/hooks";
+import { handleError } from "@/utilities/helper";
+import { TProfilePayload } from "./types";
 
 const EditProfile: FC = (): ReactElement => {
   const { data } = useGetUserProfile();
 
+  const { mutate, isLoading } = useUpdateUserProfile();
+
   const userData = data?.data?.user;
-  console.log(userData);
 
   const options = [
     { id: 1, value: "L", label: "Laki-Laki" },
@@ -47,8 +50,9 @@ const EditProfile: FC = (): ReactElement => {
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
     }),
+    user_name: z.string().min(1, { message: "User Name harus diisi" }),
     full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
-    phone_number: z.string().min(1, { message: "nomor handphone harus diisi" }),
+    phone_number: z.string().min(1, { message: "Nomor handphone harus diisi" }),
     gender: z.any(),
   });
 
@@ -56,16 +60,27 @@ const EditProfile: FC = (): ReactElement => {
 
   const {
     control,
+    handleSubmit,
+    register,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
       email: userData?.email,
+      user_name: "gaada username tlol",
       full_name: userData?.full_name,
       phone_number: userData?.phone_number,
       gender: userData?.gender,
     },
+  });
+
+  const onSubmit = handleSubmit((PayloadData) => {
+    try {
+      mutate(PayloadData as TProfilePayload);
+    } catch (err) {
+      throw handleError(err);
+    }
   });
 
   return (
@@ -147,7 +162,7 @@ const EditProfile: FC = (): ReactElement => {
                   </div>
                 </div>
 
-                <Form>
+                <Form onSubmit={onSubmit}>
                   <div className="flex flex-col my-4 gap-x-4 lg:flex-row">
                     <div className="flex flex-col w-full mt-0 mr-0 gap-y-2 lg:mr-2 lg:mt-3">
                       <ControlledTextField

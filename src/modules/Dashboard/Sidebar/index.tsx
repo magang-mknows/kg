@@ -1,8 +1,10 @@
-import ResumeSectionSkeleton from "@/components/Loading/Dashboard/Sidebar/ResumeSectionSkeleton";
-import LeaderboardSkeleton from "@/components/Loading/Dashboard/Sidebar/LeaderboardSkeleton";
 import SuspenseError from "@/modules/Common/SuspenseError";
 import { FC, ReactElement, lazy } from "react";
-import ArticleSkeleton from "@/components/Loading/Dashboard/Sidebar/ArticleSkeleton";
+import {
+  ResumeSectionSkeleton,
+  LeaderBoardSkeleton,
+  ArticleSkeleton,
+} from "@/modules/Dashboard/Sidebar/loading";
 
 const LeaderBoardSection = lazy(() => import("./LeaderBoardSection"));
 const ResumeSection = lazy(() => import("./ResumeSection"));
@@ -15,7 +17,7 @@ const SidebarSection: FC = (): ReactElement => {
         <SuspenseError loadingFallback={<ResumeSectionSkeleton />}>
           <ResumeSection />
         </SuspenseError>
-        <SuspenseError loadingFallback={<LeaderboardSkeleton />}>
+        <SuspenseError loadingFallback={<LeaderBoardSkeleton />}>
           <LeaderBoardSection />
         </SuspenseError>
       </div>

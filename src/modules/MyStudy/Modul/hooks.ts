@@ -1,10 +1,6 @@
-import { confirmModuleState } from "@/stores/MyStudy";
+import { confirmModuleState } from "@/modules/MyStudy/Modul/store";
 import { useRecoilState } from "recoil";
-
-type ConfirmModulTypes = {
-  setConfirmModul: (val: boolean) => void;
-  getConfirmModul: boolean;
-};
+import { ConfirmModulTypes } from "@/modules/MyStudy/Modul/type";
 
 export const useConfirmModul = (): ConfirmModulTypes => {
   const [getConfirm, setConfirm] = useRecoilState(confirmModuleState);

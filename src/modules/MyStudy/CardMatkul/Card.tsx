@@ -1,11 +1,11 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { queryOptionCourse, filterOptionCourse } from "@/stores/MyStudy";
+import { queryOptionCourse, filterOptionCourse } from "./store";
 import DefaultView from "@/assets/StudyPlan/DataKosong.png";
 import Search from "@/assets/myStudy/search.svg";
-import Card from "../Common/Card";
-import { useGetAllSubject } from "@/modules/MyStudy/hooks";
+import Card from "@/components/Common/Card";
+import { useGetAllSubject } from "./hook";
 
 const ContentStudyProgram: FC = (): ReactElement => {
   const getOptionSubject = useRecoilValue(filterOptionCourse);

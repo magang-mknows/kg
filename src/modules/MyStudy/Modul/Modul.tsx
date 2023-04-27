@@ -5,8 +5,9 @@ import YouTube, { YouTubeProps } from "react-youtube";
 import MainLayouts from "@/layouts/Main";
 import GlobalButton from "@/components/Common/GlobalButton";
 import PopupModal from "@/components/Common/PopupModal";
-import { useConfirmModul } from "@/hooks/MyStudy/useConfirmModul";
 import { usePopupConfirmModul } from "@/hooks/Common/usePopupConfirmModul";
+
+import { useConfirmModul } from "@/modules/MyStudy/Modul/hooks";
 
 import Play from "@/assets/myStudy/button-play.svg";
 import Document from "@/assets/myStudy/iconDoc.svg";
