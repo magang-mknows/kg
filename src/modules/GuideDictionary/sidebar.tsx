@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
 import Card from "@/components/Common/Card";
-import { useGuideVideo } from "@/hooks/Guide/useGuideDictionary";
+import { useGuideDictionary } from "./hook";
 
 const Sidebar = (): ReactElement => {
-  const { getGuideDictionary } = useGuideVideo();
+  const { getGuideDictionary } = useGuideDictionary();
   return (
     <div className="px-6 md:px-8 lg:px-10 mb-10">
       <h1 className=" text-[20px] font-[700] mb-2">Kamus Populer </h1>

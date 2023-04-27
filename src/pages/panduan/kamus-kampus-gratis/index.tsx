@@ -1,12 +1,12 @@
 import SuspenseError from "@/modules/Common/SuspenseError";
 import React, { lazy, ReactElement } from "react";
-import GuideDictionary from "@/components/Loading/Guide/GuideDictionary/GuideDictionary";
+import LoadingGuideDictionary from "@/modules/GuideDictionary/loading";
 
-const GuideDictionaryModule = lazy(() => import("@/modules/GuideDictionary/index"));
+const GuideDictionaryModule = lazy(() => import("@/modules/GuideDictionary"));
 
 const GuideDictionaryPages = (): ReactElement => {
   return (
-    <SuspenseError loadingFallback={<GuideDictionary />}>
+    <SuspenseError loadingFallback={<LoadingGuideDictionary />}>
       <GuideDictionaryModule />
     </SuspenseError>
   );
