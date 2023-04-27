@@ -9,30 +9,40 @@ import { handleError } from "@/utilities/helper";
 import Button from "@/components/Common/Button";
 import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
 import { optionsGender, optionsLastEducation } from "@/utilities/constant";
-import { usePrivateInformationStatus, useAdministrationStatus } from "../hooks";
+import {
+  usePrivateInformationStatus,
+  useAdministrationStatus,
+  useFetchAllAdministration,
+} from "../hooks";
+import { useUpdateBiodataAdm } from "../hooks";
+import { TBiodataAdm } from "../type";
 
 const PrivateInformationSection: FC = (): ReactElement => {
   const validationSchema = z.object({
-    fullname: z.string().min(1, { message: "Nama lengkap harus diisi" }),
-    address: z.string().min(1, { message: " Alamat harus diisi" }),
-    placeOfBirth: z.string().min(1, { message: "Tempat lahir harus diisi" }),
-    lastEducation: z.string().min(1, { message: "Pendidikan terakhir harus diisi" }),
-    dateOfBirth: z.string().min(1, { message: "Tanggal lahir harus diisi" }),
-    phoneNumber: z.string().min(1, { message: "Nomor handphone harus diisi" }),
-    nim: z.string().optional(),
-    prodi: z.string().optional(),
-    semester: z.string().optional(),
-    university: z.string().optional(),
     gender: z.string().min(1, { message: "Jenis kelamin harus diisi" }),
-    email: z.string().min(1, { message: "Email harus diisi" }).email({
-      message: "Email harus valid",
-    }),
+    phone: z.string().min(1, { message: "Nomor handphone harus diisi" }),
+    birthdate: z.string().min(1, { message: "Tanggal lahir harus diisi" }),
+    birthplace: z.string().min(1, { message: "Tempat lahir harus diisi" }),
+    address: z.string().min(1, { message: " Alamat harus diisi" }),
+    last_education: z.string().min(1, { message: " Pendidikan terakhir harus diisi" }),
+    nim: z.string().optional(),
+    university: z.string().optional(),
+    major: z.string().optional(),
+    semester: z.string().optional(),
+    // fullname: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+    // email: z.string().min(1, { message: "Email harus diisi" }).email({
+    //   message: "Email harus valid",
+    // }),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
 
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
+  const { mutate, isLoading } = useUpdateBiodataAdm();
+  const { data } = useFetchAllAdministration();
+  const getBiodata = data?.data?.biodata;
+  console.log("tesss", getBiodata);
 
   const {
     control,
@@ -42,23 +52,24 @@ const PrivateInformationSection: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
-      gender: "",
-      email: "",
-      address: "",
-      nim: "",
-      fullname: "",
-      semester: "",
-      placeOfBirth: "",
-      phoneNumber: "",
-      lastEducation: "",
-      dateOfBirth: "",
-      university: "",
-      prodi: "",
+      // email: "",
+      // fullname: "",
+      gender: getBiodata?.gender,
+      phone: getBiodata?.phone,
+      birthdate: getBiodata?.birthdate,
+      birthplace: getBiodata?.birthplace,
+      address: getBiodata?.address,
+      last_education: getBiodata?.last_education,
+      nim: getBiodata?.nim,
+      university: getBiodata?.university,
+      major: getBiodata?.major,
+      semester: getBiodata?.semester,
     },
   });
 
-  const onSubmit = handleSubmit(() => {
+  const onSubmit = handleSubmit((PayloadData) => {
     try {
+      mutate(PayloadData as unknown as TBiodataAdm);
       setPrivateStatus(true);
       setAdministrationStatus("onProgress");
     } catch (err) {
@@ -76,19 +87,19 @@ const PrivateInformationSection: FC = (): ReactElement => {
       <Form onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
-            <div className="form-label">
+            {/* <div className="form-label">
               <ControlledTextField
                 hasLabel
                 control={control}
                 type={"fullname"}
                 label={"Nama Lengkap"}
-                name={"fullname"}
+                name={"HURUNG ANAA"}
                 placeholder={"Masukkan nama lengkap"}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block  mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
-            </div>
+            </div> */}
             <div className="form-label">
               <ControlledSelectField
                 control={control}
@@ -108,7 +119,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 control={control}
                 type={"placeOfBirth"}
                 label={"Tempat Lahir"}
-                name={"placeOfBirth"}
+                name="birthplace"
                 placeholder={"Masukkan tempat lahir"}
                 required
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
@@ -147,7 +158,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 control={control}
                 type={"prodi"}
                 label={"Program Studi (optional)"}
-                name={"prodi"}
+                name={"major"}
                 placeholder={"Masukkan Program Studi (optional)"}
                 required={false}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
@@ -156,26 +167,26 @@ const PrivateInformationSection: FC = (): ReactElement => {
             </div>
           </div>
           <div className="w-full">
-            <div className="form-label">
+            {/* <div className="form-label">
               <ControlledTextField
                 hasLabel
                 control={control}
                 type={"email"}
                 label={"Alamat Email"}
-                name={"email"}
+                name="HURUNG ANAAA"
                 placeholder={"Masukkan alamat email"}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
               />
-            </div>
+            </div> */}
             <div className="form-label">
               <ControlledTextField
                 hasLabel
                 control={control}
                 type={"number"}
                 label={"Nomor Handphone"}
-                name={"phoneNumber"}
+                name={"phone"}
                 placeholder={"Masukkan nomor handphone"}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
@@ -188,7 +199,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 control={control}
                 type={"date"}
                 label={"Tanggal Lahir"}
-                name={"dateOfBirth"}
+                name={"birthdate"}
                 placeholder={"Masukkan tanggal lahir"}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
@@ -200,7 +211,7 @@ const PrivateInformationSection: FC = (): ReactElement => {
                 control={control}
                 hasLabel
                 label="Pendidikan Terakhir"
-                name="lastEducation"
+                name="last_education"
                 defaultValue="Pilih pendidikan terakhir"
                 required={true}
                 options={optionsLastEducation}

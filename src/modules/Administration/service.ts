@@ -1,6 +1,6 @@
 import ApiService from "@/services/Api";
 import { handleError } from "@/utilities/helper";
-import { TAdministrationResponse } from "./type";
+import { TAdministrationResponse, TBiodataAdm } from "./type";
 
 const AdministrationService = {
   GetAdministration: async (): Promise<TAdministrationResponse> => {
@@ -10,6 +10,25 @@ const AdministrationService = {
         "Content-Type": "application/json",
       },
       url: "/administration",
+    };
+
+    try {
+      const res = await ApiService.customRequest(requestData);
+      return res.data;
+    } catch (error) {
+      throw handleError(error);
+    }
+  },
+
+  UpdateBiodataAdm: async (payload: TBiodataAdm): Promise<TAdministrationResponse> => {
+    const data = payload;
+    const requestData = {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data,
+      url: "/administration/biodata",
     };
 
     try {

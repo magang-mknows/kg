@@ -5,11 +5,8 @@ import Stepper from "../Common";
 import FileInformation from "../FileInformation";
 import JobsInformation from "../JobsInformation";
 import PrivateInformationAccordion from "../PrivateInformationAccordion";
-import { useFetchAllAdministration } from "../hooks";
 
 const index = (): ReactElement => {
-  const { data } = useFetchAllAdministration();
-  console.log("cek", data);
   return (
     <MainLayouts withPadding={false} className="mt-[40px] lg:px-[70px] md:px-[60px] px-[20px]">
       <div className="flex justify-center">

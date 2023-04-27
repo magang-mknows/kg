@@ -26,10 +26,23 @@ export type TAdministrationItem = {
   status: string;
   type: string;
   action_by: string;
-  biodata: string;
+  biodata: TBiodataAdm;
   familial: string;
   file: string;
 };
+
+export type TBiodataAdm = {
+  gender: string;
+  phone: string;
+  birthdate: string;
+  birthplace: string;
+  address: string;
+  last_education: string;
+  nim: string;
+  university: string;
+  major: string;
+  semester: string;
+}
 
 
 export type TAdministrationResponse = TMetaResponseSingle<TAdministrationItem>;

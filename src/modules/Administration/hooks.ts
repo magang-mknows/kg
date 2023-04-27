@@ -1,8 +1,9 @@
 import { useRecoilState } from "recoil";
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { useMutation, UseMutationResult, useQuery, UseQueryResult } from "@tanstack/react-query";
 import AdministrationService from "./service";
 import { PrivateInformationState, JobInformationState, FileInformationState, AdministrationStatusState } from "./store";
-import { ReturnTypesPrivateInformation, ReturnTypesJobInformation, ReturnTypesFileInformation, StatusReturnTypesAdministration, TAdministrationResponse } from "./type";
+import { ReturnTypesPrivateInformation, ReturnTypesJobInformation, ReturnTypesFileInformation, StatusReturnTypesAdministration, TAdministrationResponse, TBiodataAdm } from "./type";
+import { TMetaError } from "@/services/types";
 
 export const usePrivateInformationStatus = (): ReturnTypesPrivateInformation => {
   const [get, set] = useRecoilState(PrivateInformationState);
@@ -41,4 +42,16 @@ export const useFetchAllAdministration = (): UseQueryResult<TAdministrationRespo
     queryKey: ["administration-get-all"],
     queryFn: async () => await AdministrationService.GetAdministration(),
   });
+
+export const useUpdateBiodataAdm = (): UseMutationResult<
+  TAdministrationResponse,
+  TMetaError,
+  TBiodataAdm,
+  unknown
+> => {
+  return useMutation({
+    mutationKey: ["update-user-profile"],
+    mutationFn: async (data) => await AdministrationService.UpdateBiodataAdm(data),
+  });
+};
 
