@@ -17,10 +17,10 @@ import {
 import {
   optionFatherJob,
   optionMotherJob,
-  optionOwnJob,
+  // optionOwnJob,
   optionFatherIncome,
   optionMotherIncome,
-  // optionOwnIncome,
+  optionOwnIncome,
   optionCollegeFeesPaid,
   optionLiveWith,
 } from "@/utilities/constant";
@@ -168,7 +168,7 @@ const JobsInformation: FC = (): ReactElement => {
           <div className="w-full">
             <ControlledSelectField
               control={control}
-              options={optionOwnJob}
+              options={optionOwnIncome}
               name={"self_salary"}
               label={"Pekerjaan Sendiri"}
               hasLabel

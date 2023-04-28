@@ -535,8 +535,8 @@ export const optionLiveWith = [
     label: "Keluarga dekat (Paman, Bibi, Kakek atau Nenek)",
   },
   {
-    value: "SCHOLARSHIP",
-    label: "Beasiswa",
+    value: "FRIEND",
+    label: "Teman",
   },
   {
     value: "SELF",
