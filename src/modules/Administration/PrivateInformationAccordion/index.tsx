@@ -39,14 +39,13 @@ const PrivateInformationSection: FC = (): ReactElement => {
 
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
-  const { mutate, isLoading } = useUpdateBiodataAdm();
+  const { mutate } = useUpdateBiodataAdm();
   const { data } = useFetchAllAdministration();
   const getBiodata = data?.data?.biodata;
 
   const {
     control,
     handleSubmit,
-    register,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),

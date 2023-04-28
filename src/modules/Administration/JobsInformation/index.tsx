@@ -44,7 +44,7 @@ const JobsInformation: FC = (): ReactElement => {
   const { getPrivateStatus } = usePrivateInformationStatus();
 
   type ValidationSchema = z.infer<typeof schema>;
-  const { mutate, isLoading } = useUpdateFamilyAdm();
+  const { mutate } = useUpdateFamilyAdm();
   const { data } = useFetchAllAdministration();
   const getFamily = data?.data?.familial;
   console.log("family", getFamily);
@@ -52,7 +52,6 @@ const JobsInformation: FC = (): ReactElement => {
   const {
     control,
     handleSubmit,
-    register,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(schema),

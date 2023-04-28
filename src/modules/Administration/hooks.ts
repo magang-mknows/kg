@@ -53,7 +53,7 @@ export const useUpdateBiodataAdm = (): UseMutationResult<
     mutationKey: ["update-biodata-adm"],
     mutationFn: async (data) => await AdministrationService.UpdateBiodataAdm(data),
   });
-}
+};
 
 export const useUpdateFamilyAdm = (): UseMutationResult<
   TAdministrationResponse,
