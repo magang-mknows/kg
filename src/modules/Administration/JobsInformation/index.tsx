@@ -8,36 +8,47 @@ import ControlledTextField from "@/components/ControlledInputs/ControlledTextFie
 import Button from "@/components/Common/Button";
 import { handleError } from "@/utilities/helper";
 import ControlledSelectField from "@/components/ControlledInputs/ControlledSelectField";
-import { useJobInformationStatus, usePrivateInformationStatus } from "../hooks";
+import {
+  useFetchAllAdministration,
+  useJobInformationStatus,
+  usePrivateInformationStatus,
+  useUpdateFamilyAdm,
+} from "../hooks";
 import {
   optionFatherJob,
   optionMotherJob,
-  optionOwnJob,
+  // optionOwnJob,
   optionFatherIncome,
   optionMotherIncome,
   optionOwnIncome,
   optionCollegeFeesPaid,
   optionLiveWith,
 } from "@/utilities/constant";
+import { TFamilyAdm } from "../type";
 
 const JobsInformation: FC = (): ReactElement => {
   const schema = z.object({
-    fathername: z.string().min(1, { message: "Nama ayah harus diisi" }),
-    mothername: z.string().min(1, { message: "Nama ibu harus diisi" }),
-    livewith: z.string().min(1, { message: "Tinggal dengan harus diisi" }),
-    fatherjob: z.string().min(1, { message: "Pekerjaan ayah harus diisi" }),
-    motherjob: z.string().min(1, { message: "Pekerjaan ibu harus diisi" }),
-    fatherincome: z.string().min(1, { message: "Penghasilan ayah harus diisi" }),
-    motherincome: z.string().min(1, { message: "Penghasilan ibu harus diisi" }),
-    ownjob: z.string().min(1, { message: "Pekerjaan sendiri harus diisi" }),
-    ownincome: z.string().min(1, { message: "Penghasilan sendiri harus diisi" }),
-    collegefeespaid: z.string().min(1, { message: "Biaya kuliah harus diisi" }),
+    father_name: z.string().min(1, { message: "Nama ayah harus diisi" }),
+    father_occupation: z.string().min(1, { message: "Pekerjaan ayah harus diisi" }),
+    father_salary: z.string().min(1, { message: "Penghasilan ayah harus diisi" }),
+    mother_name: z.string().min(1, { message: "Nama ibu harus diisi" }),
+    mother_occupation: z.string().min(1, { message: "Pekerjaan ibu harus diisi" }),
+    mother_salary: z.string().min(1, { message: "Penghasilan ibu harus diisi" }),
+    self_salary: z.string().min(1, { message: "Penghasilan sendiri harus diisi" }),
+    live_with: z.string().min(1, { message: "Tinggal dengan harus diisi" }),
+    tuition_payer: z.string().min(1, { message: "Biaya kuliah harus diisi" }),
+    // self_occupation: z.string().min(1, { message: "Pekerjaan sendiri harus diisi" }),
   });
 
   const { setJobStatus, getJobStatus } = useJobInformationStatus();
   const { getPrivateStatus } = usePrivateInformationStatus();
 
   type ValidationSchema = z.infer<typeof schema>;
+  const { mutate } = useUpdateFamilyAdm();
+  const { data } = useFetchAllAdministration();
+  const getFamily = data?.data?.familial;
+  console.log("family", getFamily);
+
   const {
     control,
     handleSubmit,
@@ -46,21 +57,22 @@ const JobsInformation: FC = (): ReactElement => {
     resolver: zodResolver(schema),
     mode: "all",
     defaultValues: {
-      fathername: "",
-      mothername: "",
-      motherjob: "",
-      fatherincome: "",
-      motherincome: "",
-      ownjob: "",
-      livewith: "",
-      ownincome: "",
-      collegefeespaid: "",
-      fatherjob: "",
+      father_name: getFamily?.father_name,
+      father_occupation: getFamily?.father_occupation,
+      father_salary: getFamily?.father_salary,
+      mother_name: getFamily?.mother_name,
+      mother_occupation: getFamily?.mother_occupation,
+      mother_salary: getFamily?.self_salary,
+      self_salary: getFamily?.self_salary,
+      live_with: getFamily?.live_with,
+      tuition_payer: getFamily?.tuition_payer,
+      // self_occupation: "",
     },
   });
 
-  const onSubmit = handleSubmit(() => {
+  const onSubmit = handleSubmit((PayloadData) => {
     try {
+      mutate(PayloadData as TFamilyAdm);
       setJobStatus(true);
     } catch (err) {
       setJobStatus(false);
@@ -78,7 +90,7 @@ const JobsInformation: FC = (): ReactElement => {
         <div className="lg:flex w-full gap-[55px] ">
           <div className="w-full">
             <ControlledTextField
-              name={"fathername"}
+              name={"father_name"}
               hasLabel
               control={control}
               label={"Nama Ayah"}
@@ -89,7 +101,7 @@ const JobsInformation: FC = (): ReactElement => {
             />
 
             <ControlledTextField
-              name={"mothername"}
+              name={"mother_name"}
               control={control}
               hasLabel
               label={"Nama Ibu"}
@@ -103,7 +115,7 @@ const JobsInformation: FC = (): ReactElement => {
             <ControlledSelectField
               control={control}
               options={optionFatherJob}
-              name={"fatherjob"}
+              name={"father_occupation"}
               label={"Pekerjaan Ayah"}
               hasLabel
               labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
@@ -115,7 +127,7 @@ const JobsInformation: FC = (): ReactElement => {
             <ControlledSelectField
               control={control}
               options={optionMotherJob}
-              name={"motherjob"}
+              name={"mother_occupation"}
               label={"Pekerjaan Ibu"}
               hasLabel
               labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
@@ -128,7 +140,7 @@ const JobsInformation: FC = (): ReactElement => {
             <ControlledSelectField
               control={control}
               options={optionFatherIncome}
-              name={"fatherincome"}
+              name={"father_salary"}
               label={"Penghasilan Ayah"}
               hasLabel
               labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
@@ -140,7 +152,7 @@ const JobsInformation: FC = (): ReactElement => {
             <ControlledSelectField
               control={control}
               options={optionMotherIncome}
-              name={"motherincome"}
+              name={"mother_salary"}
               label={"Penghasilan Ibu"}
               hasLabel
               labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
@@ -155,8 +167,8 @@ const JobsInformation: FC = (): ReactElement => {
           <div className="w-full">
             <ControlledSelectField
               control={control}
-              options={optionOwnJob}
-              name={"ownjob"}
+              options={optionOwnIncome}
+              name={"self_salary"}
               label={"Pekerjaan Sendiri"}
               hasLabel
               labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
@@ -167,7 +179,7 @@ const JobsInformation: FC = (): ReactElement => {
             <ControlledSelectField
               control={control}
               options={optionLiveWith}
-              name={"livewith"}
+              name={"live_with"}
               label={"Tinggal Dengan"}
               hasLabel
               labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
@@ -177,7 +189,7 @@ const JobsInformation: FC = (): ReactElement => {
             />
           </div>
           <div className="w-full">
-            <ControlledSelectField
+            {/* <ControlledSelectField
               control={control}
               options={optionOwnIncome}
               name={"ownincome"}
@@ -187,11 +199,11 @@ const JobsInformation: FC = (): ReactElement => {
               required
               defaultValue="Pilih penghasilan sendiri"
               className=" rounded-lg md:mb-5 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
-            />
+            /> */}
             <ControlledSelectField
               control={control}
               options={optionCollegeFeesPaid}
-              name={"collegefeespaid"}
+              name={"tuition_payer"}
               label={"Biaya Kuliah Ditanggung Oleh"}
               hasLabel
               labelClassName={"block mb-1 dark:text-white text-sm font-medium text-gray-900"}
