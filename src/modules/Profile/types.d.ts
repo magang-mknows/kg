@@ -1,5 +1,9 @@
 import { TMetaResponseSingle } from "@/services/types";
 
+export type TAvatarItem = {
+  avatar?: File;
+};
+
 export type TProfileItem = {
   user?: user;
 };
@@ -27,3 +31,4 @@ export type user = {
 };
 
 export type TProfileResponse = TMetaResponseSingle<TProfileItem>;
+export type TAvatarResponse = TMetaResponseSingle<TAvatarItem>;

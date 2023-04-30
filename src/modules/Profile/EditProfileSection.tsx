@@ -14,7 +14,8 @@ import camera from "@/assets/profile/camera-1.svg";
 import BaseLayouts from "@/layouts/Base";
 import { useGetUserProfile, useUpdateUserProfile } from "@/modules/Profile/hooks";
 import { handleError } from "@/utilities/helper";
-import { TProfilePayload } from "./types";
+import { TAvatarItem, TProfilePayload } from "./types";
+import ControlledUploadField from "@/components/ControlledInputs/ControlledUploadField";
 
 const EditProfile: FC = (): ReactElement => {
   const { data } = useGetUserProfile();
@@ -28,24 +29,24 @@ const EditProfile: FC = (): ReactElement => {
     { id: 2, value: "P", label: "Perempuan" },
   ];
 
-  // const MAX_FILE_SIZE = 3000000;
-  // const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
+  const MAX_FILE_SIZE = 3000000;
+  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "application/pdf"];
 
   const validationSchema = z.object({
-    // upload_photo: z
-    //   .any()
-    //   .refine(
-    //     (files: File[]) => files !== undefined && files?.length >= 1,
-    //     "Harus ada file yang di upload.",
-    //   )
-    //   .refine(
-    //     (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
-    //     "Ukuran maksimun adalah 3mb.",
-    //   )
-    //   .refine(
-    //     (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
-    //     "hanya menerima .jpg, .jpeg, dan .webp.",
-    //   ),
+    avatar: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        "Harus ada file yang di upload.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
+        "hanya menerima .jpg, .jpeg, dan .webp.",
+      ),
 
     email: z.string().min(1, { message: "Email harus diisi" }).email({
       message: "Email harus valid",
@@ -72,6 +73,7 @@ const EditProfile: FC = (): ReactElement => {
       full_name: userData?.full_name,
       phone_number: userData?.phone_number,
       gender: userData?.gender,
+      avatar: userData?.avatar,
     },
   });
 
@@ -82,6 +84,14 @@ const EditProfile: FC = (): ReactElement => {
       throw handleError(err);
     }
   });
+
+  // const submitChange = handleSubmit((AvatarPayload) => {
+  //   try {
+  //     mutate(AvatarPayload as TAvatarItem);
+  //   } catch (err) {
+  //     throw handleError(err);
+  //   }
+  // });
 
   return (
     <BaseLayouts>
@@ -110,34 +120,41 @@ const EditProfile: FC = (): ReactElement => {
                 <div className="relative w-full my-[16px] border-y">
                   <div className="flex justify-center py-5 ">
                     <div>
-                      <Image
-                        src={userProfileImg}
-                        alt="user profile img"
-                        className="w-[100px] h-[100px] z-20"
-                      ></Image>
+                      <Form>
+                        {/* <Image
+                          src={userData?.avatar}
+                          alt="user profile img"
+                          className="w-[100px] h-[100px] z-20"
+                        /> */}
+                        <img src={userData?.avatar} alt="" className="w-[100px] h-[100px] z-20" />
 
-                      <Menu as="div" className="relative inline-block text-left">
-                        <div>
-                          <Menu.Button className="absolute ml-[66px] top-[-40px] bottom-[4px] rounded-full w-[32px] flex justify-center bg-yellow-100 h-[32px] z-50">
-                            <Image
-                              src={camera}
-                              alt="camera"
-                              className="w-[15px] h-[11px] mt-[10px]"
-                            ></Image>
-                          </Menu.Button>
-                        </div>
-                        <Transition
-                          as={Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
-                        >
-                          <Menu.Items className="absolute w-40 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg left-20 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <div className="px-1 py-1 ">
-                              <label className="flex items-center w-full px-2 py-2 text-sm rounded-md cursor-pointer hover:bg-neutral-100 group">
+                        <Menu as="div" className="relative inline-block text-left">
+                          <div>
+                            <Menu.Button className="absolute ml-[66px] top-[-40px] bottom-[4px] rounded-full w-[32px] flex justify-center bg-yellow-100 h-[32px] z-50">
+                              <Image
+                                src={camera}
+                                alt="camera"
+                                className="w-[15px] h-[11px] mt-[10px]"
+                              ></Image>
+                            </Menu.Button>
+                          </div>
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-100"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-75"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                          >
+                            <Menu.Items className="absolute w-40 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg left-20 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                              <div className="px-1 py-1 ">
+                                <ControlledUploadField
+                                  name={"avatar"}
+                                  control={control}
+                                  // onChange={submitChange}
+                                />
+                                {/* <label className="flex items-center w-full px-2 py-2 text-sm rounded-md cursor-pointer hover:bg-neutral-100 group">
                                 <span className="text-sm text-gray-900 ">
                                   Ambil Foto
                                   <input type="file" className="hidden" />
@@ -148,16 +165,17 @@ const EditProfile: FC = (): ReactElement => {
                                   Unggah Foto
                                   <input type="file" className="hidden" />
                                 </span>
-                              </label>
-                            </div>
-                          </Menu.Items>
-                        </Transition>
-                      </Menu>
+                              </label> */}
+                              </div>
+                            </Menu.Items>
+                          </Transition>
+                        </Menu>
 
-                      <div className="my-2">
-                        <p className="text-lg font-semibold">{userData?.full_name}</p>
-                        <p className="text-[#737373] px-4">{userData?.role}</p>
-                      </div>
+                        <div className="my-2">
+                          <p className="text-lg font-semibold">{userData?.full_name}</p>
+                          <p className="text-[#737373] px-4">{userData?.role}</p>
+                        </div>
+                      </Form>
                     </div>
                   </div>
                 </div>
@@ -181,7 +199,7 @@ const EditProfile: FC = (): ReactElement => {
                         type={"text"}
                         hasLabel
                         name="full_name"
-                        className=""
+                        className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                       />
                     </div>
 
@@ -189,7 +207,7 @@ const EditProfile: FC = (): ReactElement => {
                       <ControlledSelectField
                         control={control}
                         label="Jenis Kelamin"
-                        className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white dark:bg-[#222529] dark:border-2 shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm"
+                        className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white dark:bg-[#222529] dark:border-2 shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm !h-200px border  focus:outline-none focus:border-sky-500 focus:ring-sky-500  focus:ring-1"
                         defaultValue="Laki-Laki"
                         options={options}
                         value={""}
